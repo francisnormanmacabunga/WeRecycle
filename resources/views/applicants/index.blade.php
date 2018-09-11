@@ -7,11 +7,9 @@
     <div class="col-md-12">
       <br/>
       <h3 align="center">List of Applicants</h3>
-
       <a href="applicants/">
        <button style="float: right;">Reset</button>
       </a>
-
       <a href="applicants/?status=Applied">
         <button style="float: right;">Sort by Applied</button>
       </a>
@@ -21,13 +19,6 @@
       <a href="applicants/?status=Activated">
         <button style="float: right;">Sort by Activated</button>
       </a>
-
-      <p>hello world</p>
-      <h3>Hello again</h3>
-      <h3>fasggag</h3>
-
-
-
       <br/>
       <br/>
       <table class="table table-bordered">

@@ -16,10 +16,11 @@ class PagesController extends Controller
       return view('pages.indexAC')->with('title', $title);
     }
 
+    public function indexUser(){
+      return view('pages.indexUser');
+    }
+
     public function create(){
       return view('applicants.create');
     }
-
-    
-
 }

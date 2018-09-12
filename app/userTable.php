@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Carbon\Carbon;
 use Kyslik\ColumnSortable\Sortable;
+use App\contactsTable;
 
 
 class userTable extends Model
@@ -15,9 +16,14 @@ class userTable extends Model
     public $timestamps = true;
     public $sortable = ['created_at'];
 
-    public function age(){
+    public function age()
+    {
     return Carbon::parse($this->attributes['birthdate'])->age;
-  }
+    }
 
+    public function contacts()
+    {
+    return $this->hasOne('App\contactsTable','userID');
+    }
 
 }

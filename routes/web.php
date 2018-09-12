@@ -14,4 +14,6 @@
 Route::get('/', 'PagesController@index');
 Route::get('/indexAC', 'PagesController@indexAC');
 Route::get('/create', 'PagesController@create');
+Route::get('/indexUser', 'PagesController@indexUser');
 Route::resource('/applicants', 'ApplicantsController');
+Route::resource('/donors', 'DonorsController');

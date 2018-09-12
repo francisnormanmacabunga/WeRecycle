@@ -97,7 +97,7 @@
                   {{Form::text('username','', ['class' => 'form-control'])}}
                 </div>
               </div>
-                {{Form::hidden('usertypeID','1', ['class' => 'form-control'])}}
+                {{Form::hidden('usertypeID','2', ['class' => 'form-control'])}}
                 {{Form::hidden('password','ApplicantAccount', ['class' => 'form-control'])}}
                 {{Form::hidden('status','Applied', ['class' => 'form-control'])}}
               <hr class="mb-4">

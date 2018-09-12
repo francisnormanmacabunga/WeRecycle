@@ -19,7 +19,6 @@
       <a href="applicants/?status=Activated">
         <button style="float: right;">Sort by Activated</button>
       </a>
-      <p>Hello World</p>
       <br/>
       <br/>
       <table class="table table-bordered">

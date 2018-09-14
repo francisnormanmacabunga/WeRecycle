@@ -4,7 +4,9 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="stylesheet" href="{{asset('css/app.css')}}">
+        <link rel="icon" href="../../../../favicon.ico">
         <style> .error {color: #FF0000;} </style>
         <title>{{config('app.name', 'WeRecycle')}}</title>
         <script>
@@ -35,6 +37,10 @@
               return numcheck.test(keychar);
             }
         </script>
+
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+        <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
     </head>
     <body>
       <div class="container">

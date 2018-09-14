@@ -103,7 +103,6 @@
               <hr class="mb-4">
               {{Form::submit('Apply as Volunteer',['class' => 'btn btn-primary btn-lg btn-block'])}}
             {!! Form::close() !!}
-
           </div>
         </div>
         <footer class="my-5 pt-5 text-muted text-center text-small">

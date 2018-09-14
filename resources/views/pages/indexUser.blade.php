@@ -1,5 +1,5 @@
 @extends('layouts.app')
 @include('inc.navbar3')
 @section('content')
-  <p>Hello</p>
+  <h3>Welcome Donors!</h3>
 @endsection

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 use App\userTable;
 use App\contactsTable;
 use DB;
@@ -64,7 +65,7 @@ class ApplicantsController extends Controller
       $this->validate($request, [
       'firstname' => 'required|regex:/^[\pL\s]+$/u',
       'lastname' => 'required|regex:/^[\pL\s]+$/u',
-      'email' => 'required|unique:user',
+      'email' => 'required|unique:user,email',
       'cellNo' => 'required|min:11|max:11',
       'tellNo' => 'required|min:7|max:7',
       'birthdate' => 'required',
@@ -72,7 +73,7 @@ class ApplicantsController extends Controller
       'street' => 'nullable|regex:/^[ \w.#-]+$/',
       'barangay' => 'nullable|regex:/^[ \w.#-]+$/',
       'zip' => 'nullable|min:4|max:4',
-      'username' => 'required|alpha_dash|unique:user'
+      'username' => 'required|alpha_dash|unique:user,username'
     ],
     [
       'firstname.required' => 'The First Name field is required.',
@@ -81,7 +82,8 @@ class ApplicantsController extends Controller
       'lastname.regex' => 'The Last Name field must only contain letters.',
       'email.required' => 'The Email field is required.',
       'email.unique' => 'The Email you registered is already in use.',
-      'contact.required' => 'The Contact field is required.',
+      'cellNo.required' => 'The Cellphone Number is required.',
+      'tellNo.required' => 'The Telephone Number is required.',
       'cellNo.min' => 'The Cellphone field must be at least 11 characters.',
       'cellNo.max' => 'The Cellphone field may not be greater than 11 characters.',
       'tellNo.min' => 'The Telephone field must be at least 7 characters.',
@@ -128,8 +130,7 @@ class ApplicantsController extends Controller
      */
     public function show($id)
     {
-      $applicants = userTable::find($id);
-      return view('applicants.show', compact('applicants'));
+
     }
 
     /**

@@ -26,9 +26,9 @@
           <th>Name</th>
           <th>Age</th>
           <th>Address</th>
+          <th>Barangay</th>
           <th>Cellphone Number</th>
           <th>Tellphone Number</th>
-          <th>Barangay</th>
           <th>@sortablelink('created_at', 'Date Applied')</th>
           <th>Status</th>
           <th>Action</th>
@@ -38,10 +38,10 @@
             <td>{{$applicant->firstname}} {{$applicant->lastname}}</td>
             <td>{{$applicant->age()}}</td>
             <td>{{$applicant->street}}, {{$applicant->city}}</td>
+            <td>{{$applicant->barangay}}</td>
             <td>{{$applicant->cellNo}}</td>
             <td>{{$applicant->tellNo}}</td>
-            <td>{{$applicant->barangay}}</td>
-            <td>{{date('F d, Y', strtotime($applicant->created_at))}}</td>
+            <td>{{date('F d, Y, h:i:sa', strtotime($applicant->created_at))}}</td>
             <td>{{$applicant->status}}</td>
             <td><a href="/applicants/{{$applicant->userID}}/edit">Update Status</a?</td>
         @endforeach

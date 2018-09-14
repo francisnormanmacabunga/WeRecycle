@@ -3,7 +3,7 @@
   <nav class="my-2 my-md-0 mr-md-3">
     <a class="p-2 text-dark" href="/indexAC">Home</a>
     <a class="p-2 text-dark" href="/applicants">Manage Applicants</a>
-    <a class="p-2 text-dark" href="/">Edit Profile</a>
+    <a class="p-2 text-dark" href="">Edit Profile</a>
     <a class="p-2 text-dark" href="#">Logout</a>
   </nav>
 </div>

@@ -1,5 +1,5 @@
-@extends('layouts.app')
+@extends('layouts.frontend')
 @include('inc.navbar2')
 @section('content')
-  <h3>{{$title}}</h3>
+  <h3>Welcome Activity Coordinator</h3>
 @endsection

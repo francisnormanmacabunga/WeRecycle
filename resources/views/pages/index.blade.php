@@ -1,10 +1,19 @@
-@extends('layouts.app')
+@extends('layouts.frontend')
 @include('inc.navbar1')
 @section('content')
   <div class="jumbotron mt-3 text-center">
-    <h3>{{$title}}</h3>
+    <h3>Welcome to landing page!</h3>
     <p class="lead">This is WeRecycle!</p>
-    <a class="btn btn-success btn-lg" href="#log" role="button">Login </a>
-    <a class="btn btn-lg btn-primary" href="#log" role="button">Register </a>
+    <a class="btn btn-success btn-lg" href="#" role="button">Login </a>
+    <a class="btn btn-lg btn-primary" href="#" role="button">Register </a>
+  </div>
+
+  <div class="jumbotron mt-3 text-center">
+    <h3>Temporary Links</h3>
+    <p class="lead">Under Construction!</p>
+    <a class="btn btn-success btn-lg" href="/indexUser" role="button">Go to User Page</a>
+    <a class="btn btn-success btn-lg" href="/indexAC" role="button">Go to AC Page</a>
+    <a class="btn btn-success btn-lg" href="/indexPD" role="button">Go to PD Page</a>
+    <a class="btn btn-success btn-lg" href="/indexAdmin" role="button">Go to Admin Page</a>
   </div>
 @endsection

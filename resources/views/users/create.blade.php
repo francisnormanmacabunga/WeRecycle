@@ -4,7 +4,7 @@
 @section('content')
 
     <div class="py-5 text-center">
-          <h3>Apply as a Volunteer!</h3>
+          <h3>Create your Donor account!</h3>
           <p class="lead">Below is an example form built entirely with Bootstrap's form controls. Each required form group has a validation state that can be triggered by attempting to submit the form without completing it.</p>
         </div>
         <div class="row">
@@ -97,11 +97,11 @@
                   {{Form::text('username','', ['class' => 'form-control'])}}
                 </div>
               </div>
-                {{Form::hidden('usertypeID','2', ['class' => 'form-control'])}}
+                {{Form::hidden('usertypeID','1', ['class' => 'form-control'])}}
                 {{Form::hidden('password','ApplicantAccount', ['class' => 'form-control'])}}
                 {{Form::hidden('status','Applied', ['class' => 'form-control'])}}
               <hr class="mb-4">
-              {{Form::submit('Apply as Volunteer',['class' => 'btn btn-primary btn-lg btn-block'])}}
+              {{Form::submit('Register profile',['class' => 'btn btn-primary btn-lg btn-block'])}}
             {!! Form::close() !!}
           </div>
         </div>

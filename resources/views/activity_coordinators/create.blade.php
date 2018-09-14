@@ -1,10 +1,10 @@
-@extends('layouts.frontend')
-@include('inc.navbar1')
+@extends('layouts.backend')
+@include('inc.navbar5')
 
 @section('content')
 
     <div class="py-5 text-center">
-          <h3>Create your Activity Coordinator account!</h3>
+          <h3>Create Activity Coordinator account!</h3>
           <p class="lead">Below is an example form built entirely with Bootstrap's form controls. Each required form group has a validation state that can be triggered by attempting to submit the form without completing it.</p>
         </div>
         <div class="row">

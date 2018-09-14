@@ -30,6 +30,10 @@ class PagesController extends Controller
       return view('users.create');
     }
 
+    public function createEmployee(){
+      return view('employees.create');
+    }
+
     public function createApplicant(){
       return view('applicants.create');
     }

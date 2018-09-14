@@ -1,4 +1,5 @@
-@extends('layouts.frontend')
+@extends('layouts.backend')
+@include('inc.navbar5')
 @section('content')
-<h3>Welcome to Admin Page!</h3>
+
 @endsection

@@ -1,51 +1,22 @@
 <!doctype html>
-<html lang="{{ app()->getLocale() }}">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <link rel="stylesheet" href="{{asset('css/app.css')}}">
-        <link rel="icon" href="../../../../favicon.ico">
-        <style> .error {color: #FF0000;} </style>
-        <title>{{config('app.name', 'WeRecycle')}}</title>
-        <script>
-        function validNo(input, kbEvent) {
-          var keyCode, keyChar;
-          keyCode = kbEvent.keyCode;
-          if (window.event)
-          keyCode = kbEvent.keyCode;
-          else
-          keyCode = kbEvent.which;
-          if (keyCode == null) return true;
-          keyChar = String.fromCharCode(keyCode);
-          var charSet = "0123456789";
-          if (charSet.indexOf(keyChar) != -1) return true;
-          if (keyCode == null || keyCode == 0 || keyCode == 8 || keyCode == 9 || keyCode == 13 || keyCode == 27) return true;
-          return false;
-        }
-        function onlyNumbers(e) {
-          var keynum;
-          var keychar;
-          var numcheck;
-          if(window.event) {
-            keynum = e.keyCode;}
-            else if(e.which) {
-              keynum = e.which; }
-              keychar = String.fromCharCode(keynum);
-              numcheck = /\d/;
-              return numcheck.test(keychar);
-            }
-        </script>
-
-        <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-        <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-
-    </head>
-    <body>
-      <div class="container">
-        @yield('content')
-        @include('inc.messages')
-      </div>
-    </body>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <title>{{config('app.name', 'WeRecycle')}}</title>
+  </head>
+  <body>
+    <div class="container">
+    @yield('content')
+    @include('inc.messages')
+    </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+  </body>
 </html>

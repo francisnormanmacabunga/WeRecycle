@@ -30,13 +30,13 @@ class ApplicantsController extends Controller
       $applicants = userTable::SELECT('*')
       -> join('contacts', 'contacts.userID', '=', 'user.userID')
       -> where('status',request('status'))
-      -> where('usertypeID', '1')
+      -> where('usertypeID', '2')
       -> sortable()
       -> paginate(5)->appends('status', request('status'));
     } else {
       $applicants = userTable::SELECT('*')
       -> join('contacts', 'contacts.userID', '=', 'user.userID')
-      -> where('usertypeID', '1')
+      -> where('usertypeID', '2')
       -> sortable()
       -> paginate(5);
     }

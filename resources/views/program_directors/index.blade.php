@@ -1,5 +1,5 @@
 @extends('layouts.frontend')
-@include('inc.navbar3')
+@include('inc.navbar4')
 
 @section('content')
 
@@ -37,11 +37,10 @@
                 <dd class="col-sm-4">{{$donor->tellNo}}</dd>
               </dl>
               <hr style="margin:5px 0 5px 0;"><br>
-              <form action="/donors/{{$donor->userID}}/edit">
+              <form action="/program_directors/{{$donor->userID}}/edit">
                   <input type="submit" value="Edit Profile" class="btn btn-lg btn-block btn-primary" />
               </form>
             </div>
-
           </div>
         </div>
       </div>

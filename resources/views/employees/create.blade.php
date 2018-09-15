@@ -9,7 +9,7 @@
         </div>
         <div class="container col-md-9 center-align">
           <h4 class="mb-3">Fill out form</h4>
-            {!! Form::open(['action' => 'ApplicantsController@store', 'method' => 'POST' ]) !!}
+            {!! Form::open(['action' => 'EmployeesController@store', 'method' => 'POST' ]) !!}
               <div class="row">
                 <div class="col-md-5 mb-3">
                   {{Form::label('firstname','First Name')}}
@@ -20,16 +20,8 @@
                   {{Form::text('lastname','', ['class' => 'form-control', 'onkeypress' => 'return !validNo(this,event)'])}}
                 </div>
                 <div class="col-md-3 mb-3">
-                  {{Form::label('usertype','User Type')}}
-                  {{Form::select('usertypeID', ['Activity Coordinator' => 'Activity Coordinator'], null, ['class' => 'custom-select d-block w-100'])}}
-{{Form::select('usertype', ['Choose' , ], null, ['class' => 'custom-select d-block w-100'])}}
-
-                  @foreach ($dropdown $dropdowns)
-
-                  @endforeach
-
-
-
+                  {{Form::label('usertypeID','User Type')}}
+                  {{Form::select('usertypeID', ['3' => 'Activity Coordinator', '4' => 'Program Director'], null, ['placeholder' => 'Choose User Type', 'class' => 'form-control'])}}
                 </div>
               </div>
               <div class="mb-3">
@@ -77,9 +69,8 @@
                   {{Form::text('username','', ['class' => 'form-control'])}}
                 </div>
               </div>
-                {{Form::hidden('usertypeID','3', ['class' => 'form-control'])}}
-                {{Form::hidden('password','ApplicantAccount', ['class' => 'form-control'])}}
-                {{Form::hidden('status','Applied', ['class' => 'form-control'])}}
+                {{Form::hidden('password','EmployeeAccount', ['class' => 'form-control'])}}
+                {{Form::hidden('status','Activated', ['class' => 'form-control'])}}
               <hr class="mb-4">
               {{Form::submit('Register profile',['class' => 'btn btn-primary btn-lg btn-block'])}}
             {!! Form::close() !!}

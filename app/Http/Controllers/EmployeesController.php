@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 use App\usertypeTable;
+use App\userTable;
+use App\contactsTable;
 use DB;
 
 class EmployeesController extends Controller
@@ -15,9 +18,24 @@ class EmployeesController extends Controller
      */
     public function index()
     {
-      //$usertype = usertypeTable::all();
-      $usertype = DB::table('usertype')->pluck('usertype');
-      return view('employees.index', compact('usertype'));
+      if (request()->has('status')){
+        $employee = userTable::SELECT('*')
+        -> join('contacts', 'contacts.userID', '=', 'user.userID')
+        -> join('usertype', 'usertype.usertypeID', '=', 'user.usertypeID')
+        -> where('status',request('status'))
+      //  -> where('usertype.usertypeID', '3')
+        -> sortable()
+        -> paginate(5)->appends('status', request('status'));
+      } else {
+        $employee = userTable::SELECT('*')
+        -> join('contacts', 'contacts.userID', '=', 'user.userID')
+        -> join('usertype', 'usertype.usertypeID', '=', 'user.usertypeID')
+      //  -> where('usertype.usertypeID', '4')
+        -> sortable()
+        -> paginate(5);
+      }
+
+        return view('employees.index', compact('employee'));
     }
 
     /**
@@ -27,14 +45,7 @@ class EmployeesController extends Controller
      */
     public function create()
     {
-      //$dropdown = DB::table('usertype')->pluck('usertype', 'userID')->all();
-      $dropdown = usertypeTable::all();
-      return view('employees.create',compact('dropdown'));
-
-      // $test= usertypeTable::select('usertypeID','usertype')->get();
-      // return view('employees.create')->with('test', $test);
-      // $usertype = DB::table('usertype')->pluck('usertypeID');
-      // return view('employees.create', compact('usertype'));
+      return view('employees.create');
     }
 
     /**
@@ -45,7 +56,64 @@ class EmployeesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+      $this->validate($request, [
+      'firstname' => 'required|regex:/^[\pL\s]+$/u',
+      'lastname' => 'required|regex:/^[\pL\s]+$/u',
+      'email' => 'required|unique:user,email',
+      'cellNo' => 'required|min:11|max:11',
+      'tellNo' => 'required|min:7|max:7',
+      'birthdate' => 'required',
+      'city' => 'required|regex:/^[\pL\s]+$/u',
+      'street' => 'nullable|regex:/^[ \w.#-]+$/',
+      'barangay' => 'nullable|regex:/^[ \w.#-]+$/',
+      'zip' => 'nullable|min:4|max:4',
+      'username' => 'required|alpha_dash|unique:user,username'
+    ],
+    [
+      'firstname.required' => 'The First Name field is required.',
+      'firstname.regex' => 'The First Name field must only contain letters.',
+      'lastname.required' => 'The Last Name field is required.',
+      'lastname.regex' => 'The Last Name field must only contain letters.',
+      'email.required' => 'The Email field is required.',
+      'email.unique' => 'The Email you registered is already in use.',
+      'cellNo.required' => 'The Cellphone Number is required.',
+      'tellNo.required' => 'The Telephone Number is required.',
+      'cellNo.min' => 'The Cellphone field must be at least 11 characters.',
+      'cellNo.max' => 'The Cellphone field may not be greater than 11 characters.',
+      'tellNo.min' => 'The Telephone field must be at least 7 characters.',
+      'tellNo.max' => 'The Telephone field may not be greater than 7 characters.',
+      'birthdate.required' => 'The Birthdate field is required.',
+      'city.required' => 'The City field is required.',
+      'city.regex' => 'The City field must only contain letters.',
+      'street.regex' => 'The Street field must only contain letters, numbers, underscores, dashes, hypens and hashes.',
+      'barangay.regex' => 'The Barangay field must only contain letters, numbers, underscores, dashes, hypens and hashes.',
+      'zip.min' => 'The Zip field must be at least 4 characters.',
+      'zip.max' => 'The Zip field may not be greater than 4 characters.',
+      'username.unique' => 'The Username you registered is already in use.',
+      'username.required' => 'The Username field is required.',
+      'username.alpha_dash' => 'The Username may only contain letters, numbers, dashes and underscores.'
+    ]);
+      $user = new userTable();
+      $user->firstname = $request->input('firstname');
+      $user->lastname = $request->input('lastname');
+      $user->email = $request->input('email');
+      $user->birthdate = $request->input('birthdate');
+      $user->city = $request->input('city');
+      $user->street = $request->input('street');
+      $user->barangay = $request->input('barangay');
+      $user->zip = $request->input('zip');
+      $user->username = $request->input('username');
+      $user->usertypeID = $request->input('usertypeID');
+      $user->password = bcrypt($request->input('password'));
+      $user->status = $request->input('status');
+      $user->save();
+
+      $contacts = new contactsTable();
+      $contacts->userID = $user->userID;
+      $contacts->cellNo = $request->input('cellNo');
+      $contacts->tellNo = $request->input('tellNo');
+      $contacts->save();
+      return redirect('/indexAdmin')->with('success', 'Profile Created');
     }
 
     /**
@@ -56,7 +124,7 @@ class EmployeesController extends Controller
      */
     public function show($id)
     {
-        //
+
     }
 
     /**
@@ -67,7 +135,8 @@ class EmployeesController extends Controller
      */
     public function edit($id)
     {
-        //
+      $employee = userTable::find($id);
+      return view('employees.edit', compact('employee'));
     }
 
     /**
@@ -79,7 +148,10 @@ class EmployeesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+      $post = userTable::find($id);
+      $post->status = $request->input('status');
+      $post->save();
+      return redirect('/employees')->with('success', 'Profile updated');
     }
 
     /**
@@ -92,4 +164,5 @@ class EmployeesController extends Controller
     {
         //
     }
+
 }

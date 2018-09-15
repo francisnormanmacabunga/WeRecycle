@@ -12,6 +12,9 @@
       <li class="nav-item active">
         <a class="nav-link" href="/createEmployee">Create Employee Account <span class="sr-only">(current)</span></a>
       </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="/employees">Manage Employee <span class="sr-only">(current)</span></a>
+      </li>
     </ul>
   </div>
 </nav>

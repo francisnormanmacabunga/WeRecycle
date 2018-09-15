@@ -26,24 +26,16 @@ class PagesController extends Controller
       return view('pages.indexAdmin');
     }
 
+    public function createApplicant(){
+      return view('applicants.create');
+    }
+
     public function createDonor(){
       return view('users.create');
     }
 
     public function createEmployee(){
       return view('employees.create');
-    }
-
-    public function createApplicant(){
-      return view('applicants.create');
-    }
-
-    public function createActivityCoordinator(){
-      return view('activity_coordinators.create');
-    }
-
-    public function createProgramDirector(){
-      return view('program_directors.create');
     }
 
 }

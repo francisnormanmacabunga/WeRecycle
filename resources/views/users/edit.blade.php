@@ -42,9 +42,14 @@
           <hr style="margin:5px 0 5px 0;"><br>
           {{Form::submit('Save',['class' => 'btn btn-lg btn-block btn-primary'])}}
           <a class="btn btn-lg btn-block btn-primary" href="/donors" role="button">Back </a>
-          </div>
           {{Form::hidden('_method','PUT')}}
-          {!! Form::close() !!}
+          {!! Form::close() !!} <br>
+          <hr style="margin:5px 0 5px 0;"><br>
+          {{ Form::open(['action' => ['DonorsController@destroy', $donors->userID], 'method' => 'POST']) }}
+          {{ Form::hidden('_method','PUT') }}
+          {{ Form::submit('Deactivate Account',['class' => 'btn btn-lg btn-block btn-danger']) }}
+          {{ Form::close() }}
+          </div>
         </div>
       </div>
     </div>

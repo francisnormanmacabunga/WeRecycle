@@ -34,13 +34,11 @@
                 <dd class="col-sm-4">{{$donor->tellNo}}</dd>
                 <dt class="col-sm-6">Password:</dt>
                 <a href="/password/{{$donor->userID}}/edit"><button>Update Password</button></a>
-
               </dl>
               <hr style="margin:5px 0 5px 0;"><br>
               <form action="/donors/{{$donor->userID}}/edit">
                   <input type="submit" value="Edit Profile" class="btn btn-lg btn-block btn-primary" />
-              </form><br>
-
+              </form>
 
             </div>
 

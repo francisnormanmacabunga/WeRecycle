@@ -148,7 +148,7 @@ class DonorsController extends Controller
       'barangay' => 'nullable|regex:/^[ \w.#-]+$/',
       'zip' => 'nullable|min:4|max:4',
       'username' => "alpha_dash|unique:user,username,$id".$request->get('userID').',userID',
-    
+
     ],
     [
       //'firstname.required' => 'The First Name field is required.',
@@ -200,6 +200,12 @@ class DonorsController extends Controller
      */
     public function destroy($id)
     {
-        //
+      //$donors = DB::update('update user set status = Deactivated = ?', [$id]);
+      //DB::statement(DB::raw('SET @status = "Deactivated"'));
+      //$donors = DB::select(DB::raw('select * from user where status = @status'));
+      $donors = userTable::find($id);
+      $donors->status = $request->input('status');
+      $donors->push();
+      return redirect('/donors')->with('success','Profile updated');
     }
 }

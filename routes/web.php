@@ -27,3 +27,7 @@ Route::resource('/donors', 'DonorsController');
 Route::resource('/employees', 'EmployeesController');
 Route::resource('/activity_coordinators', 'ActivityCoordinatorsController');
 Route::resource('/program_directors', 'ProgramDirectorsController');
+
+
+Route::get('/deactivate', 'DonorsController@deactivate');
+Route::resource('/deactivate', 'DonorsController');

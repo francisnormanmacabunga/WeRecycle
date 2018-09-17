@@ -34,7 +34,7 @@ class DonorsController extends Controller
      */
     public function create()
     {
-        return view('users.create');
+      return view('users.create');
     }
 
     /**
@@ -148,6 +148,7 @@ class DonorsController extends Controller
       'barangay' => 'nullable|regex:/^[ \w.#-]+$/',
       'zip' => 'nullable|min:4|max:4',
       'username' => "alpha_dash|unique:user,username,$id".$request->get('userID').',userID',
+    
     ],
     [
       //'firstname.required' => 'The First Name field is required.',
@@ -171,7 +172,8 @@ class DonorsController extends Controller
       'zip.max' => 'The Zip field may not be greater than 4 characters.',
       'username.unique' => 'The Username you registered is already in use.',
       //'username.required' => 'The Username field is required.',
-      'username.alpha_dash' => 'The Username may only contain letters, numbers, dashes and underscores.'
+      'username.alpha_dash' => 'The Username may only contain letters, numbers, dashes and underscores.',
+
     ]);
       $donors = userTable::find($id);
       $donors->username = $request->input('username');
@@ -185,7 +187,6 @@ class DonorsController extends Controller
       $donors->street = $request->input('street');
       $donors->barangay = $request->input('barangay');
       $donors->zip = $request->input('zip');
-      $donors->password = $request->input('password');
       $donors->push();
       return redirect('/donors')->with('success','Profile updated');
     }

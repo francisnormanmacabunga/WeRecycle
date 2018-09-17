@@ -19,7 +19,9 @@ Route::get('/indexAdmin', 'PagesController@indexAdmin');
 Route::get('/createApplicant', 'PagesController@createApplicant');
 Route::get('/createDonor', 'PagesController@createDonor');
 Route::get('/createEmployee', 'PagesController@createEmployee');
-//Route::get('/updatePassword', 'PasswordsController@update');
+
+Route::resource('/password', 'PasswordController');
+
 Route::resource('/applicants', 'ApplicantsController');
 Route::resource('/donors', 'DonorsController');
 Route::resource('/employees', 'EmployeesController');

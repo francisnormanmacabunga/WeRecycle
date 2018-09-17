@@ -30,7 +30,9 @@ class EmployeesController extends Controller
         $employee = userTable::SELECT('*')
         -> join('contacts', 'contacts.userID', '=', 'user.userID')
         -> join('usertype', 'usertype.usertypeID', '=', 'user.usertypeID')
-      //  -> where('usertype.usertypeID', '4')
+        -> where('usertype.usertypeID', '4')
+        -> orwhere('usertype.usertypeID', '3')
+
         -> sortable()
         -> paginate(5);
       }

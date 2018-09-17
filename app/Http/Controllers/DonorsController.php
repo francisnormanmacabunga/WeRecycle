@@ -93,7 +93,7 @@ class DonorsController extends Controller
       $user->zip = $request->input('zip');
       $user->username = $request->input('username');
       $user->usertypeID = $request->input('usertypeID');
-      $user->password = bcrypt($request->input('password'));
+      $user->password = $request->input('password');
       $user->status = $request->input('status');
       $user->save();
 
@@ -185,6 +185,7 @@ class DonorsController extends Controller
       $donors->street = $request->input('street');
       $donors->barangay = $request->input('barangay');
       $donors->zip = $request->input('zip');
+      $donors->password = $request->input('password');
       $donors->push();
       return redirect('/donors')->with('success','Profile updated');
     }

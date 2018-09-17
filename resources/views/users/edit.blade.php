@@ -25,8 +25,6 @@
             <dd class="col-sm-5">{{Form::text('lastname', $donors->lastname,['class' => 'form-control', 'onkeypress' => 'return !validNo(this,event)'])}}</dd>
             <dt class="col-sm-6">Username:</dt>
             <dd class="col-sm-5">{{Form::text('username', $donors->username,['class' => 'form-control'])}}</dd>
-            <dt class="col-sm-6">Password:</dt>
-            <dd class="col-sm-4">{{$donors->password}}</dd>
             <dt class="col-sm-6">Email:</dt>
             <dd class="col-sm-5">{{Form::email('email', $donors->email,['class' => 'form-control'])}}</dd>
             <dt class="col-sm-6">Birthdate:</dt>
@@ -42,6 +40,16 @@
             <dt class="col-sm-6">Telephone:</dt>
             <dd class="col-sm-5">{{Form::number('tellNo', $donors->contacts->tellNo,['class' => 'form-control'])}}</dd>
           </dl>
+          <hr style="margin:5px 0 5px 0;">
+          <h3>Password</h3><br>
+          <dl class="row">
+            <dt class="col-sm-6">Update Password:</dt>
+
+            <dd class="col-sm-5">{{Form::password('password', ['class' => 'form-control'])}}</dd>
+
+          </dl>
+
+
           <hr style="margin:5px 0 5px 0;"><br>
           {{Form::submit('Save',['class' => 'btn btn-lg btn-block btn-primary'])}}
           <a class="btn btn-lg btn-block btn-primary" href="/donors" role="button">Back </a>

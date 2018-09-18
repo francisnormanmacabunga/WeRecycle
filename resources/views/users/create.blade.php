@@ -76,7 +76,7 @@
                 </div>
               </div>
                 {{Form::hidden('usertypeID','1', ['class' => 'form-control'])}}
-                {{Form::hidden('status','Activated' ['class' => 'form-control'])}}
+                {{Form::hidden('status','Activated', ['class' => 'form-control'])}}
               <hr class="mb-4">
               {{Form::submit('Register profile',['class' => 'btn btn-primary btn-lg btn-block'])}}
             {!! Form::close() !!}

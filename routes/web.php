@@ -19,15 +19,12 @@ Route::get('/indexAdmin', 'PagesController@indexAdmin');
 Route::get('/createApplicant', 'PagesController@createApplicant');
 Route::get('/createDonor', 'PagesController@createDonor');
 Route::get('/createEmployee', 'PagesController@createEmployee');
-
-Route::resource('/password', 'PasswordController');
-
 Route::resource('/applicants', 'ApplicantsController');
 Route::resource('/donors', 'DonorsController');
+Route::resource('/A_password', 'DonorsPasswordController');
+Route::resource('/status', 'DonorsStatusController');
 Route::resource('/employees', 'EmployeesController');
 Route::resource('/activity_coordinators', 'ActivityCoordinatorsController');
+Route::resource('/AC_password', 'ActivityCoordinatorsPasswordController');
 Route::resource('/program_directors', 'ProgramDirectorsController');
-
-
-Route::get('/deactivate', 'DonorsController@deactivate');
-Route::resource('/deactivate', 'DonorsController');
+Route::resource('/PD_password', 'ProgramDirectorsPasswordController');

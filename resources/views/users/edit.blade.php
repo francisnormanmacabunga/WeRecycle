@@ -45,10 +45,9 @@
           {{Form::hidden('_method','PUT')}}
           {!! Form::close() !!} <br>
           <hr style="margin:5px 0 5px 0;"><br>
-          {{ Form::open(['action' => ['DonorsController@destroy', $donors->userID], 'method' => 'POST']) }}
-          {{ Form::hidden('_method','PUT') }}
-          {{ Form::submit('Deactivate Account',['class' => 'btn btn-lg btn-block btn-danger']) }}
-          {{ Form::close() }}
+            <a class="btn btn-lg btn-block btn-danger" href="/status/{{$donors->userID}}/edit" role="button">Deactivate Account</a>
+
+
           </div>
         </div>
       </div>

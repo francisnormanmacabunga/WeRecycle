@@ -93,7 +93,8 @@ class DonorsController extends Controller
       $user->zip = $request->input('zip');
       $user->username = $request->input('username');
       $user->usertypeID = $request->input('usertypeID');
-      $user->password = $request->input('password');
+      //$user->password = $request->input('password');
+      $user->password = bcrypt($request->input('password'));
       $user->status = $request->input('status');
       $user->save();
 
@@ -148,7 +149,6 @@ class DonorsController extends Controller
       'barangay' => 'nullable|regex:/^[ \w.#-]+$/',
       'zip' => 'nullable|min:4|max:4',
       'username' => "alpha_dash|unique:user,username,$id".$request->get('userID').',userID',
-
     ],
     [
       //'firstname.required' => 'The First Name field is required.',
@@ -173,7 +173,6 @@ class DonorsController extends Controller
       'username.unique' => 'The Username you registered is already in use.',
       //'username.required' => 'The Username field is required.',
       'username.alpha_dash' => 'The Username may only contain letters, numbers, dashes and underscores.',
-
     ]);
       $donors = userTable::find($id);
       $donors->username = $request->input('username');
@@ -203,9 +202,9 @@ class DonorsController extends Controller
       //$donors = DB::update('update user set status = Deactivated = ?', [$id]);
       //DB::statement(DB::raw('SET @status = "Deactivated"'));
       //$donors = DB::select(DB::raw('select * from user where status = @status'));
-      $donors = userTable::find($id);
-      $donors->status = $request->input('status');
-      $donors->push();
-      return redirect('/donors')->with('success','Profile updated');
+      //$donors = userTable::find($id);
+      //$donors->status = $request->input('status');
+      //$donors->push();
+      //return redirect('/donors')->with('success','Profile updated');
     }
 }

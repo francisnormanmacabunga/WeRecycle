@@ -3,7 +3,7 @@
 
 @section('content')
 
-  {!! Form::open(['action' => ['DonorsPasswordController@update', $donors['userID']], 'method' => 'POST' ]) !!}
+  {!! Form::open(['action' => ['ProgramDirectorsPasswordController@update', $donors['userID']], 'method' => 'POST' ]) !!}
 
   <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
     <h3>Update your profile, {{$donors->firstname}}!</h3>
@@ -25,7 +25,7 @@
           </dl>
           <hr style="margin:5px 0 5px 0;"><br>
           {{Form::submit('Save',['class' => 'btn btn-lg btn-block btn-primary'])}}
-          <a class="btn btn-lg btn-block btn-primary" href="/donors" role="button">Back </a>
+          <a class="btn btn-lg btn-block btn-primary" href="/program_directors" role="button">Back </a>
           </div>
           {{Form::hidden('_method','PUT')}}
           {!! Form::close() !!}

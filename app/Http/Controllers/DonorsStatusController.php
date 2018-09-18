@@ -4,9 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\userTable;
-use App\contactsTable;
 
-class PasswordController extends Controller
+class DonorsStatusController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +14,8 @@ class PasswordController extends Controller
      */
     public function index()
     {
-      $donors = usertable::all();
-      return view('users.password',compact('donors'));
+      $donors = userTable::all();
+      return view('users.status',compact('donors'));
     }
 
     /**
@@ -59,8 +58,8 @@ class PasswordController extends Controller
      */
     public function edit($id)
     {
-      $donors = userTable::with('contacts')->find($id);
-      return view('users.updatePass', compact('donors'));
+      $donors = userTable::find($id);
+      return view('users.updateStatus', compact('donors'));
     }
 
     /**
@@ -72,22 +71,18 @@ class PasswordController extends Controller
      */
     public function update(Request $request, $id)
     {
-      $this->validate($request, [
-
-      'password' => 'min:6|required_with:password_confirmation|same:password_confirmation|',
-      'password_confirmation' => 'min:6'
-    ],
-    [
-      'password.same' => 'Password does not match'
-    ]);
       $donors = userTable::find($id);
-      $donors->password = $request->input('password');
+      $donors->status = $request->input('status');
       $donors->push();
-      return redirect('/donors')->with('success','Profile updated');
+      return redirect('/')->with('success','Profile Deactivated');
     }
 
-
-
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
     public function destroy($id)
     {
         //

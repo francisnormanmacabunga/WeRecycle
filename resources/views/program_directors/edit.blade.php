@@ -25,8 +25,6 @@
             <dd class="col-sm-5">{{Form::text('lastname', $donors->lastname,['class' => 'form-control', 'onkeypress' => 'return !validNo(this,event)'])}}</dd>
             <dt class="col-sm-6">Username:</dt>
             <dd class="col-sm-5">{{Form::text('username', $donors->username,['class' => 'form-control'])}}</dd>
-            <dt class="col-sm-6">Password:</dt>
-            <dd class="col-sm-4">{{$donors->password}}</dd>
             <dt class="col-sm-6">Email:</dt>
             <dd class="col-sm-5">{{Form::email('email', $donors->email,['class' => 'form-control'])}}</dd>
             <dt class="col-sm-6">Birthdate:</dt>
@@ -44,7 +42,7 @@
           </dl>
           <hr style="margin:5px 0 5px 0;"><br>
           {{Form::submit('Save',['class' => 'btn btn-lg btn-block btn-primary'])}}
-          <a class="btn btn-lg btn-block btn-primary" href="/activity_coordinators" role="button">Back </a>
+          <a class="btn btn-lg btn-block btn-primary" href="/program_directors" role="button">Back </a>
           </div>
           {{Form::hidden('_method','PUT')}}
           {!! Form::close() !!}

@@ -23,7 +23,8 @@ class EmployeesController extends Controller
         -> join('contacts', 'contacts.userID', '=', 'user.userID')
         -> join('usertype', 'usertype.usertypeID', '=', 'user.usertypeID')
         -> where('status',request('status'))
-      //  -> where('usertype.usertypeID', '3')
+        -> where('usertype.usertypeID', '4')
+        -> orwhere('usertype.usertypeID', '3')
         -> sortable()
         -> paginate(5)->appends('status', request('status'));
       } else {
@@ -106,6 +107,7 @@ class EmployeesController extends Controller
       $user->zip = $request->input('zip');
       $user->username = $request->input('username');
       $user->usertypeID = $request->input('usertypeID');
+      //$user->password = $request->input('password');
       $user->password = bcrypt($request->input('password'));
       $user->status = $request->input('status');
       $user->save();

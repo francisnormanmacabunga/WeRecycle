@@ -38,4 +38,8 @@ class PagesController extends Controller
       return view('employees.create');
     }
 
+    public function createCatalog(){
+      return view('catalog.create');
+    }
+
 }

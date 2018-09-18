@@ -28,3 +28,6 @@ Route::resource('/activity_coordinators', 'ActivityCoordinatorsController');
 Route::resource('/AC_password', 'ActivityCoordinatorsPasswordController');
 Route::resource('/program_directors', 'ProgramDirectorsController');
 Route::resource('/PD_password', 'ProgramDirectorsPasswordController');
+
+Route::get('createCatalog', 'PagesController@createCatalog');
+Route::resource('/catalog', 'CatalogController');

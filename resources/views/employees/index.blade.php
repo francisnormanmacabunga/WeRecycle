@@ -7,8 +7,8 @@
     <div class="col-md-12">
       <br/>
       <h3 align="center">List of Employees</h3>
-      <br/>
-      <br/>
+      <br>
+      <br>
       <table class="table table-bordered">
         <tr>
           <th>@sortablelink('usertypeID', 'User Type')</th>
@@ -34,6 +34,7 @@
             <td>{{date('F d, Y, h:i:sa', strtotime($employees->created_at))}}</td>
             <td>{{$employees->status}}</td>
             <td><a href="/employees/{{$employees->userID}}/edit">Update Status</a?</td>
+          </tr>
         @endforeach
       </table>
       {{$employee->links()}}

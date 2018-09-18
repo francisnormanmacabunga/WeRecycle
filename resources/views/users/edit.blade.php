@@ -8,7 +8,6 @@
   <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
     <h3>Update your profile, {{$donors->firstname}}!</h3>
   </div>
-
   <div class="container col-md-6 center-align">
     <div class="card-deck mb-3 ">
       <div class="card mb-4 shadow-sm">
@@ -40,22 +39,16 @@
             <dt class="col-sm-6">Telephone:</dt>
             <dd class="col-sm-5">{{Form::number('tellNo', $donors->contacts->tellNo,['class' => 'form-control'])}}</dd>
           </dl>
-          <hr style="margin:5px 0 5px 0;">
-          <h3>Password</h3><br>
-          <dl class="row">
-            <dt class="col-sm-6">Update Password:</dt>
-
-            <dd class="col-sm-5">{{Form::password('password', ['class' => 'form-control'])}}</dd>
-
-          </dl>
-
-
           <hr style="margin:5px 0 5px 0;"><br>
           {{Form::submit('Save',['class' => 'btn btn-lg btn-block btn-primary'])}}
           <a class="btn btn-lg btn-block btn-primary" href="/donors" role="button">Back </a>
-          </div>
           {{Form::hidden('_method','PUT')}}
-          {!! Form::close() !!}
+          {!! Form::close() !!} <br>
+          <hr style="margin:5px 0 5px 0;"><br>
+            <a class="btn btn-lg btn-block btn-danger" href="/status/{{$donors->userID}}/edit" role="button">Deactivate Account</a>
+
+
+          </div>
         </div>
       </div>
     </div>

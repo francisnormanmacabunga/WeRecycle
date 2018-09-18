@@ -21,8 +21,6 @@
               <dl class="row ">
                 <dt class="col-sm-6">Username:</dt>
                 <dd class="col-sm-4">{{$donor->username}}</dd>
-                <dt class="col-sm-6">Password:</dt>
-                <dd class="col-sm-4">{{$donor->password}}</dd>
                 <dt class="col-sm-6">Email:</dt>
                 <dd class="col-sm-4">{{$donor->email}}</dd>
                 <dt class="col-sm-6">Birthdate:</dt>
@@ -35,6 +33,8 @@
                 <dd class="col-sm-4">{{$donor->cellNo}}</dd>
                 <dt class="col-sm-6">Telephone:</dt>
                 <dd class="col-sm-4">{{$donor->tellNo}}</dd>
+                <dt class="col-sm-6">Password:</dt>
+                <a href="/AC_password/{{$donor->userID}}/edit"><button>Update Password</button></a>
               </dl>
               <hr style="margin:5px 0 5px 0;"><br>
               <form action="/activity_coordinators/{{$donor->userID}}/edit">

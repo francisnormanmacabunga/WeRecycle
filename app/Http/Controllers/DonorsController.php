@@ -34,7 +34,7 @@ class DonorsController extends Controller
      */
     public function create()
     {
-        return view('users.create');
+      return view('users.create');
     }
 
     /**
@@ -93,7 +93,8 @@ class DonorsController extends Controller
       $user->zip = $request->input('zip');
       $user->username = $request->input('username');
       $user->usertypeID = $request->input('usertypeID');
-      $user->password = $request->input('password');
+      //$user->password = $request->input('password');
+      $user->password = bcrypt($request->input('password'));
       $user->status = $request->input('status');
       $user->save();
 
@@ -171,7 +172,7 @@ class DonorsController extends Controller
       'zip.max' => 'The Zip field may not be greater than 4 characters.',
       'username.unique' => 'The Username you registered is already in use.',
       //'username.required' => 'The Username field is required.',
-      'username.alpha_dash' => 'The Username may only contain letters, numbers, dashes and underscores.'
+      'username.alpha_dash' => 'The Username may only contain letters, numbers, dashes and underscores.',
     ]);
       $donors = userTable::find($id);
       $donors->username = $request->input('username');
@@ -185,7 +186,6 @@ class DonorsController extends Controller
       $donors->street = $request->input('street');
       $donors->barangay = $request->input('barangay');
       $donors->zip = $request->input('zip');
-      $donors->password = $request->input('password');
       $donors->push();
       return redirect('/donors')->with('success','Profile updated');
     }
@@ -199,6 +199,12 @@ class DonorsController extends Controller
      */
     public function destroy($id)
     {
-        //
+      //$donors = DB::update('update user set status = Deactivated = ?', [$id]);
+      //DB::statement(DB::raw('SET @status = "Deactivated"'));
+      //$donors = DB::select(DB::raw('select * from user where status = @status'));
+      //$donors = userTable::find($id);
+      //$donors->status = $request->input('status');
+      //$donors->push();
+      //return redirect('/donors')->with('success','Profile updated');
     }
 }

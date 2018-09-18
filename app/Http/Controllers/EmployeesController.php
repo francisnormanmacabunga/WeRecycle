@@ -18,25 +18,14 @@ class EmployeesController extends Controller
      */
     public function index()
     {
-      if (request()->has('status')){
         $employee = userTable::SELECT('*')
         -> join('contacts', 'contacts.userID', '=', 'user.userID')
         -> join('usertype', 'usertype.usertypeID', '=', 'user.usertypeID')
-        -> where('status',request('status'))
-      //  -> where('usertype.usertypeID', '3')
-        -> sortable()
-        -> paginate(5)->appends('status', request('status'));
-      } else {
-        $employee = userTable::SELECT('*')
-        -> join('contacts', 'contacts.userID', '=', 'user.userID')
-        -> join('usertype', 'usertype.usertypeID', '=', 'user.usertypeID')
-        -> where('usertype.usertypeID', '4')
-        -> orwhere('usertype.usertypeID', '3')
-
+        -> where('usertype.usertypeID', '3')
+        -> orwhere('usertype.usertypeID', '4')
         -> sortable()
         -> paginate(5);
-      }
-
+        
         return view('employees.index', compact('employee'));
     }
 
@@ -106,6 +95,7 @@ class EmployeesController extends Controller
       $user->zip = $request->input('zip');
       $user->username = $request->input('username');
       $user->usertypeID = $request->input('usertypeID');
+      //$user->password = $request->input('password');
       $user->password = bcrypt($request->input('password'));
       $user->status = $request->input('status');
       $user->save();

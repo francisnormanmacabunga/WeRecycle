@@ -7,20 +7,11 @@
     <div class="col-md-12">
       <br/>
       <h3 align="center">List of Employees</h3>
-      <a href="employees/">
-       <button style="float: right;">Reset</button>
-      </a>
-      <a href="employees/?status=Deactivated">
-        <button style="float: right;">Sort by Deactivated</button>
-      </a>
-      <a href="employees/?status=Activated">
-        <button style="float: right;">Sort by Activated</button>
-      </a>
       <br/>
       <br/>
       <table class="table table-bordered">
         <tr>
-          <th>User Type</th>
+          <th>@sortablelink('usertypeID', 'User Type')</th>
           <th>Name</th>
           <th>Age</th>
           <th>Address</th>
@@ -28,7 +19,7 @@
           <th>Cellphone Number</th>
           <th>Tellphone Number</th>
           <th>@sortablelink('created_at', 'Date Applied')</th>
-          <th>Status</th>
+          <th>@sortablelink('status', 'Status')</th>
           <th>Action</th>
         </tr>
         @foreach ($employee as $employees)

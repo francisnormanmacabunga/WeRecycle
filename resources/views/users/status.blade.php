@@ -18,28 +18,14 @@
               <h1 class="card-title pricing-card-title text-center">{{$donor->firstname}} {{$donor->lastname}}</h1>
               <hr style="margin:5px 0 5px 0;"><br>
               <dl class="row ">
-                <dt class="col-sm-6">Username:</dt>
-                <dd class="col-sm-4">{{$donor->username}}</dd>
-                <dt class="col-sm-6">Email:</dt>
-                <dd class="col-sm-4">{{$donor->email}}</dd>
-                <dt class="col-sm-6">Birthdate:</dt>
-                <dd class="col-sm-4">{{$donor->birthdate}}</dd>
-                <dt class="col-sm-6">Address:</dt>
-                <dd class="col-sm-4">{{$donor->street}}, {{$donor->city}}</dd>
-                <dt class="col-sm-6">Barangay:</dt>
-                <dd class="col-sm-4">{{$donor->barangay}}</dd>
-                <dt class="col-sm-6">Cellphone:</dt>
-                <dd class="col-sm-4">{{$donor->cellNo}}</dd>
-                <dt class="col-sm-6">Telephone:</dt>
-                <dd class="col-sm-4">{{$donor->tellNo}}</dd>
-                <dt class="col-sm-6">Password:</dt>
-                <a href="/A_password/{{$donor->userID}}/edit"><button>Update Password</button></a>
+                <form action="/password/{{$donor->userID}}/updatePass">
+                    <input type="submit" value="Edit Profile" class="btn btn-lg btn-block btn-primary" />
+                </form>
               </dl>
               <hr style="margin:5px 0 5px 0;"><br>
               <form action="/donors/{{$donor->userID}}/edit">
                   <input type="submit" value="Edit Profile" class="btn btn-lg btn-block btn-primary" />
               </form>
-
             </div>
 
           </div>

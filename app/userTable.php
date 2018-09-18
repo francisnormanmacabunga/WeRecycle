@@ -14,7 +14,7 @@ class userTable extends Model
     protected $table = 'user';
     protected $primaryKey = 'userID';
     public $timestamps = true;
-    public $sortable = ['created_at'];
+    public $sortable = ['created_at', 'status', 'usertypeID'];
 
     public function age()
     {

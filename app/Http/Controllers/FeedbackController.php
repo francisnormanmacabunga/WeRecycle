@@ -64,6 +64,7 @@ class FeedbackController extends Controller
       'rating.max' => 'The rating field must not be more than 1 digit.'
     ]);
       $feedback = new feedbackTable();
+      $feedback->userID = (Select from user where userID = session('username'))
       $feedback->feedback = $request->input('feedback');
       $feedback->rating = $request->input('rating');
 

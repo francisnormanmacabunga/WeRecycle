@@ -9,6 +9,8 @@ use App\userTable;
 use App\contactsTable;
 use Illuminate\Validation\Rule;
 use Session;
+use Hash;
+
 
 class DonorsController extends Controller
 {
@@ -21,7 +23,7 @@ class DonorsController extends Controller
     {
       $donors = userTable::SELECT('*')
       -> join('contacts', 'contacts.userID', '=', 'user.userID')
-      -> where('username', session::pull('username'))
+      -> where('username', session('username'))
       -> get();
 
       return view('users.index', compact('donors'));
@@ -94,7 +96,7 @@ class DonorsController extends Controller
       $user->username = $request->input('username');
       $user->usertypeID = $request->input('usertypeID');
       //$user->password = $request->input('password');
-      $user->password = bcrypt($request->input('password'));
+      $user->password = Hash::make($request->input('password'));
       $user->status = $request->input('status');
       $user->save();
 

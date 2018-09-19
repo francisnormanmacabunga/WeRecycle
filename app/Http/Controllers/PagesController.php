@@ -10,7 +10,7 @@ class PagesController extends Controller
       return view('pages.index');
     }
 
-    
+
     public function login(){
       return view('login.login');
     }
@@ -20,7 +20,7 @@ class PagesController extends Controller
       }
 
 
-    }
+  
 
     public function indexAC(){
       return view('pages.indexAC');

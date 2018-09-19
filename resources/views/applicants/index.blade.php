@@ -43,7 +43,7 @@
             <td>{{$applicant->tellNo}}</td>
             <td>{{date('F d, Y, h:i:sa', strtotime($applicant->created_at))}}</td>
             <td>{{$applicant->status}}</td>
-            <td><a href="/applicants/{{$applicant->userID}}/edit">Update Status</a?</td>
+            <th><a class="btn btn-lg btn-block btn-primary" href="/applicants/{{$applicant->userID}}/edit" role="button">Update Status </a></th>
         @endforeach
       </table>
       {{$applicants->links()}}

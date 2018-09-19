@@ -21,7 +21,7 @@
                 </div>
                 <div class="col-md-3 mb-3">
                   {{Form::label('usertypeID','User Type')}}
-                  {{Form::select('usertypeID', ['3' => 'Activity Coordinator', '4' => 'Program Director'], null, ['placeholder' => 'Choose User Type', 'class' => 'form-control'])}}
+                  {{Form::select('usertypeID', ['3' => 'Activity Coordinator', '4' => 'Program Director'], null, ['placeholder' => 'Choose user type', 'class' => 'form-control'])}}
                 </div>
               </div>
               <div class="mb-3">

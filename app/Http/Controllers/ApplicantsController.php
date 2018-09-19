@@ -119,7 +119,7 @@ class ApplicantsController extends Controller
       $contacts->cellNo = $request->input('cellNo');
       $contacts->tellNo = $request->input('tellNo');
       $contacts->save();
-      return redirect('/applicants')->with('success', 'Created');
+      return redirect('/applicants')->with('success', 'Application submitted');
     }
 
     /**

@@ -7,7 +7,7 @@
   <div class="row">
     <div class="col-md-12">
       <br/>
-      <h3 align="center">List of Applicants</h3>
+      <h3 align="center">Update status</h3>
       <br/>
       <h5 align="left"><a href="/applicants">Back</a></h5>
       <table class="table table-bordered">

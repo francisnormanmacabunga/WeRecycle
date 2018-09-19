@@ -11,7 +11,6 @@
       <br>
       <table class="table table-bordered">
         <tr>
-          <th>@sortablelink('usertypeID', 'Username')</th>
           <th>Feedback</th>
           <th>Rating</th>
           <th>@sortablelink('created_at', 'Date Applied')</th>
@@ -19,7 +18,6 @@
         </tr>
         @foreach ($feedback as $feedback)
           <tr>
-            <td>{{$feedback->username}}</td>
             <td>{{$feedback->feedback}} {{$feedback->feedback}}</td>
             <td>{{$feedback->rating()}}</td>
             <td>{{date('F d, Y, h:i:sa', strtotime($employees->created_at))}}</td>

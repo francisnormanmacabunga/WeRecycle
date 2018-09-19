@@ -17,7 +17,7 @@ class FeedbackController extends Controller
      */
     public function index()
     {
-      if (request()->has('username')){
+      if (request()->has('rating')){
         $feedback = feedbackTable::SELECT('*')
         -> join('user', 'feedback.userID', '=', 'user.userID')
         -> sortable()
@@ -56,11 +56,12 @@ class FeedbackController extends Controller
       'rating' => 'required|min:1|max:1'
     ],
     [
-      'rating.required' => 'The rating field is required.'
+      'rating.required' => 'The rating field is required.',
+      'rating.min' => 'The rating field must be atleast 1 digit.',
+      'rating.max' => 'The rating field must not be more than 1 digit.'
     ]);
       $feedback = new feedbackTable();
-      $feedback->userID = $request->input('userID');
-      $feedback->firstname = $request->input('feedback');
+      $feedback->feedback = $request->input('feedback');
       $feedback->rating = $request->input('rating');
 
       $feedback->save();
@@ -84,6 +85,24 @@ class FeedbackController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
+     public function edit($id)
+     {
+
+     }
+
+     /**
+      * Update the specified resource in storage.
+      *
+      * @param  \Illuminate\Http\Request  $request
+      * @param  int  $id
+      * @return \Illuminate\Http\Response
+      */
+     public function update(Request $request, $id)
+     {
+
+     }
+
     public function destroy($id)
     {
         //

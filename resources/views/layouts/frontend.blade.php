@@ -6,11 +6,6 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="stylesheet" href="{{asset('css/app.css')}}">
-
-        <link rel="icon" href="../../../../favicon.ico">
-        <link href="../../dist/css/bootstrap.min.css" rel="stylesheet">
-        <link rel="icon" href="../../../../favicon.ico">
-
         <link href="grid.css" rel="stylesheet">
         <style> .error {color: #FF0000;} </style>
         <title>{{config('app.name', 'WeRecycle')}}</title>

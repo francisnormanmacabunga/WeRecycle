@@ -9,6 +9,7 @@
       <h3 align="center">List of Employees</h3>
       <br>
       <br>
+      @if(count($employee) > 0)
       <table class="table table-bordered">
         <tr>
           <th>@sortablelink('usertypeID', 'User Type')</th>
@@ -37,6 +38,9 @@
           </tr>
         @endforeach
       </table>
+    @else
+      <h3 style="color:red;" align="center">No records found.</h3>
+    @endif
       {{$employee->links()}}
     </div>
   </div>

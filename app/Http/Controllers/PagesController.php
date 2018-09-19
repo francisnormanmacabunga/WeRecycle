@@ -43,7 +43,7 @@ class PagesController extends Controller
     }
 
     public function createFeedback(){
-      return view('usersFeedback.createFeedback');
+      return view('usersFeedback.create');
     }
 
 }

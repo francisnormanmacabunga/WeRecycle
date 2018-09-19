@@ -17,20 +17,23 @@ class FeedbackController extends Controller
      */
     public function index()
     {
-      if (request()->has('rating')){
-        $feedback = feedbackTable::SELECT('*')
+    /**  if (request()->has('rating')){
+        $feedbacks = feedbackTable::SELECT('*')
         -> join('user', 'feedback.userID', '=', 'user.userID')
         -> sortable()
         -> paginate(5);
       } else {
-        $feedback = feedbackTable::SELECT('*')
+        $feedbacks = feedbackTable::SELECT('*')
         -> join('user', 'feedback.userID', '=', 'user.userID')
 
         -> sortable()
         -> paginate(5);
-      }
-
-        return view('usersFeedback.indexFeedback', compact('feedback'));
+      } */
+      $feedbacks = DB::table('feedback')
+      -> select('*')
+      -> join('user', 'user.userID', '=', 'feedback.userID')
+      -> get();
+        return view('usersFeedback.index', compact('feedbacks'));
     }
 
     /**
@@ -40,7 +43,7 @@ class FeedbackController extends Controller
      */
     public function create()
     {
-      return view('usersFeedback.createFeedback');
+      return view('usersFeedback.create');
     }
 
     /**

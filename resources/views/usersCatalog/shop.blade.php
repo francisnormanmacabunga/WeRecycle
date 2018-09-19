@@ -5,7 +5,7 @@
 
   <div class="row">
     <div class="col-lg-3">
-    <h1>Donation</h1>
+    <h1>Fertilizer</h1>
     <div class="list-group">
         <a href="/donationCatalog" class="list-group-item">Donation</a>
         <a href="/shopCatalog" class="list-group-item">Fertilizer</a>
@@ -15,9 +15,8 @@
     <div class="col-lg-9">
       <div class="row">
 
-
-      @if(count($products1) > 0)
-        @foreach ($products1 as $products)
+        @if(count($products2) > 0)
+          @foreach ($products2 as $products)
         <div class="col-lg-4 col-md-6 mb-4">
           <div class="card h-50">
           <a href="#"><img src="{{ asset('images/' . $products->productimage) }}"></a>
@@ -36,10 +35,12 @@
       @endforeach
       @else
         <div align="center" style="color:red;">
-          <h3>No donation items found.</h3>
+          <h3>No fertilizers available.</h3>
         </div>
       @endif
+
       </div>
     </div>
   </div>
+
 @endsection

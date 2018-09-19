@@ -20,6 +20,7 @@ class CatalogController extends Controller
       ->select('*')
       -> join('productstype', 'productstype.productstypeID', '=', 'products.productstypeID')
       -> where('productstype.productstypeID','1')
+
       ->get();
 
       $products2 = DB::table('products')
@@ -49,8 +50,8 @@ class CatalogController extends Controller
      */
     public function store(Request $request)
     {
-      $filename = $request->file('productimage')->getClientOriginalName();
-      $moveImage = $request->file('productimage')->move('images', $filename);
+     $filename = $request->file('productimage')->getClientOriginalName();
+     $moveImage = $request->file('productimage')->move('images', $filename);
 
       $products = new productsTable();
       $products->productstypeID = $request->input('productstypeID');

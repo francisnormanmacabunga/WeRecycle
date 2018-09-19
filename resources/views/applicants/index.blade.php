@@ -21,6 +21,7 @@
       </a>
       <br/>
       <br/>
+      @if(count($applicants) > 0)
       <table class="table table-bordered">
         <tr>
           <th>Name</th>
@@ -46,6 +47,9 @@
             <th><a class="btn btn-lg btn-block btn-primary" href="/applicants/{{$applicant->userID}}/edit" role="button">Update Status </a></th>
         @endforeach
       </table>
+    @else
+      <h3 style="color:red;" align="center">No applicants found.</h3>
+    @endif
       {{$applicants->links()}}
     </div>
   </div>

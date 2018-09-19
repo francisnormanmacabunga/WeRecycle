@@ -4,6 +4,6 @@
     <a class="p-2 text-dark" href="/indexUser">Home</a>
     <a class="p-2 text-dark" href="/donationCatalog">Catalog</a>
     <a class="p-2 text-dark" href="/donors">Edit Profile</a>
-    <a class="p-2 text-dark" href="#">Logout</a>
+    <a class="p-2 text-dark" href="/userLogout">Logout</a>
   </nav>
 </div>

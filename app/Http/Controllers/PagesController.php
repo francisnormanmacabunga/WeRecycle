@@ -3,15 +3,23 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use Session;
 class PagesController extends Controller
 {
     public function index(){
       return view('pages.index');
     }
 
+    
+    public function login(){
+      return view('login.login');
+    }
+
     public function indexUser(){
-      return view('pages.indexUser');
+        return view('pages.indexUser');
+      }
+
+
     }
 
     public function indexAC(){

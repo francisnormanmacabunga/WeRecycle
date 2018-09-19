@@ -8,7 +8,7 @@ use Exception;
 use App\userTable;
 use App\contactsTable;
 use Illuminate\Validation\Rule;
-
+use Session;
 
 class DonorsController extends Controller
 {
@@ -21,7 +21,7 @@ class DonorsController extends Controller
     {
       $donors = userTable::SELECT('*')
       -> join('contacts', 'contacts.userID', '=', 'user.userID')
-      -> where('usertypeID', '1')
+      -> where('username', session::pull('username'))
       -> get();
 
       return view('users.index', compact('donors'));

@@ -17,7 +17,7 @@
           <th>Address</th>
           <th>Barangay</th>
           <th>Cellphone Number</th>
-          <th>Tellphone Number</th>
+          <th>Telephone Number</th>
           <th>@sortablelink('created_at', 'Date Applied')</th>
           <th>@sortablelink('status', 'Status')</th>
           <th>Action</th>

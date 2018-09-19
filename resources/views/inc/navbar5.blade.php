@@ -23,6 +23,12 @@
           <a class="dropdown-item" href="/catalog"> Manage Catalog </a>
         </div>
       </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="https://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Feedback</a>
+        <div class="dropdown-menu" aria-labelledby="dropdown01">
+          <a class="dropdown-item" href="/feedback"> Manage Feedback</a>
+        </div>
+      </li>
     </ul>
   </div>
 </nav>

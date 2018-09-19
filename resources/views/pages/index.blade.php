@@ -6,6 +6,7 @@
     <p class="lead">This is WeRecycle!</p>
     <a class="btn btn-success btn-lg" href="/loginDonor" role="button">Login </a>
     <a class="btn btn-lg btn-primary" href="/createDonor" role="button">Register </a>
+    <h1>fas</h1>
   </div>
 
   <div class="jumbotron mt-3 text-center">

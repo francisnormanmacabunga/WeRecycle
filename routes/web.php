@@ -21,9 +21,16 @@ Route::get('/createApplicant', 'PagesController@createApplicant');
 Route::get('/createDonor', 'PagesController@createDonor');
 Route::get('/createEmployee', 'PagesController@createEmployee');
 Route::resource('/applicants', 'ApplicantsController');
+
 Route::resource('/donors', 'DonorsController');
 Route::resource('/A_password', 'DonorsPasswordController');
 Route::resource('/status', 'DonorsStatusController');
+
+Route::get('/donationCatalog','DonorsCatalogController@donationCatalog');
+Route::get('/shopCatalog','DonorsCatalogController@shopCatalog');
+
+
+
 Route::resource('/employees', 'EmployeesController');
 Route::resource('/activity_coordinators', 'ActivityCoordinatorsController');
 Route::resource('/AC_password', 'ActivityCoordinatorsPasswordController');

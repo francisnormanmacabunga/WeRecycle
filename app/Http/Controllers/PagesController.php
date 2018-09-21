@@ -10,17 +10,13 @@ class PagesController extends Controller
       return view('pages.index');
     }
 
+    //public function login(){
+      //return view('login.login');
+    //}
 
-    public function login(){
-      return view('login.login');
-    }
-
-    public function indexUser(){
-        return view('pages.indexUser');
-      }
-
-
-  
+    //public function indexUser(){
+        //return view('pages.indexUser');
+    //}
 
     public function indexAC(){
       return view('pages.indexAC');

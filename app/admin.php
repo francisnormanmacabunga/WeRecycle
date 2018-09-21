@@ -5,11 +5,11 @@ namespace App;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class user extends Authenticatable
+class admin extends Authenticatable
 {
     use Notifiable;
 
-    protected $guard = 'user';
+    protected $guard = 'admin';
     protected $table = 'user';
     protected $primaryKey = 'userID';
     public $timestamps = true;

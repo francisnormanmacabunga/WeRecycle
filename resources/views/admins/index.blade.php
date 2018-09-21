@@ -1,5 +1,5 @@
-@extends('layouts.backend')
-@include('inc.navbar5')
+@extends('inc.navbar5')
+
 @section('content')
 
   <div class="jumbotron mt-3 text-center">

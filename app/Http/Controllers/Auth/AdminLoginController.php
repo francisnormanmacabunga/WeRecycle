@@ -25,7 +25,10 @@ class AdminLoginController extends Controller
       'password' => 'required'
     ]);
 
-    if (Auth::guard('admin')->attempt(['username' => $request->username, 'password' => $request->password], $request->remember)) {
+    if (Auth::guard('admin')->attempt(['username' => $request->username,
+    'password' => $request->password, 'usertypeID' => 5], $request->remember))
+
+    {
       return redirect()->intended(route('admin.dashboard'));
     }
 

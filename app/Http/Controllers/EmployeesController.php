@@ -11,6 +11,14 @@ use DB;
 
 class EmployeesController extends Controller
 {
+
+  public function __construct()
+  {
+      $this->middleware('auth:admin');
+  }
+
+
+
     /**
      * Display a listing of the resource.
      *
@@ -25,7 +33,8 @@ class EmployeesController extends Controller
         -> orwhere('usertype.usertypeID', '4')
         -> sortable()
         -> paginate(5);
-        
+
+
         return view('employees.index', compact('employee'));
     }
 
@@ -105,7 +114,7 @@ class EmployeesController extends Controller
       $contacts->cellNo = $request->input('cellNo');
       $contacts->tellNo = $request->input('tellNo');
       $contacts->save();
-      return redirect('/indexAdmin')->with('success', 'Profile Created');
+      return redirect('/employees')->with('success', 'Profile Created');
     }
 
     /**

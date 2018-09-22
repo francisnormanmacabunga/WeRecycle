@@ -36,5 +36,20 @@ class AdminController extends Controller
         return view('employees.index');
     }
 
+    public function createCatalog()
+    {
+        return view('catalog.create');
+    }
+
+    public function catalog()
+    {
+        return view('catalog.index');
+    }
+
+    public function feedback()
+    {
+        return view('usersFeedback.index');
+    }
+
 
 }

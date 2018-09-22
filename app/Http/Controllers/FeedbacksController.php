@@ -5,11 +5,16 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 use App\userTable;
-use App\feedbackTable;
+use App\feedbacksTable;
 use DB;
 
-class FeedbackController extends Controller
+class FeedbacksController extends Controller
 {
+
+  public function __construct()
+  {
+      $this->middleware('auth:admin');
+  }
     /**
      * Display a listing of the resource.
      *
@@ -63,7 +68,7 @@ class FeedbackController extends Controller
       'rating.min' => 'The rating field must be atleast 1 digit.',
       'rating.max' => 'The rating field must not be more than 1 digit.'
     ]);
-      $feedback = new feedbackTable();
+      $feedback = new feedbacksTable();
       //$feedback->userID = (Select from user where userID = session('username'))
       $feedback->feedback = $request->input('feedback');
       $feedback->rating = $request->input('rating');

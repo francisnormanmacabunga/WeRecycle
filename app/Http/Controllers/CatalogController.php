@@ -9,6 +9,11 @@ use DB;
 
 class CatalogController extends Controller
 {
+
+  public function __construct()
+  {
+      $this->middleware('auth:admin');
+  }
     /**
      * Display a listing of the resource.
      *
@@ -62,7 +67,7 @@ class CatalogController extends Controller
       $products->status = $request->input('status');
 
       $products->save();
-      return redirect('/catalog')->with('success', 'Item added');
+      return redirect('/admin/catalog')->with('success', 'Item added');
     }
 
 
@@ -101,7 +106,7 @@ class CatalogController extends Controller
       $products = productsTable::find($id);
       $products->status = $request->input('status');
       $products->save();
-      return redirect('/catalog')->with('success', 'Item updated');
+      return redirect('/admin/catalog')->with('success', 'Item updated');
     }
 
     /**

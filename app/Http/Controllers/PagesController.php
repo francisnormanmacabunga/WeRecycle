@@ -14,9 +14,9 @@ class PagesController extends Controller
       //return view('login.login');
     //}
 
-    //public function indexUser(){
-        //return view('pages.indexUser');
-    //}
+    public function indexUser(){
+        return view('pages.indexUser');
+    }
 
     public function indexAC(){
       return view('pages.indexAC');

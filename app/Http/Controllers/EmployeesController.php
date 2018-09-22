@@ -114,7 +114,7 @@ class EmployeesController extends Controller
       $contacts->cellNo = $request->input('cellNo');
       $contacts->tellNo = $request->input('tellNo');
       $contacts->save();
-      return redirect('/employees')->with('success', 'Profile Created');
+      return redirect('/admin/employees')->with('success', 'Profile Created');
     }
 
     /**
@@ -152,7 +152,7 @@ class EmployeesController extends Controller
       $post = userTable::find($id);
       $post->status = $request->input('status');
       $post->save();
-      return redirect('/employees')->with('success', 'Profile updated');
+      return redirect('/admin/employees')->with('success', 'Profile updated');
     }
 
     /**

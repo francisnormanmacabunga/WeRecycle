@@ -1,5 +1,5 @@
 @extends('layouts.frontend')
-@include('inc.navbar3')
+@include('layouts.donor-nav')
 
 @section('content')
 
@@ -7,8 +7,8 @@
     <div class="col-lg-3">
     <h1>Donation</h1>
     <div class="list-group">
-        <a href="/donationCatalog" class="list-group-item">Donation</a>
-        <a href="/shopCatalog" class="list-group-item">Fertilizer</a>
+        <a href="/donor/donationCatalog" class="list-group-item">Donation</a>
+        <a href="/donor/shopCatalog" class="list-group-item">Fertilizer</a>
     </div>
 
     </div>
@@ -19,7 +19,7 @@
       @if(count($products1) > 0)
         @foreach ($products1 as $products)
         <div class="col-lg-4 col-md-6 mb-4">
-          <div class="card h-50">
+          <div class="card h-100">
           <a href="#"><img src="{{ asset('images/' . $products->productimage) }}"></a>
             <a href="#"></a>
             <div class="card-body">

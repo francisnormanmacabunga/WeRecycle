@@ -8,6 +8,12 @@ use App\productsTable;
 
 class DonorsCatalogController extends Controller
 {
+
+  public function __construct()
+  {
+      $this->middleware('auth:donor');
+  }
+  
   public function donationCatalog(){
 
     $products1 = productsTable::SELECT('*')

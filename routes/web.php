@@ -10,40 +10,49 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+
+//Route::get('/createEmployee', 'PagesController@createEmployee');
+//Route::resource('/employees', 'EmployeesController');
+//Route::get('createCatalog', 'PagesController@createCatalog');
+//Route::resource('/catalog', 'CatalogController');
+//Route::resource('/feedback', 'FeedbackController');
+//Route::get('/donationCatalog','DonorsCatalogController@donationCatalog');
+//Route::get('/shopCatalog','DonorsCatalogController@shopCatalog');
+
+
+
+
 Route::get('/', 'PagesController@index');
 Route::get('/indexUser', 'PagesController@indexUser');
 Route::get('/indexAC', 'PagesController@indexAC');
 Route::get('/indexPD', 'PagesController@indexPD');
 Route::get('/indexAdmin', 'PagesController@indexAdmin');
 
+
 Route::get('/createApplicant', 'PagesController@createApplicant');
 Route::get('/createDonor', 'PagesController@createDonor');
-//Route::get('/createEmployee', 'PagesController@createEmployee');
+Route::get('/createFeedback', 'PagesController@createFeedback');
 
 Route::resource('/applicants', 'ApplicantsController');
 Route::resource('/donors', 'DonorsController');
 Route::resource('/A_password', 'DonorsPasswordController');
 Route::resource('/status', 'DonorsStatusController');
 
-Route::get('/donationCatalog','DonorsCatalogController@donationCatalog');
-Route::get('/shopCatalog','DonorsCatalogController@shopCatalog');
 
-//Route::resource('/employees', 'EmployeesController');
+
 Route::resource('/activity_coordinators', 'ActivityCoordinatorsController');
 Route::resource('/AC_password', 'ActivityCoordinatorsPasswordController');
 Route::resource('/program_directors', 'ProgramDirectorsController');
 Route::resource('/PD_password', 'ProgramDirectorsPasswordController');
 
-//Route::get('createCatalog', 'PagesController@createCatalog');
-//Route::resource('/catalog', 'CatalogController');
 
-Route::get('/createFeedback', 'PagesController@createFeedback');
 
-//Route::resource('/feedback', 'FeedbackController');
+
 
 
 Auth::routes();
-Route::get('/home', 'HomeController@index');//->name('home');
+Route::get('/home', 'HomeController@index')->name('home');
 
 
 Route::prefix('admin')->group(function() {
@@ -56,3 +65,19 @@ Route::prefix('admin')->group(function() {
   Route::get('/createEmployee', 'AdminController@createEmployee');
   Route::get('/', 'AdminController@index')->name('admin.dashboard');
 });
+
+
+
+
+
+
+Route::prefix('donor')->group(function() {
+  Route::get('/login','DonorAuth\DonorLoginController@showLoginForm')->name('donor.login');
+  Route::post('/login','DonorAuth\DonorLoginController@login')->name('donor.login.submit');
+
+
+  Route::get('/createFeedback', 'FeedbacksController@create');
+  Route::get('/donationCatalog','DonorsCatalogController@donationCatalog');
+  Route::get('/shopCatalog','DonorsCatalogController@shopCatalog');
+  Route::get('/', 'DonorController@index')->name('donor.dashboard');
+  });

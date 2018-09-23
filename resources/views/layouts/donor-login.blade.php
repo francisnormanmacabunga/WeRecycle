@@ -22,9 +22,9 @@
 </head>
 <body>
     <div id="app">
-      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
             <div class="container">
-                <a class="navbar-brand" href="{{ url('/admin') }}">
+                <a class="navbar-brand" href="{{ url('/') }}">
                     {{ config('app.name', 'Laravel') }}
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
@@ -35,35 +35,13 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
 
-
-                      <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="https://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Employee</a>
-                        <div class="dropdown-menu" aria-labelledby="dropdown01">
-                          <a class="dropdown-item" href="/admin/createEmployee"> Create Employee Account </a>
-                          <a class="dropdown-item" href="/admin/employees"> Manage Employee Account </a>
-                        </div>
-                      </li>
-                      <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="https://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Catalog</a>
-                        <div class="dropdown-menu" aria-labelledby="dropdown01">
-                          <a class="dropdown-item" href="/admin/createCatalog"> Create Catalog </a>
-                          <a class="dropdown-item" href="/admin/catalog"> Manage Catalog </a>
-                        </div>
-                      </li>
-                      <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="https://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Feedback</a>
-                        <div class="dropdown-menu" aria-labelledby="dropdown01">
-                          <a class="dropdown-item" href="/admin/feedback"> Manage Feedback</a>
-                        </div>
-                      </li>
-
                     </ul>
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
                         @guest
-                <!--            <li class="nav-item">
+                  <!--          <li class="nav-item">
                                 <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
                             </li>
                             <li class="nav-item">

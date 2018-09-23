@@ -25,6 +25,12 @@ class RedirectIfAuthenticated
           }
           break;
 
+          case 'donor':
+            if (Auth::guard($guard)->check()) {
+              return redirect()->route('donor.dashboard');
+            }
+            break;
+
         default:
           if (Auth::guard($guard)->check()) {
             return redirect()->route('/home');

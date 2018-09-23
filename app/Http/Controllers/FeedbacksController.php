@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 use App\userTable;
 use App\feedbacksTable;
+
 use DB;
 
 class FeedbacksController extends Controller
@@ -13,7 +14,17 @@ class FeedbacksController extends Controller
 
   public function __construct()
   {
-      $this->middleware('auth:admin');
+      $this->middleware('auth:admin', ['only'=> [
+        'index',
+
+
+        ]]);
+
+        $this->middleware('auth:donor', ['except'=> [
+          'index',
+
+
+          ]]);
   }
     /**
      * Display a listing of the resource.
@@ -34,6 +45,11 @@ class FeedbacksController extends Controller
         -> sortable()
         -> paginate(5);
       } */
+
+
+
+
+
       $feedbacks = DB::table('feedback')
       -> select('*')
       -> join('user', 'user.userID', '=', 'feedback.userID')
@@ -74,7 +90,7 @@ class FeedbacksController extends Controller
       $feedback->rating = $request->input('rating');
 
       $feedback->save();
-      return redirect('/indexAdmin')->with('success', 'Thanks for the feedback!');
+      return redirect('/donor')->with('success', 'Thanks for the feedback!');
     }
 
     /**

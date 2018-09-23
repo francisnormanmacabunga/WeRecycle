@@ -56,6 +56,16 @@ return [
             'provider' => 'admins',
         ],
 
+        'donor' => [
+            'driver' => 'session',
+            'provider' => 'donors',
+        ],
+
+        'donor-api' => [
+            'driver' => 'token',
+            'provider' => 'donors',
+        ],
+
     ],
 
     /*
@@ -84,6 +94,11 @@ return [
         'admins' => [
             'driver' => 'eloquent',
             'model' => App\admin::class,
+        ],
+
+        'donors' => [
+            'driver' => 'eloquent',
+            'model' => App\donor::class,
         ],
 
         // 'users' => [
@@ -116,6 +131,12 @@ return [
 
         'admins' => [
             'provider' => 'admins',
+            'table' => 'password_resets',
+            'expire' => 60,
+        ],
+
+        'donors' => [
+            'provider' => 'donors',
             'table' => 'password_resets',
             'expire' => 60,
         ],

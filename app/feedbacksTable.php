@@ -12,4 +12,10 @@ class feedbacksTable extends Model
   protected $primaryKey = 'feedbackID';
   public $timestamps = false;
 
+
+  //public function user()
+  //{
+    //return $this->belongsTo('App\userTable','userID');
+  //}
+
 }

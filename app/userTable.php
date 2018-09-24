@@ -26,4 +26,9 @@ class userTable extends Model
     return $this->hasOne('App\contactsTable','userID');
     }
 
+    //public function feedbacks()
+    //{
+    //return $this->hasMany('App\feedbacksTable','userID');
+    //}
+
 }

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 use App\userTable;
 use App\feedbacksTable;
+use Auth;
 
 use DB;
 
@@ -88,8 +89,9 @@ class FeedbacksController extends Controller
       //$feedback->userID = (Select from user where userID = session('username'))
       $feedback->feedback = $request->input('feedback');
       $feedback->rating = $request->input('rating');
-
+      $feedback->userID = auth()->user()->userID;
       $feedback->save();
+
       return redirect('/donor')->with('success', 'Thanks for the feedback!');
     }
 

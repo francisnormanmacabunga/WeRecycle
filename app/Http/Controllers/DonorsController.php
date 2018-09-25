@@ -27,19 +27,14 @@ class DonorsController extends Controller
      */
     public function index()
     {
-      //$userID = auth()->user()->userID;
-      //$user = userTable::find($userID)
+
+
+
       //$donors = userTable::SELECT('*')
       //-> join('contacts', 'contacts.userID', '=', 'user.userID')
       //-> get();
+      $donors = Auth::user()->contacts->firstname;
 
-      //return view('users.index')->with('donors',$user->donors);
-
-      //return view('users.index', compact('donors'));
-      //return view('users.index', compact('donors'));
-
-      $donors = Auth::user();
-      //$donors = userTable::SELECT('*')
 
       return view('users.index')->with(['donors' => $donors]);
 
@@ -121,7 +116,7 @@ class DonorsController extends Controller
       $contacts->cellNo = $request->input('cellNo');
       $contacts->tellNo = $request->input('tellNo');
       $contacts->save();
-      return redirect('/indexUser')->with('success', 'Profile Created');
+      return redirect('/donor/login')->with('success', 'Profile Created');
     }
 
     /**

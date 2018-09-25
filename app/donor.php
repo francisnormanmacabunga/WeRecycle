@@ -30,7 +30,7 @@ class donor extends Authenticatable
 
     public function contacts()
     {
-    return $this->hasOne('App\contactsTable');
+    return $this->hasOne('App\contactsTable', 'userID');
     }
 
 

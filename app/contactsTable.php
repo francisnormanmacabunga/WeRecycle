@@ -11,9 +11,14 @@ class contactsTable extends Model
   protected $primaryKey = 'contactID';
   public $timestamps = false;
 
+  //public function user()
+  //{
+    //return $this->belongsTo('App\userTable','userID');
+  //}
+
   public function user()
   {
-    return $this->belongsTo('App\userTable','userID');
+    return $this->belongsTo('App\donor','userID');
   }
 
 }

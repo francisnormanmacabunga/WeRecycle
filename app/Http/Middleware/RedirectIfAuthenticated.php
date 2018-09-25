@@ -31,6 +31,12 @@ class RedirectIfAuthenticated
             }
             break;
 
+            case 'activitycoordinator':
+              if (Auth::guard($guard)->check()) {
+                return redirect()->route('ac.dashboard');
+              }
+              break;
+
         default:
           if (Auth::guard($guard)->check()) {
             return redirect()->route('/home');

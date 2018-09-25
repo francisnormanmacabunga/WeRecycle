@@ -1,21 +1,21 @@
 <?php
 
-namespace App\Http\Controllers\DonorAuth;
+namespace App\Http\Controllers\ACAuth;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Auth;
 
-class DonorLoginController extends Controller
+class ACLoginController extends Controller
 {
   public function __construct()
   {
-    $this->middleware('guest:donor');
+    $this->middleware('guest:activitycoordinator');
   }
 
   public function showLoginForm()
   {
-    return view('donors-auth.donor-login');
+    return view('ac-auth.ac-login');
   }
 
   public function login(Request $request)
@@ -26,11 +26,11 @@ class DonorLoginController extends Controller
     ]);
 
 
-    if (Auth::guard('donor')->attempt(['username' => $request->username,
-    'password' => $request->password, 'usertypeID' => 1], $request->remember))
+    if (Auth::guard('activitycoordinator')->attempt(['username' => $request->username,
+    'password' => $request->password, 'usertypeID' => 3], $request->remember))
 
     {
-      return redirect()->intended(route('donor.dashboard'));
+      return redirect()->intended(route('ac.dashboard'));
     }
 
     return redirect()->back()->withInput($request->only('username','remember'));

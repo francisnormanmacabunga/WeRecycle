@@ -66,6 +66,16 @@ return [
             'provider' => 'donors',
         ],
 
+        'activitycoordinator' => [
+            'driver' => 'session',
+            'provider' => 'activitycoordinators',
+        ],
+
+        'activitycoordinator-api' => [
+            'driver' => 'token',
+            'provider' => 'activitycoordinators',
+        ],
+
     ],
 
     /*
@@ -99,6 +109,11 @@ return [
         'donors' => [
             'driver' => 'eloquent',
             'model' => App\donor::class,
+        ],
+
+        'activitycoordinators' => [
+            'driver' => 'eloquent',
+            'model' => App\activitycoordinator::class,
         ],
 
         // 'users' => [
@@ -137,6 +152,12 @@ return [
 
         'donors' => [
             'provider' => 'donors',
+            'table' => 'password_resets',
+            'expire' => 60,
+        ],
+
+        'activitycoordinators' => [
+            'provider' => 'activitycoordinators',
             'table' => 'password_resets',
             'expire' => 60,
         ],

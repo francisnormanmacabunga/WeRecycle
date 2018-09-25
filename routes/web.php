@@ -35,7 +35,7 @@ Route::get('/indexAdmin', 'PagesController@indexAdmin');
 Route::get('/createApplicant', 'PagesController@createApplicant');
 Route::get('/createDonor', 'PagesController@createDonor');
 
-Route::resource('/applicants', 'ApplicantsController');
+//Route::resource('/applicants', 'ApplicantsController');
 //Route::resource('/donors', 'DonorsController');
 Route::resource('/A_password', 'DonorsPasswordController');
 Route::resource('/status', 'DonorsStatusController');
@@ -76,3 +76,14 @@ Route::prefix('donor')->group(function() {
   Route::get('/shopCatalog','DonorsCatalogController@shopCatalog');
   Route::get('/', 'DonorController@index')->name('donor.dashboard');
   });
+
+
+
+  Route::prefix('activitycoordinator')->group(function() {
+    Route::get('/login','ACAuth\ACLoginController@showLoginForm')->name('ac.login');
+    Route::post('/login','ACAuth\ACLoginController@login')->name('ac.login.submit');
+
+
+    Route::resource('/applicants', 'ApplicantsController');
+    Route::get('/', 'ActivityCoordinatorController@index')->name('ac.dashboard');
+    });

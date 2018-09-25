@@ -1,5 +1,5 @@
 @extends('layouts.frontend')
-@include('inc.navbar4')
+@include('layouts.navbar4')
 
 @section('content')
 

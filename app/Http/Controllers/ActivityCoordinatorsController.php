@@ -10,6 +10,11 @@ use DB;
 
 class ActivityCoordinatorsController extends Controller
 {
+
+  public function __construct()
+  {
+      $this->middleware('auth:activitycoordinator');
+  }
     /**
      * Display a listing of the resource.
      *
@@ -23,7 +28,7 @@ class ActivityCoordinatorsController extends Controller
       -> get();
       return view('activity_coordinators.index', compact('donors'));
 
-      
+
     }
 
     /**

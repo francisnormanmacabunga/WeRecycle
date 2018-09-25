@@ -13,7 +13,17 @@ class ApplicantsController extends Controller
 
   public function __construct()
   {
-      $this->middleware('auth:activitycoordinator');
+      //$this->middleware('auth:activitycoordinator');
+
+      $this->middleware('guest', ['only'=> [
+        'create',
+        'store'
+        ]]);
+
+        $this->middleware('auth:activitycoordinator', ['except'=> [
+          'create',
+          'store'
+          ]]);
   }
     /**
      * Display a listing of the resource.
@@ -162,7 +172,7 @@ class ApplicantsController extends Controller
         $post = userTable::find($id);
         $post->status = $request->input('status');
         $post->save();
-        return redirect('/applicants')->with('success', 'Profile updated');
+        return redirect('/activitycoordinator/applicants')->with('success', 'Profile updated');
     }
 
     /**

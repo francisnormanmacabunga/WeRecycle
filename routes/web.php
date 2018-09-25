@@ -86,7 +86,7 @@ Route::prefix('donor')->group(function() {
     Route::get('/login','ACAuth\ACLoginController@showLoginForm')->name('ac.login');
     Route::post('/login','ACAuth\ACLoginController@login')->name('ac.login.submit');
 
-
+    Route::resource('/activity_coordinators', 'ActivityCoordinatorsController');
     Route::resource('/applicants', 'ApplicantsController');
     Route::get('/', 'ActivityCoordinatorController@index')->name('ac.dashboard');
   });

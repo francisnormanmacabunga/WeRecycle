@@ -7,6 +7,7 @@ use App\usertypeTable;
 use App\userTable;
 use App\contactsTable;
 use DB;
+use Auth;
 
 class ActivityCoordinatorsController extends Controller
 {
@@ -22,12 +23,14 @@ class ActivityCoordinatorsController extends Controller
      */
     public function index()
     {
-      $donors = userTable::SELECT('*')
-      -> join('contacts', 'contacts.userID', '=', 'user.userID')
-      -> where('usertypeID', '3')
-      -> get();
-      return view('activity_coordinators.index', compact('donors'));
+      //$donors = userTable::SELECT('*')
+      //-> join('contacts', 'contacts.userID', '=', 'user.userID')
+      //-> where('usertypeID', '3')
+      //-> get();
+      //return view('activity_coordinators.index', compact('donors'));
 
+      $donors = Auth::user();
+      return view('activity_coordinators.index')->with(['donors' => $donors]);
 
     }
 

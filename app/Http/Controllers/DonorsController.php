@@ -18,7 +18,17 @@ class DonorsController extends Controller
 {
   public function __construct()
   {
-      $this->middleware('auth:donor');
+      //$this->middleware('auth:donor');
+
+      $this->middleware('guest', ['only'=> [
+        'create',
+        'store'
+        ]]);
+
+        $this->middleware('auth:donor', ['except'=> [
+          'create',
+          'store'
+          ]]);
   }
     /**
      * Display a listing of the resource.
@@ -27,21 +37,15 @@ class DonorsController extends Controller
      */
     public function index()
     {
-
-
-
       //$donors = userTable::SELECT('*')
       //-> join('contacts', 'contacts.userID', '=', 'user.userID')
       //-> get();
-      $user = Auth::user();
       //$donors = DB::SELECT('SELECT * FROM user INNER JOIN contacts ON contacts.userID = user.userID WHERE user.username = "ShaneDawson"');
-
+      //$donors = Auth::user()
+      //return view('users.index')->with(['donors' => $donors]);
 
       $donors = Auth::user();
-      //$donors = Auth::user()
-
-      //return view('users.index')->with(['donors' => $donors]);
-      return view('users.index')->with(['donors' => $user]);
+      return view('users.index')->with(['donors' => $donors]);
     }
 
     /**

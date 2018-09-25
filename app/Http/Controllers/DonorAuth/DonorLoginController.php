@@ -27,7 +27,7 @@ class DonorLoginController extends Controller
 
 
     if (Auth::guard('donor')->attempt(['username' => $request->username,
-    'password' => $request->password, 'usertypeID' => 1], $request->remember))
+    'password' => $request->password, 'usertypeID' => 1, 'status' => 'Activated'], $request->remember))
 
     {
       return redirect()->intended(route('donor.dashboard'));

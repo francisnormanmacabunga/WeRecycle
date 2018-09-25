@@ -1,5 +1,5 @@
 @extends('layouts.frontend')
-@include('inc.navbar4')
+@include('layouts.pd-nav')
 
 @section('content')
 

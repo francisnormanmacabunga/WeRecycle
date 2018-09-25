@@ -31,6 +31,12 @@ class RedirectIfAuthenticated
             }
             break;
 
+            case 'programdirector':
+              if (Auth::guard($guard)->check()) {
+                return redirect()->route('pd.dashboard');
+              }
+              break;
+
         default:
           if (Auth::guard($guard)->check()) {
             return redirect()->route('/home');

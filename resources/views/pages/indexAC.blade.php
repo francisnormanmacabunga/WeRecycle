@@ -1,5 +1,5 @@
 @extends('layouts.frontend')
-@include('inc.navbar2')
+@include('pd.nav')
 @section('content')
   <h3>Welcome Activity Coordinator</h3>
 @endsection

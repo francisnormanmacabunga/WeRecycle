@@ -42,8 +42,8 @@ Route::resource('/status', 'DonorsStatusController');
 
 Route::resource('/activity_coordinators', 'ActivityCoordinatorsController');
 Route::resource('/AC_password', 'ActivityCoordinatorsPasswordController');
-Route::resource('/program_directors', 'ProgramDirectorsController');
-Route::resource('/PD_password', 'ProgramDirectorsPasswordController');
+//Route::resource('/program_directors', 'ProgramDirectorsController');
+//Route::resource('/PD_password', 'ProgramDirectorsPasswordController');
 
 
 
@@ -76,3 +76,16 @@ Route::prefix('donor')->group(function() {
   Route::get('/shopCatalog','DonorsCatalogController@shopCatalog');
   Route::get('/', 'DonorController@index')->name('donor.dashboard');
   });
+
+
+
+  Route::prefix('programdirector')->group(function() {
+    Route::get('/login','PDAuth\PDLoginController@showLoginForm')->name('pd.login');
+    Route::post('/login','PDAuth\PDLoginController@login')->name('pd.login.submit');
+    Route::resource('/program_directors', 'ProgramDirectorsController');
+    Route::resource('/PD_password', 'ProgramDirectorsPasswordController');
+
+
+
+    Route::get('/', 'ProgramDirectorController@index')->name('pd.dashboard');
+    });

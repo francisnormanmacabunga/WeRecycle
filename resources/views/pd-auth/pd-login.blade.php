@@ -5,10 +5,10 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header"> Donor Login</div>
+                <div class="card-header"> Program Director Login</div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('donor.login.submit') }}" aria-label="{{ __('Login') }}">
+                    <form method="POST" action="{{ route('pd.login.submit') }}" aria-label="{{ __('Login') }}">
                         @csrf
 
                         <div class="form-group row">

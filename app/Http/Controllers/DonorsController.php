@@ -33,11 +33,12 @@ class DonorsController extends Controller
       //$donors = userTable::SELECT('*')
       //-> join('contacts', 'contacts.userID', '=', 'user.userID')
       //-> get();
-      $donors = Auth::user()->contacts->firstname;
+      $user = Auth::user();
+      //$donors = DB::SELECT('SELECT * FROM user INNER JOIN contacts ON contacts.userID = user.userID WHERE user.username = "ShaneDawson"');
 
 
-      return view('users.index')->with(['donors' => $donors]);
-
+      //return view('users.index')->with(['donors' => $donors]);
+      return view('users.index')->with(['donors' => $user]);
     }
 
     /**

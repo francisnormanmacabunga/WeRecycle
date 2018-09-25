@@ -13,7 +13,7 @@
     <p class="lead">Under Construction!</p>
     <a class="btn btn-success btn-lg" href="/indexUser" role="button">Go to User Page</a>
     <a class="btn btn-success btn-lg" href="/indexAC" role="button">Go to AC Page</a>
-    <a class="btn btn-success btn-lg" href="/indexPD" role="button">Go to PD Page</a>
+    <a class="btn btn-success btn-lg" href="/programdirector/login" role="button">Go to PD Page</a>
     <a class="btn btn-success btn-lg" href="/indexAdmin" role="button">Go to Admin Page</a>
   </div>
 @endsection

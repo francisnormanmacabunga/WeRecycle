@@ -7,9 +7,15 @@ use App\usertypeTable;
 use App\userTable;
 use App\contactsTable;
 use DB;
-
+use Auth;
 class ProgramDirectorsController extends Controller
 {
+
+  public function __construct()
+  {
+      $this->middleware('auth:programdirector');
+  }
+
     /**
      * Display a listing of the resource.
      *
@@ -17,11 +23,13 @@ class ProgramDirectorsController extends Controller
      */
     public function index()
     {
-      $donors = userTable::SELECT('*')
+      /*$donors = userTable::SELECT('*')
       -> join('contacts', 'contacts.userID', '=', 'user.userID')
       -> where('usertypeID', '4')
-      -> get();
-      return view('program_directors.index', compact('donors'));
+      -> get();*/
+    $donors =  Auth::user();
+
+      return view('users.index')->with(['donors' =>$donors]);
     }
 
     /**

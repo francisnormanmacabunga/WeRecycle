@@ -66,6 +66,16 @@ return [
             'provider' => 'donors',
         ],
 
+        'programdirector' => [
+            'driver' => 'session',
+            'provider' => 'programdirectors',
+        ],
+
+        'programdirector-api' => [
+            'driver' => 'token',
+            'provider' => 'programdirectors',
+        ],
+
     ],
 
     /*
@@ -101,6 +111,10 @@ return [
             'model' => App\donor::class,
         ],
 
+        'programdirectors' => [
+            'driver' => 'eloquent',
+            'model' => App\programdirector::class,
+        ],
         // 'users' => [
         //     'driver' => 'database',
         //     'table' => 'users',
@@ -140,6 +154,13 @@ return [
             'table' => 'password_resets',
             'expire' => 60,
         ],
+
+        'programdirectors' => [
+            'provider' => 'programdirectors',
+            'table' => 'password_resets',
+            'expire' => 60,
+        ],
+
 
     ],
 

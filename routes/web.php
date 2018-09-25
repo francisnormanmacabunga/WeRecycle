@@ -42,8 +42,8 @@ Route::resource('/status', 'DonorsStatusController');
 
 Route::resource('/activity_coordinators', 'ActivityCoordinatorsController');
 Route::resource('/AC_password', 'ActivityCoordinatorsPasswordController');
-Route::resource('/program_directors', 'ProgramDirectorsController');
-Route::resource('/PD_password', 'ProgramDirectorsPasswordController');
+//Route::resource('/program_directors', 'ProgramDirectorsController');
+//Route::resource('/PD_password', 'ProgramDirectorsPasswordController');
 
 
 
@@ -79,6 +79,7 @@ Route::prefix('donor')->group(function() {
 
 
 
+<<<<<<< HEAD
   Route::prefix('activitycoordinator')->group(function() {
     Route::get('/login','ACAuth\ACLoginController@showLoginForm')->name('ac.login');
     Route::post('/login','ACAuth\ACLoginController@login')->name('ac.login.submit');
@@ -86,4 +87,15 @@ Route::prefix('donor')->group(function() {
 
     Route::resource('/applicants', 'ApplicantsController');
     Route::get('/', 'ActivityCoordinatorController@index')->name('ac.dashboard');
+=======
+  Route::prefix('programdirector')->group(function() {
+    Route::get('/login','PDAuth\PDLoginController@showLoginForm')->name('pd.login');
+    Route::post('/login','PDAuth\PDLoginController@login')->name('pd.login.submit');
+    Route::resource('/program_directors', 'ProgramDirectorsController');
+    Route::resource('/PD_password', 'ProgramDirectorsPasswordController');
+
+
+
+    Route::get('/', 'ProgramDirectorController@index')->name('pd.dashboard');
+>>>>>>> f9adf8b4020331dffa21d8cdc90e1fc82089fb50
     });

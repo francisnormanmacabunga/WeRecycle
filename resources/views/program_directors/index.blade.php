@@ -1,5 +1,9 @@
 @extends('layouts.frontend')
+<<<<<<< HEAD
 @include('layouts.navbar4')
+=======
+@include('layouts.pd-nav')
+>>>>>>> f9adf8b4020331dffa21d8cdc90e1fc82089fb50
 
 @section('content')
 

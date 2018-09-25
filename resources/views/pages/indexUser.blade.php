@@ -15,7 +15,7 @@
                                   </div>
                               @endif
 
-                              You are logged in!
+                              You are logged in! Welcome <?php Auth::user()->username?>!
                           </div>
                       </div>
                   </div>

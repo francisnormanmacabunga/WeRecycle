@@ -31,9 +31,15 @@ class RedirectIfAuthenticated
             }
             break;
 
+<<<<<<< HEAD
             case 'activitycoordinator':
               if (Auth::guard($guard)->check()) {
                 return redirect()->route('ac.dashboard');
+=======
+            case 'programdirector':
+              if (Auth::guard($guard)->check()) {
+                return redirect()->route('pd.dashboard');
+>>>>>>> f9adf8b4020331dffa21d8cdc90e1fc82089fb50
               }
               break;
 

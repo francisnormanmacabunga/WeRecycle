@@ -66,7 +66,6 @@ return [
             'provider' => 'donors',
         ],
 
-<<<<<<< HEAD
         'activitycoordinator' => [
             'driver' => 'session',
             'provider' => 'activitycoordinators',
@@ -75,19 +74,22 @@ return [
         'activitycoordinator-api' => [
             'driver' => 'token',
             'provider' => 'activitycoordinators',
-=======
-        'programdirector' => [
-            'driver' => 'session',
-            'provider' => 'programdirectors',
-        ],
+          ],
 
-        'programdirector-api' => [
-            'driver' => 'token',
-            'provider' => 'programdirectors',
->>>>>>> f9adf8b4020331dffa21d8cdc90e1fc82089fb50
-        ],
+          'programdirector' => [
+              'driver' => 'session',
+              'provider' => 'programdirectors',
+          ],
 
-    ],
+          'programdirector-api' => [
+              'driver' => 'token',
+              'provider' => 'programdirectors',
+            ],
+
+  ],
+
+
+
 
     /*
     |--------------------------------------------------------------------------
@@ -121,24 +123,22 @@ return [
             'driver' => 'eloquent',
             'model' => App\donor::class,
         ],
-
-<<<<<<< HEAD
         'activitycoordinators' => [
             'driver' => 'eloquent',
             'model' => App\activitycoordinator::class,
         ],
 
-=======
         'programdirectors' => [
             'driver' => 'eloquent',
             'model' => App\programdirector::class,
         ],
->>>>>>> f9adf8b4020331dffa21d8cdc90e1fc82089fb50
+  ],
+
         // 'users' => [
         //     'driver' => 'database',
         //     'table' => 'users',
         // ],
-    ],
+
 
     /*
     |--------------------------------------------------------------------------
@@ -174,21 +174,19 @@ return [
             'expire' => 60,
         ],
 
-<<<<<<< HEAD
         'activitycoordinators' => [
             'provider' => 'activitycoordinators',
-=======
-        'programdirectors' => [
-            'provider' => 'programdirectors',
->>>>>>> f9adf8b4020331dffa21d8cdc90e1fc82089fb50
             'table' => 'password_resets',
             'expire' => 60,
         ],
 
-<<<<<<< HEAD
-=======
+        'programdirectors' => [
+            'provider' => 'programdirectors',
+            'table' => 'password_resets',
+            'expire' => 60,
+        ],
 
->>>>>>> f9adf8b4020331dffa21d8cdc90e1fc82089fb50
+
     ],
 
 ];

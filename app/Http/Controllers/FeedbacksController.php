@@ -17,14 +17,10 @@ class FeedbacksController extends Controller
   {
       $this->middleware('auth:admin', ['only'=> [
         'index',
-
-
         ]]);
 
         $this->middleware('auth:donor', ['except'=> [
           'index',
-
-
           ]]);
   }
     /**
@@ -46,9 +42,6 @@ class FeedbacksController extends Controller
         -> sortable()
         -> paginate(5);
       } */
-
-
-
 
 
       $feedbacks = DB::table('feedback')

@@ -23,6 +23,18 @@ class donor extends Authenticatable
       }
     }
 
+    //public function contacts()
+    //{
+    //return $this->hasOne('App\contactsTable','userID');
+    //}
+
+    public function contacts()
+    {
+    return $this->hasOne('App\contactsTable');
+    }
+
+
+
     /**
      * The attributes that are mass assignable.
      *

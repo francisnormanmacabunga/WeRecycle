@@ -22,6 +22,8 @@ class ActivityCoordinatorsController extends Controller
       -> where('usertypeID', '3')
       -> get();
       return view('activity_coordinators.index', compact('donors'));
+
+      
     }
 
     /**

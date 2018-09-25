@@ -7,13 +7,19 @@ use DB;
 use Exception;
 use App\userTable;
 use App\contactsTable;
+use App\donor;
 use Illuminate\Validation\Rule;
 use Session;
 use Hash;
+use Auth;
 
 
 class DonorsController extends Controller
 {
+  public function __construct()
+  {
+      $this->middleware('auth:donor');
+  }
     /**
      * Display a listing of the resource.
      *
@@ -21,12 +27,22 @@ class DonorsController extends Controller
      */
     public function index()
     {
-      $donors = userTable::SELECT('*')
-      -> join('contacts', 'contacts.userID', '=', 'user.userID')
-      -> where('username', session('username'))
-      -> get();
+      //$userID = auth()->user()->userID;
+      //$user = userTable::find($userID)
+      //$donors = userTable::SELECT('*')
+      //-> join('contacts', 'contacts.userID', '=', 'user.userID')
+      //-> get();
 
-      return view('users.index', compact('donors'));
+      //return view('users.index')->with('donors',$user->donors);
+
+      //return view('users.index', compact('donors'));
+      //return view('users.index', compact('donors'));
+
+      $donors = Auth::user();
+      //$donors = userTable::SELECT('*')
+
+      return view('users.index')->with(['donors' => $donors]);
+
     }
 
     /**

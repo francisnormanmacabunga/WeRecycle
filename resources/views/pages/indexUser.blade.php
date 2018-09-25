@@ -6,7 +6,7 @@
               <div class="row justify-content-center">
                   <div class="col-md-8">
                       <div class="card">
-                          <div class="card-header">This is teh new gasgag Dashboard</div>
+                          <div class="card-header">Welcome to Donor Homepage</div>
 
                           <div class="card-body">
                               @if (session('status'))

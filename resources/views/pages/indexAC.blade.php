@@ -1,10 +1,6 @@
-<<<<<<< HEAD
-@extends('layouts.ac-nav')
-
-=======
 @extends('layouts.frontend')
-@include('pd.nav')
->>>>>>> f9adf8b4020331dffa21d8cdc90e1fc82089fb50
+@include('layouts.ac-nav')
+
 @section('content')
 
           <div class="container">

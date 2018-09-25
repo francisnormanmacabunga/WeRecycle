@@ -10,6 +10,11 @@ use DB;
 
 class ApplicantsController extends Controller
 {
+
+  public function __construct()
+  {
+      $this->middleware('auth:activitycoordinator');
+  }
     /**
      * Display a listing of the resource.
      *

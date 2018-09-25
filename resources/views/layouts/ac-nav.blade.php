@@ -34,15 +34,14 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
-                      <li class="nav-item">
-                          <a class="nav-link" href="/activitycoordinator">Home</a>
-                      </li>
+
                       <li class="nav-item">
                           <a class="nav-link" href="/activitycoordinator/applicants">Manage Applicant</a>
                       </li>
                       <li class="nav-item">
-                          <a class="nav-link" href="/">Edit Profile</a>
-                      </li> 
+                          <a class="nav-link" href="">Edit Profile</a>
+                      </li>
+
 
 
 

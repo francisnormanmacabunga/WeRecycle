@@ -3,7 +3,7 @@
 @section('content')
   <div class="jumbotron mt-3 text-center">
     <h3>Welcome to landing page!</h3>
-    <p class="lead">This is WeRecycle!</p>
+    <p class="lead">This is WeRecycle!!</p>
     <a class="btn btn-lg btn-success" href="/donor/login" role="button">Login </a>
     <a class="btn btn-lg btn-primary" href="/createDonor" role="button">Register </a>
   </div>

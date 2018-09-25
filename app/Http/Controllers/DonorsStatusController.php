@@ -4,9 +4,14 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\userTable;
+use Auth;
 
 class DonorsStatusController extends Controller
 {
+  public function __construct()
+  {
+      $this->middleware('auth:donor');
+  }
     /**
      * Display a listing of the resource.
      *
@@ -74,7 +79,8 @@ class DonorsStatusController extends Controller
       $donors = userTable::find($id);
       $donors->status = $request->input('status');
       $donors->push();
-      return redirect('/')->with('success','Profile Deactivated');
+      return redirect('/donor/login')->with(Auth::logout());
+      //return Auth::logout();//->with('success','Profile Deactivated');
     }
 
     /**

@@ -37,7 +37,7 @@ Route::get('/createDonor', 'PagesController@createDonor');
 
 //Route::resource('/applicants', 'ApplicantsController');
 //Route::resource('/donors', 'DonorsController');
-Route::resource('/A_password', 'DonorsPasswordController');
+Route::resource('/donorPassword', 'DonorsPasswordController');
 Route::resource('/status', 'DonorsStatusController');
 
 Route::resource('/activity_coordinators', 'ActivityCoordinatorsController');
@@ -70,6 +70,8 @@ Route::prefix('donor')->group(function() {
   Route::post('/login','DonorAuth\DonorLoginController@login')->name('donor.login.submit');
 
 
+  Route::resource('/status', 'DonorsStatusController');
+  Route::resource('/donorPassword', 'DonorsPasswordController');
   Route::resource('/donors', 'DonorsController');
   Route::get('/createFeedback', 'FeedbacksController@create');
   Route::get('/donationCatalog','DonorsCatalogController@donationCatalog');

@@ -4,9 +4,15 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\userTable;
+use Hash;
 
 class DonorsPasswordController extends Controller
 {
+
+  public function __construct()
+  {
+      $this->middleware('auth:donor');
+  }
     /**
      * Display a listing of the resource.
      *
@@ -14,8 +20,8 @@ class DonorsPasswordController extends Controller
      */
     public function index()
     {
-      $donors = userTable::all();
-      return view('users.password',compact('donors'));
+      //$donors = userTable::all();
+      //return view('users.password',compact('donors'));
     }
 
     /**
@@ -83,9 +89,9 @@ class DonorsPasswordController extends Controller
     ]);
       $donors = userTable::find($id);
       //$donors->password = $request->input('password');
-      $donors->password = bcrypt($request->input('password'));
+      $donors->password = Hash::make($request->input('password'));
       $donors->push();
-      return redirect('/donors')->with('success','Password updated');
+      return redirect('/donor/donors')->with('success','Password updated');
     }
 
 

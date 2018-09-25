@@ -204,7 +204,7 @@ class DonorsController extends Controller
       $donors->barangay = $request->input('barangay');
       $donors->zip = $request->input('zip');
       $donors->push();
-      return redirect('/donors')->with('success','Profile updated');
+      return redirect('/donor/donors')->with('success','Profile updated');
     }
 
 

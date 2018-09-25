@@ -33,11 +33,9 @@ class DonorsController extends Controller
       //$donors = userTable::SELECT('*')
       //-> join('contacts', 'contacts.userID', '=', 'user.userID')
       //-> get();
-<<<<<<< HEAD
-=======
       $user = Auth::user();
       //$donors = DB::SELECT('SELECT * FROM user INNER JOIN contacts ON contacts.userID = user.userID WHERE user.username = "ShaneDawson"');
->>>>>>> f9adf8b4020331dffa21d8cdc90e1fc82089fb50
+
 
       $donors = Auth::user();
       //$donors = Auth::user()

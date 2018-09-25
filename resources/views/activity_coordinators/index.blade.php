@@ -34,10 +34,10 @@
                 <dt class="col-sm-6">Telephone:</dt>
                 <dd class="col-sm-4">{{$donors->tellNo}}</dd>
                 <dt class="col-sm-6">Password:</dt>
-                <a href="/AC_password/{{$donors->userID}}/edit"><button>Update Password</button></a>
+                <a href="/activitycoordinator/AC_password/{{$donors->userID}}/edit"><button>Update Password</button></a>
               </dl>
               <hr style="margin:5px 0 5px 0;"><br>
-              <form action="/activity_coordinators/{{$donors->userID}}/edit">
+              <form action="/activitycoordinator/activity_coordinators/{{$donors->userID}}/edit">
                   <input type="submit" value="Edit Profile" class="btn btn-lg btn-block btn-primary" />
               </form>
             </div>

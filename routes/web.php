@@ -31,17 +31,18 @@ Route::get('/indexUser', 'PagesController@indexUser');
 Route::get('/indexAC', 'PagesController@indexAC');
 Route::get('/indexPD', 'PagesController@indexPD');
 Route::get('/indexAdmin', 'PagesController@indexAdmin');
-
 Route::get('/createApplicant', 'PagesController@createApplicant');
 Route::get('/createDonor', 'PagesController@createDonor');
 
+
+
 //Route::resource('/applicants', 'ApplicantsController');
 //Route::resource('/donors', 'DonorsController');
-Route::resource('/donorPassword', 'DonorsPasswordController');
-Route::resource('/status', 'DonorsStatusController');
+//Route::resource('/donorPassword', 'DonorsPasswordController');
+//Route::resource('/status', 'DonorsStatusController');
 
-Route::resource('/activity_coordinators', 'ActivityCoordinatorsController');
-Route::resource('/AC_password', 'ActivityCoordinatorsPasswordController');
+//Route::resource('/activity_coordinators', 'ActivityCoordinatorsController');
+//Route::resource('/AC_password', 'ActivityCoordinatorsPasswordController');
 //Route::resource('/program_directors', 'ProgramDirectorsController');
 //Route::resource('/PD_password', 'ProgramDirectorsPasswordController');
 
@@ -85,7 +86,7 @@ Route::prefix('donor')->group(function() {
   Route::prefix('activitycoordinator')->group(function() {
     Route::get('/login','ACAuth\ACLoginController@showLoginForm')->name('ac.login');
     Route::post('/login','ACAuth\ACLoginController@login')->name('ac.login.submit');
-
+    Route::resource('/AC_password', 'ActivityCoordinatorsPasswordController');
     Route::resource('/activity_coordinators', 'ActivityCoordinatorsController');
     Route::resource('/applicants', 'ApplicantsController');
     Route::get('/', 'ActivityCoordinatorController@index')->name('ac.dashboard');

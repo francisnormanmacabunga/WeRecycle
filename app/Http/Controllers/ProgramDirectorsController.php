@@ -27,9 +27,8 @@ class ProgramDirectorsController extends Controller
       -> join('contacts', 'contacts.userID', '=', 'user.userID')
       -> where('usertypeID', '4')
       -> get();*/
-    $donors =  Auth::user();
-
-      return view('users.index')->with(['donors' =>$donors]);
+      $donors =  Auth::user();
+      return view('program_directors.index')->with(['donors' =>$donors]);
     }
 
     /**
@@ -134,7 +133,7 @@ class ProgramDirectorsController extends Controller
       $donors->barangay = $request->input('barangay');
       $donors->zip = $request->input('zip');
       $donors->push();
-      return redirect('/program_directors')->with('success','Profile updated');
+      return redirect('/programdirector/program_directors')->with('success','Profile updated');
     }
 
     /**

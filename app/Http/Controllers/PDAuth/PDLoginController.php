@@ -26,7 +26,7 @@ class PDLoginController extends Controller
     ]);
 
     if (Auth::guard('programdirector')->attempt(['username' => $request->username,
-    'password' => $request->password, 'usertypeID' => 4], $request->remember))
+    'password' => $request->password, 'usertypeID' => 4, 'status' => 'Activated'], $request->remember))
 
     {
       return redirect()->intended(route('pd.dashboard'));

@@ -7,6 +7,10 @@ use App\userTable;
 
 class ActivityCoordinatorsPasswordController extends Controller
 {
+  public function __construct()
+  {
+      $this->middleware('auth:activitycoordinator');
+  }
     /**
      * Display a listing of the resource.
      *
@@ -84,7 +88,7 @@ class ActivityCoordinatorsPasswordController extends Controller
       //$donors->password = $request->input('password');
       $donors->password = bcrypt($request->input('password'));
       $donors->push();
-      return redirect('/activity_coordinators')->with('success','Password updated');
+      return redirect('activitycoordinator/activity_coordinators')->with('success','Password updated');
     }
 
     /**

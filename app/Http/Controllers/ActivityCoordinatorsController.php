@@ -136,7 +136,7 @@ class ActivityCoordinatorsController extends Controller
       $donors->barangay = $request->input('barangay');
       $donors->zip = $request->input('zip');
       $donors->push();
-      return redirect('/activity_coordinators')->with('success','Profile updated');
+      return redirect('activitycoordinator/activity_coordinators')->with('success','Profile updated');
     }
 
     /**

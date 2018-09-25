@@ -7,6 +7,10 @@ use App\userTable;
 
 class ProgramDirectorsPasswordController extends Controller
 {
+  public function __construct()
+  {
+      $this->middleware('auth:programdirector');
+  }
     /**
      * Display a listing of the resource.
      *
@@ -84,7 +88,7 @@ class ProgramDirectorsPasswordController extends Controller
       //$donors->password = $request->input('password');
       $donors->password = bcrypt($request->input('password'));
       $donors->push();
-      return redirect('/program_directors')->with('success','Password updated');
+      return redirect('/programdirector/program_directors')->with('success','Password updated');
     }
 
     /**

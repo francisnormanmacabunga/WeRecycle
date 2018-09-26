@@ -77,7 +77,9 @@ class DonorsController extends Controller
       'street' => 'nullable|regex:/^[ \w.#-]+$/',
       'barangay' => 'nullable|regex:/^[ \w.#-]+$/',
       'zip' => 'nullable|min:4|max:4',
-      'username' => 'required|alpha_dash|unique:user,username'
+      'username' => 'required|alpha_dash|unique:user,username',
+      'password' => 'min:6|required_with:password_confirmation|same:password_confirmation|',
+      'password_confirmation' => 'required'
     ],
     [
       'firstname.required' => 'The First Name field is required.',
@@ -101,7 +103,10 @@ class DonorsController extends Controller
       'zip.max' => 'The Zip field may not be greater than 4 characters.',
       'username.unique' => 'The Username you registered is already in use.',
       'username.required' => 'The Username field is required.',
-      'username.alpha_dash' => 'The Username may only contain letters, numbers, dashes and underscores.'
+      'username.alpha_dash' => 'The Username may only contain letters, numbers, dashes and underscores.',
+      'password.min' => 'Password field must be at least 6 characters',
+      'password.same' => 'Password does not match',
+      'password_confirmation.required' => 'Password Confirmation field is required'
     ]);
       $user = new userTable();
       $user->firstname = $request->input('firstname');

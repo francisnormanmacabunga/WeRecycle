@@ -10,26 +10,6 @@ class PagesController extends Controller
       return view('pages.index');
     }
 
-    //public function login(){
-      //return view('login.login');
-    //}
-
-    public function indexUser(){
-        return view('pages.indexUser');
-    }
-
-    public function indexAC(){
-      return view('pages.indexAC');
-    }
-
-    public function indexPD(){
-      return view('pages.indexPD');
-    }
-
-    public function indexAdmin(){
-      return view('pages.indexAdmin');
-    }
-
     public function createApplicant(){
       return view('applicants.create');
     }
@@ -48,6 +28,26 @@ class PagesController extends Controller
 
     //public function createFeedback(){
       //return view('usersFeedback.create');
+    //}
+
+    //public function login(){
+      //return view('login.login');
+    //}
+
+    //public function indexUser(){
+        //return view('pages.indexUser');
+    //}
+
+    //public function indexAC(){
+      //return view('pages.indexAC');
+    //}
+
+    //public function indexPD(){
+      //return view('pages.indexPD');
+    //}
+
+    //public function indexAdmin(){
+      //return view('pages.indexAdmin');
     //}
 
 }

@@ -35,6 +35,7 @@ class DonorLoginController extends Controller
     }
     session()->flash('alert','Incorrect username/password!');
     return redirect()->back()->withInput($request->only('username','remember'));
+
   }
 
 }

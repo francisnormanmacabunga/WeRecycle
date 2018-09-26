@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\userTable;
+use Hash;
 
 class ActivityCoordinatorsPasswordController extends Controller
 {
@@ -86,7 +87,7 @@ class ActivityCoordinatorsPasswordController extends Controller
     ]);
       $donors = userTable::find($id);
       //$donors->password = $request->input('password');
-      $donors->password = bcrypt($request->input('password'));
+      $donors->password = Hash::make($request->input('password'));
       $donors->push();
       return redirect('activitycoordinator/activity_coordinators')->with('success','Password updated');
     }

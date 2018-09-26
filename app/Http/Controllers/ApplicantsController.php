@@ -7,6 +7,7 @@ use Illuminate\Validation\Rule;
 use App\userTable;
 use App\contactsTable;
 use DB;
+use Hash;
 
 class ApplicantsController extends Controller
 {
@@ -125,7 +126,7 @@ class ApplicantsController extends Controller
       $user->zip = $request->input('zip');
       $user->username = $request->input('username');
       $user->usertypeID = $request->input('usertypeID');
-      $user->password = bcrypt($request->input('password'));
+      $user->password = Hash::make($request->input('password'));
       $user->status = $request->input('status');
       $user->save();
 

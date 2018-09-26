@@ -32,7 +32,9 @@ class AdminLoginController extends Controller
       return redirect()->intended(route('admin.dashboard'));
     }
 
+    session()->flash('alert', 'Incorrect username/password!');
     return redirect()->back()->withInput($request->only('username','remember'));
+
   }
 
 }

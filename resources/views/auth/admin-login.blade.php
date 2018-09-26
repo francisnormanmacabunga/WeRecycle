@@ -2,6 +2,14 @@
 
 @section('content')
 <div class="container">
+    @if(session()->has('alert'))
+      <div class="content">
+      <div class="alert alert-danger">
+      <button type="button" class="close" data dismiss="alert" aria-hidden="true">&times;</button>
+      <strong>{{session()->get('alert')}}</strong>
+    </div>
+  </div>
+@endif
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">

@@ -15,7 +15,7 @@ class FeedbacksController extends Controller
 
   public function __construct()
   {
-      $this->middleware('auth:admin', ['only'=> [
+      $this->middleware('auth:programdirector', ['only'=> [
         'index',
         ]]);
 
@@ -48,6 +48,9 @@ class FeedbacksController extends Controller
       -> select('*')
       -> join('user', 'user.userID', '=', 'feedback.userID')
       -> get();
+
+
+
         return view('usersFeedback.index', compact('feedbacks'));
     }
 

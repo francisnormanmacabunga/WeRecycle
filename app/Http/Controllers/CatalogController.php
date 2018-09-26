@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\productsTable;
 use Illuminate\Support\Facades\Input;
 use DB;
+use Illuminate\Support\Facades\Validator;
 
 class CatalogController extends Controller
 {
@@ -55,6 +56,34 @@ class CatalogController extends Controller
      */
     public function store(Request $request)
     {
+      $this->validate($request, [
+      'productname' => 'required|regex:/^[\pL\s]+$/u',
+      'productstypeID' => 'required',
+      'description' => 'required|regex:/^[ \w.#-]+$/',
+      'price' => 'required|integer|min:0',
+      'productimage' => 'required|mimes:jpeg,jpg,png|image|max:5000'
+
+    ],
+
+    [
+      'productname.required' => 'Product name is required field.',
+      'productname.regex' => 'Product name must only contain letters.',
+      'productstypeID.required' => 'Item Type is a required field.',
+      'description.required' => 'Item description is a required field.',
+      'description.regex' => 'Item description must only contain letters, numbers, underscores, dashes, hypens and hashes.',
+      'price.required' => 'Price is a required field.',
+      'price.min' => 'Price must be greater than 0.',
+      'productimage.required' => 'Product image is required',
+      'productimage.mimes' => 'Image must be in JPG/JPEG or PNG format',
+      'productimage.max' => 'Image must be less than 5MB.'
+    ]);
+
+    $validator = Validator::make($request->all(), [
+    'productimage' => 'max:1'
+
+    ]);
+
+
      $filename = $request->file('productimage')->getClientOriginalName();
      $moveImage = $request->file('productimage')->move('images', $filename);
 

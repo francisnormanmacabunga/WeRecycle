@@ -31,9 +31,9 @@
                 <dt class="col-sm-6">Barangay:</dt>
                 <dd class="col-sm-4">{{$donors->barangay}}</dd>
                 <dt class="col-sm-6">Cellphone:</dt>
-                <dd class="col-sm-4">{{$donors->cellNo}}</dd>
+                <dd class="col-sm-4">{{$donors->contacts->cellNo}}</dd>
                 <dt class="col-sm-6">Telephone:</dt>
-                <dd class="col-sm-4">{{$donors->tellNo}}</dd>
+                <dd class="col-sm-4">{{$donors->contacts->tellNo}}</dd>
                 <dt class="col-sm-6">Password:</dt>
                 <a href="/programdirector/PD_password/{{$donors->userID}}/edit"><button>Update Password</button></a>
               </dl>

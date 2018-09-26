@@ -75,6 +75,15 @@
                   {{Form::password('password', ['class' => 'form-control'])}}
                 </div>
               </div>
+              <div class="mb-3">
+                {{Form::label('password_confirmation','Confirm Password')}}
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">#</span>
+                  </div>
+                  {{Form::password('password_confirmation', ['class' => 'form-control'])}}
+                </div>
+              </div>
                 {{Form::hidden('usertypeID','1', ['class' => 'form-control'])}}
                 {{Form::hidden('status','Activated', ['class' => 'form-control'])}}
               <hr class="mb-4">

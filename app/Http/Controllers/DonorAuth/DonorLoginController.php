@@ -30,9 +30,10 @@ class DonorLoginController extends Controller
     'password' => $request->password, 'usertypeID' => 1, 'status' => 'Activated'], $request->remember))
 
     {
+    
       return redirect()->intended(route('donor.dashboard'));
     }
-
+    session()->flash('alert','Incorrect username/password!');
     return redirect()->back()->withInput($request->only('username','remember'));
 
   }

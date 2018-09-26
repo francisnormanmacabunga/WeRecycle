@@ -15,7 +15,7 @@ class FeedbacksController extends Controller
 
   public function __construct()
   {
-      $this->middleware('auth:admin', ['only'=> [
+      $this->middleware('auth:programdirector', ['only'=> [
         'index',
         ]]);
 

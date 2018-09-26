@@ -29,9 +29,11 @@ class PDLoginController extends Controller
     'password' => $request->password, 'usertypeID' => 4, 'status' => 'Activated'], $request->remember))
 
     {
-      return redirect()->intended(route('pd.dashboard'));
-    }
+    
+    return redirect()->intended(route('pd.dashboard'));
 
+    }
+    session()->flash('alert','Incorrect username/password!');
     return redirect()->back()->withInput($request->only('username','remember'));
   }
 

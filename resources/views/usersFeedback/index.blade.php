@@ -83,7 +83,7 @@
         <tr>
           <th>Username</th>
           <th>Feedback</th>
-          <th>@sortablelink('created_at', 'Rating')</th>
+          <th>@sortablelink('rating', 'Rating')</th>
           <th>Date Applied</th>
         </tr>
         @foreach ($feedbacks as $feedback)

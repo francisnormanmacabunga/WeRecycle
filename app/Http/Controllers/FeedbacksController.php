@@ -48,6 +48,9 @@ class FeedbacksController extends Controller
       -> select('*')
       -> join('user', 'user.userID', '=', 'feedback.userID')
       -> get();
+
+
+
         return view('usersFeedback.index', compact('feedbacks'));
     }
 

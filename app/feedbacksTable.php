@@ -11,6 +11,7 @@ class feedbacksTable extends Model
   protected $table = 'feedback';
   protected $primaryKey = 'feedbackID';
   public $timestamps = false;
+  public $sortable = ['created_at', 'rating'];
 
 
   //public function user()

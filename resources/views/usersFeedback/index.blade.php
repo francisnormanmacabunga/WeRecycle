@@ -14,9 +14,8 @@
         <tr>
           <th>Username</th>
           <th>Feedback</th>
-          <th>Rating</th>
-          <th>@sortablelink('created_at', 'Date Applied')</th>
-          <th>Action</th>
+          <th>@sortablelink('created_at', 'Rating')</th>
+          <th>Date Applied</th>
         </tr>
         @foreach ($feedbacks as $feedback)
           <tr>

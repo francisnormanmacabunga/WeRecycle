@@ -29,11 +29,14 @@ class ACLoginController extends Controller
     if (Auth::guard('activitycoordinator')->attempt(['username' => $request->username,
     'password' => $request->password, 'usertypeID' => 3, 'status' => 'Activated'], $request->remember))
 
+
     {
       return redirect()->intended(route('ac.dashboard'));
-    }
 
+    }
+    session()->flash('alert', 'Incorrect username/password!');
     return redirect()->back()->withInput($request->only('username','remember'));
+
   }
 
 }

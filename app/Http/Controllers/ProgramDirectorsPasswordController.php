@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\userTable;
+use Hash;
 
 class ProgramDirectorsPasswordController extends Controller
 {
@@ -86,7 +87,7 @@ class ProgramDirectorsPasswordController extends Controller
     ]);
       $donors = userTable::find($id);
       //$donors->password = $request->input('password');
-      $donors->password = bcrypt($request->input('password'));
+      $donors->password = Hash::make($request->input('password'));
       $donors->push();
       return redirect('/programdirector/program_directors')->with('success','Password updated');
     }

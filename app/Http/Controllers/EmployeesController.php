@@ -8,6 +8,7 @@ use App\usertypeTable;
 use App\userTable;
 use App\contactsTable;
 use DB;
+use Hash;
 
 class EmployeesController extends Controller
 {
@@ -105,7 +106,7 @@ class EmployeesController extends Controller
       $user->username = $request->input('username');
       $user->usertypeID = $request->input('usertypeID');
       //$user->password = $request->input('password');
-      $user->password = bcrypt($request->input('password'));
+      $user->password = Hash::make($request->input('password'));
       $user->status = $request->input('status');
       $user->save();
 

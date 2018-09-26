@@ -30,26 +30,11 @@ class FeedbacksController extends Controller
      */
     public function index()
     {
-    /**  if (request()->has('rating')){
-        $feedbacks = feedbackTable::SELECT('*')
-        -> join('user', 'feedback.userID', '=', 'user.userID')
-        -> sortable()
-        -> paginate(5);
-      } else {
-        $feedbacks = feedbackTable::SELECT('*')
-        -> join('user', 'feedback.userID', '=', 'user.userID')
 
-        -> sortable()
-        -> paginate(5);
-      } */
-
-
-      $feedbacks = DB::table('feedback')
-      -> select('*')
+      $feedbacks = feedbacksTable::SELECT('*')
       -> join('user', 'user.userID', '=', 'feedback.userID')
-      -> get();
-
-
+      -> sortable()
+      -> paginate(5);
 
         return view('usersFeedback.index', compact('feedbacks'));
     }

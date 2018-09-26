@@ -27,7 +27,7 @@
         <tr>
           <td>{{$products->productstype}}</td>
           <td>{{$products->productname}}</td>
-          <td><img src="{{ asset('images/' . $products->productimage) }}"></td>
+          <td><img src="{{ asset('images/' . $products->productimage) }}" width="300"></td>
           <td>{{$products->price}}</td>
           <td>{{$products->description}}</td>
           <td>{{date('F d, Y, h:i:sa', strtotime($products->created_at))}}</td>

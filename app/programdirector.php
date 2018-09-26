@@ -23,6 +23,11 @@ class programdirector extends Authenticatable
       }
     }
 
+    public function contacts()
+    {
+    return $this->hasOne('App\contactsTable', 'userID');
+    }
+
     /**
      * The attributes that are mass assignable.
      *

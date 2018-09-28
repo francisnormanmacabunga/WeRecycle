@@ -10,7 +10,7 @@ class ACLoginController extends Controller
 {
   public function __construct()
   {
-    $this->middleware('guest:activitycoordinator');
+    $this->middleware('guest:activitycoordinator', ['except' => ['activitycoordinatorLogout']]);
   }
 
   public function showLoginForm()
@@ -37,6 +37,12 @@ class ACLoginController extends Controller
     session()->flash('alert', 'Incorrect username/password!');
     return redirect()->back()->withInput($request->only('username','remember'));
 
+  }
+
+  public function activitycoordinatorLogout()
+  {
+    Auth::guard('activitycoordinator')->logout();
+    return redirect('/');
   }
 
 }

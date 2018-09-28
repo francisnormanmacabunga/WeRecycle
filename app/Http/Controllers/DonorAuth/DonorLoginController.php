@@ -10,7 +10,7 @@ class DonorLoginController extends Controller
 {
   public function __construct()
   {
-    $this->middleware('guest:donor');
+    $this->middleware('guest:donor' ,['except' => ['donorLogout']]);
   }
 
   public function showLoginForm()
@@ -30,12 +30,18 @@ class DonorLoginController extends Controller
     'password' => $request->password, 'usertypeID' => 1, 'status' => 'Activated'], $request->remember))
 
     {
-    
+
       return redirect()->intended(route('donor.dashboard'));
     }
     session()->flash('alert','Incorrect username/password!');
     return redirect()->back()->withInput($request->only('username','remember'));
 
+  }
+
+  public function donorLogout()
+  {
+    Auth::guard('donor')->logout();
+    return redirect('/');
   }
 
 }

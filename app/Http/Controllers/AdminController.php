@@ -23,7 +23,7 @@ class AdminController extends Controller
      */
     public function index()
     {
-        return view('admins.index');
+        return view('pages.indexAdmin');
     }
 
     public function createEmployee()

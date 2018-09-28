@@ -1,5 +1,4 @@
-@extends('layouts.frontend')
-@include('layouts.ac-nav')
+@extends('layouts.ac-nav')
 
 @section('content')
 
@@ -8,15 +7,13 @@
                   <div class="col-md-8">
                       <div class="card">
                           <div class="card-header">Welcome to Activity Coordinator Homepage</div>
-
                           <div class="card-body">
                               @if (session('status'))
                                   <div class="alert alert-success" role="alert">
                                       {{ session('status') }}
                                   </div>
                               @endif
-
-                              You are logged in!
+                              Hello {{Auth::user()->firstname}}!
                           </div>
                       </div>
                   </div>

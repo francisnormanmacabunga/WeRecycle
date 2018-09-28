@@ -10,7 +10,7 @@ class PDLoginController extends Controller
 {
   public function __construct()
   {
-    $this->middleware('guest:programdirector');
+    $this->middleware('guest:programdirector' ,['except' => ['programdirectorLogout']]);
   }
 
   public function showLoginForm()
@@ -29,12 +29,18 @@ class PDLoginController extends Controller
     'password' => $request->password, 'usertypeID' => 4, 'status' => 'Activated'], $request->remember))
 
     {
-    
+
     return redirect()->intended(route('pd.dashboard'));
 
     }
     session()->flash('alert','Incorrect username/password!');
     return redirect()->back()->withInput($request->only('username','remember'));
+  }
+
+  public function programdirectorLogout()
+  {
+    Auth::guard('programdirector')->logout();
+    return redirect('/');
   }
 
 }

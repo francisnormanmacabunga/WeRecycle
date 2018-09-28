@@ -5,6 +5,7 @@ namespace App\Http\Controllers\ACAuth;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ResetsPasswords;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 use Password;
 use Auth;
 
@@ -28,7 +29,7 @@ class ResetPasswordController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/activitycoordinator';
+    protected $redirectTo = '/activitycoordinator/login';
 
     /**
      * Create a new controller instance.
@@ -45,6 +46,14 @@ class ResetPasswordController extends Controller
         return view('ac-auth.passwords.reset')
             ->with(['token' => $token, 'email' => $request->email]
             );
+    }
+
+    protected function resetPassword($user, $password)
+    {
+    $user->forceFill([
+        'password' => bcrypt($password),
+        'remember_token' => Str::random(60),
+    ])->save();
     }
 
     protected function guard()

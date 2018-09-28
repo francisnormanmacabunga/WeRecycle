@@ -58,6 +58,7 @@ class EmployeesController extends Controller
     public function store(Request $request)
     {
       $this->validate($request, [
+      'usertypeID' => 'required',
       'firstname' => 'required|regex:/^[\pL\s]+$/u',
       'lastname' => 'required|regex:/^[\pL\s]+$/u',
       'email' => 'required|unique:user,email',
@@ -71,6 +72,7 @@ class EmployeesController extends Controller
       'username' => 'required|alpha_dash|unique:user,username'
     ],
     [
+      'usertypeID.required' => 'The Usertype field is required',
       'firstname.required' => 'The First Name field is required.',
       'firstname.regex' => 'The First Name field must only contain letters.',
       'lastname.required' => 'The Last Name field is required.',

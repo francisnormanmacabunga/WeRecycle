@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use App\Notifications\DonorResetPasswordNotification;
 
 class donor extends Authenticatable
 {
@@ -23,17 +24,20 @@ class donor extends Authenticatable
       }
     }
 
-    //public function contacts()
-    //{
-    //return $this->hasOne('App\contactsTable','userID');
-    //}
-
     public function contacts()
     {
     return $this->hasOne('App\contactsTable', 'userID');
     }
 
+    public function sendPasswordResetNotification($token)
+    {
+        $this->notify(new DonorResetPasswordNotification($token));
+    }
 
+    //public function contacts()
+    //{
+    //return $this->hasOne('App\contactsTable','userID');
+    //}
 
     /**
      * The attributes that are mass assignable.

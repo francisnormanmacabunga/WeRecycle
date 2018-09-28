@@ -49,6 +49,10 @@ Route::get('/createDonor', 'PagesController@createDonor');
 Route::prefix('donor')->group(function() {
   Route::get('/login','DonorAuth\DonorLoginController@showLoginForm')->name('donor.login');
   Route::post('/login','DonorAuth\DonorLoginController@login')->name('donor.login.submit');
+  Route::post('/password/email','DonorAuth\ForgotPasswordController@sendResetLinkEmail')->name('donor.password.email');
+  Route::get('/password/reset','DonorAuth\ForgotPasswordController@showLinkRequestForm')->name('donor.password.request');
+  Route::post('/password/reset','DonorAuth\ResetPasswordController@reset');
+  Route::get('/password/reset/{token}','DonorAuth\ResetPasswordController@showResetForm')->name('donor.password.reset');
   Route::resource('/status', 'DonorsStatusController');
   Route::resource('/donorPassword', 'DonorsPasswordController');
   Route::resource('/donors', 'DonorsController');
@@ -61,6 +65,10 @@ Route::prefix('donor')->group(function() {
   Route::prefix('activitycoordinator')->group(function() {
     Route::get('/login','ACAuth\ACLoginController@showLoginForm')->name('ac.login');
     Route::post('/login','ACAuth\ACLoginController@login')->name('ac.login.submit');
+    Route::post('/password/email','ACAuth\ForgotPasswordController@sendResetLinkEmail')->name('activitycoordinator.password.email');
+    Route::get('/password/reset','ACAuth\ForgotPasswordController@showLinkRequestForm')->name('activitycoordinator.password.request');
+    Route::post('/password/reset','ACAuth\ResetPasswordController@reset');
+    Route::get('/password/reset/{token}','ACAuth\ResetPasswordController@showResetForm')->name('activitycoordinator.password.reset');
     Route::resource('/AC_password', 'ActivityCoordinatorsPasswordController');
     Route::resource('/activity_coordinators', 'ActivityCoordinatorsController');
     Route::resource('/applicants', 'ApplicantsController');
@@ -70,6 +78,10 @@ Route::prefix('donor')->group(function() {
   Route::prefix('programdirector')->group(function() {
     Route::get('/login','PDAuth\PDLoginController@showLoginForm')->name('pd.login');
     Route::post('/login','PDAuth\PDLoginController@login')->name('pd.login.submit');
+    Route::post('/password/email','PDAuth\ForgotPasswordController@sendResetLinkEmail')->name('programdirector.password.email');
+    Route::get('/password/reset','PDAuth\ForgotPasswordController@showLinkRequestForm')->name('programdirector.password.request');
+    Route::post('/password/reset','PDAuth\ResetPasswordController@reset');
+    Route::get('/password/reset/{token}','PDAuth\ResetPasswordController@showResetForm')->name('programdirector.password.reset');
     Route::resource('/feedback', 'FeedbacksController');
     Route::resource('/program_directors', 'ProgramDirectorsController');
     Route::resource('/PD_password', 'ProgramDirectorsPasswordController');

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class DonorController extends Controller
 {
@@ -25,6 +26,5 @@ class DonorController extends Controller
     {
         return view('pages.indexUser');
     }
-
-
+    
 }

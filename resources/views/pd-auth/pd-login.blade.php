@@ -6,7 +6,7 @@
   <div class="content">
     <div class="alert alert-danger">
       <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-      <strong>{{session()->get('alert')}}</strong> 
+      <strong>{{session()->get('alert')}}</strong>
     </div>
   </div>
   @endif
@@ -65,7 +65,7 @@
                                     {{ __('Login') }}
                                 </button>
 
-                                <a class="btn btn-link" href="{{ route('password.request') }}">
+                                <a class="btn btn-link" href="{{ route('programdirector.password.request') }}">
                                     {{ __('Forgot Your Password?') }}
                                 </a>
                             </div>

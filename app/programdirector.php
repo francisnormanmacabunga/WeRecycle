@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use App\Notifications\ProgramDirectorResetPasswordNotification;
 
 class programdirector extends Authenticatable
 {
@@ -26,6 +27,11 @@ class programdirector extends Authenticatable
     public function contacts()
     {
     return $this->hasOne('App\contactsTable', 'userID');
+    }
+
+    public function sendPasswordResetNotification($token)
+    {
+        $this->notify(new ProgramDirectorResetPasswordNotification($token));
     }
 
     /**

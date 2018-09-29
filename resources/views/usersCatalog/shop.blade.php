@@ -19,7 +19,7 @@
           @foreach ($products2 as $products)
         <div class="col-lg-4 col-md-6 mb-4">
           <div class="card h-100">
-          <a href="#"><img src="{{ asset('images/' . $products->productimage) }}"></a>
+          <a href="#"><img src="{{ asset('images/' . $products->productimage) }}" width="200" height="200"></a>
             <a href="#"></a>
             <div class="card-body">
               <h4 class="card-title">

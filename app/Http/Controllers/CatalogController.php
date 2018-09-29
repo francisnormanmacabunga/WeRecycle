@@ -22,7 +22,7 @@ class CatalogController extends Controller
      */
     public function index()
     {
-      $products1 = DB::table('products')
+      /*$products1 = DB::table('products')
       ->select('*')
       -> join('productstype', 'productstype.productstypeID', '=', 'products.productstypeID')
       -> where('productstype.productstypeID','1')
@@ -35,7 +35,7 @@ class CatalogController extends Controller
       -> where('productstype.productstypeID','2')
       ->get();
 
-      return view('catalog.index', compact('products1', 'products2'));
+      return view('catalog.index', compact('products1', 'products2'));*/
     }
 
     /**
@@ -135,7 +135,7 @@ class CatalogController extends Controller
       $products = productsTable::find($id);
       $products->status = $request->input('status');
       $products->save();
-      return redirect('/admin/catalog')->with('success', 'Item updated');
+      return redirect('/admin/manageshop')->with('success', 'Item updated');
     }
 
     /**

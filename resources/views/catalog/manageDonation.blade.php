@@ -4,7 +4,6 @@
 
 @section('content')
 
-
     <div class="row">
       <div class="col-lg-3">
       <h4>Manage Donation Catalog</h4>
@@ -17,11 +16,11 @@
     <div class="col-md-9">
     <div class="row">
 
-      @if(count($products2) > 0)
-        @foreach ($products2 as $products)
-          <table class="table table-bordered">
+      @if(count($products1) > 0)
+        @foreach ($products1 as $products)
+          <table class="table table-bordered" class="fixed">
           <tr>
-          <th>Item Type</th>
+
           <th>Name</th>
           <th>Preview</th>
           <th>Price</th>
@@ -31,14 +30,14 @@
           <th>Action</th>
         </tr>
         <tr>
-          <td>{{$products->productstype}}</td>
+        
           <td>{{$products->productname}}</td>
           <td><img src="{{ asset('images/' . $products->productimage) }}" width="200" height="200"></td>
           <td>{{$products->price}}</td>
           <td>{{$products->description}}</td>
           <td>{{date('F d, Y, h:i:sa', strtotime($products->created_at))}}</td>
           <td>{{$products->status}}</td>
-          <th><a class="btn btn-lg btn-block btn-primary" href="/admin/catalog/{{$products->productsID}}/edit" role="button">Update Status </a></th>
+          <th><a class="btn btn-block btn-primary" href="/admin/catalog/{{$products->productsID}}/edit" role="button">Update Status </a></th>
         </tr>
       </table>
       @endforeach

@@ -96,7 +96,7 @@ class CatalogController extends Controller
       $products->status = $request->input('status');
 
       $products->save();
-      return redirect('/admin/catalog')->with('success', 'Item added');
+      return redirect('/admin/manageshop')->with('success', 'Item added');
     }
 
 

@@ -14,19 +14,21 @@ class ManageCatalogController extends Controller
       $this->middleware('auth:admin');
   }
 
-  public function manageShop(){
+  public function manageDonation(){
 
+    //DONATION
     $products1 = DB::table('products')
     ->select('*')
     -> join('productstype', 'productstype.productstypeID', '=', 'products.productstypeID')
     -> where('productstype.productstypeID','1')
     ->get();
 
-      return view('catalog.manageShop', compact('products1'));
+      return view('catalog.manageDonation', compact('products1'));
   }
 
-  public function manageDonation(){
+  public function manageShop(){
 
+    //SHOP
     $products2 = DB::table('products')
     ->select('*')
     -> join('productstype', 'productstype.productstypeID', '=', 'products.productstypeID')
@@ -34,7 +36,7 @@ class ManageCatalogController extends Controller
     ->get();
 
 
-      return view('catalog.manageDonation', compact('products2'));
+      return view('catalog.manageshop', compact('products2'));
   }
 
 

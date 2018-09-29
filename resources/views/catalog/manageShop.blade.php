@@ -16,8 +16,8 @@
     <div class="col-md-9">
     <div class="row">
 
-      @if(count($products1) > 0)
-        @foreach ($products1 as $products)
+      @if(count($products2) > 0)
+        @foreach ($products2 as $products)
           <table class="table table-bordered">
           <tr>
           <th>Item Type</th>
@@ -37,7 +37,7 @@
           <td>{{$products->description}}</td>
           <td>{{date('F d, Y, h:i:sa', strtotime($products->created_at))}}</td>
           <td>{{$products->status}}</td>
-          <th><a class="btn btn-lg btn-block btn-primary" href="/admin/catalog/{{$products->productsID}}/edit" role="button">Update Status </a></th>
+          <th><a class="btn btn-block btn-primary" href="/admin/catalog/{{$products->productsID}}/edit" role="button">Update Status </a></th>
         </tr>
       </table>
       @endforeach

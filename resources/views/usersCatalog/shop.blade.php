@@ -27,7 +27,8 @@
                 </h4>
                 <h5>{{$products->price}}</h5>
                 <p class="card-text">{{$products->description}}</p>
-                  <a href="{{ route('cart.addItem',$products->productsID) }}" class="button  expanded">Add to Cart</a>
+                  <a role="button" class="btn btn-success btn-lg" href="{{ route('cart.addItem',$products->productsID) }}">
+                    Add to Cart</a>
               </div>
             </div>
           </div>

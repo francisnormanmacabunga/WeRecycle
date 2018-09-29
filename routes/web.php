@@ -48,6 +48,8 @@ Route::get('/createDonor', 'PagesController@createDonor');
 Route::resource('/cart', 'CartController');
 Route::get('/cart/add-item/{id}', 'CartController@addItem')->name('cart.addItem');
 
+Route::resource('/donate', 'DonateController');
+Route::get('/donate/add-item/{id}', 'DonateController@addItem')->name('donate.addItem');
 //Route::get('/sms', 'PagesController@sms');
 //Route:: post('/send_sms','TwilioTestController@testMessage');
 //Route::get('/sms', function()

@@ -20,7 +20,7 @@
         @foreach ($products1 as $products)
           <table class="table table-bordered" class="fixed">
           <tr>
-
+          <th>Item Type</th>
           <th>Name</th>
           <th>Preview</th>
           <th>Price</th>
@@ -30,7 +30,7 @@
           <th>Action</th>
         </tr>
         <tr>
-        
+          <td>{{$products->productstype}}</td>
           <td>{{$products->productname}}</td>
           <td><img src="{{ asset('images/' . $products->productimage) }}" width="200" height="200"></td>
           <td>{{$products->price}}</td>

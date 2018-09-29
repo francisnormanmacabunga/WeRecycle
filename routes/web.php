@@ -46,6 +46,16 @@ Route::get('/createApplicant', 'PagesController@createApplicant');
 Route::get('/createDonor', 'PagesController@createDonor');
 
 
+
+//Route::get('/sms', 'PagesController@sms');
+//Route:: post('/send_sms','TwilioTestController@testMessage');
+//Route::get('/sms', function()
+//{
+    //return View::make('activity_coordinators.sms');
+//});
+
+
+
 Route::prefix('donor')->group(function() {
   Route::get('/login','DonorAuth\DonorLoginController@showLoginForm')->name('donor.login');
   Route::post('/login','DonorAuth\DonorLoginController@login')->name('donor.login.submit');
@@ -67,6 +77,10 @@ Route::prefix('donor')->group(function() {
     Route::get('/login','ACAuth\ACLoginController@showLoginForm')->name('ac.login');
     Route::post('/login','ACAuth\ACLoginController@login')->name('ac.login.submit');
     Route::post('/logout', 'ACAuth\ACLoginController@activitycoordinatorLogout')->name('activitycoordinator.logout');
+
+    Route::get('/sendSMS','TwilioController@index');
+    Route::post('/sendMessage','TwilioController@sendMessageApplicant');
+
     Route::post('/password/email','ACAuth\ForgotPasswordController@sendResetLinkEmail')->name('activitycoordinator.password.email');
     Route::get('/password/reset','ACAuth\ForgotPasswordController@showLinkRequestForm')->name('activitycoordinator.password.request');
     Route::post('/password/reset','ACAuth\ResetPasswordController@reset');
@@ -81,6 +95,10 @@ Route::prefix('donor')->group(function() {
     Route::get('/login','PDAuth\PDLoginController@showLoginForm')->name('pd.login');
     Route::post('/login','PDAuth\PDLoginController@login')->name('pd.login.submit');
     Route::post('/logout', 'PDAuth\PDLoginController@programdirectorLogout')->name('programdirector.logout');
+
+    Route::get('/sendSMS','TwilioController@indexVolunteer');
+    Route::post('/sendMessage','TwilioController@sendMessageVolunteer');
+
     Route::post('/password/email','PDAuth\ForgotPasswordController@sendResetLinkEmail')->name('programdirector.password.email');
     Route::get('/password/reset','PDAuth\ForgotPasswordController@showLinkRequestForm')->name('programdirector.password.request');
     Route::post('/password/reset','PDAuth\ResetPasswordController@reset');

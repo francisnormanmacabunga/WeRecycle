@@ -30,18 +30,14 @@
             </div>
           </div>
         </div>
-
-
       @endforeach
       @else
-
         <div align="center" style="color:red;">
           <br>
           <br>
           <h5 style="font-family:serif;">No fertilizers available.</h5>
         </div>
       @endif
-
       </div>
     </div>
   </div>

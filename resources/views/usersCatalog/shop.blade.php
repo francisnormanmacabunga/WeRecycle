@@ -5,7 +5,7 @@
 
   <div class="row">
     <div class="col-lg-3">
-    <h1>Fertilizer</h1>
+    <h3>Fertilizer</h3>
     <div class="list-group">
         <a href="/donor/donationCatalog" class="list-group-item">Donation</a>
         <a href="/donor/shopCatalog" class="list-group-item">Fertilizer</a>
@@ -34,8 +34,11 @@
 
       @endforeach
       @else
+
         <div align="center" style="color:red;">
-          <h3>No fertilizers available.</h3>
+          <br>
+          <br>
+          <h5 style="font-family:serif;">No fertilizers available.</h5>
         </div>
       @endif
 

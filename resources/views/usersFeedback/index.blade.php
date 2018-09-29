@@ -7,9 +7,10 @@
   <div class="row">
     <div class="col-md-12">
       <br/>
-      <h3 align="center">User feedback</h3>
+      <h3><strong>User feedback</strong></h3>
       <br>
       <br>
+      @if(count($feedbacks) > 0)
       <table class="table table-bordered">
         <tr>
           <th>Username</th>
@@ -25,9 +26,12 @@
             <td>{{date('F d, Y, h:i:sa', strtotime($feedback->created_at))}}</td>
           </tr>
         @endforeach
-
       </table>
-
+      @else
+      <div align="center" style="color:red;">
+        <h4 style="font-family:serif;">No feedbacks found.</h4>
+      </div>
+      @endif
     </div>
   </div>
 

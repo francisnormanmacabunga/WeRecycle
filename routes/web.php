@@ -96,6 +96,10 @@ Route::prefix('admin')->group(function() {
   Route::post('/login','Auth\AdminLoginController@login')->name('admin.login.submit');
   Route::post('/logout', 'Auth\AdminLoginController@adminLogout')->name('admin.logout');
   Route::resource('/catalog', 'CatalogController');
+
+  Route::get('/manageshop', 'ManageCatalogController@manageShop');
+  Route::get('/managedonation', 'ManageCatalogController@manageDonation');
+
   Route::get('createCatalog', 'AdminController@createCatalog');
   Route::resource('/employees', 'EmployeesController');
   Route::get('/createEmployee', 'AdminController@createEmployee');

@@ -46,8 +46,6 @@
 
   <div class="row">
     <div class="col-md-12">
-      <br/>
-      <h2 align="center">Manage Catalog</h2>
       <br>
       <br>
       @if(count($products2) > 0)

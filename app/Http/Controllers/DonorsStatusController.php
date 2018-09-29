@@ -79,7 +79,7 @@ class DonorsStatusController extends Controller
       $donors = userTable::find($id);
       $donors->status = $request->input('status');
       $donors->push();
-      return redirect('/donor/login')->with(Auth::logout());
+      return redirect('/')->with(Auth::logout());
       //return Auth::logout();//->with('success','Profile Deactivated');
     }
 

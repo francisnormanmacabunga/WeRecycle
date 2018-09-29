@@ -40,7 +40,9 @@
                       <li class="nav-item">
                           <a class="nav-link" href="/donor/createFeedback">Feedback</a>
                       </li>
-
+                      <li class="nav-item">
+                          <a class="nav-link" href="{{ route('cart.index') }}">CART</a>
+                      </li>
 
 
 

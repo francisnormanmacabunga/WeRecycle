@@ -44,8 +44,9 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/', 'PagesController@index');
 Route::get('/createApplicant', 'PagesController@createApplicant');
 Route::get('/createDonor', 'PagesController@createDonor');
-
-
+//Cart Controller
+Route::resource('/cart', 'CartController');
+Route::get('/cart/add-item/{id}', 'CartController@addItem')->name('cart.addItem');
 
 //Route::get('/sms', 'PagesController@sms');
 //Route:: post('/send_sms','TwilioTestController@testMessage');

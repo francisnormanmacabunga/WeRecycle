@@ -70,7 +70,7 @@ class DonorsController extends Controller
       'firstname' => 'required|regex:/^[\pL\s]+$/u',
       'lastname' => 'required|regex:/^[\pL\s]+$/u',
       'email' => 'required|unique:user,email',
-      'cellNo' => 'required|min:11|max:11',
+      'cellNo' => 'required|regex:/^[+]?[\d]+([\-][\d]+)*\d$/',
       'tellNo' => 'required|min:7|max:7',
       'birthdate' => 'required',
       'city' => 'required|regex:/^[\pL\s]+$/u',

@@ -96,7 +96,9 @@ Route::prefix('donor')->group(function() {
     Route::post('/login','PDAuth\PDLoginController@login')->name('pd.login.submit');
     Route::post('/logout', 'PDAuth\PDLoginController@programdirectorLogout')->name('programdirector.logout');
 
-    Route::get('/sendSMS','TwilioController@indexVolunteer');
+    Route::get('/sendSMS-D','TwilioController@indexDonor');
+    Route::get('/sendSMS-V','TwilioController@indexVolunteer');
+    Route::post('/sendMessage','TwilioController@sendMessageDonor');
     Route::post('/sendMessage','TwilioController@sendMessageVolunteer');
 
     Route::post('/password/email','PDAuth\ForgotPasswordController@sendResetLinkEmail')->name('programdirector.password.email');

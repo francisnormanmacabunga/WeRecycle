@@ -35,9 +35,17 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
 
-                      <li class="nav-item">
-                          <a class="nav-link" href="/activitycoordinator/applicants">Manage Applicants</a>
+                      <li class="nav-item dropdown">
+                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                          Manage Applicants
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                          <a class="dropdown-item" href="/activitycoordinator/applicants">View Applicants</a>
+                          <a class="dropdown-item" href="/activitycoordinator/sendSMS">Contact Applicants</a>
+                        </div>
                       </li>
+
+
 
 
 

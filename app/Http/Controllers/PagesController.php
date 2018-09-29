@@ -18,6 +18,10 @@ class PagesController extends Controller
       return view('users.create');
     }
 
+    public function sms(){
+      return view('activity_coordinators.sms');
+    }
+
     //public function createEmployee(){
       //return view('employees.create');
     //}

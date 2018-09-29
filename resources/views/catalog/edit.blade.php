@@ -25,10 +25,10 @@
                   <a class="nav-link dropdown-toggle" href="https://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Catalog</a>
                   <div class="dropdown-menu" aria-labelledby="dropdown01">
                     <a class="dropdown-item" href="/admin/createCatalog"> Create Catalog </a>
-                    <a class="dropdown-item" href="/admin/catalog"> Manage Catalog </a>
+                    <a class="dropdown-item" href="/admin/manageshop"> Manage Catalog </a>
                   </div>
                 </li>
-        
+
 
               </ul>
 
@@ -74,7 +74,7 @@
       <br/>
       <h3 align="center">Update status</h3>
       <br/>
-      <h5 align="left"><a href="/catalog">Back</a></h5>
+      <h5 align="left"><a href="/admin/manageshop">Back</a></h5>
       <table class="table table-bordered">
         <tr>
           <th>Name</th>

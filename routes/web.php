@@ -64,9 +64,9 @@ Route::get('/donate/add-item/{id}', 'DonateController@addItem')->name('donate.ad
 //{
     //return View::make('activity_coordinators.sms');
 //});
-=======
+//=======
 
->>>>>>> 3a76fc51c495993f625f5d2594aedfbf82e97439
+//>>>>>>> 3a76fc51c495993f625f5d2594aedfbf82e97439
 
 
 

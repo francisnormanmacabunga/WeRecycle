@@ -17,7 +17,7 @@
 //Route::get('/createFeedback', 'PagesController@createFeedback');
 //Route::resource('/employees', 'EmployeesController');
 //Route::resource('/catalog', 'CatalogController');
-//Route::resource('/feedback', 'FeedbackController');
+//Route::resource('/feedback', 'FeedbackController');z
 //Route::get('/donationCatalog','DonorsCatalogController@donationCatalog');
 //Route::get('/shopCatalog','DonorsCatalogController@shopCatalog');
 //Route::resource('/applicants', 'ApplicantsController');
@@ -56,6 +56,17 @@ Route::resource('/cart', 'CartController');
 Route::get('/cart/add-item/{id}', 'CartController@addItem')->name('cart.addItem');
 
 
+Route::resource('/donate', 'DonateController');
+Route::get('/donate/add-item/{id}', 'DonateController@addItem')->name('donate.addItem');
+//Route::get('/sms', 'PagesController@sms');
+//Route:: post('/send_sms','TwilioTestController@testMessage');
+//Route::get('/sms', function()
+//{
+    //return View::make('activity_coordinators.sms');
+//});
+=======
+
+>>>>>>> 3a76fc51c495993f625f5d2594aedfbf82e97439
 
 
 

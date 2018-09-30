@@ -26,8 +26,9 @@
               <h4 class="card-title">
                 <a href="#">{{$products->productname}}</a>
               </h4>
-              <h5>{{$products->price}}</h5>
               <p class="card-text">{{$products->description}}</p>
+              <a role="button" class="btn btn-success btn-lg" href="{{ route('donate.addItem',$products->productsID) }}">
+                Donate</a>
             </div>
           </div>
         </div>

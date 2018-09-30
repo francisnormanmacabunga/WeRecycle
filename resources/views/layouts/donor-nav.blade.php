@@ -39,19 +39,20 @@
                       </li>
                       <li class="nav-item">
                           <a class="nav-link" href="/donor/createFeedback">Feedback</a>
-                      </li>
-                      <li class="nav-item">
-                          <a class="nav-link" href="{{ route('cart.index') }}">CART</a>
-                      </li>
+                      </li> 
                     </ul>
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
+
+                      <li class="nav-item">
+                            <a class="nav-link" href="{{ route('cart.index') }}">Cart</a>
+                      </li>
+                      <li class="nav-item">
+                            <a class="nav-link" href="{{ route('donate.index') }}">Donation</a>
+                      </li>
                         <!-- Authentication Links -->
                         @guest
-            <!--                <li class="nav-item">
-                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                            </li>
-                            <li class="nav-item">
+                <!--              <li class="nav-item">
                                 <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
                             </li>  -->
                         @else

@@ -55,7 +55,7 @@ Route::get('/counter','PagesController@counter');
 Route::resource('/cart', 'CartController');
 Route::get('/cart/add-item/{id}', 'CartController@addItem')->name('cart.addItem');
 
-<<<<<<< HEAD
+
 Route::resource('/donate', 'DonateController');
 Route::get('/donate/add-item/{id}', 'DonateController@addItem')->name('donate.addItem');
 //Route::get('/sms', 'PagesController@sms');

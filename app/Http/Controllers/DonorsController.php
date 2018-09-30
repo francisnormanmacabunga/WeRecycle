@@ -13,7 +13,6 @@ use Session;
 use Hash;
 use Auth;
 
-
 class DonorsController extends Controller
 {
   public function __construct()

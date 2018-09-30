@@ -9,6 +9,8 @@ use App\userTable;
 use App\contactsTable;
 use DB;
 use Hash;
+use App\Mail\WelcomeMail;
+use Illuminate\Support\Facades\Mail;
 
 class EmployeesController extends Controller
 {
@@ -117,6 +119,9 @@ class EmployeesController extends Controller
       $contacts->cellNo = $request->input('cellNo');
       $contacts->tellNo = $request->input('tellNo');
       $contacts->save();
+
+      Mail::to($user->email)->send(new WelcomeMail($user));
+
       return redirect('/admin/employees')->with('success', 'Profile Created');
     }
 

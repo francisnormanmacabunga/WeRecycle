@@ -67,7 +67,7 @@ class ApplicantsController extends Controller
      */
     public function create()
     {
-        return view('applicants.create');
+      return view('applicants.create');
     }
 
     /**
@@ -186,6 +186,5 @@ class ApplicantsController extends Controller
     {
         //
     }
-
 
 }

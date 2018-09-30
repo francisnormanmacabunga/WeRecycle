@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use DB;
 use Session;
+use App\userTable;
+
 class PagesController extends Controller
 {
     public function index(){

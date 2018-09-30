@@ -15,17 +15,15 @@
 //Route::get('/createEmployee', 'PagesController@createEmployee');
 //Route::get('createCatalog', 'PagesController@createCatalog');
 //Route::get('/createFeedback', 'PagesController@createFeedback');
-
 //Route::resource('/employees', 'EmployeesController');
 //Route::resource('/catalog', 'CatalogController');
-//Route::resource('/feedback', 'FeedbackController');
+//Route::resource('/feedback', 'FeedbackController');z
 //Route::get('/donationCatalog','DonorsCatalogController@donationCatalog');
 //Route::get('/shopCatalog','DonorsCatalogController@shopCatalog');
 //Route::resource('/applicants', 'ApplicantsController');
 //Route::resource('/donors', 'DonorsController');
 //Route::resource('/donorPassword', 'DonorsPasswordController');
 //Route::resource('/status', 'DonorsStatusController');
-
 //Route::resource('/activity_coordinators', 'ActivityCoordinatorsController');
 //Route::resource('/AC_password', 'ActivityCoordinatorsPasswordController');
 //Route::resource('/program_directors', 'ProgramDirectorsController');
@@ -34,6 +32,12 @@
 //Route::get('/indexAC', 'PagesController@indexAC');
 //Route::get('/indexPD', 'PagesController@indexPD');
 //Route::get('/indexAdmin', 'PagesController@indexAdmin');
+//Route::get('/sms', 'PagesController@sms');
+//Route:: post('/send_sms','TwilioTestController@testMessage');
+//Route::get('/sms', function()
+//{
+    //return View::make('activity_coordinators.sms');
+//});
 
 
 
@@ -44,10 +48,14 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/', 'PagesController@index');
 Route::get('/createApplicant', 'PagesController@createApplicant');
 Route::get('/createDonor', 'PagesController@createDonor');
+Route::get('/counter','PagesController@counter');
+
+
 //Cart Controller
 Route::resource('/cart', 'CartController');
 Route::get('/cart/add-item/{id}', 'CartController@addItem')->name('cart.addItem');
 
+<<<<<<< HEAD
 Route::resource('/donate', 'DonateController');
 Route::get('/donate/add-item/{id}', 'DonateController@addItem')->name('donate.addItem');
 //Route::get('/sms', 'PagesController@sms');
@@ -56,6 +64,9 @@ Route::get('/donate/add-item/{id}', 'DonateController@addItem')->name('donate.ad
 //{
     //return View::make('activity_coordinators.sms');
 //});
+=======
+
+>>>>>>> 3a76fc51c495993f625f5d2594aedfbf82e97439
 
 
 

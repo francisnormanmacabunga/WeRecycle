@@ -39,10 +39,8 @@
                       </li>
                       <li class="nav-item">
                           <a class="nav-link" href="/donor/createFeedback">Feedback</a>
-                      </li>
-
+                      </li> 
                     </ul>
-
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
 

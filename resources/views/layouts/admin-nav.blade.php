@@ -47,7 +47,7 @@
                         <a class="nav-link dropdown-toggle" href="https://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Catalog</a>
                         <div class="dropdown-menu" aria-labelledby="dropdown01">
                           <a class="dropdown-item" href="/admin/createCatalog"> Create Catalog </a>
-                          <a class="dropdown-item" href="/admin/manageshop"> Manage Catalog </a>
+                          <a class="dropdown-item" href="/admin/managedonation"> Manage Catalog </a>
                         </div>
                       </li>
 

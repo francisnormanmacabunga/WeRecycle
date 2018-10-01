@@ -8,8 +8,8 @@
       <div class="col-lg-3">
       <h4>Manage Donation Catalog</h4>
       <div class="list-group">
-          <a href="/admin/manageshop" class="list-group-item">Manage Shop Catalog</a>
-          <a href="/admin/managedonation" class="list-group-item">Manage Donation Catalog</a>
+        <a href="/admin/managedonation" class="list-group-item">Manage Donation Catalog</a>
+        <a href="/admin/manageshop" class="list-group-item">Manage Shop Catalog</a>
       </div>
       </div>
 

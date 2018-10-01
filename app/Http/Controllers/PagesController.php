@@ -3,23 +3,29 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use DB;
 use Session;
+use App\userTable;
+
 class PagesController extends Controller
 {
     public function index(){
-      return view('pages.index');
+
+      $volunteersCount = userTable::SELECT('*')
+      ->where('status', 'Activated')
+      ->where('usertypeID', '2')
+      ->get();
+      return view('pages.index', compact('volunteersCount'));
+      //return view('pages.index');
     }
 
-    public function createApplicant(){
+    public function createApplicant()
+    {
       return view('applicants.create');
     }
 
     public function createDonor(){
       return view('users.create');
-    }
-
-    public function sms(){
-      return view('activity_coordinators.sms');
     }
 
     //public function createEmployee(){

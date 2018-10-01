@@ -14,22 +14,25 @@
     </div>
     <div class="col-lg-9">
       <div class="row">
-
         @if(count($products2) > 0)
           @foreach ($products2 as $products)
-        <div class="col-lg-4 col-md-6 mb-4">
-          <div class="card h-100">
-          <a href="#"><img src="{{ asset('images/' . $products->productimage) }}" width="200" height="200"></a>
-            <a href="#"></a>
-            <div class="card-body">
-              <h4 class="card-title">
-                <a href="#">{{$products->productname}}</a>
-              </h4>
-              <h5>{{$products->price}}</h5>
-              <p class="card-text">{{$products->description}}</p>
+
+          <div class="col-lg-4 col-md-6 mb-4">
+            <div class="card h-100">
+            <a href="#"><img src="{{ asset('images/' . $products->productimage) }}" width="200" height="200"></a>
+              <a href="#"></a>
+              <div class="card-body">
+                <h4 class="card-title">
+                  <a href="#">{{$products->productname}}</a>
+                </h4>
+                <h5>{{$products->price}}</h5>
+                <p class="card-text">{{$products->description}}</p>
+                  <a role="button" class="btn btn-success btn-lg" href="{{ route('cart.addItem',$products->productsID) }}">
+                    Add to Cart</a>
+              </div>
             </div>
           </div>
-        </div>
+
       @endforeach
       @else
         <div align="center" style="color:red;">

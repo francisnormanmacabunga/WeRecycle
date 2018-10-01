@@ -41,7 +41,7 @@
             <dd class="col-sm-5">{{Form::number('tellNo', $donors->contacts->tellNo,['class' => 'form-control'])}}</dd>
           </dl>
           <hr style="margin:5px 0 5px 0;"><br>
-          {{Form::submit('Save',['class' => 'btn btn-lg btn-block btn-primary'])}}
+          {{Form::submit('Save',['class' => 'btn btn-lg btn-block btn-primary', 'onclick' => 'Confirm()'])}}
           <a class="btn btn-lg btn-block btn-primary" href="/activitycoordinator/activity_coordinators" role="button">Back </a>
           </div>
           {{Form::hidden('_method','PUT')}}
@@ -50,4 +50,18 @@
       </div>
     </div>
 
+    <script type="text/javascript">
+        function Confirm() {
+            var confirm_value = document.createElement("INPUT");
+            confirm_value.type = "hidden";
+            confirm_value.name = "confirm_value";
+            if (confirm("Do you want to save data?")) {
+                confirm_value.value = "Yes";
+            } else {
+                confirm_value.value = "No";
+            }
+            document.forms[0].appendChild(confirm_value);
+        }
+    </script>
+    
 @endsection

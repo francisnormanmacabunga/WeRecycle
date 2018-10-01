@@ -45,8 +45,8 @@
             <td>{{date('F d, Y, h:i:sa', strtotime($applicant->created_at))}}</td>
             <td>{{$applicant->status}}</td>
             <th>
-              <a class="btn btn-lg btn-block btn-primary" href="/activitycoordinator/applicants/{{$applicant->userID}}/edit" role="button">Update Status </a>
-  
+              <a class="btn btn-lg btn-block btn-primary" onclick="return confirm('Do you want to update this item?')" href="/activitycoordinator/applicants/{{$applicant->userID}}/edit" role="button">Update Status </a>
+
             </th>
         @endforeach
       </table>

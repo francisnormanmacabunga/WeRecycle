@@ -34,7 +34,7 @@
             <td>{{$employees->tellNo}}</td>
             <td>{{date('F d, Y, h:i:sa', strtotime($employees->created_at))}}</td>
             <td>{{$employees->status}}</td>
-            <td><a href="/admin/employees/{{$employees->userID}}/edit">Update Status</a?</td>
+            <td><a href="/admin/employees/{{$employees->userID}}/edit" onclick="return confirm('Do you want to update this item?')">Update Status</a?</td>
           </tr>
         @endforeach
       </table>

@@ -135,7 +135,7 @@ class CatalogController extends Controller
       $products = productsTable::find($id);
       $products->status = $request->input('status');
       $products->save();
-      return redirect('/admin/manageshop')->with('success', 'Item updated');
+      return redirect('/admin/managedonation')->with('success', 'Item updated');
     }
 
     /**

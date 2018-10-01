@@ -75,7 +75,7 @@ class CartController extends Controller
 
    public function addItem($id)
    {
-
+       session()->flash('notif','Item has been added to cart!');
        $products = productsTable::find($id);
        Cart::add($products->productsID,$products->productname,1,$products->price);
 
@@ -93,7 +93,8 @@ class CartController extends Controller
    {
 //        dd(Cart::content());
 //        dd($request->all());
-       Cart::update($id,['qty'=>$request->qty,"options"=>['size'=>$request->size]]);
+
+       Cart::update($id,$request->qty);
        return back();
    }
 
@@ -108,4 +109,14 @@ class CartController extends Controller
        Cart::remove($id);
        return back();
    }
+
+   public function Checkout(Request $request, $id)
+   {
+   //        dd(Cart::content());
+   //        dd($request->all());
+
+       Cart::update($id,$request->qty);
+       return back();
+   }
+
 }

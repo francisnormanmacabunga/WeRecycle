@@ -20,16 +20,17 @@
                     <td>{{$cartItem->name}}</td>
                     <td>{{$cartItem->price}}</td>
                     <td width="50px">
+
                         {!! Form::open(['route' => ['cart.update',$cartItem->rowId], 'method' => 'PUT']) !!}
                         <input name="qty" type="number" value="{{$cartItem->qty}}">
+                        <input style="float: left" type="submit" class="btn btn-primary" value="Update">
+                        {!! Form::close() !!}
 
 
                     </td>
-
-
                     <td>
-                        <input style="float: left"  type="submit" class="btn btn-primary" value="Update">
-                        {!! Form::close() !!}
+                        <?php //<input style="float: left"  type="submit" class="btn btn-primary" value="Update">  }} ?>
+
 
                         <form action="{{route('cart.destroy',$cartItem->rowId)}}"  method="POST">
                            {{csrf_field()}}
@@ -56,8 +57,7 @@
             </tr>
             </tbody>
         </table>
-        <a role="button" class="btn btn-success" href="">
-          Checkout</a>
+        <a role="button" class="btn btn-success" href="">Checkout</a>
     </div>
 </div>
 

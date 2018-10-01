@@ -33,7 +33,7 @@
               <div class="row">
                 <div class="col-md-6 mb-3">
                   {{Form::label('cellNo','Cellphone Number')}}
-                  {{Form::number('cellNo','', ['class' => 'form-control'])}}
+                  {{Form::text('cellNo','', ['class' => 'form-control', 'placeholder' => '+63XXXXXXXXXX'])}}
                 </div>
                 <div class="col-md-6 mb-3">
                   {{Form::label('tellNo','Telephone Number')}}

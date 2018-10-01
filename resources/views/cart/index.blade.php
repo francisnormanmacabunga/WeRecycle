@@ -19,11 +19,14 @@
                 <tr>
                     <td>{{$cartItem->name}}</td>
                     <td>{{$cartItem->price}}</td>
+
                     <td width="50px">
 
                         {!! Form::open(['route' => ['cart.update',$cartItem->rowId], 'method' => 'PUT']) !!}
                         <input name="qty" type="number" value="{{$cartItem->qty}}">
-                        <input style="float: left"  type="submit" onclick="return confirm('Do you want to update this item?')" class="btn btn-primary"  value="Update">
+                        <br />
+                        <br />
+                        <input style="float: left"  type="submit" onclick="return confirm('Do you want to update this item?')" class="btn btn-primary btn-sm"  value="Update">
                         {!! Form::close() !!}
 
 
@@ -56,6 +59,8 @@
             </tbody>
         </table>
         <a role="button" class="btn btn-success" href="">Checkout</a>
+        <a role="button" class="btn btn-danger" href="/donor/shopCatalog">
+          Back</a>
     </div>
 </div>
 

@@ -26,13 +26,13 @@
 
 
                     <td>
-                        <input style="float: left"  type="submit" class="btn btn-primary" value="Update">
+                        <input style="float: left"  type="submit" onclick="return confirm('Do you want to update this item?')" class="btn btn-primary" value="Update">
                         {!! Form::close() !!}
 
                         <form action="{{route('donate.destroy',$donateItem->rowId)}}"  method="POST">
                            {{csrf_field()}}
                            {{method_field('DELETE')}}
-                           <input class="btn btn-danger" type="submit" value="Remove">
+                           <input class="btn btn-danger" type="submit" onclick="return confirm('Do you want to delete this item?')" value="Remove">
                          </form>
                     </td>
                 </tr>

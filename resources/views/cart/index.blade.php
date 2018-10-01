@@ -23,19 +23,17 @@
 
                         {!! Form::open(['route' => ['cart.update',$cartItem->rowId], 'method' => 'PUT']) !!}
                         <input name="qty" type="number" value="{{$cartItem->qty}}">
-                        <input style="float: left" type="submit" class="btn btn-primary" value="Update">
+                        <input style="float: left"  type="submit" onclick="return confirm('Do you want to update this item?')" class="btn btn-primary"  value="Update">
                         {!! Form::close() !!}
 
 
                     </td>
                     <td>
-                        <?php //<input style="float: left"  type="submit" class="btn btn-primary" value="Update">  }} ?>
-
 
                         <form action="{{route('cart.destroy',$cartItem->rowId)}}"  method="POST">
                            {{csrf_field()}}
                            {{method_field('DELETE')}}
-                           <input class="btn btn-danger" type="submit" value="Remove">
+                           <input class="btn btn-danger" onclick="return confirm('Do you want to delete this item?')" type="submit" value="Remove">
                          </form>
                     </td>
                 </tr>

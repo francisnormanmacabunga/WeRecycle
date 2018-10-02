@@ -139,3 +139,5 @@ Route::prefix('admin')->group(function() {
   Route::get('/createEmployee', 'AdminController@createEmployee');
   Route::get('/', 'AdminController@index')->name('admin.dashboard');
 });
+
+  Route::get('/checkout','CartController@checkout');

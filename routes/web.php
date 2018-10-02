@@ -123,6 +123,12 @@ Route::prefix('donor')->group(function() {
     Route::resource('/program_directors', 'ProgramDirectorsController');
     Route::resource('/PD_password', 'ProgramDirectorsPasswordController');
     Route::get('/', 'ProgramDirectorController@index')->name('pd.dashboard');
+
+    Route::get('/donationhistory', 'HistoryController@donationHistory');
+    Route::get('/transactionhistory', 'HistoryController@transactionHistory');
+
+
+
     });
 
 Route::prefix('admin')->group(function() {

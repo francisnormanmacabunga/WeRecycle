@@ -17,7 +17,6 @@
     <div class="row">
 
       @if(count($products2) > 0)
-        @foreach ($products2 as $products)
           <table class="table table-bordered">
           <tr>
           <th>Item Type</th>
@@ -29,6 +28,7 @@
           <th>Status</th>
           <th>Action</th>
         </tr>
+        @foreach ($products2 as $products)
         <tr>
           <td>{{$products->productstype}}</td>
           <td>{{$products->productname}}</td>
@@ -39,8 +39,8 @@
           <td>{{$products->status}}</td>
           <th><a class="btn btn-block btn-primary" href="/admin/catalog/{{$products->productsID}}/edit" role="button">Update Status </a></th>
         </tr>
+        @endforeach
       </table>
-      @endforeach
     @else
     <div align="center" style="color:red;">
       <br>

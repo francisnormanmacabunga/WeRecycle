@@ -39,7 +39,11 @@
         @endforeach
       </table>
     @else
-      <h3 style="color:red;" align="center">No records found.</h3>
+    <div align="center" style="color:red;">
+      <br>
+      <br>
+      <h5 style="font-family:serif;">No records found.</h5>
+    </div>
     @endif
       {{$employee->links()}}
     </div>

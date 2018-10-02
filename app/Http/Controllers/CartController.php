@@ -130,5 +130,8 @@ $order->barangay = $donor->barangay;
 $order->city = $donor->city;
 $order->zip = $donor->zip;
 $order->save();
+ session()->flash('notif','checkout successful!');
+cart::destroy();
+return back();
 }
 }

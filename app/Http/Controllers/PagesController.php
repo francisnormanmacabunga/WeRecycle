@@ -7,6 +7,7 @@ use DB;
 use Session;
 use App\userTable;
 
+
 class PagesController extends Controller
 {
     public function index(){
@@ -26,6 +27,18 @@ class PagesController extends Controller
 
     public function createDonor(){
       return view('users.create');
+    }
+
+    public function auditlogs(){
+
+      //$audits = Audit::all();
+      //$all = audits()->with('userTable')->get();
+      //$userTable = userTable;
+      //$all = $userTable->audits;
+      //$audits = $donors->audits()->with('user')->get();
+      //$audits = userTable::find(1);
+      //$audits = userTable::with('audits.userTable'->find($model->getKey());
+      return view('audits.index', compact('audits'));
     }
 
     //public function createEmployee(){

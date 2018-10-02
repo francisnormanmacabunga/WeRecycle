@@ -9,7 +9,6 @@ use App\Notifications\DonorResetPasswordNotification;
 class donor extends Authenticatable
 {
     use Notifiable;
-
     protected $guard = 'donor';
     protected $table = 'user';
     protected $primaryKey = 'userID';
@@ -33,6 +32,11 @@ class donor extends Authenticatable
     {
         $this->notify(new DonorResetPasswordNotification($token));
     }
+
+    //public function user()
+    //{
+    //return $this->belongsTo(Config::get('audit.user.model'), 'userID');
+    //}
 
     //public function contacts()
     //{

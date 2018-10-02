@@ -38,6 +38,12 @@
 //{
     //return View::make('activity_coordinators.sms');
 //});
+//Route::get('/sms', 'PagesController@sms');
+//Route:: post('/send_sms','TwilioTestController@testMessage');
+//Route::get('/sms', function()
+//{
+    //return View::make('activity_coordinators.sms');
+//});
 
 
 
@@ -48,7 +54,12 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/', 'PagesController@index');
 Route::get('/createApplicant', 'PagesController@createApplicant');
 Route::get('/createDonor', 'PagesController@createDonor');
-Route::get('/counter','PagesController@counter');
+
+Route::get('/auditlogs', 'PagesController@auditlogs');
+
+
+
+
 
 
 //Cart Controller
@@ -58,21 +69,15 @@ Route::get('/cart/add-item/{id}', 'CartController@addItem')->name('cart.addItem'
 
 Route::resource('/donate', 'DonateController');
 Route::get('/donate/add-item/{id}', 'DonateController@addItem')->name('donate.addItem');
-//Route::get('/sms', 'PagesController@sms');
-//Route:: post('/send_sms','TwilioTestController@testMessage');
-//Route::get('/sms', function()
-//{
-    //return View::make('activity_coordinators.sms');
-//});
-//=======
 
-//>>>>>>> 3a76fc51c495993f625f5d2594aedfbf82e97439
+
 
 
 
 Route::prefix('donor')->group(function() {
   Route::get('/login','DonorAuth\DonorLoginController@showLoginForm')->name('donor.login');
   Route::post('/login','DonorAuth\DonorLoginController@login')->name('donor.login.submit');
+
   Route::post('/logout', 'DonorAuth\DonorLoginController@donorLogout')->name('donor.logout');
   Route::post('/password/email','DonorAuth\ForgotPasswordController@sendResetLinkEmail')->name('donor.password.email');
   Route::get('/password/reset','DonorAuth\ForgotPasswordController@showLinkRequestForm')->name('donor.password.request');
@@ -119,9 +124,11 @@ Route::prefix('donor')->group(function() {
     Route::get('/password/reset','PDAuth\ForgotPasswordController@showLinkRequestForm')->name('programdirector.password.request');
     Route::post('/password/reset','PDAuth\ResetPasswordController@reset');
     Route::get('/password/reset/{token}','PDAuth\ResetPasswordController@showResetForm')->name('programdirector.password.reset');
+
     Route::resource('/feedback', 'FeedbacksController');
     Route::resource('/program_directors', 'ProgramDirectorsController');
     Route::resource('/PD_password', 'ProgramDirectorsPasswordController');
+
     Route::get('/', 'ProgramDirectorController@index')->name('pd.dashboard');
     });
 

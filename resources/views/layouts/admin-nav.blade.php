@@ -50,6 +50,9 @@
                           <a class="dropdown-item" href="/admin/managedonation"> Manage Catalog </a>
                         </div>
                       </li>
+                      <li class="nav-item">
+                            <a class="nav-link" href="/auditlogs">Audit Logs</a>
+                      </li>
 
 
                     </ul>

@@ -2,6 +2,16 @@
 @section('content')
 <div class="container">
     <div class="content">
+
+      @if(session()->has('notif'))
+      <div class="content">
+        <div class="alert alert-success">
+          <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+          <strong>{{session()->get('notif')}}</strong>
+        </div>
+      </div>
+      @endif
+
         <h3>Donation list</h3>
 
 

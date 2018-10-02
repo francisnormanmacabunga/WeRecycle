@@ -75,7 +75,7 @@ class DonateController extends Controller
 
    public function addItem($id)
    {
-
+       session()->flash('notif','Item has been added to donation list!');
        $products = productsTable::find($id);
        Cart::add($products->productsID,$products->productname,1,$products->price);
 

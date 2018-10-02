@@ -61,4 +61,8 @@ class donor extends Authenticatable
         //'password', 'remember_token',
     //];
 
+    public function orders(){
+      return $this->belongsTo('App\order');
+    }
+
 }

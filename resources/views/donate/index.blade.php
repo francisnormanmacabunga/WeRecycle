@@ -3,8 +3,6 @@
 <div class="container">
     <div class="content">
         <h3>Donation list</h3>
-
-
         <table class="table table-hover">
             <thead>
             <tr>

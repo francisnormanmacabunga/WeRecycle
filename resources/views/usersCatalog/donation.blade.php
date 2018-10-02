@@ -2,7 +2,14 @@
 @include('layouts.donor-nav')
 
 @section('content')
-
+@if(session()->has('notif'))
+<div class="content">
+  <div class="alert alert-success">
+    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+    <strong>{{session()->get('notif')}}</strong>
+  </div>
+</div>
+@endif
   <div class="row">
     <div class="col-lg-3">
     <h3>Donation</h3>

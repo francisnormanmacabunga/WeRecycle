@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Gloudemans\Shoppingcart\Facades\Cart;
 use App\productsTable;
+use App\order;
+use App\donor;
+use Auth;
 class CartController extends Controller
 {
 
@@ -110,13 +113,25 @@ class CartController extends Controller
        return back();
    }
 
-   public function Checkout(Request $request, $id)
+   public function checkout()
    {
-   //        dd(Cart::content());
-   //        dd($request->all());
+$donor = Auth::user();
+$order = new order();
+$cartItems=Cart::content();
 
-       Cart::update($id,$request->qty);
-       return back();
-   }
-
+$order->userID = $donor->userID;
+$order->cart = serialize($cartItems);
+$order->fname = $donor->firstname;
+$order->lname = $donor->lastname;
+$order->username = $donor->username;
+$order->email = $donor->email;
+$order->street = $donor->street;
+$order->barangay = $donor->barangay;
+$order->city = $donor->city;
+$order->zip = $donor->zip;
+$order->save();
+ session()->flash('notif','Checkout successful!');
+cart::destroy();
+return back();
+}
 }

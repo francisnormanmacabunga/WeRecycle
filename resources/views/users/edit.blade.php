@@ -35,7 +35,7 @@
             <dt class="col-sm-6">Barangay:</dt>
             <dd class="col-sm-5">{{Form::text('barangay', $donors->barangay,['class' => 'form-control'])}}</dd>
             <dt class="col-sm-6">Cellphone:</dt>
-            <dd class="col-sm-5">{{Form::number('cellNo', $donors->contacts->cellNo,['class' => 'form-control'])}}</dd>
+            <dd class="col-sm-5">{{Form::text('cellNo', $donors->contacts->cellNo,['class' => 'form-control', 'placeholder' => '+63XXXXXXXXXX'])}}</dd>
             <dt class="col-sm-6">Telephone:</dt>
             <dd class="col-sm-5">{{Form::number('tellNo', $donors->contacts->tellNo,['class' => 'form-control'])}}</dd>
           </dl>

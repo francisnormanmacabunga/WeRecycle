@@ -10,7 +10,7 @@
       <h1>Transaction History</h1>
       <table class="table table-bordered">
       <tr>
-      <th>Name of User</th>
+      <th>Username</th>
       <th>Volunteer Assigned</th>
       <th>Product name</th>
       <th>Quantity</th>

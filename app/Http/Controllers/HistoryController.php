@@ -9,7 +9,13 @@ class HistoryController extends Controller
 
   public function __construct()
   {
-      $this->middleware('auth:programdirector');
+    $this->middleware('auth:programdirector', ['only'=> [
+      'donationHistory', 'transactionHistory',
+      ]]);
+
+      $this->middleware('auth:donor', ['except'=> [
+       'donationHistory', 'transactionHistory',
+        ]]);
 
   }
 
@@ -22,4 +28,9 @@ class HistoryController extends Controller
     {
         return view('program_directors.transactionHistory', compact('transactionHistory'));
     }
+
+    public function donorHistory()
+     {
+         return view('users.donorHistory', compact('donorHistory'));
+     }
 }

@@ -12,7 +12,14 @@ class TwilioController extends Controller
 {
   public function __construct()
   {
-    $this->middleware('auth:programdirector');
+
+    $this->middleware('auth:programdirector', ['only'=> [
+      'indexVolunteer','indexDonor', 'sendMessageVolunteer', 'sendMessageDonor', 'sendMessageVolunteer'
+      ]]);
+
+    $this->middleware('auth:activitycoordinator', ['except'=> [
+      'indexVolunteer','indexDonor', 'sendMessageVolunteer', 'sendMessageDonor', 'sendMessageVolunteer'
+      ]]);
   }
 
   public function index()

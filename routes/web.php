@@ -90,6 +90,8 @@ Route::prefix('donor')->group(function() {
   Route::get('/donationCatalog','DonorsCatalogController@donationCatalog');
   Route::get('/shopCatalog','DonorsCatalogController@shopCatalog');
   Route::get('/', 'DonorController@index')->name('donor.dashboard');
+
+  Route::get('/donorhistory','HistoryController@donorHistory');
   });
 
   Route::prefix('activitycoordinator')->group(function() {

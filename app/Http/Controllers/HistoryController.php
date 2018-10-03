@@ -6,6 +6,13 @@ use Illuminate\Http\Request;
 
 class HistoryController extends Controller
 {
+
+  public function __construct()
+  {
+      $this->middleware('auth:programdirector');
+
+  }
+
   public function donationHistory()
    {
        return view('program_directors.donationHistory', compact('donationhistory'));

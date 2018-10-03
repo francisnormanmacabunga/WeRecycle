@@ -12,7 +12,7 @@ class TwilioController extends Controller
 {
   public function __construct()
   {
-    $this->middleware('auth:activitycoordinator');
+    $this->middleware('auth:programdirector');
   }
 
   public function index()

@@ -31,7 +31,8 @@ class PagesController extends Controller
 
     public function auditlogs(){
 
-      //$audits = Audit::all();
+
+      $audits = userTable::first();
       //$all = audits()->with('userTable')->get();
       //$userTable = userTable;
       //$all = $userTable->audits;

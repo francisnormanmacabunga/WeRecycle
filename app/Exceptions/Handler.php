@@ -62,6 +62,14 @@ class Handler extends ExceptionHandler
           $login = 'donor.login';
           break;
 
+          case 'activitycoordinator':
+          $login = 'ac.login';
+          break;
+
+          case 'programdirector':
+          $login = 'pd.login';
+          break;
+
           default:
           $login = 'login';
           break;

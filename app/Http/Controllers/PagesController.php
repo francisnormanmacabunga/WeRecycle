@@ -7,7 +7,6 @@ use DB;
 use Session;
 use App\userTable;
 
-
 class PagesController extends Controller
 {
     public function index(){
@@ -31,15 +30,55 @@ class PagesController extends Controller
 
     public function auditlogs(){
 
-
-      $audits = userTable::first();
       //$all = audits()->with('userTable')->get();
       //$userTable = userTable;
       //$all = $userTable->audits;
       //$audits = $donors->audits()->with('user')->get();
       //$audits = userTable::find(1);
       //$audits = userTable::with('audits.userTable'->find($model->getKey());
-      return view('audits.index', compact('audits'));
+      //$audits = Audit::all();
+      //return view('audits.index', compact('audits'));
+
+      // Get first available Article
+
+
+      //$audits = userTable::first();
+
+      //$all = $audits->audits()->with('user')->get();
+      // Get latest Audit
+
+      //$audit = $audits->audits()->latest()->first();
+
+      //$all = $audit->audits;
+
+
+      //return view('audits.index', compact('audit'));
+
+      //var_dump($audit->getMetadata());
+
+
+
+
+/*
+      $audits = userTable::find(25);
+$audit = $audits->audits()->first()->load('user');
+//dd($audit->getmetadata());
+return view('audits.index', compact('audit'));
+*/
+
+
+
+
+/*$audits = \OwenIt\Auditing\Models\Audit::with('user')
+    ->orderBy('created_at', 'desc')->get();
+
+dd($audits);
+
+//return view('audits.index', ['audits' => $audits]);
+*/
+
+
+
     }
 
     //public function createEmployee(){

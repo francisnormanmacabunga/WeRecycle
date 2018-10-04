@@ -4,21 +4,41 @@
 @section('content')
 
 
-  <ul>
-      @forelse ($audits as $audit)
-      <li>
-          @lang('article.updated.metadata', $audit->getMetadata())
 
-          @foreach ($audit->getModified() as $attribute => $modified)
-          <ul>
-              <li>@lang('article.'.$audit->event.'.modified.'.$attribute, $modified)</li>
-          </ul>
-          @endforeach
-      </li>
-      @empty
-      <p>@lang('article.unavailable_audits')</p>
-      @endforelse
-  </ul>
+
+
+
+
+
+
+
+
+  <div class="row">
+    <div class="col-md-12">
+      <table class="table table-bordered">
+        <tr>
+          <th>Date</th>
+          <th>Username</th>
+          <th>Type of Account</th>
+          <th>Activity</th>
+        </tr>
+        @foreach ($audits as $audit)
+        <tr>
+          <td>{{ $audit->updated_at }}</td>
+          <td>  </td>
+          <td> {{ $audit->auditable_type }} </td>
+          <td>  {{ $audit->event }} </td>
+        </tr>
+        @endforeach
+      </table>
+    </div>
+  </div>
+
+
+
+
+
+
 
 
 @endsection

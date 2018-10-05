@@ -7,14 +7,8 @@ use Carbon\Carbon;
 use Kyslik\ColumnSortable\Sortable;
 use App\contactsTable;
 
-
-use OwenIt\Auditing\Auditable;
-use OwenIt\Auditing\Contracts\Auditable as AuditableContract;
-
-
-class userTable extends Model implements AuditableContract
+class userTable extends Model
 {
-    use Auditable;
     use Sortable;
     protected $table = 'user';
     protected $primaryKey = 'userID';
@@ -31,10 +25,10 @@ class userTable extends Model implements AuditableContract
     return $this->hasOne('App\contactsTable','userID');
     }
 
-    public function user()
-    {
-    return $this->belongsTo(Config::get('audit.user.model'), 'userID');
-    }
+    //public function user()
+    //{
+    //return $this->belongsTo(Config::get('audit.user.model'), 'userID');
+    //}
 
     //public function feedbacks()
     //{

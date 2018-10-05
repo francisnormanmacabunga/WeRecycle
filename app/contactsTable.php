@@ -5,12 +5,8 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use App\userTable;
 
-use OwenIt\Auditing\Auditable;
-use OwenIt\Auditing\Contracts\Auditable as AuditableContract;
-
-class contactsTable extends Model implements AuditableContract
+class contactsTable extends Model
 {
-  use Auditable;
   protected $table = 'contacts';
   protected $primaryKey = 'contactID';
   public $timestamps = false;

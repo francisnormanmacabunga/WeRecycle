@@ -57,7 +57,9 @@ Route::get('/index', 'PagesController@index2');
 Route::get('/createApplicant', 'PagesController@createApplicant');
 Route::get('/createDonor', 'PagesController@createDonor');
 
+
 Route::get('/auditlogs', 'PagesController@auditlogs');
+Route::resource('/test', 'Test');
 
 
 

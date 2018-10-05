@@ -160,3 +160,6 @@ Route::prefix('admin')->group(function() {
 });
 
   Route::get('/checkout','CartController@checkout');
+  Route::get('/checkout/edit{id}','CheckoutController@edit');
+  Route::get('/checkout/index','CheckoutController@index')->name('checkout');
+  Route::get('/checkout/confirm{id}','CheckoutController@confirm');

@@ -8,6 +8,7 @@ use App\productsTable;
 use App\order;
 use App\donor;
 use Auth;
+use DB;
 class CartController extends Controller
 {
 
@@ -28,7 +29,7 @@ class CartController extends Controller
 
   public function index()
    {
-       $cartItems=Cart::content();
+       $cartItems=Cart::instance('shop')->content();
        return view('cart.index',compact('cartItems'));
    }
 
@@ -80,7 +81,8 @@ class CartController extends Controller
    {
        session()->flash('notif','Item has been added to cart!');
        $products = productsTable::find($id);
-       Cart::add($products->productsID,$products->productname,1,$products->price);
+       Cart::instance('shop')->add($products->productsID,$products->productname,1,$products->price);
+
 
        return back();
    }
@@ -94,22 +96,15 @@ class CartController extends Controller
     */
    public function update(Request $request, $id)
    {
-//        dd(Cart::content());
-//        dd($request->all());
 
-       Cart::update($id,$request->qty);
+       Cart::instance('shop')->update($id,$request->qty);
        return back();
    }
 
-   /**
-    * Remove the specified resource from storage.
-    *
-    * @param  int  $id
-    * @return \Illuminate\Http\Response
-    */
+
    public function destroy($id)
    {
-       Cart::remove($id);
+       Cart::instance('shop')->remove($id);
        return back();
    }
 
@@ -117,21 +112,31 @@ class CartController extends Controller
    {
 $donor = Auth::user();
 $order = new order();
-$cartItems=Cart::content();
+$cartItems=Cart::instance('shop')->content();
 
 $order->userID = $donor->userID;
 $order->cart = serialize($cartItems);
 $order->fname = $donor->firstname;
 $order->lname = $donor->lastname;
-$order->username = $donor->username;
-$order->email = $donor->email;
 $order->street = $donor->street;
 $order->barangay = $donor->barangay;
 $order->city = $donor->city;
 $order->zip = $donor->zip;
+$order->status = 'Inactive';
+
+
 $order->save();
- session()->flash('notif','Checkout successful!');
-cart::destroy();
-return back();
+cart::instance('shop')->destroy();
+
+/*$test = order::SELECT('*')
+-> where('userID',$donor->userID)
+-> get();*/
+
+//$test2 = order::find();
+
+$test3 = order::where('userID', $donor->userID)->first();
+
+//$ordertable = DB::select('select * from orders where userID = ?', [$donor->userID]);
+return redirect()->route('checkout');
 }
 }

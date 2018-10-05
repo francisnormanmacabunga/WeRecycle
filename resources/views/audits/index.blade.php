@@ -22,18 +22,36 @@
           <th>Type of Account</th>
           <th>Activity</th>
         </tr>
-        @foreach ($audits as $audit)
+        @foreach ($logs as $log)
         <tr>
-          <td>{{ $audit->updated_at }}</td>
-          <td> {{ $audit->user['name'] }} </td>
-          <td> {{ $audit->auditable_type }} </td>
-          <td>  {{ $audit->event }} </td>
+          <td>{{ $log->updated_at }}</td>
+          <td> {{ $log->user['username'] }} </td>
+          <td> {{ $log->owner_type }} </td>
+          <td>  {{ $log->type }} </td>
         </tr>
         @endforeach
       </table>
     </div>
   </div>
 
+
+
+  <ol>
+         @forelse ($logs as $log)
+             <li>
+                 {{ $log->customMessage }}
+                 <ul>
+                     @forelse ($log->customFields as $custom)
+                         <li>{{ $custom }}</li>
+                     @empty
+                         <li>No details</li>
+                     @endforelse
+                 </ul>
+             </li>
+         @empty
+             <p>No logs</p>
+         @endforelse
+     </ol>
 
 
 

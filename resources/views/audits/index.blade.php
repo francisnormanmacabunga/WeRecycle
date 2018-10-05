@@ -1,5 +1,5 @@
 @extends('layouts.frontend')
-@include('layouts.admin-nav')
+@include('layouts.app')
 
 @section('content')
 
@@ -25,7 +25,7 @@
         @foreach ($audits as $audit)
         <tr>
           <td>{{ $audit->updated_at }}</td>
-          <td>  </td>
+          <td> {{ $audit->user['name'] }} </td>
           <td> {{ $audit->auditable_type }} </td>
           <td>  {{ $audit->event }} </td>
         </tr>

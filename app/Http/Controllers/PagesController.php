@@ -30,87 +30,14 @@ class PagesController extends Controller
 
     public function auditlogs(){
 
-      //$all = audits()->with('userTable')->get();
-      //$userTable = userTable;
-      //$all = $userTable->audits;
-      //$audits = $donors->audits()->with('user')->get();
-      //$audits = userTable::find(1);
-      //$audits = userTable::with('audits.userTable'->find($model->getKey());
-      //$audits = Audit::all();
-      //return view('audits.index', compact('audits'));
+      $audits = \OwenIt\Auditing\Models\Audit::with('user')
+      ->orderBy('created_at', 'desc')
+      ->get();
 
-      // Get first available Article
+      //dd($audits);
 
-
-      //$audits = userTable::first();
-
-      //$all = $audits->audits()->with('user')->get();
-      // Get latest Audit
-
-      //$audit = $audits->audits()->latest()->first();
-
-      //$all = $audit->audits;
-
-
-      //return view('audits.index', compact('audit'));
-
-      //var_dump($audit->getMetadata());
-
-
-
-
-/*
-      $audits = userTable::find(25);
-$audit = $audits->audits()->first()->load('user');
-//dd($audit->getmetadata());
-return view('audits.index', compact('audit'));
-*/
-
-
-
-
-/*$audits = \OwenIt\Auditing\Models\Audit::with('user')
-    ->orderBy('created_at', 'desc')->get();
-
-dd($audits);
-
-//return view('audits.index', ['audits' => $audits]);
-*/
-
-
+      return view('audits.index', ['audits' => $audits]);
 
     }
-
-    //public function createEmployee(){
-      //return view('employees.create');
-    //}
-
-    //public function createCatalog(){
-      //return view('catalog.create');
-    //}
-
-    //public function createFeedback(){
-      //return view('usersFeedback.create');
-    //}
-
-    //public function login(){
-      //return view('login.login');
-    //}
-
-    //public function indexUser(){
-        //return view('pages.indexUser');
-    //}
-
-    //public function indexAC(){
-      //return view('pages.indexAC');
-    //}
-
-    //public function indexPD(){
-      //return view('pages.indexPD');
-    //}
-
-    //public function indexAdmin(){
-      //return view('pages.indexAdmin');
-    //}
 
 }

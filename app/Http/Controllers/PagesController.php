@@ -28,6 +28,10 @@ class PagesController extends Controller
       return view('users.create');
     }
 
+    public function index2(){
+      return view('users.index2');
+    }
+
     public function auditlogs(){
 
       $audits = \OwenIt\Auditing\Models\Audit::with('user')

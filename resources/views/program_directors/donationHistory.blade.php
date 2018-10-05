@@ -18,6 +18,7 @@
       <th>Date</th>
       <th>Status</th>
     </tr>
+
     <tr>
       <td></td>
       <td></td>
@@ -25,15 +26,11 @@
       <td></td>
       <td></td>
       <td></td>
-
-
     </tr>
 
-
-
-
-
   </table>
+
+
 
 </div>
 </div>

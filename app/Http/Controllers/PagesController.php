@@ -42,6 +42,15 @@ class PagesController extends Controller
       return view('audits.index', compact('audits'));
     }
 
+    public function index2(){
+      $volunteersCount = userTable::SELECT('*')
+      ->where('status', 'Activated')
+      ->where('usertypeID', '2')
+      ->get();
+
+      return view('pages.index2', compact('volunteersCount'));
+    }
+
     //public function createEmployee(){
       //return view('employees.create');
     //}

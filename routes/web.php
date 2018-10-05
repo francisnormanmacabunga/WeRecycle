@@ -52,6 +52,8 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 
 Route::get('/', 'PagesController@index');
+Route::get('/index', 'PagesController@index2');
+
 Route::get('/createApplicant', 'PagesController@createApplicant');
 Route::get('/createDonor', 'PagesController@createDonor');
 

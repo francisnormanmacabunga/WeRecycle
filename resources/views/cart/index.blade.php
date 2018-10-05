@@ -34,7 +34,7 @@
                         <input name="qty" type="number" value="{{$cartItem->qty}}">
                         <br />
                         <br />
-                        <input style="float: left"  type="submit" onclick="return confirm('Do you want to update this item?')" class="btn btn-primary btn-sm"  value="Update">
+                        <input style="float: left"  type="submit" onclick="return confirm('Do you want to update this item?')" class="btn btn-primary btn-sm"  value="Update Qty">
                         {!! Form::close() !!}
 
 

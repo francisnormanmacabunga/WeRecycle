@@ -5,8 +5,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Twilio\Rest\Client;
 use App\userTable;
+use App\requestTable;
 use Session;
 use Auth;
+use DB;
 
 class TwilioController extends Controller
 {
@@ -70,6 +72,18 @@ class TwilioController extends Controller
 
   public function sendMessageVolunteer(Request $request)
   {
+    $this->validate($request, [
+    'message' => 'nullable',
+    [
+      'message.required' => 'The message field is required.'
+    ]
+  ]);
+    $applicant = new requestTable();
+    //$feedback->userID = (Select from user where userID = session('username'))
+    $applicant->message = $request ->input('message');
+    $applicant->userID = auth()->user()->userID;
+    $applicant->save();
+
     $sid    = "AC8a7060e979f382acdb6ba484275f218b";
     $token  = "addb0fa1287d36f40d566e65bc764f4a";
     $twilio = new Client($sid, $token);
@@ -81,7 +95,7 @@ class TwilioController extends Controller
              )
     );
 
-    
+
     return redirect('/programdirector/sendSMS-V')->with('success', 'Message Sent Succesfully');
   }
 

@@ -11,15 +11,29 @@
           <th>Username</th>
           <th>Type of Account</th>
           <th>Activity</th>
+          <th>Properties</th>
+          <th>Subject</th>
         </tr>
-        @foreach ($activity as $activitys)
+@foreach ($lastActivity as $lastActivitys)
+
+
         <tr>
-          <td>{{ $activity->changes() }}</td>
-          
+          <td> {{$lastActivitys->updated_at}} </td>
+          <td> {{$lastActivitys->causer['username']}} </td>
+          <td> {{$lastActivitys->causer_type}} </td>
+          <td> {{$lastActivitys->description}} </td>
+          <td> {{$lastActivitys->properties}} </td>
+          <td> {{$lastActivitys->subject['username']}} </td>
         </tr>
-        @endforeach
+@endforeach
       </table>
     </div>
   </div>
+
+
+
+
+
+
 
 @endsection

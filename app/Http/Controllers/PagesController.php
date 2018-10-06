@@ -32,14 +32,13 @@ class PagesController extends Controller
 
     public function auditlogs()
     {
-      /*$logs = Log::with(['user'])->get();
-      //dd($logs);
-      return view('audits.index', ['logs' => $logs]);*/
-
-      $activity = Activity::all()->last();
+      //$lastActivity = Activity::with('causer')->get()->toArray();
+      //$lastActivity = Activity::all()->last()->with('causer')->get()->toArray();
+      $lastActivity = Activity::all();
+    //  $lastActivity = Activity::with('user');
       //dd($lastActivity);
 
-      return view('audits.index', compact('activity'));
+      return view('audits.index', compact('lastActivity'));
     }
 
     public function index2()

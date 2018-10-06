@@ -23,7 +23,22 @@ class userTable extends Model
     public $timestamps = true;
     public $sortable = ['created_at', 'status', 'usertypeID'];
 
-    protected static $logFillable = true;
+    protected static $logAttributes = ["*"];
+
+    public static function boot()
+    {
+    parent::boot();
+    static::saving(function (Model $model) {
+        static::$logAttributes = array_keys($model->getDirty());
+    });
+    }
+
+    public $appends = ['name'];
+
+    public function getNameAttribute()
+    {
+        return $this->causer->username ?? null;
+    }
 
     public function age()
     {

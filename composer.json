@@ -13,6 +13,7 @@
         "laravel/tinker": "^1.0",
         "laravelcollective/html": "^5.4.0",
         "roketin/laravel-auditing": "^2.0",
+        "spatie/laravel-activitylog": "^2.8",
         "twilio/sdk": "^5.23"
     },
     "require-dev": {

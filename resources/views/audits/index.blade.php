@@ -1,17 +1,7 @@
 @extends('layouts.frontend')
-@include('layouts.app')
+@include('layouts.admin-nav')
 
 @section('content')
-
-
-
-
-
-
-
-
-
-
 
   <div class="row">
     <div class="col-md-12">
@@ -22,41 +12,14 @@
           <th>Type of Account</th>
           <th>Activity</th>
         </tr>
-        @foreach ($logs as $log)
+        @foreach ($activity as $activitys)
         <tr>
-          <td>{{ $log->updated_at }}</td>
-          <td> {{ $log->user['username'] }} </td>
-          <td> {{ $log->owner_type }} </td>
-          <td>  {{ $log->type }} </td>
+          <td>{{ $activity->changes() }}</td>
+          
         </tr>
         @endforeach
       </table>
     </div>
   </div>
-
-
-
-  <ol>
-         @forelse ($logs as $log)
-             <li>
-                 {{ $log->customMessage }}
-                 <ul>
-                     @forelse ($log->customFields as $custom)
-                         <li>{{ $custom }}</li>
-                     @empty
-                         <li>No details</li>
-                     @endforelse
-                 </ul>
-             </li>
-         @empty
-             <p>No logs</p>
-         @endforelse
-     </ol>
-
-
-
-
-
-
 
 @endsection

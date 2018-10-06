@@ -7,6 +7,7 @@ use Auth;
 use DB;
 use App\order;
 use App\transaction;
+use Gloudemans\Shoppingcart\Facades\Cart;
 
 class CheckoutController extends Controller
 {

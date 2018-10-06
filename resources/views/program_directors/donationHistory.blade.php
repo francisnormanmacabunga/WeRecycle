@@ -22,8 +22,11 @@
     <tr>
       <td>{{$item->userID}}</td>
       <td></td>
+<table>
+  
+  <td>{{$item->name}}{{$item->price}}{{$item->qty}}</td>
+</table>
 
-      <td>{{$item->name}}{{$item->price}}{{$item->qty}}</td>
       <td></td>
       <td>{{$item->created_at}}</td>
       <td>{{$item->status}}</td>

@@ -18,16 +18,16 @@
       <th>Date</th>
       <th>Status</th>
     </tr>
-
+    @foreach ($donationhistory as $history)
     <tr>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>{{$history->users->username}}</td>
+      <td>{{$history->users->username}}</td>
+      <td>{{$history->fname}}</td>
+      <td>James Pramono</td>
+      <td>{{$history->created_at}}</td>
+      <td>Delivered</td>
     </tr>
-
+    @endforeach
   </table>
 
 

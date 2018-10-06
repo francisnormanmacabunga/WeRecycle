@@ -27,6 +27,21 @@
     </div>
   </div>
   {{Form::hidden('_method','PUT')}}
-  {{Form::submit('Save',['class' => 'btn btn-success btn-lg btn-block'])}}
+  {{Form::submit('Save',['class' => 'btn btn-success btn-lg btn-block', 'onclick' => 'Confirm()'])}}
   {!! Form::close() !!}
+
+  <script type="text/javascript">
+      function Confirm() {
+          var confirm_value = document.createElement("INPUT");
+          confirm_value.type = "hidden";
+          confirm_value.name = "confirm_value";
+          if (confirm("Do you want to save data?")) {
+              confirm_value.value = "Yes";
+          } else {
+              confirm_value.value = "No";
+          }
+          document.forms[0].appendChild(confirm_value);
+      }
+  </script>
+
 @endsection

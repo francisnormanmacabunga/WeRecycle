@@ -11,19 +11,9 @@ class contactsTable extends Model
   protected $primaryKey = 'contactID';
   public $timestamps = false;
 
-  //public function user()
-  //{
-    //return $this->belongsTo('App\userTable','userID');
-  //}
-
   public function user()
   {
     return $this->belongsTo('App\donor','userID');
   }
-
-  //public function user()
-  //{
-  //return $this->belongsTo(Config::get('audit.user.model'), 'userID');
-  //}
 
 }

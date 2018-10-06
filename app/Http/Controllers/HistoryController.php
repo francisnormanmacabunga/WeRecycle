@@ -8,6 +8,7 @@ use App\userTable;
 use DB;
 
 
+
 class HistoryController extends Controller
 {
 
@@ -33,9 +34,14 @@ class HistoryController extends Controller
 
 
 
-       $donationhistory = transaction::all();
-    
-       return view('program_directors.donationHistory', compact('donationhistory'));
+      // $test = $donationhistory = transaction::all();
+      $donationhistory = transaction::all();
+      $test = $donationhistory->unserialize($donationhistory->cart);
+
+      // return view('program_directors.donationHistory', compact('donationhistory'));
+
+
+       return view('program_directors.donationHistory',compact('test'))->with(['donationhistory' => $donationhistory ]);
    }
 
    public function transactionHistory()

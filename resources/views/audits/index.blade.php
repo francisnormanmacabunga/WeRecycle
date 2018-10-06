@@ -15,7 +15,7 @@
         @foreach ($activity as $activitys)
         <tr>
           <td>{{ $activity->changes() }}</td>
-          
+
         </tr>
         @endforeach
       </table>

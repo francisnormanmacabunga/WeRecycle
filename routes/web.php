@@ -54,41 +54,41 @@ Route::prefix('donor')->group(function() {
   Route::get('/donorhistory','HistoryController@donorHistory');
   });
 
-  Route::prefix('activitycoordinator')->group(function() {
-    Route::get('/login','ACAuth\ACLoginController@showLoginForm')->name('ac.login');
-    Route::post('/login','ACAuth\ACLoginController@login')->name('ac.login.submit');
-    Route::post('/logout', 'ACAuth\ACLoginController@activitycoordinatorLogout')->name('activitycoordinator.logout');
-    Route::get('/sendSMS','TwilioController@index');
-    Route::post('/sendMessage','TwilioController@sendMessageApplicant');
-    Route::post('/password/email','ACAuth\ForgotPasswordController@sendResetLinkEmail')->name('activitycoordinator.password.email');
-    Route::get('/password/reset','ACAuth\ForgotPasswordController@showLinkRequestForm')->name('activitycoordinator.password.request');
-    Route::post('/password/reset','ACAuth\ResetPasswordController@reset');
-    Route::get('/password/reset/{token}','ACAuth\ResetPasswordController@showResetForm')->name('activitycoordinator.password.reset');
-    Route::resource('/AC_password', 'ActivityCoordinatorsPasswordController');
-    Route::resource('/activity_coordinators', 'ActivityCoordinatorsController');
-    Route::resource('/applicants', 'ApplicantsController');
-    Route::get('/', 'ActivityCoordinatorController@index')->name('ac.dashboard');
+Route::prefix('activitycoordinator')->group(function() {
+  Route::get('/login','ACAuth\ACLoginController@showLoginForm')->name('ac.login');
+  Route::post('/login','ACAuth\ACLoginController@login')->name('ac.login.submit');
+  Route::post('/logout', 'ACAuth\ACLoginController@activitycoordinatorLogout')->name('activitycoordinator.logout');
+  Route::get('/sendSMS','TwilioController@index');
+  Route::post('/sendMessage','TwilioController@sendMessageApplicant');
+  Route::post('/password/email','ACAuth\ForgotPasswordController@sendResetLinkEmail')->name('activitycoordinator.password.email');
+  Route::get('/password/reset','ACAuth\ForgotPasswordController@showLinkRequestForm')->name('activitycoordinator.password.request');
+  Route::post('/password/reset','ACAuth\ResetPasswordController@reset');
+  Route::get('/password/reset/{token}','ACAuth\ResetPasswordController@showResetForm')->name('activitycoordinator.password.reset');
+  Route::resource('/AC_password', 'ActivityCoordinatorsPasswordController');
+  Route::resource('/activity_coordinators', 'ActivityCoordinatorsController');
+  Route::resource('/applicants', 'ApplicantsController');
+  Route::get('/', 'ActivityCoordinatorController@index')->name('ac.dashboard');
   });
 
-  Route::prefix('programdirector')->group(function() {
-    Route::get('/login','PDAuth\PDLoginController@showLoginForm')->name('pd.login');
-    Route::post('/login','PDAuth\PDLoginController@login')->name('pd.login.submit');
-    Route::post('/logout', 'PDAuth\PDLoginController@programdirectorLogout')->name('programdirector.logout');
-    Route::get('/sendSMS-D','TwilioController@indexDonor');
-    Route::get('/sendSMS-V','TwilioController@indexVolunteer');
-    Route::post('/sendMessage','TwilioController@sendMessageDonor');
-    Route::post('/sendMessage','TwilioController@sendMessageVolunteer');
-    Route::post('/password/email','PDAuth\ForgotPasswordController@sendResetLinkEmail')->name('programdirector.password.email');
-    Route::get('/password/reset','PDAuth\ForgotPasswordController@showLinkRequestForm')->name('programdirector.password.request');
-    Route::post('/password/reset','PDAuth\ResetPasswordController@reset');
-    Route::get('/password/reset/{token}','PDAuth\ResetPasswordController@showResetForm')->name('programdirector.password.reset');
-    Route::resource('/feedback', 'FeedbacksController');
-    Route::resource('/program_directors', 'ProgramDirectorsController');
-    Route::resource('/PD_password', 'ProgramDirectorsPasswordController');
-    Route::get('/', 'ProgramDirectorController@index')->name('pd.dashboard');
-    Route::get('/donationhistory', 'HistoryController@donationHistory');
-    Route::get('/transactionhistory', 'HistoryController@transactionHistory');
-    });
+Route::prefix('programdirector')->group(function() {
+  Route::get('/login','PDAuth\PDLoginController@showLoginForm')->name('pd.login');
+  Route::post('/login','PDAuth\PDLoginController@login')->name('pd.login.submit');
+  Route::post('/logout', 'PDAuth\PDLoginController@programdirectorLogout')->name('programdirector.logout');
+  Route::get('/sendSMS-D','TwilioController@indexDonor');
+  Route::get('/sendSMS-V','TwilioController@indexVolunteer');
+  Route::post('/sendMessage','TwilioController@sendMessageDonor');
+  Route::post('/sendMessage','TwilioController@sendMessageVolunteer');
+  Route::post('/password/email','PDAuth\ForgotPasswordController@sendResetLinkEmail')->name('programdirector.password.email');
+  Route::get('/password/reset','PDAuth\ForgotPasswordController@showLinkRequestForm')->name('programdirector.password.request');
+  Route::post('/password/reset','PDAuth\ResetPasswordController@reset');
+  Route::get('/password/reset/{token}','PDAuth\ResetPasswordController@showResetForm')->name('programdirector.password.reset');
+  Route::resource('/feedback', 'FeedbacksController');
+  Route::resource('/program_directors', 'ProgramDirectorsController');
+  Route::resource('/PD_password', 'ProgramDirectorsPasswordController');
+  Route::get('/', 'ProgramDirectorController@index')->name('pd.dashboard');
+  Route::get('/donationhistory', 'HistoryController@donationHistory');
+  Route::get('/transactionhistory', 'HistoryController@transactionHistory');
+  });
 
 Route::prefix('admin')->group(function() {
   Route::get('/login','Auth\AdminLoginController@showLoginForm')->name('admin.login');
@@ -101,7 +101,7 @@ Route::prefix('admin')->group(function() {
   Route::resource('/employees', 'EmployeesController');
   Route::get('/createEmployee', 'AdminController@createEmployee');
   Route::get('/', 'AdminController@index')->name('admin.dashboard');
-});
+  });
 
 //Route::get('/createEmployee', 'PagesController@createEmployee');
 //Route::get('createCatalog', 'PagesController@createCatalog');

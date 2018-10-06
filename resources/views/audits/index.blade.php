@@ -1,17 +1,7 @@
 @extends('layouts.frontend')
-@include('layouts.app')
+@include('layouts.admin-nav')
 
 @section('content')
-
-
-
-
-
-
-
-
-
-
 
   <div class="row">
     <div class="col-md-12">
@@ -21,19 +11,24 @@
           <th>Username</th>
           <th>Type of Account</th>
           <th>Activity</th>
+          <th>Properties</th>
+          <th>Subject</th>
         </tr>
-        @foreach ($audits as $audit)
+@foreach ($lastActivity as $lastActivitys)
+
+
         <tr>
-          <td>{{ $audit->updated_at }}</td>
-          <td> {{ $audit->user['name'] }} </td>
-          <td> {{ $audit->auditable_type }} </td>
-          <td>  {{ $audit->event }} </td>
+          <td> {{$lastActivitys->updated_at}} </td>
+          <td> {{$lastActivitys->causer['username']}} </td>
+          <td> {{$lastActivitys->causer_type}} </td>
+          <td> {{$lastActivitys->description}} </td>
+          <td> {{$lastActivitys->properties}} </td>
+          <td> {{$lastActivitys->subject['username']}} </td>
         </tr>
-        @endforeach
+@endforeach
       </table>
     </div>
   </div>
-
 
 
 

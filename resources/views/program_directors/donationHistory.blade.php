@@ -13,23 +13,21 @@
       <tr>
       <th>Username</th>
       <th>Type of donation</th>
-      <th>Order</th>
+      <th>Order(name,price,quantity)</th>
       <th>Assigned Volunteer</th>
       <th>Date</th>
       <th>Status</th>
     </tr>
+
     @foreach($cartItems as $item)
     <tr>
-      <td>{{$item->userID}}</td>
-      <td></td>
-<table>
-  
-  <td>{{$item->name}}{{$item->price}}{{$item->qty}}</td>
-</table>
 
+      <td>{{$donationhistory[0]['fname']}}</td>
       <td></td>
-      <td>{{$item->created_at}}</td>
-      <td>{{$item->status}}</td>
+      <td>{{$item->name}},{{$item->price}},{{$item->qty}}</td>
+      <td></td>
+      <td>{{$donationhistory[0]['created_at']}}</td>
+      <td>{{$donationhistory[0]['status']}}</td>
     </tr>
     @endforeach
   </table>

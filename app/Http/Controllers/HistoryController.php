@@ -35,8 +35,8 @@ class HistoryController extends Controller
       // $test = $donationhistory = transaction::all();
       //$donationhistory = DB::SELECT('select * from transactions')->all();
       $donationhistory = transaction::all();
-      $cartItems = unserialize(base64_decode($donationhistory['0']['cart']));
-      
+      $cartItems = unserialize(base64_decode($donationhistory['2']['cart']));
+
 
 
 

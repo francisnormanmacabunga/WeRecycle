@@ -23,6 +23,9 @@ class userTable extends Model
     public $timestamps = true;
     public $sortable = ['created_at', 'status', 'usertypeID'];
 
+    protected $fillable = ['name', 'text'];
+    protected static $logAttributes = ['name', 'text'];
+
     protected static $logFillable = true;
 
     public function age()
@@ -35,24 +38,4 @@ class userTable extends Model
     return $this->hasOne('App\contactsTable','userID');
     }
 
-<<<<<<< HEAD
-
-    public function transaction()
-    {
-    return $this->hasMany('App\transaction','transID');
-    }
-
-
-    //public function user()
-    //{
-    //return $this->belongsTo(Config::get('audit.user.model'), 'userID');
-    //}
-
-    //public function feedbacks()
-    //{
-    //return $this->hasMany('App\feedbacksTable','userID');
-    //}
-
-=======
->>>>>>> f37c554b2d939ba6458dd31348c55f91bf98edfc
 }

@@ -25,6 +25,13 @@ class userTable extends Model
     return $this->hasOne('App\contactsTable','userID');
     }
 
+
+    public function transaction()
+    {
+    return $this->hasMany('App\transaction','transID');
+    }
+
+
     //public function user()
     //{
     //return $this->belongsTo(Config::get('audit.user.model'), 'userID');

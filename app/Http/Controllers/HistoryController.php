@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\transaction;
+use App\userTable;
+use DB;
+
 
 class HistoryController extends Controller
 {
@@ -22,12 +26,15 @@ class HistoryController extends Controller
   public function donationHistory()
    {
 
-     
+
+
+     //$donationhistory = transaction::with('users')->find($id)->users;
+     //return View::make('program_directors.donationHistory', compact('donationhistory'))->with('users', $donationhistory);
 
 
 
-
-
+       $donationhistory = transaction::all();
+    
        return view('program_directors.donationHistory', compact('donationhistory'));
    }
 

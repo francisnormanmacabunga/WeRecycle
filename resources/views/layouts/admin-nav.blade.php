@@ -34,8 +34,6 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
-
-
                       <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="https://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Employee</a>
                         <div class="dropdown-menu" aria-labelledby="dropdown01">
@@ -53,8 +51,6 @@
                       <li class="nav-item">
                             <a class="nav-link" href="/auditlogs">Audit Logs</a>
                       </li>
-
-
                     </ul>
 
                     <!-- Right Side Of Navbar -->

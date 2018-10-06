@@ -110,23 +110,23 @@ class CartController extends Controller
 
    public function checkout()
    {
-$donor = Auth::user();
-$order = new order();
-$cartItems=Cart::instance('shop')->content();
+        $donor = Auth::user();
+        $order = new order();
+        $cartItems=Cart::instance('shop')->content();
 
-$order->userID = $donor->userID;
-$order->cart = serialize($cartItems);
-$order->fname = $donor->firstname;
-$order->lname = $donor->lastname;
-$order->street = $donor->street;
-$order->barangay = $donor->barangay;
-$order->city = $donor->city;
-$order->zip = $donor->zip;
-$order->status = 'Inactive';
+        $order->userID = $donor->userID;
+        $order->cart = serialize($cartItems);
+        $order->fname = $donor->firstname;
+        $order->lname = $donor->lastname;
+        $order->street = $donor->street;
+        $order->barangay = $donor->barangay;
+        $order->city = $donor->city;
+        $order->zip = $donor->zip;
+        $order->status = 'Inactive';
 
 
-$order->save();
-cart::instance('shop')->destroy();
+        $order->save();
+        cart::instance('shop')->destroy();
 
 /*$test = order::SELECT('*')
 -> where('userID',$donor->userID)

@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use DB;
 use Session;
 use App\userTable;
+use Roketin\Auditing\Log;
+use Spatie\Activitylog\Models\Activity;
 
 
 class PagesController extends Controller
@@ -30,8 +32,14 @@ class PagesController extends Controller
 
     public function auditlogs()
     {
-      $audits = userTable::first();
-      return view('audits.index', compact('audits'));
+      /*$logs = Log::with(['user'])->get();
+      //dd($logs);
+      return view('audits.index', ['logs' => $logs]);*/
+
+      $activity = Activity::all()->last();
+      //dd($lastActivity);
+
+      return view('audits.index', compact('activity'));
     }
 
     public function index2()

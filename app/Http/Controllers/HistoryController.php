@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\transaction;
 use App\userTable;
 use DB;
-
+use Cart;
 
 
 class HistoryController extends Controller
@@ -30,18 +30,21 @@ class HistoryController extends Controller
 
 
      //$donationhistory = transaction::with('users')->find($id)->users;
-     //return View::make('program_directors.donationHistory', compact('donationhistory'))->with('users', $donationhistory);
-
-
+     //return View::make('program_directors.donationHistory', compact('donationhistory'))->with('users', $donationhistory)m
 
       // $test = $donationhistory = transaction::all();
+      //$donationhistory = DB::SELECT('select * from transactions')->all();
       $donationhistory = transaction::all();
-      $test = $donationhistory->unserialize($donationhistory->cart);
+      $cartItems = unserialize(base64_decode($donationhistory['0']['cart']));
+      
 
-      // return view('program_directors.donationHistory', compact('donationhistory'));
 
 
-       return view('program_directors.donationHistory',compact('test'))->with(['donationhistory' => $donationhistory ]);
+
+      //return view('program_directors.donationHistory', compact('donationhistory'));
+
+
+       return view('program_directors.donationHistory',compact('cartItems'))->with(['donationhistory' => $donationhistory ]);
    }
 
    public function transactionHistory()

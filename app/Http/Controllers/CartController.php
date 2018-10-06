@@ -115,7 +115,7 @@ class CartController extends Controller
         $cartItems=Cart::instance('shop')->content();
 
         $order->userID = $donor->userID;
-        $order->cart = serialize($cartItems);
+        $order->cart = base64_encode(serialize($cartItems));
         $order->fname = $donor->firstname;
         $order->lname = $donor->lastname;
         $order->street = $donor->street;
@@ -126,7 +126,7 @@ class CartController extends Controller
 
 
         $order->save();
-        cart::instance('shop')->destroy();
+      
 
 /*$test = order::SELECT('*')
 -> where('userID',$donor->userID)

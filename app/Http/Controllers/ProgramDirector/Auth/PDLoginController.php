@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\PDAuth;
+namespace App\Http\Controllers\ProgramDirector\Auth;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -15,7 +15,7 @@ class PDLoginController extends Controller
 
   public function showLoginForm()
   {
-    return view('pd-auth.pd-login');
+    return view('ProgramDirector/Auth.pd-login');
   }
 
   public function login(Request $request)

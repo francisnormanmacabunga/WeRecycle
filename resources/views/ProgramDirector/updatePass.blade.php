@@ -3,7 +3,7 @@
 
 @section('content')
 
-  {!! Form::open(['action' => ['ProgramDirectorsPasswordController@update', $donors['userID']], 'method' => 'POST' ]) !!}
+  {!! Form::open(['action' => ['ProgramDirector\ProgramDirectorsPasswordController@update', $donors['userID']], 'method' => 'POST' ]) !!}
 
   <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
     <h3>Update your profile, {{$donors->firstname}}!</h3>

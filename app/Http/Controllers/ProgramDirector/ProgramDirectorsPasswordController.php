@@ -1,22 +1,26 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\ProgramDirector;
 
 use Illuminate\Http\Request;
-use App\userTable;
+use App\Http\Controllers\Controller;
+use App\Models\ProgramDirector;
 use Hash;
 
 class ProgramDirectorsPasswordController extends Controller
 {
-  public function __construct()
-  {
-      $this->middleware('auth:programdirector');
-  }
+
+    public function __construct()
+    {
+        $this->middleware('auth:programdirector');
+    }
+
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
+
     public function index()
     {
         //
@@ -27,6 +31,7 @@ class ProgramDirectorsPasswordController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
     public function create()
     {
         //
@@ -38,6 +43,7 @@ class ProgramDirectorsPasswordController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+
     public function store(Request $request)
     {
         //
@@ -49,6 +55,7 @@ class ProgramDirectorsPasswordController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
     public function show($id)
     {
         //
@@ -60,10 +67,11 @@ class ProgramDirectorsPasswordController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
     public function edit($id)
     {
-      $donors = userTable::find($id);
-      return view('program_directors.updatePass', compact('donors'));
+      $donors = ProgramDirector::find($id);
+      return view('ProgramDirector.updatePass', compact('donors'));
     }
 
     /**
@@ -73,10 +81,10 @@ class ProgramDirectorsPasswordController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
     public function update(Request $request, $id)
     {
       $this->validate($request, [
-
       'password' => 'min:6|required_with:password_confirmation|same:password_confirmation|',
       'password_confirmation' => 'required'
     ],
@@ -85,10 +93,10 @@ class ProgramDirectorsPasswordController extends Controller
       'password.same' => 'Password does not match',
       'password_confirmation.required' => 'Password Confirmation field is required'
     ]);
-      $donors = userTable::find($id);
-      //$donors->password = $request->input('password');
+      $donors = ProgramDirector::find($id);
       $donors->password = Hash::make($request->input('password'));
       $donors->push();
+  
       return redirect('/programdirector/program_directors')->with('success','Password updated');
     }
 
@@ -98,8 +106,10 @@ class ProgramDirectorsPasswordController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
     public function destroy($id)
     {
         //
     }
+
 }

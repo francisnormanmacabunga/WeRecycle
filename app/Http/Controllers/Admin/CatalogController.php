@@ -79,23 +79,23 @@ class CatalogController extends Controller
       'productimage.max' => 'Image must be less than 5MB.'
     ]);
 
-    $validator = Validator::make($request->all(), [
-    'productimage' => 'max:1'
+      $validator = Validator::make($request->all(), [
+      'productimage' => 'max:1'
 
-    ]);
-    $filename = $request->file('productimage')->getClientOriginalName();
-    $moveImage = $request->file('productimage')->move('images', $filename);
+      ]);
+      $filename = $request->file('productimage')->getClientOriginalName();
+      $moveImage = $request->file('productimage')->move('images', $filename);
 
-    $products = new Products();
-    $products->productstypeID = $request->input('productstypeID');
-    $products->productname = $request->input('productname');
-    $products->productimage = $filename;
-    $products->description = $request->input('description');
-    $products->price = $request->input('price');
-    $products->status = $request->input('status');
+      $products = new Products();
+      $products->productstypeID = $request->input('productstypeID');
+      $products->productname = $request->input('productname');
+      $products->productimage = $filename;
+      $products->description = $request->input('description');
+      $products->price = $request->input('price');
+      $products->status = $request->input('status');
 
-    $products->save();
-    return redirect('/admin/managedonation')->with('success', 'Item added');
+      $products->save();
+      return redirect('/admin/managedonation')->with('success', 'Item added');
     }
 
     /**

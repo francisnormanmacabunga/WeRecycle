@@ -1,13 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\ProgramDirector;
 
 use Illuminate\Http\Request;
-use App\usertypeTable;
-use App\userTable;
-use App\contactsTable;
-use DB;
+use App\Http\Controllers\Controller;
+use App\Models\ProgramDirector;
 use Auth;
+
 class ProgramDirectorsController extends Controller
 {
 
@@ -21,6 +20,7 @@ class ProgramDirectorsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
     public function index()
     {
       /*$donors = userTable::SELECT('*')
@@ -28,7 +28,7 @@ class ProgramDirectorsController extends Controller
       -> where('usertypeID', '4')
       -> get();*/
       $donors =  Auth::user();
-      return view('program_directors.index')->with(['donors' =>$donors]);
+      return view('ProgramDirector.index')->with(['donors' =>$donors]);
     }
 
     /**
@@ -36,6 +36,7 @@ class ProgramDirectorsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
     public function create()
     {
         //
@@ -47,6 +48,7 @@ class ProgramDirectorsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+
     public function store(Request $request)
     {
         //
@@ -58,6 +60,7 @@ class ProgramDirectorsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
     public function show($id)
     {
         //
@@ -69,10 +72,11 @@ class ProgramDirectorsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
     public function edit($id)
     {
-      $donors = userTable::with('contacts')->find($id);
-      return view('program_directors.edit', compact('donors'));
+      $donors = ProgramDirector::with('contacts')->find($id);
+      return view('ProgramDirector.edit', compact('donors'));
     }
 
     /**
@@ -82,6 +86,7 @@ class ProgramDirectorsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
     public function update(Request $request, $id)
     {
       $this->validate($request, [
@@ -97,31 +102,23 @@ class ProgramDirectorsController extends Controller
       'username' => "alpha_dash|unique:user,username,$id".$request->get('userID').',userID',
     ],
     [
-      //'firstname.required' => 'The First Name field is required.',
       'firstname.regex' => 'The First Name field must only contain letters.',
-      //'lastname.required' => 'The Last Name field is required.',
       'lastname.regex' => 'The Last Name field must only contain letters.',
-      //'email.required' => 'The Email field is required.',
       'email.unique' => 'The Email you registered is already in use.',
-      //'cellNo.required' => 'The Cellphone Number is required.',
-      //'tellNo.required' => 'The Telephone Number is required.',
       'cellNo.min' => 'The Cellphone field must be at least 13 characters.',
       'cellNo.max' => 'The Cellphone field may not be greater than 13 characters.',
       'cellNo.regex' => 'Incorrect cellphone number format (e.g +63XXXXXXXXXX)',
       'tellNo.min' => 'The Telephone field must be at least 7 characters.',
       'tellNo.max' => 'The Telephone field may not be greater than 7 characters.',
-      //'birthdate.required' => 'The Birthdate field is required.',
-      //'city.required' => 'The City field is required.',
       'city.regex' => 'The City field must only contain letters.',
       'street.regex' => 'The Street field must only contain letters, numbers, underscores, dashes, hypens and hashes.',
       'barangay.regex' => 'The Barangay field must only contain letters, numbers, underscores, dashes, hypens and hashes.',
       'zip.min' => 'The Zip field must be at least 4 characters.',
       'zip.max' => 'The Zip field may not be greater than 4 characters.',
       'username.unique' => 'The Username you registered is already in use.',
-      //'username.required' => 'The Username field is required.',
       'username.alpha_dash' => 'The Username may only contain letters, numbers, dashes and underscores.'
     ]);
-      $donors = userTable::find($id);
+      $donors = ProgramDirector::find($id);
       $donors->username = $request->input('username');
       $donors->firstname = $request->input('firstname');
       $donors->lastname = $request->input('lastname');
@@ -143,8 +140,10 @@ class ProgramDirectorsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
     public function destroy($id)
     {
         //
     }
+
 }

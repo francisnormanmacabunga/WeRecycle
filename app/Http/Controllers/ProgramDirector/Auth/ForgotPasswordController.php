@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\PDAuth;
+namespace App\Http\Controllers\ProgramDirector\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\SendsPasswordResetEmails;
@@ -8,6 +8,7 @@ use Password;
 
 class ForgotPasswordController extends Controller
 {
+
     /*
     |--------------------------------------------------------------------------
     | Password Reset Controller
@@ -26,6 +27,7 @@ class ForgotPasswordController extends Controller
      *
      * @return void
      */
+
     public function __construct()
     {
         $this->middleware('guest:programdirector');
@@ -33,7 +35,7 @@ class ForgotPasswordController extends Controller
 
     public function showLinkRequestForm()
     {
-       return view('pd-auth.passwords.email');
+       return view('ProgramDirector/Auth.passwords.email');
     }
 
     //defining which password broker to use, in our case its the admins
@@ -41,5 +43,5 @@ class ForgotPasswordController extends Controller
     {
        return Password::broker('programdirectors');
     }
-    
+
 }

@@ -94,23 +94,31 @@ Route::prefix('activitycoordinator')->group(function() {
 });
 
 Route::prefix('programdirector')->group(function() {
-  Route::get('/login','PDAuth\PDLoginController@showLoginForm')->name('pd.login');
-  Route::post('/login','PDAuth\PDLoginController@login')->name('pd.login.submit');
-  Route::post('/logout', 'PDAuth\PDLoginController@programdirectorLogout')->name('programdirector.logout');
+  Route::get('/login','ProgramDirector\Auth\PDLoginController@showLoginForm')->name('pd.login');
+  Route::post('/login','ProgramDirector\Auth\PDLoginController@login')->name('pd.login.submit');
+  Route::post('/logout', 'ProgramDirector\Auth\PDLoginController@programdirectorLogout')->name('programdirector.logout');
+  Route::post('/password/email','ProgramDirector\Auth\ForgotPasswordController@sendResetLinkEmail')->name('programdirector.password.email');
+  Route::get('/password/reset','ProgramDirector\Auth\ForgotPasswordController@showLinkRequestForm')->name('programdirector.password.request');
+  Route::post('/password/reset','ProgramDirector\Auth\ResetPasswordController@reset');
+  Route::get('/password/reset/{token}','ProgramDirector\Auth\ResetPasswordController@showResetForm')->name('programdirector.password.reset');
+  Route::resource('/program_directors', 'ProgramDirector\ProgramDirectorsController');
+  Route::resource('/PD_password', 'ProgramDirector\ProgramDirectorsPasswordController');
+
   Route::get('/sendSMS-D','TwilioController@indexDonor');
   Route::get('/sendSMS-V','TwilioController@indexVolunteer');
   Route::post('/sendMessage','TwilioController@sendMessageDonor');
   Route::post('/sendMessage','TwilioController@sendMessageVolunteer');
-  Route::post('/password/email','PDAuth\ForgotPasswordController@sendResetLinkEmail')->name('programdirector.password.email');
-  Route::get('/password/reset','PDAuth\ForgotPasswordController@showLinkRequestForm')->name('programdirector.password.request');
-  Route::post('/password/reset','PDAuth\ResetPasswordController@reset');
-  Route::get('/password/reset/{token}','PDAuth\ResetPasswordController@showResetForm')->name('programdirector.password.reset');
+
   Route::resource('/feedback', 'FeedbacksController');
-  Route::resource('/program_directors', 'ProgramDirectorsController');
-  Route::resource('/PD_password', 'ProgramDirectorsPasswordController');
-  Route::get('/', 'ProgramDirectorController@index')->name('pd.dashboard');
+
+
+
   Route::get('/donationhistory', 'HistoryController@donationHistory');
   Route::get('/transactionhistory', 'HistoryController@transactionHistory');
+
+
+
+  Route::get('/', 'ProgramDirector\ProgramDirectorController@index')->name('pd.dashboard');
 });
 
 Route::prefix('admin')->group(function() {

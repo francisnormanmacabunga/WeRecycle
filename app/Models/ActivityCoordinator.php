@@ -1,15 +1,15 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use App\Notifications\ActivityCoordinatorResetPasswordNotification;
 
-class activitycoordinator extends Authenticatable
+class ActivityCoordinator extends Authenticatable
 {
-    use Notifiable;
 
+    use Notifiable;
     protected $guard = 'activitycoordinator';
     protected $table = 'user';
     protected $primaryKey = 'userID';
@@ -26,7 +26,7 @@ class activitycoordinator extends Authenticatable
 
     public function contacts()
     {
-    return $this->hasOne('App\contactsTable', 'userID');
+    return $this->hasOne('App\Models\Contacts', 'userID');
     }
 
     public function sendPasswordResetNotification($token)
@@ -39,17 +39,19 @@ class activitycoordinator extends Authenticatable
      *
      * @var array
      */
-    //protected $fillable = [
-        //'name', 'email', 'password',
-    //];
+
+    /*protected $fillable = [
+        'name', 'email', 'password',
+    ];*/
 
     /**
      * The attributes that should be hidden for arrays.
      *
      * @var array
      */
-    //protected $hidden = [
-        //'password', 'remember_token',
-    //];
+
+    /*protected $hidden = [
+        'password', 'remember_token',
+    ];*/
 
 }

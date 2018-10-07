@@ -10,7 +10,7 @@
           <div class="container col-md-9 center-align">
             <h4 class="mb-3">Fill out form</h4>
 
-            {!! Form::open(['action' => 'DonorsController@store', 'method' => 'POST' ]) !!}
+            {!! Form::open(['action' => 'Donor\DonorsController@store', 'method' => 'POST' ]) !!}
               <div class="row">
                 <div class="col-md-6 mb-3">
                   {{Form::label('firstname','First Name')}}
@@ -99,4 +99,5 @@
             <li class="list-inline-item"><a href="#">Support</a></li>
           </ul>
         </footer>
+
 @endsection

@@ -3,8 +3,7 @@
 
 @section('content')
 
-  {!! Form::open(['action' => ['DonorsController@update', $donors['userID']], 'method' => 'POST' ]) !!}
-
+  {!! Form::open(['action' => ['Donor\DonorsController@update', $donors['userID']], 'method' => 'POST' ]) !!}
   <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
     <h3>Update your profile, {{$donors->firstname}}!</h3>
   </div>
@@ -46,8 +45,6 @@
           {!! Form::close() !!} <br>
           <hr style="margin:5px 0 5px 0;"><br>
             <a class="btn btn-lg btn-block btn-danger" href="/donor/status/{{$donors->userID}}/edit" role="button">Deactivate Account</a>
-
-
           </div>
         </div>
       </div>

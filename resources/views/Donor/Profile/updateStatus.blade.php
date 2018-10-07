@@ -3,8 +3,7 @@
 
 @section('content')
 
-  {!! Form::open(['action' => ['DonorsStatusController@update', $donors['userID']], 'method' => 'POST' ]) !!}
-
+  {!! Form::open(['action' => ['Donor\DonorsStatusController@update', $donors['userID']], 'method' => 'POST' ]) !!}
   <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
     <h3>Deactivate your profile, {{$donors->firstname}}!</h3>
   </div>
@@ -26,8 +25,6 @@
           {{Form::submit('Yes',['class' => 'btn btn-lg btn-block btn-danger'])}}
           <a class="btn btn-lg btn-block btn-primary" href="/donors" role="button">No </a>
           </div>
-
-
           {!! Form::close() !!}
         </div>
       </div>

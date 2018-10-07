@@ -68,9 +68,9 @@ Route::prefix('donor')->group(function() {
   Route::post('/password/reset','Donor\Auth\ResetPasswordController@reset');
   Route::get('/password/reset/{token}','Donor\Auth\ResetPasswordController@showResetForm')->name('donor.password.reset');
 
-  Route::resource('/donors', 'DonorsController');
-  Route::resource('/donorPassword', 'DonorsPasswordController');
-  Route::resource('/status', 'DonorsStatusController');
+  Route::resource('/donors', 'Donor\DonorsController');
+  Route::resource('/donorPassword', 'Donor\DonorsPasswordController');
+  Route::resource('/status', 'Donor\DonorsStatusController');
 
 
   Route::get('/createFeedback', 'Donor\FeedbacksController@create');
@@ -80,7 +80,7 @@ Route::prefix('donor')->group(function() {
   Route::get('/shopCatalog','DonorsCatalogController@shopCatalog');
   Route::get('/donorhistory','HistoryController@donorHistory');
 
-  Route::get('/', 'DonorController@index')->name('donor.dashboard');
+  Route::get('/', 'Donor\DonorController@index')->name('donor.dashboard');
 });
 
 Route::prefix('activitycoordinator')->group(function() {

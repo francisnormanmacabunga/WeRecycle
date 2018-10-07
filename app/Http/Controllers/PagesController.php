@@ -9,7 +9,7 @@ use App\userTable;
 
 class PagesController extends Controller
 {
-  
+
     public function index()
     {
       $volunteersCount = userTable::SELECT('*')
@@ -25,7 +25,7 @@ class PagesController extends Controller
     }
 
     public function createDonor(){
-      return view('users.create');
+      return view('Donor/Profile.create');
     }
 
     public function index2()

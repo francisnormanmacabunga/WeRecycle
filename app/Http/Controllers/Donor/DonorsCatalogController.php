@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Donor;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -15,8 +15,8 @@ class DonorsCatalogController extends Controller
       $this->middleware('auth:donor');
   }
 
-  public function donationCatalog(){
-
+  public function donationCatalog()
+  {
     $products1 = Products::SELECT('*')
     -> join('productstype', 'productstype.productstypeID', '=', 'products.productstypeID')
     -> where('productstype.productstypeID','1')
@@ -27,8 +27,8 @@ class DonorsCatalogController extends Controller
     return view('usersCatalog.donation', compact('products1'));
   }
 
-  public function shopCatalog(){
-
+  public function shopCatalog()
+  {
     $products2 = Products::SELECT('*')
     -> join('productstype', 'productstype.productstypeID', '=', 'products.productstypeID')
     -> where('productstype.productstypeID','2')
@@ -38,4 +38,5 @@ class DonorsCatalogController extends Controller
 
     return view('usersCatalog.shop', compact('products2'));
   }
+
 }

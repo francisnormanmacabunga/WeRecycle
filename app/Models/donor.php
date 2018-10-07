@@ -16,16 +16,6 @@ class Donor extends Authenticatable
     protected $table = 'user';
     protected $primaryKey = 'userID';
     public $timestamps = true;
-
-    public function setAttribute($key, $value)
-    {
-      $isRememberTokenAttribute = $key == $this->getRememberTokenName();
-      if (!$isRememberTokenAttribute)
-      {
-        parent::setAttribute($key, $value);
-      }
-    }
-
     protected static $logAttributes = ["*"];
 
     public static function boot()
@@ -39,6 +29,15 @@ class Donor extends Authenticatable
     public function getNameAttribute()
     {
         return $this->causer->username ?? null;
+    }
+
+    public function setAttribute($key, $value)
+    {
+      $isRememberTokenAttribute = $key == $this->getRememberTokenName();
+      if (!$isRememberTokenAttribute)
+      {
+        parent::setAttribute($key, $value);
+      }
     }
 
     public function contacts()

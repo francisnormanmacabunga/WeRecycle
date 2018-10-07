@@ -1,11 +1,10 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use App\userTable;
 
-class contactsTable extends Model
+class Contacts extends Model
 {
   protected $table = 'contacts';
   protected $primaryKey = 'contactID';
@@ -13,7 +12,7 @@ class contactsTable extends Model
 
   public function user()
   {
-    return $this->belongsTo('App\donor','userID');
+    return $this->belongsTo('App\Models\donor','userID');
   }
 
 }

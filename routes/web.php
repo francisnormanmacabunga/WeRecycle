@@ -156,6 +156,7 @@ Route::prefix('admin')->group(function() {
   Route::get('createCatalog', 'AdminController@createCatalog');
   Route::resource('/employees', 'EmployeesController');
   Route::get('/createEmployee', 'AdminController@createEmployee');
+
   Route::get('/', 'AdminController@index')->name('admin.dashboard');
 });
 

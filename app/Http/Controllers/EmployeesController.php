@@ -4,9 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
-use App\usertypeTable;
-use App\userTable;
-use App\contactsTable;
+use App\Models\Employee;
+use App\Models\Contacts;
 use DB;
 use Hash;
 use App\Mail\WelcomeMail;
@@ -15,21 +14,20 @@ use Illuminate\Support\Facades\Mail;
 class EmployeesController extends Controller
 {
 
-  public function __construct()
-  {
+    public function __construct()
+    {
       $this->middleware('auth:admin');
-  }
-
-
+    }
 
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
+
     public function index()
     {
-        $employee = userTable::SELECT('*')
+        $employee = Employee::SELECT('*')
         -> join('contacts', 'contacts.userID', '=', 'user.userID')
         -> join('usertype', 'usertype.usertypeID', '=', 'user.usertypeID')
         -> where('usertype.usertypeID', '3')
@@ -37,8 +35,7 @@ class EmployeesController extends Controller
         -> sortable()
         -> paginate(5);
 
-
-        return view('employees.index', compact('employee'));
+        return view('Admin/Employees.index', compact('employee'));
     }
 
     /**
@@ -46,9 +43,10 @@ class EmployeesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
     public function create()
     {
-      return view('employees.create');
+      return view('Admin/Employees.create');
     }
 
     /**
@@ -57,6 +55,7 @@ class EmployeesController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+
     public function store(Request $request)
     {
       $this->validate($request, [
@@ -99,7 +98,7 @@ class EmployeesController extends Controller
       'username.required' => 'The Username field is required.',
       'username.alpha_dash' => 'The Username may only contain letters, numbers, dashes and underscores.'
     ]);
-      $user = new userTable();
+      $user = new Employee();
       $user->firstname = $request->input('firstname');
       $user->lastname = $request->input('lastname');
       $user->email = $request->input('email');
@@ -110,12 +109,11 @@ class EmployeesController extends Controller
       $user->zip = $request->input('zip');
       $user->username = $request->input('username');
       $user->usertypeID = $request->input('usertypeID');
-      //$user->password = $request->input('password');
       $user->password = Hash::make($request->input('password'));
       $user->status = $request->input('status');
       $user->save();
 
-      $contacts = new contactsTable();
+      $contacts = new Contacts();
       $contacts->userID = $user->userID;
       $contacts->cellNo = $request->input('cellNo');
       $contacts->tellNo = $request->input('tellNo');
@@ -132,6 +130,7 @@ class EmployeesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
     public function show($id)
     {
 
@@ -143,10 +142,11 @@ class EmployeesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
     public function edit($id)
     {
-      $employee = userTable::find($id);
-      return view('employees.edit', compact('employee'));
+      $employee = Employee::find($id);
+      return view('Admin/Employees.edit', compact('employee'));
     }
 
     /**
@@ -156,9 +156,10 @@ class EmployeesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
     public function update(Request $request, $id)
     {
-      $post = userTable::find($id);
+      $post = Employee::find($id);
       $post->status = $request->input('status');
       $post->save();
       return redirect('/admin/employees')->with('success', 'Profile updated');
@@ -170,6 +171,7 @@ class EmployeesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
     public function destroy($id)
     {
         //

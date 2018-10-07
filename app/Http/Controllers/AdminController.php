@@ -28,7 +28,7 @@ class AdminController extends Controller
 
     public function createEmployee()
     {
-        return view('employees.create');
+        return view('Admin/Employees.create');
     }
 
     public function createCatalog()

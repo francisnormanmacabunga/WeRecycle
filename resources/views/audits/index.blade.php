@@ -8,32 +8,24 @@
       <table class="table table-bordered">
         <tr>
           <th>Date</th>
-          <th>Username</th>
-          <th>Type of Account</th>
+          <th>Causer's Username</th>
+          <th>Causer Type of Account</th>
           <th>Activity</th>
-          <th>Properties</th>
-          <th>Subject</th>
+          <th>Subject's Username</th>
+          <th>Subject Type of Account</th>
         </tr>
-@foreach ($lastActivity as $lastActivitys)
-
-
+        @foreach ($lastActivity as $lastActivitys)
         <tr>
-          <td> {{$lastActivitys->updated_at}} </td>
+          <td> {{date('F d, Y, h:i:sa', strtotime($lastActivitys->updated_at))}} </td>
           <td> {{$lastActivitys->causer['username']}} </td>
           <td> {{$lastActivitys->causer_type}} </td>
           <td> {{$lastActivitys->description}} </td>
-          <td> {{$lastActivitys->properties}} </td>
           <td> {{$lastActivitys->subject['username']}} </td>
+          <td> {{$lastActivitys->subject_type}} </td>
         </tr>
-@endforeach
+        @endforeach
       </table>
     </div>
   </div>
-
-
-
-
-
-
 
 @endsection

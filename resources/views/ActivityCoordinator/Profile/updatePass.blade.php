@@ -3,8 +3,7 @@
 
 @section('content')
 
-  {!! Form::open(['action' => ['ActivityCoordinatorsPasswordController@update', $donors['userID']], 'method' => 'POST' ]) !!}
-
+  {!! Form::open(['action' => ['ActivityCoordinator\ActivityCoordinatorsPasswordController@update', $donors['userID']], 'method' => 'POST' ]) !!}
   <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
     <h3>Update your password, {{$donors->firstname}}!</h3>
   </div>

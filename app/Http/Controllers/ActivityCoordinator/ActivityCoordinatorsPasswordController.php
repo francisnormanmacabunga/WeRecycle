@@ -3,20 +3,24 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\userTable;
+use App\Http\Controllers\Controller;
+use App\Models\ActivityCoordinator;
 use Hash;
 
 class ActivityCoordinatorsPasswordController extends Controller
 {
-  public function __construct()
-  {
+
+    public function __construct()
+    {
       $this->middleware('auth:activitycoordinator');
-  }
+    }
+
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
+
     public function index()
     {
         //
@@ -27,6 +31,7 @@ class ActivityCoordinatorsPasswordController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
     public function create()
     {
         //
@@ -38,6 +43,7 @@ class ActivityCoordinatorsPasswordController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+
     public function store(Request $request)
     {
         //
@@ -49,6 +55,7 @@ class ActivityCoordinatorsPasswordController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
     public function show($id)
     {
         //
@@ -60,10 +67,11 @@ class ActivityCoordinatorsPasswordController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
     public function edit($id)
     {
-      $donors = userTable::find($id);
-      return view('activity_coordinators.updatePass', compact('donors'));
+      $donors = ActivityCoordinator::find($id);
+      return view('ActivityCoordinator/Profile.updatePass', compact('donors'));
     }
 
     /**
@@ -73,10 +81,10 @@ class ActivityCoordinatorsPasswordController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
     public function update(Request $request, $id)
     {
       $this->validate($request, [
-
       'password' => 'min:6|required_with:password_confirmation|same:password_confirmation|',
       'password_confirmation' => 'required'
     ],
@@ -85,8 +93,7 @@ class ActivityCoordinatorsPasswordController extends Controller
       'password.same' => 'Password does not match',
       'password_confirmation.required' => 'Password Confirmation field is required'
     ]);
-      $donors = userTable::find($id);
-      //$donors->password = $request->input('password');
+      $donors = ActivityCoordinator::find($id);
       $donors->password = Hash::make($request->input('password'));
       $donors->push();
       return redirect('activitycoordinator/activity_coordinators')->with('success','Password updated');
@@ -98,8 +105,10 @@ class ActivityCoordinatorsPasswordController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
     public function destroy($id)
     {
         //
     }
+
 }

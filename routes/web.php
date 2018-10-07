@@ -92,15 +92,17 @@ Route::prefix('donor')->group(function() {
 });
 
 Route::prefix('activitycoordinator')->group(function() {
-  Route::get('/login','ACAuth\ACLoginController@showLoginForm')->name('ac.login');
-  Route::post('/login','ACAuth\ACLoginController@login')->name('ac.login.submit');
-  Route::post('/logout', 'ACAuth\ACLoginController@activitycoordinatorLogout')->name('activitycoordinator.logout');
-  Route::post('/password/email','ACAuth\ForgotPasswordController@sendResetLinkEmail')->name('activitycoordinator.password.email');
-  Route::get('/password/reset','ACAuth\ForgotPasswordController@showLinkRequestForm')->name('activitycoordinator.password.request');
-  Route::post('/password/reset','ACAuth\ResetPasswordController@reset');
-  Route::get('/password/reset/{token}','ACAuth\ResetPasswordController@showResetForm')->name('activitycoordinator.password.reset');
-  Route::resource('/activity_coordinators', 'ActivityCoordinatorsController');
-  Route::resource('/AC_password', 'ActivityCoordinatorsPasswordController');
+  Route::get('/login','ActivityCoordinator\Auth\ACLoginController@showLoginForm')->name('ac.login');
+  Route::post('/login','ActivityCoordinator\Auth\ACLoginController@login')->name('ac.login.submit');
+  Route::post('/logout', 'ActivityCoordinator\Auth\ACLoginController@activitycoordinatorLogout')->name('activitycoordinator.logout');
+  Route::post('/password/email','ActivityCoordinator\Auth\ForgotPasswordController@sendResetLinkEmail')->name('activitycoordinator.password.email');
+  Route::get('/password/reset','ActivityCoordinator\Auth\ForgotPasswordController@showLinkRequestForm')->name('activitycoordinator.password.request');
+  Route::post('/password/reset','ActivityCoordinator\Auth\ResetPasswordController@reset');
+  Route::get('/password/reset/{token}','ActivityCoordinator\Auth\ResetPasswordController@showResetForm')->name('activitycoordinator.password.reset');
+
+  Route::resource('/activity_coordinators', 'ActivityCoordinator\ActivityCoordinatorsController');
+  Route::resource('/AC_password', 'ActivityCoordinator\ActivityCoordinatorsPasswordController');
+
   Route::resource('/applicants', 'ApplicantsController');
   Route::get('/sendSMS','TwilioController@index');
   Route::post('/sendMessage','TwilioController@sendMessageApplicant');

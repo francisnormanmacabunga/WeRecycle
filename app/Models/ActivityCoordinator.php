@@ -5,15 +5,31 @@ namespace App\Models;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use App\Notifications\ActivityCoordinatorResetPasswordNotification;
+use Spatie\Activitylog\Traits\LogsActivity;
 
 class ActivityCoordinator extends Authenticatable
 {
 
+    use LogsActivity;
     use Notifiable;
     protected $guard = 'activitycoordinator';
     protected $table = 'user';
     protected $primaryKey = 'userID';
     public $timestamps = true;
+    protected static $logAttributes = ["*"];
+
+    public static function boot()
+    {
+    parent::boot();
+    static::saving(function (ActivityCoordinator $model) {
+        static::$logAttributes = array_keys($model->getDirty());
+    });
+    }
+
+    public function getNameAttribute()
+    {
+        return $this->causer->username ?? null;
+    }
 
     public function setAttribute($key, $value)
     {

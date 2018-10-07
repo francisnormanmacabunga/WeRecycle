@@ -3,17 +3,14 @@
 
 @section('content')
 
-
       <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
         <h3>Welcome to your profile, {{$donors->firstname}}!</h3>
       </div>
-
       <div class="container col-md-5 center-align">
         <div class="card-deck mb-3 ">
           <div class="card mb-4 shadow-sm">
             <div class="card-header text-center">
               <h4 class="my-0 font-weight-normal">User profile</h4>
-
             </div>
             <div class="card-body text-center">
               <h1 class="card-title pricing-card-title text-center">{{$donors->firstname}} {{$donors->lastname}}</h1>
@@ -44,6 +41,5 @@
           </div>
         </div>
       </div>
-
 
 @endsection

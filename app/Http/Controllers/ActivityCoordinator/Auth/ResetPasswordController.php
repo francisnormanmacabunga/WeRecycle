@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\ACAuth;
+namespace App\Http\Controllers\ActivityCoordinator\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ResetsPasswords;
@@ -11,6 +11,7 @@ use Auth;
 
 class ResetPasswordController extends Controller
 {
+
     /*
     |--------------------------------------------------------------------------
     | Password Reset Controller
@@ -29,6 +30,7 @@ class ResetPasswordController extends Controller
      *
      * @var string
      */
+
     protected $redirectTo = '/activitycoordinator/login';
 
     /**
@@ -36,6 +38,7 @@ class ResetPasswordController extends Controller
      *
      * @return void
      */
+
     public function __construct()
     {
         $this->middleware('guest:activitycoordinator');
@@ -43,17 +46,15 @@ class ResetPasswordController extends Controller
 
     public function showResetForm(Request $request, $token = null)
     {
-        return view('ac-auth.passwords.reset')
-            ->with(['token' => $token, 'email' => $request->email]
-            );
+        return view('ActivityCoordinator/Auth.passwords.reset')
+            ->with(['token' => $token, 'email' => $request->email]);
     }
 
     protected function resetPassword($user, $password)
     {
     $user->forceFill([
         'password' => bcrypt($password),
-        'remember_token' => Str::random(60),
-    ])->save();
+        'remember_token' => Str::random(60),])->save();
     }
 
     protected function guard()

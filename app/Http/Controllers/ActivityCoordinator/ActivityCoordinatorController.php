@@ -3,17 +3,20 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class ActivityCoordinatorController extends Controller
 {
+
     /**
      * Create a new controller instance.
      *
      * @return void
      */
+
     public function __construct()
     {
-        $this->middleware('auth:activitycoordinator');
+      $this->middleware('auth:activitycoordinator');
     }
 
     /**
@@ -21,10 +24,10 @@ class ActivityCoordinatorController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
     public function index()
     {
-        return view('pages.indexAC');
+      return view('pages.indexAC');
     }
-
 
 }

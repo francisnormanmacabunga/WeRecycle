@@ -3,12 +3,10 @@
 
 @section('content')
 
-  {!! Form::open(['action' => ['ActivityCoordinatorsController@update', $donors['userID']], 'method' => 'POST' ]) !!}
-
+  {!! Form::open(['action' => ['ActivityCoordinator\ActivityCoordinatorsController@update', $donors['userID']], 'method' => 'POST' ]) !!}
   <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
     <h3>Update your profile, {{$donors->firstname}}!</h3>
   </div>
-
   <div class="container col-md-6 center-align">
     <div class="card-deck mb-3 ">
       <div class="card mb-4 shadow-sm">

@@ -51,9 +51,6 @@ Route::get('/index', 'PagesController@index2');
 Route::get('/createApplicant', 'PagesController@createApplicant');
 Route::get('/createDonor', 'PagesController@createDonor');
 
-Route::get('/auditlogs', 'PagesController@auditlogs');
-Route::resource('/test', 'Test');
-
 //Cart Controller
 Route::resource('/cart', 'CartController');
 Route::get('/cart/add-item/{id}', 'CartController@addItem')->name('cart.addItem');
@@ -117,10 +114,10 @@ Route::prefix('programdirector')->group(function() {
 });
 
 Route::prefix('admin')->group(function() {
-  Route::get('/login','Auth\AdminLoginController@showLoginForm')->name('admin.login');
-  Route::post('/login','Auth\AdminLoginController@login')->name('admin.login.submit');
-  Route::post('/logout', 'Auth\AdminLoginController@adminLogout')->name('admin.logout');
-
+  Route::get('/login','Admin\Auth\AdminLoginController@showLoginForm')->name('admin.login');
+  Route::post('/login','Admin\Auth\AdminLoginController@login')->name('admin.login.submit');
+  Route::post('/logout', 'Admin\Auth\AdminLoginController@adminLogout')->name('admin.logout');
+  Route::get('/auditlogs', 'Admin\AuditLogController@auditlogs');
   Route::resource('/catalog', 'Admin\CatalogController');
   Route::get('/manageshop', 'Admin\ManageCatalogController@manageShop');
   Route::get('/managedonation', 'Admin\ManageCatalogController@manageDonation');

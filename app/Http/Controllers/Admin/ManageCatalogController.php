@@ -14,8 +14,8 @@ class ManageCatalogController extends Controller
       $this->middleware('auth:admin');
   }
 
-  public function manageDonation(){
-
+  public function manageDonation()
+  {
     //DONATION
     $products1 = DB::table('products')
     ->select('*')
@@ -26,8 +26,8 @@ class ManageCatalogController extends Controller
     return view('Admin/Catalog.manageDonation', compact('products1'));
   }
 
-  public function manageShop(){
-
+  public function manageShop()
+  {
     //SHOP
     $products2 = DB::table('products')
     ->select('*')

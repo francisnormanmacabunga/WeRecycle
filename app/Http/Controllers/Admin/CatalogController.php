@@ -64,7 +64,7 @@ class CatalogController extends Controller
       'productname' => 'required|regex:/^[\pL\s]+$/u',
       'productstypeID' => 'required',
       'description' => 'required|regex:/^[ \w.#-]+$/',
-      'price' => 'required|integer|min:0',
+      'price' => 'integer|min:0',
       'productimage' => 'required|mimes:jpeg,jpg,png|image|max:5000'
     ],
     [
@@ -73,7 +73,6 @@ class CatalogController extends Controller
       'productstypeID.required' => 'Item Type is a required field.',
       'description.required' => 'Item description is a required field.',
       'description.regex' => 'Item description must only contain letters, numbers, underscores, dashes, hypens and hashes.',
-      'price.required' => 'Price is a required field.',
       'price.min' => 'Price must be greater than 0.',
       'productimage.required' => 'Product image is required',
       'productimage.mimes' => 'Image must be in JPG/JPEG or PNG format',

@@ -5,7 +5,7 @@
 
 @section('content')
 
-  {!! Form::open(['action' => ['EmployeesController@update', $employee['userID']], 'method' => 'POST' ]) !!}
+  {!! Form::open(['action' => ['Admin\EmployeesController@update', $employee['userID']], 'method' => 'POST' ]) !!}
   <div class="row">
     <div class="col-md-12">
       <br/>

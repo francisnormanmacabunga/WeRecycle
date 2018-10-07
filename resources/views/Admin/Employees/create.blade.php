@@ -11,7 +11,7 @@
         </div>
         <div class="container col-md-9 center-align">
           <h4 class="mb-3">Fill out form</h4>
-            {!! Form::open(['action' => 'EmployeesController@store', 'method' => 'POST' ]) !!}
+            {!! Form::open(['action' => 'Admin\EmployeesController@store', 'method' => 'POST' ]) !!}
               <div class="row">
                 <div class="col-md-5 mb-3">
                   {{Form::label('firstname','First Name')}}

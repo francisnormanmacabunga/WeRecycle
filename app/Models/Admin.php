@@ -20,7 +20,7 @@ class Admin extends Authenticatable
     public static function boot()
     {
     parent::boot();
-    static::saving(function (Model $model) {
+    static::saving(function (Admin $model) {
         static::$logAttributes = array_keys($model->getDirty());
     });
     }

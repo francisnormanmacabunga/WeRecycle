@@ -19,17 +19,17 @@
       <th>Status</th>
     </tr>
 
-    @foreach($cartItems as $item)
+    <!--@foreach($cartItems as $item)
     <tr>
 
-      <td>{{$donationhistory[0]['fname']}}</td>
+      <td>{{$donationhistory['fname']}}</td>
       <td></td>
       <td>{{$item->name}},{{$item->price}},{{$item->qty}}</td>
       <td></td>
-      <td>{{$donationhistory[0]['created_at']}}</td>
-      <td>{{$donationhistory[0]['status']}}</td>
+      <td>{{$donationhistory['created_at']}}</td>
+      <td>{{$donationhistory['status']}}</td>
     </tr>
-    @endforeach
+    @endforeach -->
   </table>
 
 

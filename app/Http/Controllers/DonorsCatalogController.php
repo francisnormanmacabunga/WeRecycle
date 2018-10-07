@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Products;
 use DB;
-use App\productsTable;
 
 class DonorsCatalogController extends Controller
 {
@@ -13,10 +13,10 @@ class DonorsCatalogController extends Controller
   {
       $this->middleware('auth:donor');
   }
-  
+
   public function donationCatalog(){
 
-    $products1 = productsTable::SELECT('*')
+    $products1 = Products::SELECT('*')
     -> join('productstype', 'productstype.productstypeID', '=', 'products.productstypeID')
     -> where('productstype.productstypeID','1')
     -> where('status','Activated')
@@ -28,7 +28,7 @@ class DonorsCatalogController extends Controller
 
   public function shopCatalog(){
 
-    $products2 = productsTable::SELECT('*')
+    $products2 = Products::SELECT('*')
     -> join('productstype', 'productstype.productstypeID', '=', 'products.productstypeID')
     -> where('productstype.productstypeID','2')
     -> where('status','Activated')

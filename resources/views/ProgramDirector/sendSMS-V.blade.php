@@ -10,7 +10,7 @@
                 <div class="card-header">Send notification through SMS</div>
                 <div class="card-body">
                   <div class="panel-body">
-                    {!! Form::open(['action' => 'TwilioController@sendMessageVolunteer', 'method' => 'POST' ]) !!}
+                    {!! Form::open(['action' => 'ProgramDirector\TwilioController@sendMessageVolunteer', 'method' => 'POST' ]) !!}
                       {{ csrf_field() }}
                       <div class="form-group">
                         {{Form::textArea('message','', ['class' => 'form-control', 'placeholder' => 'Place your message here...'])}}

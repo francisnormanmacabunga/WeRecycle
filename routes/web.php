@@ -70,11 +70,14 @@ Route::prefix('donor')->group(function() {
   Route::resource('/status', 'DonorsStatusController');
   Route::resource('/donorPassword', 'DonorsPasswordController');
   Route::resource('/donors', 'DonorsController');
-  Route::get('/createFeedback', 'FeedbacksController@create');
+
+  Route::get('/createFeedback', 'Donor\FeedbacksController@create');
+  Route::post('/sendFeedback', 'Donor\FeedbacksController@sendFeedback');
+
   Route::get('/donationCatalog','DonorsCatalogController@donationCatalog');
   Route::get('/shopCatalog','DonorsCatalogController@shopCatalog');
-  Route::get('/', 'DonorController@index')->name('donor.dashboard');
   Route::get('/donorhistory','HistoryController@donorHistory');
+  Route::get('/', 'DonorController@index')->name('donor.dashboard');
 });
 
 Route::prefix('activitycoordinator')->group(function() {
@@ -103,21 +106,13 @@ Route::prefix('programdirector')->group(function() {
   Route::get('/password/reset/{token}','ProgramDirector\Auth\ResetPasswordController@showResetForm')->name('programdirector.password.reset');
   Route::resource('/program_directors', 'ProgramDirector\ProgramDirectorsController');
   Route::resource('/PD_password', 'ProgramDirector\ProgramDirectorsPasswordController');
-
-  Route::get('/sendSMS-D','TwilioController@indexDonor');
-  Route::get('/sendSMS-V','TwilioController@indexVolunteer');
-  Route::post('/sendMessage','TwilioController@sendMessageDonor');
-  Route::post('/sendMessage','TwilioController@sendMessageVolunteer');
-
-  Route::resource('/feedback', 'FeedbacksController');
-
-
-
-  Route::get('/donationhistory', 'HistoryController@donationHistory');
-  Route::get('/transactionhistory', 'HistoryController@transactionHistory');
-
-
-
+  Route::get('/sendSMS-D','ProgramDirector\TwilioController@indexDonor');
+  Route::get('/sendSMS-V','ProgramDirector\TwilioController@indexVolunteer');
+  Route::post('/sendMessage','ProgramDirector\TwilioController@sendMessageDonor');
+  Route::post('/sendMessage','ProgramDirector\TwilioController@sendMessageVolunteer');
+  Route::get('/donationhistory', 'ProgramDirector\HistoryController@donationHistory');
+  Route::get('/transactionhistory', 'ProgramDirector\HistoryController@transactionHistory');
+  Route::resource('/feedback', 'ProgramDirector\FeedbacksController');
   Route::get('/', 'ProgramDirector\ProgramDirectorController@index')->name('pd.dashboard');
 });
 

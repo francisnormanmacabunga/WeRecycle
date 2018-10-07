@@ -10,7 +10,7 @@
                 <div class="card-header">Send notification through SMS</div>
                 <div class="card-body">
                   <div class="panel-body">
-                    <form class="form-horizontal" method="POST" action="{{ action('TwilioController@sendMessageApplicant') }}">
+                    <form class="form-horizontal" method="POST" action="{{ action('ActivityCoordinator\TwilioController@sendMessageApplicant') }}">
                       {{ csrf_field() }}
                       <div class="form-group">
                         <textarea class="form-control" type="text" name="message" placeholder="Place your message here!"></textarea>
@@ -53,7 +53,5 @@
     </div>
   </div>
 </div>
-
-
 
 @endsection

@@ -17,7 +17,7 @@ class Contacts extends Model
   public static function boot()
   {
   parent::boot();
-  static::saving(function (Donor $model) {
+  static::saving(function (Contacts $model) {
       static::$logAttributes = array_keys($model->getDirty());
   });
   }

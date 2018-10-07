@@ -1,36 +1,30 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\ActivityCoordinator;
 
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use App\Models\Employee;
 use Twilio\Rest\Client;
-use App\userTable;
-use App\requestTable;
 use Session;
-use Auth;
 use DB;
 
 class TwilioController extends Controller
 {
+
   public function __construct()
   {
-    $this->middleware('auth:programdirector', ['only'=> [
-      'indexVolunteer','indexDonor', 'sendMessageVolunteer', 'sendMessageDonor', 'sendMessageVolunteer'
-      ]]);
-
-    $this->middleware('auth:activitycoordinator', ['except'=> [
-      'indexVolunteer','indexDonor', 'sendMessageVolunteer', 'sendMessageDonor', 'sendMessageVolunteer'
-      ]]);
+    $this->middleware('auth:activitycoordinator');
   }
 
   public function index()
   {
-    $applicants = userTable::SELECT('*')
+    $applicants = Employee::SELECT('*')
     -> join('contacts', 'contacts.userID', '=', 'user.userID')
     -> where('usertypeID', '2')
     -> where('status','Activated')
     -> get();
-    return view('activity_coordinators.sendSMS', compact('applicants'));
+    return view('ActivityCoordinator/ManageApplicants.sendSMS', compact('applicants'));
   }
 
   public function sendMessageApplicant(Request $request)
@@ -42,10 +36,7 @@ class TwilioController extends Controller
     ->create($twilio->mobile = $request->input('mobile'), // to
              array(
                  "body" => $twilio->message = $request->input('message'),
-                 "from" => "(619) 724-4011"
-             )
-    );
-
+                 "from" => "(619) 724-4011"));
     return redirect('/activitycoordinator/sendSMS')->with('success', 'Message Sent Succesfully');
   }
 

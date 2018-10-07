@@ -85,7 +85,6 @@ Route::prefix('donor')->group(function() {
   Route::get('/donationCatalog','Donor\DonorsCatalogController@donationCatalog');
   Route::get('/shopCatalog','Donor\DonorsCatalogController@shopCatalog');
 
-
   Route::get('/donorhistory','HistoryController@donorHistory');
 
   Route::get('/', 'Donor\DonorController@index')->name('donor.dashboard');
@@ -99,14 +98,12 @@ Route::prefix('activitycoordinator')->group(function() {
   Route::get('/password/reset','ActivityCoordinator\Auth\ForgotPasswordController@showLinkRequestForm')->name('activitycoordinator.password.request');
   Route::post('/password/reset','ActivityCoordinator\Auth\ResetPasswordController@reset');
   Route::get('/password/reset/{token}','ActivityCoordinator\Auth\ResetPasswordController@showResetForm')->name('activitycoordinator.password.reset');
-
   Route::resource('/activity_coordinators', 'ActivityCoordinator\ActivityCoordinatorsController');
   Route::resource('/AC_password', 'ActivityCoordinator\ActivityCoordinatorsPasswordController');
-
   Route::resource('/applicants', 'ApplicantsController');
-  Route::get('/sendSMS','TwilioController@index');
-  Route::post('/sendMessage','TwilioController@sendMessageApplicant');
-  Route::get('/', 'ActivityCoordinatorController@index')->name('ac.dashboard');
+  Route::get('/sendSMS','ActivityCoordinator\TwilioController@index');
+  Route::post('/sendMessage','ActivityCoordinator\TwilioController@sendMessageApplicant');
+  Route::get('/', 'ActivityCoordinator\ActivityCoordinatorController@index')->name('ac.dashboard');
 });
 
 Route::prefix('programdirector')->group(function() {

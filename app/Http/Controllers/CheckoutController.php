@@ -7,6 +7,7 @@ use Auth;
 use DB;
 use App\order;
 use App\transaction;
+use Gloudemans\Shoppingcart\Facades\Cart;
 
 class CheckoutController extends Controller
 {
@@ -30,7 +31,8 @@ class CheckoutController extends Controller
 
 $donor = Auth::user();
 $order = order::where('userID', $donor->userID)->first();
-$cartItems=unserialize($order->cart);
+$cartItems=unserialize(base64_decode($order->cart));
+
 return view('checkout.index',compact('cartItems'))->with(['order' => $order ]);
 
 }
@@ -41,7 +43,7 @@ public function confirm($id){
   $trans = new transaction;
 
   $trans->userID = $order->userID;
-  $trans->cart = serialize($order->cart);
+  $trans->cart = $order->cart;
   $trans->fname = $order->fname;
   $trans->lname = $order->lname;
   $trans->street = $order->street;
@@ -50,7 +52,7 @@ public function confirm($id){
   $trans->zip = $order->zip;
   $trans->status = 'Active';
   $trans->save();
-
+  cart::instance('shop')->destroy();
 DB::table('orders')->where('userID',$donor->userID)->delete();
 return redirect('/donor');
 }

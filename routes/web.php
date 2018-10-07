@@ -60,16 +60,18 @@ Route::get('/donate/add-item/{id}', 'DonateController@addItem')->name('donate.ad
 
 Auth::routes();
 Route::prefix('donor')->group(function() {
-  Route::get('/login','DonorAuth\DonorLoginController@showLoginForm')->name('donor.login');
-  Route::post('/login','DonorAuth\DonorLoginController@login')->name('donor.login.submit');
-  Route::post('/logout', 'DonorAuth\DonorLoginController@donorLogout')->name('donor.logout');
-  Route::post('/password/email','DonorAuth\ForgotPasswordController@sendResetLinkEmail')->name('donor.password.email');
-  Route::get('/password/reset','DonorAuth\ForgotPasswordController@showLinkRequestForm')->name('donor.password.request');
-  Route::post('/password/reset','DonorAuth\ResetPasswordController@reset');
-  Route::get('/password/reset/{token}','DonorAuth\ResetPasswordController@showResetForm')->name('donor.password.reset');
-  Route::resource('/status', 'DonorsStatusController');
-  Route::resource('/donorPassword', 'DonorsPasswordController');
+  Route::get('/login','Donor\Auth\DonorLoginController@showLoginForm')->name('donor.login');
+  Route::post('/login','Donor\Auth\DonorLoginController@login')->name('donor.login.submit');
+  Route::post('/logout', 'Donor\Auth\DonorLoginController@donorLogout')->name('donor.logout');
+  Route::post('/password/email','Donor\Auth\ForgotPasswordController@sendResetLinkEmail')->name('donor.password.email');
+  Route::get('/password/reset','Donor\Auth\ForgotPasswordController@showLinkRequestForm')->name('donor.password.request');
+  Route::post('/password/reset','Donor\Auth\ResetPasswordController@reset');
+  Route::get('/password/reset/{token}','Donor\Auth\ResetPasswordController@showResetForm')->name('donor.password.reset');
+
   Route::resource('/donors', 'DonorsController');
+  Route::resource('/donorPassword', 'DonorsPasswordController');
+  Route::resource('/status', 'DonorsStatusController');
+
 
   Route::get('/createFeedback', 'Donor\FeedbacksController@create');
   Route::post('/sendFeedback', 'Donor\FeedbacksController@sendFeedback');
@@ -77,6 +79,7 @@ Route::prefix('donor')->group(function() {
   Route::get('/donationCatalog','DonorsCatalogController@donationCatalog');
   Route::get('/shopCatalog','DonorsCatalogController@shopCatalog');
   Route::get('/donorhistory','HistoryController@donorHistory');
+
   Route::get('/', 'DonorController@index')->name('donor.dashboard');
 });
 
@@ -84,15 +87,15 @@ Route::prefix('activitycoordinator')->group(function() {
   Route::get('/login','ACAuth\ACLoginController@showLoginForm')->name('ac.login');
   Route::post('/login','ACAuth\ACLoginController@login')->name('ac.login.submit');
   Route::post('/logout', 'ACAuth\ACLoginController@activitycoordinatorLogout')->name('activitycoordinator.logout');
-  Route::get('/sendSMS','TwilioController@index');
-  Route::post('/sendMessage','TwilioController@sendMessageApplicant');
   Route::post('/password/email','ACAuth\ForgotPasswordController@sendResetLinkEmail')->name('activitycoordinator.password.email');
   Route::get('/password/reset','ACAuth\ForgotPasswordController@showLinkRequestForm')->name('activitycoordinator.password.request');
   Route::post('/password/reset','ACAuth\ResetPasswordController@reset');
   Route::get('/password/reset/{token}','ACAuth\ResetPasswordController@showResetForm')->name('activitycoordinator.password.reset');
-  Route::resource('/AC_password', 'ActivityCoordinatorsPasswordController');
   Route::resource('/activity_coordinators', 'ActivityCoordinatorsController');
+  Route::resource('/AC_password', 'ActivityCoordinatorsPasswordController');
   Route::resource('/applicants', 'ApplicantsController');
+  Route::get('/sendSMS','TwilioController@index');
+  Route::post('/sendMessage','TwilioController@sendMessageApplicant');
   Route::get('/', 'ActivityCoordinatorController@index')->name('ac.dashboard');
 });
 
@@ -108,8 +111,8 @@ Route::prefix('programdirector')->group(function() {
   Route::resource('/PD_password', 'ProgramDirector\ProgramDirectorsPasswordController');
   Route::get('/sendSMS-D','ProgramDirector\TwilioController@indexDonor');
   Route::get('/sendSMS-V','ProgramDirector\TwilioController@indexVolunteer');
-  Route::post('/sendMessage','ProgramDirector\TwilioController@sendMessageDonor');
-  Route::post('/sendMessage','ProgramDirector\TwilioController@sendMessageVolunteer');
+  Route::post('/sendMessage-D','ProgramDirector\TwilioController@sendMessageDonor');
+  Route::post('/sendMessage-v','ProgramDirector\TwilioController@sendMessageVolunteer');
   Route::get('/donationhistory', 'ProgramDirector\HistoryController@donationHistory');
   Route::get('/transactionhistory', 'ProgramDirector\HistoryController@transactionHistory');
   Route::resource('/feedback', 'ProgramDirector\FeedbacksController');

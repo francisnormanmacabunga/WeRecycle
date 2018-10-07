@@ -25,7 +25,7 @@ class TwilioController extends Controller
       -> where('usertypeID', '1')
       -> where('status','Activated')
       -> get();
-      return view('ProgramDirector.sendSMS-V', compact('applicants'));
+      return view('ProgramDirector/ManageDonors.sendSMS-D', compact('applicants'));
     }
 
     public function indexVolunteer()
@@ -35,7 +35,7 @@ class TwilioController extends Controller
       -> where('usertypeID', '2')
       -> where('status','Activated')
       -> get();
-      return view('ProgramDirector.sendSMS-V', compact('applicants'));
+      return view('ProgramDirector/ManageVolunteers.sendSMS-V', compact('applicants'));
     }
 
     public function sendMessageDonor(Request $request)

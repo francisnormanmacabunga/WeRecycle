@@ -3,11 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use App\userTable;
-use Auth;
+use Hash;
 
-class DonorsStatusController extends Controller
+class DonorsPasswordController extends Controller
 {
+
   public function __construct()
   {
       $this->middleware('auth:donor');
@@ -19,8 +21,8 @@ class DonorsStatusController extends Controller
      */
     public function index()
     {
-      $donors = userTable::all();
-      return view('users.status',compact('donors'));
+      //$donors = userTable::all();
+      //return view('users.password',compact('donors'));
     }
 
     /**
@@ -64,7 +66,7 @@ class DonorsStatusController extends Controller
     public function edit($id)
     {
       $donors = userTable::find($id);
-      return view('users.updateStatus', compact('donors'));
+      return view('users.updatePass', compact('donors'));
     }
 
     /**
@@ -76,19 +78,25 @@ class DonorsStatusController extends Controller
      */
     public function update(Request $request, $id)
     {
+      $this->validate($request, [
+
+      'password' => 'min:6|required_with:password_confirmation|same:password_confirmation|',
+      'password_confirmation' => 'required'
+    ],
+    [
+      'password.min' => 'Password field must be at least 6 characters',
+      'password.same' => 'Password does not match',
+      'password_confirmation.required' => 'Password Confirmation field is required'
+    ]);
       $donors = userTable::find($id);
-      $donors->status = $request->input('status');
+      //$donors->password = $request->input('password');
+      $donors->password = Hash::make($request->input('password'));
       $donors->push();
-      return redirect('/')->with(Auth::logout());
-      //return Auth::logout();//->with('success','Profile Deactivated');
+      return redirect('/donor/donors')->with('success','Password updated');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
+
     public function destroy($id)
     {
         //

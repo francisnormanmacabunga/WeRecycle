@@ -71,7 +71,7 @@ class ProgramDirectorsPasswordController extends Controller
     public function edit($id)
     {
       $donors = ProgramDirector::find($id);
-      return view('ProgramDirector.updatePass', compact('donors'));
+      return view('ProgramDirector/Profile.updatePass', compact('donors'));
     }
 
     /**
@@ -96,7 +96,7 @@ class ProgramDirectorsPasswordController extends Controller
       $donors = ProgramDirector::find($id);
       $donors->password = Hash::make($request->input('password'));
       $donors->push();
-  
+
       return redirect('/programdirector/program_directors')->with('success','Password updated');
     }
 

@@ -33,12 +33,12 @@ class HistoryController extends Controller
       //$cartItems = unserialize(base64_decode($donationhistory['0']['cart']));
       //return view('program_directors.donationHistory', compact('donationhistory'));
 
-      return view('ProgramDirector.donationHistory',compact('cartItems'))->with(['donationhistory' => $donationhistory ]);
+      return view('ProgramDirector/History.donationHistory',compact('cartItems'))->with(['donationhistory' => $donationhistory ]);
     }
 
     public function transactionHistory()
     {
-      return view('ProgramDirector.transactionHistory', compact('transactionHistory'));
+      return view('ProgramDirector/History.transactionHistory', compact('transactionHistory'));
     }
 
     public function donorHistory()

@@ -10,10 +10,10 @@
                 <div class="card-header">Send notification through SMS</div>
                 <div class="card-body">
                   <div class="panel-body">
-                    <form class="form-horizontal" method="POST" action="{{ action('ProgramDirector\TwilioController@sendMessageDonor') }}">
+                    {!! Form::open(['action' => 'ProgramDirector\TwilioController@sendMessageDonor', 'method' => 'POST' ]) !!}
                       {{ csrf_field() }}
                       <div class="form-group">
-                        <textarea class="form-control" type="text" name="message" placeholder="Place your message here!"></textarea>
+                        {{Form::textArea('message','', ['class' => 'form-control', 'placeholder' => 'Place your message here...'])}}
                       </div>
                       @if(count($applicants)>0)
                       <table class="table table-striped table-hover">

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\DonorAuth;
+namespace App\Http\Controllers\Donor\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\SendsPasswordResetEmails;
@@ -8,6 +8,7 @@ use Password;
 
 class ForgotPasswordController extends Controller
 {
+
     /*
     |--------------------------------------------------------------------------
     | Password Reset Controller
@@ -26,6 +27,7 @@ class ForgotPasswordController extends Controller
      *
      * @return void
      */
+
     public function __construct()
     {
         $this->middleware('guest:donor');
@@ -33,7 +35,7 @@ class ForgotPasswordController extends Controller
 
     public function showLinkRequestForm()
     {
-       return view('donors-auth.passwords.email');
+       return view('Donor/Auth.passwords.email');
     }
 
     //defining which password broker to use, in our case its the admins

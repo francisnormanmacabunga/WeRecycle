@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\DonorAuth;
+namespace App\Http\Controllers\Donor\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ResetsPasswords;
@@ -11,6 +11,7 @@ use Auth;
 
 class ResetPasswordController extends Controller
 {
+
     /*
     |--------------------------------------------------------------------------
     | Password Reset Controller
@@ -29,6 +30,7 @@ class ResetPasswordController extends Controller
      *
      * @var string
      */
+
     protected $redirectTo = '/donor/login';
 
     /**
@@ -36,6 +38,7 @@ class ResetPasswordController extends Controller
      *
      * @return void
      */
+
     public function __construct()
     {
         $this->middleware('guest:donor');
@@ -43,7 +46,7 @@ class ResetPasswordController extends Controller
 
     public function showResetForm(Request $request, $token = null)
     {
-        return view('donors-auth.passwords.reset')
+        return view('Donor/Auth.passwords.reset')
             ->with(['token' => $token, 'email' => $request->email]
             );
     }

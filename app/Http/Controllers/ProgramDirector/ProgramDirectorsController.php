@@ -28,7 +28,7 @@ class ProgramDirectorsController extends Controller
       -> where('usertypeID', '4')
       -> get();*/
       $donors =  Auth::user();
-      return view('ProgramDirector.index')->with(['donors' =>$donors]);
+      return view('ProgramDirector/Profile.index')->with(['donors' =>$donors]);
     }
 
     /**
@@ -76,7 +76,7 @@ class ProgramDirectorsController extends Controller
     public function edit($id)
     {
       $donors = ProgramDirector::with('contacts')->find($id);
-      return view('ProgramDirector.edit', compact('donors'));
+      return view('ProgramDirector/Profile.edit', compact('donors'));
     }
 
     /**

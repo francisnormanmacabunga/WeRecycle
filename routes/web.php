@@ -51,12 +51,22 @@ Route::get('/index', 'PagesController@index2');
 Route::get('/createApplicant', 'PagesController@createApplicant');
 Route::get('/createDonor', 'PagesController@createDonor');
 
-//Cart Controller
+
+
+//Cart-Donate Controller
 Route::resource('/cart', 'CartController');
 Route::get('/cart/add-item/{id}', 'CartController@addItem')->name('cart.addItem');
-
 Route::resource('/donate', 'DonateController');
 Route::get('/donate/add-item/{id}', 'DonateController@addItem')->name('donate.addItem');
+
+//Checkout Controller
+Route::get('/checkout/edit{id}','CheckoutController@edit');
+Route::get('/checkout/index','CheckoutController@index')->name('checkout');
+Route::get('/checkout/confirm{id}','CheckoutController@confirm');
+Route::get('/checkout','CartController@checkout');
+
+
+
 
 Auth::routes();
 Route::prefix('donor')->group(function() {
@@ -67,17 +77,15 @@ Route::prefix('donor')->group(function() {
   Route::get('/password/reset','Donor\Auth\ForgotPasswordController@showLinkRequestForm')->name('donor.password.request');
   Route::post('/password/reset','Donor\Auth\ResetPasswordController@reset');
   Route::get('/password/reset/{token}','Donor\Auth\ResetPasswordController@showResetForm')->name('donor.password.reset');
-
   Route::resource('/donors', 'Donor\DonorsController');
   Route::resource('/donorPassword', 'Donor\DonorsPasswordController');
   Route::resource('/status', 'Donor\DonorsStatusController');
-
-
   Route::get('/createFeedback', 'Donor\FeedbacksController@create');
   Route::post('/sendFeedback', 'Donor\FeedbacksController@sendFeedback');
+  Route::get('/donationCatalog','Donor\DonorsCatalogController@donationCatalog');
+  Route::get('/shopCatalog','Donor\DonorsCatalogController@shopCatalog');
 
-  Route::get('/donationCatalog','DonorsCatalogController@donationCatalog');
-  Route::get('/shopCatalog','DonorsCatalogController@shopCatalog');
+
   Route::get('/donorhistory','HistoryController@donorHistory');
 
   Route::get('/', 'Donor\DonorController@index')->name('donor.dashboard');
@@ -132,8 +140,3 @@ Route::prefix('admin')->group(function() {
   Route::get('/createEmployee', 'Admin\AdminController@createEmployee');
   Route::get('/', 'Admin\AdminController@index')->name('admin.dashboard');
 });
-
-Route::get('/checkout','CartController@checkout');
-Route::get('/checkout/edit{id}','CheckoutController@edit');
-Route::get('/checkout/index','CheckoutController@index')->name('checkout');
-Route::get('/checkout/confirm{id}','CheckoutController@confirm');

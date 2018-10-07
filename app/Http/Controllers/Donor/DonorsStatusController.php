@@ -4,24 +4,26 @@ namespace App\Http\Controllers\Donor;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\userTable;
+use App\Models\Donor;
 use Auth;
 
 class DonorsStatusController extends Controller
 {
-  public function __construct()
-  {
-      $this->middleware('auth:donor');
-  }
+
+    public function __construct()
+    {
+        $this->middleware('auth:donor');
+    }
+
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
+
     public function index()
     {
-      $donors = userTable::all();
-      return view('users.status',compact('donors'));
+    
     }
 
     /**
@@ -29,6 +31,7 @@ class DonorsStatusController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
     public function create()
     {
         //
@@ -40,6 +43,7 @@ class DonorsStatusController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+
     public function store(Request $request)
     {
         //
@@ -51,6 +55,7 @@ class DonorsStatusController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
     public function show($id)
     {
         //
@@ -62,10 +67,11 @@ class DonorsStatusController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
     public function edit($id)
     {
-      $donors = userTable::find($id);
-      return view('users.updateStatus', compact('donors'));
+      $donors = Donor::find($id);
+      return view('Donor/Profile.updateStatus', compact('donors'));
     }
 
     /**
@@ -75,13 +81,14 @@ class DonorsStatusController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
     public function update(Request $request, $id)
     {
-      $donors = userTable::find($id);
+      $donors = Donor::find($id);
       $donors->status = $request->input('status');
       $donors->push();
+
       return redirect('/')->with(Auth::logout());
-      //return Auth::logout();//->with('success','Profile Deactivated');
     }
 
     /**
@@ -90,8 +97,10 @@ class DonorsStatusController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
     public function destroy($id)
     {
         //
     }
+
 }

@@ -24,7 +24,7 @@ class DonorsCatalogController extends Controller
     -> sortable()
     -> get();
 
-    return view('usersCatalog.donation', compact('products1'));
+    return view('Donor/Catalog.donation', compact('products1'));
   }
 
   public function shopCatalog()
@@ -36,7 +36,7 @@ class DonorsCatalogController extends Controller
     -> sortable()
     -> get();
 
-    return view('usersCatalog.shop', compact('products2'));
+    return view('Donor/Catalog.shop', compact('products2'));
   }
 
 }

@@ -7,17 +7,17 @@ use Spatie\Activitylog\Traits\LogsActivity;
 
 class Contacts extends Model
 {
+
   use LogsActivity;
   protected $table = 'contacts';
   protected $primaryKey = 'contactID';
   public $timestamps = false;
-
   protected static $logAttributes = ["*"];
 
   public static function boot()
   {
   parent::boot();
-  static::saving(function (Model $model) {
+  static::saving(function (Donor $model) {
       static::$logAttributes = array_keys($model->getDirty());
   });
   }

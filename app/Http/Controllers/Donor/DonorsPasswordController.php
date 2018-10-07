@@ -4,21 +4,23 @@ namespace App\Http\Controllers\Donor;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\userTable;
+use App\Models\Donor;
 use Hash;
 
 class DonorsPasswordController extends Controller
 {
 
-  public function __construct()
-  {
-      $this->middleware('auth:donor');
-  }
+    public function __construct()
+    {
+        $this->middleware('auth:donor');
+    }
+
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
+
     public function index()
     {
       //$donors = userTable::all();
@@ -30,6 +32,7 @@ class DonorsPasswordController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
     public function create()
     {
         //
@@ -41,6 +44,7 @@ class DonorsPasswordController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+
     public function store(Request $request)
     {
         //
@@ -52,6 +56,7 @@ class DonorsPasswordController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
     public function show($id)
     {
         //
@@ -63,10 +68,11 @@ class DonorsPasswordController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
     public function edit($id)
     {
-      $donors = userTable::find($id);
-      return view('users.updatePass', compact('donors'));
+      $donors = Donor::find($id);
+      return view('Donor/Profile.updatePass', compact('donors'));
     }
 
     /**
@@ -76,10 +82,10 @@ class DonorsPasswordController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
     public function update(Request $request, $id)
     {
       $this->validate($request, [
-
       'password' => 'min:6|required_with:password_confirmation|same:password_confirmation|',
       'password_confirmation' => 'required'
     ],
@@ -88,17 +94,16 @@ class DonorsPasswordController extends Controller
       'password.same' => 'Password does not match',
       'password_confirmation.required' => 'Password Confirmation field is required'
     ]);
-      $donors = userTable::find($id);
-      //$donors->password = $request->input('password');
+      $donors = Donor::find($id);
       $donors->password = Hash::make($request->input('password'));
       $donors->push();
+
       return redirect('/donor/donors')->with('success','Password updated');
     }
-
-
 
     public function destroy($id)
     {
         //
     }
+
 }

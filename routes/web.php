@@ -120,11 +120,11 @@ Route::prefix('admin')->group(function() {
   Route::get('/login','Auth\AdminLoginController@showLoginForm')->name('admin.login');
   Route::post('/login','Auth\AdminLoginController@login')->name('admin.login.submit');
   Route::post('/logout', 'Auth\AdminLoginController@adminLogout')->name('admin.logout');
-  Route::resource('/catalog', 'CatalogController');
-  Route::get('/manageshop', 'ManageCatalogController@manageShop');
-  Route::get('/managedonation', 'ManageCatalogController@manageDonation');
-  Route::get('createCatalog', 'AdminController@createCatalog');
 
+  Route::resource('/catalog', 'Admin\CatalogController');
+  Route::get('/manageshop', 'Admin\ManageCatalogController@manageShop');
+  Route::get('/managedonation', 'Admin\ManageCatalogController@manageDonation');
+  Route::get('createCatalog', 'Admin\AdminController@createCatalog');
   Route::resource('/employees', 'Admin\EmployeesController');
   Route::get('/createEmployee', 'Admin\AdminController@createEmployee');
   Route::get('/', 'Admin\AdminController@index')->name('admin.dashboard');

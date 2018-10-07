@@ -34,7 +34,7 @@ class AdminController extends Controller
 
     public function createCatalog()
     {
-        return view('catalog.create');
+        return view('Admin/Catalog.create');
     }
 
 }

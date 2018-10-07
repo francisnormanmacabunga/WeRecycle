@@ -9,7 +9,7 @@
       </div>
       <div class="container col-md-9 center-align">
         <h4 class="mb-3">Fill out form</h4>
-        {{ Form::open(array('action' => 'CatalogController@store', 'method' => 'post', 'files' => true, 'enctype' =>"multipart/form-data")) }}
+        {{ Form::open(array('action' => 'Admin\CatalogController@store', 'method' => 'post', 'files' => true, 'enctype' =>"multipart/form-data")) }}
             <div class="row">
             <div class="col-md-6 mb-3">
               {{Form::label('productname','Item Name')}}

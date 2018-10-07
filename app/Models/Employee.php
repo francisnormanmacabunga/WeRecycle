@@ -3,13 +3,13 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Carbon\Carbon;
-use Kyslik\ColumnSortable\Sortable;
-use App\Models\Contacts;
 use Spatie\Activitylog\Traits\LogsActivity;
+use Kyslik\ColumnSortable\Sortable;
+use Carbon\Carbon;
 
 class Employee extends Model
 {
+
     use LogsActivity;
     use Sortable;
     protected $table = 'user';
@@ -17,7 +17,6 @@ class Employee extends Model
     public $timestamps = true;
     public $sortable = ['created_at', 'status', 'usertypeID'];
     protected static $logAttributes = ["*"];
-    public $appends = ['name'];
 
     public static function boot()
     {

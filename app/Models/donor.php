@@ -5,9 +5,12 @@ namespace App\Models;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use App\Notifications\DonorResetPasswordNotification;
+use Spatie\Activitylog\Traits\LogsActivity;
 
-class donor extends Authenticatable
+class Donor extends Authenticatable
 {
+
+    use LogsActivity;
     use Notifiable;
     protected $guard = 'donor';
     protected $table = 'user';
@@ -23,9 +26,24 @@ class donor extends Authenticatable
       }
     }
 
+    protected static $logAttributes = ["*"];
+
+    public static function boot()
+    {
+    parent::boot();
+    static::saving(function (Model $model) {
+        static::$logAttributes = array_keys($model->getDirty());
+    });
+    }
+
+    public function getNameAttribute()
+    {
+        return $this->causer->username ?? null;
+    }
+
     public function contacts()
     {
-    return $this->hasOne('App\contactsTable', 'userID');
+    return $this->hasOne('App\Models\Contacts', 'userID');
     }
 
     public function sendPasswordResetNotification($token)
@@ -33,36 +51,28 @@ class donor extends Authenticatable
         $this->notify(new DonorResetPasswordNotification($token));
     }
 
-    //public function user()
-    //{
-    //return $this->belongsTo(Config::get('audit.user.model'), 'userID');
-    //}
-
-    //public function contacts()
-    //{
-    //return $this->hasOne('App\contactsTable','userID');
-    //}
+    public function orders(){
+      return $this->belongsTo('App\order');
+    }
 
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
-    //protected $fillable = [
-        //'name', 'email', 'password',
-    //];
+
+    /*protected $fillable = [
+        'name', 'email', 'password',
+    ];*/
 
     /**
      * The attributes that should be hidden for arrays.
      *
      * @var array
      */
-    //protected $hidden = [
-        //'password', 'remember_token',
-    //];
 
-    public function orders(){
-      return $this->belongsTo('App\order');
-    }
+    /*protected $hidden = [
+        'password', 'remember_token',
+    ];*/
 
 }

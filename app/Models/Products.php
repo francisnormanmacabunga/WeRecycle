@@ -4,14 +4,17 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Spatie\Activitylog\Traits\LogsActivity;
+use Kyslik\ColumnSortable\Sortable;
 
-class Contacts extends Model
+class Products extends Model
 {
-  use LogsActivity;
-  protected $table = 'contacts';
-  protected $primaryKey = 'contactID';
-  public $timestamps = false;
 
+  use LogsActivity;
+  use Sortable;
+  protected $table = 'products';
+  protected $primaryKey = 'productsID';
+  public $timestamps = true;
+  public $sortable = ['created_at', 'price'];
   protected static $logAttributes = ["*"];
 
   public static function boot()
@@ -25,11 +28,6 @@ class Contacts extends Model
   public function getNameAttribute()
   {
       return $this->causer->username ?? null;
-  }
-
-  public function user()
-  {
-    return $this->belongsTo('App\Models\Donor','userID');
   }
 
 }

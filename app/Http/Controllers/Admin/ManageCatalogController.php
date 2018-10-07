@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use DB;
-use App\productsTable;
 
 class ManageCatalogController extends Controller
 {
@@ -23,7 +23,7 @@ class ManageCatalogController extends Controller
     -> where('productstype.productstypeID','1')
     ->get();
 
-      return view('catalog.manageDonation', compact('products1'));
+    return view('Admin/Catalog.manageDonation', compact('products1'));
   }
 
   public function manageShop(){
@@ -35,11 +35,7 @@ class ManageCatalogController extends Controller
     -> where('productstype.productstypeID','2')
     ->get();
 
-
-      return view('catalog.manageshop', compact('products2'));
+    return view('Admin/Catalog.manageshop', compact('products2'));
   }
-
-
-
 
 }

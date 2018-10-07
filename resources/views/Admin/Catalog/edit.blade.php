@@ -68,7 +68,7 @@
 
 @section('content')
 
-  {!! Form::open(['action' => ['CatalogController@update', $products['productsID']], 'method' => 'POST' ]) !!}
+  {!! Form::open(['action' => ['Admin\CatalogController@update', $products['productsID']], 'method' => 'POST' ]) !!}
   <div class="row">
     <div class="col-md-12">
       <br/>

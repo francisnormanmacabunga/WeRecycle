@@ -4,13 +4,13 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Validation\Rule;
+use App\Mail\WelcomeMail;
 use App\Models\Employee;
 use App\Models\Contacts;
-use DB;
 use Hash;
-use App\Mail\WelcomeMail;
-use Illuminate\Support\Facades\Mail;
+use DB;
 
 class EmployeesController extends Controller
 {

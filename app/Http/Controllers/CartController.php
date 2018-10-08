@@ -9,7 +9,7 @@ use App\order;
 use App\donor;
 use Auth;
 use DB;
-class DonateController extends Controller
+class CartController extends Controller
 {
 
   public function __construct()
@@ -29,8 +29,8 @@ class DonateController extends Controller
 
   public function index()
    {
-       $cartItems=Cart::content();
-       return view('donate.index',compact('cartItems'));
+       $cartItems=Cart::instance('shop')->content();
+       return view('cart.index',compact('cartItems'));
    }
 
    /**
@@ -79,9 +79,10 @@ class DonateController extends Controller
 
    public function addItem($id)
    {
-       session()->flash('notif','Item has been added to donation list!');
+       session()->flash('notif','Item has been added to cart!');
        $products = productsTable::find($id);
-       Cart::add($products->productsID,$products->productname,1,$products->price);
+       Cart::instance('shop')->add($products->productsID,$products->productname,1,$products->price);
+
 
        return back();
    }
@@ -95,21 +96,15 @@ class DonateController extends Controller
     */
    public function update(Request $request, $id)
    {
-//        dd(Cart::content());
-//        dd($request->all());
-       Cart::update($id,['qty'=>$request->qty,"options"=>['size'=>$request->size]]);
+
+       Cart::instance('shop')->update($id,$request->qty);
        return back();
    }
 
-   /**
-    * Remove the specified resource from storage.
-    *
-    * @param  int  $id
-    * @return \Illuminate\Http\Response
-    */
+
    public function destroy($id)
    {
-       Cart::remove($id);
+       Cart::instance('shop')->remove($id);
        return back();
    }
 
@@ -117,11 +112,11 @@ class DonateController extends Controller
    {
         $donor = Auth::user();
         $order = new order();
-        $cartItems=Cart::content();
+        $cartItems=Cart::instance('shop')->content();
 
         $order->userID = $donor->userID;
-        $order->type= 'Donate';
-        $order->cart = base64_encode(serialize($cartItems));
+        $order->type= 'Shop';
+        $order->cart = serialize($cartItems);
         $order->fname = $donor->firstname;
         $order->lname = $donor->lastname;
         $order->street = $donor->street;
@@ -134,16 +129,15 @@ class DonateController extends Controller
         $order->save();
 
 
-  /*$test = order::SELECT('*')
-  -> where('userID',$donor->userID)
-  -> get();*/
+/*$test = order::SELECT('*')
+-> where('userID',$donor->userID)
+-> get();*/
 
-  //$test2 = order::find();
+//$test2 = order::find();
 
-  $test3 = order::where('userID', $donor->userID)->first();
+$test3 = order::where('userID', $donor->userID)->first();
 
-  //$ordertable = DB::select('select * from orders where userID = ?', [$donor->userID]);
-  return redirect()->route('dcheckout');
-  }
-
+//$ordertable = DB::select('select * from orders where userID = ?', [$donor->userID]);
+return redirect()->route('checkout');
+}
 }

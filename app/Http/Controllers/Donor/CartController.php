@@ -109,6 +109,38 @@ class CartController extends Controller
 
    public function checkout()
    {
+<<<<<<< HEAD:app/Http/Controllers/CartController.php
+        $donor = Auth::user();
+        $order = new order();
+        $cartItems=Cart::instance('shop')->content();
+
+        $order->userID = $donor->userID;
+        $order->type= 'Shop';
+        $order->cart = serialize($cartItems);
+        $order->fname = $donor->firstname;
+        $order->lname = $donor->lastname;
+        $order->street = $donor->street;
+        $order->barangay = $donor->barangay;
+        $order->city = $donor->city;
+        $order->zip = $donor->zip;
+        $order->status = 'Inactive';
+
+
+        $order->save();
+
+
+/*$test = order::SELECT('*')
+-> where('userID',$donor->userID)
+-> get();*/
+
+//$test2 = order::find();
+
+$test3 = order::where('userID', $donor->userID)->first();
+
+//$ordertable = DB::select('select * from orders where userID = ?', [$donor->userID]);
+return redirect()->route('checkout');
+}
+=======
      $donor = Auth::user();
      $order = new order();
      $cartItems=Cart::instance('shop')->content();
@@ -135,4 +167,5 @@ class CartController extends Controller
      //$ordertable = DB::select('select * from orders where userID = ?', [$donor->userID]);
     }
 
+>>>>>>> 266e8d37e45fba61e019f3d07cf512f3efe6884e:app/Http/Controllers/Donor/CartController.php
 }

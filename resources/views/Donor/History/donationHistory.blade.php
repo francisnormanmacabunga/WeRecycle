@@ -20,8 +20,13 @@
 
     <!--@foreach($cartItems as $item)
     <tr>
+<<<<<<< HEAD:resources/views/program_directors/donationHistory.blade.php
+<?php  ?>
+      <td>{{$donationhistory[0]['fname']}}</td>
+=======
 
       <td>{{$donationhistory['fname']}}</td>
+>>>>>>> 266e8d37e45fba61e019f3d07cf512f3efe6884e:resources/views/Donor/History/donationHistory.blade.php
       <td></td>
       <td>{{$item->name}},{{$item->price}},{{$item->qty}}</td>
       <td></td>

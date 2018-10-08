@@ -15,7 +15,7 @@
             @foreach($cartItems as $cartItem)
                 <tr>
                     <td>{{$cartItem->name}}</td>
-                  
+
                     <td width="50px">
                         {!! Form::open(['route' => ['donate.update',$cartItem->rowId], 'method' => 'PUT']) !!}
                         <input name="qty" type="number" value="{{$cartItem->qty}}">
@@ -46,7 +46,7 @@
             </tr>
             </tbody>
         </table>
-        <a role="button" class="btn btn-success" href="/donateCheckout">
+        <a role="button" class="btn btn-success" href="/donateCheckout/index">
           Summary</a>
           <a role="button" class="btn btn-danger" href="/donor/donationCatalog">
             Back</a>

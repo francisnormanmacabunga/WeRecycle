@@ -1,10 +1,8 @@
 <?php
-
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
 use Gloudemans\Shoppingcart\Facades\Cart;
-use App\transaction;
+use App\Models\Transaction;
 use App\order;
 use Auth;
 use DB;
@@ -29,7 +27,7 @@ class CheckoutController extends Controller
   {
     $donor = Auth::user();
     $order = order::where('userID', $donor->userID)->first();
-    $cartItems=unserialize(base64_decode($order->cart));
+    $cartItems=unserialize($order->cart);
     return view('checkout.index',compact('cartItems'))->with(['order' => $order ]);
   }
 
@@ -41,6 +39,7 @@ class CheckoutController extends Controller
 
     $trans->userID = $order->userID;
     $trans->cart = $order->cart;
+    $trans->type = $order->type;
     $trans->fname = $order->fname;
     $trans->lname = $order->lname;
     $trans->street = $order->street;

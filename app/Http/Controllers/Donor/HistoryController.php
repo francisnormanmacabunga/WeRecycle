@@ -14,36 +14,18 @@ class HistoryController extends Controller
 
     public function __construct()
     {
-      $this->middleware('auth:programdirector', ['only'=> [
-        'donationHistory', 'transactionHistory',
-        ]]);
-      $this->middleware('auth:donor', ['except'=> [
-       'donationHistory', 'transactionHistory',
-        ]]);
+      $this->middleware('auth:donor');
     }
 
     public function donationHistory()
     {
-     //$donationhistory = transaction::with('users')->find($id)->users;
-     //return View::make('program_directors.donationHistory', compact('donationhistory'))->with('users', $donationhistory)m
 
-      // $test = $donationhistory = transaction::all();
-      //$donationhistory = DB::SELECT('select * from transactions')->all();
-      $donationhistory = transaction::all();
-      //$cartItems = unserialize(base64_decode($donationhistory['0']['cart']));
-      //return view('program_directors.donationHistory', compact('donationhistory'));
-
-      return view('ProgramDirector/History.donationHistory',compact('cartItems'))->with(['donationhistory' => $donationhistory ]);
+      return view('Donor/History.donorHistory', compact('donorHistory'));
     }
 
     public function transactionHistory()
     {
-      return view('ProgramDirector/History.transactionHistory', compact('transactionHistory'));
-    }
-
-    public function donorHistory()
-    {
-      return view('users.donorHistory', compact('donorHistory'));
+      return view('Donor/History.transactionHistory', compact('transactionHistory'));
     }
 
 }

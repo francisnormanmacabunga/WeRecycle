@@ -67,7 +67,6 @@ Route::get('/checkout','CartController@checkout');
 
 
 
-
 Auth::routes();
 Route::prefix('donor')->group(function() {
   Route::get('/login','Donor\Auth\DonorLoginController@showLoginForm')->name('donor.login');
@@ -84,9 +83,8 @@ Route::prefix('donor')->group(function() {
   Route::post('/sendFeedback', 'Donor\FeedbacksController@sendFeedback');
   Route::get('/donationCatalog','Donor\DonorsCatalogController@donationCatalog');
   Route::get('/shopCatalog','Donor\DonorsCatalogController@shopCatalog');
-
-  Route::get('/donorhistory','HistoryController@donorHistory');
-
+  Route::get('/donationhistory','Donor\HistoryController@donationHistory');
+  Route::get('/transactionhistory','Donor\HistoryController@transactionHistory');
   Route::get('/', 'Donor\DonorController@index')->name('donor.dashboard');
 });
 
@@ -120,8 +118,7 @@ Route::prefix('programdirector')->group(function() {
   Route::get('/sendSMS-V','ProgramDirector\TwilioController@indexVolunteer');
   Route::post('/sendMessage-D','ProgramDirector\TwilioController@sendMessageDonor');
   Route::post('/sendMessage-v','ProgramDirector\TwilioController@sendMessageVolunteer');
-  Route::get('/donationhistory', 'ProgramDirector\HistoryController@donationHistory');
-  Route::get('/transactionhistory', 'ProgramDirector\HistoryController@transactionHistory');
+  Route::get('/donationhistory', 'ProgramDirector\DonationHistoryController@donationHistory');
   Route::resource('/feedback', 'ProgramDirector\FeedbacksController');
   Route::get('/', 'ProgramDirector\ProgramDirectorController@index')->name('pd.dashboard');
 });

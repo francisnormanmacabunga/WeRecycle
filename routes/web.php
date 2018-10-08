@@ -11,48 +11,13 @@
 |
 */
 
-//Route::get('/createEmployee', 'PagesController@createEmployee');
-//Route::get('createCatalog', 'PagesController@createCatalog');
-//Route::get('/createFeedback', 'PagesController@createFeedback');
-//Route::resource('/employees', 'EmployeesController');
-//Route::resource('/catalog', 'CatalogController');
-//Route::resource('/feedback', 'FeedbackController');z
-//Route::get('/donationCatalog','DonorsCatalogController@donationCatalog');
-//Route::get('/shopCatalog','DonorsCatalogController@shopCatalog');
-//Route::resource('/applicants', 'ApplicantsController');
-//Route::resource('/donors', 'DonorsController');
-//Route::resource('/donorPassword', 'DonorsPasswordController');
-//Route::resource('/status', 'DonorsStatusController');
-//Route::resource('/activity_coordinators', 'ActivityCoordinatorsController');
-//Route::resource('/AC_password', 'ActivityCoordinatorsPasswordController');
-//Route::resource('/program_directors', 'ProgramDirectorsController');
-//Route::resource('/PD_password', 'ProgramDirectorsPasswordController');
-//Route::get('/indexUser', 'PagesController@indexUser');
-//Route::get('/indexAC', 'PagesController@indexAC');
-//Route::get('/indexPD', 'PagesController@indexPD');
-//Route::get('/indexAdmin', 'PagesController@indexAdmin');
-//Route::get('/sms', 'PagesController@sms');
-//Route:: post('/send_sms','TwilioTestController@testMessage');
-//Route::get('/sms', function()
-//{
-    //return View::make('activity_coordinators.sms');
-//});
-//Route::get('/sms', 'PagesController@sms');
-//Route:: post('/send_sms','TwilioTestController@testMessage');
-//Route::get('/sms', function()
-//{
-    //return View::make('activity_coordinators.sms');
-//});
-//Route::get('/home', 'HomeController@index')->name('home');
-//Route::get('/donate/add-item/{id}', 'Donor\DonateController@addItem')->name('donate.addItem');
-
+//Guest
 Route::get('/', 'PagesController@index');
 Route::get('/index', 'PagesController@index2');
-
-Route::get('/createApplicant', 'PagesController@createApplicant');
-Route::get('/createDonor', 'PagesController@createDonor');
-
-//Guest Shop
+Route::get('/createApplicant', 'Guest\ApplicantsController@create');
+Route::post('/processApplicant', 'Guest\ApplicantsController@store');
+Route::get('/createDonor', 'Guest\DonorsController@create');
+Route::post('/processDonor', 'Guest\DonorsController@store');
 Route::get('/shop', 'Guest\ShopController@shopCatalog');
 
 //AddtoCart AddtoDonate Controller
@@ -99,7 +64,7 @@ Route::prefix('activitycoordinator')->group(function() {
   Route::get('/password/reset/{token}','ActivityCoordinator\Auth\ResetPasswordController@showResetForm')->name('activitycoordinator.password.reset');
   Route::resource('/activity_coordinators', 'ActivityCoordinator\ActivityCoordinatorsController');
   Route::resource('/AC_password', 'ActivityCoordinator\ActivityCoordinatorsPasswordController');
-  Route::resource('/applicants', 'ApplicantsController');
+  Route::resource('/applicants', 'ActivityCoordinator\ApplicantsController');
   Route::get('/sendSMS','ActivityCoordinator\TwilioController@index');
   Route::post('/sendMessage','ActivityCoordinator\TwilioController@sendMessageApplicant');
   Route::get('/', 'ActivityCoordinator\ActivityCoordinatorController@index')->name('ac.dashboard');

@@ -55,12 +55,8 @@ Route::get('/createDonor', 'PagesController@createDonor');
 //Guest Shop
 Route::get('/shop', 'Guest\ShopController@shopCatalog');
 
-<<<<<<< HEAD
-//Cart-Donate Controller
-=======
 
 //AddtoCart-AddtoDonate Controller
->>>>>>> 8c08962a1f95a4c0db58a9dfb195e3f6484febbc
 Route::get('/donate/add-item/{id}', 'Donor\DonateController@addItem')->name('donate.addItem');
 Route::get('/cart/add-item/{id}', 'Donor\CartController@addItem')->name('cart.addItem');
 Route::resource('/donate', 'Donor\DonateController');

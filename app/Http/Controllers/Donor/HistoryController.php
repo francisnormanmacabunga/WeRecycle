@@ -4,8 +4,8 @@ namespace App\Http\Controllers\Donor;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\transaction;
-use App\userTable;
+use App\Models\Transaction;
+use Auth;
 use Cart;
 use DB;
 
@@ -19,8 +19,9 @@ class HistoryController extends Controller
 
     public function donationHistory()
     {
-
-      return view('Donor/History.donorHistory', compact('donorHistory'));
+      $user = Auth::user();
+      $donationHistory = DB::SELECT('select * from transactions where userID =?',[$user->userID]);
+      return view('Donor/History.donationHistory', compact('donationHistory'));
     }
 
     public function transactionHistory()

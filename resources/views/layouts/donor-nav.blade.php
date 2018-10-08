@@ -50,6 +50,8 @@
                       <li class="nav-item">
                             <a class="nav-link" href="{{ route('donate.index') }}">Donation</a>
                       </li>
+
+
                         <!-- Authentication Links -->
                         @guest
                 <!--              <li class="nav-item">
@@ -63,7 +65,7 @@
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                   <a class="dropdown-item" href="/donor/donors">Edit Profile</a>
-                                    <a class="dropdown-item" href="/donor/donorhistory">History</a>
+                                    <a class="dropdown-item" href="/donor/donationhistory ">History</a>
                                     <a class="dropdown-item" href="{{ route('donor.logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">

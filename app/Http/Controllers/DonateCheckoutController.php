@@ -28,33 +28,33 @@ class DonateCheckoutController extends Controller
 
   public function index(){
 
-$donor = Auth::user();
-$order = order::where('userID', $donor->userID)->first();
-$cartItems=unserialize($order->cart);
+    $donor = Auth::user();
+    $order = order::where('userID', $donor->userID)->first();
+    $cartItems=unserialize($order->cart);
 
-return view('donateCheckout.index',compact('cartItems'))->with(['order' => $order ]);
+    return view('donateCheckout.index',compact('cartItems'))->with(['order' => $order ]);
 
 }
 
 public function confirm($id){
-  $donor = Auth::user();
-  $order = order::where('userID', $donor->userID)->first();
-  $trans = new transaction;
+      $donor = Auth::user();
+      $order = order::where('userID', $donor->userID)->first();
+      $trans = new transaction;
 
-  $trans->userID = $order->userID;
-  $trans->type = $order->type;
-  $trans->cart = $order->cart;
-  $trans->fname = $order->fname;
-  $trans->lname = $order->lname;
-  $trans->street = $order->street;
-  $trans->barangay = $order->barangay;
-  $trans->city = $order->city;
-  $trans->zip = $order->zip;
-  $trans->status = 'Active';
-  $trans->save();
-  cart::instance('shop')->destroy();
-DB::table('orders')->where('userID',$donor->userID)->delete();
-return redirect('/donor');
+      $trans->userID = $order->userID;
+      $trans->type = $order->type;
+      $trans->cart = $order->cart;
+      $trans->fname = $order->fname;
+      $trans->lname = $order->lname;
+      $trans->street = $order->street;
+      $trans->barangay = $order->barangay;
+      $trans->city = $order->city;
+      $trans->zip = $order->zip;
+      $trans->status = 'Active';
+      $trans->save();
+      cart::instance('shop')->destroy();
+      DB::table('orders')->where('userID',$donor->userID)->delete();
+      return redirect('/donor');
 }
 
 public function edit($id){

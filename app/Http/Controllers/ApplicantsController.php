@@ -4,60 +4,50 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
-use App\userTable;
-use App\contactsTable;
+use App\Models\Employee;
+use App\Models\Contacts;
 use DB;
 use Hash;
 
 class ApplicantsController extends Controller
 {
 
-  public function __construct()
-  {
-      //$this->middleware('auth:activitycoordinator');
-
+    public function __construct()
+    {
       $this->middleware('guest', ['only'=> [
         'create',
         'store'
         ]]);
 
-        $this->middleware('auth:activitycoordinator', ['except'=> [
-          'create',
-          'store'
-          ]]);
-  }
+      $this->middleware('auth:activitycoordinator', ['except'=> [
+        'create',
+        'store'
+        ]]);
+    }
+
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
+
     public function index()
     {
-      //$applicants = userTable::all();
-      //$contacts = contactsTable::all();
-      //$applicants = DB:: select ('SELECT * FROM user INNER JOIN contacts ON user.userID = contacts.userID');
-      //$applicants = DB::table('user')
-      //->select('*')
-      //->join('contacts', 'contacts.userID', '=', 'user.userID')
-      //->get();
-      //$applicants = userTable::paginate(5);
-
-    if (request()->has('status')){
-      $applicants = userTable::SELECT('*')
+      if (request()->has('status')){
+      $applicants = Employee::SELECT('*')
       -> join('contacts', 'contacts.userID', '=', 'user.userID')
       -> where('status',request('status'))
       -> where('usertypeID', '2')
       -> sortable()
       -> paginate(5)->appends('status', request('status'));
     } else {
-      $applicants = userTable::SELECT('*')
+      $applicants = Employee::SELECT('*')
       -> join('contacts', 'contacts.userID', '=', 'user.userID')
       -> where('usertypeID', '2')
       -> sortable()
       -> paginate(5);
     }
-
-      return view('applicants.index', compact('applicants'));
+      return view('ActivityCoordinator/ManageApplicants.index', compact('applicants'));
     }
 
     /**
@@ -65,9 +55,10 @@ class ApplicantsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
     public function create()
     {
-      return view('applicants.create');
+      return view('Applicants.create');
     }
 
     /**
@@ -76,6 +67,7 @@ class ApplicantsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+
     public function store(Request $request)
     {
       $this->validate($request, [
@@ -116,7 +108,7 @@ class ApplicantsController extends Controller
       'username.required' => 'The Username field is required.',
       'username.alpha_dash' => 'The Username may only contain letters, numbers, dashes and underscores.'
     ]);
-      $user = new userTable();
+      $user = new Employee();
       $user->firstname = $request->input('firstname');
       $user->lastname = $request->input('lastname');
       $user->email = $request->input('email');
@@ -131,7 +123,7 @@ class ApplicantsController extends Controller
       $user->status = $request->input('status');
       $user->save();
 
-      $contacts = new contactsTable();
+      $contacts = new Contacts();
       $contacts->userID = $user->userID;
       $contacts->cellNo = $request->input('cellNo');
       $contacts->tellNo = $request->input('tellNo');
@@ -145,6 +137,7 @@ class ApplicantsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
     public function show($id)
     {
 
@@ -156,10 +149,11 @@ class ApplicantsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
     public function edit($id)
     {
-      $applicants = userTable::find($id);
-      return view('applicants.edit', compact('applicants'));
+      $applicants = Employee::find($id);
+      return view('ActivityCoordinator/ManageApplicants.edit', compact('applicants'));
     }
 
     /**
@@ -169,9 +163,10 @@ class ApplicantsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
     public function update(Request $request, $id)
     {
-        $post = userTable::find($id);
+        $post = Employee::find($id);
         $post->status = $request->input('status');
         $post->save();
         return redirect('/activitycoordinator/applicants')->with('success', 'Profile updated');
@@ -183,6 +178,7 @@ class ApplicantsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
     public function destroy($id)
     {
         //

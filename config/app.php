@@ -149,7 +149,6 @@ return [
         Collective\Html\HtmlServiceProvider::class,
         Kyslik\ColumnSortable\ColumnSortableServiceProvider::class,
         Gloudemans\Shoppingcart\ShoppingcartServiceProvider::class,
-        Roketin\Auditing\AuditingServiceProvider::class,
 
         /*
          * Package Service Providers...

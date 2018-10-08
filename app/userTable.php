@@ -6,27 +6,33 @@ use Illuminate\Database\Eloquent\Model;
 use Carbon\Carbon;
 use Kyslik\ColumnSortable\Sortable;
 use App\contactsTable;
-
-use Roketin\Auditing\AuditingTrait;
-use Roketin\Auditing\Auditing;
-
 use Spatie\Activitylog\Traits\LogsActivity;
 
 class userTable extends Model
 {
     use LogsActivity;
-    use AuditingTrait;
     use Sortable;
 
     protected $table = 'user';
     protected $primaryKey = 'userID';
     public $timestamps = true;
     public $sortable = ['created_at', 'status', 'usertypeID'];
+    protected static $logAttributes = ["*"];
 
-    protected $fillable = ['name', 'text'];
-    protected static $logAttributes = ['name', 'text'];
+    public static function boot()
+    {
+    parent::boot();
+    static::saving(function (Model $model) {
+        static::$logAttributes = array_keys($model->getDirty());
+    });
+    }
 
-    protected static $logFillable = true;
+    public $appends = ['name'];
+
+    public function getNameAttribute()
+    {
+        return $this->causer->username ?? null;
+    }
 
     public function age()
     {

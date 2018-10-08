@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "0e3a096a33bb49450f2afc442713db17",
+    "content-hash": "c69a3547b2563c1a7c0634c5c99e8e85",
     "packages": [
         {
             "name": "anahkiasen/underscore-php",
@@ -1558,55 +1558,6 @@
                 "uuid"
             ],
             "time": "2018-07-19T23:38:55+00:00"
-        },
-        {
-            "name": "roketin/laravel-auditing",
-            "version": "2.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/roketin/laravel-auditing.git",
-                "reference": "62eb432d50584a5f7d11cecdd34ea91fb36d8591"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/roketin/laravel-auditing/zipball/62eb432d50584a5f7d11cecdd34ea91fb36d8591",
-                "reference": "62eb432d50584a5f7d11cecdd34ea91fb36d8591",
-                "shasum": ""
-            },
-            "require": {
-                "illuminate/support": "~5.0|~5.1",
-                "php": ">=5.5.9"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "~4.0"
-            },
-            "type": "package",
-            "autoload": {
-                "psr-4": {
-                    "Roketin\\Auditing\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Ivan",
-                    "email": "ivan@roketin.com"
-                }
-            ],
-            "description": "personal used for Roketin Engine. Keep a change history for your models using laravel version 5.*",
-            "homepage": "https://github.com/roketin/laravel-auditing",
-            "keywords": [
-                "auditing",
-                "laravel",
-                "log",
-                "observe",
-                "register",
-                "roketin"
-            ],
-            "time": "2016-03-17T03:41:57+00:00"
         },
         {
             "name": "spatie/laravel-activitylog",

@@ -55,15 +55,22 @@ Route::get('/createDonor', 'PagesController@createDonor');
 //Guest Shop
 Route::get('/shop', 'Guest\ShopController@shopCatalog');
 
+<<<<<<< HEAD
 
 //AddtoCart-AddtoDonate Controller
 Route::get('/donate/add-item/{id}', 'Donor\DonateController@addItem')->name('donate.addItem');
+=======
+//Cart-Donate Controller
+<<<<<<< HEAD
+Route::resource('/cart', 'Donor\CartController');
+>>>>>>> 571965e281faba050e7a888eda14a28ec5568b85
 Route::get('/cart/add-item/{id}', 'Donor\CartController@addItem')->name('cart.addItem');
 Route::resource('/donate', 'Donor\DonateController');
-Route::resource('/cart', 'Donor\CartController');
-Route::get('/donateCheckout/index','Donor\DonateController@checkout');
+Route::get('/donate/add-item/{id}', 'Donor\DonateController@addItem')->name('donate.addItem');
+Route::get('/donateCheckout/index','DonateController@checkout');
 
 
+<<<<<<< HEAD
 //Checkouts Controller
 Route::get('/checkout/index','Donor\CheckoutController@index')->name('checkout');
 Route::get('/checkout/edit{id}','Donor\CheckoutController@edit');
@@ -72,6 +79,26 @@ Route::get('/checkout','Donor\CartController@checkout')->name('dcheckout');
 
 
 
+=======
+//Checkout Controller
+Route::get('/checkout/edit{id}','CheckoutController@edit');
+Route::get('/checkout/index','CheckoutController@index')->name('checkout');
+Route::get('/checkout/confirm{id}','CheckoutController@confirm');
+=======
+Route::get('/donate/add-item/{id}', 'Donor\DonateController@addItem')->name('donate.addItem');
+Route::get('/cart/add-item/{id}', 'Donor\CartController@addItem')->name('cart.addItem');
+Route::resource('/donate', 'Donor\DonateController');
+Route::resource('/cart', 'Donor\CartController');
+Route::get('/donateCheckout/index','Donor\DonateController@checkout');
+
+
+//Checkout Controller
+Route::get('/checkout/edit{id}','Donor\CheckoutController@edit');
+Route::get('/checkout/index','Donor\CheckoutController@index')->name('checkout');
+Route::get('/checkout/confirm{id}','Donor\CheckoutController@confirm');
+>>>>>>> 79d234664c431958ad60e70f4f4705b05035133c
+Route::get('/checkout','Donor\CartController@checkout')->name('dcheckout');
+>>>>>>> 571965e281faba050e7a888eda14a28ec5568b85
 
 Auth::routes();
 Route::prefix('donor')->group(function() {

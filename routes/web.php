@@ -51,6 +51,9 @@ Route::get('/index', 'PagesController@index2');
 Route::get('/createApplicant', 'PagesController@createApplicant');
 Route::get('/createDonor', 'PagesController@createDonor');
 
+//Guest Shop
+Route::get('/shop', 'Guest\ShopController@shopCatalog');
+
 //Cart-Donate Controller
 Route::resource('/cart', 'CartController');
 Route::get('/cart/add-item/{id}', 'CartController@addItem')->name('cart.addItem');

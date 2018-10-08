@@ -2,6 +2,7 @@
 @include('layouts.donor-nav')
 
 @section('content')
+
 @if(session()->has('notif'))
 <div class="content">
   <div class="alert alert-success">
@@ -50,4 +51,5 @@
       </div>
     </div>
   </div>
+  
 @endsection

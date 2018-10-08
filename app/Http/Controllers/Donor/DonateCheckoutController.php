@@ -52,7 +52,7 @@ public function confirm($id){
       $trans->zip = $order->zip;
       $trans->status = 'Active';
       $trans->save();
-      cart::instance('shop')->destroy();
+      cart::destroy();
       DB::table('orders')->where('userID',$donor->userID)->delete();
       return redirect('/donor');
 }

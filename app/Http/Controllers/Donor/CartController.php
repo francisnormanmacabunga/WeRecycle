@@ -109,7 +109,7 @@ class CartController extends Controller
 
    public function checkout()
    {
-<<<<<<< HEAD:app/Http/Controllers/CartController.php
+
         $donor = Auth::user();
         $order = new order();
         $cartItems=Cart::instance('shop')->content();
@@ -166,6 +166,4 @@ return redirect()->route('checkout');
      //$test2 = order::find();
      //$ordertable = DB::select('select * from orders where userID = ?', [$donor->userID]);
     }
-
->>>>>>> 266e8d37e45fba61e019f3d07cf512f3efe6884e:app/Http/Controllers/Donor/CartController.php
 }

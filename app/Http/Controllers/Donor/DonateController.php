@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Gloudemans\Shoppingcart\Facades\Cart;
-use App\productsTable;
+use App\Models\Products;
 use App\order;
 use App\donor;
 use Auth;
@@ -80,7 +80,7 @@ class DonateController extends Controller
    public function addItem($id)
    {
        session()->flash('notif','Item has been added to donation list!');
-       $products = productsTable::find($id);
+       $products = Products::find($id);
        Cart::add($products->productsID,$products->productname,1,$products->price);
 
        return back();
@@ -121,7 +121,7 @@ class DonateController extends Controller
 
         $order->userID = $donor->userID;
         $order->type= 'Donate';
-        $order->cart = base64_encode(serialize($cartItems));
+        $order->cart = serialize($cartItems);
         $order->fname = $donor->firstname;
         $order->lname = $donor->lastname;
         $order->street = $donor->street;

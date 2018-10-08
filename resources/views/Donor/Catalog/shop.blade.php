@@ -2,6 +2,7 @@
 @include('layouts.donor-nav')
 
 @section('content')
+
 @if(session()->has('notif'))
 <div class="content">
   <div class="alert alert-success">
@@ -17,13 +18,11 @@
         <a href="/donor/donationCatalog" class="list-group-item">Donation</a>
         <a href="/donor/shopCatalog" class="list-group-item">Fertilizer</a>
     </div>
-
     </div>
     <div class="col-lg-9">
       <div class="row">
         @if(count($products2) > 0)
           @foreach ($products2 as $products)
-
           <div class="col-lg-4 col-md-6 mb-4">
             <div class="card h-100">
             <a href="#"><img src="{{ asset('images/' . $products->productimage) }}" width="200" height="200"></a>
@@ -39,7 +38,6 @@
               </div>
             </div>
           </div>
-
       @endforeach
       @else
         <div align="center" style="color:red;">

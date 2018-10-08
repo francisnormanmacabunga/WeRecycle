@@ -63,10 +63,10 @@ Route::get('/donateCheckout/index','Donor\DonateController@checkout');
 
 
 //Checkout Controller
-Route::get('/checkout/edit{id}','CheckoutController@edit');
-Route::get('/checkout/index','CheckoutController@index')->name('checkout');
-Route::get('/checkout/confirm{id}','CheckoutController@confirm');
-Route::get('/checkout','CartController@checkout')->name('dcheckout');
+Route::get('/checkout/edit{id}','Donor\CheckoutController@edit');
+Route::get('/checkout/index','Donor\CheckoutController@index')->name('checkout');
+Route::get('/checkout/confirm{id}','Donor\CheckoutController@confirm');
+Route::get('/checkout','Donor\CartController@checkout')->name('dcheckout');
 
 Auth::routes();
 Route::prefix('donor')->group(function() {

@@ -18,17 +18,12 @@
       <th>Status</th>
     </tr>
 
-    <!--@foreach($cartItems as $item)
+
     <tr>
 
-      <td>{{$donationhistory['fname']}}</td>
-      <td></td>
-      <td>{{$item->name}},{{$item->price}},{{$item->qty}}</td>
-      <td></td>
-      <td>{{$donationhistory['created_at']}}</td>
-      <td>{{$donationhistory['status']}}</td>
+
     </tr>
-    @endforeach -->
+    
   </table>
 
 

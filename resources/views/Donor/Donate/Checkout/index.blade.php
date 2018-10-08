@@ -58,7 +58,7 @@
                   <input type="submit" value="Edit Billing Details" class="btn btn-lg btn-block btn-primary" />
             </form>
             </br>
-              <form action="/checkout-donate/confirm{{$order->orderid}}">
+              <form action="/donor/checkout-donate/confirm{{$order->orderid}}">
                   <input type="submit" value="Confirm" class="btn btn-lg btn-block btn-success" />
               </form>
             </div>

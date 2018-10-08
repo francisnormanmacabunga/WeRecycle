@@ -20,49 +20,6 @@ Route::get('/createDonor', 'Guest\DonorsController@create');
 Route::post('/processDonor', 'Guest\DonorsController@store');
 Route::get('/shop', 'Guest\ShopController@shopCatalog');
 
-
-
-
-
-
-
-
-
-
-
-
-//AddtoCart & AddtoDonate
-Route::get('/donate/add-item/{id}', 'Donor\DonateController@addItem')->name('donate.addItem');
-Route::get('/cart/add-item/{id}', 'Donor\CartController@addItem')->name('cart.addItem');
-Route::resource('/donate', 'Donor\DonateController');
-Route::resource('/cart', 'Donor\CartController');
-
-//Summary & Checkout Button
-Route::get('/submit-donate','Donor\DonateController@checkout');
-Route::get('/submit-cart','Donor\CartController@checkout');
-
-//Summary of Donate and Cart
-Route::get('/checkout-donate','Donor\DonateCheckoutController@index')->name('donate.checkout');
-Route::get('/checkout-donate/confirm{id}','Donor\DonateCheckoutController@confirm');
-Route::get('/checkout-cart','Donor\CartCheckoutController@index')->name('cart.checkout');
-Route::get('/checkout-cart/confirm{id}','Donor\CartCheckoutController@confirm');
-//Route::get('/checkout/edit{id}','Donor\CheckoutController@edit');
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 Auth::routes();
 Route::prefix('donor')->group(function() {
   Route::get('/login','Donor\Auth\DonorLoginController@showLoginForm')->name('donor.login');
@@ -82,9 +39,22 @@ Route::prefix('donor')->group(function() {
   Route::get('/donationhistory','Donor\HistoryController@donationHistory');
   Route::get('/transactionhistory','Donor\HistoryController@transactionHistory');
 
+  //AddtoCart & AddtoDonate
+  Route::get('/donate/add-item/{id}', 'Donor\DonateController@addItem')->name('donate.addItem');
+  Route::get('/cart/add-item/{id}', 'Donor\CartController@addItem')->name('cart.addItem');
+  Route::resource('/donate', 'Donor\DonateController');
+  Route::resource('/cart', 'Donor\CartController');
 
+  //Summary & Checkout Button
+  Route::get('/submit-donate','Donor\DonateController@checkout');
+  Route::get('/submit-cart','Donor\CartController@checkout');
 
-
+  //Summary of Donate and Cart
+  Route::get('/checkout-donate','Donor\DonateCheckoutController@index')->name('donate.checkout');
+  Route::get('/checkout-donate/confirm{id}','Donor\DonateCheckoutController@confirm');
+  Route::get('/checkout-cart','Donor\CartCheckoutController@index')->name('cart.checkout');
+  Route::get('/checkout-cart/confirm{id}','Donor\CartCheckoutController@confirm');
+  //Route::get('/checkout/edit{id}','Donor\CheckoutController@edit');
 
   Route::get('/', 'Donor\DonorController@index')->name('donor.dashboard');
 });

@@ -49,7 +49,7 @@
                         </div>
                       </li>
                       <li class="nav-item">
-                            <a class="nav-link" href="/auditlogs">Audit Logs</a>
+                            <a class="nav-link" href="/admin/auditlogs">Audit Logs</a>
                       </li>
                     </ul>
 

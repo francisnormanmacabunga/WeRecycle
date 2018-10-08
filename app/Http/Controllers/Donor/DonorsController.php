@@ -1,15 +1,19 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Donor;
 
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use Illuminate\Validation\Rule;
-use App\Models\Employee;
 use App\Models\Contacts;
-use DB;
+use App\Models\Donor;
+use Exception;
+use Session;
 use Hash;
+use Auth;
+use DB;
 
-class ApplicantsController extends Controller
+class DonorsController extends Controller
 {
 
     public function __construct()
@@ -18,8 +22,7 @@ class ApplicantsController extends Controller
         'create',
         'store'
         ]]);
-
-      $this->middleware('auth:activitycoordinator', ['except'=> [
+      $this->middleware('auth:donor', ['except'=> [
         'create',
         'store'
         ]]);
@@ -33,21 +36,8 @@ class ApplicantsController extends Controller
 
     public function index()
     {
-      if (request()->has('status')){
-      $applicants = Employee::SELECT('*')
-      -> join('contacts', 'contacts.userID', '=', 'user.userID')
-      -> where('status',request('status'))
-      -> where('usertypeID', '2')
-      -> sortable()
-      -> paginate(5)->appends('status', request('status'));
-    } else {
-      $applicants = Employee::SELECT('*')
-      -> join('contacts', 'contacts.userID', '=', 'user.userID')
-      -> where('usertypeID', '2')
-      -> sortable()
-      -> paginate(5);
-    }
-      return view('ActivityCoordinator/ManageApplicants.index', compact('applicants'));
+      $donors = Auth::user();
+      return view('Donor/Profile.index')->with(['donors' => $donors]);
     }
 
     /**
@@ -58,7 +48,7 @@ class ApplicantsController extends Controller
 
     public function create()
     {
-      return view('Applicants.create');
+      return view('Donor/Profile.create');
     }
 
     /**
@@ -81,7 +71,9 @@ class ApplicantsController extends Controller
       'street' => 'nullable|regex:/^[ \w.#-]+$/',
       'barangay' => 'nullable|regex:/^[ \w.#-]+$/',
       'zip' => 'nullable|min:4|max:4',
-      'username' => 'required|alpha_dash|unique:user,username'
+      'username' => 'required|alpha_dash|unique:user,username',
+      'password' => 'min:6|required_with:password_confirmation|same:password_confirmation|',
+      'password_confirmation' => 'required'
     ],
     [
       'firstname.required' => 'The First Name field is required.',
@@ -106,9 +98,12 @@ class ApplicantsController extends Controller
       'zip.max' => 'The Zip field may not be greater than 4 characters.',
       'username.unique' => 'The Username you registered is already in use.',
       'username.required' => 'The Username field is required.',
-      'username.alpha_dash' => 'The Username may only contain letters, numbers, dashes and underscores.'
+      'username.alpha_dash' => 'The Username may only contain letters, numbers, dashes and underscores.',
+      'password.min' => 'Password field must be at least 6 characters',
+      'password.same' => 'Password does not match',
+      'password_confirmation.required' => 'Password Confirmation field is required'
     ]);
-      $user = new Employee();
+      $user = new Donor();
       $user->firstname = $request->input('firstname');
       $user->lastname = $request->input('lastname');
       $user->email = $request->input('email');
@@ -128,7 +123,8 @@ class ApplicantsController extends Controller
       $contacts->cellNo = $request->input('cellNo');
       $contacts->tellNo = $request->input('tellNo');
       $contacts->save();
-      return redirect('/')->with('success', 'Application submitted');
+
+      return redirect('/donor/login')->with('success', 'Profile Created');
     }
 
     /**
@@ -140,7 +136,7 @@ class ApplicantsController extends Controller
 
     public function show($id)
     {
-
+        //
     }
 
     /**
@@ -152,8 +148,8 @@ class ApplicantsController extends Controller
 
     public function edit($id)
     {
-      $applicants = Employee::find($id);
-      return view('ActivityCoordinator/ManageApplicants.edit', compact('applicants'));
+      $donors = Donor::with('contacts')->find($id);
+      return view('Donor/Profile.edit', compact('donors'));
     }
 
     /**
@@ -166,10 +162,50 @@ class ApplicantsController extends Controller
 
     public function update(Request $request, $id)
     {
-        $post = Employee::find($id);
-        $post->status = $request->input('status');
-        $post->save();
-        return redirect('/activitycoordinator/applicants')->with('success', 'Profile updated');
+      $this->validate($request, [
+      'firstname' => 'regex:/^[\pL\s]+$/u',
+      'lastname' => 'regex:/^[\pL\s]+$/u',
+      'email' => "unique:user,email,$id".$request->get('userID').',userID',
+      'cellNo' => 'min:13|max:13|regex:/^\+63[0-9]{10}$/',
+      'tellNo' => 'min:7|max:7',
+      'city' => 'regex:/^[\pL\s]+$/u',
+      'street' => 'nullable|regex:/^[ \w.#-]+$/',
+      'barangay' => 'nullable|regex:/^[ \w.#-]+$/',
+      'zip' => 'nullable|min:4|max:4',
+      'username' => "alpha_dash|unique:user,username,$id".$request->get('userID').',userID',
+    ],
+    [
+      'firstname.regex' => 'The First Name field must only contain letters.',
+      'lastname.regex' => 'The Last Name field must only contain letters.',
+      'email.unique' => 'The Email you registered is already in use.',
+      'cellNo.min' => 'The Cellphone field must be at least 13 characters.',
+      'cellNo.max' => 'The Cellphone field may not be greater than 13 characters.',
+      'cellNo.regex' => 'Incorrect cellphone number format (e.g +63XXXXXXXXXX)',
+      'tellNo.min' => 'The Telephone field must be at least 7 characters.',
+      'tellNo.max' => 'The Telephone field may not be greater than 7 characters.',
+      'city.regex' => 'The City field must only contain letters.',
+      'street.regex' => 'The Street field must only contain letters, numbers, underscores, dashes, hypens and hashes.',
+      'barangay.regex' => 'The Barangay field must only contain letters, numbers, underscores, dashes, hypens and hashes.',
+      'zip.min' => 'The Zip field must be at least 4 characters.',
+      'zip.max' => 'The Zip field may not be greater than 4 characters.',
+      'username.unique' => 'The Username you registered is already in use.',
+      'username.alpha_dash' => 'The Username may only contain letters, numbers, dashes and underscores.',
+    ]);
+      $donors = Donor::find($id);
+      $donors->username = $request->input('username');
+      $donors->firstname = $request->input('firstname');
+      $donors->lastname = $request->input('lastname');
+      $donors->email = $request->input('email');
+      $donors->contacts->cellNo = $request->input('cellNo');
+      $donors->contacts->tellNo = $request->input('tellNo');
+      $donors->birthdate = $request->input('birthdate');
+      $donors->city = $request->input('city');
+      $donors->street = $request->input('street');
+      $donors->barangay = $request->input('barangay');
+      $donors->zip = $request->input('zip');
+      $donors->push();
+
+      return redirect('/donor/donors')->with('success','Profile updated');
     }
 
     /**
@@ -181,7 +217,7 @@ class ApplicantsController extends Controller
 
     public function destroy($id)
     {
-        //
+
     }
 
 }

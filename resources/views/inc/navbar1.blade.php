@@ -12,6 +12,7 @@
             </ul>
             <!-- Right Side Of Navbar -->
             <ul class="navbar-nav ml-auto">
+              <a class="p-2 text-dark" href="/shop">Shop</a>
               <a class="p-2 text-dark" href="/donor/login">Login</a>
               <a class="p-2 text-dark" href="/createDonor">Register</a>
             </ul>

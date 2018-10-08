@@ -35,17 +35,6 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
 
-
-
-                      <li class="nav-item dropdown">
-                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                          Manage Volunteers
-                        </a>
-                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                          <a class="dropdown-item" href="/programdirector/sendSMS-V">Contact Volunteers</a>
-                        </div>
-                      </li>
-
                       <li class="nav-item dropdown">
                         <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                           Manage Donors
@@ -57,14 +46,17 @@
 
                       <li class="nav-item dropdown">
                         <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                          History
+                          Manage Volunteers
                         </a>
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                          <a class="dropdown-item" href="/programdirector/donationhistory">Donation History</a>
-                          <a class="dropdown-item" href="/programdirector/transactionhistory">Transaction History</a>
+                          <a class="dropdown-item" href="/programdirector/sendSMS-V">Contact Volunteers</a>
                         </div>
                       </li>
 
+                      
+                      <li class="nav-item">
+                          <a class="nav-link" href="/programdirector/donationhistory">Donation History</a>
+                      </li>
                       <li class="nav-item">
                           <a class="nav-link" href="/programdirector/feedback">View Feedback</a>
                       </li>

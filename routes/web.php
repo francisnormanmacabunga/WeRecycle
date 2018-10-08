@@ -11,7 +11,6 @@
 |
 */
 
-
 //Route::get('/createEmployee', 'PagesController@createEmployee');
 //Route::get('createCatalog', 'PagesController@createCatalog');
 //Route::get('/createFeedback', 'PagesController@createFeedback');
@@ -44,12 +43,7 @@
 //{
     //return View::make('activity_coordinators.sms');
 //});
-
-
-
-Auth::routes();
-Route::get('/home', 'HomeController@index')->name('home');
-
+//Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/', 'PagesController@index');
 Route::get('/index', 'PagesController@index2');
@@ -58,106 +52,91 @@ Route::get('/createApplicant', 'PagesController@createApplicant');
 Route::get('/createDonor', 'PagesController@createDonor');
 
 
-Route::get('/auditlogs', 'PagesController@auditlogs');
-Route::resource('/test', 'Test');
 
-
-
-
-
-
-//Cart Controller
+//Cart-Donate Controller
 Route::resource('/cart', 'CartController');
 Route::get('/cart/add-item/{id}', 'CartController@addItem')->name('cart.addItem');
-
-
 Route::resource('/donate', 'DonateController');
 Route::get('/donate/add-item/{id}', 'DonateController@addItem')->name('donate.addItem');
 
+//Checkout Controller
+Route::get('/checkout/edit{id}','CheckoutController@edit');
+Route::get('/checkout/index','CheckoutController@index')->name('checkout');
+Route::get('/checkout/confirm{id}','CheckoutController@confirm');
+Route::get('/checkout','CartController@checkout');
 
 
 
-
+Auth::routes();
 Route::prefix('donor')->group(function() {
-  Route::get('/login','DonorAuth\DonorLoginController@showLoginForm')->name('donor.login');
-  Route::post('/login','DonorAuth\DonorLoginController@login')->name('donor.login.submit');
+  Route::get('/login','Donor\Auth\DonorLoginController@showLoginForm')->name('donor.login');
+  Route::post('/login','Donor\Auth\DonorLoginController@login')->name('donor.login.submit');
+  Route::post('/logout', 'Donor\Auth\DonorLoginController@donorLogout')->name('donor.logout');
+  Route::post('/password/email','Donor\Auth\ForgotPasswordController@sendResetLinkEmail')->name('donor.password.email');
+  Route::get('/password/reset','Donor\Auth\ForgotPasswordController@showLinkRequestForm')->name('donor.password.request');
+  Route::post('/password/reset','Donor\Auth\ResetPasswordController@reset');
+  Route::get('/password/reset/{token}','Donor\Auth\ResetPasswordController@showResetForm')->name('donor.password.reset');
+  Route::resource('/donors', 'Donor\DonorsController');
+  Route::resource('/donorPassword', 'Donor\DonorsPasswordController');
+  Route::resource('/status', 'Donor\DonorsStatusController');
+  Route::get('/createFeedback', 'Donor\FeedbacksController@create');
+  Route::post('/sendFeedback', 'Donor\FeedbacksController@sendFeedback');
+  Route::get('/donationCatalog','Donor\DonorsCatalogController@donationCatalog');
+  Route::get('/shopCatalog','Donor\DonorsCatalogController@shopCatalog');
+  Route::get('/donationhistory','Donor\HistoryController@donationHistory');
+  Route::get('/transactionhistory','Donor\HistoryController@transactionHistory');
+  Route::get('/', 'Donor\DonorController@index')->name('donor.dashboard');
+});
 
-  Route::post('/logout', 'DonorAuth\DonorLoginController@donorLogout')->name('donor.logout');
-  Route::post('/password/email','DonorAuth\ForgotPasswordController@sendResetLinkEmail')->name('donor.password.email');
-  Route::get('/password/reset','DonorAuth\ForgotPasswordController@showLinkRequestForm')->name('donor.password.request');
-  Route::post('/password/reset','DonorAuth\ResetPasswordController@reset');
-  Route::get('/password/reset/{token}','DonorAuth\ResetPasswordController@showResetForm')->name('donor.password.reset');
-  Route::resource('/status', 'DonorsStatusController');
-  Route::resource('/donorPassword', 'DonorsPasswordController');
-  Route::resource('/donors', 'DonorsController');
-  Route::get('/createFeedback', 'FeedbacksController@create');
-  Route::get('/donationCatalog','DonorsCatalogController@donationCatalog');
-  Route::get('/shopCatalog','DonorsCatalogController@shopCatalog');
-  Route::get('/', 'DonorController@index')->name('donor.dashboard');
+Route::prefix('activitycoordinator')->group(function() {
+  Route::get('/login','ActivityCoordinator\Auth\ACLoginController@showLoginForm')->name('ac.login');
+  Route::post('/login','ActivityCoordinator\Auth\ACLoginController@login')->name('ac.login.submit');
+  Route::post('/logout', 'ActivityCoordinator\Auth\ACLoginController@activitycoordinatorLogout')->name('activitycoordinator.logout');
+  Route::post('/password/email','ActivityCoordinator\Auth\ForgotPasswordController@sendResetLinkEmail')->name('activitycoordinator.password.email');
+  Route::get('/password/reset','ActivityCoordinator\Auth\ForgotPasswordController@showLinkRequestForm')->name('activitycoordinator.password.request');
+  Route::post('/password/reset','ActivityCoordinator\Auth\ResetPasswordController@reset');
+  Route::get('/password/reset/{token}','ActivityCoordinator\Auth\ResetPasswordController@showResetForm')->name('activitycoordinator.password.reset');
+  Route::resource('/activity_coordinators', 'ActivityCoordinator\ActivityCoordinatorsController');
+  Route::resource('/AC_password', 'ActivityCoordinator\ActivityCoordinatorsPasswordController');
+  Route::resource('/applicants', 'ApplicantsController');
+  Route::get('/sendSMS','ActivityCoordinator\TwilioController@index');
+  Route::post('/sendMessage','ActivityCoordinator\TwilioController@sendMessageApplicant');
+  Route::get('/', 'ActivityCoordinator\ActivityCoordinatorController@index')->name('ac.dashboard');
+});
 
-  Route::get('/donorhistory','HistoryController@donorHistory');
-  });
-
-  Route::prefix('activitycoordinator')->group(function() {
-    Route::get('/login','ACAuth\ACLoginController@showLoginForm')->name('ac.login');
-    Route::post('/login','ACAuth\ACLoginController@login')->name('ac.login.submit');
-    Route::post('/logout', 'ACAuth\ACLoginController@activitycoordinatorLogout')->name('activitycoordinator.logout');
-
-    Route::get('/sendSMS','TwilioController@index');
-    Route::post('/sendMessage','TwilioController@sendMessageApplicant');
-
-    Route::post('/password/email','ACAuth\ForgotPasswordController@sendResetLinkEmail')->name('activitycoordinator.password.email');
-    Route::get('/password/reset','ACAuth\ForgotPasswordController@showLinkRequestForm')->name('activitycoordinator.password.request');
-    Route::post('/password/reset','ACAuth\ResetPasswordController@reset');
-    Route::get('/password/reset/{token}','ACAuth\ResetPasswordController@showResetForm')->name('activitycoordinator.password.reset');
-    Route::resource('/AC_password', 'ActivityCoordinatorsPasswordController');
-    Route::resource('/activity_coordinators', 'ActivityCoordinatorsController');
-    Route::resource('/applicants', 'ApplicantsController');
-    Route::get('/', 'ActivityCoordinatorController@index')->name('ac.dashboard');
-  });
-
-  Route::prefix('programdirector')->group(function() {
-    Route::get('/login','PDAuth\PDLoginController@showLoginForm')->name('pd.login');
-    Route::post('/login','PDAuth\PDLoginController@login')->name('pd.login.submit');
-    Route::post('/logout', 'PDAuth\PDLoginController@programdirectorLogout')->name('programdirector.logout');
-
-    Route::get('/sendSMS-D','TwilioController@indexDonor');
-    Route::get('/sendSMS-V','TwilioController@indexVolunteer');
-    Route::post('/sendMessage','TwilioController@sendMessageDonor');
-    Route::post('/sendMessage','TwilioController@sendMessageVolunteer');
-
-    Route::post('/password/email','PDAuth\ForgotPasswordController@sendResetLinkEmail')->name('programdirector.password.email');
-    Route::get('/password/reset','PDAuth\ForgotPasswordController@showLinkRequestForm')->name('programdirector.password.request');
-    Route::post('/password/reset','PDAuth\ResetPasswordController@reset');
-    Route::get('/password/reset/{token}','PDAuth\ResetPasswordController@showResetForm')->name('programdirector.password.reset');
-
-    Route::resource('/feedback', 'FeedbacksController');
-    Route::resource('/program_directors', 'ProgramDirectorsController');
-    Route::resource('/PD_password', 'ProgramDirectorsPasswordController');
-
-    Route::get('/', 'ProgramDirectorController@index')->name('pd.dashboard');
-
-    Route::get('/donationhistory', 'HistoryController@donationHistory');
-    Route::get('/transactionhistory', 'HistoryController@transactionHistory');
-
-
-
-    });
+Route::prefix('programdirector')->group(function() {
+  Route::get('/login','ProgramDirector\Auth\PDLoginController@showLoginForm')->name('pd.login');
+  Route::post('/login','ProgramDirector\Auth\PDLoginController@login')->name('pd.login.submit');
+  Route::post('/logout', 'ProgramDirector\Auth\PDLoginController@programdirectorLogout')->name('programdirector.logout');
+  Route::post('/password/email','ProgramDirector\Auth\ForgotPasswordController@sendResetLinkEmail')->name('programdirector.password.email');
+  Route::get('/password/reset','ProgramDirector\Auth\ForgotPasswordController@showLinkRequestForm')->name('programdirector.password.request');
+  Route::post('/password/reset','ProgramDirector\Auth\ResetPasswordController@reset');
+  Route::get('/password/reset/{token}','ProgramDirector\Auth\ResetPasswordController@showResetForm')->name('programdirector.password.reset');
+  Route::resource('/program_directors', 'ProgramDirector\ProgramDirectorsController');
+  Route::resource('/PD_password', 'ProgramDirector\ProgramDirectorsPasswordController');
+  Route::get('/sendSMS-D','ProgramDirector\TwilioController@indexDonor');
+  Route::get('/sendSMS-V','ProgramDirector\TwilioController@indexVolunteer');
+  Route::post('/sendMessage-D','ProgramDirector\TwilioController@sendMessageDonor');
+  Route::post('/sendMessage-v','ProgramDirector\TwilioController@sendMessageVolunteer');
+  Route::get('/donationhistory', 'ProgramDirector\DonationHistoryController@donationHistory');
+  Route::resource('/feedback', 'ProgramDirector\FeedbacksController');
+  Route::get('/', 'ProgramDirector\ProgramDirectorController@index')->name('pd.dashboard');
+});
 
 Route::prefix('admin')->group(function() {
-  Route::get('/login','Auth\AdminLoginController@showLoginForm')->name('admin.login');
-  Route::post('/login','Auth\AdminLoginController@login')->name('admin.login.submit');
-  Route::post('/logout', 'Auth\AdminLoginController@adminLogout')->name('admin.logout');
-  Route::resource('/catalog', 'CatalogController');
-
-  Route::get('/manageshop', 'ManageCatalogController@manageShop');
-  Route::get('/managedonation', 'ManageCatalogController@manageDonation');
-
-  Route::get('createCatalog', 'AdminController@createCatalog');
-  Route::resource('/employees', 'EmployeesController');
-  Route::get('/createEmployee', 'AdminController@createEmployee');
-  Route::get('/', 'AdminController@index')->name('admin.dashboard');
+  Route::get('/login','Admin\Auth\AdminLoginController@showLoginForm')->name('admin.login');
+  Route::post('/login','Admin\Auth\AdminLoginController@login')->name('admin.login.submit');
+  Route::post('/logout', 'Admin\Auth\AdminLoginController@adminLogout')->name('admin.logout');
+  Route::get('/auditlogs', 'Admin\AuditLogController@auditlogs');
+  Route::resource('/catalog', 'Admin\CatalogController');
+  Route::get('/manageshop', 'Admin\ManageCatalogController@manageShop');
+  Route::get('/managedonation', 'Admin\ManageCatalogController@manageDonation');
+  Route::get('createCatalog', 'Admin\AdminController@createCatalog');
+  Route::resource('/employees', 'Admin\EmployeesController');
+  Route::get('/createEmployee', 'Admin\AdminController@createEmployee');
+  Route::get('/', 'Admin\AdminController@index')->name('admin.dashboard');
 });
+<<<<<<< HEAD
 
   Route::get('/checkout','CartController@checkout');
   Route::get('/checkout/edit{id}','CheckoutController@edit');
@@ -168,3 +147,5 @@ Route::prefix('admin')->group(function() {
   Route::get('/donateCheckout/edit{id}','DonateCheckoutController@edit');
   Route::get('/donateCheckout/index','DonateCheckoutController@index')->name('dcheckout');
   Route::get('/donateCheckout/confirm{id}','DonateCheckoutController@confirm');
+=======
+>>>>>>> 266e8d37e45fba61e019f3d07cf512f3efe6884e

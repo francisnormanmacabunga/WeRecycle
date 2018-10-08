@@ -116,21 +116,22 @@ return [
 
         'admins' => [
             'driver' => 'eloquent',
-            'model' => App\admin::class,
+            'model' => App\Models\Admin::class,
         ],
 
         'donors' => [
             'driver' => 'eloquent',
-            'model' => App\donor::class,
+            'model' => App\Models\Donor::class,
         ],
+
         'activitycoordinators' => [
             'driver' => 'eloquent',
-            'model' => App\activitycoordinator::class,
+            'model' => App\Models\ActivityCoordinator::class,
         ],
 
         'programdirectors' => [
             'driver' => 'eloquent',
-            'model' => App\programdirector::class,
+            'model' => App\Models\ProgramDirector::class,
         ],
   ],
 
@@ -185,8 +186,5 @@ return [
             'table' => 'password_resets',
             'expire' => 60,
         ],
-
-
     ],
-
 ];

@@ -1,28 +1,23 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Validation\Rule;
+use App\Mail\WelcomeMail;
 use App\Models\Employee;
 use App\Models\Contacts;
-use DB;
 use Hash;
+use DB;
 
-class ApplicantsController extends Controller
+class EmployeesController extends Controller
 {
 
     public function __construct()
     {
-      $this->middleware('guest', ['only'=> [
-        'create',
-        'store'
-        ]]);
-
-      $this->middleware('auth:activitycoordinator', ['except'=> [
-        'create',
-        'store'
-        ]]);
+      $this->middleware('auth:admin');
     }
 
     /**
@@ -33,21 +28,15 @@ class ApplicantsController extends Controller
 
     public function index()
     {
-      if (request()->has('status')){
-      $applicants = Employee::SELECT('*')
-      -> join('contacts', 'contacts.userID', '=', 'user.userID')
-      -> where('status',request('status'))
-      -> where('usertypeID', '2')
-      -> sortable()
-      -> paginate(5)->appends('status', request('status'));
-    } else {
-      $applicants = Employee::SELECT('*')
-      -> join('contacts', 'contacts.userID', '=', 'user.userID')
-      -> where('usertypeID', '2')
-      -> sortable()
-      -> paginate(5);
-    }
-      return view('ActivityCoordinator/ManageApplicants.index', compact('applicants'));
+        $employee = Employee::SELECT('*')
+        -> join('contacts', 'contacts.userID', '=', 'user.userID')
+        -> join('usertype', 'usertype.usertypeID', '=', 'user.usertypeID')
+        -> where('usertype.usertypeID', '3')
+        -> orwhere('usertype.usertypeID', '4')
+        -> sortable()
+        -> paginate(5);
+
+        return view('Admin/Employees.index', compact('employee'));
     }
 
     /**
@@ -58,7 +47,7 @@ class ApplicantsController extends Controller
 
     public function create()
     {
-      return view('Applicants.create');
+      return view('Admin/Employees.create');
     }
 
     /**
@@ -71,6 +60,7 @@ class ApplicantsController extends Controller
     public function store(Request $request)
     {
       $this->validate($request, [
+      'usertypeID' => 'required',
       'firstname' => 'required|regex:/^[\pL\s]+$/u',
       'lastname' => 'required|regex:/^[\pL\s]+$/u',
       'email' => 'required|unique:user,email',
@@ -84,6 +74,7 @@ class ApplicantsController extends Controller
       'username' => 'required|alpha_dash|unique:user,username'
     ],
     [
+      'usertypeID.required' => 'The Usertype field is required',
       'firstname.required' => 'The First Name field is required.',
       'firstname.regex' => 'The First Name field must only contain letters.',
       'lastname.required' => 'The Last Name field is required.',
@@ -128,7 +119,10 @@ class ApplicantsController extends Controller
       $contacts->cellNo = $request->input('cellNo');
       $contacts->tellNo = $request->input('tellNo');
       $contacts->save();
-      return redirect('/')->with('success', 'Application submitted');
+
+      Mail::to($user->email)->send(new WelcomeMail($user));
+
+      return redirect('/admin/employees')->with('success', 'Profile Created');
     }
 
     /**
@@ -152,8 +146,8 @@ class ApplicantsController extends Controller
 
     public function edit($id)
     {
-      $applicants = Employee::find($id);
-      return view('ActivityCoordinator/ManageApplicants.edit', compact('applicants'));
+      $employee = Employee::find($id);
+      return view('Admin/Employees.edit', compact('employee'));
     }
 
     /**
@@ -166,10 +160,10 @@ class ApplicantsController extends Controller
 
     public function update(Request $request, $id)
     {
-        $post = Employee::find($id);
-        $post->status = $request->input('status');
-        $post->save();
-        return redirect('/activitycoordinator/applicants')->with('success', 'Profile updated');
+      $post = Employee::find($id);
+      $post->status = $request->input('status');
+      $post->save();
+      return redirect('/admin/employees')->with('success', 'Profile updated');
     }
 
     /**

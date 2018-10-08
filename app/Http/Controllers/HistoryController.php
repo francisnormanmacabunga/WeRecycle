@@ -34,15 +34,12 @@ class HistoryController extends Controller
 
       // $test = $donationhistory = transaction::all();
       //$donationhistory = DB::SELECT('select * from transactions')->all();
+
       $donationhistory = transaction::all();
-      $cartItems = unserialize(base64_decode($donationhistory['2']['cart']));
 
-
-
-
+      $cartItems = unserialize($donationhistory['0']['cart']);
 
       //return view('program_directors.donationHistory', compact('donationhistory'));
-
 
        return view('program_directors.donationHistory',compact('cartItems'))->with(['donationhistory' => $donationhistory ]);
    }

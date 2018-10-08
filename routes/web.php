@@ -163,3 +163,8 @@ Route::prefix('admin')->group(function() {
   Route::get('/checkout/edit{id}','CheckoutController@edit');
   Route::get('/checkout/index','CheckoutController@index')->name('checkout');
   Route::get('/checkout/confirm{id}','CheckoutController@confirm');
+
+  Route::get('/donateCheckout','DonateController@checkout');
+  Route::get('/donateCheckout/edit{id}','DonateCheckoutController@edit');
+  Route::get('/donateCheckout/index','DonateCheckoutController@index')->name('dcheckout');
+  Route::get('/donateCheckout/confirm{id}','DonateCheckoutController@confirm');

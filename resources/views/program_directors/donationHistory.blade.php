@@ -21,7 +21,7 @@
 
     @foreach($cartItems as $item)
     <tr>
-
+<?php  ?>
       <td>{{$donationhistory[0]['fname']}}</td>
       <td></td>
       <td>{{$item->name}},{{$item->price}},{{$item->qty}}</td>

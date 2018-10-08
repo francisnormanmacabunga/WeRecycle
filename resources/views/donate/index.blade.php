@@ -12,12 +12,13 @@
             </tr>
             </thead>
             <tbody>
-            @foreach($donateItems as $donateItem)
+            @foreach($cartItems as $cartItem)
                 <tr>
-                    <td>{{$donateItem->name}}</td>
+                    <td>{{$cartItem->name}}</td>
+                  
                     <td width="50px">
-                        {!! Form::open(['route' => ['donate.update',$donateItem->rowId], 'method' => 'PUT']) !!}
-                        <input name="qty" type="number" value="{{$donateItem->qty}}">
+                        {!! Form::open(['route' => ['donate.update',$cartItem->rowId], 'method' => 'PUT']) !!}
+                        <input name="qty" type="number" value="{{$cartItem->qty}}">
                         <br />
                         <br />
                         <input style="float: left" type="submit" onclick="return confirm('Do you want to update this item?')" class="btn btn-primary btn-sm" value="Update Qty">
@@ -25,7 +26,7 @@
 
                     </td>
                     <td>
-                        <form action="{{route('donate.destroy',$donateItem->rowId)}}"  method="POST">
+                        <form action="{{route('donate.destroy',$cartItem->rowId)}}"  method="POST">
                            {{csrf_field()}}
                            {{method_field('DELETE')}}
                            <input class="btn btn-danger" type="submit" onclick="return confirm('Do you want to delete this item?')" value="Remove">
@@ -45,7 +46,7 @@
             </tr>
             </tbody>
         </table>
-        <a role="button" class="btn btn-success" href="">
+        <a role="button" class="btn btn-success" href="/donateCheckout">
           Summary</a>
           <a role="button" class="btn btn-danger" href="/donor/donationCatalog">
             Back</a>

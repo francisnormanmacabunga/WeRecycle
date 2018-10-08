@@ -9,9 +9,8 @@ use App\order;
 use App\transaction;
 use Gloudemans\Shoppingcart\Facades\Cart;
 
-class CheckoutController extends Controller
+class DonateCheckoutController extends Controller
 {
-
   public function __construct()
   {
       //$this->middleware('auth:donor');
@@ -31,9 +30,9 @@ class CheckoutController extends Controller
 
 $donor = Auth::user();
 $order = order::where('userID', $donor->userID)->first();
-$cartItems=unserialize($order->cart);
+$cartItems=unserialize(base64_decode($order->cart));
 
-return view('checkout.index',compact('cartItems'))->with(['order' => $order ]);
+return view('donateCheckout.index',compact('cartItems'))->with(['order' => $order ]);
 
 }
 
@@ -43,7 +42,7 @@ public function confirm($id){
   $trans = new transaction;
 
   $trans->userID = $order->userID;
-  $trans->type = 'Shop';
+  $trans->type = $order->type;
   $trans->cart = $order->cart;
   $trans->fname = $order->fname;
   $trans->lname = $order->lname;
@@ -80,5 +79,4 @@ $donor = Auth::user();
 $test3 = order::where('userID', $donor->userID)->first();
 return view('checkout.index',compact('test3'))->with(['test3' => $test3 ]);
 }*/
-
 }

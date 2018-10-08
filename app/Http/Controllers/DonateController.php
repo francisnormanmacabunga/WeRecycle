@@ -5,6 +5,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Gloudemans\Shoppingcart\Facades\Cart;
 use App\productsTable;
+use App\order;
+use App\donor;
+use Auth;
+use DB;
 class DonateController extends Controller
 {
 
@@ -25,8 +29,8 @@ class DonateController extends Controller
 
   public function index()
    {
-       $donateItems=Cart::content();
-       return view('donate.index',compact('donateItems'));
+       $cartItems=Cart::content();
+       return view('donate.index',compact('cartItems'));
    }
 
    /**
@@ -108,4 +112,38 @@ class DonateController extends Controller
        Cart::remove($id);
        return back();
    }
+
+   public function checkout()
+   {
+        $donor = Auth::user();
+        $order = new order();
+        $cartItems=Cart::content();
+
+        $order->userID = $donor->userID;
+        $order->type= 'Donate';
+        $order->cart = base64_encode(serialize($cartItems));
+        $order->fname = $donor->firstname;
+        $order->lname = $donor->lastname;
+        $order->street = $donor->street;
+        $order->barangay = $donor->barangay;
+        $order->city = $donor->city;
+        $order->zip = $donor->zip;
+        $order->status = 'Inactive';
+
+
+        $order->save();
+
+
+  /*$test = order::SELECT('*')
+  -> where('userID',$donor->userID)
+  -> get();*/
+
+  //$test2 = order::find();
+
+  $test3 = order::where('userID', $donor->userID)->first();
+
+  //$ordertable = DB::select('select * from orders where userID = ?', [$donor->userID]);
+  return redirect()->route('dcheckout');
+  }
+
 }

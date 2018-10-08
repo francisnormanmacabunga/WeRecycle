@@ -17,11 +17,11 @@
         </tr>
         @foreach ($donationHistory as $history)
           <tr>
-            <td>{{$history->userID}}</td>
+            <td>{{$history->type}}</td>
             <td></td>
             <td></td>
-            <td></td>
-            <td></td>
+            <td>{{$history->created_at}}</td>
+            <td>{{$history->status}}</td>
         @endforeach
       </table>
     </div>

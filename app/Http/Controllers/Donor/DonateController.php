@@ -1,4 +1,4 @@
- <?php
+<?php
 
 namespace App\Http\Controllers\Donor;
 use App\Http\Controllers\Controller;
@@ -137,12 +137,8 @@ public function __construct(){
 
   //$test2 = order::find();
 
-<<<<<<< HEAD
   //$test3 = order::where('userID', $donor->userID)->first();
 
-=======
-  $test3 = order::where('userID', $donor->userID)->first();
->>>>>>> aada8118f5233b4b89fcfafa5003fcb49838342c
   //$ordertable = DB::select('select * from orders where userID = ?', [$donor->userID]);
   return redirect()->route('dcheckout');
   }

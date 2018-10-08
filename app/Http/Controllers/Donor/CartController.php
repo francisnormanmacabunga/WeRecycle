@@ -139,10 +139,6 @@ $test3 = order::where('userID', $donor->userID)->first();
 
 //$ordertable = DB::select('select * from orders where userID = ?', [$donor->userID]);
 return redirect()->route('checkout');
-<<<<<<< HEAD
-
-
-=======
 }
 
      $donor = Auth::user();
@@ -169,6 +165,5 @@ return redirect()->route('checkout');
 
      //$test2 = order::find();
      //$ordertable = DB::select('select * from orders where userID = ?', [$donor->userID]);
->>>>>>> c00608fa0c146b49a56347ee9ae48e9478a47079
     }
 }

@@ -44,6 +44,7 @@
     //return View::make('activity_coordinators.sms');
 //});
 //Route::get('/home', 'HomeController@index')->name('home');
+//Route::get('/donate/add-item/{id}', 'Donor\DonateController@addItem')->name('donate.addItem');
 
 Route::get('/', 'PagesController@index');
 Route::get('/index', 'PagesController@index2');
@@ -57,7 +58,6 @@ Route::get('/shop', 'Guest\ShopController@shopCatalog');
 
 
 //AddtoCart-AddtoDonate Controller
-Route::get('/donate/add-item/{id}', 'Donor\DonateController@addItem')->name('donate.addItem');
 Route::get('/donate/add-item/{id}', 'Donor\DonateController@addItem')->name('donate.addItem');
 Route::get('/cart/add-item/{id}', 'Donor\CartController@addItem')->name('cart.addItem');
 Route::resource('/donate', 'Donor\DonateController');

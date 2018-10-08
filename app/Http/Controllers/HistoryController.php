@@ -7,6 +7,8 @@ use App\transaction;
 use App\userTable;
 use DB;
 
+use App\order;
+
 
 
 class HistoryController extends Controller
@@ -27,22 +29,12 @@ class HistoryController extends Controller
   public function donationHistory()
    {
 
-
-
-     //$donationhistory = transaction::with('users')->find($id)->users;
-     //return View::make('program_directors.donationHistory', compact('donationhistory'))->with('users', $donationhistory);
-
-
-
-      // $test = $donationhistory = transaction::all();
       $donationhistory = transaction::all();
-      $test = $donationhistory->unserialize($donationhistory->cart);
+      return view('program_directors.donationHistory',compact('donationhistory'));
 
-      // return view('program_directors.donationHistory', compact('donationhistory'));
-
-
-       return view('program_directors.donationHistory',compact('test'))->with(['donationhistory' => $donationhistory ]);
    }
+
+
 
    public function transactionHistory()
     {

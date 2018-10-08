@@ -54,7 +54,7 @@ Route::get('/createDonor', 'PagesController@createDonor');
 //Cart-Donate Controller
 Route::resource('/cart', 'CartController');
 Route::get('/cart/add-item/{id}', 'CartController@addItem')->name('cart.addItem');
-Route::resource('/donate', 'DonateController');
+Route::resource('/donateCheckout', 'DonateController@checkout')->name('dcheckout');
 Route::get('/donate/add-item/{id}', 'DonateController@addItem')->name('donate.addItem');
 
 //Checkout Controller

@@ -67,7 +67,7 @@
             </tbody>
         </table>
 
-        <a role="button" class="btn btn-success" href="/checkout">Checkout</a>
+        <a role="button" class="btn btn-success" href="/submit-cart">Checkout</a>
         <a role="button" class="btn btn-danger" href="/donor/shopCatalog">
           Back</a>
     </div>

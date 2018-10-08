@@ -46,7 +46,7 @@
             </tr>
             </tbody>
         </table>
-        <a role="button" class="btn btn-success" href="/donateCheckout/index">
+        <a role="button" class="btn btn-success" href="/submit-donate">
           Summary</a>
           <a role="button" class="btn btn-danger" href="/donor/donationCatalog">
             Back</a>

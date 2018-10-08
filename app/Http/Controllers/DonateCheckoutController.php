@@ -30,7 +30,7 @@ class DonateCheckoutController extends Controller
 
 $donor = Auth::user();
 $order = order::where('userID', $donor->userID)->first();
-$cartItems=unserialize(base64_decode($order->cart));
+$cartItems=unserialize($order->cart);
 
 return view('donateCheckout.index',compact('cartItems'))->with(['order' => $order ]);
 

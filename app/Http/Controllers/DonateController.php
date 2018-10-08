@@ -121,7 +121,7 @@ class DonateController extends Controller
 
         $order->userID = $donor->userID;
         $order->type= 'Donate';
-        $order->cart = base64_encode(serialize($cartItems));
+        $order->cart = serialize($cartItems);
         $order->fname = $donor->firstname;
         $order->lname = $donor->lastname;
         $order->street = $donor->street;

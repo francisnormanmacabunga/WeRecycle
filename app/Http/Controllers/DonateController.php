@@ -141,7 +141,6 @@ class DonateController extends Controller
   //$test2 = order::find();
 
   $test3 = order::where('userID', $donor->userID)->first();
-
   //$ordertable = DB::select('select * from orders where userID = ?', [$donor->userID]);
   return redirect()->route('dcheckout');
   }

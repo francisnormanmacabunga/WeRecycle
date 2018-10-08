@@ -3,6 +3,7 @@
 
 @section('content')
 
+
 <div>
 <div class="row">
 
@@ -12,23 +13,21 @@
       <tr>
       <th>Username</th>
       <th>Type of donation</th>
-      <th>Order(name,price,quantity)</th>
+      <th>Quantity</th>
       <th>Assigned Volunteer</th>
       <th>Date</th>
       <th>Status</th>
     </tr>
-
-    <!--@foreach($cartItems as $item)
+    @foreach ($donationhistory as $history)
     <tr>
-
-      <td>{{$donationhistory['fname']}}</td>
-      <td></td>
-      <td>{{$item->name}},{{$item->price}},{{$item->qty}}</td>
-      <td></td>
-      <td>{{$donationhistory['created_at']}}</td>
-      <td>{{$donationhistory['status']}}</td>
+      <td>{{$history->users->username}}</td>
+      <td>{{$history->users->username}}</td>
+      <td>{{$history->fname}}</td>
+      <td>James Pramono</td>
+      <td>{{$history->created_at}}</td>
+      <td>Delivered</td>
     </tr>
-    @endforeach -->
+    @endforeach
   </table>
 
 
@@ -36,5 +35,4 @@
 </div>
 </div>
 </div>
-
 @endsection

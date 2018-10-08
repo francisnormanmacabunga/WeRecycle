@@ -51,10 +51,12 @@ Route::get('/index', 'PagesController@index2');
 Route::get('/createApplicant', 'PagesController@createApplicant');
 Route::get('/createDonor', 'PagesController@createDonor');
 
+
 //Guest Shop
 Route::get('/shop', 'Guest\ShopController@shopCatalog');
 
-//Cart-Donate Controller
+
+//AddtoCart-AddtoDonate Controller
 Route::get('/donate/add-item/{id}', 'Donor\DonateController@addItem')->name('donate.addItem');
 Route::get('/cart/add-item/{id}', 'Donor\CartController@addItem')->name('cart.addItem');
 Route::resource('/donate', 'Donor\DonateController');
@@ -62,11 +64,14 @@ Route::resource('/cart', 'Donor\CartController');
 Route::get('/donateCheckout/index','Donor\DonateController@checkout');
 
 
-//Checkout Controller
-Route::get('/checkout/edit{id}','CheckoutController@edit');
-Route::get('/checkout/index','CheckoutController@index')->name('checkout');
-Route::get('/checkout/confirm{id}','CheckoutController@confirm');
-Route::get('/checkout','CartController@checkout')->name('dcheckout');
+//Checkouts Controller
+Route::get('/checkout/index','Donor\CheckoutController@index')->name('checkout');
+Route::get('/checkout/edit{id}','Donor\CheckoutController@edit');
+Route::get('/checkout/confirm{id}','Donor\CheckoutController@confirm');
+Route::get('/checkout','Donor\CartController@checkout')->name('dcheckout');
+
+
+
 
 Auth::routes();
 Route::prefix('donor')->group(function() {

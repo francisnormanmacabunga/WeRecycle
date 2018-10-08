@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Gloudemans\Shoppingcart\Facades\Cart;
-use App\productsTable;
+use App\Models\Products;
 use App\order;
 use App\donor;
 use Auth;
@@ -82,7 +82,7 @@ class CartController extends Controller
    public function addItem($id)
    {
      session()->flash('notif','Item has been added to cart!');
-     $products = productsTable::find($id);
+     $products = Products::find($id);
      Cart::instance('shop')->add($products->productsID,$products->productname,1,$products->price);
      return back();
    }
@@ -140,7 +140,7 @@ $test3 = order::where('userID', $donor->userID)->first();
 //$ordertable = DB::select('select * from orders where userID = ?', [$donor->userID]);
 return redirect()->route('checkout');
 }
-=======
+
      $donor = Auth::user();
      $order = new order();
      $cartItems=Cart::instance('shop')->content();

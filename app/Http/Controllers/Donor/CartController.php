@@ -140,7 +140,7 @@ $test3 = order::where('userID', $donor->userID)->first();
 //$ordertable = DB::select('select * from orders where userID = ?', [$donor->userID]);
 return redirect()->route('checkout');
 }
-=======
+
      $donor = Auth::user();
      $order = new order();
      $cartItems=Cart::instance('shop')->content();

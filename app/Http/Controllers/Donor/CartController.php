@@ -139,7 +139,36 @@ $test3 = order::where('userID', $donor->userID)->first();
 
 //$ordertable = DB::select('select * from orders where userID = ?', [$donor->userID]);
 return redirect()->route('checkout');
+<<<<<<< HEAD
 
 
+=======
+}
+
+     $donor = Auth::user();
+     $order = new order();
+     $cartItems=Cart::instance('shop')->content();
+
+     $order->userID = $donor->userID;
+     $order->cart = base64_encode(serialize($cartItems));
+     $order->fname = $donor->firstname;
+     $order->lname = $donor->lastname;
+     $order->street = $donor->street;
+     $order->barangay = $donor->barangay;
+     $order->city = $donor->city;
+     $order->zip = $donor->zip;
+     $order->status = 'Inactive';
+     $order->save();
+
+     $test3 = order::where('userID', $donor->userID)->first();
+     return redirect()->route('checkout');
+
+     /*$test = order::SELECT('*')
+     -> where('userID',$donor->userID)
+     -> get();*/
+
+     //$test2 = order::find();
+     //$ordertable = DB::select('select * from orders where userID = ?', [$donor->userID]);
+>>>>>>> c00608fa0c146b49a56347ee9ae48e9478a47079
     }
 }

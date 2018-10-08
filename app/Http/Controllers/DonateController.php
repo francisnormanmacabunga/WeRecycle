@@ -1,7 +1,7 @@
- <?php
+<?php
 
-namespace App\Http\Controllers\Donor;
-use App\Http\Controllers\Controller;
+namespace App\Http\Controllers;
+
 use Illuminate\Http\Request;
 use Gloudemans\Shoppingcart\Facades\Cart;
 use App\Models\Products;
@@ -12,8 +12,11 @@ use DB;
 class DonateController extends Controller
 {
 
-public function __construct(){
-  $this->middleware('guest', ['only'=> [
+  public function __construct()
+  {
+      //$this->middleware('auth:donor');
+
+      $this->middleware('guest', ['only'=> [
         'create',
         'store'
         ]]);
@@ -22,7 +25,7 @@ public function __construct(){
           'create',
           'store'
           ]]);
-}
+  }
 
   public function index()
    {
@@ -137,12 +140,7 @@ public function __construct(){
 
   //$test2 = order::find();
 
-<<<<<<< HEAD
-  //$test3 = order::where('userID', $donor->userID)->first();
-
-=======
   $test3 = order::where('userID', $donor->userID)->first();
->>>>>>> aada8118f5233b4b89fcfafa5003fcb49838342c
   //$ordertable = DB::select('select * from orders where userID = ?', [$donor->userID]);
   return redirect()->route('dcheckout');
   }

@@ -48,9 +48,9 @@ class CartController extends Controller
     public function checkout()
     {
       $donor = Auth::user();
-      $order = new Order();
       $cartItems=Cart::instance('shop')->content();
 
+      $order = new Order();
       $order->userID = $donor->userID;
       $order->type= 'Shop';
       $order->cart = serialize($cartItems);

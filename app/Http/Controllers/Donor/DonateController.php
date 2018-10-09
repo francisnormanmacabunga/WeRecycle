@@ -50,12 +50,13 @@ class DonateController extends Controller
     public function checkout()
     {
       $donor = Auth::user();
-      $order = new Order();
       $cartItems=Cart::content();
 
+      $order = new Order();
       $order->userID = $donor->userID;
-      $order->type= 'Donate';
-      $order->cart = serialize($cartItems);
+      $order->type = 'Donate';
+      $order->cart = $cartItems;
+      //$order->cart = serialize($cartItems);
       $order->fname = $donor->firstname;
       $order->lname = $donor->lastname;
       $order->street = $donor->street;
@@ -65,9 +66,9 @@ class DonateController extends Controller
       $order->status = 'Inactive';
       $order->save();
 
-      //return redirect()->route('dcheckout');
       return redirect()->route('donate.checkout');
 
+      //return redirect()->route('dcheckout');
       /*$test = order::SELECT('*')
       -> where('userID',$donor->userID)
       -> get();*/

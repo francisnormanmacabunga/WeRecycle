@@ -46,8 +46,8 @@ Route::prefix('donor')->group(function() {
   Route::resource('/cart', 'Donor\CartController');
 
   //Summary & Checkout Button
-  Route::get('/submit-donate','Donor\DonateController@checkout');
-  Route::get('/submit-cart','Donor\CartController@checkout');
+  Route::get('/submit-donate','Donor\DonateController@checkout')->name('donate.submit');
+  Route::get('/submit-cart','Donor\CartController@checkout')->name('cart.submit');
 
   //Summary of Donate and Cart
   Route::get('/checkout-donate','Donor\DonateCheckoutController@index')->name('donate.checkout');
@@ -91,6 +91,8 @@ Route::prefix('programdirector')->group(function() {
   Route::post('/sendMessage-v','ProgramDirector\TwilioController@sendMessageVolunteer');
   Route::get('/donationhistory', 'ProgramDirector\DonationHistoryController@donationHistory');
   Route::resource('/feedback', 'ProgramDirector\FeedbacksController');
+  Route::get('/viewRequests', 'ProgramDirector\VolunteersController@requests');
+  Route::get('/viewOrders', 'ProgramDirector\VolunteersController@orders');
   Route::get('/', 'ProgramDirector\ProgramDirectorController@index')->name('pd.dashboard');
 });
 

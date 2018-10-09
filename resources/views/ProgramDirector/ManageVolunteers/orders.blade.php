@@ -42,13 +42,13 @@
     <tr>
 
 
-
+      @foreach ($order as $orders)
 
       <td>{{$orders->cart}}</td>
       <td>{{$orders->price}}</td>
       <td>{{$orders->qty}}</td>
 
-
+      @endforeach
 
 
 

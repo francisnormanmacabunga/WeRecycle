@@ -53,7 +53,7 @@ class CartController extends Controller
       $order = new Order();
       $order->userID = $donor->userID;
       $order->type= 'Shop';
-      $order->cart = serialize($cartItems);
+      $order->cart = $cartItems;
       $order->fname = $donor->firstname;
       $order->lname = $donor->lastname;
       $order->street = $donor->street;

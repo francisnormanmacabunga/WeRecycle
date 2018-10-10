@@ -35,8 +35,6 @@ class DonateController extends Controller
 
     public function update(Request $request, $id)
     {
-      //dd(Cart::content());
-      //dd($request->all());
       Cart::update($id,['qty'=>$request->qty,"options"=>['size'=>$request->size]]);
       return back();
     }
@@ -50,14 +48,12 @@ class DonateController extends Controller
     public function checkout()
     {
       $donor = Auth::user();
-      //$cartItems = Cart::store($identifier);
       $cartItems=Cart::content();
 
       $order = new Order();
       $order->userID = $donor->userID;
       $order->type = 'Donate';
       $order->cart = $cartItems;
-      //$order->cart = serialize($cartItems);
       $order->fname = $donor->firstname;
       $order->lname = $donor->lastname;
       $order->street = $donor->street;
@@ -67,7 +63,6 @@ class DonateController extends Controller
       $order->status = 'Inactive';
       $order->save();
 
-      
       return redirect()->route('donate.checkout');
 
       //return redirect()->route('dcheckout');

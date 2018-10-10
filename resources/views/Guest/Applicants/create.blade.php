@@ -67,7 +67,6 @@
                 </div>
               </div>
 
-
               <div class="form-group{{ $errors->has('g-recaptcha-response') ? ' has-error' : '' }}">
                 <div class="col-md-6 pull-center">
                 {!! app('captcha')->display() !!}
@@ -78,7 +77,6 @@
                 @endif
               </div>
               </div>
-
 
               {{Form::hidden('usertypeID','2', ['class' => 'form-control'])}}
               {{Form::hidden('password','ApplicantAccount', ['class' => 'form-control'])}}

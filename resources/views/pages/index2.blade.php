@@ -20,7 +20,7 @@
 
   <header role="banner" class="probootstrap-header">
     <div class="container">
-        <a href="/index" class="probootstrap-logo">WeRecycle<span>.</span></a>
+        <a href="/" class="probootstrap-logo"><img src="../assets/images/logo.png" alt="logo"/></a>
 
         <a href="#" class="probootstrap-burger-menu visible-xs" ><i>Menu</i></a>
         <div class="mobile-menu-overlay"></div>

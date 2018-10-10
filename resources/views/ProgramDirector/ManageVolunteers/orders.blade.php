@@ -13,22 +13,39 @@
     <div class="col-md-9">
     <div class="row">
       <table class="table table-bordered" class="fixed">
+
         <tr>
           <th>Name</th>
           <th>Address</th>
           <th>Status</th>
-          <th>Action</th>
         </tr>
+        @foreach ($order as $orders)
+        <tr>
+          <td> {{$orders->fname}} {{$orders->lname}} </td>
+          <td> Barangay: {{$orders->barangay}}, {{$orders->street}}, {{$orders->city}}, Zip: {{$orders->zip}} </td>
+          <td> {{$orders->status}} </td>
+        </tr>
+        @endforeach
     </table>
     <table class="table table-bordered" class="fixed">
+
       <tr>
         <th>Item Name</th>
+        <th>Price</th>
+        <th>Quantity</th>
       </tr>
+        @foreach ($order as $orders)
+          @php
+            $cart = json_decode($orders->cart);
+          @endphp
+          @foreach($cart as $item)
       <tr>
-          @foreach ($all as $orders)
-            <td>  {{$orders->name}} </td>
-          @endforeach
+        <td>{{$item->name}}</td>
+        <td>{{$item->price}}</td>
+        <td>{{$item->qty}}</td>
       </tr>
+          @endforeach
+      @endforeach
     </table>
     </div>
     </div>

@@ -20,35 +20,28 @@
           <th>Status</th>
           <th>Action</th>
         </tr>
-        @foreach ($order as $orders)
-      <tr>
-        <td>{{$orders->fname}} {{$orders->lname}}</td>
-        <td>Barangay: {{$orders->barangay}}, {{$orders->street}}, {{$orders->city}}, Zip: {{$orders->zip}}</td>
 
-        <td>{{$orders->status}}</td>
-        <th><a class="btn btn-block btn-primary" href="" role="button">Assign Volunteer</a></th>
-      </tr>
-        @endforeach
     </table>
+
 
     <table class="table table-bordered" class="fixed">
       <tr>
 
         <th>Item Name</th>
-        <th>Item Price</th>
-        <th>Item Quantity</th>
+
       </tr>
 
     <tr>
 
 
-      @foreach ($order as $orders)
 
-      <td>{{$orders->cart}}</td>
-      <td>{{$orders->price}}</td>
-      <td>{{$orders->qty}}</td>
+          @foreach ($all as $orders)
+            <td>  {{$orders->name}} </td>
 
-      @endforeach
+
+          @endforeach
+
+
 
 
 

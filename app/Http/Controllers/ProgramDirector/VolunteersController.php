@@ -7,6 +7,7 @@ use Gloudemans\Shoppingcart\Facades\Cart;
 use App\Http\Controllers\Controller;
 use App\Models\Transaction;
 use App\Models\Order;
+use DB;
 
 class VolunteersController extends Controller
 {
@@ -24,15 +25,24 @@ class VolunteersController extends Controller
     public function orders()
     {
       $order = Transaction::all();
-      $all =  utf8_decode(Cart::content());
+      $all = Cart::content()->toArray();
 
+      dd($order);
+
+
+
+      return view('ProgramDirector/ManageVolunteers.orders',compact('all'));
+
+      //$order->cart = $all;
+
+      //$all =  unserialize(base64_decode(Cart::content()));
       //$all = Cart::content();
       //$all = Unserialize(Cart::content());
       //$all = Cart::content();
       //$order->cart = $all;
-      
 
-      return view('ProgramDirector/ManageVolunteers.orders',compact('all'))->with(['order' => $order ]);
+
+      //return view('ProgramDirector/ManageVolunteers.orders',compact('cc'));
     }
 
 }

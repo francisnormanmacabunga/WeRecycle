@@ -11,73 +11,14 @@
 |
 */
 
-//Route::get('/createEmployee', 'PagesController@createEmployee');
-//Route::get('createCatalog', 'PagesController@createCatalog');
-//Route::get('/createFeedback', 'PagesController@createFeedback');
-//Route::resource('/employees', 'EmployeesController');
-//Route::resource('/catalog', 'CatalogController');
-//Route::resource('/feedback', 'FeedbackController');z
-//Route::get('/donationCatalog','DonorsCatalogController@donationCatalog');
-//Route::get('/shopCatalog','DonorsCatalogController@shopCatalog');
-//Route::resource('/applicants', 'ApplicantsController');
-//Route::resource('/donors', 'DonorsController');
-//Route::resource('/donorPassword', 'DonorsPasswordController');
-//Route::resource('/status', 'DonorsStatusController');
-//Route::resource('/activity_coordinators', 'ActivityCoordinatorsController');
-//Route::resource('/AC_password', 'ActivityCoordinatorsPasswordController');
-//Route::resource('/program_directors', 'ProgramDirectorsController');
-//Route::resource('/PD_password', 'ProgramDirectorsPasswordController');
-//Route::get('/indexUser', 'PagesController@indexUser');
-//Route::get('/indexAC', 'PagesController@indexAC');
-//Route::get('/indexPD', 'PagesController@indexPD');
-//Route::get('/indexAdmin', 'PagesController@indexAdmin');
-//Route::get('/sms', 'PagesController@sms');
-//Route:: post('/send_sms','TwilioTestController@testMessage');
-//Route::get('/sms', function()
-//{
-    //return View::make('activity_coordinators.sms');
-//});
-//Route::get('/sms', 'PagesController@sms');
-//Route:: post('/send_sms','TwilioTestController@testMessage');
-//Route::get('/sms', function()
-//{
-    //return View::make('activity_coordinators.sms');
-//});
-//Route::get('/home', 'HomeController@index')->name('home');
-
+//Guest
 Route::get('/', 'PagesController@index');
 Route::get('/index', 'PagesController@index2');
-
-Route::get('/createApplicant', 'PagesController@createApplicant');
-Route::get('/createDonor', 'PagesController@createDonor');
-
-//Guest Shop
+Route::get('/createApplicant', 'Guest\ApplicantsController@create');
+Route::post('/processApplicant', 'Guest\ApplicantsController@store');
+Route::get('/createDonor', 'Guest\DonorsController@create');
+Route::post('/processDonor', 'Guest\DonorsController@store');
 Route::get('/shop', 'Guest\ShopController@shopCatalog');
-
-//Cart-Donate Controller
-Route::resource('/cart', 'Donor\CartController');
-Route::get('/cart/add-item/{id}', 'Donor\CartController@addItem')->name('cart.addItem');
-Route::resource('/donate', 'Donor\DonateController');
-Route::get('/donate/add-item/{id}', 'Donor\DonateController@addItem')->name('donate.addItem');
-Route::get('/donateCheckout/index','DonateController@checkout');
-
-
-//Checkout Controller
-Route::get('/checkout/edit{id}','CheckoutController@edit');
-Route::get('/checkout/index','CheckoutController@index')->name('checkout');
-Route::get('/checkout/confirm{id}','CheckoutController@confirm');
-Route::get('/donate/add-item/{id}', 'Donor\DonateController@addItem')->name('donate.addItem');
-Route::get('/cart/add-item/{id}', 'Donor\CartController@addItem')->name('cart.addItem');
-Route::resource('/donate', 'Donor\DonateController');
-Route::resource('/cart', 'Donor\CartController');
-Route::get('/donateCheckout/index','Donor\DonateController@checkout');
-
-
-//Checkout Controller
-Route::get('/checkout/edit{id}','Donor\CheckoutController@edit');
-Route::get('/checkout/index','Donor\CheckoutController@index')->name('checkout');
-Route::get('/checkout/confirm{id}','Donor\CheckoutController@confirm'); 
-Route::get('/checkout','Donor\CartController@checkout')->name('dcheckout');
 
 Auth::routes();
 Route::prefix('donor')->group(function() {
@@ -97,6 +38,24 @@ Route::prefix('donor')->group(function() {
   Route::get('/shopCatalog','Donor\DonorsCatalogController@shopCatalog');
   Route::get('/donationhistory','Donor\HistoryController@donationHistory');
   Route::get('/transactionhistory','Donor\HistoryController@transactionHistory');
+
+  //AddtoCart & AddtoDonate
+  Route::get('/donate/add-item/{id}', 'Donor\DonateController@addItem')->name('donate.addItem');
+  Route::get('/cart/add-item/{id}', 'Donor\CartController@addItem')->name('cart.addItem');
+  Route::resource('/donate', 'Donor\DonateController');
+  Route::resource('/cart', 'Donor\CartController');
+
+  //Summary & Checkout Button
+  Route::get('/submit-donate','Donor\DonateController@checkout')->name('donate.submit');
+  Route::get('/submit-cart','Donor\CartController@checkout')->name('cart.submit');
+
+  //Summary of Donate and Cart
+  Route::get('/checkout-donate','Donor\DonateCheckoutController@index')->name('donate.checkout');
+  Route::get('/checkout-donate/confirm{id}','Donor\DonateCheckoutController@confirm');
+  Route::get('/checkout-cart','Donor\CartCheckoutController@index')->name('cart.checkout');
+  Route::get('/checkout-cart/confirm{id}','Donor\CartCheckoutController@confirm');
+  //Route::get('/checkout/edit{id}','Donor\CheckoutController@edit');
+
   Route::get('/', 'Donor\DonorController@index')->name('donor.dashboard');
 });
 
@@ -110,7 +69,7 @@ Route::prefix('activitycoordinator')->group(function() {
   Route::get('/password/reset/{token}','ActivityCoordinator\Auth\ResetPasswordController@showResetForm')->name('activitycoordinator.password.reset');
   Route::resource('/activity_coordinators', 'ActivityCoordinator\ActivityCoordinatorsController');
   Route::resource('/AC_password', 'ActivityCoordinator\ActivityCoordinatorsPasswordController');
-  Route::resource('/applicants', 'ApplicantsController');
+  Route::resource('/applicants', 'ActivityCoordinator\ApplicantsController');
   Route::get('/sendSMS','ActivityCoordinator\TwilioController@index');
   Route::post('/sendMessage','ActivityCoordinator\TwilioController@sendMessageApplicant');
   Route::get('/', 'ActivityCoordinator\ActivityCoordinatorController@index')->name('ac.dashboard');
@@ -132,6 +91,8 @@ Route::prefix('programdirector')->group(function() {
   Route::post('/sendMessage-v','ProgramDirector\TwilioController@sendMessageVolunteer');
   Route::get('/donationhistory', 'ProgramDirector\DonationHistoryController@donationHistory');
   Route::resource('/feedback', 'ProgramDirector\FeedbacksController');
+  Route::get('/viewRequests', 'ProgramDirector\VolunteersController@requests');
+  Route::get('/viewOrders', 'ProgramDirector\VolunteersController@orders');
   Route::get('/', 'ProgramDirector\ProgramDirectorController@index')->name('pd.dashboard');
 });
 

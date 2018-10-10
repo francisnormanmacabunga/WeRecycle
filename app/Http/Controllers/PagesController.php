@@ -18,15 +18,6 @@ class PagesController extends Controller
       return view('pages.index', compact('volunteersCount'));
     }
 
-    public function createApplicant()
-    {
-      return view('Applicants.create');
-    }
-
-    public function createDonor(){
-      return view('Donor/Profile.create');
-    }
-
     public function index2()
     {
       $volunteersCount = Employee::SELECT('*')

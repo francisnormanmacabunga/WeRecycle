@@ -1,16 +1,15 @@
 <?php
-
 namespace App\Http\Controllers\Donor;
 
-use Illuminate\Http\Request;
 use Gloudemans\Shoppingcart\Facades\Cart;
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 use App\Models\Transaction;
 use App\Models\Order;
 use Auth;
 use DB;
 
-class DonateCheckoutController extends Controller
+class CartCheckoutController extends Controller
 {
 
     public function __construct()
@@ -22,24 +21,20 @@ class DonateCheckoutController extends Controller
     {
       $donor = Auth::user();
       $order = Order::where('userID', $donor->userID)->first();
-      //$cartItems=Cart::content(); //bago
-      $cartItems=Cart::content();
-      //$cartItems = unserialize($order->cart);
-      return view('Donor/Donate/Checkout.index',compact('cartItems'))->with(['order' => $order ]);
+      $cartItems=unserialize($order->cart);
+      return view('Donor/Cart/Checkout.index',compact('cartItems'))->with(['order' => $order ]);
     }
 
     public function confirm($id)
     {
       $donor = Auth::user();
       $order = Order::where('userID', $donor->userID)->first();
-      $cartItems=Cart::content();
+      //$cartItems=Cart::content(); //bago to
 
       $trans = new Transaction;
       $trans->userID = $order->userID;
+      $trans->cart = $order->cart;
       $trans->type = $order->type;
-      //$trans->cart = serialize($cartItems); old
-
-      $trans->cart = $cartItems; //new
       $trans->fname = $order->fname;
       $trans->lname = $order->lname;
       $trans->street = $order->street;
@@ -49,7 +44,7 @@ class DonateCheckoutController extends Controller
       $trans->status = 'Active';
       $trans->save();
 
-      Cart::destroy();
+      cart::instance('shop')->destroy();
       DB::table('orders')->where('userID',$donor->userID)->delete();
       return redirect('/donor');
     }
@@ -72,10 +67,15 @@ class DonateCheckoutController extends Controller
       return redirect('/donor/donors')->with('success','Profile updated');
     }*/
 
+    /*public function checkout()
+    {
+      $donor = Auth::user();
+      $test3 = order::where('userID', $donor->userID)->first();
+      return view('checkout.index',compact('test3'))->with(['test3' => $test3 ]);
+    }*/
+
     /*public function __construct()
     {
-      $this->middleware('auth:donor');
-
       $this->middleware('guest', ['only'=> [
         'create',
         'store'
@@ -85,12 +85,6 @@ class DonateCheckoutController extends Controller
         'create',
         'store'
         ]]);
-    }*/
+     }*/
 
-    /*public function checkout()
-    {
-      $donor = Auth::user();
-      $test3 = order::where('userID', $donor->userID)->first();
-      return view('checkout.index',compact('test3'))->with(['test3' => $test3 ]);
-    }*/
 }

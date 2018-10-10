@@ -49,11 +49,11 @@
                           Manage Volunteers
                         </a>
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                          <a class="dropdown-item" href="/programdirector/viewRequests">Assign Volunteers</a>
                           <a class="dropdown-item" href="/programdirector/sendSMS-V">Contact Volunteers</a>
                         </div>
                       </li>
 
-                      
                       <li class="nav-item">
                           <a class="nav-link" href="/programdirector/donationhistory">Donation History</a>
                       </li>
@@ -61,16 +61,13 @@
                           <a class="nav-link" href="/programdirector/feedback">View Feedback</a>
                       </li>
 
-
-
-
                     </ul>
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
                         @guest
-            <!--                <li class="nav-item">
+                          <!--  <li class="nav-item">
                                 <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
                             </li>
                             <li class="nav-item">

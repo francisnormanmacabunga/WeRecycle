@@ -11,7 +11,8 @@ class Transaction extends Model
   protected $primaryKey = 'transid';
   public $timestamps = true;
 
-  public function user(){
+  public function user()
+  {
     return $this->belongsTo('App\Model\Donor','userID');
   }
 

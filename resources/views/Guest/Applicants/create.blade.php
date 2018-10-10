@@ -4,13 +4,13 @@
 @section('content')
 
     <div class="py-5 text-center">
-          <h3>Create your Donor account!</h3>
+          <h3>Apply as a Volunteer!</h3>
           <p class="lead">Below is an example form built entirely with Bootstrap's form controls. Each required form group has a validation state that can be triggered by attempting to submit the form without completing it.</p>
         </div>
+        <div class="row">
           <div class="container col-md-9 center-align">
             <h4 class="mb-3">Fill out form</h4>
-
-            {!! Form::open(['action' => 'Donor\DonorsController@store', 'method' => 'POST' ]) !!}
+            {!! Form::open(['action' => 'Guest\ApplicantsController@store', 'method' => 'POST' ]) !!}
               <div class="row">
                 <div class="col-md-6 mb-3">
                   {{Form::label('firstname','First Name')}}
@@ -66,28 +66,11 @@
                   {{Form::text('username','', ['class' => 'form-control'])}}
                 </div>
               </div>
-              <div class="mb-3">
-                {{Form::label('password','Password')}}
-                <div class="input-group">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text">#</span>
-                  </div>
-                  {{Form::password('password', ['class' => 'form-control'])}}
-                </div>
-              </div>
-              <div class="mb-3">
-                {{Form::label('password_confirmation','Confirm Password')}}
-                <div class="input-group">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text">#</span>
-                  </div>
-                  {{Form::password('password_confirmation', ['class' => 'form-control'])}}
-                </div>
-              </div>
-                {{Form::hidden('usertypeID','1', ['class' => 'form-control'])}}
-                {{Form::hidden('status','Activated', ['class' => 'form-control'])}}
+                {{Form::hidden('usertypeID','2', ['class' => 'form-control'])}}
+                {{Form::hidden('password','ApplicantAccount', ['class' => 'form-control'])}}
+                {{Form::hidden('status','Applied', ['class' => 'form-control'])}}
               <hr class="mb-4">
-              {{Form::submit('Register profile',['class' => 'btn btn-primary btn-lg btn-block'])}}
+              {{Form::submit('Apply as Volunteer',['class' => 'btn btn-primary btn-lg btn-block'])}}
             {!! Form::close() !!}
           </div>
         </div>
@@ -99,5 +82,4 @@
             <li class="list-inline-item"><a href="#">Support</a></li>
           </ul>
         </footer>
-
 @endsection

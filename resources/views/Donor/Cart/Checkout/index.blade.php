@@ -54,11 +54,11 @@
 
               </dl>
               <hr style="margin:5px 0 5px 0;"><br>
-            <form action="/checkout/edit{{$order->orderid}">
+            <form action="/checkout-cart/edit{{$order->orderid}}">
                   <input type="submit" value="Edit Billing Details" class="btn btn-lg btn-block btn-primary" />
             </form>
             </br>
-              <form action="/checkout/confirm{{$order->orderid}">
+              <form action="/donor/checkout-cart/confirm{{$order->orderid}}">
                   <input type="submit" value="Confirm" class="btn btn-lg btn-block btn-success" />
               </form>
             </div>

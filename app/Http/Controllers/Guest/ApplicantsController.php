@@ -1,29 +1,16 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Guest;
 
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use Illuminate\Validation\Rule;
 use App\Models\Employee;
 use App\Models\Contacts;
-use DB;
 use Hash;
 
 class ApplicantsController extends Controller
 {
-
-    public function __construct()
-    {
-      $this->middleware('guest', ['only'=> [
-        'create',
-        'store'
-        ]]);
-
-      $this->middleware('auth:activitycoordinator', ['except'=> [
-        'create',
-        'store'
-        ]]);
-    }
 
     /**
      * Display a listing of the resource.
@@ -33,21 +20,7 @@ class ApplicantsController extends Controller
 
     public function index()
     {
-      if (request()->has('status')){
-      $applicants = Employee::SELECT('*')
-      -> join('contacts', 'contacts.userID', '=', 'user.userID')
-      -> where('status',request('status'))
-      -> where('usertypeID', '2')
-      -> sortable()
-      -> paginate(5)->appends('status', request('status'));
-    } else {
-      $applicants = Employee::SELECT('*')
-      -> join('contacts', 'contacts.userID', '=', 'user.userID')
-      -> where('usertypeID', '2')
-      -> sortable()
-      -> paginate(5);
-    }
-      return view('ActivityCoordinator/ManageApplicants.index', compact('applicants'));
+
     }
 
     /**
@@ -58,7 +31,7 @@ class ApplicantsController extends Controller
 
     public function create()
     {
-      return view('Applicants.create');
+      return view('Guest/Applicants.create');
     }
 
     /**
@@ -152,8 +125,7 @@ class ApplicantsController extends Controller
 
     public function edit($id)
     {
-      $applicants = Employee::find($id);
-      return view('ActivityCoordinator/ManageApplicants.edit', compact('applicants'));
+
     }
 
     /**
@@ -166,10 +138,7 @@ class ApplicantsController extends Controller
 
     public function update(Request $request, $id)
     {
-        $post = Employee::find($id);
-        $post->status = $request->input('status');
-        $post->save();
-        return redirect('/activitycoordinator/applicants')->with('success', 'Profile updated');
+
     }
 
     /**

@@ -15,7 +15,7 @@
           <th>Date</th>
           <th>Status</th>
         </tr>
-        @foreach ($donationHistory as $history)
+        @foreach ($cartItems as $history)
           <tr>
             <td>{{$history->type}}</td>
             <td></td>
@@ -23,6 +23,8 @@
             <td>{{$history->created_at}}</td>
             <td>{{$history->status}}</td>
         @endforeach
+        <td>{{$history->created_at}}</td>
+        <td>{{$history->status}}</td>
       </table>
     </div>
   </div>

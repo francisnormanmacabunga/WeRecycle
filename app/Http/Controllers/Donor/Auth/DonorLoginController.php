@@ -37,7 +37,8 @@ class DonorLoginController extends Controller
   public function donorLogout()
   {
     Auth::guard('donor')->logout();
-    return redirect('/');
+    //return redirect('/');
+    return redirect(\URL::previous());
   }
 
 }

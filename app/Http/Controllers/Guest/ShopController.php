@@ -21,4 +21,16 @@ class ShopController extends Controller
       return view('Guest.shop', compact('products2'));
     }
 
+    public function donationCatalog()
+    {
+      $products1 = Products::SELECT('*')
+      -> join('productstype', 'productstype.productstypeID', '=', 'products.productstypeID')
+      -> where('productstype.productstypeID','1')
+      -> where('status','Activated')
+      -> sortable()
+      -> get();
+
+      return view('Guest.donation', compact('products1'));
+    }
+
 }

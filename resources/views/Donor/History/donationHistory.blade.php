@@ -15,14 +15,15 @@
           <th>Date</th>
           <th>Status</th>
         </tr>
-        @foreach ($donationHistory as $history)
+        @foreach ($cartItems as $history)
           <tr>
-            <td>{{$history->userID}}</td>
+            <td>{{$history->name}}</td>
+            <td>{{$history->price}}</td>
             <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
+
         @endforeach
+        <td>{{$history->created_at}}</td>
+        <td>{{$history->status}}</td>
       </table>
     </div>
   </div>

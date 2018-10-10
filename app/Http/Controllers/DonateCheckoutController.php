@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use Auth;
 use DB;
 use App\order;
-use App\transaction;
+use App\Models\Transaction;
 use Gloudemans\Shoppingcart\Facades\Cart;
 
 class DonateCheckoutController extends Controller
@@ -52,15 +52,16 @@ public function confirm($id){
       $trans->zip = $order->zip;
       $trans->status = 'Active';
       $trans->save();
-      cart::instance('shop')->destroy();
+
+      Cart::destroy();
       DB::table('orders')->where('userID',$donor->userID)->delete();
       return redirect('/donor');
 }
 
 public function edit($id){
-  $donor = Auth::user();
+  /*$donor = Auth::user();
   $order = DB::select('select * from orders where userID = ?', [$donor->userID]);
-  return view('checkout.edit', compact('order'));
+  return view('checkout.edit', compact('order'));*/
 }
 
 public function update(Request $request, $id){

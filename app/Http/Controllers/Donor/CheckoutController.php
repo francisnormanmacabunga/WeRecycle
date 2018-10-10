@@ -49,16 +49,16 @@ class CheckoutController extends Controller
     $trans->status = 'Active';
     $trans->save();
 
-    cart::instance('shop')->destroy();
+    Cart::instance('shop')->destroy();
     DB::table('orders')->where('userID',$donor->userID)->delete();
     return redirect('/donor');
   }
 
   public function edit($id)
   {
-    $donor = Auth::user();
+  /*  $donor = Auth::user();
     $order = DB::select('select * from orders where userID = ?', [$donor->userID]);
-    return view('checkout.edit', compact('order'));
+    return view('checkout.edit', compact('order'));*/
   }
 
   public function update(Request $request, $id)

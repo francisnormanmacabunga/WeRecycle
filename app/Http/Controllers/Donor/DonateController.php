@@ -50,6 +50,7 @@ class DonateController extends Controller
     public function checkout()
     {
       $donor = Auth::user();
+      //$cartItems = Cart::store($identifier);
       $cartItems=Cart::content();
 
       $order = new Order();
@@ -66,6 +67,7 @@ class DonateController extends Controller
       $order->status = 'Inactive';
       $order->save();
 
+      
       return redirect()->route('donate.checkout');
 
       //return redirect()->route('dcheckout');

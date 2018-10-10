@@ -12,13 +12,21 @@
 */
 
 //Guest
-Route::get('/', 'PagesController@index');
-Route::get('/index', 'PagesController@index2');
+Route::get('/', 'PagesController@index2');
+Route::get('/index', 'PagesController@index');
 Route::get('/createApplicant', 'Guest\ApplicantsController@create');
 Route::post('/processApplicant', 'Guest\ApplicantsController@store');
 Route::get('/createDonor', 'Guest\DonorsController@create');
 Route::post('/processDonor', 'Guest\DonorsController@store');
+
+
+
+
 Route::get('/shop', 'Guest\ShopController@shopCatalog');
+Route::get('/donation', 'Guest\ShopController@donationCatalog');
+
+
+
 
 Auth::routes();
 Route::prefix('donor')->group(function() {

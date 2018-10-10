@@ -17,8 +17,12 @@ class DonationHistoryController extends Controller
 
     public function donationHistory()
     {
-      $donationhistory = Transaction::all();
-      return view('ProgramDirector/History.donationHistory',compact('cartItems'))->with(['donationhistory' => $donationhistory ]);
+      $test = Transaction::all();
+      
+
+      }
+
+      return view('ProgramDirector/History.donationHistory',['transactions' => $transactions]);
     }
 
 }

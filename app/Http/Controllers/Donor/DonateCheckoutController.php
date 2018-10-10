@@ -39,7 +39,7 @@ class DonateCheckoutController extends Controller
       $trans->type = $order->type;
       //$trans->cart = serialize($cartItems); old
 
-      $trans->cart = $cartItems; //new
+      $trans->cart = $cartItems; 
       $trans->fname = $order->fname;
       $trans->lname = $order->lname;
       $trans->street = $order->street;

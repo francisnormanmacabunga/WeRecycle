@@ -16,39 +16,20 @@
         <tr>
           <th>Name</th>
           <th>Address</th>
-
           <th>Status</th>
           <th>Action</th>
         </tr>
-
     </table>
-
-
     <table class="table table-bordered" class="fixed">
       <tr>
-
         <th>Item Name</th>
-
       </tr>
-
-    <tr>
-
-
-
+      <tr>
           @foreach ($all as $orders)
-            <td>  {{$orders->cart}} </td>
-
-
+            <td>  {{$orders->name}} </td>
           @endforeach
-
-
-
-
-
-    </tr>
-
-  </table>
-
+      </tr>
+    </table>
     </div>
     </div>
   </div>

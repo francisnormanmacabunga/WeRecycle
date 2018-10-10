@@ -37,7 +37,8 @@ class ACLoginController extends Controller
   public function activitycoordinatorLogout()
   {
     Auth::guard('activitycoordinator')->logout();
-    return redirect('/');
+    return redirect(\URL::previous());
+    //return redirect('/');
   }
 
 }

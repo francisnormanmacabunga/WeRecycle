@@ -28,12 +28,24 @@
         @endforeach
     </table>
     <table class="table table-bordered" class="fixed">
+
       <tr>
         <th>Item Name</th>
+        <th>Price</th>
+        <th>Quantity</th>
       </tr>
+        @foreach ($order as $orders)
+          @php
+            $cart = json_decode($orders->cart);
+          @endphp
+          @foreach($cart as $item)
       <tr>
-        <td>{{$orders->cart}}</td>
+        <td>{{$item->name}}</td>
+        <td>{{$item->price}}</td>
+        <td>{{$item->qty}}</td>
       </tr>
+          @endforeach
+      @endforeach
     </table>
     </div>
     </div>

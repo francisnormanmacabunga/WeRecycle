@@ -17,18 +17,11 @@
         </tr>
         @foreach ($cartItems as $history)
           <tr>
-<<<<<<< HEAD
-            <td>{{$history->name}}</td>
-            <td>{{$history->price}}</td>
-            <td></td>
-
-=======
             <td>{{$history->type}}</td>
             <td></td>
             <td></td>
             <td>{{$history->created_at}}</td>
             <td>{{$history->status}}</td>
->>>>>>> 3becd2aba54edb257147d1a62543f105bafcce6a
         @endforeach
         <td>{{$history->created_at}}</td>
         <td>{{$history->status}}</td>

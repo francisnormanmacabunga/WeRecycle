@@ -36,7 +36,7 @@
 
 
           @foreach ($all as $orders)
-            <td>  {{$orders->name}} </td>
+            <td>  {{$orders->cart}} </td>
 
 
           @endforeach

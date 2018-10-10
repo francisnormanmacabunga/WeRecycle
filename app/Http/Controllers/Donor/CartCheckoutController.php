@@ -21,8 +21,7 @@ class CartCheckoutController extends Controller
     {
       $donor = Auth::user();
       $order = Order::where('userID', $donor->userID)->first();
-      $cartItems= $order->cart;
-      dd($order->fname);
+      $cartItems= Cart::content();
       return view('Donor/Cart/Checkout.index',compact('cartItems'))->with(['order' => $order ]);
     }
 

@@ -27,7 +27,7 @@ class VolunteersController extends Controller
       $order = Transaction::all();
       $all = Cart::content()->toArray();
 
-      dd($order);
+      
 
 
 

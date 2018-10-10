@@ -17,15 +17,16 @@
       <th>Date</th>
       <th>Status</th>
     </tr>
-    
+    @foreach($transactions as $transaction)
 
     <tr>
-
-
+        @foreach($transaction->cart as $item)
+        <span>{{ $item['name'] }},{{ $item['price'] }},[[ $item['qty'] ]]</span>
+        @endforeach
     </tr>
 
   </table>
-
+@endforeach
 
 
 </div>

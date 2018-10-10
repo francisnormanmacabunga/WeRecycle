@@ -21,7 +21,7 @@ class HistoryController extends Controller
     {
       $user = Auth::user();
       //$donationHistory = DB::SELECT('select * from transactions where userID =?',[$user->userID]);
-      $trans = Transaction::where('userID', $user->userID)->first();
+      $trans = Transaction::where('userID', $user->userID);
       $cartItems=unserialize($trans->cart);
       return view('Donor/History.donationHistory',compact('cartItems'))->with(['trans' => $trans ]);
     }

@@ -15,11 +15,12 @@
           <th>Date</th>
           <th>Status</th>
         </tr>
-        @foreach ($cartItems as $history)
+        @foreach($users as user)
           <tr>
             <td>{{$history->type}}</td>
             <td></td>
-            <td></td>
+              @foreach($user->cart as $item)
+            <td>{{$item['name']}}</td>
             <td>{{$history->created_at}}</td>
             <td>{{$history->status}}</td>
         @endforeach

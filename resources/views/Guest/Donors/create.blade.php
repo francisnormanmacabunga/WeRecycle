@@ -84,6 +84,18 @@
                   {{Form::password('password_confirmation', ['class' => 'form-control'])}}
                 </div>
               </div>
+
+              <div class="form-group{{ $errors->has('g-recaptcha-response') ? ' has-error' : '' }}">
+                <div class="col-md-6 pull-center">
+                {!! app('captcha')->display() !!}
+                @if ($errors->has('g-recaptcha-response'))
+                <span class="help-block">
+                <strong>{{ $errors->first('g-recaptcha-response') }}</strong>
+                </span>
+                @endif
+              </div>
+              </div>
+
                 {{Form::hidden('usertypeID','1', ['class' => 'form-control'])}}
                 {{Form::hidden('status','Activated', ['class' => 'form-control'])}}
               <hr class="mb-4">

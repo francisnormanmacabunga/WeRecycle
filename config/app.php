@@ -149,6 +149,7 @@ return [
         Collective\Html\HtmlServiceProvider::class,
         Kyslik\ColumnSortable\ColumnSortableServiceProvider::class,
         Gloudemans\Shoppingcart\ShoppingcartServiceProvider::class,
+        Anhskohbo\NoCaptcha\NoCaptchaServiceProvider::class,
 
         /*
          * Package Service Providers...

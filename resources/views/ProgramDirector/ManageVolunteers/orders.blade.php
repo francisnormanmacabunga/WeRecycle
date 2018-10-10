@@ -13,21 +13,26 @@
     <div class="col-md-9">
     <div class="row">
       <table class="table table-bordered" class="fixed">
+
         <tr>
           <th>Name</th>
           <th>Address</th>
           <th>Status</th>
-          <th>Action</th>
         </tr>
+        @foreach ($order as $orders)
+        <tr>
+          <td> {{$orders->fname}} {{$orders->lname}} </td>
+          <td> Barangay: {{$orders->barangay}}, {{$orders->street}}, {{$orders->city}}, Zip: {{$orders->zip}} </td>
+          <td> {{$orders->status}} </td>
+        </tr>
+        @endforeach
     </table>
     <table class="table table-bordered" class="fixed">
       <tr>
         <th>Item Name</th>
       </tr>
       <tr>
-          @foreach ($all as $orders)
-            <td>  {{$orders->name}} </td>
-          @endforeach
+        <td>{{$orders->cart}}</td>
       </tr>
     </table>
     </div>

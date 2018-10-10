@@ -29,7 +29,6 @@ class CartCheckoutController extends Controller
     {
       $donor = Auth::user();
       $order = Order::where('userID', $donor->userID)->first();
-      //$cartItems=Cart::content(); //bago to
 
       $trans = new Transaction;
       $trans->userID = $order->userID;

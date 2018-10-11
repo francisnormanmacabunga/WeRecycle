@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Employee;
 use Twilio\Rest\Client;
-//use App\requestTable;
+use App\Models\Message;
 use App\Models\Donor;
 use DB;
 
@@ -54,16 +54,15 @@ class TwilioController extends Controller
 
      public function sendMessageVolunteer(Request $request)
      {
-    /*  $this->validate($request, [
+      $this->validate($request, [
         'message' => 'nullable',
       [
         'message.required' => 'The message field is required.'
       ]]);
-        $applicant = new requestTable();
-        //$feedback->userID = (Select from user where userID = session('username'))
+        $applicant = new Message();
         $applicant->message = $request ->input('message');
         $applicant->userID = auth()->user()->userID;
-        $applicant->save(); */
+        $applicant->save();
 
         $sid    = "AC8a7060e979f382acdb6ba484275f218b";
         $token  = "addb0fa1287d36f40d566e65bc764f4a";
@@ -75,6 +74,12 @@ class TwilioController extends Controller
                      "from" => "(619) 724-4011"));
 
         return redirect('/programdirector/sendSMS-V')->with('success', 'Message Sent Succesfully');
+    }
+
+    public function showHistory()
+    {
+      $message = Message::all();
+      return view ('ProgramDirector/ManageVolunteers.tasksHistory', compact('message'));
     }
 
 }

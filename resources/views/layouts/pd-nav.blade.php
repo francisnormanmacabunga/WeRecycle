@@ -49,8 +49,8 @@
                           Manage Volunteers
                         </a>
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                          <a class="dropdown-item" href="/programdirector/viewRequests">Assign Volunteers</a>
-                          <a class="dropdown-item" href="/programdirector/sendSMS-V">Contact Volunteers</a>
+                          <a class="dropdown-item" href="/programdirector/requests">Assign Volunteers</a>
+                          <a class="dropdown-item" href="/programdirector/tasksHistory">Tasks History</a>
                         </div>
                       </li>
 

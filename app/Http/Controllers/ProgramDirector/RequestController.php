@@ -3,13 +3,12 @@
 namespace App\Http\Controllers\ProgramDirector;
 
 use Illuminate\Http\Request;
-use Gloudemans\Shoppingcart\Facades\Cart;
 use App\Http\Controllers\Controller;
 use App\Models\Transaction;
 use App\Models\Order;
 use DB;
 
-class VolunteersController extends Controller
+class RequestController extends Controller
 {
 
     public function __construct()
@@ -17,7 +16,12 @@ class VolunteersController extends Controller
       $this->middleware('auth:programdirector');
     }
 
-    public function requests()
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
     {
       $request = Transaction::SELECT('*')
       -> where('type', 'Donate')
@@ -26,32 +30,11 @@ class VolunteersController extends Controller
       return view('ProgramDirector/ManageVolunteers.requests',compact('request'));
     }
 
-    public function orders()
-    {
-      $order = Transaction::SELECT('*')
-      -> where('type', 'Shop')
-      -> get();
-
-      return view('ProgramDirector/ManageVolunteers.orders',compact('order'));
-    }
-
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-
-    public function index()
-    {
-        //
-    }
-
     /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
      */
-
     public function create()
     {
         //
@@ -63,7 +46,6 @@ class VolunteersController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-
     public function store(Request $request)
     {
         //
@@ -75,7 +57,6 @@ class VolunteersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-
     public function show($id)
     {
         //
@@ -87,11 +68,10 @@ class VolunteersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-
     public function edit($id)
     {
-      $order = Transaction::find($id);
-      return view('ProgramDirector/ManageVolunteers.edit', compact('order'));
+      $request = Transaction::find($id);
+      return view('ProgramDirector/ManageVolunteers.editRequest', compact('request'));
     }
 
     /**
@@ -101,13 +81,12 @@ class VolunteersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-
     public function update(Request $request, $id)
     {
-      $order = Transaction::find($id);
-      $order->status = $request->input('status');
-      $order->save();
-      return redirect('/programdirector/viewRequests')->with('success', 'Profile updated');
+      $request = Transaction::find($id);
+      $request->status = $request->input('status');
+      $request->save();
+      return redirect('/programdirector/requests')->with('success', 'Profile updated');
     }
 
     /**
@@ -116,10 +95,8 @@ class VolunteersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-
     public function destroy($id)
     {
         //
     }
-
 }

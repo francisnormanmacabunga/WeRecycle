@@ -3,31 +3,43 @@
 
 @section('content')
 
-<div>
+<div class="row">
+  <div class="col-lg-3">
+  <h3>Donation History</h3>
+  <div class="list-group">
+      <a href="/donor/donationhistory" class="list-group-item">Donation History</a>
+      <a href="/donor/transactionhistory" class="list-group-item">Orders History</a>
+  </div>
+
+  </div>
+  <div class="col-lg-9">
     <div class="row">
 
-          <h1>Donation History</h1>
-          <table class="table table-bordered">
+      <table class="table table-bordered" class="fixed">
         <tr>
-          <th>Type of donation</th>
-          <th>Weight</th>
           <th>Assigned Volunteer</th>
-          <th>Date</th>
-          <th>Status</th>
+          <th>Type of Donation</th>
+          <th>Quantity</th> 
+          <th>@sortablelink('created_at', 'Date')</th>
+          <th>@sortablelink('status', 'Status')</th>
         </tr>
-        @foreach($users as user)
-          <tr>
-            <td>{{$history->type}}</td>
-            <td></td>
-              @foreach($user->cart as $item)
-            <td>{{$item['name']}}</td>
-            <td>{{$history->created_at}}</td>
-            <td>{{$history->status}}</td>
+        @foreach ($donation as $donations)
+          @php
+            $cart = json_decode($donations->cart);
+          @endphp
+        <tr>
+          <td>Sample: Carlo</td>
+          @foreach($cart as $item)
+          <td>{{$item->name}}</td>
+          <td>{{$item->qty}}</td>
         @endforeach
-        <td>{{$history->created_at}}</td>
-        <td>{{$history->status}}</td>
-      </table>
-    </div>
+          <td>{{date('F d, Y, h:i:sa', strtotime($donations->created_at))}}</td>
+          <td>{{$donations->status}}</td>
+        </tr>
+
+        @endforeach
+
+    </table>
   </div>
 </div>
 

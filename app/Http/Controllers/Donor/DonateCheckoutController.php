@@ -42,7 +42,7 @@ class DonateCheckoutController extends Controller
       $trans->barangay = $order->barangay;
       $trans->city = $order->city;
       $trans->zip = $order->zip;
-      $trans->status = 'Active';
+      $trans->status = 'Ordered';
       $trans->save();
 
       Cart::destroy();

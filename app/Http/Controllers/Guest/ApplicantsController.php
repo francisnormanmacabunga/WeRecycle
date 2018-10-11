@@ -55,7 +55,7 @@ class ApplicantsController extends Controller
       'barangay' => 'nullable|regex:/^[ \w.#-]+$/',
       'zip' => 'nullable|min:4|max:4',
       'username' => 'required|alpha_dash|unique:user,username',
-      'g-recaptcha-response'=> 'required|recaptcha'
+      'g-recaptcha-response'=> 'required|captcha'
     ],
     [
       'firstname.required' => 'The First Name field is required.',

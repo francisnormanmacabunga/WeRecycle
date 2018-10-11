@@ -1,47 +1,78 @@
-@extends('layouts.app')
+@include('navbar.heademail')
 
-@section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">Activity Coordinator Reset Password</div>
+<!DOCTYPE html>
+<html dir="ltr">
 
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-
-                    <form method="POST" action="{{ route('activitycoordinator.password.email') }}" aria-label="{{ __('Reset Password') }}">
-                        @csrf
-
-                        <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required>
-
-                                @if ($errors->has('email'))
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group row mb-0">
-                            <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Send Password Reset Link') }}
-                                </button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
+<body>
+    <div class="main-wrapper">
+        <!-- ============================================================== -->
+        <!-- Preloader - style you can find in spinners.css -->
+        <!-- ============================================================== -->
+        <div class="preloader">
+            <div class="lds-ripple">
+                <div class="lds-pos"></div>
+                <div class="lds-pos"></div>
             </div>
         </div>
+        <!-- ============================================================== -->
+        <!-- Preloader - style you can find in spinners.css -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Login box.scss -->
+        <!-- ============================================================== -->
+        <div class="auth-wrapper d-flex no-block justify-content-center align-items-center bg-dark">
+            <div class="auth-box bg-dark border-top border-secondary">
+              <div id="loginform">
+                @if ($errors->has('email'))
+                    <div class="alert alert-danger" role="alert">{{ $errors->first('email') }}</div>
+                @endif
+                @if (session('status'))
+                    <div class="alert alert-success" role="alert">
+                        {{ session('status') }}
+                    </div>
+                @endif
+                  <div class="text-center">
+                      <span class="text-white">Enter your e-mail address below and we will send you instructions how to recover a password.</span>
+                  </div>
+                  <div class="row m-t-20">
+                      <!-- Form -->
+                      <form method="POST" class="col-12" action="{{ route('activitycoordinator.password.email') }}" aria-label="{{ __('Reset Password') }}">
+                        @csrf
+                          <!-- email -->
+                          <div class="input-group mb-3">
+                              <div class="input-group-prepend">
+                                  <span class="input-group-text bg-danger text-white" id="basic-addon1"><i class="ti-email"></i></span>
+                              </div>
+                              <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }} form-control-lg" placeholder="Email Address" aria-label="Username" aria-describedby="basic-addon1" name="email" value="{{ old('email') }}" required>
+                          </div>
+                          <!-- pwd -->
+                          <div class="row m-t-20 p-t-20 border-top border-secondary">
+                              <div class="col-12">
+                                  <a class="btn btn-success" href="/activitycoordinator/login" id="to-login" name="action">Back To Login</a>
+                                  <button class="btn btn-info float-right" type="submit" name="action">{{ __('Recover') }}</button>
+                              </div>
+                          </div>
+                      </form>
+                  </div>
+              </div>
+            </div>
+        </div>
+        <!-- ============================================================== -->
+        <!-- Login box.scss -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Page wrapper scss in scafholding.scss -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Page wrapper scss in scafholding.scss -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Right Sidebar -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Right Sidebar -->
+        <!-- ============================================================== -->
     </div>
-</div>
-@endsection
+@include('navbar.loginemail')
+</body>
+</html>

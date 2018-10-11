@@ -45,6 +45,7 @@
                         <div>
                           {{Form::submit('Send Message',['class' => 'btn btn-primary btn-lg btn-block'])}}
                         {!! Form::close() !!}
+                        <a class="btn btn-block btn-primary btn-lg btn-block" href="/programdirector/requests" role="button">Back</a>
                 </div>
               </div>
           </div>

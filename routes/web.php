@@ -91,13 +91,8 @@ Route::prefix('programdirector')->group(function() {
   Route::post('/sendMessage-v','ProgramDirector\TwilioController@sendMessageVolunteer');
   Route::get('/donationhistory', 'ProgramDirector\DonationHistoryController@donationHistory');
   Route::resource('/feedback', 'ProgramDirector\FeedbacksController');
-
   Route::resource('/requests','ProgramDirector\RequestController');
   Route::resource('/orders','ProgramDirector\OrderController');
-
-  //Route::get('/viewRequests', 'ProgramDirector\VolunteersController@requests');
-  //Route::get('/viewOrders', 'ProgramDirector\VolunteersController@orders');
-
   Route::get('/', 'ProgramDirector\ProgramDirectorController@index')->name('pd.dashboard');
 });
 

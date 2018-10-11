@@ -19,22 +19,25 @@ class VolunteersController extends Controller
 
     public function requests()
     {
-      return view('ProgramDirector/ManageVolunteers.requests');
+      //$request = Transaction::where('type', 'Donate');
+      $request = Transaction::SELECT('*')
+      -> where('type', 'Donate')
+      -> get();
+
+      return view('ProgramDirector/ManageVolunteers.requests',compact('request'));
     }
 
     public function orders()
     {
+<<<<<<< HEAD
       $order = Transaction::all();
+=======
+      $order = Transaction::SELECT('*')
+      -> where('type', 'Shop')
+      -> get();
+
+>>>>>>> 186cbc137e03df50510da76e4dc38d15a60d3195
       return view('ProgramDirector/ManageVolunteers.orders',compact('order'));
-
-      //$order->cart = $all;
-      //$all =  unserialize(base64_decode(Cart::content()));
-      //$all = Cart::content();
-      //$all = Unserialize(Cart::content());
-      //$all = Cart::content();
-      //$order->cart = $all;
-      //return view('ProgramDirector/ManageVolunteers.orders',compact('cc'));
-
     }
 
 }

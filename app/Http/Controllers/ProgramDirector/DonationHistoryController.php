@@ -17,12 +17,13 @@ class DonationHistoryController extends Controller
 
     public function donationHistory()
     {
-      $test = Transaction::all();
-      
+
+      $donation = Transaction::SELECT('*')
+      -> where('type', 'Donate')
+      -> sortable()
+      -> get();
+
+      return view('ProgramDirector/History.donationHistory')->with(['donation' => $donation]);
 
       }
-
-      return view('ProgramDirector/History.donationHistory',['transactions' => $transactions]);
-    }
-
-}
+  }

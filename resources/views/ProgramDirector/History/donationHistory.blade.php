@@ -3,34 +3,43 @@
 
 @section('content')
 
-<div>
-<div class="row">
+    <div class="row">
+      <div class="col-lg-3">
+      <h3>Donation History</h3>
+      <div class="list-group">
+          <a href="/programdirector/donationhistory" class="list-group-item">Donation History</a>
+      </div>
 
-      <h1>Donation History</h1>
+      </div>
+      <div class="col-lg-9">
+        <div class="row">
 
-      <table class="table table-bordered">
-      <tr>
-      <th>Username</th>
-      <th>Type of donation</th>
-      <th>Order(name,price,quantity)</th>
-      <th>Assigned Volunteer</th>
-      <th>Date</th>
-      <th>Status</th>
-    </tr>
-    @foreach($transactions as $transaction)
+          <table class="table table-bordered" class="fixed">
+            <tr>
+              <th>Assigned Volunteer</th>
+              <th>Type of Donation</th>
+              <th>Quantity</th>
+              <th>@sortablelink('created_at', 'Date')</th>
+              <th>@sortablelink('status', 'Status')</th>
+            </tr>
+            @foreach ($donation as $donations)
+              @php
+                $cart = json_decode($donations->cart);
+              @endphp
+            <tr>
+              <td>Sample: Carlo</td>
+              @foreach($cart as $item)
+              <td>{{$item->name}}</td>
+              <td>{{$item->qty}}</td>
+            @endforeach
+              <td>{{date('F d, Y, h:i:sa', strtotime($donations->created_at))}}</td>
+              <td>{{$donations->status}}</td>
+            </tr>
 
-    <tr>
-        @foreach($transaction->cart as $item)
-        <span>{{ $item['name'] }},{{ $item['price'] }},[[ $item['qty'] ]]</span>
-        @endforeach
-    </tr>
+            @endforeach
 
-  </table>
-@endforeach
-
-
-</div>
-</div>
-</div>
+        </table>
+      </div>
+    </div>
 
 @endsection

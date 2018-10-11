@@ -34,5 +34,5 @@
       @endif
     </div>
   </div>
-
+{{ $feedbacks->links() }}
 @endsection

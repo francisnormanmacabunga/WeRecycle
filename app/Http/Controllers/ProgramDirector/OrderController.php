@@ -70,7 +70,7 @@ class OrderController extends Controller
      */
     public function edit($id)
     {
-      $order = Transaction::find($id);
+      $order = Transaction::findOrFail($id);
       return view('ProgramDirector/ManageVolunteers.editOrder', compact('order'));
     }
 
@@ -86,7 +86,7 @@ class OrderController extends Controller
       $order = Transaction::find($id);
       $order->status = $request->input('status');
       $order->save();
-      return redirect('/programdirector/requests')->with('success', 'Profile updated');
+      return redirect('/programdirector/orders')->with('success', 'Profile updated');
     }
 
     /**

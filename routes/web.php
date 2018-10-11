@@ -89,6 +89,7 @@ Route::prefix('programdirector')->group(function() {
   Route::get('/sendSMS-V','ProgramDirector\TwilioController@indexVolunteer');
   Route::post('/sendMessage-D','ProgramDirector\TwilioController@sendMessageDonor');
   Route::post('/sendMessage-v','ProgramDirector\TwilioController@sendMessageVolunteer');
+  Route::get('/tasksHistory','ProgramDirector\TwilioController@showHistory');
   Route::get('/donationhistory', 'ProgramDirector\DonationHistoryController@donationHistory');
   Route::resource('/feedback', 'ProgramDirector\FeedbacksController');
   Route::resource('/requests','ProgramDirector\RequestController');

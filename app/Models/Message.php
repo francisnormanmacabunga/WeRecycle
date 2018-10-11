@@ -1,19 +1,14 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class requestTable extends Model
+class Message extends Model
 {
+
   protected $table = 'message';
   protected $primaryKey = 'messageID';
   public $timestamps = false;
-
-
-  //public function user()
-  //{
-    //return $this->belongsTo('App\userTable','userID');
-  //}
 
 }

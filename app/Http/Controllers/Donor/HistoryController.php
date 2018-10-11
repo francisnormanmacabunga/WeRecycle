@@ -23,6 +23,7 @@ class HistoryController extends Controller
       $donor = Auth::user();
       $donation = Transaction::where('userID', $donor->userID)
       -> where('type', 'Donate')
+      -> sortable()
       -> get();
       return view('Donor/History.donationHistory')->with(['donation' => $donation]);
 
@@ -33,6 +34,7 @@ class HistoryController extends Controller
       $donor = Auth::user();
       $shop = Transaction::where('userID', $donor->userID)
       -> where('type', 'Shop')
+      -> sortable()
       -> get();
       return view('Donor/History.transactionHistory')->with(['shop' => $shop]);
     }

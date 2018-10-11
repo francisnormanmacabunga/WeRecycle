@@ -21,7 +21,7 @@
           <th>Product Name</th>
           <th>Quantity</th>
           <th>Amount</th>
-          <th>Date</th>
+          <th>@sortablelink('created_at', 'Date')</th>
           <th>Status</th>
         </tr>
         @foreach ($shop as $shops)
@@ -35,7 +35,7 @@
           <td>{{$item->qty}}</td>
           <td>{{$item->price}}</td>
           @endforeach
-          <td>{{$shops->created_at}}</td>
+        <td>{{date('F d, Y, h:i:sa', strtotime($shops->created_at))}}</td>
           <td>{{$shops->status}}</td>
 
         </tr>

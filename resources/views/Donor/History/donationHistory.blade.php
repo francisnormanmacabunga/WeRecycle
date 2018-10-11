@@ -20,7 +20,7 @@
           <th>Assigned Volunteer</th>
           <th>Type of Donation</th>
           <th>Quantity</th>
-          <th>Date</th>
+          <th>@sortablelink('created_at', 'Date')</th>
           <th>Status</th>
         </tr>
         @foreach ($donation as $donations)
@@ -33,7 +33,7 @@
           <td>{{$item->name}}</td>
           <td>{{$item->qty}}</td>
           @endforeach
-          <td>{{$donations->created_at}}</td>
+          <td>{{date('F d, Y, h:i:sa', strtotime($donations->created_at))}}</td>
           <td>{{$donations->status}}</td>
 
         </tr>

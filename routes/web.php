@@ -18,15 +18,8 @@ Route::get('/createApplicant', 'Guest\ApplicantsController@create');
 Route::post('/processApplicant', 'Guest\ApplicantsController@store');
 Route::get('/createDonor', 'Guest\DonorsController@create');
 Route::post('/processDonor', 'Guest\DonorsController@store');
-
-
-
-
 Route::get('/shop', 'Guest\ShopController@shopCatalog');
 Route::get('/donation', 'Guest\ShopController@donationCatalog');
-
-
-
 
 Auth::routes();
 Route::prefix('donor')->group(function() {
@@ -44,7 +37,6 @@ Route::prefix('donor')->group(function() {
   Route::post('/sendFeedback', 'Donor\FeedbacksController@sendFeedback');
   Route::get('/donationCatalog','Donor\DonorsCatalogController@donationCatalog');
   Route::get('/shopCatalog','Donor\DonorsCatalogController@shopCatalog');
-  
   Route::get('/donationhistory','Donor\HistoryController@donationHistory');
   Route::get('/transactionhistory','Donor\HistoryController@transactionHistory');
 
@@ -63,7 +55,6 @@ Route::prefix('donor')->group(function() {
   Route::get('/checkout-donate/confirm{id}','Donor\DonateCheckoutController@confirm');
   Route::get('/checkout-cart','Donor\CartCheckoutController@index')->name('cart.checkout');
   Route::get('/checkout-cart/confirm{id}','Donor\CartCheckoutController@confirm');
-  //Route::get('/checkout/edit{id}','Donor\CheckoutController@edit');
 
   Route::get('/', 'Donor\DonorController@index')->name('donor.dashboard');
 });
@@ -100,8 +91,8 @@ Route::prefix('programdirector')->group(function() {
   Route::post('/sendMessage-v','ProgramDirector\TwilioController@sendMessageVolunteer');
   Route::get('/donationhistory', 'ProgramDirector\DonationHistoryController@donationHistory');
   Route::resource('/feedback', 'ProgramDirector\FeedbacksController');
-  Route::get('/viewRequests', 'ProgramDirector\VolunteersController@requests');
-  Route::get('/viewOrders', 'ProgramDirector\VolunteersController@orders');
+  Route::resource('/requests','ProgramDirector\RequestController');
+  Route::resource('/orders','ProgramDirector\OrderController');
   Route::get('/', 'ProgramDirector\ProgramDirectorController@index')->name('pd.dashboard');
 });
 

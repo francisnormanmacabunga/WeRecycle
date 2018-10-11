@@ -12,7 +12,7 @@ class Transaction extends Model
   protected $table = 'transactions';
   protected $primaryKey = 'transid';
   public $timestamps = true;
-  public $sortable = ['created_at'];
+  public $sortable = ['created_at', 'status'];
 
   public function user()
   {

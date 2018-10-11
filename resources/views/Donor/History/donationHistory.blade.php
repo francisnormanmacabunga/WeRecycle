@@ -21,7 +21,7 @@
           <th>Type of Donation</th>
           <th>Quantity</th>
           <th>@sortablelink('created_at', 'Date')</th>
-          <th>Status</th>
+          <th>@sortablelink('status', 'Status')</th>
         </tr>
         @foreach ($donation as $donations)
           @php

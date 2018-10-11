@@ -32,7 +32,7 @@ Auth::routes();
 Route::prefix('donor')->group(function() {
   Route::get('/login','Donor\Auth\DonorLoginController@showLoginForm')->name('donor.login');
   Route::post('/login','Donor\Auth\DonorLoginController@login')->name('donor.login.submit');
-  Route::post('/logout', 'Donor\Auth\DonorLoginController@donorLogout')->name('donor.logout');  
+  Route::post('/logout', 'Donor\Auth\DonorLoginController@donorLogout')->name('donor.logout');
   Route::post('/password/email','Donor\Auth\ForgotPasswordController@sendResetLinkEmail')->name('donor.password.email');
   Route::get('/password/reset','Donor\Auth\ForgotPasswordController@showLinkRequestForm')->name('donor.password.request');
   Route::post('/password/reset','Donor\Auth\ResetPasswordController@reset');
@@ -44,6 +44,7 @@ Route::prefix('donor')->group(function() {
   Route::post('/sendFeedback', 'Donor\FeedbacksController@sendFeedback');
   Route::get('/donationCatalog','Donor\DonorsCatalogController@donationCatalog');
   Route::get('/shopCatalog','Donor\DonorsCatalogController@shopCatalog');
+  
   Route::get('/donationhistory','Donor\HistoryController@donationHistory');
   Route::get('/transactionhistory','Donor\HistoryController@transactionHistory');
 

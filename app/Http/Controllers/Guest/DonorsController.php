@@ -57,7 +57,7 @@ class DonorsController extends Controller
       'username' => 'required|alpha_dash|unique:user,username',
       'password' => 'min:6|required_with:password_confirmation|same:password_confirmation|',
       'password_confirmation' => 'required',
-      'g-recaptcha-response'=> 'required|recaptcha'
+      'g-recaptcha-response'=> 'required|captcha'
     ],
     [
       'firstname.required' => 'The First Name field is required.',

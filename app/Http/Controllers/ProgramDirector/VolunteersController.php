@@ -29,14 +29,10 @@ class VolunteersController extends Controller
 
     public function orders()
     {
-<<<<<<< HEAD
-      $order = Transaction::all();
-=======
       $order = Transaction::SELECT('*')
       -> where('type', 'Shop')
       -> get();
 
->>>>>>> 186cbc137e03df50510da76e4dc38d15a60d3195
       return view('ProgramDirector/ManageVolunteers.orders',compact('order'));
     }
 

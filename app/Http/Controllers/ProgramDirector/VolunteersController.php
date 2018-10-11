@@ -25,11 +25,6 @@ class VolunteersController extends Controller
     public function orders()
     {
       $order = Transaction::all();
-
-
-
-
-
       return view('ProgramDirector/ManageVolunteers.orders',compact('order'));
 
       //$order->cart = $all;

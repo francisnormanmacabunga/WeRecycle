@@ -32,7 +32,7 @@
                     </div>
                 @endif
                   <div class="text-center">
-                      <span class="text-white">Enter your e-mail address below and we will send you instructions how to recover a password.</span>
+                      <span class="text-white">Enter your e-mail address below and we will send you instructions on how to recover a password.</span>
                   </div>
                   <div class="row m-t-20">
                       <!-- Form -->
@@ -48,7 +48,7 @@
                           <!-- pwd -->
                           <div class="row m-t-20 p-t-20 border-top border-secondary">
                               <div class="col-12">
-                                  <a class="btn btn-success" href="/activitycoordinator/login" id="to-login" name="action">Back To Login</a>
+                                  <a class="btn btn-success" href="/activitycoordinator/login" id="to-login" name="action">Back</a>
                                   <button class="btn btn-info float-right" type="submit" name="action">{{ __('Recover') }}</button>
                               </div>
                           </div>

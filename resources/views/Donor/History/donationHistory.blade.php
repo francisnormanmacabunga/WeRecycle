@@ -15,18 +15,19 @@
           <th>Date</th>
           <th>Status</th>
         </tr>
-        @foreach($users as user)
+        @foreach($trans as $tran)
           <tr>
-            <td>{{$history->type}}</td>
             <td></td>
-              @foreach($user->cart as $item)
-            <td>{{$item['name']}}</td>
-            <td>{{$history->created_at}}</td>
-            <td>{{$history->status}}</td>
-        @endforeach
-        <td>{{$history->created_at}}</td>
-        <td>{{$history->status}}</td>
+            <td></td>
+              @foreach($tran->cart as $item)
+            <td></td>
+              @endforeach
+            <td></td>
+            <td></td>
+
+
       </table>
+          @endforeach
     </div>
   </div>
 </div>

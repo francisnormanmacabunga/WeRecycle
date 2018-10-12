@@ -67,7 +67,7 @@ class DonateController extends Controller
       $order->status = 'Inactive';
       $order->save();
 
-      dd($order);
+      
       return redirect()->route('donate.checkout');
 
       //return redirect()->route('dcheckout');

@@ -62,7 +62,7 @@ class TwilioController extends Controller
       return redirect('/programdirector/sendSMS-D')->with('success', 'Message Sent Succesfully');
       }
 
-     public function sendMessageVolunteer(Request $request,$id)
+     public function sendMessageVolunteer(Request $request)
      {
       $this->validate($request, [
         'message' => 'nullable',
@@ -74,9 +74,9 @@ class TwilioController extends Controller
         $applicant->userID = $request->userID;
         $applicant->save();
 
-        $transaction = Transaction::find($id);
-        $transaction->volunteer = $applicant->userID;
-        $transaction->save();
+      //  $transaction = Transaction::find($id);
+        //$transaction->volunteer = $applicant->userID;
+        //$transaction->save();
 
         $sid    = "AC8a7060e979f382acdb6ba484275f218b";
         $token  = "addb0fa1287d36f40d566e65bc764f4a";

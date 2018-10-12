@@ -1,15 +1,7 @@
 <!DOCTYPE html>
 <html dir="ltr" lang="en">
 <body>
-    <!-- ============================================================== -->
-    <!-- Preloader - style you can find in spinners.css -->
-    <!-- ============================================================== -->
-    <div class="preloader">
-        <div class="lds-ripple">
-            <div class="lds-pos"></div>
-            <div class="lds-pos"></div>
-        </div>
-    </div>
+
     <!-- ============================================================== -->
     <!-- Main wrapper - style you can find in pages.scss -->
     <!-- ============================================================== -->
@@ -21,6 +13,11 @@
           <div class="page-breadcrumb">
                 <div class="row">
                     <div class="col-12 d-flex no-block align-items-center">
+                      @if (session('status'))
+                          <div class="alert alert-success" role="alert">
+                              {{ session('status') }}
+                          </div>
+                      @endif
                         <h4 class="page-title">Hello, {{Auth::user()->firstname}}!</h4>
                     </div>
                 </div>

@@ -41,9 +41,7 @@
                                     </div>
                                     <input type="text" class="form-control{{ $errors->has('username') ? ' is-invalid' : '' }} form-control-lg" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" name="username" value="{{ old('username') }}" required autofocus>
                                     @if ($errors->has('username'))
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $errors->first('username') }}</strong>
-                                        </span>
+                                        <div class="alert alert-danger" role="alert">{{ $errors->first('username') }}</div>
                                     @endif
                                 </div>
                                 <div class="input-group mb-3">
@@ -52,9 +50,7 @@
                                     </div>
                                     <input type="password" name="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }} form-control-lg" placeholder="Password" aria-label="Password" aria-describedby="basic-addon1" required>
                                     @if ($errors->has('password'))
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $errors->first('password') }}</strong>
-                                        </span>
+                                        <div class="alert alert-danger" role="alert">{{ $errors->first('password') }}</div>
                                     @endif
                                 </div>
                             </div>
@@ -63,7 +59,7 @@
                             <div class="col-12">
                                 <div class="form-group">
                                     <div class="p-t-20">
-                                        <button class="btn btn-success float-right" type="submit">{{ __('Login') }}</button>
+                                        <button class="btn btn-block btn-lg btn-success" type="submit">{{ __('Login') }}</button>
                                     </div>
                                 </div>
                             </div>
@@ -88,33 +84,6 @@
         <!-- Right Sidebar -->
         <!-- ============================================================== -->
     </div>
-    <!-- ============================================================== -->
-    <!-- All Required js -->
-    <!-- ============================================================== -->
-    <script src="../assets/libs/jquery/dist/jquery.min.js"></script>
-    <!-- Bootstrap tether Core JavaScript -->
-    <script src="../assets/libs/popper.js/dist/umd/popper.min.js"></script>
-    <script src="../assets/libs/bootstrap/dist/js/bootstrap.min.js"></script>
-    <!-- ============================================================== -->
-    <!-- This page plugin js -->
-    <!-- ============================================================== -->
-    <script>
-
-    $('[data-toggle="tooltip"]').tooltip();
-    $(".preloader").fadeOut();
-    // ==============================================================
-    // Login and Recover Password
-    // ==============================================================
-    $('#to-recover').on("click", function() {
-        $("#loginform").slideUp();
-        $("#recoverform").fadeIn();
-    });
-    $('#to-login').click(function(){
-
-        $("#recoverform").hide();
-        $("#loginform").fadeIn();
-    });
-    </script>
-
+@include('navbar.login')
 </body>
 </html>

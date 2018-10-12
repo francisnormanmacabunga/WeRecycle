@@ -6,7 +6,7 @@ use Gloudemans\Shoppingcart\Facades\Cart;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Products;
-use App\Models\Order;
+use App\Models\Requests;
 use App\Models\Donor;
 use Auth;
 use DB;
@@ -50,18 +50,12 @@ class DonateController extends Controller
       $donor = Auth::user();
       $cartItems=Cart::content();
 
-      $order = new Order();
-      $order->userID = $donor->userID;
-      $order->type = 'Donate';
-      $order->cart = $cartItems;
-      $order->fname = $donor->firstname;
-      $order->lname = $donor->lastname;
-      $order->street = $donor->street;
-      $order->barangay = $donor->barangay;
-      $order->city = $donor->city;
-      $order->zip = $donor->zip;
-      $order->status = 'Inactive';
-      $order->save();
+      $request = new Requests();
+      $request->userID = $donor->userID;
+      $request->type = 'Donate';
+      $request->cart = $cartItems;
+      $request->status = 'Inactive';
+      $request->save();
 
       return redirect()->route('donate.checkout');
 
@@ -71,7 +65,7 @@ class DonateController extends Controller
       -> get();*/
       //$test2 = order::find();
       //$test3 = order::where('userID', $donor->userID)->first();
-      //$ordertable = DB::select('select * from orders where userID = ?', [$donor->userID]);
+      //$requesttable = DB::select('select * from orders where userID = ?', [$donor->userID]);
     }
 
     /*public function __construct()

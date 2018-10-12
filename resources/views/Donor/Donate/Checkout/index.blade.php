@@ -13,13 +13,13 @@
             </div>
             <div class="card-body text-center">
               <h1>Name:</h1>
-              <h1 class="card-title pricing-card-title text-center">{{$order->fname}} {{$order->lname}}</h1>
+              <h1 class="card-title pricing-card-title text-center">{{$donor->firstname}} {{$donor->lastname}}</h1>
               <hr style="margin:5px 0 5px 0;"><br>
               <dl class="row ">
                 <dt class="col-sm-6">Address:</dt>
-                <dd class="col-sm-4">{{$order->street}}, {{$order->city}}</dd>
+                <dd class="col-sm-4">{{$donor->street}}, {{$donor->city}}</dd>
                 <dt class="col-sm-6">Barangay:</dt>
-                <dd class="col-sm-4">{{$order->barangay}}</dd>
+                <dd class="col-sm-4">{{$donor->barangay}}</dd>
                 <table class="table table-hover">
                     <thead>
                     <tr>
@@ -47,18 +47,17 @@
                         </tr>
 
                     @endforeach
-
                     </tbody>
                 </table>
 
 
               </dl>
               <hr style="margin:5px 0 5px 0;"><br>
-            <form action="/checkout-donate/edit{{$order->orderid}}">
+            <form action="/checkout-donate/edit{{$request->orderid}}">
                   <input type="submit" value="Edit Billing Details" class="btn btn-lg btn-block btn-primary" />
             </form>
             </br>
-              <form action="/donor/checkout-donate/confirm{{$order->orderid}}">
+              <form action="/donor/checkout-donate/confirm{{$request->requestID}}">
                   <input type="submit" value="Confirm" class="btn btn-lg btn-block btn-success" />
               </form>
             </div>

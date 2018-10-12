@@ -54,12 +54,6 @@ class CartController extends Controller
       $order->userID = $donor->userID;
       $order->type= 'Shop';
       $order->cart = $cartItems;
-      $order->fname = $donor->firstname;
-      $order->lname = $donor->lastname;
-      $order->street = $donor->street;
-      $order->barangay = $donor->barangay;
-      $order->city = $donor->city;
-      $order->zip = $donor->zip;
       $order->status = 'Inactive';
       $order->save();
 

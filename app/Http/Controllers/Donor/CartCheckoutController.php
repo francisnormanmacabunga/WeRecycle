@@ -21,12 +21,8 @@ class CartCheckoutController extends Controller
     {
       $donor = Auth::user();
       $order = Order::where('userID', $donor->userID)->first();
-<<<<<<< HEAD
-      $cartItems= $order->cart;
-=======
-      $cartItems= Cart::content();
->>>>>>> 9174075caafe23dfe932036cac64c9437948e123
-      return view('Donor/Cart/Checkout.index',compact('cartItems'))->with(['order' => $order ]);
+      $cartItems= Cart::instance('shop')->content();
+    return view('Donor/Cart/Checkout.index',compact('cartItems'))->with(['order' => $order ])->with(['donor' => $donor]);
     }
 
     public function confirm($id)
@@ -38,17 +34,12 @@ class CartCheckoutController extends Controller
       $trans->userID = $order->userID;
       $trans->cart = $order->cart;
       $trans->type = $order->type;
-      $trans->fname = $order->fname;
-      $trans->lname = $order->lname;
-      $trans->street = $order->street;
-      $trans->barangay = $order->barangay;
-      $trans->city = $order->city;
-      $trans->zip = $order->zip;
       $trans->status = 'Active';
       $trans->save();
 
       cart::instance('shop')->destroy();
       DB::table('orders')->where('userID',$donor->userID)->delete();
+      session()->flash('notif','Order Process Successful!');
       return redirect('/donor');
     }
 

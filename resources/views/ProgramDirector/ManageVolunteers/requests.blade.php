@@ -41,7 +41,6 @@
           <td> {{$requests->message->user->firstname}} </td>
           <th>
             <a class="btn btn-block btn-primary" href="/programdirector/sendSMS-V/transactionID={{$requests->transid}}" role="button">Assign Volunteer</a>
-            <a class="btn btn-block btn-primary" href="" role="button">Update Volunteer</a>
             <a class="btn btn-block btn-primary" href="/programdirector/requests/{{$requests->transid}}/edit" role="button">Update Status</a>
           </th>
         </tr>

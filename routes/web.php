@@ -92,11 +92,10 @@ Route::prefix('programdirector')->group(function() {
 
   Route::get('/sendSMS-V/transactionID={transid}','ProgramDirector\TwilioController@indexVolunteer');
   Route::get('/sendSMS-V/volunteerID={userID}','ProgramDirector\TwilioController@indexVolunteerID');
-  Route::post('/sendMessage-v','ProgramDirector\TwilioController@sendMessageVolunteer');
+  Route::post('/sendMessage-V','ProgramDirector\TwilioController@sendMessageVolunteer');
 
 
-
-  Route::get('/tasksHistory','ProgramDirector\TwilioController@showHistory');
+  Route::resource('/tasksHistory','ProgramDirector\UpdateVolunteer');
   Route::get('/donationhistory', 'ProgramDirector\DonationHistoryController@donationHistory');
   Route::resource('/feedback', 'ProgramDirector\FeedbacksController');
 

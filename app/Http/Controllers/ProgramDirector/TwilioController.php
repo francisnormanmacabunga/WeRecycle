@@ -83,6 +83,7 @@ class TwilioController extends Controller
         $applicant->userID = $request->userID;
         $applicant->transid = $request ->input('transid');
         $applicant->save();
+        
 
 
     /*    $transaction = Transaction::find($id);
@@ -99,12 +100,6 @@ class TwilioController extends Controller
                      "from" => "(619) 724-4011"));
 
         return redirect('/programdirector/requests')->with('success', 'Message Sent Succesfully');
-    }
-
-    public function showHistory()
-    {
-      $message = Message::all();
-      return view ('ProgramDirector/ManageVolunteers.tasksHistory', compact('message'));
     }
 
 }

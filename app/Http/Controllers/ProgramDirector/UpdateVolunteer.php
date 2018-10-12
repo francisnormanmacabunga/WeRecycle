@@ -4,19 +4,10 @@ namespace App\Http\Controllers\ProgramDirector;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Models\Transaction;
 use App\Models\Message;
-use App\Models\Order;
-use DB;
 
-class RequestController extends Controller
+class UpdateVolunteer extends Controller
 {
-
-    public function __construct()
-    {
-      $this->middleware('auth:programdirector');
-    }
-
     /**
      * Display a listing of the resource.
      *
@@ -24,14 +15,8 @@ class RequestController extends Controller
      */
     public function index()
     {
-      $request = Transaction::SELECT('*')
-      -> where('type', 'Donate')
-      -> get();
-
-  
-
-
-      return view('ProgramDirector/ManageVolunteers.requests',compact('request'));
+      $message = Message::all();
+      return view ('ProgramDirector/ManageVolunteers.tasksHistory', compact('message'));
     }
 
     /**
@@ -74,8 +59,9 @@ class RequestController extends Controller
      */
     public function edit($id)
     {
-      $request = Transaction::find($id);
-      return view('ProgramDirector/ManageVolunteers.editRequest', compact('request'));
+      $volunteer = Message::find($id);
+      dd($volunteer);
+      return view('ProgramDirector/ManageVolunteers.editVolunteer', compact('volunteer'));
     }
 
     /**
@@ -87,10 +73,7 @@ class RequestController extends Controller
      */
     public function update(Request $request, $id)
     {
-      $updateRequest = Transaction::find($id);
-      $updateRequest->status = $request->input('status');
-      $updateRequest->save();
-      return redirect('/programdirector/requests')->with('success', 'Profile updated');
+        //
     }
 
     /**

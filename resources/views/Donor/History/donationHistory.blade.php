@@ -36,10 +36,27 @@
           <td>{{date('F d, Y, h:i:sa', strtotime($donations->created_at))}}</td>
           <td>{{$donations->status}}</td>
         </tr>
+<<<<<<< HEAD
+        @foreach($trans as $tran)
+          <tr>
+            <td></td>
+            <td></td>
+              @foreach($tran->cart as $item)
+            <td></td>
+              @endforeach
+            <td></td>
+            <td></td>
+
+
+      </table>
+          @endforeach
+    </div>
+=======
 
         @endforeach
 
     </table>
+>>>>>>> 9174075caafe23dfe932036cac64c9437948e123
   </div>
 </div>
 

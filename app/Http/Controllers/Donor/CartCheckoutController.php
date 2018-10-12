@@ -21,7 +21,11 @@ class CartCheckoutController extends Controller
     {
       $donor = Auth::user();
       $order = Order::where('userID', $donor->userID)->first();
+<<<<<<< HEAD
+      $cartItems= $order->cart;
+=======
       $cartItems= Cart::content();
+>>>>>>> 9174075caafe23dfe932036cac64c9437948e123
       return view('Donor/Cart/Checkout.index',compact('cartItems'))->with(['order' => $order ]);
     }
 

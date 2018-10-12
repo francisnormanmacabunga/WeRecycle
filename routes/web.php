@@ -90,8 +90,8 @@ Route::prefix('programdirector')->group(function() {
 
 
 
-  Route::get('/sendSMS-V/{transid}','ProgramDirector\TwilioController@indexVolunteer');
-  Route::get('/sendSMS-V-ID/{userID}','ProgramDirector\TwilioController@indexVolunteerID');
+  Route::get('/sendSMS-V/transactionID={transid}','ProgramDirector\TwilioController@indexVolunteer');
+  Route::get('/sendSMS-V/volunteerID={userID}','ProgramDirector\TwilioController@indexVolunteerID');
   Route::post('/sendMessage-v','ProgramDirector\TwilioController@sendMessageVolunteer');
 
 

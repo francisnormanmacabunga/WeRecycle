@@ -11,4 +11,14 @@ class Message extends Model
   protected $primaryKey = 'messageID';
   public $timestamps = false;
 
+  public function user()
+  {
+    return $this->belongsTo('App\Models\Employee','userID');
+  }
+  
+  public function transaction()
+  {
+    return $this->belongsTo('App\Models\Transaction','transid');
+  }
+
 }

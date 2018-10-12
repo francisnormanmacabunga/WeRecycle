@@ -16,7 +16,12 @@ class Transaction extends Model
 
   public function user()
   {
-    return $this->belongsTo('App\Model\Donor','userID');
+    return $this->belongsTo('App\Models\Donor','userID');
+  }
+
+  public function message()
+  {
+    return $this->hasOne('App\Models\Message','transid');
   }
 
 }

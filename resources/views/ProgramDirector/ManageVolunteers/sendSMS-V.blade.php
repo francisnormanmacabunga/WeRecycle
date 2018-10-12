@@ -31,9 +31,12 @@
                             <td>{{$applicant->firstname}} {{$applicant->lastname}}</td>
                             <td>{{$applicant->email}}</td>
                             <td>{{$applicant->cellNo}}</td>
+                            @foreach ($transaction as $transactions)
+                            <input type= "hidden" name= "transid" class= "radio" value="{{$transactions->transid}}"/>
+                            @endforeach
                             <td>
                               <a class="btn btn-primary"
-                              href='{{url('programdirector/sendSMS-V-ID', $applicant->userID)}}'
+                              href="/programdirector/sendSMS-V/volunteerID={{$applicant->userID}}"
                               role="button"> Select </a>
                             </td>
                           </tr>
@@ -48,7 +51,7 @@
                       <div>
                         {{Form::submit('Send Message',['class' => 'btn btn-primary btn-lg btn-block'])}}
                         {!! Form::close() !!}
-                        <a class="btn btn-block btn-primary btn-lg btn-block" href="/programdirector/sendSMS-V" role="button">Back</a>
+                      <!--  <a class="btn btn-block btn-primary btn-lg btn-block" href="{{ url()->previous() }}" role="button">Back</a> -->
                 </div>
               </div>
           </div>
@@ -57,6 +60,10 @@
     </div>
   </div>
 </div>
+
+
+
+
 
 
 

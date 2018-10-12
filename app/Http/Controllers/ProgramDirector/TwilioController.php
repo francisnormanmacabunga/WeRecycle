@@ -8,6 +8,7 @@ use App\Models\Employee;
 use Twilio\Rest\Client;
 use App\Models\Message;
 use App\Models\Donor;
+use App\Models\Transaction;
 use DB;
 
 class TwilioController extends Controller
@@ -35,7 +36,11 @@ class TwilioController extends Controller
       -> where('usertypeID', '2')
       -> where('status','Activated')
       -> get();
-      return view('ProgramDirector/ManageVolunteers.sendSMS-V', compact('applicants'));
+      $transaction = Transaction::all();
+      //dd($applicants);
+      //$applicants['transid'] = $transid;
+
+      return view('ProgramDirector/ManageVolunteers.sendSMS-V', compact('applicants','transaction'));
     }
 
     public function indexVolunteerID($userID)
@@ -46,7 +51,10 @@ class TwilioController extends Controller
       -> where('user.userID', $userID)
       -> where('status','Activated')
       -> get();
-      return view('ProgramDirector/ManageVolunteers.sendSMS-V', compact('applicants'));
+
+      $transaction = Transaction::all();
+      //dd($transaction);
+      return view('ProgramDirector/ManageVolunteers.sendSMS-V', compact('applicants', 'transaction'));
     }
 
     public function sendMessageDonor(Request $request)
@@ -62,21 +70,24 @@ class TwilioController extends Controller
       return redirect('/programdirector/sendSMS-D')->with('success', 'Message Sent Succesfully');
       }
 
-     public function sendMessageVolunteer(Request $request,$id)
+     public function sendMessageVolunteer(Request $request)
      {
       $this->validate($request, [
         'message' => 'nullable',
       [
         'message.required' => 'The message field is required.'
       ]]);
+
         $applicant = new Message();
         $applicant->message = $request ->input('message');
         $applicant->userID = $request->userID;
+        $applicant->transid = $request ->input('transid');
         $applicant->save();
+        
 
-        $transaction = Transaction::find($id);
+    /*    $transaction = Transaction::find($id);
         $transaction->volunteer = $applicant->userID;
-        $transaction->save();
+        $transaction->save(); */
 
         $sid    = "AC8a7060e979f382acdb6ba484275f218b";
         $token  = "addb0fa1287d36f40d566e65bc764f4a";
@@ -87,7 +98,7 @@ class TwilioController extends Controller
                      "body" => $twilio->message = $request->input('message'),
                      "from" => "(619) 724-4011"));
 
-        return redirect('/programdirector/sendSMS-V')->with('success', 'Message Sent Succesfully');
+        return redirect('/programdirector/requests')->with('success', 'Message Sent Succesfully');
     }
 
     public function showHistory()

@@ -30,7 +30,10 @@ class Employee extends Model
     {
         return $this->causer->username ?? null;
     }
-
+    public function message()
+    {
+      return $this->hasOne('App\Models\Message','userID');
+    }
     public function age()
     {
     return Carbon::parse($this->attributes['birthdate'])->age;

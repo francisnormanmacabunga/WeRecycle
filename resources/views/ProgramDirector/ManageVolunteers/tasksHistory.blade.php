@@ -3,18 +3,22 @@
 
 @section('content')
 
-  <div class="col-lg-9">
-    <div class="row">
+  <div class="row">
+    <div class="col-lg-12">
       <table class="table table-bordered" class="fixed">
+        <br/>
+        <h3><strong>Task History</strong></h3>
+        <br>
+        <br>
         <tr>
-          <th>MessageID</th>
+          <th>Transaction ID</th>
           <th>Assigned Volunteer</th>
           <th>Message</th>
         </tr>
         @foreach ($message as $messages)
         <tr>
-          <td> {{$messages->messageID}} </td>
-          <td> {{$messages->userID}} </td>
+          <td> {{$messages->transaction->transid}} </td>
+          <td> {{$messages->user->firstname}} {{$messages->user->lastname}} </td>
           <td> {{$messages->message}} </td>
         </tr>
         @endforeach

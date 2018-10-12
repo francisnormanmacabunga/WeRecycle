@@ -336,6 +336,6 @@
             </div>
         </div>
     </div>
-  @include('navbar.admin-footer')
+  @include('navbar.footer')
 </body>
 </html>

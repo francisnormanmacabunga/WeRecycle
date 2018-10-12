@@ -45,7 +45,7 @@
               </div>
               <div class="row">
                 <div class="col-md-5 mb-3">
-                  {{Form::label('street','Street')}}
+                  {{Form::label('street','Streets')}}
                   {{Form::text('street','', ['class' => 'form-control'])}}
                 </div>
                 <div class="col-md-4 mb-3">
@@ -66,12 +66,24 @@
                   {{Form::text('username','', ['class' => 'form-control'])}}
                 </div>
               </div>
-                {{Form::hidden('usertypeID','2', ['class' => 'form-control'])}}
-                {{Form::hidden('password','ApplicantAccount', ['class' => 'form-control'])}}
-                {{Form::hidden('status','Applied', ['class' => 'form-control'])}}
+
+              <div class="form-group{{ $errors->has('g-recaptcha-response') ? ' has-error' : '' }}">
+                <div class="col-md-6 pull-center">
+                {!! app('captcha')->display() !!}
+                @if ($errors->has('g-recaptcha-response'))
+                <span class="help-block">
+                <strong>{{ $errors->first('g-recaptcha-response') }}</strong>
+                </span>
+                @endif
+              </div>
+              </div>
+
+              {{Form::hidden('usertypeID','2', ['class' => 'form-control'])}}
+              {{Form::hidden('password','ApplicantAccount', ['class' => 'form-control'])}}
+              {{Form::hidden('status','Applied', ['class' => 'form-control'])}}
               <hr class="mb-4">
               {{Form::submit('Apply as Volunteer',['class' => 'btn btn-primary btn-lg btn-block'])}}
-            {!! Form::close() !!}
+             {!! Form::close() !!}
           </div>
         </div>
         <footer class="my-5 pt-5 text-muted text-center text-small">

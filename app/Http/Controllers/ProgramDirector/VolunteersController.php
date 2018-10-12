@@ -19,30 +19,107 @@ class VolunteersController extends Controller
 
     public function requests()
     {
-      return view('ProgramDirector/ManageVolunteers.requests');
+      $request = Transaction::SELECT('*')
+      -> where('type', 'Donate')
+      -> get();
+
+      return view('ProgramDirector/ManageVolunteers.requests',compact('request'));
     }
 
     public function orders()
     {
-      $order = Transaction::all();
-      $all = Cart::content()->toArray();
+      $order = Transaction::SELECT('*')
+      -> where('type', 'Shop')
+      -> get();
 
-      dd($order);
+      return view('ProgramDirector/ManageVolunteers.orders',compact('order'));
+    }
 
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
 
+    public function index()
+    {
+        //
+    }
 
-      return view('ProgramDirector/ManageVolunteers.orders',compact('all'));
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
 
-      //$order->cart = $all;
+    public function create()
+    {
+        //
+    }
 
-      //$all =  unserialize(base64_decode(Cart::content()));
-      //$all = Cart::content();
-      //$all = Unserialize(Cart::content());
-      //$all = Cart::content();
-      //$order->cart = $all;
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
 
+    public function store(Request $request)
+    {
+        //
+    }
 
-      //return view('ProgramDirector/ManageVolunteers.orders',compact('cc'));
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+
+    public function show($id)
+    {
+        //
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+
+    public function edit($id)
+    {
+      $order = Transaction::find($id);
+      return view('ProgramDirector/ManageVolunteers.edit', compact('order'));
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+
+    public function update(Request $request, $id)
+    {
+      $order = Transaction::find($id);
+      $order->status = $request->input('status');
+      $order->save();
+      return redirect('/programdirector/viewRequests')->with('success', 'Profile updated');
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+
+    public function destroy($id)
+    {
+        //
     }
 
 }

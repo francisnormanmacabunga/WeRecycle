@@ -40,7 +40,8 @@ class PDLoginController extends Controller
   public function programdirectorLogout()
   {
     Auth::guard('programdirector')->logout();
-    return redirect('/');
+    return redirect(\URL::previous());
+    //return redirect('/');
   }
 
 }

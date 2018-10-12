@@ -19,16 +19,24 @@ class HistoryController extends Controller
 
     public function donationHistory()
     {
-      $user = Auth::user();
-      //$donationHistory = DB::SELECT('select * from transactions where userID =?',[$user->userID]);
-      $trans = Transaction::where('userID', $user->userID);
-      $cartItems=unserialize($trans->cart);
-      return view('Donor/History.donationHistory',compact('cartItems'))->with(['trans' => $trans ]);
+
+      $donor = Auth::user();
+      $donation = Transaction::where('userID', $donor->userID)
+      -> where('type', 'Donate')
+      -> sortable()
+      -> get();
+      return view('Donor/History.donationHistory')->with(['donation' => $donation]);
+
     }
 
     public function transactionHistory()
     {
-      return view('Donor/History.transactionHistory', compact('transactionHistory'));
+      $donor = Auth::user();
+      $shop = Transaction::where('userID', $donor->userID)
+      -> where('type', 'Shop')
+      -> sortable()
+      -> get();
+      return view('Donor/History.transactionHistory')->with(['shop' => $shop]);
     }
 
 }

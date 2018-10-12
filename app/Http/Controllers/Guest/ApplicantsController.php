@@ -54,7 +54,8 @@ class ApplicantsController extends Controller
       'street' => 'nullable|regex:/^[ \w.#-]+$/',
       'barangay' => 'nullable|regex:/^[ \w.#-]+$/',
       'zip' => 'nullable|min:4|max:4',
-      'username' => 'required|alpha_dash|unique:user,username'
+      'username' => 'required|alpha_dash|unique:user,username',
+      'g-recaptcha-response'=> 'required|captcha'
     ],
     [
       'firstname.required' => 'The First Name field is required.',
@@ -79,7 +80,7 @@ class ApplicantsController extends Controller
       'zip.max' => 'The Zip field may not be greater than 4 characters.',
       'username.unique' => 'The Username you registered is already in use.',
       'username.required' => 'The Username field is required.',
-      'username.alpha_dash' => 'The Username may only contain letters, numbers, dashes and underscores.'
+      'username.alpha_dash' => 'The Username may only contain letters, numbers, dashes and underscores.',
     ]);
       $user = new Employee();
       $user->firstname = $request->input('firstname');

@@ -22,9 +22,7 @@ class DonateCheckoutController extends Controller
     {
       $donor = Auth::user();
       $order = Order::where('userID', $donor->userID)->first();
-      //$cartItems=Cart::content(); //bago
-      $cartItems=Cart::content();
-      //$cartItems = unserialize($order->cart);
+      $cartItems = Cart::content();
       return view('Donor/Donate/Checkout.index',compact('cartItems'))->with(['order' => $order ]);
     }
 
@@ -37,16 +35,14 @@ class DonateCheckoutController extends Controller
       $trans = new Transaction;
       $trans->userID = $order->userID;
       $trans->type = $order->type;
-      //$trans->cart = serialize($cartItems); old
-
-      $trans->cart = $cartItems; 
+      $trans->cart = $cartItems;
       $trans->fname = $order->fname;
       $trans->lname = $order->lname;
       $trans->street = $order->street;
       $trans->barangay = $order->barangay;
       $trans->city = $order->city;
       $trans->zip = $order->zip;
-      $trans->status = 'Active';
+      $trans->status = 'Ordered';
       $trans->save();
 
       Cart::destroy();

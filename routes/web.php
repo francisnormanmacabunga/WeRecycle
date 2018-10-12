@@ -12,13 +12,14 @@
 */
 
 //Guest
-Route::get('/', 'PagesController@index');
-Route::get('/index', 'PagesController@index2');
+Route::get('/', 'PagesController@index2');
+Route::get('/index', 'PagesController@index');
 Route::get('/createApplicant', 'Guest\ApplicantsController@create');
 Route::post('/processApplicant', 'Guest\ApplicantsController@store');
 Route::get('/createDonor', 'Guest\DonorsController@create');
 Route::post('/processDonor', 'Guest\DonorsController@store');
 Route::get('/shop', 'Guest\ShopController@shopCatalog');
+Route::get('/donation', 'Guest\ShopController@donationCatalog');
 
 Auth::routes();
 Route::prefix('donor')->group(function() {
@@ -54,7 +55,6 @@ Route::prefix('donor')->group(function() {
   Route::get('/checkout-donate/confirm{id}','Donor\DonateCheckoutController@confirm');
   Route::get('/checkout-cart','Donor\CartCheckoutController@index')->name('cart.checkout');
   Route::get('/checkout-cart/confirm{id}','Donor\CartCheckoutController@confirm');
-  //Route::get('/checkout/edit{id}','Donor\CheckoutController@edit');
 
   Route::get('/', 'Donor\DonorController@index')->name('donor.dashboard');
 });
@@ -89,10 +89,11 @@ Route::prefix('programdirector')->group(function() {
   Route::get('/sendSMS-V','ProgramDirector\TwilioController@indexVolunteer');
   Route::post('/sendMessage-D','ProgramDirector\TwilioController@sendMessageDonor');
   Route::post('/sendMessage-v','ProgramDirector\TwilioController@sendMessageVolunteer');
+  Route::get('/tasksHistory','ProgramDirector\TwilioController@showHistory');
   Route::get('/donationhistory', 'ProgramDirector\DonationHistoryController@donationHistory');
   Route::resource('/feedback', 'ProgramDirector\FeedbacksController');
-  Route::get('/viewRequests', 'ProgramDirector\VolunteersController@requests');
-  Route::get('/viewOrders', 'ProgramDirector\VolunteersController@orders');
+  Route::resource('/requests','ProgramDirector\RequestController');
+  Route::resource('/orders','ProgramDirector\OrderController');
   Route::get('/', 'ProgramDirector\ProgramDirectorController@index')->name('pd.dashboard');
 });
 

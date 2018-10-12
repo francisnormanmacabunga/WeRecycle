@@ -86,14 +86,23 @@ Route::prefix('programdirector')->group(function() {
   Route::resource('/program_directors', 'ProgramDirector\ProgramDirectorsController');
   Route::resource('/PD_password', 'ProgramDirector\ProgramDirectorsPasswordController');
   Route::get('/sendSMS-D','ProgramDirector\TwilioController@indexDonor');
-  Route::get('/sendSMS-V','ProgramDirector\TwilioController@indexVolunteer');
   Route::post('/sendMessage-D','ProgramDirector\TwilioController@sendMessageDonor');
+
+
+
+  Route::get('/sendSMS-V/{transid}','ProgramDirector\TwilioController@indexVolunteer');
+  Route::get('/sendSMS-V-ID/{userID}','ProgramDirector\TwilioController@indexVolunteerID');
   Route::post('/sendMessage-v','ProgramDirector\TwilioController@sendMessageVolunteer');
+
+
+
   Route::get('/tasksHistory','ProgramDirector\TwilioController@showHistory');
   Route::get('/donationhistory', 'ProgramDirector\DonationHistoryController@donationHistory');
   Route::resource('/feedback', 'ProgramDirector\FeedbacksController');
+
   Route::resource('/requests','ProgramDirector\RequestController');
   Route::resource('/orders','ProgramDirector\OrderController');
+
   Route::get('/', 'ProgramDirector\ProgramDirectorController@index')->name('pd.dashboard');
 });
 

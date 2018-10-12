@@ -19,7 +19,7 @@
         <tr>
           <th>Assigned Volunteer</th>
           <th>Type of Donation</th>
-          <th>Quantity</th> 
+          <th>Quantity</th>
           <th>@sortablelink('created_at', 'Date')</th>
           <th>@sortablelink('status', 'Status')</th>
         </tr>
@@ -28,7 +28,7 @@
             $cart = json_decode($donations->cart);
           @endphp
         <tr>
-          <td>Sample: Carlo</td>
+          <td></td>
           @foreach($cart as $item)
           <td>{{$item->name}}</td>
           <td>{{$item->qty}}</td>

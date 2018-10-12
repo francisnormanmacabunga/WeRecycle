@@ -38,21 +38,31 @@ class TwilioController extends Controller
       return view('ProgramDirector/ManageVolunteers.sendSMS-V', compact('applicants'));
     }
 
+    public function indexVolunteerID($userID)
+    {
+      $applicants = Employee::SELECT('*')
+      -> join('contacts', 'contacts.userID', '=', 'user.userID')
+      -> where('usertypeID', '2')
+      -> where('user.userID', $userID)
+      -> where('status','Activated')
+      -> get();
+      return view('ProgramDirector/ManageVolunteers.sendSMS-V', compact('applicants'));
+    }
+
     public function sendMessageDonor(Request $request)
     {
-        $sid    = "AC8a7060e979f382acdb6ba484275f218b";
-        $token  = "addb0fa1287d36f40d566e65bc764f4a";
-        $twilio = new Client($sid, $token);
-        $message = $twilio->messages
-        ->create($twilio->mobile = $request->input('mobile'), // to
-                 array(
-                     "body" => $twilio->message = $request->input('message'),
-                     "from" => "(619) 724-4011"));
-
-        return redirect('/programdirector/sendSMS-D')->with('success', 'Message Sent Succesfully');
+      $sid    = "AC8a7060e979f382acdb6ba484275f218b";
+      $token  = "addb0fa1287d36f40d566e65bc764f4a";
+      $twilio = new Client($sid, $token);
+      $message = $twilio->messages
+      ->create($twilio->mobile = $request->input('mobile'), // to
+               array(
+                   "body" => $twilio->message = $request->input('message'),
+                   "from" => "(619) 724-4011"));
+      return redirect('/programdirector/sendSMS-D')->with('success', 'Message Sent Succesfully');
       }
 
-     public function sendMessageVolunteer(Request $request)
+     public function sendMessageVolunteer(Request $request,$id)
      {
       $this->validate($request, [
         'message' => 'nullable',
@@ -61,8 +71,12 @@ class TwilioController extends Controller
       ]]);
         $applicant = new Message();
         $applicant->message = $request ->input('message');
-        $applicant->userID = auth()->user()->userID;
+        $applicant->userID = $request->userID;
         $applicant->save();
+
+        $transaction = Transaction::find($id);
+        $transaction->volunteer = $applicant->userID;
+        $transaction->save();
 
         $sid    = "AC8a7060e979f382acdb6ba484275f218b";
         $token  = "addb0fa1287d36f40d566e65bc764f4a";

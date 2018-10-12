@@ -70,7 +70,7 @@ class OrderController extends Controller
      */
     public function edit($id)
     {
-      $order = Transaction::findOrFail($id);
+      $order = Transaction::find($id);
       return view('ProgramDirector/ManageVolunteers.editOrder', compact('order'));
     }
 

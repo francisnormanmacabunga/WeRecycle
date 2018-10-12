@@ -18,34 +18,37 @@
                       @if(count($applicants)>0)
                       <table class="table table-striped table-hover">
                         <tr>
-                          <th>#</th>
+                        <!--  <th>#</th> -->
                           <th>Name</th>
                           <th>Email</th>
                           <th>Mobile Number</th>
-                          <th>Status</th>
+                          <th>Action</th>
                         </tr>
-
                         @foreach ($applicants as $applicant)
                           <tr>
-                            <td><input type= "radio" name= "mobile" class= "radio" value="{{$applicant->cellNo}}"/></td>
+                            <input type= "hidden" name= "mobile" class= "radio" value="{{$applicant->cellNo}}"/>
+                            <input type= "hidden" name= "userID"  value="{{$applicant->userID}}">
                             <td>{{$applicant->firstname}} {{$applicant->lastname}}</td>
                             <td>{{$applicant->email}}</td>
                             <td>{{$applicant->cellNo}}</td>
-                            <td>{{$applicant->status}}</td>
+                            <td>
+                              <a class="btn btn-primary"
+                              href='{{url('programdirector/sendSMS-V-ID', $applicant->userID)}}'
+                              role="button"> Select </a>
+                            </td>
+                          </tr>
                         @endforeach
-
                       </table>
-
                     @else
                       <div align="center" style="color:red;">
                         <h3>No applicants found.</h3>
                       </div>
                     @endif
                       <div class="form-group">
-                        <div>
-                          {{Form::submit('Send Message',['class' => 'btn btn-primary btn-lg btn-block'])}}
+                      <div>
+                        {{Form::submit('Send Message',['class' => 'btn btn-primary btn-lg btn-block'])}}
                         {!! Form::close() !!}
-                        <a class="btn btn-block btn-primary btn-lg btn-block" href="/programdirector/requests" role="button">Back</a>
+                        <a class="btn btn-block btn-primary btn-lg btn-block" href="/programdirector/sendSMS-V" role="button">Back</a>
                 </div>
               </div>
           </div>

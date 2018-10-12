@@ -21,6 +21,7 @@
           <th>Item Price</th>
           <th>Item Quantity</th>
           <th>Status</th>
+          <th>Assigned Volunteer</th>
           <th>Action</th>
         </tr>
         @foreach ($request as $requests)
@@ -37,11 +38,12 @@
           <td>{{$item->qty}}</td>
           @endforeach
           <td> {{$requests->status}} </td>
+          <td> </td>
           <th>
-            <a class="btn btn-block btn-primary" href="/programdirector/sendSMS-V" role="button">Assign Volunteer</a>
+            <a class="btn btn-block btn-primary" href="/programdirector/sendSMS-V/{{$requests->transid}}" role="button">Assign Volunteer</a>
             <a class="btn btn-block btn-primary" href="/programdirector/requests/{{$requests->transid}}/edit" role="button">Update Status</a>
           </th>
-          </th>
+
         </tr>
         @endforeach
     </table>

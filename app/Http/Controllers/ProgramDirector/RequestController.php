@@ -28,10 +28,8 @@ class RequestController extends Controller
       -> where('type', 'Donate')
       -> get();
 
-  
-
-
-      return view('ProgramDirector/ManageVolunteers.requests',compact('request'));
+      $message = Message::all()->last();
+      return view('ProgramDirector/ManageVolunteers.requests',compact('request','message'));
     }
 
     /**

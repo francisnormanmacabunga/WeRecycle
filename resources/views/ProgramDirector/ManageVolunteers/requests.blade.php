@@ -38,7 +38,7 @@
           <td>{{$item->qty}}</td>
           @endforeach
           <td> {{$requests->status}} </td>
-          <td> {{$requests->message->user->firstname}} </td>
+          <td> {{$message->user->firstname}} </td>
           <th>
             <a class="btn btn-block btn-primary" href="/programdirector/sendSMS-V/transactionID={{$requests->transid}}" role="button">Assign Volunteer</a>
             <a class="btn btn-block btn-primary" href="/programdirector/requests/{{$requests->transid}}/edit" role="button">Update Status</a>

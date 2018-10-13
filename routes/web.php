@@ -94,7 +94,7 @@ Route::prefix('programdirector')->group(function() {
   Route::get('/donationhistory', 'ProgramDirector\DonationHistoryController@donationHistory');
   Route::resource('/feedback', 'ProgramDirector\FeedbacksController');
   Route::resource('/requests','ProgramDirector\RequestController');
-  Route::resource('/orders','ProgramDirector\OrderController');
+  Route::resource('/orders','ProgramDirector\OrderController'); 
   Route::get('/', 'ProgramDirector\ProgramDirectorController@index')->name('pd.dashboard');
 });
 

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\ProgramDirector;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Transaction;
+use App\Models\MessageOrders;
 use App\Models\Order;
 use DB;
 
@@ -27,7 +28,9 @@ class OrderController extends Controller
       -> where('type', 'Shop')
       -> get();
 
-      return view('ProgramDirector/ManageVolunteers.orders',compact('order'));
+      $messageOrder = MessageOrders::all()->last();
+
+      return view('ProgramDirector/ManageVolunteers.orders',compact('order', 'messageOrder'));
     }
 
     /**

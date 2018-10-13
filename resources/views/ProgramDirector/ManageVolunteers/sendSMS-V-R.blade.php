@@ -10,7 +10,7 @@
                 <div class="card-header">Send notification through SMS</div>
                 <div class="card-body">
                   <div class="panel-body">
-                    {!! Form::open(['action' => 'ProgramDirector\TwilioController@sendMessageVolunteer', 'method' => 'POST' ]) !!}
+                    {!! Form::open(['action' => 'ProgramDirector\TwilioController@assignRequest', 'method' => 'POST' ]) !!}
                       {{ csrf_field() }}
                       <div class="form-group">
                         {{Form::textArea('message','', ['class' => 'form-control', 'placeholder' => 'Place your message here...'])}}
@@ -36,7 +36,7 @@
                             @endforeach
                             <td>
                               <a class="btn btn-primary"
-                              href="/programdirector/sendSMS-V/volunteerID={{$applicant->userID}}"
+                              href="/programdirector/sendSMS-V-R/volunteerID={{$applicant->userID}}"
                               role="button"> Select </a>
                             </td>
                           </tr>

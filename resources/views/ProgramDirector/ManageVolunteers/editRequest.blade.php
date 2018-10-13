@@ -17,7 +17,7 @@
           <th>Action</th>
         </tr>
           <tr>
-            <td>{{$request['fname']}} {{$request['lname']}}</td>
+            <td>{{$request->user->firstname}} {{$request->user->lastname}}</td>
             <td>{{$request['status']}}</td>
             <td>
                 {{Form::select('status', ['Shipping' => 'Shipping', 'Delivered' => 'Delivered', 'Cancelled' => 'Cancelled'])}}

@@ -12,6 +12,7 @@
     </div>
     <div class="col-md-9">
     <div class="row">
+
       <table class="table table-bordered" class="fixed">
         <tr>
           <th>Name</th>
@@ -29,8 +30,8 @@
             $cart = json_decode($requests->cart);
           @endphp
         <tr>
-          <td> {{$requests->fname}} {{$requests->lname}} </td>
-          <td> Barangay: {{$requests->barangay}}, {{$requests->street}}, {{$requests->city}}, Zip: {{$requests->zip}} </td>
+          <td> {{$requests->user->firstname}} {{$requests->user->lastname}} </td>
+          <td> Barangay: {{$requests->user->barangay}}, {{$requests->user->street}}, {{$requests->user->city}}, Zip: {{$requests->user->zip}} </td>
           <td> {{$requests->type}} </td>
           @foreach($cart as $item)
           <td>{{$item->name}}</td>
@@ -38,14 +39,15 @@
           <td>{{$item->qty}}</td>
           @endforeach
           <td> {{$requests->status}} </td>
-          <td> {{$message->user->firstname}} </td>
+          <td> {{$messageRequest->user->firstname}} </td>
           <th>
-            <a class="btn btn-block btn-primary" href="/programdirector/sendSMS-V/transactionID={{$requests->transid}}" role="button">Assign Volunteer</a>
+            <a class="btn btn-block btn-primary" href="/programdirector/sendSMS-V-R/transactionID={{$requests->transid}}" role="button">Assign Volunteer</a>
             <a class="btn btn-block btn-primary" href="/programdirector/requests/{{$requests->transid}}/edit" role="button">Update Status</a>
           </th>
         </tr>
         @endforeach
     </table>
+
     </div>
     </div>
   </div>

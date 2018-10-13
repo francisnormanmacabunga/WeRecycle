@@ -4,10 +4,10 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Message extends Model
+class MessageOrders extends Model
 {
 
-  protected $table = 'message';
+  protected $table = 'message_orders';
   protected $primaryKey = 'messageID';
   public $timestamps = false;
 
@@ -15,7 +15,7 @@ class Message extends Model
   {
     return $this->belongsTo('App\Models\Employee','userID');
   }
-  
+
   public function transaction()
   {
     return $this->belongsTo('App\Models\Transaction','transid');

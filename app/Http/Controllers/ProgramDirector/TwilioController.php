@@ -6,7 +6,8 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Employee;
 use Twilio\Rest\Client;
-use App\Models\Message;
+use App\Models\MessageRequests;
+use App\Models\MessageOrders;
 use App\Models\Donor;
 use App\Models\Transaction;
 use DB;
@@ -29,21 +30,19 @@ class TwilioController extends Controller
       return view('ProgramDirector/ManageDonors.sendSMS-D', compact('applicants'));
     }
 
-    public function indexVolunteer()
+    public function indexVolunteerRequest()
     {
       $applicants = Employee::SELECT('*')
       -> join('contacts', 'contacts.userID', '=', 'user.userID')
       -> where('usertypeID', '2')
       -> where('status','Activated')
       -> get();
-      $transaction = Transaction::all();
-      //dd($applicants);
-      //$applicants['transid'] = $transid;
 
-      return view('ProgramDirector/ManageVolunteers.sendSMS-V', compact('applicants','transaction'));
+      $transaction = Transaction::all();
+      return view('ProgramDirector/ManageVolunteers.sendSMS-V-R', compact('applicants','transaction'));
     }
 
-    public function indexVolunteerID($userID)
+    public function indexVolunteerRequestID($userID)
     {
       $applicants = Employee::SELECT('*')
       -> join('contacts', 'contacts.userID', '=', 'user.userID')
@@ -53,8 +52,32 @@ class TwilioController extends Controller
       -> get();
 
       $transaction = Transaction::all();
-      //dd($transaction);
-      return view('ProgramDirector/ManageVolunteers.sendSMS-V', compact('applicants', 'transaction'));
+      return view('ProgramDirector/ManageVolunteers.sendSMS-V-R', compact('applicants', 'transaction'));
+    }
+
+    public function indexVolunteerOrder()
+    {
+      $applicants = Employee::SELECT('*')
+      -> join('contacts', 'contacts.userID', '=', 'user.userID')
+      -> where('usertypeID', '2')
+      -> where('status','Activated')
+      -> get();
+
+      $transaction = Transaction::all();
+      return view('ProgramDirector/ManageVolunteers.sendSMS-V-O', compact('applicants','transaction'));
+    }
+
+    public function indexVolunteerOrderID($userID)
+    {
+      $applicants = Employee::SELECT('*')
+      -> join('contacts', 'contacts.userID', '=', 'user.userID')
+      -> where('usertypeID', '2')
+      -> where('user.userID', $userID)
+      -> where('status','Activated')
+      -> get();
+
+      $transaction = Transaction::all();
+      return view('ProgramDirector/ManageVolunteers.sendSMS-V-O', compact('applicants', 'transaction'));
     }
 
     public function sendMessageDonor(Request $request)
@@ -70,7 +93,7 @@ class TwilioController extends Controller
       return redirect('/programdirector/sendSMS-D')->with('success', 'Message Sent Succesfully');
       }
 
-     public function sendMessageVolunteer(Request $request)
+     public function assignRequest(Request $request)
      {
       $this->validate($request, [
         'message' => 'nullable',
@@ -78,17 +101,11 @@ class TwilioController extends Controller
         'message.required' => 'The message field is required.'
       ]]);
 
-        $applicant = new Message();
+        $applicant = new MessageRequests();
         $applicant->message = $request ->input('message');
         $applicant->userID = $request->userID;
         $applicant->transid = $request ->input('transid');
         $applicant->save();
-        
-
-
-    /*    $transaction = Transaction::find($id);
-        $transaction->volunteer = $applicant->userID;
-        $transaction->save(); */
 
         $sid    = "AC8a7060e979f382acdb6ba484275f218b";
         $token  = "addb0fa1287d36f40d566e65bc764f4a";
@@ -101,5 +118,31 @@ class TwilioController extends Controller
 
         return redirect('/programdirector/requests')->with('success', 'Message Sent Succesfully');
     }
+
+    public function assignOrder(Request $request)
+    {
+     $this->validate($request, [
+       'message' => 'nullable',
+     [
+       'message.required' => 'The message field is required.'
+     ]]);
+
+       $applicant = new MessageOrders();
+       $applicant->message = $request ->input('message');
+       $applicant->userID = $request->userID;
+       $applicant->transid = $request ->input('transid');
+       $applicant->save();
+
+       $sid    = "AC8a7060e979f382acdb6ba484275f218b";
+       $token  = "addb0fa1287d36f40d566e65bc764f4a";
+       $twilio = new Client($sid, $token);
+       $message = $twilio->messages
+       ->create($twilio->mobile = $request->input('mobile'), // to
+                array(
+                    "body" => $twilio->message = $request->input('message'),
+                    "from" => "(619) 724-4011"));
+
+       return redirect('/programdirector/orders')->with('success', 'Message Sent Succesfully');
+   }
 
 }

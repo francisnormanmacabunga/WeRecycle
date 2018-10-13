@@ -21,6 +21,7 @@
           <th>Item Price</th>
           <th>Item Quantity</th>
           <th>Status</th>
+          <th>Assigned Volunteer</th>
           <th>Action</th>
         </tr>
         @foreach ($order as $orders)
@@ -28,8 +29,8 @@
             $cart = json_decode($orders->cart);
           @endphp
         <tr>
-          <td> {{$orders->fname}} {{$orders->lname}} </td>
-          <td> Barangay: {{$orders->barangay}}, {{$orders->street}}, {{$orders->city}}, Zip: {{$orders->zip}} </td>
+          <td> {{$orders->user->firstname}} {{$orders->user->lastname}} </td>
+          <td> Barangay: {{$orders->user->barangay}}, {{$orders->user->street}}, {{$orders->user->city}}, Zip: {{$orders->user->zip}} </td>
           <td> {{$orders->type}} </td>
           @foreach($cart as $item)
           <td>{{$item->name}}</td>
@@ -37,8 +38,9 @@
           <td>{{$item->qty}}</td>
           @endforeach
           <td> {{$orders->status}} </td>
+          <td> {{$messageOrder->user->firstname}} </td>
           <th>
-            <a class="btn btn-block btn-primary" href="/programdirector/sendSMS-V" role="button">Assign Volunteer</a>
+            <a class="btn btn-block btn-primary" href="/programdirector/sendSMS-V-O/transactionID={{$orders->transid}}" role="button">Assign Volunteer</a>
             <a class="btn btn-block btn-primary" href="/programdirector/orders/{{$orders->transid}}/edit" role="button">Update Status</a>
           </th>
         </tr>

@@ -87,14 +87,17 @@ Route::prefix('programdirector')->group(function() {
   Route::resource('/PD_password', 'ProgramDirector\ProgramDirectorsPasswordController');
   Route::get('/sendSMS-D','ProgramDirector\TwilioController@indexDonor');
   Route::post('/sendMessage-D','ProgramDirector\TwilioController@sendMessageDonor');
-  Route::get('/sendSMS-V/transactionID={transid}','ProgramDirector\TwilioController@indexVolunteer');
-  Route::get('/sendSMS-V/volunteerID={userID}','ProgramDirector\TwilioController@indexVolunteerID');
-  Route::post('/sendMessage-V','ProgramDirector\TwilioController@sendMessageVolunteer');
+  Route::get('/sendSMS-V-R/transactionID={transid}','ProgramDirector\TwilioController@indexVolunteerRequest');
+  Route::get('/sendSMS-V-R/volunteerID={userID}','ProgramDirector\TwilioController@indexVolunteerRequestID');
+  Route::post('/sendMessage-V','ProgramDirector\TwilioController@assignRequest');
+  Route::get('/sendSMS-V-O/transactionID={transid}','ProgramDirector\TwilioController@indexVolunteerOrder');
+  Route::get('/sendSMS-V-O/volunteerID={userID}','ProgramDirector\TwilioController@indexVolunteerOrderID');
+  Route::post('/sendMessage-V-O','ProgramDirector\TwilioController@assignOrder');
   Route::resource('/tasksHistory','ProgramDirector\UpdateVolunteer');
   Route::get('/donationhistory', 'ProgramDirector\DonationHistoryController@donationHistory');
   Route::resource('/feedback', 'ProgramDirector\FeedbacksController');
   Route::resource('/requests','ProgramDirector\RequestController');
-  Route::resource('/orders','ProgramDirector\OrderController'); 
+  Route::resource('/orders','ProgramDirector\OrderController');
   Route::get('/', 'ProgramDirector\ProgramDirectorController@index')->name('pd.dashboard');
 });
 

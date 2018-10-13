@@ -5,7 +5,7 @@ namespace App\Http\Controllers\ProgramDirector;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Transaction;
-use App\Models\Message;
+use App\Models\MessageRequests;
 use App\Models\Order;
 use DB;
 
@@ -28,8 +28,9 @@ class RequestController extends Controller
       -> where('type', 'Donate')
       -> get();
 
-      $message = Message::all()->last();
-      return view('ProgramDirector/ManageVolunteers.requests',compact('request','message'));
+      $messageRequest = MessageRequests::all()->last();
+
+      return view('ProgramDirector/ManageVolunteers.requests',compact('request', 'messageRequest'));
     }
 
     /**

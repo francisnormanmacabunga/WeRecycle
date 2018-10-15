@@ -33,26 +33,22 @@ class TwilioController extends Controller
 
     public function indexVolunteerRequest()
     {
-/*      $applicants = Volunteer::SELECT('*')
+      $applicants = Volunteer::SELECT('*')
       -> join('contacts', 'contacts.volunteerID', '=', 'volunteer.volunteerID')
       -> where('usertypeID', '2')
-      -> where
       -> where('status','Activated')
-      -> get(); */
-
-      $applicants = Transaction::SELECT('*')
-      ->where('volunteerID')
+      -> get();
 
       $transaction = Volunteer::where('status','Ordered')->get();
       return view('ProgramDirector/ManageVolunteers.sendSMS-V-R', compact('applicants','transaction'));
     }
 
-    public function indexVolunteerRequestID($userID)
+    public function indexVolunteerRequestID($volunteerID)
     {
       $applicants = Volunteer::SELECT('*')
       -> join('contacts', 'contacts.volunteerID', '=', 'volunteer.volunteerID')
       -> where('usertypeID', '2')
-      -> where('user.userID', $userID)
+      -> where('volunteer.volunteerID', $volunteerID)
       -> where('status','Activated')
       -> get();
 

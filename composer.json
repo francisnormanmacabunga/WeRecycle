@@ -15,7 +15,6 @@
         "laravelcollective/html": "^5.4.0",
         "spatie/eloquent-sortable": "^3.4",
         "spatie/laravel-activitylog": "^2.8",
-        "trexology/pointable": "^1.0",
         "twilio/sdk": "^5.23"
     },
     "require-dev": {

@@ -28,8 +28,8 @@
             $cart = json_decode($donations->cart);
           @endphp
         <tr>
-          <td></td>
-          @foreach($cart as $item)
+          <td>{{$donations->volunteer['firstname']}} {{$donations->volunteer['lastname']}}</td>
+        @foreach($cart as $item)
           <td>{{$item->name}}</td>
           <td>{{$item->qty}}</td>
         @endforeach

@@ -89,18 +89,22 @@ Route::prefix('programdirector')->group(function() {
   Route::post('/sendMessage-D','ProgramDirector\TwilioController@sendMessageDonor');
 
   Route::get('/sendSMS-V-R','ProgramDirector\TwilioController@indexVolunteerRequest');
-  Route::get('/sendSMS-V-R/volunteerID={userID}','ProgramDirector\TwilioController@indexVolunteerRequestID');
+  Route::get('/sendSMS-V-R/volunteerID={volunteerID}','ProgramDirector\TwilioController@indexVolunteerRequestID');
   Route::post('/sendMessage-V-R','ProgramDirector\TwilioController@assignRequest');
 
   Route::resource('/assignVolunteer','ProgramDirector\AssignVolunteerController');
 
-  Route::get('/sendSMS-V-O/transactionID={transid}','ProgramDirector\TwilioController@indexVolunteerOrder');
-  Route::get('/sendSMS-V-O/volunteerID={userID}','ProgramDirector\TwilioController@indexVolunteerOrderID');
+  Route::get('/sendSMS-V-O','ProgramDirector\TwilioController@indexVolunteerOrder');
+  Route::get('/sendSMS-V-O/volunteerID={volunteerID}','ProgramDirector\TwilioController@indexVolunteerOrderID');
   Route::post('/sendMessage-V-O','ProgramDirector\TwilioController@assignOrder');
-  Route::resource('/tasksHistory','ProgramDirector\UpdateVolunteer');
+  // Route::resource('/tasksHistory','ProgramDirector\UpdateVolunteer');
   Route::get('/donationhistory', 'ProgramDirector\DonationHistoryController@donationHistory');
   Route::resource('/feedback', 'ProgramDirector\FeedbacksController');
   Route::resource('/requests','ProgramDirector\RequestController');
+
+  Route::get('/messageorders', 'ProgramDirector\MessageController@messageOrders');
+  Route::get('/messagerequests', 'ProgramDirector\MessageController@messageRequests');
+
   Route::resource('/orders','ProgramDirector\OrderController');
   Route::get('/', 'ProgramDirector\ProgramDirectorController@index')->name('pd.dashboard');
 });
@@ -118,3 +122,5 @@ Route::prefix('admin')->group(function() {
   Route::get('/createEmployee', 'Admin\AdminController@createEmployee');
   Route::get('/', 'Admin\AdminController@index')->name('admin.dashboard');
 });
+
+  Route::get('/addpointeru', 'Donor\DonorsController@addpoints');

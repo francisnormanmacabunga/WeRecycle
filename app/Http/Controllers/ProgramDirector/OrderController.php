@@ -5,6 +5,7 @@ namespace App\Http\Controllers\ProgramDirector;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Transaction;
+use App\Models\Volunteer;
 use App\Models\MessageOrders;
 use App\Models\Order;
 use DB;
@@ -74,7 +75,8 @@ class OrderController extends Controller
     public function edit($id)
     {
       $order = Transaction::find($id);
-      return view('ProgramDirector/ManageVolunteers.editOrder', compact('order'));
+      $volunteer = Volunteer::all();
+      return view('ProgramDirector/ManageVolunteers.editOrder', compact('order', 'volunteer'));
     }
 
     /**
@@ -88,6 +90,9 @@ class OrderController extends Controller
     {
       $order = Transaction::find($id);
       $order->status = $request->input('status');
+      $order->volunteerID = $request->input('volunteer');
+
+
       $order->save();
       return redirect('/programdirector/orders')->with('success', 'Profile updated');
     }

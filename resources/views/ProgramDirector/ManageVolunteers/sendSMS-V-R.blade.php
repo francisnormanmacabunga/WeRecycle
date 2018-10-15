@@ -18,7 +18,7 @@
                     @if(count($applicants)>0)
                     <table class="table table-striped table-hover">
                       <tr>
-                    
+
                         <th>Name</th>
                         <th>Email</th>
                         <th>Mobile Number</th>
@@ -27,17 +27,15 @@
                       @foreach ($applicants as $applicant)
                         <tr>
                           <input type= "hidden" name= "mobile" class= "radio" value="{{$applicant->cellNo}}"/>
-                          <input type= "hidden" name= "userID"  value="{{$applicant->userID}}">
-                          @foreach ($transaction as $transactions)
-                           <td> <input type="number" min="0" max="9" step="2" value="{{$transactions->transid}}" > </<td>
-                          @endforeach
+                          <input type= "hidden" name= "volunteerID"  value="{{$applicant->volunteerID}}">
+
 
                           <td>{{$applicant->firstname}} {{$applicant->lastname}}</td>
                           <td>{{$applicant->email}}</td>
                           <td>{{$applicant->cellNo}}</td>
                           <td>
                             <a class="btn btn-primary"
-                            href="/programdirector/sendSMS-V-R/volunteerID={{$applicant->userID}}"
+                            href="/programdirector/sendSMS-V-R/volunteerID={{$applicant->volunteerID}}"
                             role="button"> Select </a>
                           </td>
                         </tr>

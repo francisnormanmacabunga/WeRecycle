@@ -33,26 +33,22 @@ class TwilioController extends Controller
 
     public function indexVolunteerRequest()
     {
-/*      $applicants = Volunteer::SELECT('*')
+      $applicants = Volunteer::SELECT('*')
       -> join('contacts', 'contacts.volunteerID', '=', 'volunteer.volunteerID')
       -> where('usertypeID', '2')
-      -> where
       -> where('status','Activated')
-      -> get(); */
-
-      $applicants = Transaction::SELECT('*')
-      ->where('volunteerID')
+      -> get();
 
       $transaction = Volunteer::where('status','Ordered')->get();
       return view('ProgramDirector/ManageVolunteers.sendSMS-V-R', compact('applicants','transaction'));
     }
 
-    public function indexVolunteerRequestID($userID)
+    public function indexVolunteerRequestID($volunteerID)
     {
       $applicants = Volunteer::SELECT('*')
       -> join('contacts', 'contacts.volunteerID', '=', 'volunteer.volunteerID')
       -> where('usertypeID', '2')
-      -> where('user.userID', $userID)
+      -> where('volunteer.volunteerID', $volunteerID)
       -> where('status','Activated')
       -> get();
 
@@ -62,8 +58,8 @@ class TwilioController extends Controller
 
     public function indexVolunteerOrder()
     {
-      $applicants = Employee::SELECT('*')
-      -> join('contacts', 'contacts.userID', '=', 'user.userID')
+      $applicants = Volunteer::SELECT('*')
+      -> join('contacts', 'contacts.volunteerID', '=', 'volunteer.volunteerID')
       -> where('usertypeID', '2')
       -> where('status','Activated')
       -> get();
@@ -72,12 +68,12 @@ class TwilioController extends Controller
       return view('ProgramDirector/ManageVolunteers.sendSMS-V-O', compact('applicants','transaction'));
     }
 
-    public function indexVolunteerOrderID($userID)
+    public function indexVolunteerOrderID($volunteerID)
     {
-      $applicants = Employee::SELECT('*')
-      -> join('contacts', 'contacts.userID', '=', 'user.userID')
+      $applicants = Volunteer::SELECT('*')
+      -> join('contacts', 'contacts.volunteerID', '=', 'volunteer.volunteerID')
       -> where('usertypeID', '2')
-      -> where('user.userID', $userID)
+      -> where('volunteer.volunteerID', $volunteerID)
       -> where('status','Activated')
       -> get();
 
@@ -98,6 +94,18 @@ class TwilioController extends Controller
       return redirect('/programdirector/sendSMS-D')->with('success', 'Message Sent Succesfully');
       }
 
+
+
+
+
+
+
+
+
+
+
+
+
      public function assignRequest(Request $request)
      {
       $this->validate($request, [
@@ -108,9 +116,10 @@ class TwilioController extends Controller
 
         $applicant = new MessageRequests();
         $applicant->message = $request ->input('message');
-        $applicant->userID = $request->userID;
-        $applicant->transid = $request ->input('transid');
+        $applicant->volunteerID = $request->volunteerID;
         $applicant->save();
+
+        dd($applicant);
 
       /*  $applicant = Transaction::find($transid);
         $applicant->transid = $request ->input('transid');
@@ -128,6 +137,16 @@ class TwilioController extends Controller
         return redirect('/programdirector/requests')->with('success', 'Message Sent Succesfully');
     }
 
+
+
+
+
+
+
+
+
+
+
     public function assignOrder(Request $request)
     {
      $this->validate($request, [
@@ -138,8 +157,7 @@ class TwilioController extends Controller
 
        $applicant = new MessageOrders();
        $applicant->message = $request ->input('message');
-       $applicant->userID = $request->userID;
-       $applicant->transid = $request ->input('transid');
+       $applicant->volunteerID = $request->volunteerID;
        $applicant->save();
 
        $sid    = "AC8a7060e979f382acdb6ba484275f218b";

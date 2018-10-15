@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Validation\Rule;
 use App\Models\Contacts;
 use App\Models\Donor;
+use App\Models\Points;
 use Hash;
 
 class DonorsController extends Controller
@@ -107,6 +108,11 @@ class DonorsController extends Controller
       $contacts->cellNo = $request->input('cellNo');
       $contacts->tellNo = $request->input('tellNo');
       $contacts->save();
+
+      $points = new Points;
+      $points->pointsaccumulated = 0;
+      $points->userID = $user->userID;
+      $points->save();
       return redirect('/donor/login')->with('success', 'Profile Created');
     }
 

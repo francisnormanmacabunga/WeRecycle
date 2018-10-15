@@ -150,7 +150,11 @@ return [
         Kyslik\ColumnSortable\ColumnSortableServiceProvider::class,
         Gloudemans\Shoppingcart\ShoppingcartServiceProvider::class,
         Anhskohbo\NoCaptcha\NoCaptchaServiceProvider::class,
+<<<<<<< HEAD
       
+=======
+
+>>>>>>> 2439e9ad5af6444154c945563b30aef3e77d88e4
 
         /*
          * Package Service Providers...

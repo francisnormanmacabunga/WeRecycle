@@ -94,13 +94,17 @@ Route::prefix('programdirector')->group(function() {
 
   Route::resource('/assignVolunteer','ProgramDirector\AssignVolunteerController');
 
-  Route::get('/sendSMS-V-O/transactionID={transid}','ProgramDirector\TwilioController@indexVolunteerOrder');
-  Route::get('/sendSMS-V-O/volunteerID={userID}','ProgramDirector\TwilioController@indexVolunteerOrderID');
+  Route::get('/sendSMS-V-O','ProgramDirector\TwilioController@indexVolunteerOrder');
+  Route::get('/sendSMS-V-O/volunteerID={volunteerID}','ProgramDirector\TwilioController@indexVolunteerOrderID');
   Route::post('/sendMessage-V-O','ProgramDirector\TwilioController@assignOrder');
-  Route::resource('/tasksHistory','ProgramDirector\UpdateVolunteer');
+  // Route::resource('/tasksHistory','ProgramDirector\UpdateVolunteer');
   Route::get('/donationhistory', 'ProgramDirector\DonationHistoryController@donationHistory');
   Route::resource('/feedback', 'ProgramDirector\FeedbacksController');
   Route::resource('/requests','ProgramDirector\RequestController');
+
+  Route::get('/messageorders', 'ProgramDirector\MessageController@messageOrders');
+  Route::get('/messagerequests', 'ProgramDirector\MessageController@messageRequests');
+
   Route::resource('/orders','ProgramDirector\OrderController');
   Route::get('/', 'ProgramDirector\ProgramDirectorController@index')->name('pd.dashboard');
 });

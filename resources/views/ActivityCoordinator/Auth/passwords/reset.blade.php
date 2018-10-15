@@ -20,11 +20,11 @@
         <!-- ============================================================== -->
         <!-- Login box.scss -->
         <!-- ============================================================== -->
-        <div class="auth-wrapper d-flex no-block justify-content-center align-items-center bg-dark">
-            <div class="auth-box bg-dark border-top border-secondary">
+        <div class="auth-wrapper d-flex no-block justify-content-center align-items-center" style="background-image:url('../../../assets/images/background/ac.gif'); background-size: cover">
+            <div class="auth-box" style="background-color: rgba(0,0,0,0)">
                 <div>
                     <div class="text-center p-t-20 p-b-20">
-                        <span class="db"><img src="../../../assets/images/logo.png" alt="logo" /></span>
+                        <span class="db"><img src="../../../assets/images/ac-logo.png" alt="logo" /></span>
                     </div>
                     <!-- Form -->
                     @if ($errors->has('email'))
@@ -43,23 +43,23 @@
                                     <div class="input-group-prepend">
                                         <span class="input-group-text bg-danger text-white" id="basic-addon1"><i class="ti-email"></i></span>
                                     </div>
-                                    <input class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }} form-control-lg" placeholder="Email Address" aria-label="Username" aria-describedby="basic-addon1" id="email" type="email" name="email" value="{{ $email ?? old('email') }}" required autofocus>
+                                    <input class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" placeholder="Email Address" aria-label="Username" aria-describedby="basic-addon1" id="email" type="email" name="email" value="{{ $email ?? old('email') }}" required autofocus>
                                 </div>
                                 <div class="input-group mb-3">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text bg-warning text-white" id="basic-addon2"><i class="ti-pencil"></i></span>
                                     </div>
-                                    <input class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }} form-control-lg" placeholder="New Password" aria-label="Password" aria-describedby="basic-addon1" id="password" type="password" name="password" required>
+                                    <input class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" placeholder="New Password" aria-label="Password" aria-describedby="basic-addon1" id="password" type="password" name="password" required>
                                 </div>
                                 <div class="input-group mb-3">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text bg-info text-white" id="basic-addon2"><i class="ti-pencil"></i></span>
                                     </div>
-                                    <input class="form-control form-control-lg" placeholder=" Confirm Password" aria-label="Password" aria-describedby="basic-addon1" id="password-confirm" type="password" name="password_confirmation" required>
+                                    <input class="form-control" placeholder=" Confirm Password" aria-label="Password" aria-describedby="basic-addon1" id="password-confirm" type="password" name="password_confirmation" required>
                                 </div>
                             </div>
                         </div>
-                        <div class="row border-top border-secondary">
+                        <div class="row">
                             <div class="col-12">
                                 <div class="form-group">
                                     <div class="p-t-20">

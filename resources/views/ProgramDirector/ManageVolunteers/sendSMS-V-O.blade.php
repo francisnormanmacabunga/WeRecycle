@@ -27,16 +27,13 @@
                         @foreach ($applicants as $applicant)
                           <tr>
                             <input type= "hidden" name= "mobile" class= "radio" value="{{$applicant->cellNo}}"/>
-                            <input type= "hidden" name= "userID"  value="{{$applicant->userID}}">
+                            <input type= "hidden" name= "volunteerID"  value="{{$applicant->volunteerID}}">
                             <td>{{$applicant->firstname}} {{$applicant->lastname}}</td>
                             <td>{{$applicant->email}}</td>
                             <td>{{$applicant->cellNo}}</td>
-                            @foreach ($transaction as $transactions)
-                            <input type= "hidden" name= "transid" class= "radio" value="{{$transactions->transid}}"/>
-                            @endforeach
                             <td>
                               <a class="btn btn-primary"
-                              href="/programdirector/sendSMS-V-O/volunteerID={{$applicant->userID}}"
+                              href="/programdirector/sendSMS-V-O/volunteerID={{$applicant->volunteerID}}"
                               role="button"> Select </a>
                             </td>
                           </tr>

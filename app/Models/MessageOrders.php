@@ -8,7 +8,7 @@ class MessageOrders extends Model
 {
 
   protected $table = 'message_orders';
-  protected $primaryKey = 'messageID';
+  protected $primaryKey = 'message_order_id';
   public $timestamps = false;
 
   public function user()
@@ -20,5 +20,11 @@ class MessageOrders extends Model
   {
     return $this->belongsTo('App\Models\Transaction','transid');
   }
+
+  public function volunteer()
+  {
+    return $this->belongsTo('App\Models\Volunteer','volunteerID');
+  }
+
 
 }

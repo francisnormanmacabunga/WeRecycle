@@ -20,8 +20,8 @@
         <!-- ============================================================== -->
         <!-- Login box.scss -->
         <!-- ============================================================== -->
-        <div class="auth-wrapper d-flex no-block justify-content-center align-items-center bg-dark">
-            <div class="auth-box bg-dark border-top border-secondary">
+        <div class="auth-wrapper d-flex no-block justify-content-center align-items-center" style="background-image:url('../../assets/images/background/ac.gif'); background-size: cover">
+            <div class="auth-box" style="background-color: rgba(0,0,0,0)">
               <div id="loginform">
                 @if ($errors->has('email'))
                     <div class="alert alert-danger" role="alert">{{ $errors->first('email') }}</div>
@@ -46,7 +46,7 @@
                               <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }} form-control-lg" placeholder="Email Address" aria-label="Username" aria-describedby="basic-addon1" name="email" value="{{ old('email') }}" required>
                           </div>
                           <!-- pwd -->
-                          <div class="row m-t-20 p-t-20 border-top border-secondary">
+                          <div class="row m-t-20 p-t-20">
                               <div class="col-12">
                                   <a class="btn btn-success" href="/programdirector/login" id="to-login" name="action">Back</a>
                                   <button class="btn btn-info float-right" type="submit" name="action">{{ __('Recover') }}</button>

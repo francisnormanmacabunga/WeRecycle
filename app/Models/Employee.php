@@ -4,27 +4,35 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Spatie\Activitylog\Traits\LogsActivity;
+//use Spatie\Activitylog\Traits\HasActivity;
 use Kyslik\ColumnSortable\Sortable;
 use Carbon\Carbon;
 
 class Employee extends Model
 {
 
+    //use HasActivity;
     use LogsActivity;
     use Sortable;
     protected $table = 'user';
     protected $primaryKey = 'userID';
     public $timestamps = true;
     public $sortable = ['created_at', 'status', 'usertypeID'];
+    protected static $logName = 'Employee Account';
     protected static $logAttributes = ["*"];
+    protected static $logOnlyDirty = true;
+    public function getDescriptionForEvent(string $eventName): string
+    {
+        return "Has {$eventName}";
+    }
 
-    public static function boot()
+  /*  public static function boot()
     {
     parent::boot();
     static::saving(function (Model $model) {
         static::$logAttributes = array_keys($model->getDirty());
     });
-    }
+  } */
 
     public function getNameAttribute()
     {

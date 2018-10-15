@@ -12,15 +12,22 @@ class Contacts extends Model
   protected $table = 'contacts';
   protected $primaryKey = 'contactID';
   public $timestamps = false;
-  protected static $logAttributes = ["*"];
 
-  public static function boot()
+  protected static $logName = 'Contact';
+  protected static $logAttributes = ["*"];
+  protected static $logOnlyDirty = true;
+  public function getDescriptionForEvent(string $eventName): string
+  {
+      return "Has {$eventName}";
+  }
+
+  /*public static function boot()
   {
   parent::boot();
   static::saving(function (Contacts $model) {
       static::$logAttributes = array_keys($model->getDirty());
   });
-  }
+}*/
 
   public function getNameAttribute()
   {

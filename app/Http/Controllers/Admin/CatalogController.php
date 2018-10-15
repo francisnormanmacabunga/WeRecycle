@@ -64,7 +64,7 @@ class CatalogController extends Controller
       'productname' => 'required|regex:/^[\pL\s]+$/u',
       'productstypeID' => 'required',
       'description' => 'required|regex:/^[ \w.#-]+$/',
-      'price' => 'integer|min:0',
+      'price' => 'min:0',
       'productimage' => 'required|mimes:jpeg,jpg,png|image|max:5000'
     ],
     [

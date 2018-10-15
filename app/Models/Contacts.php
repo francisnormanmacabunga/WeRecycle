@@ -32,4 +32,9 @@ class Contacts extends Model
     return $this->belongsTo('App\Models\Volunteer','volunteerID');
   }
 
+  public function user()
+  {
+    return $this->belongsTo('App\Models\Employee','userID');
+  }
+
 }

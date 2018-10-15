@@ -23,6 +23,9 @@
                               @endif
                               Hello {{Auth::user()->firstname}}!
                           </div>
+                          <div class="card-body">
+                          <a href="/addpointeru">Add points</a>
+                          </div>
                       </div>
                   </div>
               </div>

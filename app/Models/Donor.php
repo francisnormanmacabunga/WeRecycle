@@ -54,6 +54,11 @@ class Donor extends Authenticatable
       return $this->belongsTo('App\order');
     }
 
+    public function points()
+    {
+    return $this->hasOne('App\Models\Points', 'pointsID');
+    }
+
     /**
      * The attributes that are mass assignable.
      *

@@ -92,13 +92,8 @@ class RequestController extends Controller
       $updateRequest = Transaction::find($id);
       $updateRequest->status = $request->input('status');
       $updateRequest->volunteerID = $request->input('volunteer');
-      
+
       $updateRequest->save();
-
-
-
-
-
       return redirect('/programdirector/requests')->with('success', 'Profile updated');
     }
 

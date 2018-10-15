@@ -10,6 +10,7 @@ use App\Models\MessageRequests;
 use App\Models\MessageOrders;
 use App\Models\Donor;
 use App\Models\Transaction;
+use App\Models\Volunteer;
 use DB;
 
 class TwilioController extends Controller
@@ -32,22 +33,22 @@ class TwilioController extends Controller
 
     public function indexVolunteerRequest()
     {
-      $applicants = Employee::SELECT('*')
-      -> join('contacts', 'contacts.userID', '=', 'user.userID')
+      $applicants = Volunteer::SELECT('*')
+      -> join('contacts', 'contacts.volunteerID', '=', 'volunteer.volunteerID')
       -> where('usertypeID', '2')
       -> where('status','Activated')
       -> get();
 
-      $transaction = Transaction::where('status','Ordered')->get();
+      $transaction = Volunteer::where('status','Ordered')->get();
       return view('ProgramDirector/ManageVolunteers.sendSMS-V-R', compact('applicants','transaction'));
     }
 
-    public function indexVolunteerRequestID($userID)
+    public function indexVolunteerRequestID($volunteerID)
     {
-      $applicants = Employee::SELECT('*')
-      -> join('contacts', 'contacts.userID', '=', 'user.userID')
+      $applicants = Volunteer::SELECT('*')
+      -> join('contacts', 'contacts.volunteerID', '=', 'volunteer.volunteerID')
       -> where('usertypeID', '2')
-      -> where('user.userID', $userID)
+      -> where('volunteer.volunteerID', $volunteerID)
       -> where('status','Activated')
       -> get();
 

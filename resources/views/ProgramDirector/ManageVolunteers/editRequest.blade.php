@@ -7,7 +7,7 @@
   <div class="row">
             <div class="col-md-12">
               <br/>
-              <h3 align="center">Update Status</h3>
+              <h3 align="center">Update Transaction</h3>
               <br/>
               <h5 align="left"><a href="/programdirector/requests">Back</a></h5>
 

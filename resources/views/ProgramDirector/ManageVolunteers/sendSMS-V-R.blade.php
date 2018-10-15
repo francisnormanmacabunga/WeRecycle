@@ -3,16 +3,9 @@
 
 @section('content')
 
-<div class="row">
-  <div class="col-lg-3">
-  <h3>Manage Request</h3>
-  <div class="list-group">
-    <a href="" class="list-group-item">Update Status</a>
-    <a href="/programdirector/sendSMS-V-R" class="list-group-item">Message Volunteer</a>
-  </div>
-  </div>
-
-      <div class="col-md-9">
+  <div class="container">
+      <div class="row justify-content-center">
+      <div class="col-md-8">
           <div class="card">
               <div class="card-header">Send notification through SMS</div>
               <div class="card-body">
@@ -25,7 +18,7 @@
                     @if(count($applicants)>0)
                     <table class="table table-striped table-hover">
                       <tr>
-                        <th>Transaction ID</th>
+                    
                         <th>Name</th>
                         <th>Email</th>
                         <th>Mobile Number</th>
@@ -66,6 +59,8 @@
       </div>
     </div>
   </div>
+</div>
+</div>
 </div>
 
 <script type="text/javascript">

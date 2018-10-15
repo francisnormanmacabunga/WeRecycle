@@ -150,7 +150,7 @@ return [
         Kyslik\ColumnSortable\ColumnSortableServiceProvider::class,
         Gloudemans\Shoppingcart\ShoppingcartServiceProvider::class,
         Anhskohbo\NoCaptcha\NoCaptchaServiceProvider::class,
-        Trexology\Pointable\PointableServiceProvider::class,
+
 
         /*
          * Package Service Providers...

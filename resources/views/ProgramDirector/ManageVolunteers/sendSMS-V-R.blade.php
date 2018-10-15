@@ -28,7 +28,7 @@
                         <tr>
                           <input type= "hidden" name= "mobile" class= "radio" value="{{$applicant->cellNo}}"/>
                           <input type= "hidden" name= "userID"  value="{{$applicant->userID}}">
-                    
+                
 
                           <td>{{$applicant->firstname}} {{$applicant->lastname}}</td>
                           <td>{{$applicant->email}}</td>

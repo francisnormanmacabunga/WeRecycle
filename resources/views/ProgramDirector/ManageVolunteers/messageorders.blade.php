@@ -21,14 +21,12 @@
             <br>
             <br>
             <tr>
-              <th>Transaction ID</th>
               <th>Assigned Volunteer</th>
               <th>Message</th>
             </tr>
             @foreach ($messageorders as $messageorder)
             <tr>
-              <td> {{$messageorder->transaction[transid]}} </td>
-              <td> {{$messageorder->user->firstname}} {{$messages->user->lastname}} </td>
+              <td> {{$messageorder->volunteer->firstname}} {{$messageorder->volunteer->lastname}} </td>
               <td> {{$messageorder->message}} </td>
             </tr>
             @endforeach

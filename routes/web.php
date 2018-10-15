@@ -94,8 +94,8 @@ Route::prefix('programdirector')->group(function() {
 
   Route::resource('/assignVolunteer','ProgramDirector\AssignVolunteerController');
 
-  Route::get('/sendSMS-V-O/transactionID={transid}','ProgramDirector\TwilioController@indexVolunteerOrder');
-  Route::get('/sendSMS-V-O/volunteerID={userID}','ProgramDirector\TwilioController@indexVolunteerOrderID');
+  Route::get('/sendSMS-V-O','ProgramDirector\TwilioController@indexVolunteerOrder');
+  Route::get('/sendSMS-V-O/volunteerID={volunteerID}','ProgramDirector\TwilioController@indexVolunteerOrderID');
   Route::post('/sendMessage-V-O','ProgramDirector\TwilioController@assignOrder');
   // Route::resource('/tasksHistory','ProgramDirector\UpdateVolunteer');
   Route::get('/donationhistory', 'ProgramDirector\DonationHistoryController@donationHistory');

@@ -43,7 +43,7 @@
           <td> {{$orders->status}} </td>
           <td> {{$orders->volunteer['firstname']}} {{$orders->volunteer['lastname']}}</td>
           <th>
-            <a class="btn btn-block btn-primary" href="/programdirector/sendSMS-V-R" role="button">Message Volunteer</a>
+            <a class="btn btn-block btn-primary" href="/programdirector/sendSMS-V-O" role="button">Message Volunteer</a>
             <a class="btn btn-block btn-primary" href="/programdirector/orders/{{$orders->transid}}/edit" role="button">Update Status</a>
           </th>
         </tr>

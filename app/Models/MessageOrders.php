@@ -21,4 +21,10 @@ class MessageOrders extends Model
     return $this->belongsTo('App\Models\Transaction','transid');
   }
 
+  public function volunteer()
+  {
+    return $this->belongsTo('App\Models\Volunteer','volunteerID');
+  }
+
+
 }

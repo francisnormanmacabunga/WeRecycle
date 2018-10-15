@@ -15,12 +15,20 @@
           <th>Name</th>
           <th>Status</th>
           <th>Action</th>
+          <th>Volunteer</th>
         </tr>
           <tr>
             <td>{{$order->user->firstname}} {{$order->user->lastname}}</td>
             <td>{{$order['status']}}</td>
             <td>
                 {{Form::select('status', ['Shipping' => 'Shipping', 'Delivered' => 'Delivered', 'Cancelled' => 'Cancelled'])}}
+            </td>
+            <td>
+              <select name="volunteer">
+              @foreach($volunteer as $volunteers)
+                <option value="{{$volunteers->volunteerID}}">{{$volunteers->firstname}}</option>
+              @endforeach
+              </select>
             </td>
           </tr>
       </table>

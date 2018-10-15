@@ -29,7 +29,7 @@
             $cart = json_decode($shops->cart);
           @endphp
         <tr>
-          <td></td>
+          <td>{{$shops->volunteer['firstname']}} {{$shops->volunteer['lastname']}}</td>
           @foreach($cart as $item)
           <td>{{$item->name}}</td>
           <td>{{$item->qty}}</td>

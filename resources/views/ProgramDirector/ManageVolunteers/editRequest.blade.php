@@ -3,19 +3,14 @@
 
 @section('content')
 
-    <div class="row">
-      <div class="col-lg-3">
-      <h3>Manage Request</h3>
-      <div class="list-group">
-          <a href="" class="list-group-item">Update Status</a>
-          <a href="" class="list-group-item">Message Volunteer</a>
-      </div>
-      </div>
-
-      <div class="col-lg-9">
-        <div class="row">
+  {!! Form::open(['action' => ['ProgramDirector\RequestController@update', $request['transid']], 'method' => 'POST' ]) !!}
+  <div class="row">
             <div class="col-md-12">
-            <div class="row">
+              <br/>
+              <h3 align="center">Update Status</h3>
+              <br/>
+              <h5 align="left"><a href="/programdirector/requests">Back</a></h5>
+
                   <table class="table table-bordered" class="fixed">
                   <tr>
                     <th>Name</th>
@@ -42,9 +37,9 @@
               <a class="btn btn-block btn-primary btn-lg btn-block" href="/programdirector/requests" role="button">Back</a>
             </div>
           </div>
-        </div>
-      </div>
-    </div>
+
+
+
 
     <script type="text/javascript">
         function Confirm() {

@@ -6,6 +6,7 @@
   <div class="row">
     <div class="col-lg-3">
     <div class="list-group">
+      <h3>Transactions</h3>
       <a href="/programdirector/requests" class="list-group-item">View Requests</a>
       <a href="/programdirector/orders" class="list-group-item">View Orders</a>
     </div>

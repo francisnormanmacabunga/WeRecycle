@@ -6,6 +6,7 @@
   <div class="row">
     <div class="col-lg-3">
     <div class="list-group">
+      <h3>Transactions</h3>
       <a href="/programdirector/requests" class="list-group-item">View Requests</a>
       <a href="/programdirector/orders" class="list-group-item">View Orders</a>
     </div>
@@ -44,14 +45,11 @@
           <td> {{$requests->volunteer['firstname']}} </td>
           <th>
             <a class="btn btn-block btn-primary"
-            href="/programdirector/sendSMS-V-R/transactionID={{$requests->transid}}"
+            href="/programdirector/sendSMS-V-R"
             role="button">Message Volunteer</a>
             <a class="btn btn-block btn-primary"
             href="/programdirector/requests/{{$requests->transid}}/edit"
             role="button">Manage Transaction</a>
-            <a class="btn btn-block btn-primary"
-            href=""
-            role="button">Assign Volunteer</a>
           </th>
         </tr>
         @endforeach

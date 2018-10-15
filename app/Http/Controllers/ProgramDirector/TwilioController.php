@@ -104,8 +104,7 @@ class TwilioController extends Controller
 
         $applicant = new MessageRequests();
         $applicant->message = $request ->input('message');
-        $applicant->userID = $request->userID;
-        $applicant->transid = $request ->input('transid');
+        $applicant->volunteerID = $request->volunteerID;
         $applicant->save();
 
       /*  $applicant = Transaction::find($transid);
@@ -134,8 +133,7 @@ class TwilioController extends Controller
 
        $applicant = new MessageOrders();
        $applicant->message = $request ->input('message');
-       $applicant->userID = $request->userID;
-       $applicant->transid = $request ->input('transid');
+       $applicant->volunteerID = $request->volunteerID;
        $applicant->save();
 
        $sid    = "AC8a7060e979f382acdb6ba484275f218b";

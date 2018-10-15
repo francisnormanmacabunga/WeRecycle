@@ -2,7 +2,9 @@
 
 <!DOCTYPE html>
 <html dir="ltr">
-
+<head>
+    <title>Administrator</title>
+</head>
 <body>
     <div class="main-wrapper">
         <!-- ============================================================== -->
@@ -25,7 +27,7 @@
             <div class="auth-box bg-dark border-top border-secondary">
                 <div id="loginform">
                     <div class="text-center p-t-20 p-b-20">
-                        <span class="db"><img src="../assets/images/logo.png" alt="logo" /></span>
+                        <span class="db"><img src="../assets/images/admin-logo.png" alt="logo" /></span>
                     </div>
                     @if(session()->has('alert'))
                     <div class="alert alert-danger" role="alert">{{session()->get('alert')}}</div>
@@ -39,7 +41,7 @@
                                     <div class="input-group-prepend">
                                         <span class="input-group-text bg-success text-white" id="basic-addon1"><i class="ti-user"></i></span>
                                     </div>
-                                    <input type="text" class="form-control{{ $errors->has('username') ? ' is-invalid' : '' }} form-control-lg" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" name="username" value="{{ old('username') }}" required autofocus>
+                                    <input type="text" class="form-control{{ $errors->has('username') ? ' is-invalid' : '' }}" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" name="username" value="{{ old('username') }}" required autofocus>
                                     @if ($errors->has('username'))
                                         <div class="alert alert-danger" role="alert">{{ $errors->first('username') }}</div>
                                     @endif
@@ -48,7 +50,7 @@
                                     <div class="input-group-prepend">
                                         <span class="input-group-text bg-warning text-white" id="basic-addon2"><i class="ti-pencil"></i></span>
                                     </div>
-                                    <input type="password" name="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }} form-control-lg" placeholder="Password" aria-label="Password" aria-describedby="basic-addon1" required>
+                                    <input type="password" name="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" placeholder="Password" aria-label="Password" aria-describedby="basic-addon1" required>
                                     @if ($errors->has('password'))
                                         <div class="alert alert-danger" role="alert">{{ $errors->first('password') }}</div>
                                     @endif
@@ -59,7 +61,7 @@
                             <div class="col-12">
                                 <div class="form-group">
                                     <div class="p-t-20">
-                                        <button class="btn btn-block btn-lg btn-success" type="submit">{{ __('Login') }}</button>
+                                        <button class="btn btn-block btn-success" type="submit">{{ __('Login') }}</button>
                                     </div>
                                 </div>
                             </div>

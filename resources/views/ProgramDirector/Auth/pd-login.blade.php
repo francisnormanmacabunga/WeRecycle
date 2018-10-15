@@ -2,7 +2,9 @@
 
 <!DOCTYPE html>
 <html dir="ltr">
-
+<head>
+    <title>Program Director</title>
+</head>
 <body>
     <div class="main-wrapper">
         <!-- ============================================================== -->
@@ -21,11 +23,11 @@
         <!-- Login box.scss -->
         <!-- ============================================================== -->
 
-        <div class="auth-wrapper d-flex no-block justify-content-center align-items-center bg-dark">
-            <div class="auth-box bg-dark border-top border-secondary">
+        <div class="auth-wrapper d-flex no-block justify-content-center align-items-center" style="background-image:url('../assets/images/background/ac.gif'); background-size: cover">
+            <div class="auth-box" style="background-color: rgba(0,0,0,0)">
                 <div id="loginform">
                     <div class="text-center p-t-20 p-b-20">
-                        <span class="db"><img src="../assets/images/logo.png" alt="logo" /></span>
+                        <span class="db"><img src="../assets/images/pd-logo.png" alt="logo" /></span>
                     </div>
                     @if(session()->has('alert'))
                     <div class="alert alert-danger" role="alert">{{session()->get('alert')}}</div>
@@ -45,17 +47,17 @@
                                     <div class="input-group-prepend">
                                         <span class="input-group-text bg-success text-white" id="basic-addon1"><i class="ti-user"></i></span>
                                     </div>
-                                    <input type="text" class="form-control{{ $errors->has('username') ? ' is-invalid' : '' }} form-control-lg" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" name="username" value="{{ old('username') }}" required autofocus>
+                                    <input type="text" class="form-control{{ $errors->has('username') ? ' is-invalid' : '' }}" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" name="username" value="{{ old('username') }}" required autofocus>
                                 </div>
                                 <div class="input-group mb-3">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text bg-warning text-white" id="basic-addon2"><i class="ti-pencil"></i></span>
                                     </div>
-                                    <input type="password" name="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }} form-control-lg" placeholder="Password" aria-label="Password" aria-describedby="basic-addon1" required>
+                                    <input type="password" name="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" placeholder="Password" aria-label="Password" aria-describedby="basic-addon1" required>
                                 </div>
                             </div>
                         </div>
-                        <div class="row border-top border-secondary">
+                        <div class="row">
                             <div class="col-12">
                                 <div class="form-group">
                                     <div class="p-t-20">

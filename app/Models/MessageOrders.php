@@ -8,7 +8,7 @@ class MessageOrders extends Model
 {
 
   protected $table = 'message_orders';
-  protected $primaryKey = 'messageID';
+  protected $primaryKey = 'message_order_id';
   public $timestamps = false;
 
   public function user()

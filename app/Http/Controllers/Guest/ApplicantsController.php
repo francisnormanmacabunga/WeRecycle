@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Guest;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Validation\Rule;
+use App\Models\Volunteer;
 use App\Models\Employee;
 use App\Models\Contacts;
 use Hash;
@@ -82,7 +83,7 @@ class ApplicantsController extends Controller
       'username.required' => 'The Username field is required.',
       'username.alpha_dash' => 'The Username may only contain letters, numbers, dashes and underscores.',
     ]);
-      $user = new Employee();
+      $user = new Volunteer();
       $user->firstname = $request->input('firstname');
       $user->lastname = $request->input('lastname');
       $user->email = $request->input('email');
@@ -93,12 +94,12 @@ class ApplicantsController extends Controller
       $user->zip = $request->input('zip');
       $user->username = $request->input('username');
       $user->usertypeID = $request->input('usertypeID');
-      $user->password = Hash::make($request->input('password'));
+      //$user->password = Hash::make($request->input('password'));
       $user->status = $request->input('status');
       $user->save();
 
       $contacts = new Contacts();
-      $contacts->userID = $user->userID;
+      $contacts->volunteerID = $user->volunteerID;
       $contacts->cellNo = $request->input('cellNo');
       $contacts->tellNo = $request->input('tellNo');
       $contacts->save();

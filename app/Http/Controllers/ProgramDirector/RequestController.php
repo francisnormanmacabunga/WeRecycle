@@ -6,7 +6,9 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Transaction;
 use App\Models\MessageRequests;
+use App\Models\Volunteer;
 use App\Models\Order;
+use App\Models\Employee;
 use DB;
 
 class RequestController extends Controller
@@ -28,9 +30,9 @@ class RequestController extends Controller
       -> where('type', 'Donate')
       -> get();
 
-      $messageRequest = MessageRequests::all()->last();
+      $message = MessageRequests::all()->last();
 
-      return view('ProgramDirector/ManageVolunteers.requests',compact('request', 'messageRequest'));
+      return view('ProgramDirector/ManageVolunteers.requests',compact('request', 'message'));
     }
 
     /**
@@ -74,7 +76,8 @@ class RequestController extends Controller
     public function edit($id)
     {
       $request = Transaction::find($id);
-      return view('ProgramDirector/ManageVolunteers.editRequest', compact('request'));
+      $volunteer = Volunteer::all();
+      return view('ProgramDirector/ManageVolunteers.editRequest', compact('request', 'volunteer'));
     }
 
     /**
@@ -88,7 +91,14 @@ class RequestController extends Controller
     {
       $updateRequest = Transaction::find($id);
       $updateRequest->status = $request->input('status');
+      $updateRequest->volunteerID = $request->input('volunteer');
+      
       $updateRequest->save();
+
+
+
+
+
       return redirect('/programdirector/requests')->with('success', 'Profile updated');
     }
 

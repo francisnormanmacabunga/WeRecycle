@@ -3,7 +3,7 @@
 
 @section('content')
 
-  {!! Form::open(['action' => ['ActivityCoordinator\ApplicantsController@update', $applicants['userID']], 'method' => 'POST' ]) !!}
+  {!! Form::open(['action' => ['ActivityCoordinator\ApplicantsController@update', $applicants['volunteerID']], 'method' => 'POST' ]) !!}
   <div class="row">
     <div class="col-md-12">
       <br/>

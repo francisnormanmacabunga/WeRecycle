@@ -1,43 +1,23 @@
 <?php
 
-namespace App\Http\Controllers\ActivityCoordinator;
+namespace App\Http\Controllers\ProgramDirector;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Models\Employee;
+use App\Models\Transaction;
 use App\Models\Volunteer;
+use App\Models\Employee;
 
-class ApplicantsController extends Controller
+class AssignVolunteerController extends Controller
 {
-
-    public function __construct()
-    {
-      $this->middleware('auth:activitycoordinator');
-    }
-
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-
     public function index()
     {
-      if (request()->has('status')){
-      $applicants = Volunteer::SELECT('*')
-      -> join('contacts', 'contacts.volunteerID', '=', 'volunteer.volunteerID')
-      -> where('status',request('status'))
-      -> where('usertypeID', '2')
-      -> sortable()
-      -> paginate(5)->appends('status', request('status'));
-    } else {
-      $applicants = Volunteer::SELECT('*')
-      -> join('contacts', 'contacts.volunteerID', '=', 'volunteer.volunteerID')
-      -> where('usertypeID', '2')
-      -> sortable()
-      -> paginate(5);
-    }
-      return view('ActivityCoordinator/ManageApplicants.index', compact('applicants'));
+        //
     }
 
     /**
@@ -45,10 +25,9 @@ class ApplicantsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-
     public function create()
     {
-        //
+        return view('ProgramDirector/ManageVolunteers.assignVolunteer');
     }
 
     /**
@@ -57,10 +36,13 @@ class ApplicantsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-
     public function store(Request $request)
     {
-        //
+      $volunteer = new Volunteer();
+      $volunteer->volunteerName = $request->input('volunteer');
+      $volunteer->save();
+
+      return redirect('/programdirector/requests');
     }
 
     /**
@@ -69,7 +51,6 @@ class ApplicantsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-
     public function show($id)
     {
         //
@@ -81,11 +62,11 @@ class ApplicantsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-
     public function edit($id)
     {
-      $applicants = Volunteer::find($id);
-      return view('ActivityCoordinator/ManageApplicants.edit', compact('applicants'));
+        /*$transaction = Transaction::find($id);
+        $volunteer = Employee::where('usertypeID','2')->pluck('firstname', 'userID');
+        return view('ProgramDirector/ManageVolunteers.assignVolunteer', compact('transaction', 'volunteer'));*/
     }
 
     /**
@@ -95,13 +76,12 @@ class ApplicantsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-
     public function update(Request $request, $id)
     {
-      $post = Volunteer::find($id);
-      $post->status = $request->input('status');
-      $post->save();
-      return redirect('/activitycoordinator/applicants')->with('success', 'Profile updated');
+      /*  $assignVolunteer = Transaction::find($id);
+        $assignVolunteer->volunteerID = $request->input('volunteer');
+        $assignVolunteer->save();
+        return redirect('/programdirector/requests')->with('success', 'Profile updated'); */
     }
 
     /**
@@ -110,10 +90,8 @@ class ApplicantsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-
     public function destroy($id)
     {
         //
     }
-
 }

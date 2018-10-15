@@ -8,7 +8,7 @@ class MessageRequests extends Model
 {
 
   protected $table = 'message_requests';
-  protected $primaryKey = 'messageID';
+  protected $primaryKey = 'message_request_id';
   public $timestamps = false;
 
   public function user()

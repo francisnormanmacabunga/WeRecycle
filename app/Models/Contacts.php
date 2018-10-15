@@ -27,9 +27,9 @@ class Contacts extends Model
       return $this->causer->username ?? null;
   }
 
-  public function user()
+  public function volunteer()
   {
-    return $this->belongsTo('App\Models\Donor','userID');
+    return $this->belongsTo('App\Models\Volunteer','volunteerID');
   }
 
 }

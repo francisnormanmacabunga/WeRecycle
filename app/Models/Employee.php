@@ -30,10 +30,17 @@ class Employee extends Model
     {
         return $this->causer->username ?? null;
     }
-    public function message()
+
+    public function messageRequest()
     {
-      return $this->hasOne('App\Models\Message','userID');
+      return $this->hasOne('App\Models\MessageRequests','transid');
     }
+
+    public function messageOrder()
+    {
+      return $this->hasOne('App\Models\MessageOrders','transid');
+    }
+
     public function age()
     {
     return Carbon::parse($this->attributes['birthdate'])->age;
@@ -42,6 +49,11 @@ class Employee extends Model
     public function contacts()
     {
     return $this->hasOne('App\Models\Contacts','userID');
+    }
+
+    public function volunteer()
+    {
+    return $this->hasOne('App\Models\Volunteer','volunteerID');
     }
 
 }

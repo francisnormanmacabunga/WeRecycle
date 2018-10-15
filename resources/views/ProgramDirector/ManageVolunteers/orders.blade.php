@@ -14,6 +14,7 @@
     <div class="row">
       <table class="table table-bordered" class="fixed">
         <tr>
+          <th>Transaction ID</th>
           <th>Name</th>
           <th>Address</th>
           <th>Item Type</th>
@@ -29,6 +30,7 @@
             $cart = json_decode($orders->cart);
           @endphp
         <tr>
+          <td> {{$orders->transid}} </td>
           <td> {{$orders->user->firstname}} {{$orders->user->lastname}} </td>
           <td> Barangay: {{$orders->user->barangay}}, {{$orders->user->street}}, {{$orders->user->city}}, Zip: {{$orders->user->zip}} </td>
           <td> {{$orders->type}} </td>
@@ -38,7 +40,7 @@
           <td>{{$item->qty}}</td>
           @endforeach
           <td> {{$orders->status}} </td>
-          <td> {{$messageOrder->user->firstname}} </td>
+          <td>  </td>
           <th>
             <a class="btn btn-block btn-primary" href="/programdirector/sendSMS-V-O/transactionID={{$orders->transid}}" role="button">Assign Volunteer</a>
             <a class="btn btn-block btn-primary" href="/programdirector/orders/{{$orders->transid}}/edit" role="button">Update Status</a>

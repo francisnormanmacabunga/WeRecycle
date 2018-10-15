@@ -31,7 +31,7 @@ class DonateCheckoutController extends Controller
       $request = Requests::where('userID', $donor->userID)->first();
       $cartItems=Cart::content();
 
-      $trans = new Transaction;
+      $trans = new Transaction();
       $trans->userID = $request->userID;
       $trans->type = $request->type;
       $trans->cart = $cartItems;

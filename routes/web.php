@@ -87,9 +87,13 @@ Route::prefix('programdirector')->group(function() {
   Route::resource('/PD_password', 'ProgramDirector\ProgramDirectorsPasswordController');
   Route::get('/sendSMS-D','ProgramDirector\TwilioController@indexDonor');
   Route::post('/sendMessage-D','ProgramDirector\TwilioController@sendMessageDonor');
+
   Route::get('/sendSMS-V-R/transactionID={transid}','ProgramDirector\TwilioController@indexVolunteerRequest');
   Route::get('/sendSMS-V-R/volunteerID={userID}','ProgramDirector\TwilioController@indexVolunteerRequestID');
-  Route::post('/sendMessage-V','ProgramDirector\TwilioController@assignRequest');
+  Route::post('/sendMessage-V-R','ProgramDirector\TwilioController@assignRequest');
+
+  Route::resource('/assignVolunteer','ProgramDirector\AssignVolunteerController');
+
   Route::get('/sendSMS-V-O/transactionID={transid}','ProgramDirector\TwilioController@indexVolunteerOrder');
   Route::get('/sendSMS-V-O/volunteerID={userID}','ProgramDirector\TwilioController@indexVolunteerOrderID');
   Route::post('/sendMessage-V-O','ProgramDirector\TwilioController@assignOrder');

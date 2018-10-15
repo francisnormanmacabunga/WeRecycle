@@ -38,7 +38,7 @@ class TwilioController extends Controller
       -> where('status','Activated')
       -> get();
 
-      $transaction = Transaction::all();
+      $transaction = Transaction::where('status','Ordered')->get();
       return view('ProgramDirector/ManageVolunteers.sendSMS-V-R', compact('applicants','transaction'));
     }
 
@@ -106,6 +106,10 @@ class TwilioController extends Controller
         $applicant->userID = $request->userID;
         $applicant->transid = $request ->input('transid');
         $applicant->save();
+
+      /*  $applicant = Transaction::find($transid);
+        $applicant->transid = $request ->input('transid');
+        $applicant->save(); */
 
         $sid    = "AC8a7060e979f382acdb6ba484275f218b";
         $token  = "addb0fa1287d36f40d566e65bc764f4a";

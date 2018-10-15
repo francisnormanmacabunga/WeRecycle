@@ -19,9 +19,20 @@ class Transaction extends Model
     return $this->belongsTo('App\Models\Donor','userID');
   }
 
-  public function message()
+  public function messageRequest()
   {
-    return $this->hasOne('App\Models\Message','transid');
+    return $this->hasOne('App\Models\MessageRequests','transid');
   }
+
+  public function messageOrder()
+  {
+    return $this->hasOne('App\Models\MessageOrders','transid');
+  }
+
+  public function volunteer()
+  {
+    return $this->belongsTo('App\Models\Volunteer','volunteerID');
+  }
+
 
 }

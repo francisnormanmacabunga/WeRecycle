@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Validation\Rule;
 use App\Models\Contacts;
 use App\Models\Donor;
+use App\Models\Points;
 use Exception;
 use Session;
 use Hash;
@@ -68,6 +69,16 @@ class DonorsController extends Controller
         //
     }
 
+    public function addpoints()
+    {
+   $id = Auth::user()->userID;
+   $points = Points::where('userID',$id)->first();
+   $points->pointsaccumulated = $points->pointsaccumulated + 5;
+   $points->userID = Auth::user()->userID;
+   $points->push();
+   return back();
+    }
+
     /**
      * Show the form for editing the specified resource.
      *
@@ -86,7 +97,7 @@ class DonorsController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
-     * @return \Illuminate\Http\Response  
+     * @return \Illuminate\Http\Response
      */
 
     public function update(Request $request, $id)

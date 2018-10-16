@@ -3,13 +3,13 @@
 
 @section('content')
 
-  {!! Form::open(['action' => ['Admin\CatalogController@update', $products['productsID']], 'method' => 'POST' ]) !!}
+  {!! Form::open(['action' => ['Admin\DonorsController@update', $donors['userID']], 'method' => 'POST' ]) !!}
   <div class="row">
     <div class="col-md-12">
       <br/>
       <h3 align="center">Update status</h3>
       <br/>
-      <h5 align="left"><a href="/admin/manageshop">Back</a></h5>
+      <h5 align="left"><a href="/activitycoordinator/applicants">Back</a></h5>
       <table class="table table-bordered">
         <tr>
           <th>Name</th>
@@ -17,8 +17,8 @@
           <th>Action</th>
         </tr>
           <tr>
-            <td>{{$products['productname']}}</td>
-            <td>{{$products['status']}}</td>
+            <td>{{$donors['firstname']}} {{$donors['lastname']}}</td>
+            <td>{{$donors['status']}}</td>
             <td>
                 {{Form::select('status', ['Activated' => 'Activated', 'Deactivated' => 'Deactivated'])}}
             </td>

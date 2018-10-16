@@ -119,6 +119,7 @@ Route::prefix('admin')->group(function() {
   Route::get('/managedonation', 'Admin\ManageCatalogController@manageDonation');
   Route::get('createCatalog', 'Admin\AdminController@createCatalog');
   Route::resource('/employees', 'Admin\EmployeesController');
+  Route::resource('/donors','Admin\DonorsController');
   Route::get('/createEmployee', 'Admin\AdminController@createEmployee');
   Route::get('/', 'Admin\AdminController@index')->name('admin.dashboard');
 });

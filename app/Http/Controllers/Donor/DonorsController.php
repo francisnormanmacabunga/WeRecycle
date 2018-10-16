@@ -71,12 +71,12 @@ class DonorsController extends Controller
 
     public function addpoints()
     {
-   $id = Auth::user()->userID;
-   $points = Points::where('userID',$id)->first();
-   $points->pointsaccumulated = $points->pointsaccumulated + 5;
-   $points->userID = Auth::user()->userID;
-   $points->push();
-   return back();
+       $id = Auth::user()->userID;
+       $points = Points::where('userID',$id)->first();
+       $points->pointsaccumulated = $points->pointsaccumulated + 5;
+       $points->userID = Auth::user()->userID;
+       $points->push();
+       return back();
     }
 
     /**

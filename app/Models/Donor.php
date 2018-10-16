@@ -60,10 +60,6 @@ class Donor extends Authenticatable
         $this->notify(new DonorResetPasswordNotification($token));
     }
 
-    public function orders(){
-      return $this->belongsTo('App\order');
-    }
-
     public function points()
     {
     return $this->hasOne('App\Models\Points', 'pointsID');
@@ -73,6 +69,12 @@ class Donor extends Authenticatable
     {
     return Carbon::parse($this->attributes['birthdate'])->age;
     }
+
+    public function messageDonors()
+    {
+      return $this->hasOne('App\Models\MessageDonors', 'userID');
+    }
+
 
     /**
      * The attributes that are mass assignable.

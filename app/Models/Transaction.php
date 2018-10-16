@@ -30,12 +30,12 @@ class Transaction extends Model
 
   public function messageRequest()
   {
-    return $this->hasOne('App\Models\MessageRequests','transid');
+    return $this->hasOne('App\Models\MessageRequests','userID');
   }
 
   public function messageOrder()
   {
-    return $this->hasOne('App\Models\MessageOrders','transid');
+    return $this->hasOne('App\Models\MessageOrders','userID');
   }
 
   public function volunteer()

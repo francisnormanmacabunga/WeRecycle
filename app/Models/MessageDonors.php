@@ -8,11 +8,11 @@ class MessageDonors extends Model
 {
     protected $table = 'message_donors';
     protected $primaryKey = 'message_donor_id';
-    public $timestamps = false;
+    public $timestamps = true;
 
     public function donor()
     {
-      return $this->belongsTo('App\Models\Donor','userID');
+      return $this->belongsTo('App\Models\Donor', 'userID');
     }
 
 }

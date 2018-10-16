@@ -6,7 +6,7 @@
 
 <div class="row">
   <div class="col-lg-3">
-  <h3>Orders Messages</h3>
+  <h3>Requests Messages</h3>
   <div class="list-group">
     <a href="/programdirector/messageOrders" class="list-group-item">Orders Messages</a>
     <a href="/programdirector/messageRequests" class="list-group-item">Requests Messages</a>
@@ -23,14 +23,14 @@
             <br>
             <tr>
               <th>Date</th>
-              <th>Assigned Volunteer</th>
+              <th>Donor Sent To</th>
               <th>Message</th>
             </tr>
-            @foreach ($messageorders as $messageorder)
+            @foreach ($messagedonors as $messagedonor)
             <tr>
-              <td> {{date('F d, Y, h:i:sa', strtotime($messageorder->created_at))}} </td>
-              <td> {{$messageorder->volunteer->firstname}} {{$messageorder->volunteer->lastname}} </td>
-              <td> {{$messageorder->message}} </td>
+              <td> {{date('F d, Y, h:i:sa', strtotime($messagedonor->created_at))}} </td>
+              <td> {{$messagedonor->donor->firstname}} {{$messagedonor->donor->lastname}}</td>
+              <td> {{$messagedonor->message}} </td>
             </tr>
             @endforeach
         </table>

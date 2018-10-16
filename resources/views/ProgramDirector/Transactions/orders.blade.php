@@ -15,6 +15,7 @@
     <div class="row">
       <table class="table table-bordered" class="fixed">
         <tr>
+          <th>Date</th>
           <th>Name</th>
           <th>Address</th>
           <th>Item Type</th>
@@ -30,6 +31,7 @@
             $cart = json_decode($orders->cart);
           @endphp
         <tr>
+          <td> {{date('F d, Y, h:i:sa', strtotime($orders->created_at))}} </td>
           <td> {{$orders->donor->firstname}} {{$orders->donor->lastname}} </td>
           <td> Barangay: {{$orders->donor->barangay}}, {{$orders->donor->street}}, {{$orders->donor->city}}, Zip: {{$orders->donor->zip}} </td>
           <td> {{$orders->type}} </td>

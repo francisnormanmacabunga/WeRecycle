@@ -44,7 +44,7 @@
                           History
                         </a>
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="/programdirector/messageorders">Message History</a>
+                            <a class="dropdown-item" href="/programdirector/messageOrders">Message History</a>
                           <a class="dropdown-item" href="/programdirector/donationhistory">Donation History</a>
                         </div>
                       </li>

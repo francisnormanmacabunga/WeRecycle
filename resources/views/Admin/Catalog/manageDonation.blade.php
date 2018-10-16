@@ -25,8 +25,8 @@
           <th>Preview</th>
           <th>Price</th>
           <th>Description</th>
-          <th>Date Created</th>
-          <th>Status</th>
+          <th>@sortablelink('created_at', 'Date Created')</th>
+          <th>@sortablelink('status', 'Status')</th>
           <th>Action</th>
         </tr>
         @foreach ($products1 as $products)
@@ -49,6 +49,7 @@
       <h5 style="font-family:serif;">No records in donation catalog found.</h5>
     </div>
     @endif
+    {{$products1->links()}}
     </div>
   </div>
 </div>

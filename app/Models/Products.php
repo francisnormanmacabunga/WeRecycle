@@ -14,7 +14,7 @@ class Products extends Model
   protected $table = 'products';
   protected $primaryKey = 'productsID';
   public $timestamps = true;
-  public $sortable = ['created_at', 'price'];
+  public $sortable = ['created_at', 'price', 'status'];
 
   protected static $logName = 'Product';
   protected static $logAttributes = ["*"];

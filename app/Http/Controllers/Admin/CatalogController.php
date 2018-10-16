@@ -25,19 +25,7 @@ class CatalogController extends Controller
 
     public function index()
     {
-      /*$products1 = DB::table('products')
-      ->select('*')
-      -> join('productstype', 'productstype.productstypeID', '=', 'products.productstypeID')
-      -> where('productstype.productstypeID','1')
-      ->get();
-
-      $products2 = DB::table('products')
-      ->select('*')
-      -> join('productstype', 'productstype.productstypeID', '=', 'products.productstypeID')
-      -> where('productstype.productstypeID','2')
-      ->get();
-
-      return view('catalog.index', compact('products1', 'products2'));*/
+  
     }
 
     /**

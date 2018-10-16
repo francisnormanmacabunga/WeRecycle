@@ -18,7 +18,7 @@
     </a>
     <br/>
     <br/>
-
+      @if(count($donors) > 0)
     <table class="table table-bordered">
       <tr>
         <th>Name</th>
@@ -46,7 +46,14 @@
           </th>
         @endforeach
     </table>
-
+  @else
+  <div align="center" style="color:red;">
+    <br>
+    <br>
+    <h5 style="font-family:serif;">No records found.</h5>
+  </div>
+  @endif
+  {{$donors->links()}}
   </div>
 </div>
 

@@ -15,7 +15,6 @@
     <div class="row">
       <table class="table table-bordered" class="fixed">
         <tr>
-          <th>Transaction ID</th>
           <th>Name</th>
           <th>Address</th>
           <th>Item Type</th>
@@ -31,9 +30,8 @@
             $cart = json_decode($orders->cart);
           @endphp
         <tr>
-          <td> {{$orders->transid}} </td>
-          <td> {{$orders->user->firstname}} {{$orders->user->lastname}} </td>
-          <td> Barangay: {{$orders->user->barangay}}, {{$orders->user->street}}, {{$orders->user->city}}, Zip: {{$orders->user->zip}} </td>
+          <td> {{$orders->donor->firstname}} {{$orders->donor->lastname}} </td>
+          <td> Barangay: {{$orders->donor->barangay}}, {{$orders->donor->street}}, {{$orders->donor->city}}, Zip: {{$orders->donor->zip}} </td>
           <td> {{$orders->type}} </td>
           @foreach($cart as $item)
           <td>{{$item->name}}</td>
@@ -44,6 +42,7 @@
           <td> {{$orders->volunteer['firstname']}} {{$orders->volunteer['lastname']}}</td>
           <th>
             <a class="btn btn-block btn-primary" href="/programdirector/sendSMS-V-O" role="button">Message Volunteer</a>
+            <a class="btn btn-block btn-primary" href="/programdirector/sendSMS-D-O" role="button">Message Donor</a>
             <a class="btn btn-block btn-primary" href="/programdirector/orders/{{$orders->transid}}/edit" role="button">Update Status</a>
           </th>
         </tr>

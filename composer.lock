@@ -3002,16 +3002,16 @@
         },
         {
             "name": "twilio/sdk",
-            "version": "5.24.0",
+            "version": "5.24.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/twilio/twilio-php.git",
-                "reference": "4f4c82ba0ea38ab6bfc2f3a8c174279fa4c09f58"
+                "reference": "2dd9c1fa804c0ad0c91cfa2eec152ca24f40efc9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twilio/twilio-php/zipball/4f4c82ba0ea38ab6bfc2f3a8c174279fa4c09f58",
-                "reference": "4f4c82ba0ea38ab6bfc2f3a8c174279fa4c09f58",
+                "url": "https://api.github.com/repos/twilio/twilio-php/zipball/2dd9c1fa804c0ad0c91cfa2eec152ca24f40efc9",
+                "reference": "2dd9c1fa804c0ad0c91cfa2eec152ca24f40efc9",
                 "shasum": ""
             },
             "require": {
@@ -3044,7 +3044,7 @@
                 "sms",
                 "twilio"
             ],
-            "time": "2018-10-15T16:18:12+00:00"
+            "time": "2018-10-16T00:12:03+00:00"
         },
         {
             "name": "vlucas/phpdotenv",
@@ -3806,16 +3806,16 @@
         },
         {
             "name": "phpunit/php-code-coverage",
-            "version": "6.0.8",
+            "version": "6.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/php-code-coverage.git",
-                "reference": "848f78b3309780fef7ec8c4666b7ab4e6b09b22f"
+                "reference": "0685fb6a43aed1b2e09804d1aaf17144c82861f8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/848f78b3309780fef7ec8c4666b7ab4e6b09b22f",
-                "reference": "848f78b3309780fef7ec8c4666b7ab4e6b09b22f",
+                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/0685fb6a43aed1b2e09804d1aaf17144c82861f8",
+                "reference": "0685fb6a43aed1b2e09804d1aaf17144c82861f8",
                 "shasum": ""
             },
             "require": {
@@ -3839,7 +3839,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "6.0-dev"
+                    "dev-master": "6.1-dev"
                 }
             },
             "autoload": {
@@ -3865,7 +3865,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2018-10-04T03:41:23+00:00"
+            "time": "2018-10-16T05:37:37+00:00"
         },
         {
             "name": "phpunit/php-file-iterator",

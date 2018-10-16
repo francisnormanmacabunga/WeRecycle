@@ -14,13 +14,13 @@ class MessageController extends Controller
   public function messageOrders()
   {
     $messageorders = MessageOrders::all();
-    return view('ProgramDirector/ManageVolunteers.messageorders',compact('messageorders'));
+    return view('ProgramDirector/History.messageorders',compact('messageorders'));
   }
 
   public function messageRequests()
   {
     $messagerequests = MessageRequests::all();
-    return view('ProgramDirector/ManageVolunteers.messagerequests',compact('messagerequests'));
+    return view('ProgramDirector/History.messagerequests',compact('messagerequests'));
   }
 
 

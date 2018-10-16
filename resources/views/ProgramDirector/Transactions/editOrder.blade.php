@@ -18,7 +18,7 @@
           <th>Volunteer</th>
         </tr>
           <tr>
-            <td>{{$order->user->firstname}} {{$order->user->lastname}}</td>
+            <td>{{$order->donor->firstname}} {{$order->donor->lastname}}</td>
             <td>{{$order['status']}}</td>
             <td>
                 {{Form::select('status', ['Shipping' => 'Shipping', 'Delivered' => 'Delivered', 'Cancelled' => 'Cancelled'])}}

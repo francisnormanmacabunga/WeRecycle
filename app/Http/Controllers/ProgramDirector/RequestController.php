@@ -32,7 +32,7 @@ class RequestController extends Controller
 
       $message = MessageRequests::all()->last();
 
-      return view('ProgramDirector/ManageVolunteers.requests',compact('request', 'message'));
+      return view('ProgramDirector/Transactions.requests',compact('request', 'message'));
     }
 
     /**
@@ -77,7 +77,7 @@ class RequestController extends Controller
     {
       $request = Transaction::find($id);
       $volunteer = Volunteer::all();
-      return view('ProgramDirector/ManageVolunteers.editRequest', compact('request', 'volunteer'));
+      return view('ProgramDirector/Transactions.editRequest', compact('request', 'volunteer'));
     }
 
     /**
@@ -92,7 +92,6 @@ class RequestController extends Controller
       $updateRequest = Transaction::find($id);
       $updateRequest->status = $request->input('status');
       $updateRequest->volunteerID = $request->input('volunteer');
-
       $updateRequest->save();
       return redirect('/programdirector/requests')->with('success', 'Profile updated');
     }

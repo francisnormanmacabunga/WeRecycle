@@ -26,6 +26,13 @@
                           <div class="card-body">
                           <a href="/addpointeru">Add points</a>
                           </div>
+                          <div class="w3-light-grey">
+                            <div class="w3-container w3-green" style="width:20%">20%</div>
+                          </div>
+
+                          <br>
+                          <button class="w3-button w3-green" onclick="confirm('Are you sure you want to claim your discount code?')">Redeem Reward</button>
+                        </div>
                       </div>
                   </div>
               </div>

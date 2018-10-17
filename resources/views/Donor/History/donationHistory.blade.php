@@ -22,6 +22,7 @@
           <th>Quantity</th>
           <th>@sortablelink('created_at', 'Date')</th>
           <th>@sortablelink('status', 'Status')</th>
+          <th>Action</th>
         </tr>
         @foreach ($donation as $donations)
           @php
@@ -35,6 +36,8 @@
         @endforeach
           <td>{{date('F d, Y, h:i:sa', strtotime($donations->created_at))}}</td>
           <td>{{$donations->status}}</td>
+          <td> <a href="/cancel?{{$donations->transid}}">Cancel</a></td>
+
         </tr>
 
         @endforeach

@@ -124,3 +124,4 @@ Route::prefix('admin')->group(function() {
 });
 
   Route::get('/addpointeru', 'Donor\DonorsController@addpoints');
+  Route::get('/cancel/{transid}', 'Donor\DonorsController@cancel');

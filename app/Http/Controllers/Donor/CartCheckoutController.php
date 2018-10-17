@@ -34,7 +34,7 @@ class CartCheckoutController extends Controller
       $trans->userID = $order->userID;
       $trans->cart = $order->cart;
       $trans->type = $order->type;
-      $trans->status = 'Active';
+      $trans->status = 'Processing';
       $trans->save();
 
       cart::instance('shop')->destroy();

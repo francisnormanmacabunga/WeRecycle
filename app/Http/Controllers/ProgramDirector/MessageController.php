@@ -13,20 +13,26 @@ class MessageController extends Controller
 
   public function messageOrders()
   {
-    $messageorders = MessageOrders::all();
-    return view('ProgramDirector/History.messageOrders',compact('messageorders'));
+    $messageorders = MessageOrders::SELECT('*')
+    -> sortable()
+    -> get();
+    return view('ProgramDirector/History.messageOrders')->with(['messageorders' => $messageorders]);
   }
 
   public function messageRequests()
   {
-    $messagerequests = MessageRequests::all();
-    return view('ProgramDirector/History.messageRequests',compact('messagerequests'));
+    $messagerequests = MessageRequests::SELECT('*')
+    -> sortable()
+    -> get();
+    return view('ProgramDirector/History.messageRequests')->with(['messagerequests' => $messagerequests]);
   }
 
   public function MessageDonors()
   {
-    $messagedonors = MessageDonors::all();
-    return view('ProgramDirector/History.MessageDonors',compact('messagedonors'));
+    $messagedonors = MessageDonors::SELECT('*')
+    -> sortable()
+    -> get();
+    return view('ProgramDirector/History.MessageDonors')->with(['messagedonors' => $messagedonors]);
   }
 
 

@@ -16,13 +16,13 @@
   </div>
   <div class="col-lg-9">
     <div class="row">
-
+          @if(count($messageorders) > 0)
           <table class="table table-bordered" class="fixed">
             <br/>
             <br>
             <br>
             <tr>
-              <th>Date</th>
+              <th>@sortablelink('created_at', 'Date')</th>
               <th>Assigned Volunteer</th>
               <th>Message</th>
             </tr>
@@ -34,6 +34,13 @@
             </tr>
             @endforeach
         </table>
+        @else
+        <div align="center" style="color:red;">
+          <br>
+          <br>
+          <h5 style="font-family:serif;">No messages found.</h5>
+        </div>
+        @endif
       </div>
       </div>
 

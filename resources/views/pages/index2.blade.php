@@ -47,7 +47,7 @@
             <div class="row">
               <div class="col-md-10 col-md-offset-1">
                 <div class="probootstrap-slider-text text-center">
-                  <h1 class="probootstrap-heading probootstrap-animate mb20">Save mother TITE</h1>
+                  <h1 class="probootstrap-heading probootstrap-animate mb20">Save mother earth</h1>
 
                 <strong>  <div class="probootstrap-animate probootstrap-sub-wrap mb30">Help by volunteering in our organization</div></strong>
 

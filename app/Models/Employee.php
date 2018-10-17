@@ -16,15 +16,22 @@ class Employee extends Model
     protected $primaryKey = 'userID';
     public $timestamps = true;
     public $sortable = ['created_at', 'status', 'usertypeID'];
-    protected static $logAttributes = ["*"];
 
-    public static function boot()
+    protected static $logName = 'Employee Account';
+    protected static $logAttributes = ["*"];
+    protected static $logOnlyDirty = true;
+    public function getDescriptionForEvent(string $eventName): string
+    {
+        return "Has {$eventName}";
+    }
+
+  /*  public static function boot()
     {
     parent::boot();
     static::saving(function (Model $model) {
         static::$logAttributes = array_keys($model->getDirty());
     });
-    }
+  } */
 
     public function getNameAttribute()
     {

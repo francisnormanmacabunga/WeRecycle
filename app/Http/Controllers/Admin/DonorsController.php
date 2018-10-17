@@ -1,24 +1,18 @@
 <?php
 
-namespace App\Http\Controllers\ProgramDirector;
+namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Models\Transaction;
-use App\Models\MessageRequests;
-use App\Models\Volunteer;
-use App\Models\Order;
-use App\Models\Employee;
-use DB;
+use App\Models\Donor;
 
-class RequestController extends Controller
+class DonorsController extends Controller
 {
 
     public function __construct()
     {
-      $this->middleware('auth:programdirector');
+      $this->middleware('auth:admin');
     }
-
     /**
      * Display a listing of the resource.
      *
@@ -26,13 +20,19 @@ class RequestController extends Controller
      */
     public function index()
     {
-      $request = Transaction::SELECT('*')
-      -> where('type', 'Donate')
-      -> get();
 
-      $message = MessageRequests::all()->last();
+        if (request()->has('status')){
+        $donors = Donor::where('usertypeID', '1')
+        -> where('status',request('status'))
+        -> sortable()
+        -> paginate(10);
+        } else {
+        $donors = Donor::where('usertypeID', '1')
+        -> sortable()
+        -> paginate(10);
+        }
 
-      return view('ProgramDirector/Transactions.requests',compact('request', 'message'));
+        return view('Admin/Donor.index')->with(['donors' => $donors]);
     }
 
     /**
@@ -75,9 +75,8 @@ class RequestController extends Controller
      */
     public function edit($id)
     {
-      $request = Transaction::find($id);
-      $volunteer = Volunteer::all();
-      return view('ProgramDirector/Transactions.editRequest', compact('request', 'volunteer'));
+      $donors = Donor::with('contacts')->find($id);
+      return view('Admin/Donor.edit', compact('donors'));
     }
 
     /**
@@ -89,11 +88,10 @@ class RequestController extends Controller
      */
     public function update(Request $request, $id)
     {
-      $updateRequest = Transaction::find($id);
-      $updateRequest->status = $request->input('status');
-      $updateRequest->volunteerID = $request->input('volunteer');
-      $updateRequest->save();
-      return redirect('/programdirector/requests')->with('success', 'Profile updated');
+      $donors = Donor::find($id);
+      $donors->status = $request->input('status');
+      $donors->save();
+      return redirect('/admin/donors')->with('success', 'Profile updated');
     }
 
     /**

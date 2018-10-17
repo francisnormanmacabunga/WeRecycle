@@ -16,7 +16,17 @@ class AuditLogController extends Controller
 
   public function auditlogs()
   {
-    $lastActivity = Activity::all();
+    if (request()->has('log_name')){
+    $lastActivity = Activity::select('*')
+    -> where('log_name',request('log_name'))
+    -> sortable()
+    -> paginate(10);
+    } else {
+    $lastActivity = Activity::select('*')
+    -> sortable()
+    -> paginate(10);
+    }
+
     return view('Admin/Audits.index', compact('lastActivity'));
   }
 

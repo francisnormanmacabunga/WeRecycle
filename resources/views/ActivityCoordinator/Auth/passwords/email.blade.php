@@ -20,8 +20,8 @@
         <!-- ============================================================== -->
         <!-- Login box.scss -->
         <!-- ============================================================== -->
-        <div class="auth-wrapper d-flex no-block justify-content-center align-items-center" style="background-image:url('../../assets/images/background/ac.gif'); background-size: cover">
-            <div class="auth-box" style="background-color: rgba(0,0,0,0)">
+        <div class="auth-wrapper d-flex no-block justify-content-center align-items-center" style="background-color: #35281e">
+            <div class="auth-box" style="background-color: #35281e">
               <div id="loginform">
                 @if ($errors->has('email'))
                     <div class="alert alert-danger" role="alert">{{ $errors->first('email') }}</div>

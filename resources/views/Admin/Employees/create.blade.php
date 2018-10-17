@@ -71,7 +71,7 @@
                   {{Form::text('username','', ['class' => 'form-control'])}}
                 </div>
               </div>
-                {{Form::hidden('password','EmployeeAccount', ['class' => 'form-control'])}}
+            <!--    {{Form::hidden('password','EmployeeAccount', ['class' => 'form-control'])}} -->
                 {{Form::hidden('status','Activated', ['class' => 'form-control'])}}
               <hr class="mb-4">
               {{Form::submit('Register profile',['class' => 'btn btn-primary btn-lg btn-block'])}}

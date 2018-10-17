@@ -8,6 +8,7 @@ use App\Models\Employee;
 use Twilio\Rest\Client;
 use App\Models\MessageRequests;
 use App\Models\MessageOrders;
+use App\Models\MessageDonors;
 use App\Models\Donor;
 use App\Models\Transaction;
 use App\Models\Volunteer;
@@ -21,15 +22,52 @@ class TwilioController extends Controller
       $this->middleware('auth:programdirector');
     }
 
-    public function indexDonor()
+    public function indexDonorRequest()
     {
-      $applicants = Donor::SELECT('*')
-      -> join('contacts', 'contacts.userID', '=', 'user.userID')
-      -> where('usertypeID', '1')
-      -> where('status','Activated')
+
+      $applicants = Transaction::SELECT('*')
+      -> where('type','Donate')
       -> get();
-      return view('ProgramDirector/ManageDonors.sendSMS-D', compact('applicants'));
+
+      return view('ProgramDirector/Transactions.sendSMS-D-R', compact('applicants'));
     }
+
+    public function indexDonorRequestID($userID)
+    {
+
+      $applicants = Transaction::SELECT('*')
+      -> where('type','Donate')
+      -> where('transactions.userID', $userID)
+      -> get();
+
+      return view('ProgramDirector/Transactions.sendSMS-D-R', compact('applicants'));
+    }
+
+
+
+    public function indexDonorOrder()
+    {
+
+      $applicants = Transaction::SELECT('*')
+      -> where('type','Shop')
+      -> get();
+
+      return view('ProgramDirector/Transactions.sendSMS-D-O', compact('applicants'));
+    }
+
+    public function indexDonorOrderID($userID)
+    {
+
+      $applicants = Transaction::SELECT('*')
+      -> where('type','Shop')
+      -> where('transactions.userID', $userID)
+      -> get();
+
+      return view('ProgramDirector/Transactions.sendSMS-D-O', compact('applicants'));
+    }
+
+
+
 
     public function indexVolunteerRequest()
     {
@@ -40,7 +78,7 @@ class TwilioController extends Controller
       -> get();
 
       $transaction = Volunteer::where('status','Ordered')->get();
-      return view('ProgramDirector/ManageVolunteers.sendSMS-V-R', compact('applicants','transaction'));
+      return view('ProgramDirector/Transactions.sendSMS-V-R', compact('applicants','transaction'));
     }
 
     public function indexVolunteerRequestID($volunteerID)
@@ -53,7 +91,7 @@ class TwilioController extends Controller
       -> get();
 
       $transaction = Transaction::all();
-      return view('ProgramDirector/ManageVolunteers.sendSMS-V-R', compact('applicants', 'transaction'));
+      return view('ProgramDirector/Transactions.sendSMS-V-R', compact('applicants', 'transaction'));
     }
 
     public function indexVolunteerOrder()
@@ -65,7 +103,7 @@ class TwilioController extends Controller
       -> get();
 
       $transaction = Transaction::all();
-      return view('ProgramDirector/ManageVolunteers.sendSMS-V-O', compact('applicants','transaction'));
+      return view('ProgramDirector/Transactions.sendSMS-V-O', compact('applicants','transaction'));
     }
 
     public function indexVolunteerOrderID($volunteerID)
@@ -78,11 +116,23 @@ class TwilioController extends Controller
       -> get();
 
       $transaction = Transaction::all();
-      return view('ProgramDirector/ManageVolunteers.sendSMS-V-O', compact('applicants', 'transaction'));
+      return view('ProgramDirector/Transactions.sendSMS-V-O', compact('applicants', 'transaction'));
     }
 
-    public function sendMessageDonor(Request $request)
+    public function sendMessageDonorRequest(Request $request)
     {
+      $this->validate($request, [
+        'message' => 'nullable',
+      [
+        'message.required' => 'The message field is required.'
+      ]]);
+
+        $applicant = new MessageDonors();
+        $applicant->message = $request ->input('message');
+        $applicant->userID = $request->userID;
+        $applicant->save();
+
+
       $sid    = "AC8a7060e979f382acdb6ba484275f218b";
       $token  = "addb0fa1287d36f40d566e65bc764f4a";
       $twilio = new Client($sid, $token);
@@ -91,20 +141,33 @@ class TwilioController extends Controller
                array(
                    "body" => $twilio->message = $request->input('message'),
                    "from" => "(619) 724-4011"));
-      return redirect('/programdirector/sendSMS-D')->with('success', 'Message Sent Succesfully');
+      return redirect('/programdirector/requests')->with('success', 'Message Sent Succesfully');
       }
 
+      public function sendMessageDonorOrder(Request $request)
+      {
+        $this->validate($request, [
+          'message' => 'nullable',
+        [
+          'message.required' => 'The message field is required.'
+        ]]);
+
+          $applicant = new MessageDonors();
+          $applicant->message = $request ->input('message');
+          $applicant->userID = $request->userID;
+          $applicant->save();
 
 
-
-
-
-
-
-
-
-
-
+        $sid    = "AC8a7060e979f382acdb6ba484275f218b";
+        $token  = "addb0fa1287d36f40d566e65bc764f4a";
+        $twilio = new Client($sid, $token);
+        $message = $twilio->messages
+        ->create($twilio->mobile = $request->input('mobile'), // to
+                 array(
+                     "body" => $twilio->message = $request->input('message'),
+                     "from" => "(619) 724-4011"));
+        return redirect('/programdirector/orders')->with('success', 'Message Sent Succesfully');
+        }
 
      public function assignRequest(Request $request)
      {
@@ -119,12 +182,6 @@ class TwilioController extends Controller
         $applicant->volunteerID = $request->volunteerID;
         $applicant->save();
 
-        dd($applicant);
-
-      /*  $applicant = Transaction::find($transid);
-        $applicant->transid = $request ->input('transid');
-        $applicant->save(); */
-
         $sid    = "AC8a7060e979f382acdb6ba484275f218b";
         $token  = "addb0fa1287d36f40d566e65bc764f4a";
         $twilio = new Client($sid, $token);
@@ -136,16 +193,6 @@ class TwilioController extends Controller
 
         return redirect('/programdirector/requests')->with('success', 'Message Sent Succesfully');
     }
-
-
-
-
-
-
-
-
-
-
 
     public function assignOrder(Request $request)
     {

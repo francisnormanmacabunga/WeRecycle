@@ -31,7 +31,7 @@ class OrderController extends Controller
 
       $messageOrder = MessageOrders::all()->last();
 
-      return view('ProgramDirector/ManageVolunteers.orders',compact('order', 'messageOrder'));
+      return view('ProgramDirector/Transactions.orders',compact('order', 'messageOrder'));
     }
 
     /**
@@ -76,7 +76,7 @@ class OrderController extends Controller
     {
       $order = Transaction::find($id);
       $volunteer = Volunteer::all();
-      return view('ProgramDirector/ManageVolunteers.editOrder', compact('order', 'volunteer'));
+      return view('ProgramDirector/Transactions.editOrder', compact('order', 'volunteer'));
     }
 
     /**

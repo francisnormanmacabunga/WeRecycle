@@ -15,6 +15,8 @@
                     <div class="form-group">
                       {{Form::textArea('message','', ['class' => 'form-control', 'placeholder' => 'Place your message here...'])}}
                     </div>
+                    <h3 class="text-center">List of Volunteers</h3>
+                    <hr style="margin:5px 0 5px 0;"><br>
                     @if(count($applicants)>0)
                     <table class="table table-striped table-hover">
                       <tr>

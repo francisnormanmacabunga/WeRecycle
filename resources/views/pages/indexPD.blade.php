@@ -34,7 +34,7 @@
                         <div class="card card-hover">
                           <a href="/programdirector/messageOrders">
                             <div class="box bg-success text-center">
-                                <h1 class="font-light text-white"><i class="mdi mdi-chart-areaspline"></i></h1>
+                                <h1 class="font-light text-white"><i class="mdi mdi-message-bulleted"></i></h1>
                                 <h6 class="text-white">Message History</h6>
                             </div>
                           </a>
@@ -45,7 +45,7 @@
                         <div class="card card-hover">
                           <a href="/programdirector/donationhistory">
                             <div class="box bg-info text-center">
-                                <h1 class="font-light text-white"><i class="mdi mdi-relative-scale"></i></h1>
+                                <h1 class="font-light text-white"><i class="mdi mdi-layers"></i></h1>
                                 <h6 class="text-white">Donation History</h6>
                             </div>
                           </a>
@@ -58,7 +58,7 @@
                         <div class="card card-hover">
                           <a href="/programdirector/requests">
                             <div class="box bg-cyan text-center">
-                                <h1 class="font-light text-white"><i class="mdi mdi-pencil"></i></h1>
+                                <h1 class="font-light text-white"><i class="mdi mdi-receipt"></i></h1>
                                 <h6 class="text-white">Transactions</h6>
                             </div>
                           </a>
@@ -69,7 +69,7 @@
                         <div class="card card-hover">
                           <a href="/programdirector/feedback">
                             <div class="box bg-warning text-center">
-                                <h1 class="font-light text-white"><i class="mdi mdi-calendar-check"></i></h1>
+                                <h1 class="font-light text-white"><i class="mdi mdi-message"></i></h1>
                                 <h6 class="text-white">Feedback</h6>
                             </div>
                           </a>

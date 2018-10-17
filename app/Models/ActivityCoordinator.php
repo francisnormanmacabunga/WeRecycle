@@ -16,15 +16,22 @@ class ActivityCoordinator extends Authenticatable
     protected $table = 'user';
     protected $primaryKey = 'userID';
     public $timestamps = true;
-    protected static $logAttributes = ["*"];
 
-    public static function boot()
+    protected static $logName = 'Activity Coordinator Account';
+    protected static $logAttributes = ["*"];
+    protected static $logOnlyDirty = true;
+    public function getDescriptionForEvent(string $eventName): string
+    {
+        return "Has {$eventName}";
+    }
+
+    /*public static function boot()
     {
     parent::boot();
     static::saving(function (ActivityCoordinator $model) {
         static::$logAttributes = array_keys($model->getDirty());
     });
-    }
+    }*/
 
     public function getNameAttribute()
     {

@@ -107,6 +107,7 @@
         <nav class="sidebar-nav">
             <ul id="sidebarnav" class="p-t-30">
                 <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{ url('/admin') }}" aria-expanded="false"><i class="mdi mdi-view-dashboard"></i><span class="hide-menu">Dashboard</span></a></li>
+                <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/admin/donors" aria-expanded="false"><i class="mdi mdi-account-edit"></i><span class="hide-menu">Manage Donor</span></a></li>
                 <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-account"></i><span class="hide-menu">Employee</span></a>
                     <ul aria-expanded="false" class="collapse  first-level">
                         <li class="sidebar-item"><a href="/admin/createEmployee" class="sidebar-link"><i class="mdi mdi-account-plus"></i><span class="hide-menu"> Create Employee Account </span></a></li>
@@ -119,6 +120,7 @@
                         <li class="sidebar-item"><a href="/admin/managedonation" class="sidebar-link"><i class="mdi mdi-file-document"></i><span class="hide-menu"> Manage Catalog </span></a></li>
                     </ul>
                 </li>
+                <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/admin/auditlogs" aria-expanded="false"><i class="mdi mdi-book-open"></i><span class="hide-menu">Audit Logs</span></a></li>
             </ul>
         </nav>
         <!-- End Sidebar navigation -->

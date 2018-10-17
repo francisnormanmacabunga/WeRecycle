@@ -81,13 +81,10 @@
                     <div class="dropdown-menu dropdown-menu-right user-dd animated">
                       <a class="dropdown-item"><h5>{{Auth::user()->firstname}} {{Auth::user()->lastname}}</h5>
                         {{ Auth::user()->username }}</a>
-                      <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="{{ route('admin.logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i class="fa fa-power-off m-r-5 m-l-5"></i> Logout</a>
+                        <div class="p-l-30 p-10"><a href="{{ route('admin.logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="btn btn-sm btn-danger btn-rounded">Logout</a></div>
                         <form id="logout-form" action="{{ route('admin.logout') }}" method="POST" style="display: none;">
                             @csrf
                         </form>
-                        <div class="dropdown-divider"></div>
-                        <div class="p-l-30 p-10"><a href="javascript:void(0)" class="btn btn-sm btn-success btn-rounded">View Profile</a></div>
                     </div>
                 </li>
             </ul>
@@ -107,20 +104,6 @@
         <nav class="sidebar-nav">
             <ul id="sidebarnav" class="p-t-30">
                 <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{ url('/admin') }}" aria-expanded="false"><i class="mdi mdi-view-dashboard"></i><span class="hide-menu">Dashboard</span></a></li>
-                <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/admin/donors" aria-expanded="false"><i class="mdi mdi-account-edit"></i><span class="hide-menu">Manage Donor</span></a></li>
-                <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-account"></i><span class="hide-menu">Employee</span></a>
-                    <ul aria-expanded="false" class="collapse  first-level">
-                        <li class="sidebar-item"><a href="/admin/createEmployee" class="sidebar-link"><i class="mdi mdi-account-plus"></i><span class="hide-menu"> Create Employee Account </span></a></li>
-                        <li class="sidebar-item"><a href="/admin/employees" class="sidebar-link"><i class="mdi mdi-account-multiple"></i><span class="hide-menu"> Manage Employee Account </span></a></li>
-                    </ul>
-                </li>
-                <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-file-multiple"></i><span class="hide-menu">Catalog</span></a>
-                    <ul aria-expanded="false" class="collapse  first-level">
-                        <li class="sidebar-item"><a href="/admin/createCatalog" class="sidebar-link"><i class="mdi mdi-account-plus"></i><span class="hide-menu"> Create Catalog </span></a></li>
-                        <li class="sidebar-item"><a href="/admin/managedonation" class="sidebar-link"><i class="mdi mdi-file-document"></i><span class="hide-menu"> Manage Catalog </span></a></li>
-                    </ul>
-                </li>
-                <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/admin/auditlogs" aria-expanded="false"><i class="mdi mdi-book-open"></i><span class="hide-menu">Audit Logs</span></a></li>
             </ul>
         </nav>
         <!-- End Sidebar navigation -->

@@ -23,8 +23,8 @@
         <!-- Login box.scss -->
         <!-- ============================================================== -->
 
-        <div class="auth-wrapper d-flex no-block justify-content-center align-items-center" style="background-image:url('../assets/images/background/donor.gif'); background-size: cover">
-            <div class="auth-box" style="background-color: rgba(0,0,0,0)">
+        <div class="auth-wrapper d-flex no-block justify-content-center align-items-center" style="background-color: #1a2421">
+            <div class="auth-box" style="background-color: #1a2421">
                 <div id="loginform">
                     <div class="text-center p-t-20 p-b-20">
                         <span class="db"><img src="../assets/images/donor-logo.png" alt="logo" /></span>

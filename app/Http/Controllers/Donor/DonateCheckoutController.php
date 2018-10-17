@@ -35,7 +35,7 @@ class DonateCheckoutController extends Controller
       $trans->userID = $request->userID;
       $trans->type = $request->type;
       $trans->cart = $cartItems;
-      $trans->status = 'Ordered';
+      $trans->status = 'Processing';
       $trans->save();
 
       Cart::destroy();

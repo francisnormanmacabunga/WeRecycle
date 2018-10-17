@@ -65,6 +65,11 @@ class Donor extends Authenticatable
     return $this->hasOne('App\Models\Points', 'pointsID');
     }
 
+    public function pointslog()
+    {
+    return $this->hasMany('App\Models\PointsLog', 'points_log_id');
+    }
+
     public function age()
     {
     return Carbon::parse($this->attributes['birthdate'])->age;

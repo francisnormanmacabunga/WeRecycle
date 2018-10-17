@@ -4,30 +4,40 @@
 @section('content')
 
     <div class="row">
-      <div class="col-lg-3">
-      <h3>Donation History</h3>
-      <div class="list-group">
-          <a href="/programdirector/donationhistory" class="list-group-item">Donation History</a>
-      </div>
+      <div class="col-lg-12">
 
-      </div>
-      <div class="col-lg-9">
-        <div class="row">
-
+        <a href="/programdirector/donationhistory">
+         <button style="float: right;">Reset</button>
+        </a>
+        <a href="/programdirector/donationhistory/">
+          <button style="float: right;">Sort by Type of Donation</button>
+        </a>
+        <a href="/programdirector/donationhistory/?status=Shipping">
+          <button style="float: right;">Sort by Shipping</button>
+        </a>
+        <a href="/programdirector/donationhistory/?status=Cancelled">
+          <button style="float: right;">Sort by Cancelled</button>
+        </a>
+        <a href="/programdirector/donationhistory/?status=Delivered">
+          <button style="float: right;">Sort by Delivered</button>
+        </a>
+        <br/>
+        <br/>
+          @if(count($donation) > 0)
           <table class="table table-bordered" class="fixed">
             <tr>
               <th>Assigned Volunteer</th>
               <th>Type of Donation</th>
               <th>Quantity</th>
               <th>@sortablelink('created_at', 'Date')</th>
-              <th>@sortablelink('status', 'Status')</th>
+              <th>Status</th>
             </tr>
             @foreach ($donation as $donations)
               @php
                 $cart = json_decode($donations->cart);
               @endphp
             <tr>
-              <td>Sample: Carlo</td>
+              <td>{{$donations->volunteer->firstname}} {{$donations->volunteer->lastname}}</td>
               @foreach($cart as $item)
               <td>{{$item->name}}</td>
               <td>{{$item->qty}}</td>
@@ -35,11 +45,16 @@
               <td>{{date('F d, Y, h:i:sa', strtotime($donations->created_at))}}</td>
               <td>{{$donations->status}}</td>
             </tr>
-
             @endforeach
-
         </table>
+        @else
+        <div align="center" style="color:red;">
+          <br>
+          <br>
+          <h5 style="font-family:serif;">No records found.</h5>
+        </div>
+        @endif
       </div>
     </div>
-
+{{$donation ->links()}}
 @endsection

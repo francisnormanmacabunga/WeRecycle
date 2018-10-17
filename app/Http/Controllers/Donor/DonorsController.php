@@ -8,6 +8,7 @@ use Illuminate\Validation\Rule;
 use App\Models\Contacts;
 use App\Models\Donor;
 use App\Models\Points;
+use App\Models\PointsLog;
 use Exception;
 use Session;
 use Hash;
@@ -71,12 +72,29 @@ class DonorsController extends Controller
 
     public function addpoints()
     {
+<<<<<<< HEAD
+   $randompoints = rand(3,5);
+   $id = Auth::user()->userID;
+   $points = Points::where('userID',$id)->first();
+   $points->pointsaccumulated = $points->pointsaccumulated + $randompoints;
+   $points->userID = Auth::user()->userID;
+   $points->push();
+
+
+   $plog = new PointsLog;
+   $plog->userID = Auth::user()->userID;
+   $plog->activity = 'Donated';
+   $plog->points = $randompoints;
+   $plog->save();
+   return back();
+=======
        $id = Auth::user()->userID;
        $points = Points::where('userID',$id)->first();
        $points->pointsaccumulated = $points->pointsaccumulated + 5;
        $points->userID = Auth::user()->userID;
        $points->push();
        return back();
+>>>>>>> 9ca1745a229587302ea203ac22a11253fd5b8d05
     }
 
     /**

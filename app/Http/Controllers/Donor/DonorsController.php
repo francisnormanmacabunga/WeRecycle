@@ -72,6 +72,7 @@ class DonorsController extends Controller
 
     public function addpoints()
     {
+<<<<<<< HEAD
    $randompoints = rand(3,5);
    $id = Auth::user()->userID;
    $points = Points::where('userID',$id)->first();
@@ -86,6 +87,14 @@ class DonorsController extends Controller
    $plog->points = $randompoints;
    $plog->save();
    return back();
+=======
+       $id = Auth::user()->userID;
+       $points = Points::where('userID',$id)->first();
+       $points->pointsaccumulated = $points->pointsaccumulated + 5;
+       $points->userID = Auth::user()->userID;
+       $points->push();
+       return back();
+>>>>>>> 9ca1745a229587302ea203ac22a11253fd5b8d05
     }
 
     /**

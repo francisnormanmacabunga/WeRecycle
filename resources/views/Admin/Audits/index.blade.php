@@ -10,7 +10,18 @@
       <a href="/admin/auditlogs">
        <button style="float: right;">Reset</button>
       </a>
-    
+      <a href="/admin/auditlogs/?log_name=Product">
+        <button style="float: right;">Sort by Product</button>
+      </a>
+      <a href="/admin/auditlogs/?log_name=Volunteer">
+        <button style="float: right;">Sort by Volunteer</button>
+      </a>
+      <a href="/admin/auditlogs/?log_name=Program Director Account">
+        <button style="float: right;">Sort by Program Director</button>
+      </a>
+      <a href="/admin/auditlogs/?log_name=Transaction">
+        <button style="float: right;">Sort by Transaction</button>
+      </a>
       <a href="/admin/auditlogs/?log_name=Donor Account">
         <button style="float: right;">Sort by Donor</button>
       </a>

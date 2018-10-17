@@ -20,8 +20,8 @@
         <!-- ============================================================== -->
         <!-- Login box.scss -->
         <!-- ============================================================== -->
-        <div class="auth-wrapper d-flex no-block justify-content-center align-items-center" style="background-image:url('../../../assets/images/background/ac.gif'); background-size: cover">
-            <div class="auth-box" style="background-color: rgba(0,0,0,0)">
+        <div class="auth-wrapper d-flex no-block justify-content-center align-items-center" style="background-color: #35281e">
+            <div class="auth-box" style="background-color: #35281e">
                 <div>
                     <div class="text-center p-t-20 p-b-20">
                         <span class="db"><img src="../../../assets/images/ac-logo.png" alt="logo" /></span>

@@ -8,8 +8,9 @@
   <div class="col-lg-3">
   <h3>Requests Messages</h3>
   <div class="list-group">
-      <a href="/programdirector/messageorders" class="list-group-item">Orders Messages</a>
-      <a href="/programdirector/messagerequests" class="list-group-item">Requests Messages</a>
+    <a href="/programdirector/messageOrders" class="list-group-item">Orders Messages</a>
+    <a href="/programdirector/messageRequests" class="list-group-item">Requests Messages</a>
+    <a href="/programdirector/messageDonors" class="list-group-item">Donors Messages</a>
   </div>
 
   </div>
@@ -21,11 +22,13 @@
             <br>
             <br>
             <tr>
+              <th>Date</th>
               <th>Assigned Volunteer</th>
-              <th>Assigned Volunteer</th>
+              <th>Message</th>
             </tr>
             @foreach ($messagerequests as $messagerequest)
             <tr>
+              <td> {{date('F d, Y, h:i:sa', strtotime($messagerequest->created_at))}} </td>
               <td>{{$messagerequest->volunteer->firstname}} {{$messagerequest->volunteer->lastname}}</td>
               <td> {{$messagerequest->message}} </td>
             </tr>

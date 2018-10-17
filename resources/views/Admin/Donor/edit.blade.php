@@ -1,15 +1,15 @@
 @extends('layouts.frontend')
-@include('layouts.pd-nav')
+@include('layouts.admin-nav')
 
 @section('content')
 
-  {!! Form::open(['action' => ['ProgramDirector\UpdateVolunteer@update', $volunteer['messageID']], 'method' => 'POST' ]) !!}
+  {!! Form::open(['action' => ['Admin\DonorsController@update', $donors['userID']], 'method' => 'POST' ]) !!}
   <div class="row">
     <div class="col-md-12">
       <br/>
       <h3 align="center">Update status</h3>
       <br/>
-      <h5 align="left"><a href="/programdirector/viewRequests">Back</a></h5>
+      <h5 align="left"><a href="/activitycoordinator/applicants">Back</a></h5>
       <table class="table table-bordered">
         <tr>
           <th>Name</th>
@@ -17,17 +17,19 @@
           <th>Action</th>
         </tr>
           <tr>
-    
+            <td>{{$donors['firstname']}} {{$donors['lastname']}}</td>
+            <td>{{$donors['status']}}</td>
+            <td>
+                {{Form::select('status', ['Activated' => 'Activated', 'Deactivated' => 'Deactivated'])}}
+            </td>
           </tr>
       </table>
     </div>
   </div>
-  <div>
   {{Form::hidden('_method','PUT')}}
   {{Form::submit('Save',['class' => 'btn btn-success btn-lg btn-block', 'onclick' => 'Confirm()'])}}
   {!! Form::close() !!}
-  <a class="btn btn-block btn-primary btn-lg btn-block" href="/programdirector/requests" role="button">Back</a>
-</div>
+
   <script type="text/javascript">
       function Confirm() {
           var confirm_value = document.createElement("INPUT");

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Products;
 use DB;
 
 class ManageCatalogController extends Controller
@@ -17,11 +18,11 @@ class ManageCatalogController extends Controller
   public function manageDonation()
   {
     //DONATION
-    $products1 = DB::table('products')
-    ->select('*')
+    $products1 = Products::Select('*')
     -> join('productstype', 'productstype.productstypeID', '=', 'products.productstypeID')
     -> where('productstype.productstypeID','1')
-    ->get();
+    -> sortable()
+    -> paginate(10);
 
     return view('Admin/Catalog.manageDonation', compact('products1'));
   }
@@ -29,11 +30,11 @@ class ManageCatalogController extends Controller
   public function manageShop()
   {
     //SHOP
-    $products2 = DB::table('products')
-    ->select('*')
+    $products2 = Products::Select('*')
     -> join('productstype', 'productstype.productstypeID', '=', 'products.productstypeID')
     -> where('productstype.productstypeID','2')
-    ->get();
+    -> sortable()
+    -> paginate(10);
 
     return view('Admin/Catalog.manageshop', compact('products2'));
   }

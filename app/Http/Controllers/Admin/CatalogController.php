@@ -25,19 +25,7 @@ class CatalogController extends Controller
 
     public function index()
     {
-      /*$products1 = DB::table('products')
-      ->select('*')
-      -> join('productstype', 'productstype.productstypeID', '=', 'products.productstypeID')
-      -> where('productstype.productstypeID','1')
-      ->get();
-
-      $products2 = DB::table('products')
-      ->select('*')
-      -> join('productstype', 'productstype.productstypeID', '=', 'products.productstypeID')
-      -> where('productstype.productstypeID','2')
-      ->get();
-
-      return view('catalog.index', compact('products1', 'products2'));*/
+  
     }
 
     /**
@@ -64,7 +52,7 @@ class CatalogController extends Controller
       'productname' => 'required|regex:/^[\pL\s]+$/u',
       'productstypeID' => 'required',
       'description' => 'required|regex:/^[ \w.#-]+$/',
-      'price' => 'integer|min:0',
+      'price' => 'min:0',
       'productimage' => 'required|mimes:jpeg,jpg,png|image|max:5000'
     ],
     [

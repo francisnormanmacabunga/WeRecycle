@@ -39,4 +39,10 @@ class HistoryController extends Controller
       return view('Donor/History.transactionHistory')->with(['shop' => $shop]);
     }
 
+    public function cancel(Request $request){
+        $id = $request->input('transid');
+        DB::table('transactions')->where('transid',$id)->delete();
+        return back();
+    }
+
 }

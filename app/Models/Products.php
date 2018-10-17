@@ -14,16 +14,23 @@ class Products extends Model
   protected $table = 'products';
   protected $primaryKey = 'productsID';
   public $timestamps = true;
-  public $sortable = ['created_at', 'price'];
-  protected static $logAttributes = ["*"];
+  public $sortable = ['created_at', 'price', 'status'];
 
-  public static function boot()
+  protected static $logName = 'Product';
+  protected static $logAttributes = ["*"];
+  protected static $logOnlyDirty = true;
+  public function getDescriptionForEvent(string $eventName): string
+  {
+      return "Has {$eventName}";
+  }
+
+  /*public static function boot()
   {
   parent::boot();
   static::saving(function (Model $model) {
       static::$logAttributes = array_keys($model->getDirty());
   });
-  }
+}*/
 
   public function getNameAttribute()
   {

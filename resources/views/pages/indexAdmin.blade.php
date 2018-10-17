@@ -79,7 +79,7 @@
                     <div class="col-md-6 col-lg-4 col-xlg-3">
                         <div class="card card-hover">
                           <a href="/admin/managedonation">
-                            <div class="box bg-warning text-center">
+                            <div class="box text-center" style="background-color: #008080">
                                 <h1 class="font-light text-white"><i class="mdi mdi-table-edit"></i></h1>
                                 <h6 class="text-white">Manage Catalog</h6>
                             </div>
@@ -90,7 +90,7 @@
                     <div class="col-md-6 col-lg-4 col-xlg-3">
                         <div class="card card-hover">
                           <a href="/admin/auditlogs">
-                            <div class="box text-center" style="background-color: #008080">
+                            <div class="box bg-danger text-center">
                                 <h1 class="font-light text-white"><i class="mdi mdi-book-open"></i></h1>
                                 <h6 class="text-white">Audit Logs</h6>
                             </div>

@@ -65,7 +65,7 @@ return [
     |
     */
 
-    'timezone' => "Asia/Manila",
+    'timezone' => 'Asia/Manila',
 
     /*
     |--------------------------------------------------------------------------
@@ -151,11 +151,6 @@ return [
         Gloudemans\Shoppingcart\ShoppingcartServiceProvider::class,
         Anhskohbo\NoCaptcha\NoCaptchaServiceProvider::class,
 
-<<<<<<< HEAD
-=======
-
-
->>>>>>> 9ca1745a229587302ea203ac22a11253fd5b8d05
 
         /*
          * Package Service Providers...

@@ -63,12 +63,10 @@ Route::prefix('activitycoordinator')->group(function() {
   Route::get('/login','ActivityCoordinator\Auth\ACLoginController@showLoginForm')->name('ac.login');
   Route::post('/login','ActivityCoordinator\Auth\ACLoginController@login')->name('ac.login.submit');
   Route::post('/logout', 'ActivityCoordinator\Auth\ACLoginController@activitycoordinatorLogout')->name('activitycoordinator.logout');
-
   Route::post('/password/email','ActivityCoordinator\Auth\ForgotPasswordController@sendResetLinkEmail')->name('activitycoordinator.password.email');
   Route::get('/password/reset','ActivityCoordinator\Auth\ForgotPasswordController@showLinkRequestForm')->name('activitycoordinator.password.request');
   Route::post('/password/reset','ActivityCoordinator\Auth\ResetPasswordController@reset');
   Route::get('/password/reset/{token}','ActivityCoordinator\Auth\ResetPasswordController@showResetForm')->name('activitycoordinator.password.reset');
-  
   Route::resource('/activity_coordinators', 'ActivityCoordinator\ActivityCoordinatorsController');
   Route::resource('/AC_password', 'ActivityCoordinator\ActivityCoordinatorsPasswordController');
   Route::resource('/applicants', 'ActivityCoordinator\ApplicantsController');
@@ -118,9 +116,17 @@ Route::prefix('admin')->group(function() {
   Route::get('/manageshop', 'Admin\ManageCatalogController@manageShop');
   Route::get('/managedonation', 'Admin\ManageCatalogController@manageDonation');
   Route::get('createCatalog', 'Admin\AdminController@createCatalog');
+
   Route::resource('/employees', 'Admin\EmployeesController');
+
+  Route::resource('/activitycoordinators', 'Admin\ActivityCoordinatorController');
+  Route::resource('/programdirectors', 'Admin\ProgramDirectorController');
+
   Route::resource('/donors','Admin\DonorsController');
-  Route::get('/createEmployee', 'Admin\AdminController@createEmployee');
+
+  Route::get('/createAC', 'Admin\AdminController@createAC');
+  Route::get('/createPD', 'Admin\AdminController@createPD');
+
   Route::get('/', 'Admin\AdminController@index')->name('admin.dashboard');
 });
 

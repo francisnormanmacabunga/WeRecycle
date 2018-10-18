@@ -12,8 +12,8 @@
     <a href="/programdirector/messageRequests" class="list-group-item">Requests Messages</a>
     <a href="/programdirector/messageDonors" class="list-group-item">Donors Messages</a>
   </div>
-
   </div>
+
   <div class="col-lg-9">
     <div class="row">
           @if(count($messagedonors) > 0)
@@ -43,5 +43,6 @@
         @endif
       </div>
       </div>
+    </div>
 
 @endsection

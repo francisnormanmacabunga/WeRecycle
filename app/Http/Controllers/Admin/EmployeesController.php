@@ -99,7 +99,7 @@ class EmployeesController extends Controller
       'username.required' => 'The Username field is required.',
       'username.alpha_dash' => 'The Username may only contain letters, numbers, dashes and underscores.'
     ]);
-      $pw = str_random(6);
+    
       $user = new Employee();
       $user->firstname = $request->input('firstname');
       $user->lastname = $request->input('lastname');
@@ -112,7 +112,7 @@ class EmployeesController extends Controller
       $user->username = $request->input('username');
       $user->usertypeID = $request->input('usertypeID');
       $user->password = $pw;
-      //$user->password = Hash::make($request->input('password'));
+      $user->password = Hash::make($request->input('password'));
       $user->status = $request->input('status');
       $user->save();
 

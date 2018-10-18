@@ -12,9 +12,14 @@ use App\Models\Contacts;
 use Hash;
 use DB;
 
+use AuthenticatesAndRegistersUsers, ThrottlesLogins, ResetsPassword;
+use Illuminate\Foundation\Auth\SendsPasswordResetEmails;
+use Password;
+
 class EmployeesController extends Controller
 {
 
+    use SendsPasswordResetEmails;
     public function __construct()
     {
       $this->middleware('auth:admin');
@@ -99,7 +104,8 @@ class EmployeesController extends Controller
       'username.required' => 'The Username field is required.',
       'username.alpha_dash' => 'The Username may only contain letters, numbers, dashes and underscores.'
     ]);
-    
+      $pw = str_random(8);
+
       $user = new Employee();
       $user->firstname = $request->input('firstname');
       $user->lastname = $request->input('lastname');
@@ -111,8 +117,7 @@ class EmployeesController extends Controller
       $user->zip = $request->input('zip');
       $user->username = $request->input('username');
       $user->usertypeID = $request->input('usertypeID');
-      $user->password = $pw;
-      $user->password = Hash::make($request->input('password'));
+      $user->password = Hash::make($pw);
       $user->status = $request->input('status');
       $user->save();
 
@@ -122,11 +127,41 @@ class EmployeesController extends Controller
       $contacts->tellNo = $request->input('tellNo');
       $contacts->save();
 
+      return $this->postEmail($request);
 
+      //Mail::to($user->email)->send(new WelcomeMail($user));
+      //return redirect('/admin/employees')->with('success', 'Profile Created');
+    }
 
-      Mail::to($user->email)->send(new WelcomeMail($user));
+    public function postEmail(Request $request)
+    {
+    return $this->sendResetLinkEmail($request);
+    }
 
-      return redirect('/admin/employees')->with('success', 'Profile Created');
+    public function sendResetLinktoEmail(Request $request)
+    {
+      $this->validateSendResetLinkEmail($request);
+
+      $broker = $this->getBroker();
+
+      $response = Password::broker($broker)->sendResetLink(
+          $this->getSendResetLinkEmailCredentials($request),
+          $this->resetEmailBuilder()
+      );
+
+      switch ($response)
+        {
+            case Password::RESET_LINK_SENT:
+                return $this->getSendResetLinkEmailSuccessResponse($response);
+            case Password::INVALID_USER:
+            default:
+                return $this->getSendResetLinkEmailFailureResponse($response);
+        }
+    }
+
+    protected function broker()
+    {
+       return Password::broker('activitycoordinators');
     }
 
     /**

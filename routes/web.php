@@ -88,15 +88,22 @@ Route::prefix('programdirector')->group(function() {
   Route::get('/sendSMS-D-R','ProgramDirector\TwilioController@indexDonorRequest');
   Route::get('/sendSMS-D-R/donorID={userID}','ProgramDirector\TwilioController@indexDonorRequestID');
   Route::post('/sendMessage-D-R','ProgramDirector\TwilioController@sendMessageDonorRequest');
-  Route::get('/sendSMS-D-O','ProgramDirector\TwilioController@indexDonorOrder');
-  Route::get('/sendSMS-D-O/donorID={userID}','ProgramDirector\TwilioController@indexDonorOrderID');
+
+
+
+  Route::get('/sendSMS-D-O/transactionID={transid}','ProgramDirector\TwilioController@indexDonorOrder');
   Route::post('/sendMessage-D-O','ProgramDirector\TwilioController@sendMessageDonorOrder');
+
+
+
   Route::get('/sendSMS-V-R','ProgramDirector\TwilioController@indexVolunteerRequest');
   Route::get('/sendSMS-V-R/volunteerID={volunteerID}','ProgramDirector\TwilioController@indexVolunteerRequestID');
   Route::post('/sendMessage-V-R','ProgramDirector\TwilioController@assignRequest');
-  Route::get('/sendSMS-V-O','ProgramDirector\TwilioController@indexVolunteerOrder');
+
+  Route::get('/sendSMS-V-O/transactionID={transid}','ProgramDirector\TwilioController@indexVolunteerOrder');
   Route::get('/sendSMS-V-O/volunteerID={volunteerID}','ProgramDirector\TwilioController@indexVolunteerOrderID');
   Route::post('/sendMessage-V-O','ProgramDirector\TwilioController@assignOrder');
+
   Route::get('/donationhistory', 'ProgramDirector\DonationHistoryController@donationHistory');
   Route::resource('/feedback', 'ProgramDirector\FeedbacksController');
   Route::resource('/requests','ProgramDirector\RequestController');

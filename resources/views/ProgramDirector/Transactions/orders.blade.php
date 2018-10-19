@@ -44,8 +44,8 @@
           <td> {{$orders->status}} </td>
           <td> {{$orders->volunteer['firstname']}} {{$orders->volunteer['lastname']}}</td>
           <th>
-            <a class="btn btn-block btn-primary" href="/programdirector/sendSMS-V-O" role="button">Message Volunteer</a>
-            <a class="btn btn-block btn-primary" href="/programdirector/sendSMS-D-O" role="button">Message Donor</a>
+            <a class="btn btn-block btn-primary" href="/programdirector/sendSMS-V-O/transactionID={{$orders->transid}}" role="button">Message Volunteer</a>
+            <a class="btn btn-block btn-primary" href="/programdirector/sendSMS-D-O/transactionID={{$orders->transid}}" role="button">Message Donor</a>
             <a class="btn btn-block btn-primary" href="/programdirector/orders/{{$orders->transid}}/edit" role="button">Update Status</a>
           </th>
         </tr>

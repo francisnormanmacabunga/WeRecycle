@@ -54,6 +54,7 @@
           <h5 style="font-family:serif;">No records found.</h5>
         </div>
         @endif
+        <button class="btn btn-default" onclick="window.print();"><i class="fa fa-print"></i> Print</button>
       </div>
     </div>
 {{$donation ->links()}}

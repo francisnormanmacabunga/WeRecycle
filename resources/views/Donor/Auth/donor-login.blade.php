@@ -23,8 +23,8 @@
         <!-- Login box.scss -->
         <!-- ============================================================== -->
 
-        <div class="auth-wrapper d-flex no-block justify-content-center align-items-center" style="background-color: #1a2421">
-            <div class="auth-box" style="background-color: #1a2421">
+        <div class="auth-wrapper d-flex no-block justify-content-center align-items-center" style="background-color: #1B4D3E">
+            <div class="auth-box" style="background-color: #1B4D3E">
                 <div id="loginform">
                     <div class="text-center p-t-20 p-b-20">
                         <span class="db"><img src="../assets/images/donor-logo.png" alt="logo" /></span>
@@ -45,15 +45,15 @@
                             <div class="col-12">
                                 <div class="input-group mb-3">
                                     <div class="input-group-prepend">
-                                        <span class="input-group-text bg-success text-white" id="basic-addon1"><i class="ti-user"></i></span>
+                                        <span class="input-group-text bg-success text-white btn-rounded" id="basic-addon1"><i class="ti-user"></i></span>
                                     </div>
-                                    <input type="text" class="form-control{{ $errors->has('username') ? ' is-invalid' : '' }}" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" name="username" value="{{ old('username') }}" required autofocus>
+                                    <input type="text" class="form-control{{ $errors->has('username') ? ' is-invalid' : '' }} btn-rounded" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" name="username" value="{{ old('username') }}" required autofocus>
                                 </div>
                                 <div class="input-group mb-3">
                                     <div class="input-group-prepend">
-                                        <span class="input-group-text bg-warning text-white" id="basic-addon2"><i class="ti-pencil"></i></span>
+                                        <span class="input-group-text bg-danger text-white btn-rounded" id="basic-addon2"><i class="ti-pencil"></i></span>
                                     </div>
-                                    <input type="password" name="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" placeholder="Password" aria-label="Password" aria-describedby="basic-addon1" required>
+                                    <input type="password" name="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }} btn-rounded" placeholder="Password" aria-label="Password" aria-describedby="basic-addon1" required>
                                 </div>
                             </div>
                         </div>
@@ -61,8 +61,8 @@
                             <div class="col-12">
                                 <div class="form-group">
                                     <div class="p-t-20">
-                                        <button class="btn btn-success float-right" type="submit">{{ __('Login') }}</button>
-                                        <a class="btn btn-info" href="{{ route('donor.password.request') }}"><i class="fa fa-lock m-r-5"></i> {{ __('Forgot Password?') }}</a>
+                                        <button class="btn btn-success btn-rounded float-right" type="submit">{{ __('Login') }}</button>
+                                        <a class="btn btn-info btn-rounded" href="{{ route('donor.password.request') }}"><i class="fa fa-lock m-r-5"></i> {{ __('Forgot Password?') }}</a>
                                         </a>
                                     </div>
                                 </div>

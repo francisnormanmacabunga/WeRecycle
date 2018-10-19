@@ -1,27 +1,27 @@
 <?php
 
-namespace App\Http\Controllers\Guest;
+namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use Illuminate\Validation\Rule;
-use App\Models\Volunteer;
-use App\Models\Employee;
+use AuthenticatesAndRegistersUsers, ThrottlesLogins, ResetsPassword;
+use Illuminate\Foundation\Auth\SendsPasswordResetEmails;
+use Password;
+use App\Models\ActivityCoordinator;
 use App\Models\Contacts;
 use Hash;
 
-class ApplicantsController extends Controller
+class ActivityCoordinatorController extends Controller
 {
-
+    use SendsPasswordResetEmails;
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-
     public function index()
     {
-
+        //
     }
 
     /**
@@ -29,10 +29,9 @@ class ApplicantsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-
     public function create()
     {
-      return view('Guest/Applicants.create');
+        //
     }
 
     /**
@@ -41,10 +40,10 @@ class ApplicantsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-
     public function store(Request $request)
     {
       $this->validate($request, [
+      'usertypeID' => 'required',
       'firstname' => 'required|regex:/^[\pL\s]+$/u',
       'lastname' => 'required|regex:/^[\pL\s]+$/u',
       'email' => 'required|unique:user,email',
@@ -55,10 +54,10 @@ class ApplicantsController extends Controller
       'street' => 'nullable|regex:/^[ \w.#-]+$/',
       'barangay' => 'nullable|regex:/^[ \w.#-]+$/',
       'zip' => 'nullable|min:4|max:4',
-      'username' => 'required|alpha_dash|unique:user,username',
-      'g-recaptcha-response'=> 'required|captcha'
+      'username' => 'required|alpha_dash|unique:user,username'
     ],
     [
+      'usertypeID.required' => 'The Usertype field is required',
       'firstname.required' => 'The First Name field is required.',
       'firstname.regex' => 'The First Name field must only contain letters.',
       'lastname.required' => 'The Last Name field is required.',
@@ -81,9 +80,10 @@ class ApplicantsController extends Controller
       'zip.max' => 'The Zip field may not be greater than 4 characters.',
       'username.unique' => 'The Username you registered is already in use.',
       'username.required' => 'The Username field is required.',
-      'username.alpha_dash' => 'The Username may only contain letters, numbers, dashes and underscores.',
+      'username.alpha_dash' => 'The Username may only contain letters, numbers, dashes and underscores.'
     ]);
-      $user = new Volunteer();
+      $pw = str_random(8);
+      $user = new ActivityCoordinator();
       $user->firstname = $request->input('firstname');
       $user->lastname = $request->input('lastname');
       $user->email = $request->input('email');
@@ -94,16 +94,47 @@ class ApplicantsController extends Controller
       $user->zip = $request->input('zip');
       $user->username = $request->input('username');
       $user->usertypeID = $request->input('usertypeID');
-      //$user->password = Hash::make($request->input('password'));
+      $user->password = Hash::make($pw);
       $user->status = $request->input('status');
       $user->save();
 
       $contacts = new Contacts();
-      $contacts->volunteerID = $user->volunteerID;
+      $contacts->userID = $user->userID;
       $contacts->cellNo = $request->input('cellNo');
       $contacts->tellNo = $request->input('tellNo');
       $contacts->save();
-      return redirect('/')->with('success', 'Application submitted');
+
+      return $this->postEmail($request);
+    }
+
+    public function postEmail(Request $request)
+    {
+      return $this->sendResetLinkEmail($request);
+    }
+
+    public function sendResetLinktoEmail(Request $request, $token)
+    {
+      $this->validateSendResetLinkEmail($request);
+      $broker = $this->getBroker();
+
+      $response = Password::broker($broker)->sendResetLink(
+          $this->getSendResetLinkEmailCredentials($request),
+          $this->resetEmailBuilder()
+      );
+
+      switch ($response)
+        {
+            case Password::RESET_LINK_SENT:
+                return $this->getSendResetLinkEmailSuccessResponse($response);
+            case Password::INVALID_USER:
+            default:
+                return $this->getSendResetLinkEmailFailureResponse($response);
+        }
+    }
+
+    protected function broker()
+    {
+       return Password::broker('activitycoordinators');
     }
 
     /**
@@ -112,10 +143,9 @@ class ApplicantsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-
     public function show($id)
     {
-
+        //
     }
 
     /**
@@ -124,10 +154,9 @@ class ApplicantsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-
     public function edit($id)
     {
-
+        //
     }
 
     /**
@@ -137,10 +166,9 @@ class ApplicantsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-
     public function update(Request $request, $id)
     {
-
+        //
     }
 
     /**
@@ -149,10 +177,8 @@ class ApplicantsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-
     public function destroy($id)
     {
         //
     }
-
 }

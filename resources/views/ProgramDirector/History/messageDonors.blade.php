@@ -12,17 +12,17 @@
     <a href="/programdirector/messageRequests" class="list-group-item">Requests Messages</a>
     <a href="/programdirector/messageDonors" class="list-group-item">Donors Messages</a>
   </div>
-
   </div>
+
   <div class="col-lg-9">
     <div class="row">
-
+          @if(count($messagedonors) > 0)
           <table class="table table-bordered" class="fixed">
             <br/>
             <br>
             <br>
             <tr>
-              <th>Date</th>
+              <th>@sortablelink('created_at', 'Date')</th>
               <th>Donor Sent To</th>
               <th>Message</th>
             </tr>
@@ -34,7 +34,15 @@
             </tr>
             @endforeach
         </table>
+        @else
+        <div align="center" style="color:red;">
+          <br>
+          <br>
+          <h5 style="font-family:serif;">No messages found.</h5>
+        </div>
+        @endif
       </div>
       </div>
+    </div>
 
 @endsection

@@ -116,9 +116,17 @@ Route::prefix('admin')->group(function() {
   Route::get('/manageshop', 'Admin\ManageCatalogController@manageShop');
   Route::get('/managedonation', 'Admin\ManageCatalogController@manageDonation');
   Route::get('createCatalog', 'Admin\AdminController@createCatalog');
+
   Route::resource('/employees', 'Admin\EmployeesController');
+
+  Route::resource('/activitycoordinators', 'Admin\ActivityCoordinatorController');
+  Route::resource('/programdirectors', 'Admin\ProgramDirectorController');
+
   Route::resource('/donors','Admin\DonorsController');
-  Route::get('/createEmployee', 'Admin\AdminController@createEmployee');
+
+  Route::get('/createAC', 'Admin\AdminController@createAC');
+  Route::get('/createPD', 'Admin\AdminController@createPD');
+
   Route::get('/', 'Admin\AdminController@index')->name('admin.dashboard');
 });
 

@@ -83,14 +83,12 @@
                         {{ Auth::user()->username }}</a>
                       <div class="dropdown-divider"></div>
                       <a class="dropdown-item" href="/programdirector/program_directors"><i class="ti-user m-r-5 m-l-5"></i> Edit Profile</a>
-                        <a class="dropdown-item" href="{{ route('programdirector.logout') }}"
+                        <div class="p-l-30 p-10"><a href="{{ route('programdirector.logout') }}"
                            onclick="event.preventDefault();
-                                         document.getElementById('logout-form').submit();"><i class="fa fa-power-off m-r-5 m-l-5"></i> Logout</a>
-                           <form id="logout-form" action="{{ route('programdirector.logout') }}" method="POST" style="display: none;">
-                               @csrf
-                           </form>
-                        <div class="dropdown-divider"></div>
-                        <div class="p-l-30 p-10"><a href="javascript:void(0)" class="btn btn-sm btn-success btn-rounded">View Profile</a></div>
+                                         document.getElementById('logout-form').submit();" class="btn btn-sm btn-danger btn-rounded">Logout</a></div>
+                                         <form id="logout-form" action="{{ route('programdirector.logout') }}" method="POST" style="display: none;">
+                                             @csrf
+                                         </form>
                     </div>
                 </li>
             </ul>
@@ -109,20 +107,15 @@
         <!-- Sidebar navigation-->
         <nav class="sidebar-nav">
             <ul id="sidebarnav" class="p-t-30">
-                <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{ url('/admin') }}" aria-expanded="false"><i class="mdi mdi-view-dashboard"></i><span class="hide-menu">Dashboard</span></a></li>
-                <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-account"></i><span class="hide-menu">Volunteers</span></a>
+                <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{ url('/programdirector') }}" aria-expanded="false"><i class="mdi mdi-view-dashboard"></i><span class="hide-menu">Dashboard</span></a></li>
+                <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-account"></i><span class="hide-menu">History</span></a>
                     <ul aria-expanded="false" class="collapse  first-level">
-                        <li class="sidebar-item"><a href="/programdirector/requests" class="sidebar-link"><i class="mdi mdi-account-plus"></i><span class="hide-menu"> Assign Volunteers </span></a></li>
-                        <li class="sidebar-item"><a href="/programdirector/tasksHistory" class="sidebar-link"><i class="mdi mdi-message-text"></i><span class="hide-menu"> Tasks History </span></a></li>
+                        <li class="sidebar-item"><a href="/programdirector/messageOrders" class="sidebar-link"><i class="mdi mdi-account-plus"></i><span class="hide-menu">Message History</span></a></li>
+                        <li class="sidebar-item"><a href="/programdirector/donationhistory" class="sidebar-link"><i class="mdi mdi-message-text"></i><span class="hide-menu">Donation History</span></a></li>
                     </ul>
                 </li>
-                <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-account"></i><span class="hide-menu">Donors</span></a>
-                    <ul aria-expanded="false" class="collapse  first-level">
-                        <li class="sidebar-item"><a href="/programdirector/sendSMS-D" class="sidebar-link"><i class="mdi mdi-message-text"></i><span class="hide-menu"> Contact Donors </span></a></li>
-                    </ul>
-                </li>
-                <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/programdirector/donationhistory" aria-expanded="false"><i class="mdi mdi-view-dashboard"></i><span class="hide-menu">Donation History</span></a></li>
-                <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/programdirector/feedback" aria-expanded="false"><i class="mdi mdi-view-dashboard"></i><span class="hide-menu">View Feedback</span></a></li>
+                <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/programdirector/requests" aria-expanded="false"><i class="mdi mdi-view-dashboard"></i><span class="hide-menu">Transactions</span></a></li>
+                <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/programdirector/feedback" aria-expanded="false"><i class="mdi mdi-view-dashboard"></i><span class="hide-menu">Feedback</span></a></li>
             </ul>
         </nav>
         <!-- End Sidebar navigation -->

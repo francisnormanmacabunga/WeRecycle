@@ -20,8 +20,8 @@
         <!-- ============================================================== -->
         <!-- Login box.scss -->
         <!-- ============================================================== -->
-        <div class="auth-wrapper d-flex no-block justify-content-center align-items-center" style="background-color: #1a2421">
-            <div class="auth-box" style="background-color: #1a2421">
+        <div class="auth-wrapper d-flex no-block justify-content-center align-items-center" style="background-color: #1B4D3E">
+            <div class="auth-box" style="background-color: #1B4D3E">
               <div id="loginform">
                 @if ($errors->has('email'))
                     <div class="alert alert-danger" role="alert">{{ $errors->first('email') }}</div>
@@ -41,15 +41,15 @@
                           <!-- email -->
                           <div class="input-group mb-3">
                               <div class="input-group-prepend">
-                                  <span class="input-group-text bg-danger text-white" id="basic-addon1"><i class="ti-email"></i></span>
+                                  <span class="input-group-text bg-success text-white btn-rounded" id="basic-addon1"><i class="ti-email"></i></span>
                               </div>
-                              <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }} form-control-lg" placeholder="Email Address" aria-label="Username" aria-describedby="basic-addon1" name="email" value="{{ old('email') }}" required>
+                              <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }} form-control-lg btn-rounded" placeholder="Email Address" aria-label="Username" aria-describedby="basic-addon1" name="email" value="{{ old('email') }}" required>
                           </div>
                           <!-- pwd -->
                           <div class="row m-t-20 p-t-20">
                               <div class="col-12">
-                                  <a class="btn btn-success" href="/donor/login" id="to-login" name="action">Back</a>
-                                  <button class="btn btn-info float-right" type="submit" name="action">{{ __('Recover') }}</button>
+                                  <a class="btn btn-danger btn-rounded" href="/donor/login" id="to-login" name="action">Back</a>
+                                  <button class="btn btn-info float-right btn-rounded" type="submit" name="action">{{ __('Recover') }}</button>
                               </div>
                           </div>
                       </form>

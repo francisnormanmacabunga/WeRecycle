@@ -7,7 +7,7 @@
   <div class="row">
     <div class="col-md-12">
       <br/>
-      <h3><strong>User feedback</strong></h3>
+      <h3 align="center"><strong>User feedback</strong></h3>
       <br>
       <br>
       @if(count($feedbacks) > 0)

@@ -151,7 +151,10 @@ return [
         Gloudemans\Shoppingcart\ShoppingcartServiceProvider::class,
         Anhskohbo\NoCaptcha\NoCaptchaServiceProvider::class,
 
+<<<<<<< HEAD
+=======
 
+>>>>>>> c0973fc5b4fc42b94c076f23f71e3cbcc7abdfb4
         /*
          * Package Service Providers...
          */

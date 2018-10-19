@@ -12,6 +12,7 @@
             </tr>
             </thead>
             <tbody>
+          @if(count($cartItems) > 0)
             @foreach($cartItems as $cartItem)
                 <tr>
                     <td>{{$cartItem->name}}</td>
@@ -52,6 +53,12 @@
             Back</a>
     </div>
 </div>
-
+@else
+  <div align="center" style="color:red;">
+    <br>
+    <br>
+    <h5 style="font-family:serif;">No Items in donation list.</h5>
+  </div>
+@endif
 
 @endsection

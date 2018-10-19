@@ -13,6 +13,7 @@
     </div>
     <div class="col-md-9">
     <div class="row">
+        @if(count($order) > 0)
       <table class="table table-bordered" class="fixed">
         <tr>
           <th>Date</th>
@@ -50,7 +51,11 @@
         </tr>
         @endforeach
     </table>
-
+    @else
+    <div align="center" style="color:red;">
+      <h4 style="font-family:serif;">No orders found.</h4>
+    </div>
+    @endif
     </div>
   </div>
 

@@ -11,7 +11,6 @@ use App\Models\ActivityCoordinator;
 use App\Models\Contacts;
 use Hash;
 
-
 class ActivityCoordinatorController extends Controller
 {
     use SendsPasswordResetEmails;
@@ -84,7 +83,6 @@ class ActivityCoordinatorController extends Controller
       'username.alpha_dash' => 'The Username may only contain letters, numbers, dashes and underscores.'
     ]);
       $pw = str_random(8);
-
       $user = new ActivityCoordinator();
       $user->firstname = $request->input('firstname');
       $user->lastname = $request->input('lastname');
@@ -111,13 +109,12 @@ class ActivityCoordinatorController extends Controller
 
     public function postEmail(Request $request)
     {
-    return $this->sendResetLinkEmail($request);
+      return $this->sendResetLinkEmail($request);
     }
 
-    public function sendResetLinktoEmail(Request $request)
+    public function sendResetLinktoEmail(Request $request, $token)
     {
       $this->validateSendResetLinkEmail($request);
-
       $broker = $this->getBroker();
 
       $response = Password::broker($broker)->sendResetLink(

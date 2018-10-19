@@ -49,11 +49,11 @@
         </tr>
         @endforeach
     </table>
-  @else
-  <div align="center" style="color:red;">
-    <h4 style="font-family:serif;">Nothing found.</h4>
-  </div>
-  @endif
+    @else
+    <div align="center" style="color:red;">
+      <h4 style="font-family:serif;">No requests found.</h4>
+    </div>
+    @endif
     </div>
     </div>
   </div>

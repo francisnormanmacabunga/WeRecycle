@@ -36,7 +36,7 @@
         @endforeach
           <td>{{date('F d, Y, h:i:sa', strtotime($donations->created_at))}}</td>
           <td>{{$donations->status}}</td>
-          <td> <a href="/cancel?{{$donations->transid}}">Cancel</a></td>
+          <td> <a href="/cancel/{{$donations->transid}}">Cancel</a></td>
 
         </tr>
 

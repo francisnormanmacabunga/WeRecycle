@@ -29,7 +29,8 @@ class DonorController extends Controller
     public function index()
     {
       //$id = Auth::user()->userID;
-      $width = Points::where('userID',Auth::user()->userID);
+
+      $width = Points::where('userID',Auth::user()->userID)->first();
         return view('pages.indexUser')->with('width',$width);
     }
 

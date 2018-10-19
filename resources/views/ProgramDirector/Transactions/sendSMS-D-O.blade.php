@@ -26,6 +26,8 @@
                           <tr>
                             <input type= "hidden" name= "mobile" class= "radio"
                             value="{{$applicants->donor['contacts']['cellNo']}}"/>
+                            <input type= "hidden" name= "userID"
+                            value="{{$applicants->userID}}">
                             <td> {{$applicants->donor['firstname']}} {{$applicants->donor['lastname']}}  </td>
                             <td> {{$applicants->donor['email']}} </td>
                             <td> {{$applicants->donor['contacts']['cellNo']}} </td>

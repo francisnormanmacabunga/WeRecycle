@@ -85,25 +85,14 @@ Route::prefix('programdirector')->group(function() {
   Route::get('/password/reset/{token}','ProgramDirector\Auth\ResetPasswordController@showResetForm')->name('programdirector.password.reset');
   Route::resource('/program_directors', 'ProgramDirector\ProgramDirectorsController');
   Route::resource('/PD_password', 'ProgramDirector\ProgramDirectorsPasswordController');
-  Route::get('/sendSMS-D-R','ProgramDirector\TwilioController@indexDonorRequest');
-  Route::get('/sendSMS-D-R/donorID={userID}','ProgramDirector\TwilioController@indexDonorRequestID');
+  Route::get('/sendSMS-V-R/transactionID={transid}','ProgramDirector\TwilioController@indexVolunteerRequest');
+  Route::post('/sendMessage-V-R','ProgramDirector\TwilioController@assignRequest');
+  Route::get('/sendSMS-D-R/transactionID={transid}','ProgramDirector\TwilioController@indexDonorRequest');
   Route::post('/sendMessage-D-R','ProgramDirector\TwilioController@sendMessageDonorRequest');
-
-
-
+  Route::get('/sendSMS-V-O/transactionID={transid}','ProgramDirector\TwilioController@indexVolunteerOrder');
+  Route::post('/sendMessage-V-O','ProgramDirector\TwilioController@assignOrder');
   Route::get('/sendSMS-D-O/transactionID={transid}','ProgramDirector\TwilioController@indexDonorOrder');
   Route::post('/sendMessage-D-O','ProgramDirector\TwilioController@sendMessageDonorOrder');
-
-
-
-  Route::get('/sendSMS-V-R','ProgramDirector\TwilioController@indexVolunteerRequest');
-  Route::get('/sendSMS-V-R/volunteerID={volunteerID}','ProgramDirector\TwilioController@indexVolunteerRequestID');
-  Route::post('/sendMessage-V-R','ProgramDirector\TwilioController@assignRequest');
-
-  Route::get('/sendSMS-V-O/transactionID={transid}','ProgramDirector\TwilioController@indexVolunteerOrder');
-  Route::get('/sendSMS-V-O/volunteerID={volunteerID}','ProgramDirector\TwilioController@indexVolunteerOrderID');
-  Route::post('/sendMessage-V-O','ProgramDirector\TwilioController@assignOrder');
-
   Route::get('/donationhistory', 'ProgramDirector\DonationHistoryController@donationHistory');
   Route::resource('/feedback', 'ProgramDirector\FeedbacksController');
   Route::resource('/requests','ProgramDirector\RequestController');
@@ -123,17 +112,12 @@ Route::prefix('admin')->group(function() {
   Route::get('/manageshop', 'Admin\ManageCatalogController@manageShop');
   Route::get('/managedonation', 'Admin\ManageCatalogController@manageDonation');
   Route::get('createCatalog', 'Admin\AdminController@createCatalog');
-
   Route::resource('/employees', 'Admin\EmployeesController');
-
   Route::resource('/activitycoordinators', 'Admin\ActivityCoordinatorController');
   Route::resource('/programdirectors', 'Admin\ProgramDirectorController');
-
   Route::resource('/donors','Admin\DonorsController');
-
   Route::get('/createAC', 'Admin\AdminController@createAC');
   Route::get('/createPD', 'Admin\AdminController@createPD');
-
   Route::get('/', 'Admin\AdminController@index')->name('admin.dashboard');
 });
 

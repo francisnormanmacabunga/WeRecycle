@@ -29,7 +29,7 @@
             @foreach ($messagedonors as $messagedonor)
             <tr>
               <td> {{date('F d, Y, h:i:sa', strtotime($messagedonor->created_at))}} </td>
-              <td> {{$messagedonor->donor->firstname}} {{$messagedonor->donor->lastname}}</td>
+              <td> {{$messagedonor->donor['firstname']}} {{$messagedonor->donor['lastname']}}</td>
               <td> {{$messagedonor->message}} </td>
             </tr>
             @endforeach

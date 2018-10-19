@@ -83,7 +83,6 @@ class ProgramDirectorController extends Controller
       'username.alpha_dash' => 'The Username may only contain letters, numbers, dashes and underscores.'
     ]);
       $pw = str_random(8);
-
       $user = new ProgramDirector();
       $user->firstname = $request->input('firstname');
       $user->lastname = $request->input('lastname');
@@ -110,13 +109,12 @@ class ProgramDirectorController extends Controller
 
     public function postEmail(Request $request)
     {
-    return $this->sendResetLinkEmail($request);
+      return $this->sendResetLinkEmail($request);
     }
 
     public function sendResetLinktoEmail(Request $request)
     {
       $this->validateSendResetLinkEmail($request);
-
       $broker = $this->getBroker();
 
       $response = Password::broker($broker)->sendResetLink(

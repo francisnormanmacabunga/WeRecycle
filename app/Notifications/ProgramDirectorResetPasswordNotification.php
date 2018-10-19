@@ -41,7 +41,7 @@ class ProgramDirectorResetPasswordNotification extends Notification
     public function toMail($notifiable)
     {
         return (new MailMessage)
-        ->line('You are receiving this email because we recieved a password reset request for your account.')
+        ->line('You are receiving this email because we recieved either a password reset request for your account or an Adminitstrator created an account for you.')
         ->action('Reset Password', route('programdirector.password.reset', $this->token))
         ->line('If you did not request a password reset, ignore this email.');
     }

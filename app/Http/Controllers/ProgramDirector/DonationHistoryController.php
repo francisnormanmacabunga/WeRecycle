@@ -37,9 +37,13 @@ class DonationHistoryController extends Controller
 
       public function donationPDF()
       {
-        $donation = Transaction::all();
+        $donation = Transaction::SELECT('*')
+        -> where('status',request('status'))
+        -> where('type', 'Donate')
+        -> sortable()
+        -> paginate();
 
-        $pdf = PDF::loadView('donationPDF', compact('donation'));
+        $pdf = PDF::loadView('ProgramDirector/History.donationPDF', compact('donation'));
         return $pdf->download('DonationHistory.pdf');
       }
   }

@@ -98,6 +98,7 @@ Route::prefix('programdirector')->group(function() {
   Route::get('/sendSMS-V-O/volunteerID={volunteerID}','ProgramDirector\TwilioController@indexVolunteerOrderID');
   Route::post('/sendMessage-V-O','ProgramDirector\TwilioController@assignOrder');
   Route::get('/donationhistory', 'ProgramDirector\DonationHistoryController@donationHistory');
+  Route::get('/donationPDF','ProgramDirector\DonationHistoryController@donationPDF');
   Route::resource('/feedback', 'ProgramDirector\FeedbacksController');
   Route::resource('/requests','ProgramDirector\RequestController');
   Route::get('/messageOrders', 'ProgramDirector\MessageController@messageOrders');

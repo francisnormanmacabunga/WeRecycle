@@ -1,4 +1,4 @@
-@include('navbar.heademail')
+@include('navbar.header')
 
 <!DOCTYPE html>
 <html dir="ltr">
@@ -73,6 +73,6 @@
         <!-- Right Sidebar -->
         <!-- ============================================================== -->
     </div>
-@include('navbar.loginemail')
+@include('navbar.login')
 </body>
 </html>

@@ -29,21 +29,29 @@ class DonationHistoryController extends Controller
       -> where('type', 'Donate')
       -> sortable()
       -> paginate();
-      }
-
-      return view('ProgramDirector/History.donationHistory')->with(['donation' => $donation]);
 
       }
+$status = 'Shipping';
+$asd = 'Cancelled';
+$dsa = 'Delivered';
+      return view('ProgramDirector/History.donationHistory')->with(['donation' => $donation])->with(['status' => $status])->with(['asd' => $asd])->with(['dsa' => $dsa]);
 
-      public function donationPDF()
+      }
+
+      public function donationPDF(Request $request)
       {
+
         $donation = Transaction::SELECT('*')
-        -> where('status',request('status'))
+        //-> where('status',request('status'))
         -> where('type', 'Donate')
-        -> sortable()
-        -> paginate();
+        -> get();
+
+
+
+
 
         $pdf = PDF::loadView('ProgramDirector/History.donationPDF', compact('donation'));
+
         return $pdf->download('DonationHistory.pdf');
       }
   }

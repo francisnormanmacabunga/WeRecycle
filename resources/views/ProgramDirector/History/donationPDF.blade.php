@@ -1,21 +1,18 @@
-@extends('layouts.frontend')
-@include('layouts.pd-nav')
-
-@section('content')
-
     <div class="row">
       <div class="col-lg-12">
         <br/>
         <br/>
-          @if(count($donation) > 0)
+
           <table class="table table-bordered" class="fixed">
             <tr>
               <th>Assigned Volunteer</th>
               <th>Type of Donation</th>
               <th>Quantity</th>
-              <th>@sortablelink('created_at', 'Date')</th>
+              <th>Date</th>
               <th>Status</th>
             </tr>
+
+            @if(count($donation) >= 0)
             @foreach ($donation as $donations)
               @php
                 $cart = json_decode($donations->cart);
@@ -25,12 +22,14 @@
               @foreach($cart as $item)
               <td>{{$item->name}}</td>
               <td>{{$item->qty}}</td>
-            @endforeach
+              @endforeach
               <td>{{date('F d, Y, h:i:sa', strtotime($donations->created_at))}}</td>
               <td>{{$donations->status}}</td>
             </tr>
             @endforeach
         </table>
+
+
         @else
         <div align="center" style="color:red;">
           <br>
@@ -40,5 +39,3 @@
         @endif
       </div>
     </div>
-{{$donation ->links()}}
-@endsection

@@ -1,4 +1,4 @@
-@include('navbar.head')
+@include('navbar.header')
 
 <!DOCTYPE html>
 <html dir="ltr">

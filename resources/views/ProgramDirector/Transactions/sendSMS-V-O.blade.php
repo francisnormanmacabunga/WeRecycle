@@ -17,35 +17,23 @@
                       </div>
                       <h3 class="text-center">List of Volunteers</h3>
                       <hr style="margin:5px 0 5px 0;"><br>
-                      @if(count($applicants)>0)
                       <table class="table table-striped table-hover">
                         <tr>
                         <!--  <th>#</th> -->
                           <th>Name</th>
                           <th>Email</th>
                           <th>Mobile Number</th>
-                          <th>Action</th>
                         </tr>
-                        @foreach ($applicants as $applicant)
                           <tr>
-                            <input type= "hidden" name= "mobile" class= "radio" value="{{$applicant->cellNo}}"/>
-                            <input type= "hidden" name= "volunteerID"  value="{{$applicant->volunteerID}}">
-                            <td>{{$applicant->firstname}} {{$applicant->lastname}}</td>
-                            <td>{{$applicant->email}}</td>
-                            <td>{{$applicant->cellNo}}</td>
-                            <td>
-                              <a class="btn btn-primary"
-                              href="/programdirector/sendSMS-V-O/volunteerID={{$applicant->volunteerID}}"
-                              role="button"> Select </a>
-                            </td>
+                            <input type= "hidden" name= "mobile" class= "radio"
+                            value="{{$applicants->volunteer['contacts']['cellNo']}}"/>
+                            <input type= "hidden" name= "volunteerID"
+                            value="{{$applicants->volunteerID}}">
+                            <td> {{$applicants->volunteer['firstname']}} {{$applicants->volunteer['lastname']}} </td>
+                            <td> {{$applicants->volunteer['email']}} </td>
+                            <td> {{$applicants->volunteer['contacts']['cellNo']}} </td>
                           </tr>
-                        @endforeach
                       </table>
-                    @else
-                      <div align="center" style="color:red;">
-                        <h3>No applicants found.</h3>
-                      </div>
-                    @endif
                       <div class="form-group">
                       <div>
                         {{Form::submit('Send Message',['class' => 'btn btn-primary btn-lg btn-block'])}}
@@ -59,11 +47,5 @@
     </div>
   </div>
 </div>
-
-
-
-
-
-
 
 @endsection

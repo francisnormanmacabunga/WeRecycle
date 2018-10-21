@@ -6,8 +6,8 @@
   </head>
   <body>
     <h2>Welcome to WeRecycle {{$user['firstname']}}!</h2><br/>
-    Your successfully created a profile! Sign in with this credentials!<br/><br/>
-    Username: {{$user['username']}}<br/>
-    Password: {{$user['password']}}
+    Your have successfully created an account. We suggest changing your password right way!<br/><br/>
+    Change your password here: <br/>
+
   </body>
 </html>

@@ -16,6 +16,7 @@
       @if(count($request) > 0)
       <table class="table table-bordered" class="fixed">
         <tr>
+          <th>Transaction ID</th>
           <th>Date</th>
           <th>Name</th>
           <th>Address</th>
@@ -31,6 +32,7 @@
             $cart = json_decode($requests->cart);
           @endphp
         <tr>
+          <td> {{$requests->transid}} </td>
           <td> {{date('F d, Y, h:i:sa', strtotime($requests->created_at))}} </td>
           <td> {{$requests->donor->firstname}} {{$requests->donor->lastname}} </td>
           <td> Barangay: {{$requests->donor->barangay}}, {{$requests->donor->street}}, {{$requests->donor->city}}, Zip: {{$requests->donor->zip}} </td>
@@ -42,18 +44,18 @@
           <td> {{$requests->status}} </td>
           <td> {{$requests->volunteer['firstname']}} {{$requests->volunteer['lastname']}}</td>
           <th>
-            <a class="btn btn-block btn-primary" href="/programdirector/sendSMS-V-R" role="button">Message Volunteer</a>
-            <a class="btn btn-block btn-primary" href="/programdirector/sendSMS-D-R" role="button">Message Donor</a>
+            <a class="btn btn-block btn-primary" href="/programdirector/sendSMS-V-R/transactionID={{$requests->transid}}" role="button">Message Volunteer</a>
+            <a class="btn btn-block btn-primary" href="/programdirector/sendSMS-D-R/transactionID={{$requests->transid}}" role="button">Message Donor</a>
             <a class="btn btn-block btn-primary" href="/programdirector/requests/{{$requests->transid}}/edit" role="button">Manage Transaction</a>
           </th>
         </tr>
         @endforeach
     </table>
-  @else
-  <div align="center" style="color:red;">
-    <h4 style="font-family:serif;">Nothing found.</h4>
-  </div>
-  @endif
+    @else
+    <div align="center" style="color:red;">
+      <h4 style="font-family:serif;">No requests found.</h4>
+    </div>
+    @endif
     </div>
     </div>
   </div>

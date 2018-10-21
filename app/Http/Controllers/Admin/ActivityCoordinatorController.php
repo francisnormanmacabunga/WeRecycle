@@ -4,44 +4,24 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Mail;
-use Illuminate\Validation\Rule;
-use App\Mail\WelcomeMail;
-use App\Models\Employee;
-use App\Models\Contacts;
-use Hash;
-use DB;
-
 use AuthenticatesAndRegistersUsers, ThrottlesLogins, ResetsPassword;
 use Illuminate\Foundation\Auth\SendsPasswordResetEmails;
 use Password;
+use App\Models\ActivityCoordinator;
+use App\Models\Contacts;
+use Hash;
 
-class EmployeesController extends Controller
+class ActivityCoordinatorController extends Controller
 {
-
     use SendsPasswordResetEmails;
-    public function __construct()
-    {
-      $this->middleware('auth:admin');
-    }
-
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-
     public function index()
     {
-        $employee = Employee::SELECT('*')
-        -> join('contacts', 'contacts.userID', '=', 'user.userID')
-        -> join('usertype', 'usertype.usertypeID', '=', 'user.usertypeID')
-        -> where('usertype.usertypeID', '3')
-        -> orwhere('usertype.usertypeID', '4')
-        -> sortable()
-        -> paginate(10);
-
-        return view('Admin/Employees.index', compact('employee'));
+        //
     }
 
     /**
@@ -49,10 +29,9 @@ class EmployeesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-
     public function create()
     {
-      return view('Admin/Employees.create');
+        //
     }
 
     /**
@@ -61,7 +40,6 @@ class EmployeesController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-
     public function store(Request $request)
     {
       $this->validate($request, [
@@ -105,8 +83,7 @@ class EmployeesController extends Controller
       'username.alpha_dash' => 'The Username may only contain letters, numbers, dashes and underscores.'
     ]);
       $pw = str_random(8);
-
-      $user = new Employee();
+      $user = new ActivityCoordinator();
       $user->firstname = $request->input('firstname');
       $user->lastname = $request->input('lastname');
       $user->email = $request->input('email');
@@ -128,20 +105,16 @@ class EmployeesController extends Controller
       $contacts->save();
 
       return $this->postEmail($request);
-
-      //Mail::to($user->email)->send(new WelcomeMail($user));
-      //return redirect('/admin/employees')->with('success', 'Profile Created');
     }
 
     public function postEmail(Request $request)
     {
-    return $this->sendResetLinkEmail($request);
+      return $this->sendResetLinkEmail($request);
     }
 
-    public function sendResetLinktoEmail(Request $request)
+    public function sendResetLinktoEmail(Request $request, $token)
     {
       $this->validateSendResetLinkEmail($request);
-
       $broker = $this->getBroker();
 
       $response = Password::broker($broker)->sendResetLink(
@@ -170,10 +143,9 @@ class EmployeesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-
     public function show($id)
     {
-
+        //
     }
 
     /**
@@ -182,11 +154,9 @@ class EmployeesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-
     public function edit($id)
     {
-      $employee = Employee::find($id);
-      return view('Admin/Employees.edit', compact('employee'));
+        //
     }
 
     /**
@@ -196,13 +166,9 @@ class EmployeesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-
     public function update(Request $request, $id)
     {
-      $post = Employee::find($id);
-      $post->status = $request->input('status');
-      $post->save();
-      return redirect('/admin/employees')->with('success', 'Profile updated');
+        //
     }
 
     /**
@@ -211,10 +177,8 @@ class EmployeesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-
     public function destroy($id)
     {
         //
     }
-
 }

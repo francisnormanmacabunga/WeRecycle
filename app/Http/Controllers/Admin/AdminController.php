@@ -27,9 +27,14 @@ class AdminController extends Controller
         return view('pages.indexAdmin');
     }
 
-    public function createEmployee()
+    public function createAC()
     {
-        return view('Admin/Employees.create');
+        return view('Admin/Employees/AC.create');
+    }
+
+    public function createPD()
+    {
+        return view('Admin/Employees/PD.create');
     }
 
     public function createCatalog()

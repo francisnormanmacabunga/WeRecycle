@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Transaction;
 use App\Models\Donor;
+use PDF;
 
 class DonationHistoryController extends Controller
 {
@@ -22,15 +23,35 @@ class DonationHistoryController extends Controller
       -> where('status',request('status'))
       -> where('type', 'Donate')
       -> sortable()
-      -> paginate(10);
+      -> paginate();
       } else {
       $donation = Transaction::select('*')
       -> where('type', 'Donate')
       -> sortable()
-      -> paginate(10);
+      -> paginate();
+
+      }
+$status = 'Shipping';
+$asd = 'Cancelled';
+$dsa = 'Delivered';
+      return view('ProgramDirector/History.donationHistory')->with(['donation' => $donation])->with(['status' => $status])->with(['asd' => $asd])->with(['dsa' => $dsa]);
+
       }
 
-      return view('ProgramDirector/History.donationHistory')->with(['donation' => $donation]);
+      public function donationPDF(Request $request)
+      {
 
+        $donation = Transaction::SELECT('*')
+        //-> where('status',request('status'))
+        -> where('type', 'Donate')
+        -> get();
+
+
+
+
+
+        $pdf = PDF::loadView('ProgramDirector/History.donationPDF', compact('donation'));
+
+        return $pdf->download('DonationHistory.pdf');
       }
   }

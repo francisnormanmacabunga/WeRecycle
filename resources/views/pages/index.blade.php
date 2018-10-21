@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,13 +17,13 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
 
     <!-- Styles -->
-    <link href="http://practice.test/css/app.css" rel="stylesheet">
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
             <div class="container">
-                <a class="navbar-brand" href="http://practice.test">
+                <a class="navbar-brand" href="{{ url('/') }}">
                     Laravel
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -41,10 +40,10 @@
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
                                                     <li class="nav-item">
-                                <a class="nav-link" href="http://practice.test/login">Login</a>
+                                <a class="nav-link" href="{{ route('login') }}">Login</a>
                             </li>
                             <li class="nav-item">
-                                                                    <a class="nav-link" href="http://practice.test/register">Register</a>
+                                                                    <a class="nav-link" href="">Register</a>
                                                             </li>
                                             </ul>
                 </div>

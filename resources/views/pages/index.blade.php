@@ -1,5 +1,5 @@
 @extends('layouts.frontend')
-@include('inc.navbar1')
+
 @section('content')
   <div class="jumbotron mt-3 text-center">
     <h3>Welcome to landing page!</h3>

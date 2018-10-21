@@ -1,56 +1,42 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+@extends('layouts.frontend')
+@include('inc.navbar1')
+@section('content')
+  <div class="jumbotron mt-3 text-center">
+    <h3>Welcome to landing page!</h3>
+    <p class="lead">This is WeRecycle!!</p>
 
-    <!-- CSRF Token -->
-    <meta name="csrf-token" content="YbYv512SZiawT6dRfTxIqDIp8N7FdvDKTjTlP4sz">
+    <div class="row">
+          <div class="container col-md-4 center-align">
+        <h4 class="d-flex justify-content-between align-items-center mb-3">
 
-    <title>Laravel</title>
-
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
-
-    <!-- Fonts -->
-    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
-
-    <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-</head>
-<body>
-    <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
-            <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    Laravel
-                </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav mr-auto">
-
-                    </ul>
-
-                    <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ml-auto">
-                        <!-- Authentication Links -->
-                                                    <li class="nav-item">
-                                <a class="nav-link" href="{{ route('login') }}">Login</a>
-                            </li>
-                            <li class="nav-item">
-                                                                    <a class="nav-link" href="">Register</a>
-                                                            </li>
-                                            </ul>
-                </div>
-            </div>
-        </nav>
+        </h4>
+        <ul class="list-group mb-3">
 
 
+          <li class="list-group-item d-flex justify-content-between">
+            <span>Volunteers attending</span>
+            <strong>{{ $volunteersCount->count() }}</strong>
+          </li>
+          <li class="list-group-item d-flex justify-content-between">
+            <span>Volunteers needed</span>
+            <strong>10</strong>
+          </li>
+        </ul>
+
+
+      </div>
     </div>
-</body>
-</html>
+
+    <a class="btn btn-lg btn-primary" href="/createApplicant" role="button">Apply as a Volunteer </a>
+
+
+  </div>
+
+  <div class="jumbotron mt-3 text-center">
+    <h3>Temporary Links</h3>
+    <p class="lead">Under Construction!</p>
+    <a class="btn btn-success btn-lg" href="/activitycoordinator/login" role="button">Go to AC Page</a>
+    <a class="btn btn-success btn-lg" href="/programdirector/login" role="button">Go to PD Page</a>
+    <a class="btn btn-success btn-lg" href="/admin/login" role="button">Go to Admin Page</a>
+  </div>
+@endsection

@@ -11,6 +11,10 @@
 |
 */
 
+Route::get('/home',function(){
+  return view('welcome');
+});
+
 //Guest
 Route::get('/', 'PagesController@index');
 Route::get('/index', 'PagesController@index');

@@ -1,48 +1,72 @@
-@extends('layouts.frontend')
-@include('layouts.pd-nav')
-
-@section('content')
-
-
-<div class="row">
-  <div class="col-lg-3">
-  <h3>Requests Messages</h3>
-  <div class="list-group">
-    <a href="/programdirector/messageOrders" class="list-group-item">Orders Messages</a>
-    <a href="/programdirector/messageRequests" class="list-group-item">Requests Messages</a>
-    <a href="/programdirector/messageDonors" class="list-group-item">Donors Messages</a>
-  </div>
-  </div>
-
-  <div class="col-lg-9">
-    <div class="row">
-          @if(count($messagedonors) > 0)
-          <table class="table table-bordered" class="fixed">
-            <br/>
-            <br>
-            <br>
-            <tr>
-              <th>@sortablelink('created_at', 'Date')</th>
-              <th>Donor Sent To</th>
-              <th>Message</th>
-            </tr>
-            @foreach ($messagedonors as $messagedonor)
-            <tr>
-              <td> {{date('F d, Y, h:i:sa', strtotime($messagedonor->created_at))}} </td>
-              <td> {{$messagedonor->donor['firstname']}} {{$messagedonor->donor['lastname']}}</td>
-              <td> {{$messagedonor->message}} </td>
-            </tr>
-            @endforeach
-        </table>
-        @else
-        <div align="center" style="color:red;">
-          <br>
-          <br>
-          <h5 style="font-family:serif;">No messages found.</h5>
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+<body>
+<div id="main-wrapper">
+  @include('navbar.pd-navbar')
+  <div class="page-wrapper">
+    <!-- ============================================================== -->
+    <!-- End Bread crumb and right sidebar toggle -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- Container fluid  -->
+    <!-- ============================================================== -->
+    <div class="container-fluid">
+        <ul class="nav nav-tabs" role="tablist">
+          <li class="nav-item"> <a class="nav-link" href="/programdirector/messageOrders" role="tab"><span class="hidden-sm-up"></span> <span class="hidden-xs-down">Orders Messages</span></a> </li>
+          <li class="nav-item"> <a class="nav-link" href="/programdirector/messageRequests" role="tab"><span class="hidden-sm-up"></span> <span class="hidden-xs-down">Requests Messages</span></a> </li>
+          <li class="nav-item"> <a class="nav-link active" href="/programdirector/messageDonors" role="tab"><span class="hidden-sm-up"></span> <span class="hidden-xs-down">Donors Messages</span></a> </li>
+        </ul>
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body">
+<<<<<<< HEAD
+                        <h5 class="card-title">Donors Message</h5>
+=======
+                        <h5 class="card-title">Requests Messages</h5>
+>>>>>>> 6b998ea3fdf48d6aa2aafec71e95a7e92195a7b7
+                        <div class="table-responsive">
+                          @if(count($messagedonors) > 0)
+                            <table id="zero_config" class="table table-striped table-bordered">
+                                <thead>
+                                    <tr>
+                                      <th>Date</th>
+<<<<<<< HEAD
+                                      <th>Donor Sent To</th>
+=======
+                                      <th>Assigned Volunteer</th>
+>>>>>>> 6b998ea3fdf48d6aa2aafec71e95a7e92195a7b7
+                                      <th>Message</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                  @foreach ($messagedonors as $messagedonor)
+                                    <tr>
+                                      <td> {{date('F d, Y, h:i:sa', strtotime($messagedonor->created_at))}} </td>
+                                      <td> {{$messagedonor->donor['firstname']}} {{$messagedonor->donor['lastname']}}</td>
+                                      <td> {{$messagedonor->message}} </td>
+                                    </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
+                            @else
+                            <div align="center" style="color:red;">
+                              <br>
+                              <br>
+                              <h5>No records found.</h5>
+                            </div>
+                            @endif
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        @endif
-      </div>
-      </div>
     </div>
-
-@endsection
+    <footer class="footer text-center">
+      Copyright &copy; 2018 WeRecycle
+    </footer>
+  </div>
+</div>
+@include('navbar.footer')
+  </body>
+  </html>

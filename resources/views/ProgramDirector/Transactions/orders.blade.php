@@ -60,9 +60,9 @@
                                       <td> {{$orders->status}} </td>
                                       <td> {{$orders->volunteer['firstname']}} {{$orders->volunteer['lastname']}}</td>
                                       <td>
-                                        <a href="/programdirector/sendSMS-V-O/transactionID={{$orders->transid}}" title="Message Volunteer"><i class="mdi mdi-message-reply-text"></i></a>
-                                        <a href="/programdirector/sendSMS-D-O/transactionID={{$orders->transid}}" title="Message Donor"><i class="mdi mdi-message-reply"></i></a>
-                                        <a href="/programdirector/orders/{{$orders->transid}}/edit" title="Edit"><i class="mdi mdi-update"></i></a>
+                                        <a href="/programdirector/sendSMS-V-O/transactionID={{$orders->transid}}" data-toggle="tooltip" data-placement="top"  title="Message Volunteer"><i class="mdi mdi-message-reply-text"></i></a>
+                                        <a href="/programdirector/sendSMS-D-O/transactionID={{$orders->transid}}" data-toggle="tooltip" data-placement="top" title="Message Donor"><i class="mdi mdi-message-reply"></i></a>
+                                        <a href="/programdirector/orders/{{$orders->transid}}/edit" data-toggle="tooltip" data-placement="top" title="Edit"><i class="mdi mdi-update"></i></a>
                                       </td>
                                     </tr>
                                     @endforeach

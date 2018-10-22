@@ -9,6 +9,8 @@ use App\Models\MessageRequests;
 use App\Models\Volunteer;
 use App\Models\Order;
 use App\Models\Employee;
+use App\Models\Points;
+use App\Models\PointsLog;
 use DB;
 
 class RequestController extends Controller
@@ -89,11 +91,35 @@ class RequestController extends Controller
      */
     public function update(Request $request, $id)
     {
-      $updateRequest = Transaction::find($id);
-      $updateRequest->status = $request->input('status');
-      $updateRequest->volunteerID = $request->input('volunteer');
-      $updateRequest->save();
-      return redirect('/programdirector/requests')->with('success', 'Profile updated');
+      if ($request->input('status') == 'Delivered') {
+        $order = Transaction::find($id);
+        $order->status = $request->input('status');
+        $order->volunteerID = $request->input('volunteer');
+        $order->save();
+
+        $randompoints = 5;
+        $id = $order->userID;
+        $points = Points::where('userID',$id)->first();
+        $points->pointsaccumulated = $points->pointsaccumulated + $randompoints;
+        $points->userID = $id;
+        $points->push();
+
+
+        $plog = new PointsLog;
+        $plog->userID = $id;
+        $plog->activity = 'Donated';
+        $plog->points = $randompoints;
+        $plog->save();
+
+      return redirect('/programdirector/orders')->with('success', 'Profile updated');
+    }else {
+      $order = Transaction::find($id);
+      $order->status = $request->input('status');
+      $order->volunteerID = $request->input('volunteer');
+
+      $order->save();
+      return redirect('/programdirector/orders')->with('success', 'Profile updated');
+    }
     }
 
     /**

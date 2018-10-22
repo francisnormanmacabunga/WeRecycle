@@ -8,7 +8,10 @@ use App\Models\Transaction;
 use App\Models\Volunteer;
 use App\Models\MessageOrders;
 use App\Models\Order;
+use App\Models\Points;
+use App\Models\PointsLog;
 use DB;
+use Auth;
 
 class OrderController extends Controller
 {
@@ -88,13 +91,35 @@ class OrderController extends Controller
      */
     public function update(Request $request, $id)
     {
+      if ($request->input('status') == 'Delivered') {
+        $order = Transaction::find($id);
+        $order->status = $request->input('status');
+        $order->volunteerID = $request->input('volunteer');
+        $order->save();
+
+        $randompoints = rand(3,5);
+        $id = $order->userID;
+        $points = Points::where('userID',$id)->first();
+        $points->pointsaccumulated = $points->pointsaccumulated + $randompoints;
+        $points->userID = $id;
+        $points->push();
+
+
+        $plog = new PointsLog;
+        $plog->userID = $id;
+        $plog->activity = 'Purchased';
+        $plog->points = $randompoints;
+        $plog->save();
+
+      return redirect('/programdirector/orders')->with('success', 'Profile updated');
+    }else {
       $order = Transaction::find($id);
       $order->status = $request->input('status');
       $order->volunteerID = $request->input('volunteer');
 
-
       $order->save();
       return redirect('/programdirector/orders')->with('success', 'Profile updated');
+    }
     }
 
     /**

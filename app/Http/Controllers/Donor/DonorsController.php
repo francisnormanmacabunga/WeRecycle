@@ -86,7 +86,6 @@ class DonorsController extends Controller
    $plog->points = $randompoints;
    $plog->save();
 
-   session()->flash('pointsnotif','You have gained '.$randompoints.' points!');
    return back();
 
     }

@@ -1,7 +1,5 @@
-    <div class="row">
-      <div class="col-lg-12">
-        <br/>
-        <br/>
+
+
 
           <table class="table table-bordered" class="fixed">
             <tr>
@@ -37,5 +35,3 @@
           <h5 style="font-family:serif;">No records found.</h5>
         </div>
         @endif
-      </div>
-    </div>

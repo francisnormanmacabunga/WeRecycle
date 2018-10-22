@@ -21,7 +21,7 @@ class DonationHistoryController extends Controller
         $donation = Transaction::SELECT('*')
         -> where('type', 'Donate')
         -> sortable()
-        -> paginate(10);
+        -> paginate();
 
         return view('ProgramDirector/History.donationHistory')->with(['donation' => $donation]);
       }
@@ -33,7 +33,7 @@ class DonationHistoryController extends Controller
           -> where('status', 'Shipping')
           -> where('type', 'Donate')
           -> sortable()
-          -> paginate(10);
+          -> paginate();
 
           return view('ProgramDirector/History.donationHistoryS')->with(['donation' => $donation]);
         }
@@ -45,7 +45,7 @@ class DonationHistoryController extends Controller
           -> where('Status', 'Delivered')
           -> where('type', 'Donate')
           -> sortable()
-          -> paginate(10);
+          -> paginate();
 
           return view('ProgramDirector/History.donationHistoryD')->with(['donation' => $donation]);
           }
@@ -57,7 +57,7 @@ class DonationHistoryController extends Controller
             -> where('status', 'Cancelled')
             -> where('type', 'Donate')
             -> sortable()
-            -> paginate(10);
+            -> paginate();
 
             return view('ProgramDirector/History.donationHistoryC')->with(['donation' => $donation]);
             }

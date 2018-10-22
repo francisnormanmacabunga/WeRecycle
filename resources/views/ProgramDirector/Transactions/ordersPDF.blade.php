@@ -14,7 +14,6 @@
           <th>Item Quantity</th>
           <th>Status</th>
           <th>Assigned Volunteer</th>
-          <th>Action</th>
         </tr>
         @foreach ($order as $orders)
           @php
@@ -37,10 +36,7 @@
         @endforeach
     </table>
 
-    <div class="col-xs-12" align="left">
-      <a href="{{action('ProgramDirector\TransactionPDF@transactionPDFO')}}" class="btn btn-danger"><i class="mdi mdi-file-pdf"></i> PDF</a>
-      <button class="btn btn-info" onclick="window.print();"><i class="fa fa-print"></i> Print</button>
-    </div>
+
     @else
     <div align="center" style="color:red;">
       <h4 style="font-family:serif;">No orders found.</h4>

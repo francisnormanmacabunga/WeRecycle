@@ -93,10 +93,27 @@ Route::prefix('programdirector')->group(function() {
   Route::post('/sendMessage-V-O','ProgramDirector\TwilioController@assignOrder');
   Route::get('/sendSMS-D-O/transactionID={transid}','ProgramDirector\TwilioController@indexDonorOrder');
   Route::post('/sendMessage-D-O','ProgramDirector\TwilioController@sendMessageDonorOrder');
+
+
   Route::get('/donationhistory', 'ProgramDirector\DonationHistoryController@donationHistory');
+  Route::get('/donationhistoryS', 'ProgramDirector\DonationHistoryController@donationHistoryS');
+  Route::get('/donationhistoryD', 'ProgramDirector\DonationHistoryController@donationHistoryD');
+  Route::get('/donationhistoryC', 'ProgramDirector\DonationHistoryController@donationHistoryC');
   Route::get('/donationPDF','ProgramDirector\DonationHistoryController@donationPDF');
+  Route::get('/donationPDFS','ProgramDirector\DonationHistoryController@donationPDFS');
+  Route::get('/donationPDFD','ProgramDirector\DonationHistoryController@donationPDFD');
+  Route::get('/donationPDFC','ProgramDirector\DonationHistoryController@donationPDFC');
+
+
   Route::resource('/feedback', 'ProgramDirector\FeedbacksController');
+
+
+
   Route::resource('/requests','ProgramDirector\RequestController');
+  Route::get('/requestsPDF','ProgramDirector\TransactionPDF@transactionPDFR');
+  Route::get('/ordersPDF','ProgramDirector\TransactionPDF@transactionPDFO');
+
+
   Route::get('/messageOrders', 'ProgramDirector\MessageController@messageOrders');
   Route::get('/messageRequests', 'ProgramDirector\MessageController@messageRequests');
   Route::get('/messageDonors', 'ProgramDirector\MessageController@messageDonors');

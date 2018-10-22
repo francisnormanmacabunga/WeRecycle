@@ -1,17 +1,3 @@
-@extends('layouts.frontend')
-@include('layouts.pd-nav')
-
-@section('content')
-
-
-  <div class="row">
-    <div class="col-lg-3">
-    <div class="list-group">
-      <h3>View Request</h3>
-      <a href="/programdirector/requests" class="list-group-item">View Requests</a>
-      <a href="/programdirector/orders" class="list-group-item">View Orders</a>
-    </div>
-    </div>
 
     <div class="col-md-9">
     <div class="row">
@@ -30,7 +16,6 @@
           <th>Item Quantity</th>
           <th>Status</th>
           <th>Assigned Volunteer</th>
-          <th>Action</th>
         </tr>
         @foreach ($request as $requests)
           @php
@@ -48,19 +33,9 @@
           @endforeach
           <td> {{$requests->status}} </td>
           <td> {{$requests->volunteer['firstname']}} {{$requests->volunteer['lastname']}}</td>
-          <th>
-            <a class="btn btn-block btn-primary" href="/programdirector/sendSMS-V-R/transactionID={{$requests->transid}}" role="button">Message Volunteer</a>
-            <a class="btn btn-block btn-primary" href="/programdirector/sendSMS-D-R/transactionID={{$requests->transid}}" role="button">Message Donor</a>
-            <a class="btn btn-block btn-primary" href="/programdirector/requests/{{$requests->transid}}/edit" role="button">Manage Transaction</a>
-          </th>
         </tr>
         @endforeach
     </table>
-
-    <div class="col-xs-12" align="left">
-      <a href="{{action('ProgramDirector\TransactionPDF@transactionPDFR')}}" class="btn btn-danger"><i class="mdi mdi-file-pdf"></i> PDF</a>
-      <button class="btn btn-info" onclick="window.print();"><i class="fa fa-print"></i> Print</button>
-    </div>
 
 
     @else
@@ -71,5 +46,3 @@
     </div>
     </div>
   </div>
-
-@endsection

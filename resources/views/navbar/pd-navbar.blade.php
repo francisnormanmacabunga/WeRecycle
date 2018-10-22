@@ -116,7 +116,12 @@
                         <li class="sidebar-item"><a href="/programdirector/donationhistory" class="sidebar-link"><i class="mdi mdi-note-multiple"></i><span class="hide-menu">Donation History</span></a></li>
                     </ul>
                 </li>
-                <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/programdirector/requests" aria-expanded="false"><i class="mdi mdi-receipt"></i><span class="hide-menu">Transactions</span></a></li>
+                <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-receipt"></i><span class="hide-menu">Transactions</span></a>
+                  <ul aria-expanded="false" class="collapse  first-level">
+                      <li class="sidebar-item"><a href="/programdirector/requests" class="sidebar-link"><i class="mdi mdi-message-bulleted"></i><span class="hide-menu">Requests</span></a></li>
+                      <li class="sidebar-item"><a href="/programdirector/orders" class="sidebar-link"><i class="mdi mdi-note-multiple"></i><span class="hide-menu">Orders</span></a></li>
+                  </ul>
+                </li>
                 <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/programdirector/feedback" aria-expanded="false"><i class="mdi mdi-message"></i><span class="hide-menu">Feedback</span></a></li>
             </ul>
         </nav>

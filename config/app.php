@@ -52,7 +52,7 @@ return [
     |
     */
 
-    'url' => env('APP_URL', 'http://localhost'),
+    'url' => env('APP_URL', 'http://werecycle.eco'),
 
     /*
     |--------------------------------------------------------------------------
@@ -151,6 +151,8 @@ return [
         Gloudemans\Shoppingcart\ShoppingcartServiceProvider::class,
         Anhskohbo\NoCaptcha\NoCaptchaServiceProvider::class,
         Barryvdh\DomPDF\ServiceProvider::class,
+
+
         /*
          * Package Service Providers...
          */

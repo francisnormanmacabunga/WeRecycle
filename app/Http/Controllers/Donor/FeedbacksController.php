@@ -23,7 +23,7 @@ class FeedbacksController extends Controller
     {
       $this->validate($request, [
       'feedback' => 'nullable',
-      'rating' => 'required|min:1|max:1'
+      'rating' => 'required|min:1|max:1|integer|between:1,5',
     ],
     [
       'rating.required' => 'The rating field is required.',

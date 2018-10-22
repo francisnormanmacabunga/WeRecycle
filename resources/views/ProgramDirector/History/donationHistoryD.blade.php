@@ -15,9 +15,9 @@
         <!-- Start Page Content -->
         <!-- ============================================================== -->
         <ul class="nav nav-tabs" role="tablist">
-          <li class="nav-item"> <a class="nav-link active" href="/programdirector/donationhistory" role="tab"><span class="hidden-sm-up"></span> <span class="hidden-xs-down">Reset</span></a> </li>
+          <li class="nav-item"> <a class="nav-link" href="/programdirector/donationhistory" role="tab"><span class="hidden-sm-up"></span> <span class="hidden-xs-down">Reset</span></a> </li>
           <li class="nav-item"> <a class="nav-link" href="/programdirector/donationhistoryS" role="tab"><span class="hidden-sm-up"></span> <span class="hidden-xs-down">Shipping</span></a> </li>
-          <li class="nav-item"> <a class="nav-link" href="/programdirector/donationhistoryD" role="tab"><span class="hidden-sm-up"></span> <span class="hidden-xs-down">Delivered</span></a> </li>
+          <li class="nav-item"> <a class="nav-link active" href="/programdirector/donationhistoryD" role="tab"><span class="hidden-sm-up"></span> <span class="hidden-xs-down">Delivered</span></a> </li>
           <li class="nav-item"> <a class="nav-link" href="/programdirector/donationhistoryC" role="tab"><span class="hidden-sm-up"></span> <span class="hidden-xs-down">Cancelled</span></a> </li>
         </ul>
         <div class="row">
@@ -65,7 +65,7 @@
                     </div>
                 </div>
                 <div class="col-xs-12" align="right">
-                  <a href="{{action('ProgramDirector\DonationHistoryController@donationPDF')}}" class="btn btn-danger"><i class="mdi mdi-file-pdf"></i> PDF</a>
+                  <a href="{{action('ProgramDirector\DonationHistoryController@donationPDFD')}}" class="btn btn-danger"><i class="mdi mdi-file-pdf"></i> PDF</a>
                   <button class="btn btn-info" onclick="window.print();"><i class="fa fa-print"></i> Print</button>
                 </div>
             </div>

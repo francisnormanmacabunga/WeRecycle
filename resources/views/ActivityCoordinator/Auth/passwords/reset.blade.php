@@ -1,4 +1,4 @@
-@include('navbar.headreset')
+@include('navbar.header')
 
 <!DOCTYPE html>
 <html dir="ltr">
@@ -89,6 +89,6 @@
         <!-- Right Sidebar -->
         <!-- ============================================================== -->
     </div>
-    @include('navbar.loginreset')
+    @include('navbar.login')
 </body>
 </html>

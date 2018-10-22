@@ -45,7 +45,7 @@
                         <div class="card card-hover">
                           <a href="/programdirector/donationhistory">
                             <div class="box bg-info text-center">
-                                <h1 class="font-light text-white"><i class="mdi mdi-layers"></i></h1>
+                                <h1 class="font-light text-white"><i class="mdi mdi-note-multiple"></i></h1>
                                 <h6 class="text-white">Donation History</h6>
                             </div>
                           </a>
@@ -77,14 +77,10 @@
                     </div>
                     <!-- Column -->
                 </div>
-
                         </div>
-                    </div>
-                </div>
-                <footer class="footer text-center">
-                    All Rights Reserved by Matrix-admin. Designed and Developed by <a href="https://wrappixel.com">WrapPixel</a>.
-                </footer>
-            </div>
+            <footer class="footer text-center">
+                All Rights Reserved by Matrix-admin. Designed and Developed by <a href="https://wrappixel.com">WrapPixel</a>.
+            </footer>
         </div>
     </div>
   @include('navbar.footer')

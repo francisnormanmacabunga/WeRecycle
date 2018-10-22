@@ -20,7 +20,11 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-body">
+<<<<<<< HEAD
                         <h5 class="card-title">Orders Message</h5>
+=======
+                        <h5 class="card-title">Orders Messages</h5>
+>>>>>>> 6b998ea3fdf48d6aa2aafec71e95a7e92195a7b7
                         <div class="table-responsive">
                           @if(count($messageorders) > 0)
                             <table id="zero_config" class="table table-striped table-bordered">
@@ -50,7 +54,11 @@
                             @endif
                         </div>
                     </div>
+<<<<<<< HEAD
                 </div>
+=======
+                </div>=
+>>>>>>> 6b998ea3fdf48d6aa2aafec71e95a7e92195a7b7
             </div>
         </div>
     </div>

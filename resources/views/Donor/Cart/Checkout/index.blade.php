@@ -45,13 +45,23 @@
                             </td>
 
                         </tr>
-                        <tr>
-                          <td>Total:  </td>
-                          <td>{{$cartItem->total()}}</td>
-                          <td></td>
-                        </tr>
-                    @endforeach
 
+                    @endforeach
+                    <tr>
+                      <td><strong>Tax:</strong></td>
+                      <td>Php {{Cart::tax()}} <br></td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td><strong>Sub-Total:</strong></td>
+                      <td>Php {{Cart::subtotal()}} <br></td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Grand Total:</strong</td>
+                        <td>Php {{Cart::total()}}</td>
+                        <td></td>
+                    </tr>
                     </tbody>
                 </table>
 

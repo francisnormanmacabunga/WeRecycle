@@ -143,5 +143,4 @@ Route::prefix('admin')->group(function() {
   Route::get('/', 'Admin\AdminController@index')->name('admin.dashboard');
 });
 
-  Route::get('/addpointeru', 'Donor\DonorsController@addpoints');
   Route::get('/cancel/{transid}', 'Donor\HistoryController@cancel');

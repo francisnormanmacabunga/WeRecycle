@@ -16,7 +16,8 @@
         "laravelcollective/html": "^5.4.0",
         "spatie/eloquent-sortable": "^3.4",
         "spatie/laravel-activitylog": "^2.8",
-        "twilio/sdk": "^5.23"
+        "twilio/sdk": "^5.23",
+        "zgabievi/promocodes": "^2.1"
     },
     "require-dev": {
         "filp/whoops": "^2.0",

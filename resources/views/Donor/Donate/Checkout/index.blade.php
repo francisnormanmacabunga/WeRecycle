@@ -53,13 +53,12 @@
 
               </dl>
               <hr style="margin:5px 0 5px 0;"><br>
-            <form action="/checkout-donate/edit{{$request->orderid}}">
-                  <input type="submit" value="Edit Billing Details" class="btn btn-lg btn-block btn-primary" />
-            </form>
             </br>
               <form action="/donor/checkout-donate/confirm{{$request->requestID}}">
                   <input type="submit" value="Confirm" class="btn btn-lg btn-block btn-success" />
               </form>
+              <br>
+              <a role="button" class="btn btn-danger" href="/donor/shopCatalog">Cancel</a>
             </div>
           </div>
         </div>

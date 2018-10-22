@@ -25,7 +25,7 @@ class CatalogController extends Controller
 
     public function index()
     {
-  
+
     }
 
     /**
@@ -121,8 +121,37 @@ class CatalogController extends Controller
 
     public function update(Request $request, $id)
     {
+      $this->validate($request, [
+      'productname' => 'required|regex:/^[\pL\s]+$/u',
+      'description' => 'required|regex:/^[ \w.#-]+$/',
+      'price' => 'min:0',
+      'productimage' => 'required|mimes:jpeg,jpg,png|image|max:5000'
+    ],
+    [
+      'productname.required' => 'Product name is required field.',
+      'productname.regex' => 'Product name must only contain letters.',
+      'description.required' => 'Item description is a required field.',
+      'description.regex' => 'Item description must only contain letters, numbers, underscores, dashes, hypens and hashes.',
+      'price.min' => 'Price must be greater than 0.',
+      'productimage.required' => 'Product image is required',
+      'productimage.mimes' => 'Image must be in JPG/JPEG or PNG format',
+      'productimage.max' => 'Image must be less than 5MB.'
+    ]);
+
+      $validator = Validator::make($request->all(), [
+      'productimage' => 'max:1'
+
+    ]);
+      $filename = $request->file('productimage')->getClientOriginalName();
+      $moveImage = $request->file('productimage')->move('images', $filename);
+
       $products = Products::find($id);
+      $products->productname = $request->input('productname');
+      $products->productimage = $filename;
+      $products->price = $request->input('price');
+      $products->description = $request->input('description');
       $products->status = $request->input('status');
+
       $products->save();
       return redirect('/admin/managedonation')->with('success', 'Item updated');
     }

@@ -52,7 +52,7 @@ return [
     |
     */
 
-    'url' => env('APP_URL', 'http://localhost'),
+    'url' => env('APP_URL', 'http://werecycle.eco'),
 
     /*
     |--------------------------------------------------------------------------
@@ -218,8 +218,11 @@ return [
         'Html' => Collective\Html\HtmlFacade::class,
         'Cart' => Gloudemans\Shoppingcart\Facades\Cart::class,
         'PDF' => Barryvdh\DomPDF\Facade::class,
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> a84bf2888c272afed91cc23e8a02ea3f19c9a4b3
 
     ],
 

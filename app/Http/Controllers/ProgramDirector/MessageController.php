@@ -11,6 +11,12 @@ use App\Models\MessageDonors;
 class MessageController extends Controller
 {
 
+
+  public function __construct()
+  {
+      $this->middleware('auth:programdirector');
+  }
+
   public function messageOrders()
   {
     $messageorders = MessageOrders::SELECT('*')

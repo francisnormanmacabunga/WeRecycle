@@ -8,6 +8,7 @@ use Illuminate\Validation\Rule;
 use App\Models\Contacts;
 use App\Models\Donor;
 use App\Models\Points;
+use App\Models\Reward;
 use App\Models\PointsLog;
 use Exception;
 use Session;
@@ -169,6 +170,19 @@ class DonorsController extends Controller
     public function destroy($id)
     {
 
+    }
+
+    public function redeemcode(){
+      $reward = new Reward;
+      $random = str_random(6);
+      $reward->code = $random;
+      $reward->userID = Auth::user()->userID;
+      $reward->save();
+
+      $id = Auth::user()->userID;
+      $points= DB::Select('select * from points where userID =?',[$id]);
+      $points->pointsaccumulated = $points->pointsaccumulated - 100;
+      $points->push();
     }
 
 }

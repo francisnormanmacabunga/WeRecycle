@@ -27,57 +27,60 @@
                           @if(count($order) > 0)
                             <table id="zero_config" class="table table-striped table-bordered">
                                 <thead>
-                                  <tr>
-                            <th>Transaction ID
-                            <th>Date</th>
-                            <th>Name</th>
-                            <th>Address</th>
-                            <th>Item Type</th>
-                            <th>Item Name</th>
-                            <th>Item Price</th>
-                            <th>Item Quantity</th>
-                            <th>Status</th>
-                            <th>Assigned Volunteer</th>
-                            <th>Action</th>
-                          </tr>
-                          @foreach ($order as $orders)
-                            @php
-                              $cart = json_decode($orders->cart);
-                            @endphp
-                          <tr>
-                            <td> {{$orders->transid}} </td>
-                            <td> {{date('F d, Y, h:i:sa', strtotime($orders->created_at))}} </td>
-                            <td> {{$orders->donor->firstname}} {{$orders->donor->lastname}} </td>
-                            <td> Barangay: {{$orders->donor->barangay}}, {{$orders->donor->street}}, {{$orders->donor->city}}, Zip: {{$orders->donor->zip}} </td>
-                            <td> {{$orders->type}} </td>
-                            @foreach($cart as $item)
-                            <td>{{$item->name}}</td>
-                            <td>{{$item->price}}</td>
-                            <td>{{$item->qty}}</td>
-                            @endforeach
-                            <td> {{$orders->status}} </td>
-                            <td> {{$orders->volunteer['firstname']}} {{$orders->volunteer['lastname']}}</td>
-                            <th>
-                              <a class="btn btn-block btn-primary" href="/programdirector/sendSMS-V-O/transactionID={{$orders->transid}}" role="button">Message Volunteer</a>
-                              <a class="btn btn-block btn-primary" href="/programdirector/sendSMS-D-O/transactionID={{$orders->transid}}" role="button">Message Donor</a>
-                              <a class="btn btn-block btn-primary" href="/programdirector/orders/{{$orders->transid}}/edit" role="button">Update Status</a>
-                            </th>
-                          </tr>
-                          @endforeach
-                      </table>
-
-                      <div class="col-xs-12" align="left">
-                        <a href="{{action('ProgramDirector\TransactionPDF@transactionPDFO')}}" class="btn btn-danger"><i class="mdi mdi-file-pdf"></i> PDF</a>
-                        <button class="btn btn-info" onclick="window.print();"><i class="fa fa-print"></i> Print</button>
-                      </div>
-
-                      @else
-                      <div align="center" style="color:red;">
-                        <h4 style="font-family:serif;">No orders found.</h4>
-                      </div>
-                      @endif
+                                    <tr>
+                                      <th>ID</th>
+                                      <th>Date</th>
+                                      <th>Name</th>
+                                      <th>Address</th>
+                                      <th>Item Type</th>
+                                      <th>Name</th>
+                                      <th>Price</th>
+                                      <th>Qty</th>
+                                      <th>Status</th>
+                                      <th>Assigned Volunteer</th>
+                                      <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                  @foreach ($order as $orders)
+                                    @php
+                                      $cart = json_decode($orders->cart);
+                                    @endphp
+                                    <tr>
+                                      <td> {{$orders->transid}} </td>
+                                      <td> {{date('F d, Y, h:i:sa', strtotime($orders->created_at))}} </td>
+                                      <td> {{$orders->donor->firstname}} {{$orders->donor->lastname}} </td>
+                                      <td> Barangay: {{$orders->donor->barangay}}, {{$orders->donor->street}}, {{$orders->donor->city}}, Zip: {{$orders->donor->zip}} </td>
+                                      <td> {{$orders->type}} </td>
+                                      @foreach($cart as $item)
+                                      <td>{{$item->name}}</td>
+                                      <td>{{$item->price}}</td>
+                                      <td>{{$item->qty}}</td>
+                                      @endforeach
+                                      <td> {{$orders->status}} </td>
+                                      <td> {{$orders->volunteer['firstname']}} {{$orders->volunteer['lastname']}}</td>
+                                      <td>
+                                        <a href="/programdirector/sendSMS-V-O/transactionID={{$orders->transid}}" title="Message Volunteer"><i class="mdi mdi-message-reply-text"></i></a>
+                                        <a href="/programdirector/sendSMS-D-O/transactionID={{$orders->transid}}" title="Message Donor"><i class="mdi mdi-message-reply"></i></a>
+                                        <a href="/programdirector/orders/{{$orders->transid}}/edit" title="Edit"><i class="mdi mdi-update"></i></a>
+                                      </td>
+                                    </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
+                            @else
+                            <div align="center" style="color:red;">
+                              <br>
+                              <br>
+                              <h5>No orders found.</h5>
+                            </div>
+                            @endif
                         </div>
                     </div>
+                </div>
+                <div class="col-xs-12" align="right">
+                  <a href="{{action('ProgramDirector\TransactionPDF@transactionPDFO')}}" class="btn btn-danger"><i class="mdi mdi-file-pdf"></i> PDF</a>
+                  <button class="btn btn-info" onclick="window.print();"><i class="fa fa-print"></i> Print</button>
                 </div>
             </div>
         </div>

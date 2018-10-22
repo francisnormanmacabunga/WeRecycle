@@ -23,12 +23,10 @@ class FeedbacksController extends Controller
     {
       $this->validate($request, [
       'feedback' => 'nullable',
-      'rating' => 'required|min:1|max:1|integer|between:1,5',
+      'rating' => 'required|integer|between:1,5',
     ],
     [
       'rating.required' => 'The rating field is required.',
-      'rating.min' => 'The rating field must be atleast 1 digit.',
-      'rating.max' => 'The rating field must not be more than 1 digit.'
     ]);
       $feedback = new Feedbacks();
       //$feedback->userID = (Select from user where userID = session('username'))

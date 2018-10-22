@@ -11,14 +11,18 @@
     <!-- Container fluid  -->
     <!-- ============================================================== -->
     <div class="container-fluid">
+        <!-- ============================================================== -->
+        <!-- Start Page Content -->
+        <!-- ============================================================== -->
         <ul class="nav nav-tabs" role="tablist">
-          <li class="nav-item"> <a class="nav-link active" href="/programdirector/requests" role="tab"><span class="hidden-sm-up"></span> <span class="hidden-xs-down">View Requests</span></a> </li>
-          <li class="nav-item"> <a class="nav-link" href="/programdirector/orders" role="tab"><span class="hidden-sm-up"></span> <span class="hidden-xs-down">View Orders</span></a> </li>
+          <li class="nav-item"> <a class="nav-link active" href="/programdirector/requests" role="tab"><span class="hidden-sm-up"></span> <span class="hidden-xs-down">Requests</span></a> </li>
+          <li class="nav-item"> <a class="nav-link" href="/programdirector/orders" role="tab"><span class="hidden-sm-up"></span> <span class="hidden-xs-down">Orders</span></a> </li>
         </ul>
         <div class="row">
             <div class="col-12">
                 <div class="card">
                     <div class="card-body">
+                        <h5 class="card-title">Transaction-Requests</h5>
                         <div class="table-responsive">
                           @if(count($request) > 0)
                             <table id="zero_config" class="table table-striped table-bordered">
@@ -80,7 +84,7 @@
         </div>
     </div>
     <footer class="footer text-center">
-        All Rights Reserved by Matrix-admin. Designed and Developed by <a href="https://wrappixel.com">WrapPixel</a>.
+      Copyright &copy; 2018 WeRecycle
     </footer>
   </div>
 </div>

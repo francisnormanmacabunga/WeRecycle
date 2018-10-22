@@ -11,9 +11,6 @@
     <!-- Container fluid  -->
     <!-- ============================================================== -->
     <div class="container-fluid">
-        <!-- ============================================================== -->
-        <!-- Start Page Content -->
-        <!-- ============================================================== -->
         <ul class="nav nav-tabs" role="tablist">
           <li class="nav-item"> <a class="nav-link active" href="/programdirector/donationhistory" role="tab"><span class="hidden-sm-up"></span> <span class="hidden-xs-down">Reset</span></a> </li>
           <li class="nav-item"> <a class="nav-link" href="/programdirector/donationhistory/?status=Shipping" role="tab"><span class="hidden-sm-up"></span> <span class="hidden-xs-down">Shipping</span></a> </li>

@@ -6,12 +6,14 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <!-- Favicon icon -->
-    <link rel="icon" type="image/png" sizes="16x16" href="../assets/images/favicon.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../assets/images/favicon.png">
     <title>WeRecycle Administrator</title>
     <!-- Custom CSS -->
-    <link href="../assets/libs/flot/css/float-chart.css" rel="stylesheet">
+    <link href="../../assets/libs/flot/css/float-chart.css" rel="stylesheet">
     <!-- Custom CSS -->
-    <link href="../dist/css/style.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="../../assets/extra-libs/multicheck/multicheck.css">
+    <link href="../../assets/libs/datatables.net-bs4/css/dataTables.bootstrap4.css" rel="stylesheet">
+    <link href="../../dist/css/style.min.css" rel="stylesheet">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -43,14 +45,14 @@
                 <b class="logo-icon p-l-10">
                     <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
                     <!-- Dark Logo icon -->
-                    <img src="../assets/images/logo-icon.png" alt="homepage" class="light-logo" />
+                    <img src="../../assets/images/logo-icon.png" alt="homepage" class="light-logo" />
 
                 </b>
                 <!--End Logo icon -->
                  <!-- Logo text -->
                 <span class="logo-text">
                      <!-- dark Logo text -->
-                     <img src="../assets/images/logo-text.png" alt="homepage" class="light-logo" />
+                     <img src="../../assets/images/logo-text.png" alt="homepage" class="light-logo" />
 
                 </span>
             </a>
@@ -77,17 +79,14 @@
                 <!-- User profile and search -->
                 <!-- ============================================================== -->
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark pro-pic" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="../assets/images/users/1.jpg" alt="user" class="rounded-circle" width="31"></a>
+                    <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark pro-pic" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="../../assets/images/users/1.jpg" alt="user" class="rounded-circle" width="31"></a>
                     <div class="dropdown-menu dropdown-menu-right user-dd animated">
                       <a class="dropdown-item"><h5>{{Auth::user()->firstname}} {{Auth::user()->lastname}}</h5>
                         {{ Auth::user()->username }}</a>
-                      <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="{{ route('admin.logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i class="fa fa-power-off m-r-5 m-l-5"></i> Logout</a>
+                        <div class="p-l-30 p-10"><a href="{{ route('admin.logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="btn btn-sm btn-danger btn-rounded">Logout</a></div>
                         <form id="logout-form" action="{{ route('admin.logout') }}" method="POST" style="display: none;">
                             @csrf
                         </form>
-                        <div class="dropdown-divider"></div>
-                        <div class="p-l-30 p-10"><a href="javascript:void(0)" class="btn btn-sm btn-success btn-rounded">View Profile</a></div>
                     </div>
                 </li>
             </ul>
@@ -108,7 +107,7 @@
             <ul id="sidebarnav" class="p-t-30">
                 <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{ url('/admin') }}" aria-expanded="false"><i class="mdi mdi-view-dashboard"></i><span class="hide-menu">Dashboard</span></a></li>
                 <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/admin/donors" aria-expanded="false"><i class="mdi mdi-account-edit"></i><span class="hide-menu">Manage Donor</span></a></li>
-                <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-account"></i><span class="hide-menu">Employee</span></a>
+                <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-account-settings"></i><span class="hide-menu">Employee</span></a>
                     <ul aria-expanded="false" class="collapse  first-level">
                         <li class="sidebar-item"><a href="/admin/createEmployee" class="sidebar-link"><i class="mdi mdi-account-plus"></i><span class="hide-menu"> Create Employee Account </span></a></li>
                         <li class="sidebar-item"><a href="/admin/employees" class="sidebar-link"><i class="mdi mdi-account-multiple"></i><span class="hide-menu"> Manage Employee Account </span></a></li>
@@ -116,8 +115,8 @@
                 </li>
                 <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-file-multiple"></i><span class="hide-menu">Catalog</span></a>
                     <ul aria-expanded="false" class="collapse  first-level">
-                        <li class="sidebar-item"><a href="/admin/createCatalog" class="sidebar-link"><i class="mdi mdi-account-plus"></i><span class="hide-menu"> Create Catalog </span></a></li>
-                        <li class="sidebar-item"><a href="/admin/managedonation" class="sidebar-link"><i class="mdi mdi-file-document"></i><span class="hide-menu"> Manage Catalog </span></a></li>
+                        <li class="sidebar-item"><a href="/admin/createCatalog" class="sidebar-link"><i class="mdi mdi-table-large"></i><span class="hide-menu"> Create Catalog </span></a></li>
+                        <li class="sidebar-item"><a href="/admin/managedonation" class="sidebar-link"><i class="mdi mdi-table-edit"></i><span class="hide-menu"> Manage Catalog </span></a></li>
                     </ul>
                 </li>
                 <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/admin/auditlogs" aria-expanded="false"><i class="mdi mdi-book-open"></i><span class="hide-menu">Audit Logs</span></a></li>

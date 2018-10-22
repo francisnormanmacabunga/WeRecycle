@@ -52,8 +52,13 @@
                                       <td> Barangay: {{$requests->donor->barangay}}, {{$requests->donor->street}}, {{$requests->donor->city}}, Zip: {{$requests->donor->zip}} </td>
                                       <td> {{$requests->type}} </td>
                                       @foreach($cart as $item)
+                                      </tr>
+
+                                      <tr>
                                       <td>{{$item->name}}</td>
                                       <td>{{$item->qty}}</td>
+                                    </tr>
+                                    <tr>
                                       @endforeach
                                       <td> {{$requests->status}} </td>
                                       <td> {{$requests->volunteer['firstname']}} {{$requests->volunteer['lastname']}}</td>

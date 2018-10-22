@@ -59,7 +59,7 @@
                                       <td>
                                         <a href="/programdirector/sendSMS-V-O/transactionID={{$orders->transid}}" title="Message Volunteer"><i class="mdi mdi-message-reply-text"></i></a>
                                         <a href="/programdirector/sendSMS-D-O/transactionID={{$orders->transid}}" title="Message Donor"><i class="mdi mdi-message-reply"></i></a>
-                                        <a href="/programdirector/orders/{{$orders->transid}}/edit" title="Edit"><i class="mdi mdi-tooltip-edit"></i></a>
+                                        <a href="/programdirector/orders/{{$orders->transid}}/edit" title="Edit"><i class="mdi mdi-update"></i></a>
                                       </td>
                                     </tr>
                                     @endforeach
@@ -76,6 +76,7 @@
                     </div>
                 </div>
                 <div class="col-xs-12" align="right">
+                  <a href="{{action('ProgramDirector\TransactionPDF@transactionPDFO')}}" class="btn btn-danger"><i class="mdi mdi-file-pdf"></i> PDF</a>
                   <button class="btn btn-info" onclick="window.print();"><i class="fa fa-print"></i> Print</button>
                 </div>
             </div>

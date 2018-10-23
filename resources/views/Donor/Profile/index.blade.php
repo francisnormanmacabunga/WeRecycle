@@ -34,7 +34,7 @@
                 <a href="/donor/donorPassword/{{$donors->userID}}/edit"><button>Update Password</button></a>
               </dl>
               <hr style="margin:5px 0 5px 0;"><br>
-              <form action="/donor/donors/{{$donors->userID}}/edit">
+              <form action="/WeRecycle/donor/donors/{{$donors->userID}}/edit">
                   <input type="submit" value="Edit Profile" class="btn btn-lg btn-block btn-primary" />
               </form>
             </div>

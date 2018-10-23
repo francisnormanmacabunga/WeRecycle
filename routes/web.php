@@ -144,3 +144,4 @@ Route::prefix('admin')->group(function() {
 });
 
   Route::get('/cancel/{transid}', 'Donor\HistoryController@cancel');
+  Route::get('/redeemcode', 'Donor\DonorsController@redeemcode');

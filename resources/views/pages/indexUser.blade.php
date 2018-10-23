@@ -33,21 +33,21 @@
                               @endif
                               Hello {{Auth::user()->firstname}}!
                           </div>
-                        
+
                           <div class="w3-light-grey">
                             <div class="content-center"><center>your points:</center></div>
-                            <div class="w3-container w3-green"  style=" max-width:100%; width:{{$width['pointsaccumulated']}}%;">{{$width['pointsaccumulated']}}%</div>
+                            <div class="w3-container w3-green"  style=" max-width:100%; width:{{$width['pointsaccumulated']}}%" max="100%" min="0%">{{$width['pointsaccumulated']}}%</div>
+                            <div class="w3-container w3-green"  style=" max-width:100; width:{{$width['pointsaccumulated']}};%">{{$width['pointsaccumulated']}}%</div>
                             <div class="content-center"><center>100% = discount code</center></div>
                           </div>
-
                           <br>
                           @if ($width['pointsaccumulated'] >= 100)
                           <div>
-                              <center><button class="w3-button w3-green" onclick="confirm('Are you sure you want to claim your discount code?')">Redeem Reward</button></center>
+                          <center><a href="/redeemcode" onclick="confirm('Are you sure you want to claim your discount code?')" class="btn-lg" >Redeem</a></center>
+
                           </div>
                           @else
                           <div>
-
                           </div>
                           @endif
                         </div>

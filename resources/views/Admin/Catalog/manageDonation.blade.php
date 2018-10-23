@@ -38,7 +38,7 @@
           <td>{{$products->description}}</td>
           <td>{{date('F d, Y, h:i:sa', strtotime($products->created_at))}}</td>
           <td>{{$products->status}}</td>
-          <th><a class="btn btn-block btn-primary" href="/admin/catalog/{{$products->productsID}}/edit" role="button">Update Status </a></th>
+          <th><a class="btn btn-block btn-primary" href="/admin/catalog/{{$products->productsID}}/edit" role="button">Update Catalog</a></th>
         </tr>
           @endforeach
       </table>

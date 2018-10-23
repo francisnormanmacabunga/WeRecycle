@@ -20,14 +20,22 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-body">
+<<<<<<< HEAD
+                        <h5 class="card-title">Donors Message</h5>
+=======
                         <h5 class="card-title">Requests Messages</h5>
+>>>>>>> 6b998ea3fdf48d6aa2aafec71e95a7e92195a7b7
                         <div class="table-responsive">
                           @if(count($messagedonors) > 0)
                             <table id="zero_config" class="table table-striped table-bordered">
                                 <thead>
                                     <tr>
                                       <th>Date</th>
+<<<<<<< HEAD
+                                      <th>Donor Sent To</th>
+=======
                                       <th>Assigned Volunteer</th>
+>>>>>>> 6b998ea3fdf48d6aa2aafec71e95a7e92195a7b7
                                       <th>Message</th>
                                     </tr>
                                 </thead>

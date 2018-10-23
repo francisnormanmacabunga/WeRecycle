@@ -11,9 +11,9 @@
 |
 */
 
-Route::get('/',function(){
+/*Route::get('/',function(){
   return view('pages.index');
-});
+});*/
 
 //Guest
 Route::get('/', 'PagesController@index');

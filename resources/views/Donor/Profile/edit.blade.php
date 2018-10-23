@@ -44,7 +44,7 @@
           {{Form::hidden('_method','PUT')}}
           {!! Form::close() !!} <br>
           <hr style="margin:5px 0 5px 0;"><br>
-            <a class="btn btn-lg btn-block btn-danger" href="/WeRecycle/donor/status/{{$donors->userID}}/edit" role="button">Deactivate Account</a>
+            <a class="btn btn-lg btn-block btn-danger" href="/donor/status/{{$donors->userID}}/edit" role="button">Deactivate Account</a>
           </div>
         </div>
       </div>

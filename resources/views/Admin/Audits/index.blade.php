@@ -33,7 +33,7 @@
         @if(count($lastActivity) > 0)
       <table class="table table-bordered">
         <tr>
-          <th>@sortablelink('updated_at', 'Date')</th>
+          <th>Date</th>
           <th>Causer</th>
           <th>Action</th>
           <th>Subject</th>

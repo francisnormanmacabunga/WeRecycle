@@ -49,7 +49,7 @@
                                       <td> {{date('F d, Y, h:i:sa', strtotime($donor->created_at))}} </td>
                                       <td> {{$donor->status}} </td>
                                       <td>
-                                        <a href="/admin/donors/{{$donor->userID}}/edit" data-toggle="tooltip" data-placement="top" title="Edit"><i class="mdi mdi-update"></i></a>
+                                        <a href="/admin/donors/{{$donor->userID}}/edit" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fas fas fa-edit"></i></a>
                                       </td>
                                     </tr>
                                     @endforeach

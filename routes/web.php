@@ -11,10 +11,6 @@
 |
 */
 
-/*Route::get('/',function(){
-  return view('pages.index');
-});*/
-
 //Guest
 Route::get('/', 'PagesController@index');
 Route::get('/index', 'PagesController@index');

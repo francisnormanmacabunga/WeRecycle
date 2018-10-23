@@ -12,6 +12,8 @@
     <link href="../assets/libs/flot/css/float-chart.css" rel="stylesheet">
     <!-- Custom CSS -->
     <link href="../dist/css/style.min.css" rel="stylesheet">
+    <link href="../../assets/libs/datatables.net-bs4/css/dataTables.bootstrap4.css" rel="stylesheet">
+    <link href="../../dist/css/style.min.css" rel="stylesheet">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -111,8 +113,8 @@
                 <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{ url('/activitycoordinator') }}" aria-expanded="false"><i class="mdi mdi-view-dashboard"></i><span class="hide-menu">Dashboard</span></a></li>
                 <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-account"></i><span class="hide-menu">Applicants</span></a>
                     <ul aria-expanded="false" class="collapse  first-level">
-                        <li class="sidebar-item"><a href="/activitycoordinator/applicants" class="sidebar-link"><i class="mdi mdi-account-plus"></i><span class="hide-menu"> View Applicant </span></a></li>
-                        <li class="sidebar-item"><a href="/activitycoordinator/sendSMS" class="sidebar-link"><i class="mdi mdi-message-text"></i><span class="hide-menu"> Contact Applicant </span></a></li>
+                        <li class="sidebar-item"><a href="/activitycoordinator/applicants" class="sidebar-link"><i class="mdi mdi-account-multiple"></i><span class="hide-menu"> View Applicant </span></a></li>
+                        <li class="sidebar-item"><a href="/activitycoordinator/sendSMS" class="sidebar-link"><i class="mdi mdi-message-reply"></i><span class="hide-menu"> Contact Applicant </span></a></li>
                     </ul>
                 </li>
             </ul>

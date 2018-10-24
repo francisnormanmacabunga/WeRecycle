@@ -23,7 +23,7 @@
           </div>
           <hr style="margin:5px 0 5px 0;"><br>
           {{Form::submit('Yes',['class' => 'btn btn-lg btn-block btn-danger'])}}
-          <a class="btn btn-lg btn-block btn-primary" href="/donor/donors" role="button">No </a>
+          <a class="btn btn-lg btn-block btn-primary" href="{{ url('/donor/donors') }}" role="button">No </a>
           </div>
           {!! Form::close() !!}
         </div>

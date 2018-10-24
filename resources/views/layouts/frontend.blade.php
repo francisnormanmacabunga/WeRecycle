@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="stylesheet" href="{{asset('css/app.css')}}">
-        <link href="grid.css" rel="stylesheet">
+        <link href="{{asset('grid.css')}}" rel="stylesheet">
         <style> .error {color: #FF0000;} </style>
         <title>{{config('app.name', 'WeRecycle')}}</title>
         <script>
@@ -38,8 +38,8 @@
             }
         </script>
 
-        <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-        <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+        <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
         <script src='https://www.google.com/recaptcha/api.js'></script>
 
     </head>

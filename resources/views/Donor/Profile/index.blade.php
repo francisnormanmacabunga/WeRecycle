@@ -3,6 +3,8 @@
 
 @section('content')
 
+
+
       <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
         <h3>Welcome to your profile, {{$donors->firstname}}!</h3>
       </div>
@@ -31,6 +33,7 @@
                 <dt class="col-sm-6">Telephone:</dt>
                 <dd class="col-sm-4">{{$donors->contacts->tellNo}}</dd>
                 <dt class="col-sm-6">Password:</dt>
+                
                 <a href="/donor/donorPassword/{{$donors->userID}}/edit"><button>Update Password</button></a>
               </dl>
               <hr style="margin:5px 0 5px 0;"><br>

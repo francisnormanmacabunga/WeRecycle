@@ -32,24 +32,26 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
+
+
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
                       <li class="nav-item">
-                          <a class="nav-link" href="/donor/donationCatalog">Catalog</a>
+                          <a class="nav-link" href="{{ url('/donor/donationCatalog') }}">Catalog</a>
                       </li>
                       <li class="nav-item">
-                          <a class="nav-link" href="/donor/createFeedback">Feedback</a>
+                          <a class="nav-link" href="{{ url('/donor/createFeedback') }}">Feedback</a>
                       </li>
                     </ul>
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
 
                       <li class="nav-item">
-                            <a class="nav-link" href='/donor/donate'>Donation</a>
+                            <a class="nav-link" href='{{ url('/donor/donate') }}'>Donation</a>
                       </li>
                       <li class="nav-item">
-                            <a class="nav-link" href='/donor/cart'>Cart</a>
+                            <a class="nav-link" href='{{ url('/donor/cart') }}'>Cart</a>
                       </li>
 
 
@@ -66,8 +68,8 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                  <a class="dropdown-item" href="/donor/donors">Edit Profile</a>
-                                    <a class="dropdown-item" href="/donor/donationhistory ">History</a>
+                                  <a class="dropdown-item" href="{{ url('/donor/donors') }}">Edit Profile</a>
+                                    <a class="dropdown-item" href="{{ url('/donor/donationhistory') }}">History</a>
                                     <a class="dropdown-item" href="{{ route('donor.logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">

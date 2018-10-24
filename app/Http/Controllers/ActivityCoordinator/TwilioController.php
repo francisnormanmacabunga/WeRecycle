@@ -20,7 +20,7 @@ class TwilioController extends Controller
   public function index()
   {
     $applicants = Volunteer::SELECT('*')
-    -> join('contacts', 'contacts.userID', '=', 'user.userID')
+    -> join('contacts', 'contacts.userID', '=', 'volunteer.volunteerID')
     -> where('usertypeID', '2')
     -> where('status','Activated')
     -> get();

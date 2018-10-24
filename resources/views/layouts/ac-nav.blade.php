@@ -38,9 +38,10 @@
                         <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                           Manage Applicants
                         </a>
+
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                          <a class="dropdown-item" href="/activitycoordinator/applicants">View Applicants</a>
-                          <a class="dropdown-item" href="/activitycoordinator/sendSMS">Contact Applicants</a>
+                          <a class="dropdown-item" href="{{ url('/activitycoordinator/applicants') }}">View Applicants</a>
+                          <a class="dropdown-item" href="{{ url('/activitycoordinator/sendSMS') }}">Contact Applicants</a>
                         </div>
                       </li>
                     </ul>
@@ -61,7 +62,7 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                  <a class="dropdown-item" href="/activitycoordinator/activity_coordinators">Edit Profile</a>
+                                  <a class="dropdown-item" href="{{ url('/activitycoordinator/activity_coordinators') }}">Edit Profile</a>
                                     <a class="dropdown-item" href="{{ route('activitycoordinator.logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">

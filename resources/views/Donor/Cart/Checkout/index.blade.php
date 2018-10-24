@@ -68,10 +68,7 @@
 
               </dl>
               <hr style="margin:5px 0 5px 0;"><br>
-
-                
                   <a href="/donor/checkout-cart/confirm{{$order->orderid}}"><button class="btn btn-lg btn-block btn-success">Confirm</button></a>
-
               <br>
               <a role="button" class="btn btn-danger" href="{{url('/donor/shopCatalog')}}">Cancel</a>
             </div>

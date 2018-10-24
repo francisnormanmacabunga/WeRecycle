@@ -12,7 +12,7 @@
 */
 
 //Guest
-Route::get('/', 'PagesController@index');
+Route::get('/', 'PagesController@index2');
 Route::get('/index', 'PagesController@index');
 Route::get('/createApplicant', 'Guest\ApplicantsController@create');
 Route::post('/processApplicant', 'Guest\ApplicantsController@store');

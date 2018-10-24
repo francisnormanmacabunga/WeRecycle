@@ -1,57 +1,95 @@
-@extends('layouts.frontend')
-@include('layouts.ac-nav')
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+<body>
+<div id="main-wrapper">
+  @include('navbar.ac-navbar')
+  <div class="page-wrapper">
+    <!-- ============================================================== -->
+    <!-- End Bread crumb and right sidebar toggle -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- Container fluid  -->
+    <!-- ============================================================== -->
+    <div class="container-fluid">
+        <div class="row justify-content-center">
+          <form class="form-horizontal" method="POST" action="{{ action('ActivityCoordinator\TwilioController@sendMessageApplicant') }}">
+            {{ csrf_field() }}
+                  <!-- Card -->
+                  <div class="card">
+                      <div class="card-body" style="height: 300px;">
+                        <h4 class="card-title">Send Message to:</h4>
+                                            <div class="card">
+                                                <div class="card-body">
 
-@section('content')
+                                                  </div>
+                                                    <div class="table-responsive">
+                                                      @if(count($applicants) > 0)
+                                                      <table class="table">
+                                                          <thead class="thead-light">
+                                                              <tr>
+                                                                  <th>
+                                                                      <label class="customcheckbox m-b-20">
+                                                                          <input type="checkbox" id="mainCheckbox" />
+                                                                          <span class="checkmark"></span>
+                                                                      </label>
+                                                                  </th>
+                                                                  <th scope="col">Name</th>
+                                                                  <th scope="col">Email</th>
+                                                                  <th scope="col">Mobile Number</th>
+                                                                  <th scope="col">Status</th>
+                                                              </tr>
+                                                          </thead>
+                                                          <tbody class="customtable">
+                                                            @foreach ($applicants as $applicant)
+                                                              <tr>
+                                                                  <th>
+                                                                    <label class="customcheckbox">
+                                                                        <input type="checkbox" name= "mobile" class="listCheckbox" value="{{$applicant->cellNo}}" required/>
+                                                                        <span class="checkmark"></span>
+                                                                    </label>
+                                                                  </th>
+                                                                  <td>{{$applicant->firstname}} {{$applicant->lastname}}</td>
+                                                                  <td>{{$applicant->email}}</td>
+                                                                  <td>{{$applicant->cellNo}}</td>
+                                                                  <td>{{$applicant->status}}</td>
+                                                              </tr>
+                                                              @endforeach
+                                                          </tbody>
+                                                      </table>
+                                                        @else
+                                                        <div align="center" style="color:red;">
+                                                          <br>
+                                                          <br>
+                                                          <h5>No records found.</h5>
+                                                        </div>
+                                                        @endif
+                                                    </div>
 
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">Send notification through SMS</div>
-                <div class="card-body">
-                  <div class="panel-body">
-                    <form class="form-horizontal" method="POST" action="{{ action('ActivityCoordinator\TwilioController@sendMessageApplicant') }}">
-                      {{ csrf_field() }}
-                      <div class="form-group">
-                        <textarea class="form-control" type="text" name="message" placeholder="Place your message here!"></textarea>
+                                            </div>
                       </div>
-                      @if(count($applicants)>0)
-                      <table class="table table-striped table-hover">
-                        <tr>
-                          <th>#</th>
-                          <th>Name</th>
-                          <th>Email</th>
-                          <th>Mobile Number</th>
-                          <th>Status</th>
-                        </tr>
-
-                        @foreach ($applicants as $applicant)
-                          <tr>
-                            <td><input type= "radio" name= "mobile" class= "radio" value="{{$applicant->cellNo}}"/></td>
-                            <td>{{$applicant->firstname}} {{$applicant->lastname}}</td>
-                            <td>{{$applicant->email}}</td>
-                            <td>{{$applicant->cellNo}}</td>
-                            <td>{{$applicant->status}}</td>
-                        @endforeach
-
-                      </table>
-
-                    @else
-                      <div align="center" style="color:red;">
-                        <h3>No applicants found.</h3>
+                      <div class="card-body border-top">
+                          <div class="row">
+                              <div class="col-9">
+                                <div class="form-group">
+                                  <div class="input-field m-t-0 m-b-0">
+                                      <textarea id="textarea1" class="form-control border-0" name="message" placeholder="Place your message here!" required></textarea>
+                                  </div>
+                                  </div>
+                              </div>
+                              <div class="col-3">
+                                  <button class="btn-circle btn-lg btn-cyan float-right text-white" type="submit"><i class="fas fa-paper-plane"></i></button>
+                              </div>
+                          </div>
                       </div>
-                    @endif
-                      <div class="form-group">
-                        <div>
-                  <button type="submit" class="btn btn-primary" style="float: right;"> Send Message </button>
-                </div>
-              </div>
+                  </div>
             </form>
-          </div>
-        </div>
-      </div>
+            </div>
     </div>
+    <footer class="footer text-center">
+      Copyright &copy; 2018 WeRecycle
+    </footer>
   </div>
 </div>
-
-@endsection
+@include('navbar.footer')
+  </body>
+  </html>

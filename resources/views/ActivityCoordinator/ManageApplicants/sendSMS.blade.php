@@ -1,5 +1,9 @@
 <!DOCTYPE html>
 <html dir="ltr" lang="en">
+<head>
+  <!-- Favicon icon -->
+  <link rel="icon" type="image/png" sizes="16x16" href="../../../assets/images/favicon.png">
+</head>
 <body>
 <div id="main-wrapper">
   @include('navbar.ac-navbar')
@@ -77,7 +81,7 @@
                                   </div>
                               </div>
                               <div class="col-3">
-                                  <button class="btn-circle btn-lg btn-cyan float-right text-white" type="submit"><i class="fas fa-paper-plane"></i></button>
+                                  <button class="btn-circle btn-lg btn-cyan float-right text-white" type="submit" data-toggle="tooltip" data-placement="top" title="Send"><i class="fas fa-paper-plane"></i></button>
                               </div>
                           </div>
                       </div>

@@ -84,7 +84,7 @@
                       <a class="dropdown-item"><h5>{{Auth::user()->firstname}} {{Auth::user()->lastname}}</h5>
                         {{ Auth::user()->username }}</a>
                       <div class="dropdown-divider"></div>
-                      <a class="dropdown-item" href="/programdirector/program_directors"><i class="ti-user m-r-5 m-l-5"></i> Edit Profile</a>
+                      <a class="dropdown-item" href="/programdirector/program_directors"><i class="ti-user m-r-5 m-l-5"></i> View Profile</a>
                         <div class="p-l-30 p-10"><a href="{{ route('programdirector.logout') }}"
                            onclick="event.preventDefault();
                                          document.getElementById('logout-form').submit();" class="btn btn-sm btn-danger btn-rounded">Logout</a></div>

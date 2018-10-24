@@ -21,7 +21,7 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title">Manage Donation Catalog</h5>
+                        <h5 class="card-title">Manage Applicants</h5>
                         <div class="table-responsive">
                           @if(count($applicants) > 0)
                             <table id="zero_config" class="table table-striped table-bordered">
@@ -32,7 +32,7 @@
                                       <th>Address</th>
                                       <th>Barangay</th>
                                       <th>Cellphone Number</th>
-                                      <th>Tellphone Number</th>
+                                      <th>Telephone Number</th>
                                       <th>Date Applied</th>
                                       <th>Status</th>
                                       <th></th>

@@ -32,7 +32,8 @@
                     <!-- Column -->
                     <div class="col-md-6 col-xlg-3">
                         <div class="card card-hover">
-                          <a href="/activitycoordinator/applicants">
+
+                          <a href="{{ url('/activitycoordinator/applicants') }}">
                             <div class="box bg-success text-center">
                                 <h1 class="font-light text-white"><i class="mdi mdi-account-multiple"></i></h1>
                                 <h6 class="text-white">View Applicant</h6>
@@ -43,7 +44,8 @@
                      <!-- Column -->
                     <div class="col-md-6 col-xlg-3">
                         <div class="card card-hover">
-                          <a href="/activitycoordinator/sendSMS">
+                          
+                          <a href="{{ url('/activitycoordinator/sendSMS') }}">
                             <div class="box bg-info text-center">
                                 <h1 class="font-light text-white"><i class="mdi mdi-message-reply"></i></h1>
                                 <h6 class="text-white">Contact Applicant</h6>

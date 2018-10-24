@@ -18,7 +18,7 @@
                           <div class="card mb-4 shadow-sm">
                             <div class="card-header text-center">
                               <h4 class="card-title"></h4>
-                              <h4 class="my-0 font-weight-normal">User profile</h4>
+                              <h4 class="my-0 font-weight-normal">Welcome, {{$donors->firstname}}!</h4>
                             </div>
                             <div class="card-body text-center">
                               <h1 class="card-title pricing-card-title text-center">{{$donors->firstname}} {{$donors->lastname}}</h1>

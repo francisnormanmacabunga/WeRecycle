@@ -1,50 +1,69 @@
-@extends('layouts.frontend')
-@include('layouts.pd-nav')
-
-@section('content')
-
-  {!! Form::open(['action' => ['ProgramDirector\ProgramDirectorsPasswordController@update', $donors['userID']], 'method' => 'POST' ]) !!}
-
-  <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
-    <h3>Update your profile, {{$donors->firstname}}!</h3>
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+<body>
+<div id="main-wrapper">
+  @include('navbar.ac-navbar')
+  <div class="page-wrapper">
+                  <!-- Card -->
+                  <div class="card">
+                    <div class="page-breadcrumb">
+                          <div class="row">
+                              <div class="col-12 d-flex no-block align-items-center">
+                                  <h4 class="page-title"></h4>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="container col-md-6 center-align">
+                        <div class="card-deck mb-3 ">
+                          <div class="card mb-4 shadow-sm">
+                            <div class="card-header text-center">
+                                {!! Form::open(['action' => ['ProgramDirector\ProgramDirectorsPasswordController@update', $donors['userID']], 'method' => 'POST' ]) !!}
+                              <h4 class="my-0 font-weight-normal">Update your password, {{$donors->firstname}}!</h4>
+                            </div>
+                            <div class="card-body text-center">
+                              <h1 class="card-title pricing-card-title text-center">{{$donors->firstname}} {{$donors->lastname}}</h1>
+                              <hr style="margin:5px 0 5px 0;"><br>
+                              <dl class="row">
+                                <dt class="col-sm-6">Update Password:</dt>
+                                <dd class="col-sm-5">{{Form::password('password', ['class' => 'form-control'])}}</dd>
+                                <dt class="col-sm-6">Confirm Password:</dt>
+                                <dd class="col-sm-5">{{Form::password('password_confirmation', ['class' => 'form-control'])}}</dd>
+                              </dl>
+                              <hr style="margin:5px 0 5px 0;"><br>
+                              <input type="button" value="Save Changes" class="btn btn-success btn-block btn-lg" data-toggle="modal" data-target="#Modal2" />
+                              <a class="btn btn-lg btn-block btn-danger" href="/programdirector/program_directors" role="button">Back </a>
+                              <!-- Modal -->
+                                <div class="modal fade" id="Modal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLabel">Alert Model</h5>
+                                                <button class="close" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                Are you sure you want to save changes?
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                                <button type="submit" class="btn btn-success">Save changes</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                              </div>
+                              {{Form::hidden('_method','PUT')}}
+                              {!! Form::close() !!}
+                            </div>
+                          </div>
+                        </div>
+                  </div>
+    <footer class="footer text-center">
+      Copyright &copy; 2018 WeRecycle
+    </footer>
   </div>
-  <div class="container col-md-6 center-align">
-    <div class="card-deck mb-3 ">
-      <div class="card mb-4 shadow-sm">
-        <div class="card-header text-center">
-          <h4 class="my-0 font-weight-normal">User profile</h4>
-        </div>
-        <div class="card-body text-center">
-          <h1 class="card-title pricing-card-title text-center">{{$donors->firstname}} {{$donors->lastname}}</h1>
-          <hr style="margin:5px 0 5px 0;"><br>
-          <dl class="row">
-            <dt class="col-sm-6">Update Password:</dt>
-            <dd class="col-sm-5">{{Form::password('password', ['class' => 'form-control'])}}</dd>
-            <dt class="col-sm-6">Confirm Password:</dt>
-            <dd class="col-sm-5">{{Form::password('password_confirmation', ['class' => 'form-control'])}}</dd>
-          </dl>
-          <hr style="margin:5px 0 5px 0;"><br>
-          {{Form::submit('Save',['class' => 'btn btn-lg btn-block btn-primary', 'onclick' => 'Confirm()'])}}
-          <a class="btn btn-lg btn-block btn-primary" href="/programdirector/program_directors" role="button">Back </a>
-          </div>
-          {{Form::hidden('_method','PUT')}}
-          {!! Form::close() !!}
-        </div>
-      </div>
-    </div>
-
-    <script type="text/javascript">
-        function Confirm() {
-            var confirm_value = document.createElement("INPUT");
-            confirm_value.type = "hidden";
-            confirm_value.name = "confirm_value";
-            if (confirm("Do you want to save data?")) {
-                confirm_value.value = "Yes";
-            } else {
-                confirm_value.value = "No";
-            }
-            document.forms[0].appendChild(confirm_value);
-        }
-    </script>
-
-@endsection
+</div>
+@include('navbar.footer')
+  </body>
+  </html>

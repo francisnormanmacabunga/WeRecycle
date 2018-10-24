@@ -1,51 +1,85 @@
-@extends('layouts.frontend')
-@include('layouts.pd-nav')
-
-@section('content')
-
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">Send notification through SMS</div>
-                <div class="card-body">
-                  <div class="panel-body">
-                    {!! Form::open(['action' => 'ProgramDirector\TwilioController@assignOrder', 'method' => 'POST' ]) !!}
-                      {{ csrf_field() }}
-                      <div class="form-group">
-                        {{Form::textArea('message','', ['class' => 'form-control', 'placeholder' => 'Place your message here...'])}}
-                      </div>
-                      <h3 class="text-center">List of Volunteers</h3>
-                      <hr style="margin:5px 0 5px 0;"><br>
-                      <table class="table table-striped table-hover">
-                        <tr>
-                        <!--  <th>#</th> -->
-                          <th>Name</th>
-                          <th>Email</th>
-                          <th>Mobile Number</th>
-                        </tr>
-                          <tr>
-                            <input type= "hidden" name= "mobile" class= "radio"
-                            value="{{$applicants->volunteer['contacts']['cellNo']}}"/>
-                            <input type= "hidden" name= "volunteerID"
-                            value="{{$applicants->volunteerID}}">
-                            <td> {{$applicants->volunteer['firstname']}} {{$applicants->volunteer['lastname']}} </td>
-                            <td> {{$applicants->volunteer['email']}} </td>
-                            <td> {{$applicants->volunteer['contacts']['cellNo']}} </td>
-                          </tr>
-                      </table>
-                      <div class="form-group">
-                      <div>
-                        {{Form::submit('Send Message',['class' => 'btn btn-primary btn-lg btn-block'])}}
-                        {!! Form::close() !!}
-                      <!--  <a class="btn btn-block btn-primary btn-lg btn-block" href="{{ url()->previous() }}" role="button">Back</a> -->
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+<body>
+<div id="main-wrapper">
+  @include('navbar.pd-navbar')
+  <div class="page-wrapper">
+    <!-- ============================================================== -->
+    <!-- Bread crumb and right sidebar toggle -->
+    <!-- ============================================================== -->
+     <div class="page-breadcrumb">
+        <div class="row">
+            <div class="col-12 d-flex no-block align-items-center">
+                <div class="ml-auto text-right">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="/programdirector/orders">Orders</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Message Volunteer</li>
+                        </ol>
+                    </nav>
                 </div>
-              </div>
-          </div>
+            </div>
         </div>
-      </div>
     </div>
+    <div class="container-fluid">
+        <div class="row justify-content-center">
+          <form class="form-horizontal" method="POST" action="{{ action('ProgramDirector\TwilioController@assignOrder') }}">
+            {{ csrf_field() }}
+                  <!-- Card -->
+                  <div class="card">
+                      <div class="card-body" style="height: 300px;">
+                        <h4 class="card-title">Send a message:</h4>
+                                            <div class="card">
+                                                <div class="card-body">
+
+                                                  </div>
+                                                    <div class="table-responsive">
+                                                      <table class="table">
+                                                          <thead class="thead-light">
+                                                              <tr>
+                                                                  <th scope="col">Name</th>
+                                                                  <th scope="col">Email</th>
+                                                                  <th scope="col">Mobile Number</th>
+                                                              </tr>
+                                                          </thead>
+                                                          <tbody class="customtable">
+                                                              <tr>
+                                                                <input type= "hidden" name= "mobile" class= "radio"
+                                                                value="{{$applicants->volunteer['contacts']['cellNo']}}"/>
+                                                                <input type= "hidden" name= "volunteerID"
+                                                                value="{{$applicants->volunteerID}}">
+                                                                <td> {{$applicants->volunteer['firstname']}} {{$applicants->volunteer['lastname']}} </td>
+                                                                <td> {{$applicants->volunteer['email']}} </td>
+                                                                <td> {{$applicants->volunteer['contacts']['cellNo']}} </td>
+                                                              </tr>
+                                                          </tbody>
+                                                      </table>
+                                                    </div>
+                                            </div>
+                      </div>
+                      <div class="card-body border-top">
+                          <div class="row">
+                              <div class="col-9">
+                                <div class="form-group">
+                                  <div class="input-field m-t-0 m-b-0">
+                                      <textarea id="textarea1" class="form-control border-0" name="message" placeholder="Place your message here!" required></textarea>
+                                  </div>
+                                  </div>
+                              </div>
+                              <div class="col-3">
+                                  <button class="btn-circle btn-lg btn-cyan float-right text-white" type="submit" data-toggle="tooltip" data-placement="top" title="Send"><i class="fas fa-paper-plane"></i></button>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+            </form>
+            </div>
+    </div>
+    <footer class="footer text-center">
+      Copyright &copy; 2018 WeRecycle
+    </footer>
   </div>
 </div>
-
-@endsection
+@include('navbar.footer')
+  </body>
+  </html>

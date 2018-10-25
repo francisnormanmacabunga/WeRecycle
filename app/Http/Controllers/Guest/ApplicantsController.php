@@ -46,7 +46,7 @@ class ApplicantsController extends Controller
     {
       $this->validate($request, [
       'firstname' => 'required|regex:/^[\pL\s]+$/u',
-      'lastname' => 'required|regex:/^[\pL\s]+$/u',y
+      'lastname' => 'required|regex:/^[\pL\s]+$/u',
       'email' => 'required|unique:user,email',
       'cellNo' => 'required|min:13|max:13|regex:/^\+63[0-9]{10}$/',
       'tellNo' => 'required|min:7|max:7',

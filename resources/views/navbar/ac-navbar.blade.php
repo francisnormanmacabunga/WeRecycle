@@ -9,7 +9,7 @@
 
     <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('assets/images/favicon.png') }}">
     <title>WeRecycle Activity Coordinator</title>
-    <link rel="stylesheet" type="text/css" href="../../../assets/extra-libs/multicheck/multicheck.css">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/extra-libs/multicheck/multicheck.css') }}">
     <!-- Custom CSS -->
     <link href="{{ asset('assets/libs/flot/css/float-chart.css') }}" rel="stylesheet">
     <!-- Custom CSS -->

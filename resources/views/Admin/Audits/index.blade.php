@@ -12,13 +12,13 @@
     <!-- ============================================================== -->
     <div class="container-fluid">
         <ul class="nav nav-tabs" role="tablist">
-          <li class="nav-item"> <a class="nav-link btn-outline-info" href="/admin/auditlogs" role="tab"><span class="hidden-sm-up"></span> <span class="hidden-xs-down">Reset</span></a> </li>
-          <li class="nav-item"> <a class="nav-link btn-outline-info" href="/admin/auditlogs/?log_name=Product" role="tab"><span class="hidden-sm-up"></span> <span class="hidden-xs-down">Product</span></a> </li>
-          <li class="nav-item"> <a class="nav-link btn-outline-info" href="/admin/auditlogs/?log_name=Volunteer" role="tab"><span class="hidden-sm-up"></span> <span class="hidden-xs-down">Volunteer</span></a> </li>
-          <li class="nav-item"> <a class="nav-link btn-outline-info" href="/admin/auditlogs/?log_name=Program Director Account" role="tab"><span class="hidden-sm-up"></span> <span class="hidden-xs-down">Program Director</span></a> </li>
-          <li class="nav-item"> <a class="nav-link btn-outline-info" href="/admin/auditlogs/?log_name=Transaction" role="tab"><span class="hidden-sm-up"></span> <span class="hidden-xs-down">Transaction</span></a> </li>
-          <li class="nav-item"> <a class="nav-link btn-outline-info" href="/admin/auditlogs/?log_name=Donor Account" role="tab"><span class="hidden-sm-up"></span> <span class="hidden-xs-down">Donor</span></a> </li>
-          <li class="nav-item"> <a class="nav-link btn-outline-info" href="/admin/auditlogs/?log_name=Employee Account" role="tab"><span class="hidden-sm-up"></span> <span class="hidden-xs-down">Employee</span></a> </li>
+          <li class="nav-item"> <a class="nav-link btn-outline-info" href="{{ url('/admin/auditlogs') }}" role="tab"><span class="hidden-sm-up"></span> <span class="hidden-xs-down">Reset</span></a> </li>
+          <li class="nav-item"> <a class="nav-link btn-outline-info" href="{{ url('/admin/auditlogs/?log_name=Product') }}" role="tab"><span class="hidden-sm-up"></span> <span class="hidden-xs-down">Product</span></a> </li>
+          <li class="nav-item"> <a class="nav-link btn-outline-info" href="{{ url('/admin/auditlogs/?log_name=Volunteer') }}" role="tab"><span class="hidden-sm-up"></span> <span class="hidden-xs-down">Volunteer</span></a> </li>
+          <li class="nav-item"> <a class="nav-link btn-outline-info" href="{{ url('/admin/auditlogs/?log_name=Program Director Account') }}" role="tab"><span class="hidden-sm-up"></span> <span class="hidden-xs-down">Program Director</span></a> </li>
+          <li class="nav-item"> <a class="nav-link btn-outline-info" href="{{ url('/admin/auditlogs/?log_name=Transaction') }}" role="tab"><span class="hidden-sm-up"></span> <span class="hidden-xs-down">Transaction</span></a> </li>
+          <li class="nav-item"> <a class="nav-link btn-outline-info" href="{{ url('/admin/auditlogs/?log_name=Donor Account') }}" role="tab"><span class="hidden-sm-up"></span> <span class="hidden-xs-down">Donor</span></a> </li>
+          <li class="nav-item"> <a class="nav-link btn-outline-info" href="{{ url('/admin/auditlogs/?log_name=Employee Account') }}" role="tab"><span class="hidden-sm-up"></span> <span class="hidden-xs-down">Employee</span></a> </li>
         </ul>
         <div class="row">
             <div class="col-12">

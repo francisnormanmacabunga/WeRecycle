@@ -32,7 +32,7 @@
                     <!-- Column -->
                     <div class="col-md-6 col-lg-4 col-xlg-3">
                         <div class="card card-hover">
-                          <a href="/admin/donors">
+                          <a href="{{ url('/admin/donors') }}">
                             <div class="box text-center" style="background-color: #7D696C">
                                 <h1 class="font-light text-white"><i class="mdi mdi-account-edit"></i></h1>
                                 <h6 class="text-white">Manage Donor</h6>
@@ -43,7 +43,7 @@
                     <!-- Column -->
                     <div class="col-md-6 col-lg-4 col-xlg-3">
                         <div class="card card-hover">
-                          <a href="/admin/createAC">
+                          <a href="{{ url('/admin/createAC') }}">
                             <div class="box bg-info text-center">
                                 <h1 class="font-light text-white"><i class="mdi mdi-account-plus"></i></h1>
                                 <h6 class="text-white">Create Employee</h6>
@@ -54,7 +54,7 @@
                      <!-- Column -->
                     <div class="col-md-6 col-lg-4 col-xlg-3">
                         <div class="card card-hover">
-                          <a href="/admin/employees">
+                          <a href="{{ url('/admin/employees') }}">
                             <div class="box bg-cyan text-center">
                                 <h1 class="font-light text-white"><i class="mdi mdi-account-multiple"></i></h1>
                                 <h6 class="text-white">Manage Employee</h6>
@@ -67,7 +67,7 @@
                     <!-- Column -->
                     <div class="col-md-6 col-lg-4 col-xlg-3">
                         <div class="card card-hover">
-                          <a href="/admin/createCatalog">
+                          <a href="{{ url('/admin/createCatalog') }}">
                             <div class="box bg-success text-center">
                                 <h1 class="font-light text-white"><i class="mdi mdi-table-large"></i></h1>
                                 <h6 class="text-white">Create Catalog</h6>
@@ -78,7 +78,7 @@
                     <!-- Column -->
                     <div class="col-md-6 col-lg-4 col-xlg-3">
                         <div class="card card-hover">
-                          <a href="/admin/managedonation">
+                          <a href="{{ url('/admin/managedonation') }}">
                             <div class="box text-center" style="background-color: #008080">
                                 <h1 class="font-light text-white"><i class="mdi mdi-table-edit"></i></h1>
                                 <h6 class="text-white">Manage Catalog</h6>
@@ -89,7 +89,7 @@
                     <!-- Column -->
                     <div class="col-md-6 col-lg-4 col-xlg-3">
                         <div class="card card-hover">
-                          <a href="/admin/auditlogs">
+                          <a href="{{ url('/admin/auditlogs') }}">
                             <div class="box bg-danger text-center">
                                 <h1 class="font-light text-white"><i class="mdi mdi-book-open"></i></h1>
                                 <h6 class="text-white">Audit Logs</h6>

@@ -17,8 +17,8 @@
                   <!-- ============================================================== -->
                   @include('inc.messages')
                   <ul class="nav nav-tabs" role="tablist">
-                    <li class="nav-item"> <a class="nav-link active" href="/admin/createAC" role="tab"><span class="hidden-sm-up"></span> <span class="hidden-xs-down">Activity Coordinator</span></a> </li>
-                    <li class="nav-item"> <a class="nav-link" href="/admin/createPD" role="tab"><span class="hidden-sm-up"></span> <span class="hidden-xs-down">Program Director</span></a> </li>
+                    <li class="nav-item"> <a class="nav-link active" href="{{ url('/admin/createAC') }}" role="tab"><span class="hidden-sm-up"></span> <span class="hidden-xs-down">Activity Coordinator</span></a> </li>
+                    <li class="nav-item"> <a class="nav-link" href="{{ url('/admin/createPD') }}" role="tab"><span class="hidden-sm-up"></span> <span class="hidden-xs-down">Program Director</span></a> </li>
                   </ul>
                       {!! Form::open(['action' => 'Admin\ActivityCoordinatorController@store', 'method' => 'POST' ]) !!}
                   <div class="row">

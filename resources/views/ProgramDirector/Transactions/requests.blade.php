@@ -52,15 +52,20 @@
                                       <td> Barangay: {{$requests->donor->barangay}}, {{$requests->donor->street}}, {{$requests->donor->city}}, Zip: {{$requests->donor->zip}} </td>
                                       <td> {{$requests->type}} </td>
                                       @foreach($cart as $item)
+                                      </tr>
+
+                                      <tr>
                                       <td>{{$item->name}}</td>
                                       <td>{{$item->qty}}</td>
+                                    </tr>
+                                    <tr>
                                       @endforeach
                                       <td> {{$requests->status}} </td>
                                       <td> {{$requests->volunteer['firstname']}} {{$requests->volunteer['lastname']}}</td>
                                       <td>
                                         <a href="/programdirector/sendSMS-V-R/transactionID={{$requests->transid}}" data-toggle="tooltip" data-placement="top"  title="Message Volunteer"><i class="mdi mdi-message-reply-text"></i></a>
                                         <a href="/programdirector/sendSMS-D-R/transactionID={{$requests->transid}}" data-toggle="tooltip" data-placement="top"  title="Message Donor"><i class="mdi mdi-message-reply"></i></a>
-                                        <a href="/programdirector/requests/{{$requests->transid}}/edit" data-toggle="tooltip" data-placement="top"  title="Edit"><i class="mdi mdi-update"></i></a>
+                                        <a href="/programdirector/requests/{{$requests->transid}}/edit" data-toggle="tooltip" data-placement="top"  title="Edit"><i class="fas fas fa-edit"></i></a>
                                       </td>
                                     </tr>
                                     @endforeach

@@ -48,7 +48,8 @@
                           <!-- pwd -->
                           <div class="row m-t-20 p-t-20">
                               <div class="col-12">
-                                  <a class="btn btn-danger btn-rounded" href="/activitycoordinator/login" id="to-login" name="action">Back</a>
+
+                                  <a class="btn btn-danger btn-rounded" href="{{ url('/activitycoordinator/login') }}" id="to-login" name="action">Back</a>
                                   <button class="btn btn-info float-right btn-rounded" type="submit" name="action">{{ __('Recover') }}</button>
                               </div>
                           </div>

@@ -3,17 +3,19 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="icon" type="image/png" sizes="16x16" href="../assets/images/favicon.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{asset('assets/images/favicon.png')}}">
     <title>WeRecycle</title>
     <meta name="description" content="Free Bootstrap Theme by uicookies.com">
     <meta name="keywords" content="free website templates, free bootstrap themes, free template, free bootstrap, free website template">
 
     <link href="https://fonts.googleapis.com/css?family=Inconsolata|Rubik:300,400,700,900" rel="stylesheet">
-    <link rel="stylesheet" href="css/styles-merged.css">
-    <link rel="stylesheet" href="css/style.min.css">
-    <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="{{asset('css/styles-merged.css')}}">
+    <link rel="stylesheet" href="{{asset('css/style.min.css')}}">
+    <link rel="stylesheet" href="{{asset('css/custom.css')}}">
   </head>
   <body>
+
+
 
   <!-- START: header -->
 
@@ -21,7 +23,7 @@
 
   <header role="banner" class="probootstrap-header">
     <div class="container">
-        <a href="/" class="probootstrap-logo"><img src="../assets/images/logo.png" alt="logo"/></a>
+        <a href="/" class="probootstrap-logo"><img src="{{asset('assets/images/logo.png')}}" alt="logo"/></a>
 
         <a href="#" class="probootstrap-burger-menu visible-xs" ><i>Menu</i></a>
         <div class="mobile-menu-overlay"></div>
@@ -32,7 +34,7 @@
             <li><a href="#about">About</a></li>
             <li><a href="#services">Services</a></li>
             <li><a href="donor/login">Login</a></li>
-            <li><a href="/createDonor">Register</a></li>
+            <li><a href="{{ url('/createDonor') }}">Register</a></li>
           </ul>
         </nav>
     </div>
@@ -69,7 +71,7 @@
                     </div>
                   </div>
 
-                  <p class="probootstrap-animate"><a href="/createApplicant" class="btn btn-ghost btn-ghost-white">Volunteer</a></p>
+                  <p class="probootstrap-animate"><a href="{{ url('/createApplicant') }}" class="btn btn-ghost btn-ghost-white">Volunteer</a></p>
                 </div>
               </div>
             </div>
@@ -82,7 +84,7 @@
               <div class="col-md-10 col-md-offset-1">
                 <div class="probootstrap-slider-text text-center">
                   <h1 class="probootstrap-heading probootstrap-animate mb20">Shop Organic Fertilizers</h1>
-                  <p class="probootstrap-animate"><a href="/shop" class="btn btn-ghost btn-ghost-white">Shop</a></p>
+                  <p class="probootstrap-animate"><a href="{{ url('/shop') }}" class="btn btn-ghost btn-ghost-white">Shop</a></p>
                 </div>
               </div>
             </div>
@@ -158,9 +160,10 @@
   </div>
 
 
-  <script src="js/scripts.min.js"></script>
-  <script src="js/main.min.js"></script>
-  <script src="js/custom.js"></script>
+
+  <script src="{{asset('js/scripts.min.js')}}"></script>
+  <script src="{{asset('js/main.min.js')}}"></script>
+  <script src="{{asset('js/custom.js')}}"></script>
 
   </body>
 </html>

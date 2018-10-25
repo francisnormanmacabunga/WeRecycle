@@ -23,7 +23,7 @@ class DonorsStatusController extends Controller
 
     public function index()
     {
-    
+
     }
 
     /**
@@ -88,7 +88,7 @@ class DonorsStatusController extends Controller
       $donors->status = $request->input('status');
       $donors->push();
 
-      return redirect('/')->with(Auth::logout());
+      return redirect('/home')->with(Auth::logout());
     }
 
     /**

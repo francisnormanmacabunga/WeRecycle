@@ -4,7 +4,7 @@ namespace App\Http\Controllers\ActivityCoordinator;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Models\Employee;
+use App\Models\Volunteer;
 use Twilio\Rest\Client;
 use Session;
 use DB;
@@ -19,8 +19,8 @@ class TwilioController extends Controller
 
   public function index()
   {
-    $applicants = Employee::SELECT('*')
-    -> join('contacts', 'contacts.userID', '=', 'user.userID')
+    $applicants = Volunteer::SELECT('*')
+    -> join('contacts', 'contacts.userID', '=', 'volunteer.volunteerID')
     -> where('usertypeID', '2')
     -> where('status','Activated')
     -> get();

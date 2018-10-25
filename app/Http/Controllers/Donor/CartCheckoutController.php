@@ -41,6 +41,7 @@ class CartCheckoutController extends Controller
       DB::table('orders')->where('userID',$donor->userID)->delete();
       session()->flash('notif','Order Process Successful!');
       return redirect('/donor');
+    
     }
 
     /*public function edit($id)

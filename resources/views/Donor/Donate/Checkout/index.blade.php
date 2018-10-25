@@ -54,11 +54,9 @@
               </dl>
               <hr style="margin:5px 0 5px 0;"><br>
             </br>
-              <form action="/donor/checkout-donate/confirm{{$request->requestID}}">
-                  <input type="submit" value="Confirm" class="btn btn-lg btn-block btn-success" />
-              </form>
+              <a href="/donor/checkout-donate/confirm{{$request->requestID}}"><button class="btn btn-lg btn-block btn-success">Confirm</button></a>
               <br>
-              <a role="button" class="btn btn-danger" href="/donor/shopCatalog">Cancel</a>
+              <a role="button" class="btn btn-danger" href="{{url('/donor/shopCatalog')}}">Cancel</a>
             </div>
           </div>
         </div>

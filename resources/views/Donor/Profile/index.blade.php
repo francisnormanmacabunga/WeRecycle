@@ -3,6 +3,8 @@
 
 @section('content')
 
+
+
       <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
         <h3>Welcome to your profile, {{$donors->firstname}}!</h3>
       </div>
@@ -34,9 +36,8 @@
                 <a href="/donor/donorPassword/{{$donors->userID}}/edit"><button>Update Password</button></a>
               </dl>
               <hr style="margin:5px 0 5px 0;"><br>
-              <form action="/donor/donors/{{$donors->userID}}/edit">
-                  <input type="submit" value="Edit Profile" class="btn btn-lg btn-block btn-primary" />
-              </form>
+        
+              <a href="/donor/donors/{{$donors->userID}}/edit"><button class="btn btn-lg btn-block btn-primary">Edit Profile</button></a>
             </div>
           </div>
         </div>

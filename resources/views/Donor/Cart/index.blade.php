@@ -72,11 +72,8 @@
             <input type="submit" value="submit">
         </form>
 
-        <br>
-        <br>
-        <a role="button" class="btn btn-success" href="/donor/submit-cart">Checkout</a>
-
-        <a role="button" class="btn btn-danger" href="/donor/shopCatalog">
+        <a role="button" class="btn btn-success" href="{{url('/donor/submit-cart')}}">Checkout</a>
+        <a role="button" class="btn btn-danger" href="{{url('/donor/shopCatalog')}}">
           Back</a>
     </div>
 </div>

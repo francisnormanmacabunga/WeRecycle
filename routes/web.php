@@ -11,12 +11,9 @@
 |
 */
 
-Route::get('/home',function(){
-  return view('welcome');
-});
-
 //Guest
-Route::get('/', 'PagesController@index');
+Route::get('/', 'PagesController@index2');
+Route::get('/home', 'PagesController@index2');
 Route::get('/index', 'PagesController@index');
 Route::get('/createApplicant', 'Guest\ApplicantsController@create');
 Route::post('/processApplicant', 'Guest\ApplicantsController@store');
@@ -26,7 +23,7 @@ Route::get('/shop', 'Guest\ShopController@shopCatalog');
 Route::get('/donation', 'Guest\ShopController@donationCatalog');
 
 Auth::routes();
-Route::prefix('donor')->group(function() {
+Route::prefix('/donor')->group(function() {
   Route::get('/login','Donor\Auth\DonorLoginController@showLoginForm')->name('donor.login');
   Route::post('/login','Donor\Auth\DonorLoginController@login')->name('donor.login.submit');
   Route::post('/logout', 'Donor\Auth\DonorLoginController@donorLogout')->name('donor.logout');
@@ -100,8 +97,6 @@ Route::prefix('programdirector')->group(function() {
   Route::post('/sendMessage-V-O','ProgramDirector\TwilioController@assignOrder');
   Route::get('/sendSMS-D-O/transactionID={transid}','ProgramDirector\TwilioController@indexDonorOrder');
   Route::post('/sendMessage-D-O','ProgramDirector\TwilioController@sendMessageDonorOrder');
-
-
   Route::get('/donationhistory', 'ProgramDirector\DonationHistoryController@donationHistory');
   Route::get('/donationhistoryS', 'ProgramDirector\DonationHistoryController@donationHistoryS');
   Route::get('/donationhistoryD', 'ProgramDirector\DonationHistoryController@donationHistoryD');
@@ -110,17 +105,10 @@ Route::prefix('programdirector')->group(function() {
   Route::get('/donationPDFS','ProgramDirector\DonationHistoryController@donationPDFS');
   Route::get('/donationPDFD','ProgramDirector\DonationHistoryController@donationPDFD');
   Route::get('/donationPDFC','ProgramDirector\DonationHistoryController@donationPDFC');
-
-
   Route::resource('/feedback', 'ProgramDirector\FeedbacksController');
-
-
-
   Route::resource('/requests','ProgramDirector\RequestController');
   Route::get('/requestsPDF','ProgramDirector\TransactionPDF@transactionPDFR');
   Route::get('/ordersPDF','ProgramDirector\TransactionPDF@transactionPDFO');
-
-
   Route::get('/messageOrders', 'ProgramDirector\MessageController@messageOrders');
   Route::get('/messageRequests', 'ProgramDirector\MessageController@messageRequests');
   Route::get('/messageDonors', 'ProgramDirector\MessageController@messageDonors');

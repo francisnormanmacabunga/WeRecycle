@@ -56,7 +56,6 @@
                                       @foreach($cart as $item)
                                       <td>{{$item->name}}</td>
                                       <td>{{$item->qty}}</td>
-                                    </tr>
                                       @endforeach
                                       <td> {{$requests->status}} </td>
                                       <td> {{$requests->volunteer['firstname']}} {{$requests->volunteer['lastname']}}</td>

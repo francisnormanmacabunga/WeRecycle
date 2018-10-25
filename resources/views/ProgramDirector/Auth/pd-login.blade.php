@@ -27,7 +27,7 @@
             <div class="auth-box" style="background-color: #35281e">
                 <div id="loginform">
                     <div class="text-center p-t-20 p-b-20">
-                        <span class="db"><img src="../assets/images/pd-logo.png" alt="logo" /></span>
+                        <span class="db"><img src="{{asset('assets/images/pd-logo.png')}}" alt="logo" /></span>  
                     </div>
                     @if(session()->has('alert'))
                     <div class="alert alert-danger" role="alert">{{session()->get('alert')}}</div>

@@ -15,8 +15,8 @@
       <div class="col-lg-3">
       <h3>Shop</h3>
       <div class="list-group">
-          <a href="/donation" class="list-group-item">Donation</a>
-          <a href="/shop" class="list-group-item">Fertilizer</a>
+          <a href="{{url('/donation')}}" class="list-group-item">Donation</a>
+          <a href="{{url('/shop')}}" class="list-group-item">Fertilizer</a>
       </div>
       </div>
       <div class="col-lg-9">

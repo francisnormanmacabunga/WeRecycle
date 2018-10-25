@@ -32,7 +32,7 @@
                     <!-- Column -->
                     <div class="col-md-6 col-xlg-3">
                         <div class="card card-hover">
-                          <a href="/programdirector/messageOrders">
+                          <a href="{{ url('/programdirector/messageOrders') }}">
                             <div class="box bg-success text-center">
                                 <h1 class="font-light text-white"><i class="mdi mdi-message-bulleted"></i></h1>
                                 <h6 class="text-white">Message History</h6>
@@ -43,7 +43,8 @@
                     <!-- Column -->
                     <div class="col-md-6 col-xlg-3">
                         <div class="card card-hover">
-                          <a href="/programdirector/donationhistory">
+
+                          <a href="{{ url('/programdirector/donationhistory') }}">
                             <div class="box bg-info text-center">
                                 <h1 class="font-light text-white"><i class="mdi mdi-note-multiple"></i></h1>
                                 <h6 class="text-white">Donation History</h6>
@@ -56,7 +57,8 @@
                      <!-- Column -->
                     <div class="col-md-6 col-xlg-3">
                         <div class="card card-hover">
-                          <a href="/programdirector/requests">
+
+                          <a href="{{ url('/programdirector/requests') }}">
                             <div class="box bg-cyan text-center">
                                 <h1 class="font-light text-white"><i class="mdi mdi-receipt"></i></h1>
                                 <h6 class="text-white">Transactions</h6>
@@ -67,7 +69,8 @@
                     <!-- Column -->
                     <div class="col-md-6 col-xlg-3">
                         <div class="card card-hover">
-                          <a href="/programdirector/feedback">
+
+                          <a href="{{ url('/programdirector/feedback') }}">
                             <div class="box bg-danger text-center">
                                 <h1 class="font-light text-white"><i class="mdi mdi-message"></i></h1>
                                 <h6 class="text-white">Feedback</h6>

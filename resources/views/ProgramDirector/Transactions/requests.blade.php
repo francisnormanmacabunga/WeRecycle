@@ -15,8 +15,10 @@
         <!-- Start Page Content -->
         <!-- ============================================================== -->
         <ul class="nav nav-tabs" role="tablist">
-          <li class="nav-item"> <a class="nav-link active" href="/programdirector/requests" role="tab"><span class="hidden-sm-up"></span> <span class="hidden-xs-down">Requests</span></a> </li>
-          <li class="nav-item"> <a class="nav-link" href="/programdirector/orders" role="tab"><span class="hidden-sm-up"></span> <span class="hidden-xs-down">Orders</span></a> </li>
+
+
+          <li class="nav-item"> <a class="nav-link active" href="{{ url('/programdirector/requests') }}" role="tab"><span class="hidden-sm-up"></span> <span class="hidden-xs-down">Requests</span></a> </li>
+          <li class="nav-item"> <a class="nav-link" href="{{ url('/programdirector/orders') }}" role="tab"><span class="hidden-sm-up"></span> <span class="hidden-xs-down">Orders</span></a> </li>
         </ul>
         <div class="row">
             <div class="col-12">
@@ -52,13 +54,8 @@
                                       <td> Barangay: {{$requests->donor->barangay}}, {{$requests->donor->street}}, {{$requests->donor->city}}, Zip: {{$requests->donor->zip}} </td>
                                       <td> {{$requests->type}} </td>
                                       @foreach($cart as $item)
-                                      </tr>
-
-                                      <tr>
                                       <td>{{$item->name}}</td>
                                       <td>{{$item->qty}}</td>
-                                    </tr>
-                                    <tr>
                                       @endforeach
                                       <td> {{$requests->status}} </td>
                                       <td> {{$requests->volunteer['firstname']}} {{$requests->volunteer['lastname']}}</td>

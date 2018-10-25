@@ -31,7 +31,7 @@
                               </dl>
                               <hr style="margin:5px 0 5px 0;"><br>
                               <input type="button" value="Save Changes" class="btn btn-success btn-block btn-lg" data-toggle="modal" data-target="#Modal2" />
-                              <a class="btn btn-lg btn-block btn-danger" href="/programdirector/program_directors" role="button">Back </a>
+                              <a class="btn btn-lg btn-block btn-danger" href="{{ url('/programdirector/program_directors') }}" role="button">Back </a>
                               <!-- Modal -->
                                 <div class="modal fade" id="Modal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                     <div class="modal-dialog" role="document">
@@ -63,7 +63,3 @@
       Copyright &copy; 2018 WeRecycle
     </footer>
   </div>
-</div>
-@include('navbar.footer')
-  </body>
-  </html>

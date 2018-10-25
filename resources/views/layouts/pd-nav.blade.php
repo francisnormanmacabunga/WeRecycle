@@ -36,7 +36,9 @@
                     <ul class="navbar-nav mr-auto">
 
                       <li class="nav-item">
-                          <a class="nav-link" href="/programdirector/requests">Transactions</a>
+
+
+                          <a class="nav-link" href="{{ url('/programdirector/requests') }}">Transactions</a>
                       </li>
 
                       <li class="nav-item dropdown">
@@ -44,15 +46,15 @@
                           History
                         </a>
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="/programdirector/messageOrders">Message History</a>
-                          <a class="dropdown-item" href="/programdirector/donationhistory">Donation History</a>
+                            <a class="dropdown-item" href="{{ url('/programdirector/messageOrders') }}">Message History</a>
+                          <a class="dropdown-item" href="{{ url('/programdirector/donationhistory') }}">Donation History</a>
                         </div>
                       </li>
 
 
 
                       <li class="nav-item">
-                          <a class="nav-link" href="/programdirector/feedback">Feedback</a>
+                          <a class="nav-link" href="{{ url('/programdirector/feedback') }}">Feedback</a>
                       </li>
 
                     </ul>
@@ -74,7 +76,7 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                  <a class="dropdown-item" href="/programdirector/program_directors">Edit Profile</a>
+                                  <a class="dropdown-item" href="{{ url('/programdirector/program_directors') }}">Edit Profile</a>
                                     <a class="dropdown-item" href="{{ route('programdirector.logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">

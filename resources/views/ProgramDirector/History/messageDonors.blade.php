@@ -21,7 +21,10 @@
                 <div class="card">
                     <div class="card-body">
                         <h5 class="card-title">Donors Message</h5>
+<<<<<<< HEAD
                         <h5 class="card-title">Requests Messages</h5>
+=======
+>>>>>>> b48131b269420a296102b6e7bf117ae867433482
                         <div class="table-responsive">
                           @if(count($messagedonors) > 0)
                             <table id="zero_config" class="table table-striped table-bordered">
@@ -29,7 +32,10 @@
                                     <tr>
                                       <th>Date</th>
                                       <th>Donor Sent To</th>
+<<<<<<< HEAD
                                       <th>Assigned Volunteer</th>
+=======
+>>>>>>> b48131b269420a296102b6e7bf117ae867433482
                                       <th>Message</th>
                                     </tr>
                                 </thead>

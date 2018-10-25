@@ -9,6 +9,7 @@
 
     <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('assets/images/favicon.png') }}">
     <title>WeRecycle Activity Coordinator</title>
+    <link rel="stylesheet" type="text/css" href="../../../assets/extra-libs/multicheck/multicheck.css">
     <!-- Custom CSS -->
     <link href="{{ asset('assets/libs/flot/css/float-chart.css') }}" rel="stylesheet">
     <!-- Custom CSS -->
@@ -81,7 +82,7 @@
                 <!-- User profile and search -->
                 <!-- ============================================================== -->
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark pro-pic" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="../assets/images/users/1.jpg" alt="user" class="rounded-circle" width="31"></a>
+                    <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark pro-pic" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="../../../assets/images/users/1.jpg" alt="user" class="rounded-circle" width="31"></a>
                     <div class="dropdown-menu dropdown-menu-right user-dd animated">
                       <a class="dropdown-item"><h5>{{Auth::user()->firstname}} {{Auth::user()->lastname}}</h5>
                         {{ Auth::user()->username }}</a>
@@ -93,8 +94,6 @@
                            <form id="logout-form" action="{{ route('activitycoordinator.logout') }}" method="POST" style="display: none;">
                                @csrf
                            </form>
-                        <div class="dropdown-divider"></div>
-                        <div class="p-l-30 p-10"><a href="javascript:void(0)" class="btn btn-sm btn-success btn-rounded">View Profile</a></div>
                     </div>
                 </li>
             </ul>

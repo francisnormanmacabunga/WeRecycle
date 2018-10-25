@@ -14,13 +14,20 @@
               <div class="row">
                 <div class="col-md-6 mb-3">
                   {{Form::label('feedback','Feedback')}}
-                  {{Form::textArea('feedback','', ['class' => 'form-control', 'placeholder' => 'Message', 'maxlength' => '2000'])}}
+                  <textarea class="form-control" name="feedback" placeholder="Message"></textarea>
                 </div>
               </div>
                 <div class="row">
                 <div class="col-md-3 mb-3">
                   {{Form::label('rating','Rating')}}
                   {{Form::number('rating','', ['class' => 'form-control', 'placeholder' => 'Rate'])}}
+                  <!--  <ul class="form-control" name="rating">
+                      <li><a class="fa fa-star checked" value="1"/><i class="fa fa-star"></i></a></li>
+                      <li><a class="fa fa-star checked" value="2" /><i class="fa fa-star"></i></a></li>
+                      <li><a class="fa fa-star" value="3" /><i class="fa fa-star"></i></a></li>
+                      <li><a class="fa fa-star" value="4" /><i class="fa fa-star"></i></a></li>
+                      <li><a class="fa fa-star" value="5" /><i class="fa fa-star"></i></a></li>
+                    </ul> -->
                 </div>
               </div>
               <hr class="mb-4">

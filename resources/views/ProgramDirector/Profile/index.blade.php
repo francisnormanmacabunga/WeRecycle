@@ -45,6 +45,13 @@
           </div>
         </div>
       </div>
-
+      <footer class="footer text-center">
+        Copyright &copy; 2018 WeRecycle
+      </footer>
+    </div>
+  </div>
+  @include('navbar.footer')
+</body>
+<html>
 
 @endsection

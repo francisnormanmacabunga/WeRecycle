@@ -35,16 +35,23 @@
                 <dt class="col-sm-6">Telephone:</dt>
                 <dd class="col-sm-4">{{$donors->contacts->tellNo}}</dd>
                 <dt class="col-sm-6">Password:</dt>
+
+
                 <a href="/programdirector/PD_password/{{$donors->userID}}/edit"><button>Update Password</button></a>
               </dl>
               <hr style="margin:5px 0 5px 0;"><br>
-              <form action="/programdirector/program_directors/{{$donors->userID}}/edit">
-                  <input type="submit" value="Edit Profile" class="btn btn-lg btn-block btn-primary" />
-              </form>
+                  <a href="/programdirector/program_directors/{{$donors->userID}}/edit"><button class="btn btn-lg btn-block btn-primary">Update Password</button></a>
             </div>
           </div>
         </div>
       </div>
-
+      <footer class="footer text-center">
+        Copyright &copy; 2018 WeRecycle
+      </footer>
+    </div>
+  </div>
+  @include('navbar.footer')
+</body>
+<html>
 
 @endsection

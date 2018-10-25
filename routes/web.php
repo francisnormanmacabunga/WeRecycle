@@ -40,6 +40,8 @@ Route::prefix('/donor')->group(function() {
   Route::get('/shopCatalog','Donor\DonorsCatalogController@shopCatalog');
   Route::get('/donationhistory','Donor\HistoryController@donationHistory');
   Route::get('/transactionhistory','Donor\HistoryController@transactionHistory');
+  Route::get('/pointhistory','Donor\HistoryController@pointHistory');
+
 
   //AddtoCart & AddtoDonate
   Route::get('/donate/add-item/{id}', 'Donor\DonateController@addItem')->name('donate.addItem');
@@ -50,6 +52,7 @@ Route::prefix('/donor')->group(function() {
   //Summary & Checkout Button
   Route::get('/submit-donate','Donor\DonateController@checkout')->name('donate.submit');
   Route::get('/submit-cart','Donor\CartController@checkout')->name('cart.submit');
+  
 
   //Summary of Donate and Cart
   Route::get('/checkout-donate','Donor\DonateCheckoutController@index')->name('donate.checkout');
@@ -132,4 +135,4 @@ Route::prefix('admin')->group(function() {
 });
 
   Route::get('/cancel/{transid}', 'Donor\HistoryController@cancel');
-  Route::get('/redeemcode', 'Donor\DonorsController@redeemcode');
+  Route::get('/redeemcode/{id}', 'Donor\DonorsController@redeemcode');

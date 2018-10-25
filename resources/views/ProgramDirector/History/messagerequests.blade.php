@@ -12,15 +12,15 @@
     <!-- ============================================================== -->
     <div class="container-fluid">
         <ul class="nav nav-tabs" role="tablist">
-          <li class="nav-item"> <a class="nav-link" href="/programdirector/messageOrders" role="tab"><span class="hidden-sm-up"></span> <span class="hidden-xs-down">Orders Messages</span></a> </li>
-          <li class="nav-item"> <a class="nav-link active" href="/programdirector/messageRequests" role="tab"><span class="hidden-sm-up"></span> <span class="hidden-xs-down">Requests Messages</span></a> </li>
-          <li class="nav-item"> <a class="nav-link" href="/programdirector/messageDonors" role="tab"><span class="hidden-sm-up"></span> <span class="hidden-xs-down">Donors Messages</span></a> </li>
+          <li class="nav-item"> <a class="nav-link" href="  {{ url('/programdirector/messageOrders') }}" role="tab"><span class="hidden-sm-up"></span> <span class="hidden-xs-down">Orders Messages</span></a> </li>
+          <li class="nav-item"> <a class="nav-link" href="{{ url('/programdirector/messageRequests') }}" role="tab"><span class="hidden-sm-up"></span> <span class="hidden-xs-down">Requests Messages</span></a> </li>
+          <li class="nav-item"> <a class="nav-link active" href="{{ url('/programdirector/messageDonors') }}" role="tab"><span class="hidden-sm-up"></span> <span class="hidden-xs-down">Donors Messages</span></a> </li>
         </ul>
         <div class="row">
             <div class="col-12">
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title">Orders Messages</h5>
+                        <h5 class="card-title">Requests Messages</h5>
                         <div class="table-responsive">
                           @if(count($messagerequests) > 0)
                             <table id="zero_config" class="table table-striped table-bordered">

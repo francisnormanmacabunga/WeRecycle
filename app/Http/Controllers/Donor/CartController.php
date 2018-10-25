@@ -45,20 +45,42 @@ class CartController extends Controller
       return back();
     }
 
-    public function checkout()
+    public function checkout(Request $request)
     {
       $donor = Auth::user();
       $cartItems=Cart::instance('shop')->content();
+      $code = $request->dcode;
 
-      $order = new Order();
-      $order->userID = $donor->userID;
-      $order->type= 'Shop';
-      $order->cart = $cartItems;
-      $order->status = 'Inactive';
-      $order->save();
+if ($code == '') {
 
-      $test3 = Order::where('userID', $donor->userID)->first();
-      return redirect()->route('cart.checkout');
+  $order = new Order();
+  $order->userID = $donor->userID;
+  $order->type= 'Shop';
+  $order->cart = $cartItems;
+  $order->status = 'Inactive';
+  $order->save();
+
+  $test3 = Order::where('userID', $donor->userID)->first();
+  return redirect()->route('cart.checkout');
+
+}else{
+
+      $total = Cart::instance('shop')->Total();
+      $discount = Cart::instance('shop')->Total() * 0.15;
+      
+    $order = new Order();
+    $order->userID = $donor->userID;
+    $order->type= 'Shop';
+    $order->cart = $cartItems;
+    $order->discountedprice = $total - $discount;
+    $order->status = 'Inactive';
+    $order->code = $request->input('dcode');
+    $order->save();
+
+    $test3 = Order::where('userID', $donor->userID)->first();
+    return redirect()->route('cart.checkout');
+
+}
 
       /*$test = order::SELECT('*')
       -> where('userID',$donor->userID)

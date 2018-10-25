@@ -47,9 +47,9 @@
             </tr>
             </tbody>
         </table>
-        <a role="button" class="btn btn-success" href="/donor/submit-donate">
+        <a role="button" class="btn btn-success" href="{{url('/donor/submit-donate')}}">
           Summary</a>
-          <a role="button" class="btn btn-danger" href="/donor/donationCatalog">
+          <a role="button" class="btn btn-danger" href="{{url('/donor/donationCatalog')}}">
             Back</a>
     </div>
 </div>

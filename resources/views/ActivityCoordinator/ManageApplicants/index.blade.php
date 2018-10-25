@@ -12,10 +12,10 @@
     <!-- ============================================================== -->
     <div class="container-fluid">
         <ul class="nav nav-tabs" role="tablist">
-          <li class="nav-item"> <a class="nav-link btn-outline-info" href="/activitycoordinator/applicants/" role="tab"><span class="hidden-sm-up"></span> <span class="hidden-xs-down">Reset</span></a> </li>
-          <li class="nav-item"> <a class="nav-link btn-outline-info" href="/activitycoordinator/applicants/?status=Applied" role="tab"><span class="hidden-sm-up"></span> <span class="hidden-xs-down">Applied</span></a> </li>
-          <li class="nav-item"> <a class="nav-link btn-outline-info" href="/activitycoordinator/applicants/?status=Deactivated" role="tab"><span class="hidden-sm-up"></span> <span class="hidden-xs-down">Deactivated</span></a> </li>
-          <li class="nav-item"> <a class="nav-link btn-outline-info" href="/activitycoordinator/applicants/?status=Activated" role="tab"><span class="hidden-sm-up"></span> <span class="hidden-xs-down">Activated</span></a> </li>
+          <li class="nav-item"> <a class="nav-link btn-outline-info" href="{{ url('/activitycoordinator/applicants') }}" role="tab"><span class="hidden-sm-up"></span> <span class="hidden-xs-down">Reset</span></a> </li>
+          <li class="nav-item"> <a class="nav-link btn-outline-info" href="{{ url('/activitycoordinator/applicants/?status=Applied') }}" role="tab"><span class="hidden-sm-up"></span> <span class="hidden-xs-down">Applied</span></a> </li>
+          <li class="nav-item"> <a class="nav-link btn-outline-info" href="{{ url('/activitycoordinator/applicants/?status=Deactivated') }}" role="tab"><span class="hidden-sm-up"></span> <span class="hidden-xs-down">Deactivated</span></a> </li>
+          <li class="nav-item"> <a class="nav-link btn-outline-info" href="{{ url('/activitycoordinator/applicants/?status=Activated') }}" role="tab"><span class="hidden-sm-up"></span> <span class="hidden-xs-down">Activated</span></a> </li>
         </ul>
         <div class="row">
             <div class="col-12">

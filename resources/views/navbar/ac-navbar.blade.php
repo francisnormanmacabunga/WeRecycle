@@ -6,15 +6,16 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <!-- Favicon icon -->
-    <link rel="icon" type="image/png" sizes="16x16" href="../../../assets/images/favicon.png">
+
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('assets/images/favicon.png') }}">
     <title>WeRecycle Activity Coordinator</title>
     <link rel="stylesheet" type="text/css" href="../../../assets/extra-libs/multicheck/multicheck.css">
     <!-- Custom CSS -->
-    <link href="../../../assets/libs/flot/css/float-chart.css" rel="stylesheet">
+    <link href="{{ asset('assets/libs/flot/css/float-chart.css') }}" rel="stylesheet">
     <!-- Custom CSS -->
-    <link href="../../../dist/css/style.min.css" rel="stylesheet">
-    <link href="../../../assets/libs/datatables.net-bs4/css/dataTables.bootstrap4.css" rel="stylesheet">
-    <link href="../../../dist/css/style.min.css" rel="stylesheet">
+    <link href="{{ asset('dist/css/style.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/libs/datatables.net-bs4/css/dataTables.bootstrap4.css') }}" rel="stylesheet">
+    <link href="{{ asset('dist/css/style.min.css') }}" rel="stylesheet">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -46,14 +47,15 @@
                 <b class="logo-icon p-l-10">
                     <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
                     <!-- Dark Logo icon -->
-                    <img src="../../../assets/images/logo-icon.png" alt="homepage" class="light-logo" />
+
+                    <img src="{{ asset('assets/images/logo-icon.png') }}" alt="homepage" class="light-logo" />
 
                 </b>
                 <!--End Logo icon -->
                  <!-- Logo text -->
                 <span class="logo-text">
                      <!-- dark Logo text -->
-                     <img src="../../../assets/images/logo-text.png" alt="homepage" class="light-logo" />
+                     <img src="{{ asset('assets/images/logo-text.png') }}" alt="homepage" class="light-logo" />
 
                 </span>
             </a>
@@ -85,10 +87,10 @@
                       <a class="dropdown-item"><h5>{{Auth::user()->firstname}} {{Auth::user()->lastname}}</h5>
                         {{ Auth::user()->username }}</a>
                       <div class="dropdown-divider"></div>
-                      <a class="dropdown-item" href="/activitycoordinator/activity_coordinators"><i class="ti-user m-r-5 m-l-5"></i> View Profile</a>
-                        <div class="dropdown-divider"></div>
-                        <div class="p-l-30 p-10"><a href="{{ route('activitycoordinator.logout') }}"
-                           onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="btn btn-sm btn-danger btn-rounded">Logout</a></div>
+
+                      <a class="dropdown-item" href="{{ url('/activitycoordinator/activity_coordinators') }}"><i class="ti-user m-r-5 m-l-5"></i> Edit Profile</a>
+                        <a class="dropdown-item" href="{{ route('activitycoordinator.logout') }}"
+                           onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i class="fa fa-power-off m-r-5 m-l-5"></i> Logout</a>
                            <form id="logout-form" action="{{ route('activitycoordinator.logout') }}" method="POST" style="display: none;">
                                @csrf
                            </form>
@@ -113,8 +115,8 @@
                 <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{ url('/activitycoordinator') }}" aria-expanded="false"><i class="mdi mdi-view-dashboard"></i><span class="hide-menu">Dashboard</span></a></li>
                 <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-account"></i><span class="hide-menu">Applicants</span></a>
                     <ul aria-expanded="false" class="collapse  first-level">
-                        <li class="sidebar-item"><a href="/activitycoordinator/applicants" class="sidebar-link"><i class="mdi mdi-account-multiple"></i><span class="hide-menu"> View Applicant </span></a></li>
-                        <li class="sidebar-item"><a href="/activitycoordinator/sendSMS" class="sidebar-link"><i class="mdi mdi-message-reply"></i><span class="hide-menu"> Contact Applicant </span></a></li>
+                        <li class="sidebar-item"><a href="{{ url('/activitycoordinator/applicants') }}" class="sidebar-link"><i class="mdi mdi-account-multiple"></i><span class="hide-menu"> View Applicant </span></a></li>
+                        <li class="sidebar-item"><a href="{{ url('/activitycoordinator/sendSMS') }}" class="sidebar-link"><i class="mdi mdi-message-reply"></i><span class="hide-menu"> Contact Applicant </span></a></li>
                     </ul>
                 </li>
             </ul>

@@ -15,15 +15,12 @@
     <div class="col-lg-3">
     <h3>Donation</h3>
     <div class="list-group">
-        <a href="/donor/donationCatalog" class="list-group-item">Donation</a>
-        <a href="/donor/shopCatalog" class="list-group-item">Fertilizer</a>
+        <a href="{{url('/donor/donationCatalog')}}" class="list-group-item">Donation</a>
+        <a href="{{url('/donor/shopCatalog')}}" class="list-group-item">Fertilizer</a>
     </div>
-
     </div>
     <div class="col-lg-9">
       <div class="row">
-
-
       @if(count($products1) > 0)
         @foreach ($products1 as $products)
         <div class="col-lg-4 col-md-6 mb-4">
@@ -51,5 +48,5 @@
       </div>
     </div>
   </div>
-  
+
 @endsection

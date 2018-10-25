@@ -7,8 +7,8 @@
   <div class="col-lg-3">
   <h3>Orders History</h3>
   <div class="list-group">
-      <a href="/donor/donationhistory" class="list-group-item">Donation History</a>
-      <a href="/donor/transactionhistory" class="list-group-item">Orders History</a>
+    <a href="{{url('/donor/donationhistory')}}" class="list-group-item">Donation History</a>
+    <a href="{{url('/donor/transactionhistory')}}" class="list-group-item">Orders History</a>
   </div>
 
   </div>

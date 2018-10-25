@@ -24,7 +24,8 @@
             <div class="auth-box" style="background-color: #1B4D3E">
                 <div>
                     <div class="text-center p-t-20 p-b-20">
-                        <span class="db"><img src="../../../assets/images/donor-logo.png" alt="logo" /></span>
+
+                        <span class="db"><img src="  {{asset('assets/images/donor-logo.png')}}" alt="logo" /></span>
                     </div>
                     <!-- Form -->
                     @if ($errors->has('email'))

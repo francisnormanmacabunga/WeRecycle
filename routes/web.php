@@ -11,12 +11,9 @@
 |
 */
 
-/*Route::get('/',function(){
-  return view('pages.index');
-});*/
-
 //Guest
-Route::get('/', 'PagesController@index');
+Route::get('/', 'PagesController@index2');
+Route::get('/home', 'PagesController@index2');
 Route::get('/index', 'PagesController@index');
 Route::get('/createApplicant', 'Guest\ApplicantsController@create');
 Route::post('/processApplicant', 'Guest\ApplicantsController@store');
@@ -26,7 +23,7 @@ Route::get('/shop', 'Guest\ShopController@shopCatalog');
 Route::get('/donation', 'Guest\ShopController@donationCatalog');
 
 Auth::routes();
-Route::prefix('donor')->group(function() {
+Route::prefix('/donor')->group(function() {
   Route::get('/login','Donor\Auth\DonorLoginController@showLoginForm')->name('donor.login');
   Route::post('/login','Donor\Auth\DonorLoginController@login')->name('donor.login.submit');
   Route::post('/logout', 'Donor\Auth\DonorLoginController@donorLogout')->name('donor.logout');

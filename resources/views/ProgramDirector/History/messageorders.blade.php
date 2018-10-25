@@ -12,9 +12,9 @@
     <!-- ============================================================== -->
     <div class="container-fluid">
         <ul class="nav nav-tabs" role="tablist">
-          <li class="nav-item"> <a class="nav-link" href="  {{ url('/programdirector/messageOrders') }}" role="tab"><span class="hidden-sm-up"></span> <span class="hidden-xs-down">Orders Messages</span></a> </li>
+          <li class="nav-item"> <a class="nav-link active" href="  {{ url('/programdirector/messageOrders') }}" role="tab"><span class="hidden-sm-up"></span> <span class="hidden-xs-down">Orders Messages</span></a> </li>
           <li class="nav-item"> <a class="nav-link" href="{{ url('/programdirector/messageRequests') }}" role="tab"><span class="hidden-sm-up"></span> <span class="hidden-xs-down">Requests Messages</span></a> </li>
-          <li class="nav-item"> <a class="nav-link active" href="{{ url('/programdirector/messageDonors') }}" role="tab"><span class="hidden-sm-up"></span> <span class="hidden-xs-down">Donors Messages</span></a> </li>
+          <li class="nav-item"> <a class="nav-link" href="{{ url('/programdirector/messageDonors') }}" role="tab"><span class="hidden-sm-up"></span> <span class="hidden-xs-down">Donors Messages</span></a> </li>
         </ul>
         <div class="row">
             <div class="col-12">

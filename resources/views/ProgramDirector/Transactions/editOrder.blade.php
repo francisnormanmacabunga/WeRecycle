@@ -9,7 +9,7 @@
       <br/>
       <h3 align="center">Update status</h3>
       <br/>
-      <h5 align="left"><a href="/programdirector/viewRequests">Back</a></h5>
+      <h5 align="left"><a href=" {{ url('/programdirector/viewRequests') }}">Back</a></h5>
       <table class="table table-bordered">
         <tr>
           <th>Name</th>
@@ -38,7 +38,7 @@
   {{Form::hidden('_method','PUT')}}
   {{Form::submit('Save',['class' => 'btn btn-success btn-lg btn-block', 'onclick' => 'Confirm()'])}}
   {!! Form::close() !!}
-  <a class="btn btn-block btn-primary btn-lg btn-block" href="/programdirector/orders" role="button">Back</a>
+  <a class="btn btn-block btn-primary btn-lg btn-block" href="{{ url('/programdirector/orders') }}" role="button">Back</a>
   </div>
   <script type="text/javascript">
       function Confirm() {

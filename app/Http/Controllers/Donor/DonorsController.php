@@ -172,17 +172,19 @@ class DonorsController extends Controller
 
     }
 
-    public function redeemcode(){
+    public function redeemcode(Request $request,$id){
       $reward = new Reward;
       $random = str_random(6);
       $reward->code = $random;
       $reward->userID = Auth::user()->userID;
       $reward->save();
 
-      $id = Auth::user()->userID;
-      $points= DB::Select('select * from points where userID =?',[$id]);
+      $id = $request->id;
+      $points= Points::where('userID',$id)->first();
       $points->pointsaccumulated = $points->pointsaccumulated - 100;
       $points->push();
+      
+       return back();
     }
 
 }

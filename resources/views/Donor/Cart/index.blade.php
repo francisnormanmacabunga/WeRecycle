@@ -52,7 +52,7 @@
             @endforeach
 
             <tr>
-                <td></td>
+                  <td></td>
                 <td>
                     <strong>Tax:</strong> Php {{Cart::tax()}} <br>
                     <strong>Sub Total:</strong> Php {{Cart::subtotal()}} <br>
@@ -67,8 +67,15 @@
             </tr>
             </tbody>
         </table>
+        <form action="{{route('cart.submit')}}" method="put">
+            Have a discount code? <input type="text" name="dcode">
+            <input type="submit" value="submit">
+        </form>
 
+        <br>
+        <br>
         <a role="button" class="btn btn-success" href="/donor/submit-cart">Checkout</a>
+
         <a role="button" class="btn btn-danger" href="/donor/shopCatalog">
           Back</a>
     </div>

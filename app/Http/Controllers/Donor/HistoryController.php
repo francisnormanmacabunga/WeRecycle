@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Donor;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Transaction;
+use App\Models\PointsLog;
 use Auth;
 use Cart;
 use DB;
@@ -37,6 +38,30 @@ class HistoryController extends Controller
       -> sortable()
       -> get();
       return view('Donor/History.transactionHistory')->with(['shop' => $shop]);
+    }
+
+    public function pointHistory()
+    {
+      $donor = Auth::user();
+      if (request()->has('status')){
+      $point = PointsLog::SELECT('*')
+      -> where('activity',request('status'))
+      -> where('userID', $donor->userID)
+      -> sortable()
+      -> paginate(10)->appends('activity', request('status'));
+      } else {
+      $point = PointsLog::SELECT('*')
+      -> where('userID', $donor->userID)
+      -> sortable()
+      -> paginate(10);
+      }
+
+      /*
+      $donor = Auth::user();
+      $point = PointsLog::where('userID', $donor->userID)
+      -> sortable()
+      -> get();*/
+      return view('Donor/History.pointHistory')->with(['point' => $point]);
     }
 
     public function cancel(Request $request,$transid){

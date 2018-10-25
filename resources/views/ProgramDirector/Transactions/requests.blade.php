@@ -39,7 +39,6 @@
                                       <th>Qty</th>
                                       <th>Status</th>
                                       <th>Assigned Volunteer</th>
-                                      <th></th>
                                     </tr>
                                 </thead>
                                 <tbody>

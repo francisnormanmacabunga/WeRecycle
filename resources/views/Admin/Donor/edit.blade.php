@@ -9,7 +9,7 @@
       <br/>
       <h3 align="center">Update status</h3>
       <br/>
-      <h5 align="left"><a href="/activitycoordinator/applicants">Back</a></h5>
+      <h5 align="left"><a href="{{ url('/activitycoordinator/applicants') }}">Back</a></h5>
       <table class="table table-bordered">
         <tr>
           <th>Name</th>

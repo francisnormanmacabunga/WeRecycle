@@ -63,7 +63,7 @@
                                       <label>Username</label>
                                       <div class="custom-file">
                                             <input type="file" name="productimage" class="custom-file-input form-control" data-toggle="tooltip" data-placement="top" id="validatedCustomFile" required>
-                                            <label class="custom-file-label" data-toggle="tooltip" data-placement="top" for="validatedCustomFile">Choose file...</label>
+                                            <label class="custom-file-label" for="validatedCustomFile">Choose file...</label>
                                             <div class="invalid-feedback">Example invalid custom file feedback</div>
                                         </div>
                                     </div>

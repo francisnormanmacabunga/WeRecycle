@@ -40,7 +40,7 @@
                 <a href="/programdirector/PD_password/{{$donors->userID}}/edit"><button>Update Password</button></a>
               </dl>
               <hr style="margin:5px 0 5px 0;"><br>
-                  <a href="/programdirector/program_directors/{{$donors->userID}}/edit"><button class="btn btn-lg btn-block btn-primary">Update Password</button></a>
+                  <a href="/programdirector/program_directors/{{$donors->userID}}/edit"><button class="btn btn-lg btn-block btn-primary">Edit Account</button></a>
             </div>
           </div>
         </div>

@@ -44,7 +44,7 @@
                      <!-- Column -->
                     <div class="col-md-6 col-xlg-3">
                         <div class="card card-hover">
-                          
+
                           <a href="{{ url('/activitycoordinator/sendSMS') }}">
                             <div class="box bg-info text-center">
                                 <h1 class="font-light text-white"><i class="mdi mdi-message-reply"></i></h1>
@@ -56,7 +56,7 @@
                 </div>
         </div>
         <footer class="footer text-center">
-            All Rights Reserved by Matrix-admin. Designed and Developed by <a href="https://wrappixel.com">WrapPixel</a>.
+          Copyright &copy; 2018 WeRecycle
         </footer>
     </div>
   </div>

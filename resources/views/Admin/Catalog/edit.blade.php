@@ -32,25 +32,7 @@
                                 <div class="form-group-row">
                                     <div class="col-sm-9">
                                       <label>Item Name</label>
-                                        <input type="text" name="productname" class="form-control" id="fname" onkeypress="return !validNo(this,event)" placeholder="Product Name" required>
-                                    </div>
-                                </div>
-                                <br />
-                                <div class="form-group-row">
-                                    <div class="col-sm-9">
-                                      <label>Item Type</label>
-                                        <select class="select2 form-control custom-select" name="productstypeID" style="width: 100%; height:36px;">
-                                          <option>Choose type of item</option>
-                                              <option value="1">Donation</option>
-                                              <option value="2">Shop</option>
-                                      </select>
-                                    </div>
-                                </div>
-                                <br />
-                                <div class="form-group-row">
-                                    <div class="col-sm-9">
-                                      <label>Description</label>
-                                        <textarea class="form-control" name="description"></textarea>
+                                        <input type="text" name="productname" class="form-control" id="fname" onkeypress="return !validNo(this,event)" placeholder="Product Name">
                                     </div>
                                 </div>
                                 <br />
@@ -62,6 +44,13 @@
                                               <option value="Activated">Activated</option>
                                               <option value="Deactivated">Deactivated</option>
                                       </select>
+                                    </div>
+                                </div>
+                                <br />
+                                <div class="form-group-row">
+                                    <div class="col-sm-9">
+                                      <label>Description</label>
+                                        <textarea class="form-control" name="description"></textarea>
                                     </div>
                                 </div>
                               </div>
@@ -79,22 +68,42 @@
                                 <br />
                                 <div class="form-group-row">
                                     <div class="col-sm-9">
-                                      <label>Username</label>
+                                      <label>Image</label>
                                       <div class="custom-file">
-                                            <input type="file" name="productimage" class="custom-file-input form-control" data-toggle="tooltip" data-placement="top" id="validatedCustomFile" required>
+                                            <input type="file" name="productimage" class="custom-file-input form-control">
                                             <label class="custom-file-label" for="validatedCustomFile">Choose file...</label>
                                             <div class="invalid-feedback">Example invalid custom file feedback</div>
                                         </div>
                                     </div>
                                 </div>
                                 <br />
+                                {{Form::hidden('_method','PUT')}}
                                 <div style="float:right;">
                                     <div class="card-body">
-                                        <button type="submit" class="btn btn-outline-success">Save</button>
+                                        <button type="submit" class="btn btn-outline-success" data-toggle="modal" data-target="#Modal2">Save</button>
                                     </div>
                                 </div>
-                                {{Form::hidden('status','Activated', ['class' => 'form-control'])}}
                           </div>
+                          <!-- Modal -->
+                            <div class="modal fade" id="Modal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">Alert Model</h5>
+                                            <button class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            Are you sure you want to save changes?
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                            <button type="submit" class="btn btn-success">Save</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                       </div>
                   </div>
                   {!! Form::close() !!}

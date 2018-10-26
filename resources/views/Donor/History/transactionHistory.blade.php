@@ -23,6 +23,7 @@
           <th>Amount</th>
           <th>@sortablelink('created_at', 'Date')</th>
           <th>Status</th>
+          <th>Action</th>
         </tr>
         @foreach ($shop as $shops)
           @php
@@ -30,14 +31,16 @@
           @endphp
         <tr>
           <td>{{$shops->volunteer['firstname']}} {{$shops->volunteer['lastname']}}</td>
-          @foreach($cart as $item)
-          <td>{{$item->name}}</td>
-          <td>{{$item->qty}}</td>
-          <td>{{$item->price}}</td>
-          @endforeach
+
+        @foreach($cart as $item)
+        <td>{{$item->name}}</td>
+        <td>{{$item->qty}}</td>
+        <td>{{$item->price}}</td>
+        @endforeach
+
         <td>{{date('F d, Y, h:i:sa', strtotime($shops->created_at))}}</td>
           <td>{{$shops->status}}</td>
-
+            <td><a href="/cancel/{{$shops->transid}}">Cancel</a></td>
         </tr>
         @endforeach
     </table>

@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Products;
 use App\Models\Order;
 use App\Models\Donor;
+use App\Models\Reward;
 use Auth;
 use DB;
 
@@ -60,25 +61,32 @@ if ($code == '') {
   $order->status = 'Inactive';
   $order->save();
 
-  $test3 = Order::where('userID', $donor->userID)->first();
+  
   return redirect()->route('cart.checkout');
 
 }else{
+  //$reward = Reward::SELECT('select code from reward where code = ?',[$code]);
+  $reward = Reward::Where('code', $code)->get();
 
-      $total = Cart::instance('shop')->Total();
-      $discount = Cart::instance('shop')->Total() * 0.15;
-      
-    $order = new Order();
-    $order->userID = $donor->userID;
-    $order->type= 'Shop';
-    $order->cart = $cartItems;
-    $order->discountedprice = $total - $discount;
-    $order->status = 'Inactive';
-    $order->code = $request->input('dcode');
-    $order->save();
+if(count($reward) > 0){
+  $total = Cart::instance('shop')->Total();
+  $discount = Cart::instance('shop')->Total() * 0.15;
 
-    $test3 = Order::where('userID', $donor->userID)->first();
-    return redirect()->route('cart.checkout');
+$order = new Order();
+$order->userID = $donor->userID;
+$order->type= 'Shop';
+$order->cart = $cartItems;
+$order->discountedprice = $total - $discount;
+$order->status = 'Inactive';
+$order->code = $request->input('dcode');
+$order->save();
+
+
+return redirect()->route('cart.checkout');
+}else {
+session()->flash('notie','Invalid/Incorrect Code');
+ return view('Donor/Cart.index',compact('cartItems'));
+}
 
 }
 

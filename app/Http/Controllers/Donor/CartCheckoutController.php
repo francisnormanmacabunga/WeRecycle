@@ -33,15 +33,18 @@ class CartCheckoutController extends Controller
       $trans = new Transaction;
       $trans->userID = $order->userID;
       $trans->cart = $order->cart;
+      $trans->discountedprice = $order->discountedprice;
       $trans->type = $order->type;
       $trans->status = 'Processing';
+      $trans->code = $order->code;
       $trans->save();
 
       cart::instance('shop')->destroy();
       DB::table('orders')->where('userID',$donor->userID)->delete();
+      DB::table('reward')->where('code',$order->code)->delete();
       session()->flash('notif','Order Process Successful!');
       return redirect('/donor');
-    
+
     }
 
     /*public function edit($id)

@@ -57,11 +57,19 @@
                       <td>Php {{Cart::subtotal()}} <br></td>
                       <td></td>
                     </tr>
+                    @if($order->discountedprice != '')
+                    <tr>
+                        <td><strong>Discounted Price  :</strong</td>
+                        <td>Php {{$order->discountedprice}}</td>
+                        <td></td>
+                    </tr>
+                    @else
                     <tr>
                         <td><strong>Grand Total:</strong</td>
                         <td>Php {{Cart::total()}}</td>
                         <td></td>
                     </tr>
+                    @endif
                     </tbody>
                 </table>
 

@@ -10,6 +10,16 @@
         </div>
       </div>
       @endif
+
+      @if(session()->has('notie'))
+      <div class="content">
+        <div class="alert alert-danger">
+          <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+          <strong>{{session()->get('notie')}}</strong>
+        </div>
+      </div>
+      @endif
+
         <h3>Cart Items</h3>
 
 

@@ -87,13 +87,11 @@
                       <a class="dropdown-item"><h5>{{Auth::user()->firstname}} {{Auth::user()->lastname}}</h5>
                         {{ Auth::user()->username }}</a>
                       <div class="dropdown-divider"></div>
-
-                      <a class="dropdown-item" href="{{ url('/activitycoordinator/activity_coordinators') }}"><i class="ti-user m-r-5 m-l-5"></i> Edit Profile</a>
-                        <a class="dropdown-item" href="{{ route('activitycoordinator.logout') }}"
-                           onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i class="fa fa-power-off m-r-5 m-l-5"></i> Logout</a>
-                           <form id="logout-form" action="{{ route('activitycoordinator.logout') }}" method="POST" style="display: none;">
-                               @csrf
-                           </form>
+                      <a class="dropdown-item" href="{{ url('/activitycoordinator/activity_coordinators') }}"><i class="ti-user m-r-5 m-l-5"></i> View Profile</a>
+                      <div class="p-l-30 p-10"><a href="{{ route('activitycoordinator.logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="btn btn-sm btn-danger btn-rounded">Logout</a></div>
+                      <form id="logout-form" action="{{ route('activitycoordinator.logout') }}" method="POST" style="display: none;">
+                          @csrf
+                      </form>
                     </div>
                 </li>
             </ul>

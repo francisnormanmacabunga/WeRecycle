@@ -1,52 +1,91 @@
-@extends('layouts.frontend')
-@include('layouts.admin-nav')
-
-@section('content')
-
-  <div class="py-5 text-center">
-        <h3>Add item details here!</h3>
-        <p class="lead">Below is an example form built entirely with Bootstrap's form controls. Each required form group has a validation state that can be triggered by attempting to submit the form without completing it.</p>
+<!DOCTYPE html>
+  <html dir="ltr" lang="en">
+  <body>
+  <div id="main-wrapper">
+    @include('navbar.admin-navbar')
+          <div class="page-wrapper">
+          <div class="page-breadcrumb">
+              <div class="row">
+                  <div class="col-12 d-flex no-block align-items-center">
+                      <h4 class="page-title">Create Catalog</h4>
+                  </div>
+              </div>
+          </div>
+              <div class="container-fluid">
+                  <!-- ============================================================== -->
+                  <!-- Start Page Content -->
+                  <!-- ============================================================== -->
+                  @include('inc.messages')
+                  {{ Form::open(array('action' => 'Admin\CatalogController@store', 'method' => 'post', 'files' => true, 'enctype' =>"multipart/form-data")) }}
+                  <div class="row">
+                      <div class="col-md-6">
+                          <div class="card">
+                              <div class="card-body">
+                                <div class="form-group-row">
+                                    <div class="col-sm-9">
+                                      <label>Item Name</label>
+                                        <input type="text" name="productname" class="form-control" id="fname" onkeypress="return !validNo(this,event)" placeholder="Product Name" required>
+                                    </div>
+                                </div>
+                                <br />
+                                <div class="form-group-row">
+                                    <div class="col-sm-9">
+                                      <label>Item Type</label>
+                                        <select class="select2 form-control custom-select" name="productstypeID" style="width: 100%; height:36px;">
+                                          <option>Choose type of item</option>
+                                              <option value="1">Donation</option>
+                                              <option value="2">Shop</option>
+                                      </select>
+                                    </div>
+                                </div>
+                                <br />
+                                <div class="form-group-row">
+                                    <div class="col-sm-9">
+                                      <label>Description</label>
+                                        <textarea class="form-control" name="description"></textarea>
+                                    </div>
+                                </div>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="col-md-6">
+                          <div class="card">
+                              <div class="card-body">
+                                <div class="form-group-row">
+                                    <div class="col-sm-9">
+                                      <label>Price</label>
+                                        <input type="number" name="price" class="form-control" placeholder="Price">
+                                    </div>
+                                </div>
+                                <br />
+                                <div class="form-group-row">
+                                    <div class="col-sm-9">
+                                      <label>Username</label>
+                                      <div class="custom-file">
+                                            <input type="file" name="productimage" class="custom-file-input form-control" data-toggle="tooltip" data-placement="top" id="validatedCustomFile" required>
+                                            <label class="custom-file-label" data-toggle="tooltip" data-placement="top" for="validatedCustomFile">Choose file...</label>
+                                            <div class="invalid-feedback">Example invalid custom file feedback</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <br />
+                                <div style="float:right;">
+                                    <div class="card-body">
+                                        <button type="submit" class="btn btn-outline-success">Save</button>
+                                    </div>
+                                </div>
+                                {{Form::hidden('status','Activated', ['class' => 'form-control'])}}
+                          </div>
+                      </div>
+                  </div>
+                  {!! Form::close() !!}
+                </div>
       </div>
-      <div class="container col-md-9 center-align">
-        <h4 class="mb-3">Fill out form</h4>
-        {{ Form::open(array('action' => 'Admin\CatalogController@store', 'method' => 'post', 'files' => true, 'enctype' =>"multipart/form-data")) }}
-            <div class="row">
-            <div class="col-md-6 mb-3">
-              {{Form::label('productname','Item Name')}}
-              {{Form::text('productname','', ['class' => 'form-control'])}}
-            </div>
-            <div class="col-md-6 mb-3">
-              {{Form::label('productstypeID','Item Type')}}
-              {{Form::select('productstypeID', ['1' => 'Donation', '2' => 'Shop'], null, ['placeholder' => 'Choose type of item', 'class' => 'form-control'])}}
-            </div>
-            </div>
-            <div class="mb-3">
-              {{Form::label('description','Description')}}
-              {{Form::textarea('description','', ['class' => 'form-control'])}}
-            </div>
-            <div class="row">
-              <div class="col-md-6 mb-3">
-                {{Form::label('price','Price')}}
-                {{Form::number('price','', ['class' => 'form-control'])}}
-              </div>
-              <div class="col-md-6 mb-3">
-                {{Form::label('productimage','Image')}}
-                {{Form::file('productimage',['class' => 'form-control'])}}
-              </div>
-            </div>
-              {{Form::hidden('status','Activated', ['class' => 'form-control'])}}
-            <hr class="mb-4">
-            {{Form::submit('Save item',['class' => 'btn btn-primary btn-lg btn-block'])}}
-          {!! Form::close() !!}
-        </div>
-
-      <footer class="my-5 pt-5 text-muted text-center text-small">
-        <p class="mb-1">&copy; 2017-2018 Company Name</p>
-        <ul class="list-inline">
-          <li class="list-inline-item"><a href="#">Privacy</a></li>
-          <li class="list-inline-item"><a href="#">Terms</a></li>
-          <li class="list-inline-item"><a href="#">Support</a></li>
-        </ul>
+      <footer class="footer text-center">
+        Copyright &copy; 2018 WeRecycle
       </footer>
-
-@endsection
+    </div>
+  </div>
+  @include('navbar.footer')
+    </body>
+    </html>

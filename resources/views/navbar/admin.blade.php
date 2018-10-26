@@ -6,12 +6,12 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <!-- Favicon icon -->
-    <link rel="icon" type="image/png" sizes="16x16" href="../assets/images/favicon.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('assets/images/favicon.png') }}">
     <title>WeRecycle Administrator</title>
     <!-- Custom CSS -->
-    <link href="../assets/libs/flot/css/float-chart.css" rel="stylesheet">
+    <link href="{{ asset('assets/libs/flot/css/float-chart.css') }}" rel="stylesheet">
     <!-- Custom CSS -->
-    <link href="../dist/css/style.min.css" rel="stylesheet">
+    <link href="{{ asset('dist/css/style.min.css') }}" rel="stylesheet">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -43,14 +43,14 @@
                 <b class="logo-icon p-l-10">
                     <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
                     <!-- Dark Logo icon -->
-                    <img src="../assets/images/logo-icon.png" alt="homepage" class="light-logo" />
+                    <img src="{{ asset('assets/images/logo-icon.png') }}" alt="homepage" class="light-logo" />
 
                 </b>
                 <!--End Logo icon -->
                  <!-- Logo text -->
                 <span class="logo-text">
                      <!-- dark Logo text -->
-                     <img src="../assets/images/logo-text.png" alt="homepage" class="light-logo" />
+                     <img src="{{ asset('assets/images/logo-text.png') }}" alt="homepage" class="light-logo" />
 
                 </span>
             </a>

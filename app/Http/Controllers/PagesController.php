@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Employee;
+use App\Models\Volunteer;
 use DB;
 
 class PagesController extends Controller
@@ -11,7 +11,7 @@ class PagesController extends Controller
 
     public function index()
     {
-      $volunteersCount = Employee::SELECT('*')
+      $volunteersCount = Volunteer::SELECT('*')
       ->where('status', 'Activated')
       ->where('usertypeID', '2')
       ->get();
@@ -20,7 +20,7 @@ class PagesController extends Controller
 
     public function index2()
     {
-      $volunteersCount = Employee::SELECT('*')
+      $volunteersCount = Volunteer::SELECT('*')
       ->where('status', 'Activated')
       ->where('usertypeID', '2')
       ->get();

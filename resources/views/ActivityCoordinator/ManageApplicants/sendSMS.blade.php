@@ -1,9 +1,5 @@
 <!DOCTYPE html>
 <html dir="ltr" lang="en">
-<head>
-  <!-- Favicon icon -->
-  <link rel="icon" type="image/png" sizes="16x16" href="../../../assets/images/favicon.png">
-</head>
 <body>
 <div id="main-wrapper">
   @include('navbar.ac-navbar')
@@ -31,12 +27,7 @@
                                                       <table class="table">
                                                           <thead class="thead-light">
                                                               <tr>
-                                                                  <th>
-                                                                      <label class="customcheckbox m-b-20">
-                                                                          <input type="checkbox" id="mainCheckbox" />
-                                                                          <span class="checkmark"></span>
-                                                                      </label>
-                                                                  </th>
+                                                                <th scope="col">#</th>
                                                                   <th scope="col">Name</th>
                                                                   <th scope="col">Email</th>
                                                                   <th scope="col">Mobile Number</th>

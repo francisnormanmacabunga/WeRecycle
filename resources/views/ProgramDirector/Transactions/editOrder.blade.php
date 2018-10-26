@@ -51,6 +51,7 @@
                                                                     <option>Choose status</option>
                                                                         <option value="Shipping">Shipping</option>
                                                                         <option value="Delivered">Delivered</option>
+                                                                        <option value="Cancelled">Cancelled</option>
                                                                   </select>
                                                                 </td>
                                                                 <td>

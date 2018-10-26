@@ -70,6 +70,7 @@
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                   <a class="dropdown-item" href="{{ url('/donor/donors') }}">Edit Profile</a>
                                     <a class="dropdown-item" href="{{ url('/donor/donationhistory') }}">History</a>
+                                      <a class="dropdown-item" href="{{ url('/donor/pointhistory') }}">Point History</a>
                                     <a class="dropdown-item" href="{{ route('donor.logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">

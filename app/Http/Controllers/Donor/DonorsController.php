@@ -183,7 +183,13 @@ class DonorsController extends Controller
       $points= Points::where('userID',$id)->first();
       $points->pointsaccumulated = $points->pointsaccumulated - 100;
       $points->push();
-      
+
+      $plog = new PointsLog;
+      $plog->userID = Auth::user()->userID;
+      $plog->activity = 'Redeem Code';
+      $plog->points = '-100';
+      $plog->save();
+
        return back();
     }
 

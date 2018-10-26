@@ -86,7 +86,7 @@
                         {{ Auth::user()->username }}</a>
                         <div class="dropdown-divider"></div>
 
-                        <a class="dropdown-item" href="{{ url('/activitycoordinator/activity_coordinators') }}"><i class="ti-user m-r-5 m-l-5"></i> Edit Profile</a>
+                        <a class="dropdown-item" href="{{ url('/activitycoordinator/activity_coordinators') }}"><i class="ti-user m-r-5 m-l-5"></i> View Profile</a>
                         <div class="p-l-30 p-10"><a href="{{ route('activitycoordinator.logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="btn btn-sm btn-danger btn-rounded">Logout</a></div>
                         <form id="logout-form" action="{{ route('activitycoordinator.logout') }}" method="POST" style="display: none;">
                             @csrf

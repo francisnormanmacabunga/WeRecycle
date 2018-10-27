@@ -18,10 +18,10 @@ class DonationHistoryController extends Controller
 
       public function donationHistory()
       {
-        $donation = Transaction::SELECT('*')
+        $donation = Transaction::orderBy('updated_at', 'desc')
         -> where('type', 'Donate')
         -> sortable()
-        -> paginate();
+        -> paginate(10);
 
         return view('ProgramDirector/History.donationHistory')->with(['donation' => $donation]);
       }
@@ -29,11 +29,11 @@ class DonationHistoryController extends Controller
 
         public function donationHistoryS()
         {
-          $donation = Transaction::SELECT('*')
+          $donation = Transaction::orderBy('updated_at', 'desc')
           -> where('status', 'Shipping')
           -> where('type', 'Donate')
           -> sortable()
-          -> paginate();
+          -> paginate(10);
 
           return view('ProgramDirector/History.donationHistoryS')->with(['donation' => $donation]);
         }
@@ -41,11 +41,11 @@ class DonationHistoryController extends Controller
 
         public function donationHistoryD()
         {
-          $donation = Transaction::SELECT('*')
+          $donation = Transaction::orderBy('updated_at', 'desc')
           -> where('Status', 'Delivered')
           -> where('type', 'Donate')
           -> sortable()
-          -> paginate();
+          -> paginate(10);
 
           return view('ProgramDirector/History.donationHistoryD')->with(['donation' => $donation]);
           }
@@ -53,11 +53,11 @@ class DonationHistoryController extends Controller
 
           public function donationHistoryC()
           {
-            $donation = Transaction::SELECT('*')
+            $donation = Transaction::orderBy('updated_at', 'desc')
             -> where('status', 'Cancelled')
             -> where('type', 'Donate')
             -> sortable()
-            -> paginate();
+            -> paginate(10);
 
             return view('ProgramDirector/History.donationHistoryC')->with(['donation' => $donation]);
             }
@@ -66,7 +66,7 @@ class DonationHistoryController extends Controller
 
       public function donationPDF(Request $request)
       {
-        $donation = Transaction::SELECT('*')
+        $donation = Transaction::orderBy('updated_at', 'desc')
         -> where('type', 'Donate')
         -> get();
         $pdf = PDF::loadView('ProgramDirector/History.donationPDF', compact('donation'));
@@ -75,7 +75,7 @@ class DonationHistoryController extends Controller
 
       public function donationPDFS(Request $request)
       {
-        $donation = Transaction::SELECT('*')
+        $donation = Transaction::orderBy('updated_at', 'desc')
         -> where('type', 'Donate')
         -> where('status', 'Shipping')
         -> get();
@@ -85,7 +85,7 @@ class DonationHistoryController extends Controller
 
       public function donationPDFD(Request $request)
       {
-        $donation = Transaction::SELECT('*')
+        $donation = Transaction::orderBy('updated_at', 'desc')
         -> where('type', 'Donate')
         -> where('status', 'Delivered')
         -> get();
@@ -95,7 +95,7 @@ class DonationHistoryController extends Controller
 
       public function donationPDFC(Request $request)
       {
-        $donation = Transaction::SELECT('*')
+        $donation = Transaction::orderBy('updated_at', 'desc')
         -> where('type', 'Donate')
         -> where('status', 'Cancelled')
         -> get();

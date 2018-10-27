@@ -28,9 +28,10 @@ class OrderController extends Controller
      */
     public function index()
     {
-      $order = Transaction::SELECT('*')
+      $order = Transaction::orderBy('updated_at', 'desc')
       -> where('type', 'Shop')
-      -> get();
+      -> paginate(10);
+
 
       $messageOrder = MessageOrders::all()->last();
 

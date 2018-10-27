@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html dir="ltr">
 <head>
-    <title>Donor</title>
+
 </head>
 <body>
     <div class="main-wrapper">
@@ -22,9 +22,6 @@
         <!-- ============================================================== -->
         <!-- Login box.scss -->
         <!-- ============================================================== -->
-
-      
-
         <div class="auth-wrapper d-flex no-block justify-content-center align-items-center" style="background-color: #1B4D3E">
             <div class="auth-box" style="background-color: #1B4D3E">
                 <div id="loginform">
@@ -65,7 +62,9 @@
                                     <div class="p-t-20">
                                         <button class="btn btn-success btn-rounded float-right" type="submit">{{ __('Login') }}</button>
                                         <a class="btn btn-info btn-rounded" href="{{ route('donor.password.request') }}"><i class="fa fa-lock m-r-5"></i> {{ __('Forgot Password?') }}</a>
-                                        </a>
+                                        <br />
+                                        <br />
+                                        <a class="btn btn-outline-light btn-rounded" href="{{ url('/') }}"><i class="mdi mdi-keyboard-backspace"></i> Back</a>
                                     </div>
                                 </div>
                             </div>

@@ -28,7 +28,7 @@
     echo "$mydate[weekday], $mydate[month] $mydate[mday], $mydate[year]";
     echo " &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>Time: </strong>" .date("h:i:sa");
     ?>
-    <p><strong>Report Generated:</strong> Donation History &nbsp;&nbsp;&nbsp;&nbsp; <strong>Sort:</strong> All Donations</p>
+    <p><strong>Report Generated:</strong> Donation History &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <strong>Sort:</strong> All Donations</p>
 
     <table>
       <tr>

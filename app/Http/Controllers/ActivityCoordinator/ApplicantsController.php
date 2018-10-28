@@ -24,18 +24,18 @@ class ApplicantsController extends Controller
     public function index()
     {
       if (request()->has('status')){
-      $applicants = Volunteer::SELECT('*')
+      $applicants = Volunteer::orderBy('updated_at', 'desc')
       -> join('contacts', 'contacts.volunteerID', '=', 'volunteer.volunteerID')
       -> where('status',request('status'))
       -> where('usertypeID', '2')
       -> sortable()
-      -> paginate(5)->appends('status', request('status'));
+      -> paginate(10)->appends('status', request('status'));
     } else {
-      $applicants = Volunteer::SELECT('*')
+      $applicants = Volunteer::orderBy('updated_at', 'desc')
       -> join('contacts', 'contacts.volunteerID', '=', 'volunteer.volunteerID')
       -> where('usertypeID', '2')
       -> sortable()
-      -> paginate(5);
+      -> paginate(10);
     }
       return view('ActivityCoordinator/ManageApplicants.index', compact('applicants'));
     }

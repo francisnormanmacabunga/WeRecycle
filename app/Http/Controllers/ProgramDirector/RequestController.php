@@ -28,9 +28,9 @@ class RequestController extends Controller
      */
     public function index()
     {
-      $request = Transaction::SELECT('*')
+      $request = Transaction::orderBy('updated_at', 'desc')
       -> where('type', 'Donate')
-      -> get();
+      -> paginate(10);
 
       $message = MessageRequests::all()->last();
 

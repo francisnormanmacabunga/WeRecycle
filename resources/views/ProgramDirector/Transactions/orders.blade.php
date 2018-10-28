@@ -25,7 +25,7 @@
                         <h5 class="card-title">Transaction-Orders</h5>
                         <div class="table-responsive">
                           @if(count($order) > 0)
-                            <table id="zero_config" class="table table-striped table-bordered">
+                            <table class="table table-striped table-bordered">
                                 <thead>
                                     <tr>
                                       <th>ID</th>
@@ -76,6 +76,7 @@
                             </div>
                             @endif
                         </div>
+                        {{$order -> links()}}
                     </div>
                 </div>
                 <div class="col-xs-12" align="right">

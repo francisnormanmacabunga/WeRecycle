@@ -3,7 +3,14 @@
 <!DOCTYPE html>
 <html dir="ltr">
 <head>
+  <!-- <style>
+  body  {
+    background-size: contain;
+    background-size: cover;
+  background-image: url('/assets/images/test.jpg');
 
+  }
+  </style>-->
 </head>
 <body>
     <div class="main-wrapper">
@@ -38,10 +45,11 @@
                         <div class="alert alert-danger" role="alert">{{ $errors->first('password') }}</div>
                     @endif
                     <!-- Form -->
+
                       <form class="form-horizontal m-t-20" id="loginform" method="POST" action="{{ route('donor.login.submit') }}" aria-label="{{ __('Login') }}">
                           @csrf
-                        <div class="row p-b-30">
-                            <div class="col-12">
+
+                            <div align="center">
                                 <div class="input-group mb-3">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text bg-success text-white btn-rounded" id="basic-addon1"><i class="ti-user"></i></span>
@@ -55,7 +63,9 @@
                                     <input type="password" name="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }} btn-rounded" placeholder="Password" aria-label="Password" aria-describedby="basic-addon1" required>
                                 </div>
                             </div>
-                        </div>
+                        <div align="center">
+                      <a href="/createDonor"><font color="white">Dont have an account? Register here.</font></a>
+                    </div>
                         <div class="row">
                             <div class="col-12">
                                 <div class="form-group">

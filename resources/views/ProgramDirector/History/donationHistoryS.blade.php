@@ -27,7 +27,7 @@
                         <h5 class="card-title">Donation History</h5>
                         <div class="table-responsive">
                           @if(count($donation) > 0)
-                            <table id="zero_config" class="table table-striped table-bordered">
+                            <table class="table table-striped table-bordered">
                                 <thead>
                                     <tr>
                                         <th>Assigned Volunteer</th>
@@ -62,6 +62,7 @@
                             </div>
                             @endif
                         </div>
+                        {{$donation->links()}}
                     </div>
                 </div>
                 <div class="col-xs-12" align="right">
@@ -72,7 +73,7 @@
         </div>
     </div>
     <footer class="footer text-center">
-        All Rights Reserved by Matrix-admin. Designed and Developed by <a href="https://wrappixel.com">WrapPixel</a>.
+      Copyright &copy; 2018 WeRecycle
     </footer>
   </div>
 </div>

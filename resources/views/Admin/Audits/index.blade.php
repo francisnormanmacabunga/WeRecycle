@@ -19,6 +19,7 @@
           <li class="nav-item"> <a class="nav-link btn-outline-info" href="{{ url('/admin/auditlogs/?log_name=Transaction') }}" role="tab"><span class="hidden-sm-up"></span> <span class="hidden-xs-down">Transaction</span></a> </li>
           <li class="nav-item"> <a class="nav-link btn-outline-info" href="{{ url('/admin/auditlogs/?log_name=Donor Account') }}" role="tab"><span class="hidden-sm-up"></span> <span class="hidden-xs-down">Donor</span></a> </li>
           <li class="nav-item"> <a class="nav-link btn-outline-info" href="{{ url('/admin/auditlogs/?log_name=Employee Account') }}" role="tab"><span class="hidden-sm-up"></span> <span class="hidden-xs-down">Employee</span></a> </li>
+          <li class="nav-item"> <a class="nav-link btn-outline-info" href="{{ url('/admin/auditlogs/?log_name=Request') }}" role="tab"><span class="hidden-sm-up"></span> <span class="hidden-xs-down">Request</span></a> </li>
         </ul>
         <div class="row">
             <div class="col-12">
@@ -27,7 +28,8 @@
                         <h5 class="card-title">Audit Logs</h5>
                         <div class="table-responsive">
                           @if(count($lastActivity) > 0)
-                            <table id="zero_config" class="table table-striped table-bordered">
+                            <table class="table table-striped table-bordered">
+                            <!--  <table id="zero_config" class="table table-striped table-bordered"> -->
                                 <thead>
                                     <tr>
                                       <th>Date</th>
@@ -57,6 +59,7 @@
                             </div>
                             @endif
                         </div>
+                          {{$lastActivity->links()}}
                     </div>
                 </div>
             </div>

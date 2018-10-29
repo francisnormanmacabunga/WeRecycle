@@ -31,7 +31,7 @@ class TwilioController extends Controller
     public function assignOrder(Request $request)
     {
      $this->validate($request, [
-       'message' => 'nullable',
+       'message' => 'required',
      [
        'message.required' => 'The message field is required.'
      ]]);
@@ -62,7 +62,7 @@ class TwilioController extends Controller
     public function sendMessageDonorOrder(Request $request)
     {
       $this->validate($request, [
-        'message' => 'nullable',
+        'message' => 'required',
       [
         'message.required' => 'The message field is required.'
       ]]);
@@ -93,7 +93,7 @@ class TwilioController extends Controller
       public function assignRequest(Request $request)
       {
        $this->validate($request, [
-         'message' => 'nullable',
+         'message' => 'required',
        [
          'message.required' => 'The message field is required.'
        ]]);
@@ -124,7 +124,7 @@ class TwilioController extends Controller
     public function sendMessageDonorRequest(Request $request)
     {
       $this->validate($request, [
-        'message' => 'nullable',
+        'message' => 'required',
       [
         'message.required' => 'The message field is required.'
       ]]);

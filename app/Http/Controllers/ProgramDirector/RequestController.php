@@ -28,9 +28,9 @@ class RequestController extends Controller
      */
     public function index()
     {
-      $request = Transaction::SELECT('*')
+      $request = Transaction::orderBy('updated_at', 'desc')
       -> where('type', 'Donate')
-      -> get();
+      -> paginate(10);
 
       $message = MessageRequests::all()->last();
 
@@ -78,7 +78,8 @@ class RequestController extends Controller
     public function edit($id)
     {
       $request = Transaction::find($id);
-      $volunteer = Volunteer::all();
+      $volunteer = Volunteer::where('status','Activated')
+      ->get();
       return view('ProgramDirector/Transactions.editRequest', compact('request', 'volunteer'));
     }
 

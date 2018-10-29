@@ -24,7 +24,7 @@
                         <h5 class="card-title">Manage Applicants</h5>
                         <div class="table-responsive">
                           @if(count($applicants) > 0)
-                            <table id="zero_config" class="table table-striped table-bordered">
+                            <table class="table table-striped table-bordered">
                                 <thead>
                                     <tr>
                                       <th>Name</th>
@@ -62,6 +62,7 @@
                             </div>
                             @endif
                         </div>
+                        {{$applicants -> links()}}
                     </div>
                 </div>
             </div>

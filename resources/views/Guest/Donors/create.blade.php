@@ -96,7 +96,7 @@
               </div>
               </div>
 
-                {{Form::hidden('usertypeID','1', ['class' => 'form-control'])}}
+                {{Form::hidden('usertypeID','5', ['class' => 'form-control'])}}
                 {{Form::hidden('status','Activated', ['class' => 'form-control'])}}
               <hr class="mb-4">
 

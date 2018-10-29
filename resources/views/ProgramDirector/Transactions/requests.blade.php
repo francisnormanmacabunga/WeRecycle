@@ -27,7 +27,7 @@
                         <h5 class="card-title">Transaction-Requests</h5>
                         <div class="table-responsive">
                           @if(count($request) > 0)
-                            <table id="zero_config" class="table table-striped table-bordered">
+                            <table class="table table-striped table-bordered">
                                 <thead>
                                     <tr>
                                       <th>ID</th>
@@ -83,6 +83,7 @@
                             </div>
                             @endif
                         </div>
+                        {{$request -> links()}}
                     </div>
                 </div>
                 <div class="col-xs-12" align="right">

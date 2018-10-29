@@ -60,10 +60,10 @@
                                 <br />
                                 <div class="form-group-row">
                                     <div class="col-sm-9">
-                                      <label>Username</label>
+                                      <label>Image</label>
                                       <div class="custom-file">
-                                            <input type="file" name="productimage" class="custom-file-input form-control" data-toggle="tooltip" data-placement="top" id="validatedCustomFile" required>
-                                            <label class="custom-file-label" data-toggle="tooltip" data-placement="top" for="validatedCustomFile">Choose file...</label>
+                                            <input type="file" name="productimage" class="custom-file-input form-control" required>
+                                            <label class="custom-file-label" for="validatedCustomFile">Choose file...</label>
                                             <div class="invalid-feedback">Example invalid custom file feedback</div>
                                         </div>
                                     </div>

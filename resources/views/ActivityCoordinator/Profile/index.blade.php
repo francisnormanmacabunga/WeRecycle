@@ -44,9 +44,9 @@
                                 </dt>
                               </dl>
                               <hr style="margin:5px 0 5px 0;"><br>
-                              <form action="/activitycoordinator/activity_coordinators/{{$donors->userID}}/edit">
-                                  <input type="submit" value="Edit Profile" class="btn btn-info btn-block btn-lg" />
-                              </form>
+
+                                  <a href="/activitycoordinator/activity_coordinators/{{$donors->userID}}/edit"><button class="btn btn-info btn-block btn-lg">Edit Profile</button></a>
+                  
                             </div>
                           </div>
                         </div>

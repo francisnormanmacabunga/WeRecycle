@@ -54,14 +54,17 @@ class CartController extends Controller
 
 if ($code == '') {
 
+$total = Cart::instance('shop')->Total();
+
   $order = new Order();
   $order->userID = $donor->userID;
   $order->type= 'Shop';
   $order->cart = $cartItems;
+  $order->price = $total;
   $order->status = 'Inactive';
   $order->save();
 
-  
+
   return redirect()->route('cart.checkout');
 
 }else{

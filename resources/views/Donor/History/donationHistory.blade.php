@@ -19,7 +19,7 @@
         <tr>
           <th>Assigned Volunteer</th>
           <th>Type of Donation</th>
-          <th>Quantity</th>
+          <th>Grams</th>
           <th>@sortablelink('created_at', 'Date')</th>
           <th>@sortablelink('status', 'Status')</th>
           <th>Action</th>

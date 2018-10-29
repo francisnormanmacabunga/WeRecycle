@@ -21,21 +21,21 @@
                     <div class="card-body">
                         <h5 class="card-title">Manage Shop Catalog</h5>
                         <br>
-                        <a href="/admin/sortman/">
+                        <a href="/admin/sortman1/">
                           <button style="float: right;">Reset</button>
                         </a>
 
-                        <a href="/admin/sortman/?status=Traditional">
+                        <a href="/admin/sortman1/?status=Traditional">
                           <button style="float: right;">Sort by Traditional</button>
                         </a>
 
 
-                        <a href="/admin/sortman/?status=Non-Traditional">
+                        <a href="/admin/sortman1/?status=Non-Traditional">
                           <button style="float: right;">Sort by Non-Traditional</button>
                         </a>
 
 
-                        <a href="/admin/sortman/?status=Material">
+                        <a href="/admin/sortman1/?status=Material">
                           <button style="float: right;">Sort by Material</button>
                         </a>
 
@@ -58,7 +58,7 @@
                                 <tbody>
                                   @foreach ($products2 as $products)
                                     <tr>
-                                      <td>{{$products->productstype}}</td>
+                                      <td>{{$products->productstypeID}}</td>
                                       <td>{{$products->productname}}</td>
                                       <td><img src="{{ asset('images/' . $products->productimage) }}" width="200" height="200"></td>
                                       <td>{{$products->price}}</td>

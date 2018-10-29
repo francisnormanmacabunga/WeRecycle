@@ -32,12 +32,21 @@
         <tr>
           <td>{{$shops->volunteer['firstname']}} {{$shops->volunteer['lastname']}}</td>
 
+          @if(!is_null($shops->discountedprice))
+
+          @foreach($cart as $item)
+          <td>{{$item->name}}</td>
+          <td>{{$item->qty}}</td>
+          @endforeach
+          <td>{{$shops->discountedprice}}
+          @else
+
         @foreach($cart as $item)
         <td>{{$item->name}}</td>
         <td>{{$item->qty}}</td>
-        <td>{{$item->price}}</td>
         @endforeach
-
+        <td>{{$shops->price}}</td>
+        @endif
         <td>{{date('F d, Y, h:i:sa', strtotime($shops->created_at))}}</td>
           <td>{{$shops->status}}</td>
 

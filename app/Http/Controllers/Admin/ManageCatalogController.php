@@ -61,7 +61,7 @@ public function sortby(){
 public function sortby1(){
 
   if (request()->has('status')){
-  $products2 = Products::SELECT('*')
+  $products2   = Products::SELECT('*')
   -> where('category',request('status'))
   -> where('products.productstypeID','2')
   -> sortable()
@@ -73,7 +73,7 @@ public function sortby1(){
   -> paginate(10);
   }
 
-  return view('Admin/Catalog.manageDonation')->with(['products2' => $products2]);
+  return view('Admin/Catalog.manageShop')->with(['products2' => $products2]);
 
 }
 

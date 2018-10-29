@@ -33,6 +33,7 @@ class CartCheckoutController extends Controller
       $trans = new Transaction;
       $trans->userID = $order->userID;
       $trans->cart = $order->cart;
+      $trans->price = $order->price;
       $trans->discountedprice = $order->discountedprice;
       $trans->type = $order->type;
       $trans->status = 'Processing';

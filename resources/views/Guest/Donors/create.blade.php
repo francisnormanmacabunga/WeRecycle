@@ -99,6 +99,9 @@
                 {{Form::hidden('usertypeID','1', ['class' => 'form-control'])}}
                 {{Form::hidden('status','Activated', ['class' => 'form-control'])}}
               <hr class="mb-4">
+
+              <center>By clicking Register  Profile, you agree to our <a href="/termandcon">Terms and Conditions</a>.</center>
+
               {{Form::submit('Register profile',['class' => 'btn btn-primary btn-lg btn-block'])}}
             {!! Form::close() !!}
           </div>

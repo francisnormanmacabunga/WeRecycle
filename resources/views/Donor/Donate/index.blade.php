@@ -7,7 +7,7 @@
             <thead>
             <tr>
                 <th>Name</th>
-                <th>Quantity</th>
+                <th>Grams(g)</th>
                 <th>Action</th>
             </tr>
             </thead>
@@ -38,7 +38,7 @@
 
             <tr>
                 <td></td>
-                <td><strong>Items:</strong> {{Cart::count()}}
+                <td><strong>Total Grams:</strong> {{Cart::count()}}g
 
                 </td>
                 <td></td>

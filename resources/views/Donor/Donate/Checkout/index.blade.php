@@ -24,8 +24,8 @@
                     <thead>
                     <tr>
                         <th>Name</th>
-                        <th>Price</th>
-                        <th>Quantity</th>
+                        <th></th>
+                        <th>Grams(g)</th>
 
                     </tr>
                     </thead>
@@ -33,7 +33,7 @@
                     @foreach($cartItems as $cartItem)
                         <tr>
                             <td>{{$cartItem->name}}</td>
-                            <td>{{$cartItem->price}}</td>
+                            <td></td>
 
                             <td width="50px">
 
@@ -47,6 +47,13 @@
                         </tr>
 
                     @endforeach
+                    <tr>
+                      <td>Total Grams:</td>
+                      <td>
+                        {{Cart::count()}}g
+                      </td>
+                      <td></td>
+                    </tr>
                     </tbody>
                 </table>
 

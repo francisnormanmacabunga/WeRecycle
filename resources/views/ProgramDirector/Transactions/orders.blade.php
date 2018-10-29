@@ -59,11 +59,19 @@
                                       @endforeach
                                       <td> {{$orders->status}} </td>
                                       <td> {{$orders->volunteer['firstname']}} {{$orders->volunteer['lastname']}}</td>
+                                      @if($orders->status == 'Cancelled' || $orders->status == 'Delivered')
                                       <td>
-                                        <a href="/programdirector/sendSMS-V-O/transactionID={{$orders->transid}}" data-toggle="tooltip" data-placement="top"  title="Message Volunteer"><i class="mdi mdi-message-reply-text"></i></a>
-                                        <a href="/programdirector/sendSMS-D-O/transactionID={{$orders->transid}}" data-toggle="tooltip" data-placement="top" title="Message Donor"><i class="mdi mdi-message-reply"></i></a>
-                                        <a href="/programdirector/orders/{{$orders->transid}}/edit" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fas fas fa-edit"></i></a>
+                                        <a href="/programdirector/sendSMS-V-O/transactionID={{$orders->transid}}" data-toggle="tooltip" data-placement="top"  title="Message Volunteer"><button disabled><i class="mdi mdi-message-reply-text"></button></i></a>
+                                        <a href="/programdirector/sendSMS-D-O/transactionID={{$orders->transid}}" data-toggle="tooltip" data-placement="top" title="Message Donor"><button disabled><i class="mdi mdi-message-reply"></button></i></a>
+                                        <a href="/programdirector/orders/{{$orders->transid}}/edit" data-toggle="tooltip" data-placement="top" title="Edit"><button disabled><i class="fas fas fa-edit"></button></i></a>
                                       </td>
+                                      @else
+                                      <td>
+                                      <a href="/programdirector/sendSMS-V-O/transactionID={{$orders->transid}}" data-toggle="tooltip" data-placement="top"  title="Message Volunteer"><button><i class="mdi mdi-message-reply-text"></button></i></a>
+                                      <a href="/programdirector/sendSMS-D-O/transactionID={{$orders->transid}}" data-toggle="tooltip" data-placement="top" title="Message Donor"><button><i class="mdi mdi-message-reply"></button></i></a>
+                                      <a href="/programdirector/orders/{{$orders->transid}}/edit" data-toggle="tooltip" data-placement="top" title="Edit"><button><i class="fas fas fa-edit"></button></i></a>
+                                    </td>
+                                      @endif
                                     </tr>
                                     @endforeach
                                 </tbody>

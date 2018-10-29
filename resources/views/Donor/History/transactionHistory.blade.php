@@ -40,7 +40,34 @@
 
         <td>{{date('F d, Y, h:i:sa', strtotime($shops->created_at))}}</td>
           <td>{{$shops->status}}</td>
-            <td><a href="/cancel/{{$shops->transid}}">Cancel</a></td>
+
+          @if ($shops->status == 'Shipping' || $shops->status == 'Delivered' || $shops->status == 'Cancelled')
+          <td>  <form action="/cancel/{{$shops->transid}}">
+            <input type="submit" value="Cancel" disabled/>
+          </form></td>
+
+          @else
+          <td>  <form action="/cancel/{{$shops->transid}}">
+              <input type="submit" value="Cancel" onclick="Confirm()"/>
+            </form></td>
+
+          @endif
+
+
+            <script type="text/javascript">
+                function Confirm() {
+                    var confirm_value = document.createElement("INPUT");
+                    confirm_value.type = "hidden";
+                    confirm_value.name = "confirm_value";
+                    if (confirm("Do you want to save data?")) {
+                        confirm_value.value = "Yes";
+                    } else {
+                        confirm_value.value = "No";
+                    }
+                    document.forms[0].appendChild(confirm_value);
+                }
+            </script>
+
         </tr>
         @endforeach
     </table>

@@ -81,6 +81,7 @@ class CatalogController extends Controller
       $products->description = $request->input('description');
       $products->price = $request->input('price');
       $products->status = $request->input('status');
+      $products->category = $request->input('category');
 
       $products->save();
       return redirect('/admin/managedonation')->with('success', 'Item added');

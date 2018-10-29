@@ -30,9 +30,21 @@
                                 <br />
                                 <div class="form-group-row">
                                     <div class="col-sm-9">
+                                      <label>Category</label>
+                                      <select class="select2 form-control custom-select" name="category" style="width: 100%; height:36px;">
+                                        <option label="Choose category"></option>
+                                            <option value="Traditional">Traditional</option>
+                                            <option value="Non-Traditional">Non-Traditional</option>
+                                            <option value="Material">Material</option>
+                                    </select>
+                                    </div>
+                                </div>
+                                <br>
+                                <div class="form-group-row">
+                                    <div class="col-sm-9">
                                       <label>Item Type</label>
                                         <select class="select2 form-control custom-select" name="productstypeID" style="width: 100%; height:36px;">
-                                          <option>Choose type of item</option>
+                                          <option label="Choose type"></option>
                                               <option value="1">Donation</option>
                                               <option value="2">Shop</option>
                                       </select>

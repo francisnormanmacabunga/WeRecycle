@@ -32,7 +32,7 @@
                                 <div class="form-group-row">
                                     <div class="col-sm-9">
                                       <label>Item Name</label>
-                                        <input type="text" name="productname" class="form-control" id="fname" onkeypress="return !validNo(this,event)" placeholder="Product Name">
+                                        <input type="text" name="productname" class="form-control" id="fname" onkeypress="return !validNo(this,event)" placeholder="{{$products['productname']}}"></input>
                                     </div>
                                 </div>
                                 <br />
@@ -40,9 +40,10 @@
                                     <div class="col-sm-9">
                                       <label>Status</label>
                                         <select class="select2 form-control custom-select" name="status" style="width: 100%; height:36px;">
-                                          <option>Choose status</option>
+                                          <optgroup label="{{$products['status']}}">
                                               <option value="Activated">Activated</option>
                                               <option value="Deactivated">Deactivated</option>
+                                            </optgroup>
                                       </select>
                                     </div>
                                 </div>
@@ -50,7 +51,7 @@
                                 <div class="form-group-row">
                                     <div class="col-sm-9">
                                       <label>Description</label>
-                                        <textarea class="form-control" name="description"></textarea>
+                                        <textarea class="form-control" name="description" placeholder="{{$products['description']}}"></textarea>
                                     </div>
                                 </div>
                               </div>
@@ -62,7 +63,7 @@
                                 <div class="form-group-row">
                                     <div class="col-sm-9">
                                       <label>Price</label>
-                                        <input type="number" name="price" class="form-control" placeholder="Price">
+                                        <input type="number" name="price" class="form-control" placeholder="{{$products['price']}}">
                                     </div>
                                 </div>
                                 <br />
@@ -71,7 +72,7 @@
                                       <label>Image</label>
                                       <div class="custom-file">
                                             <input type="file" name="productimage" class="custom-file-input form-control">
-                                            <label class="custom-file-label" for="validatedCustomFile">Choose file...</label>
+                                            <label class="custom-file-label" for="validatedCustomFile">Choose image...</label>
                                             <div class="invalid-feedback">Example invalid custom file feedback</div>
                                         </div>
                                     </div>

@@ -78,7 +78,8 @@ class RequestController extends Controller
     public function edit($id)
     {
       $request = Transaction::find($id);
-      $volunteer = Volunteer::all();
+      $volunteer = Volunteer::where('status','Activated')
+      ->get();
       return view('ProgramDirector/Transactions.editRequest', compact('request', 'volunteer'));
     }
 

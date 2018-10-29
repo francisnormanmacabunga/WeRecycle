@@ -48,7 +48,7 @@
                                                                 <td>{{$request['status']}}</td>
                                                                 <td>
                                                                   <select class="select2 form-control custom-select" name="status" style="width: 100%; height:36px;">
-                                                                    <option>Choose status</option>
+                                                                    <option value="" disabled selected>Choose status</option>
                                                                         <option value="Shipping">Shipping</option>
                                                                         <option value="Delivered">Delivered</option>
                                                                         <option value="Cancelled">Cancelled</option>
@@ -56,7 +56,7 @@
                                                                 </td>
                                                                 <td>
                                                                   <select class="select2 form-control custom-select" name="volunteer" style="width: 100%; height:36px;">
-                                                                    <option>Choose volunteer</option>
+                                                                    <option value="" disabled selected>Choose volunteer</option>
                                                                     @foreach($volunteer as $volunteers)
                                                                       <option value="{{$volunteers->volunteerID}}">{{$volunteers->firstname}}</option>
                                                                     @endforeach

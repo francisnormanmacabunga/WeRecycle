@@ -97,6 +97,13 @@ class RequestController extends Controller
         $order->volunteerID = $request->input('volunteer');
         $order->save();
 
+        /*foreach ($order as $o) {
+            $cart = json_decode($o->cart);
+        foreach($cart as $c){
+             for ($i = 0; $i = 1000; $i+=2) {
+        }
+      }*/
+
         $randompoints = 5;
         $id = $order->userID;
         $points = Points::where('userID',$id)->first();

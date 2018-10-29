@@ -82,6 +82,7 @@
               {{Form::hidden('password','ApplicantAccount', ['class' => 'form-control'])}}
               {{Form::hidden('status','Applied', ['class' => 'form-control'])}}
               <hr class="mb-4">
+                  <center>By clicking Register  Profile, you agree to our <a href="/terandcond">Terms and Conditions</a>.</center>
               {{Form::submit('Apply as Volunteer',['class' => 'btn btn-primary btn-lg btn-block'])}}
              {!! Form::close() !!}
           </div>

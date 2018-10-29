@@ -21,7 +21,8 @@ Route::get('/createDonor', 'Guest\DonorsController@create');
 Route::post('/processDonor', 'Guest\DonorsController@store');
 Route::get('/shop', 'Guest\ShopController@shopCatalog');
 Route::get('/donation', 'Guest\ShopController@donationCatalog');
-
+Route::get('/termandcon', 'Guest\DonorsController@index');
+Route::get('/terandcond', 'Guest\ApplicantsController@index');
 Auth::routes();
 Route::prefix('/donor')->group(function() {
   Route::get('/login','Donor\Auth\DonorLoginController@showLoginForm')->name('donor.login');
@@ -52,7 +53,7 @@ Route::prefix('/donor')->group(function() {
   //Summary & Checkout Button
   Route::get('/submit-donate','Donor\DonateController@checkout')->name('donate.submit');
   Route::get('/submit-cart','Donor\CartController@checkout')->name('cart.submit');
-  
+
 
   //Summary of Donate and Cart
   Route::get('/checkout-donate','Donor\DonateCheckoutController@index')->name('donate.checkout');

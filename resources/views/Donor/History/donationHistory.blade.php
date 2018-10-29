@@ -36,8 +36,19 @@
         @endforeach
           <td>{{date('F d, Y, h:i:sa', strtotime($donations->created_at))}}</td>
           <td>{{$donations->status}}</td>
-          <!--<td><a href="/cancel/{{$donations->transid}}">Cancel</a></td>-->
-          <td><a href="/cancel/{{$donations->transid}}" onclick="Confirm()">Cancel</a></td>
+
+
+                    @if ($donations->status == 'Shipping' || $donations->status == 'Delivered' || $donations->status == 'Cancelled')
+                    <td>  <form action="/cancel/{{$donations->transid}}">
+                      <input type="submit" value="Cancel" disabled/>
+                    </form></td>
+
+                    @else
+                    <td>  <form action="/cancel/{{$donations->transid}}">
+                        <input type="submit" value="Cancel" onclick="Confirm()"/>
+                      </form></td>
+
+                    @endif
 
           <script type="text/javascript">
               function Confirm() {

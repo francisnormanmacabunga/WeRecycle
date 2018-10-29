@@ -53,6 +53,18 @@
                               <div class="card-body">
                                 <div class="form-group-row">
                                     <div class="col-sm-9">
+                                      <label>Category</label>
+                                      <select class="select2 form-control custom-select" name="category" style="width: 100%; height:36px;">
+                                        <option value="" disabled>Choose type of item</option>
+                                            <option value="Traditional">Traditional</option>
+                                            <option value="Non-Traditional">Non-Traditional</option>
+                                            <option value="Material">Material</option>
+                                    </select>
+                                    </div>
+                                </div>
+                                <br>
+                                <div class="form-group-row">
+                                    <div class="col-sm-9">
                                       <label>Price</label>
                                         <input type="number" name="price" class="form-control" placeholder="Price">
                                     </div>

@@ -125,6 +125,7 @@ Route::prefix('admin')->group(function() {
   Route::resource('/catalog', 'Admin\CatalogController');
   Route::get('/manageshop', 'Admin\ManageCatalogController@manageShop');
   Route::get('/managedonation', 'Admin\ManageCatalogController@manageDonation');
+  Route::get('/sortman', 'Admin\ManageCatalogController@sortby');
   Route::get('createCatalog', 'Admin\AdminController@createCatalog');
   Route::resource('/employees', 'Admin\EmployeesController');
   Route::resource('/activitycoordinators', 'Admin\ActivityCoordinatorController');

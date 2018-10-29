@@ -20,9 +20,29 @@
                 <div class="card">
                     <div class="card-body">
                         <h5 class="card-title">Manage Donation Catalog</h5>
+                        <br>
+                        <a href="/admin/sortman/">
+                          <button style="float: right;">Reset</button>
+                        </a>
+
+                        <a href="/admin/sortman/?status=Traditional">
+                          <button style="float: right;">Sort by Traditional</button>
+                        </a>
+
+
+                        <a href="/admin/sortman/?status=Non-Traditional">
+                          <button style="float: right;">Sort by Non-Traditional</button>
+                        </a>
+
+
+                        <a href="/admin/sortman/?status=Material">
+                          <button style="float: right;">Sort by Material</button>
+                        </a>
+
+                        <br>
                         <div class="table-responsive">
                           @if(count($products1) > 0)
-                            <table id="zero_config" class="table table-striped table-bordered">
+                            <table class="table table-striped table-bordered">
                                 <thead>
                                     <tr>
                                       <th>Item Type</th>

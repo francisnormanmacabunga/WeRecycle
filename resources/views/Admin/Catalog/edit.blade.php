@@ -81,7 +81,7 @@
                                 {{Form::hidden('_method','PUT')}}
                                 <div style="float:right;">
                                     <div class="card-body">
-                                        <button type="submit" class="btn btn-outline-success" data-toggle="modal" data-target="#Modal2">Save</button>
+                                        <input value="Save" type="button" class="btn btn-outline-success" data-toggle="modal" data-target="#Modal2" />
                                     </div>
                                 </div>
                           </div>
@@ -107,8 +107,8 @@
                             </div>
                       </div>
                   </div>
-                  {!! Form::close() !!}
                 </div>
+                {!! Form::close() !!}
       </div>
       <footer class="footer text-center">
         Copyright &copy; 2018 WeRecycle

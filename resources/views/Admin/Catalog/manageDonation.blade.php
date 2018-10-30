@@ -20,26 +20,13 @@
                 <div class="card">
                     <div class="card-body">
                         <h5 class="card-title">Manage Donation Catalog</h5>
-
-                        <a href="/admin/sortman/">
-                          <button style="float: right;">Reset</button>
-                        </a>
-
-                        <a href="/admin/sortman/?status=Traditional">
-                          <button style="float: right;">Sort by Traditional</button>
-                        </a>
-
-
-                        <a href="/admin/sortman/?status=Non-Traditional">
-                          <button style="float: right;">Sort by Non-Traditional</button>
-                        </a>
-
-
-                        <a href="/admin/sortman/?status=Material">
-                          <button style="float: right;">Sort by Material</button>
-                        </a>
-                        <br>
-                        <br>
+                        <ul class="nav nav-tabs" role="tablist">
+                          <li class="nav-item"><a class="nav-link">Filter by:</a></li>
+                          <li class="nav-item"> <a class="nav-link " href="{{ url('/admin/sortman/') }}" role="tab"><span class="hidden-sm-up"></span> <span class="hidden-xs-down">All</span></a> </li>
+                          <li class="nav-item"> <a class="nav-link " href="{{ url('/admin/sortman/?status=Traditional') }}" role="tab"><span class="hidden-sm-up"></span> <span class="hidden-xs-down">Traditional</span></a> </li>
+                          <li class="nav-item"> <a class="nav-link " href="{{ url('/admin/sortman/?status=Non-Traditional') }}" role="tab"><span class="hidden-sm-up"></span> <span class="hidden-xs-down">Non-Traditional</span></a> </li>
+                          <li class="nav-item"> <a class="nav-link " href="{{ url('/admin/sortman/?status=Material') }}" role="tab"><span class="hidden-sm-up"></span> <span class="hidden-xs-down">Material</span></a> </li>
+                        </ul>
                         <div class="table-responsive">
                           @if(count($products1) > 0)
                             <table class="table table-striped table-bordered">

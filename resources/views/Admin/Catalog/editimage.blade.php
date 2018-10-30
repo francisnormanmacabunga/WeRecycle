@@ -20,13 +20,12 @@
               </div>
           </div>
               <div class="container-fluid">
+                <div class="row justify-content-center">
                   <!-- ============================================================== -->
                   <!-- Start Page Content -->
                   <!-- ============================================================== -->
                   @include('inc.messages')
                   {!! Form::open(['action' => ['Admin\CatalogImageController@update', $products['productsID']], 'method' => 'POST', 'files' => true, 'enctype' =>"multipart/form-data" ]) !!}
-                  <div class="row">
-                      <div class="col-md-6">
                           <div class="card">
                               <div class="card-body">
                                 <div class="form-group-row">
@@ -53,21 +52,18 @@
                                 <br>
                                 <div style="float:right;">
                                     <div class="card-body">
-                                        <button type="submit" class="btn btn-outline-primary"><a href="{{ url('/admin/managedonation') }}">Go Back</a></button>
+                                        <a class="btn btn-outline-danger" href="{{ url('/admin/managedonation') }}">Back</a>
                                         <button type="submit" class="btn btn-outline-success">Save</button>
                                     </div>
                                 </div>
                               </div>
                             </div>
                           </div>
-                        </div>
                   {!! Form::close() !!}
-                </div>
               </div>
       <footer class="footer text-center">
         Copyright &copy; 2018 WeRecycle
       </footer>
-    </div>
   </div>
   @include('navbar.footer')
     </body>

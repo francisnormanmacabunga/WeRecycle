@@ -21,25 +21,13 @@
                     <div class="card-body">
                         <h5 class="card-title">Manage Shop Catalog</h5>
                         <br>
-                        <a href="/admin/sortman1/">
-                          <button style="float: right;">Reset</button>
-                        </a>
-
-                        <a href="/admin/sortman1/?status=Traditional">
-                          <button style="float: right;">Sort by Traditional</button>
-                        </a>
-
-
-                        <a href="/admin/sortman1/?status=Non-Traditional">
-                          <button style="float: right;">Sort by Non-Traditional</button>
-                        </a>
-
-
-                        <a href="/admin/sortman1/?status=Material">
-                          <button style="float: right;">Sort by Material</button>
-                        </a>
-
-                        <br>
+                        <ul class="nav nav-tabs" role="tablist">
+                          <li class="nav-item"><a class="nav-link">Filter by:</a></li>
+                          <li class="nav-item"> <a class="nav-link " href="{{ url('/admin/sortman1/') }}" role="tab"><span class="hidden-sm-up"></span> <span class="hidden-xs-down">All</span></a> </li>
+                          <li class="nav-item"> <a class="nav-link " href="{{ url('/admin/sortman1/?status=Traditional') }}" role="tab"><span class="hidden-sm-up"></span> <span class="hidden-xs-down">Traditional</span></a> </li>
+                          <li class="nav-item"> <a class="nav-link " href="{{ url('/admin/sortman1/?status=Non-Traditional') }}" role="tab"><span class="hidden-sm-up"></span> <span class="hidden-xs-down">Non-Traditional</span></a> </li>
+                          <li class="nav-item"> <a class="nav-link " href="{{ url('/admin/sortman1/?status=Material') }}" role="tab"><span class="hidden-sm-up"></span> <span class="hidden-xs-down">Material</span></a> </li>
+                        </ul>
                         <div class="table-responsive">
                           @if(count($products2) > 0)
                             <table class="table table-striped table-bordered">
@@ -65,7 +53,8 @@
                                       <td>{{$products->description}}</td>
                                       <td>{{date('F d, Y, h:i:sa', strtotime($products->created_at))}}</td>
                                       <td>{{$products->status}}</td>
-                                      <td><a href="/admin/catalog/{{$products->productsID}}/edit" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fas fas fa-edit"></i></a></td>
+                                      <td><a href="/admin/catalog/{{$products->productsID}}/edit" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fas fas fa-edit"></i></a>
+                                      <a href="/admin/catalogimage/{{$products->productsID}}" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fas fas fa-image"></i></a></td>
                                     </tr>
                                     @endforeach
                                 </tbody>

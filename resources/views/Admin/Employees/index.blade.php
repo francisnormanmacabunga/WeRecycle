@@ -30,7 +30,7 @@
                                       <th>@sortablelink('created_at', 'Date Created')</th>
                                       <th>@sortablelink('updated_at', 'Date Updated')</th>
                                       <th>@sortablelink('status', 'Status')</th>
-                                      <th>Action</th>
+                                      <th></th>
                                     </tr>
                                 </thead>
                                 <tbody>

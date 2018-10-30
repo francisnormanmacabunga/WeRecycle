@@ -21,23 +21,19 @@
                     <div class="card-body">
                         <h5 class="card-title">Manage Donation Catalog</h5>
 
-                        <a href="/admin/sortman/">
+                        <a href="{{ url('/admin/managedonation') }}">
                           <button style="float: right;">Reset</button>
                         </a>
-
-                        <a href="/admin/sortman/?status=Traditional">
+                        <a href="/admin/managedonation/?status=Traditional">
                           <button style="float: right;">Sort by Traditional</button>
                         </a>
-
-
-                        <a href="/admin/sortman/?status=Non-Traditional">
+                        <a href="/admin/managedonation/?status=Non-Traditional">
                           <button style="float: right;">Sort by Non-Traditional</button>
                         </a>
-
-
-                        <a href="/admin/sortman/?status=Material">
+                        <a href="/admin/managedonation/?status=Material">
                           <button style="float: right;">Sort by Material</button>
                         </a>
+
                         <br>
                         <br>
                         <div class="table-responsive">

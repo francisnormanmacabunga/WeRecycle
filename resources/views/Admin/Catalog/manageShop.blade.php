@@ -29,7 +29,7 @@
                                       <th>Preview</th>
                                       <th>Price</th>
                                       <th>Description</th>
-                                      <th></
+                                      <th>Category</th>
                                       <th>Date Created</th>
                                       <th>Date Updated</th>
                                       <th>Status</th>
@@ -43,6 +43,7 @@
                                       <td><img src="{{ asset('images/' . $products->productimage) }}" width="200" height="200"></td>
                                       <td>{{$products->price}}</td>
                                       <td>{{$products->description}}</td>
+                                      <td>{{$products->category}}</td>
                                       <td>{{date('F d, Y, h:i:sa', strtotime($products->created_at))}}</td>
                                       <td>{{date('F d, Y, h:i:sa', strtotime($products->updated_at))}}</td>
                                       <td>{{$products->status}}</td>

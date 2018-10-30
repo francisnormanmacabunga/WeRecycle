@@ -36,7 +36,7 @@
                                             <option value="Traditional">Traditional</option>
                                             <option value="Non-Traditional">Non-Traditional</option>
                                             <option value="Material">Material</option>
-                                            <option value="Material">Fertilizer</option>
+                                            <option value="Fertilizer">Fertilizer</option>
                                     </select>
                                     </div>
                                 </div>

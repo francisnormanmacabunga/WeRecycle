@@ -46,7 +46,8 @@
                                       <td>{{date('F d, Y, h:i:sa', strtotime($products->created_at))}}</td>
                                       <td>{{date('F d, Y, h:i:sa', strtotime($products->updated_at))}}</td>
                                       <td>{{$products->status}}</td>
-                                      <td><a href="/admin/catalog/{{$products->productsID}}/edit" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fas fas fa-edit"></i></a></td>
+                                      <td><a href="/admin/catalog/{{$products->productsID}}/edit" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fas fas fa-edit"></i></a>
+                                      <a href="/admin/catalogimage/{{$products->productsID}}" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fas fas fa-image"></i></a></td>
                                     </tr>
                                     @endforeach
                                 </tbody>

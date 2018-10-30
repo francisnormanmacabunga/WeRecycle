@@ -124,7 +124,6 @@ class CatalogController extends Controller
     {
       $this->validate($request, [
       'productname' => 'regex:/^[\pL\s]+$/u',
-      'description' => 'regex:/^[ \w.#-]+$/',
       'price' => 'min:0',
     //  'productimage' => 'required|mimes:jpeg,jpg,png|image|max:5000'
     ],

@@ -124,17 +124,14 @@ class CatalogController extends Controller
     {
       $this->validate($request, [
       'productname' => 'regex:/^[\pL\s]+$/u',
-      'description' => 'regex:/^[ \w.#-]+$/',
       'price' => 'min:0',
-      'productimage' => 'mimes:jpeg,jpg,png|image|max:5000'
+      'productimage' => 'nullable|mimes:jpeg,jpg,png|image|max:5000'
     ],
     [
 
       'productname.regex' => 'Product name must only contain letters.',
-
-      'description.regex' => 'Item description must only contain letters, numbers, underscores, dashes, hypens and hashes.',
       'price.min' => 'Price must be greater than 0.',
-
+      'productimage.required' => 'Product image is required',
       'productimage.mimes' => 'Image must be in JPG/JPEG or PNG format',
       'productimage.max' => 'Image must be less than 5MB.'
     ]);

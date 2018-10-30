@@ -19,7 +19,6 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title">Manage Donation Catalog</h5>
                         <ul class="nav nav-tabs" role="tablist">
                           <li class="nav-item"><a class="nav-link">Filter by:</a></li>
                           <li class="nav-item"> <a class="nav-link " href="{{ url('/admin/managedonation') }}" role="tab"><span class="hidden-sm-up"></span> <span class="hidden-xs-down">All</span></a> </li>

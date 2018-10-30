@@ -19,7 +19,6 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title">Manage Shop Catalog</h5>
                         <div class="table-responsive">
                           @if(count($products2) > 0)
                             <table class="table table-striped table-bordered">

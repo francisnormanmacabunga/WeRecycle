@@ -123,6 +123,10 @@ Route::prefix('admin')->group(function() {
   Route::post('/logout', 'Admin\Auth\AdminLoginController@adminLogout')->name('admin.logout');
   Route::get('/auditlogs', 'Admin\AuditLogController@auditlogs');
   Route::resource('/catalog', 'Admin\CatalogController');
+
+  Route::get('/catalogimage/{id}', 'Admin\CatalogImageController@edit');
+  Route::post('/catalogimage/{id}', 'Admin\CatalogImageController@update');
+
   Route::get('/manageshop', 'Admin\ManageCatalogController@manageShop');
   Route::get('/managedonation', 'Admin\ManageCatalogController@manageDonation');
   Route::get('/sortman', 'Admin\ManageCatalogController@sortby');

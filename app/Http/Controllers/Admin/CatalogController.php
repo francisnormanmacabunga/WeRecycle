@@ -126,29 +126,28 @@ class CatalogController extends Controller
       'productname' => 'regex:/^[\pL\s]+$/u',
       'description' => 'regex:/^[ \w.#-]+$/',
       'price' => 'min:0',
-      'productimage' => 'mimes:jpeg,jpg,png|image|max:5000'
+    //  'productimage' => 'required|mimes:jpeg,jpg,png|image|max:5000'
     ],
     [
 
       'productname.regex' => 'Product name must only contain letters.',
-
       'description.regex' => 'Item description must only contain letters, numbers, underscores, dashes, hypens and hashes.',
       'price.min' => 'Price must be greater than 0.',
-
-      'productimage.mimes' => 'Image must be in JPG/JPEG or PNG format',
-      'productimage.max' => 'Image must be less than 5MB.'
+    //  'productimage.mimes' => 'Image must be in JPG/JPEG or PNG format',
+    //  'productimage.max' => 'Image must be less than 5MB.'
     ]);
 
       $validator = Validator::make($request->all(), [
       'productimage' => 'max:1'
 
     ]);
-      $filename = $request->file('productimage')->getClientOriginalName();
-      $moveImage = $request->file('productimage')->move('images', $filename);
+    //  $filename = $request->file('productimage')->getClientOriginalName();
+    //  $moveImage = $request->file('productimage')->move('images', $filename);
 
       $products = Products::find($id);
       $products->productname = $request->input('productname');
-      $products->productimage = $filename;
+
+    //  $products->productimage = $request->input('productimage');
       $products->price = $request->input('price');
       $products->description = $request->input('description');
       $products->status = $request->input('status');

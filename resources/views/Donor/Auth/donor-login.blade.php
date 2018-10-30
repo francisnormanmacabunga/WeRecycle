@@ -1,5 +1,3 @@
-@include('navbar.header')
-
 <!DOCTYPE html>
 <html dir="ltr">
 <head>
@@ -11,7 +9,19 @@
 
   }
   </style>-->
+  <link href="https://fonts.googleapis.com/css?family=Inconsolata|Rubik:300,400,700,900" rel="stylesheet">
+  <link rel="stylesheet" href="{{asset('css/styles-merged.css')}}">
+  <link rel="stylesheet" href="{{asset('css/style.min.css')}}">
+  <link rel="stylesheet" href="{{asset('css/custom.css')}}">
 </head>
+
+<header role="banner" class="probootstrap-header">
+  <div class="container">
+      <a class="btn btn-outline-light btn-rounded" href="{{ url('/') }}"><i class="mdi mdi-keyboard-backspace"></i> Back</a>
+  </div>
+</header>
+
+@include('navbar.header')
 <body>
     <div class="main-wrapper">
         <!-- ============================================================== -->
@@ -64,7 +74,7 @@
                                 </div>
                             </div>
                         <div align="center">
-                      <a href="/createDonor"><font color="white">Dont have an account? Register here.</font></a>
+                      <a href="/createDonor"><font color="white">Don't have an account? Register here.</font></a>
                     </div>
                         <div class="row">
                             <div class="col-12">
@@ -74,7 +84,7 @@
                                         <a class="btn btn-info btn-rounded" href="{{ route('donor.password.request') }}"><i class="fa fa-lock m-r-5"></i> {{ __('Forgot Password?') }}</a>
                                         <br />
                                         <br />
-                                        <a class="btn btn-outline-light btn-rounded" href="{{ url('/') }}"><i class="mdi mdi-keyboard-backspace"></i> Back</a>
+
                                     </div>
                                 </div>
                             </div>

@@ -15,7 +15,7 @@ class Employee extends Model
     protected $table = 'user';
     protected $primaryKey = 'userID';
     public $timestamps = true;
-    public $sortable = ['created_at', 'status', 'usertypeID'];
+    public $sortable = ['created_at', 'status', 'usertypeID', 'updated_at'];
 
     protected static $logName = 'Employee Account';
     protected static $logAttributes = ["*"];

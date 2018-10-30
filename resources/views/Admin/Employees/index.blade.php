@@ -8,6 +8,8 @@
     <!-- End Bread crumb and right sidebar toggle -->
     <!-- ============================================================== -->
     <!-- ============================================================== -->
+    <div class="container-fluid">
+
         <div class="row">
             <div class="col-12">
                 <div class="card">
@@ -15,19 +17,20 @@
                         <h5 class="card-title">List of Employees</h5>
                         <div class="table-responsive">
                           @if(count($employee) > 0)
-                            <table id="zero_config" class="table table-striped table-bordered">
+                            <table class="table table-striped table-bordered">
                                 <thead>
                                     <tr>
-                                      <th>User Type</th>
+                                      <th>@sortablelink('usertypeID', 'User Type')</th>
                                       <th>Name</th>
                                       <th>Age</th>
                                       <th>Address</th>
                                       <th>Barangay</th>
                                       <th>Cellphone Number</th>
                                       <th>Telephone Number</th>
-                                      <th>Date Applied</th>
-                                      <th>Status</th>
-                                      <th></th>
+                                      <th>@sortablelink('created_at', 'Date Created')</th>
+                                      <th>@sortablelink('updated_at', 'Date Updated')</th>
+                                      <th>@sortablelink('status', 'Status')</th>
+                                      <th>Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -41,6 +44,7 @@
                                       <td>{{$employees->cellNo}}</td>
                                       <td>{{$employees->tellNo}}</td>
                                       <td>{{date('F d, Y, h:i:sa', strtotime($employees->created_at))}}</td>
+                                      <td>{{date('F d, Y, h:i:sa', strtotime($employees->updated_at))}}</td>
                                       <td>{{$employees->status}}</td>
                                       <td><a href="/admin/employees/{{$employees->userID}}/edit" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fas fas fa-edit"></i></a></td>
                                     </tr>
@@ -55,6 +59,7 @@
                             </div>
                             @endif
                         </div>
+                        {{$employee->links()}}
                     </div>
                 </div>
             </div>

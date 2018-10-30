@@ -8,6 +8,13 @@
     <!-- End Bread crumb and right sidebar toggle -->
     <!-- ============================================================== -->
     <!-- ============================================================== -->
+    <div class="container-fluid">
+        <ul class="nav nav-tabs" role="tablist">
+          <li class="nav-item"><a class="nav-link ">Filter by:</a></li>
+          <li class="nav-item"> <a class="nav-link " href="{{ url('/admin/employees') }}" role="tab"><span class="hidden-sm-up"></span> <span class="hidden-xs-down">All</span></a> </li>
+          <li class="nav-item"> <a class="nav-link " href="{{ url('/admin/employees/?status=Activated') }}" role="tab"><span class="hidden-sm-up"></span> <span class="hidden-xs-down">Activated</span></a> </li>
+          <li class="nav-item"> <a class="nav-link " href="{{ url('/admin/employees/?status=Deactivated') }}" role="tab"><span class="hidden-sm-up"></span> <span class="hidden-xs-down">Deactivated</span></a> </li>
+        </ul>
         <div class="row">
             <div class="col-12">
                 <div class="card">
@@ -15,7 +22,7 @@
                         <h5 class="card-title">List of Employees</h5>
                         <div class="table-responsive">
                           @if(count($employee) > 0)
-                            <table id="zero_config" class="table table-striped table-bordered">
+                            <table class="table table-striped table-bordered">
                                 <thead>
                                     <tr>
                                       <th>User Type</th>
@@ -25,7 +32,7 @@
                                       <th>Barangay</th>
                                       <th>Cellphone Number</th>
                                       <th>Telephone Number</th>
-                                      <th>Date Applied</th>
+                                      <th>@sortablelink('updated_at', 'Date Updated')</th>
                                       <th>Status</th>
                                       <th></th>
                                     </tr>
@@ -40,7 +47,7 @@
                                       <td>{{$employees->barangay}}</td>
                                       <td>{{$employees->cellNo}}</td>
                                       <td>{{$employees->tellNo}}</td>
-                                      <td>{{date('F d, Y, h:i:sa', strtotime($employees->created_at))}}</td>
+                                      <td>{{date('F d, Y, h:i:sa', strtotime($employees->updated_at))}}</td>
                                       <td>{{$employees->status}}</td>
                                       <td><a href="/admin/employees/{{$employees->userID}}/edit" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fas fas fa-edit"></i></a></td>
                                     </tr>
@@ -55,6 +62,7 @@
                             </div>
                             @endif
                         </div>
+                        {{$employee->links()}}
                     </div>
                 </div>
             </div>

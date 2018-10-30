@@ -19,7 +19,7 @@ class Donor extends Authenticatable
     protected $table = 'user';
     protected $primaryKey = 'userID';
     public $timestamps = true;
-    public $sortable = ['created_at'];
+    public $sortable = ['updated_at'];
     protected static $logName = 'Donor Account';
     protected static $logAttributes = ["*"];
     protected static $logOnlyDirty = true;

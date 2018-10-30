@@ -24,13 +24,13 @@
                         <a href="{{ url('/admin/managedonation') }}">
                           <button style="float: right;">Reset</button>
                         </a>
-                        <a href="{{ url('/admin/managedonation/?status=Traditional') }}">
+                        <a href="{{ url('/admin/managedonation/?category=Traditional') }}">
                           <button style="float: right;">Sort by Traditional</button>
                         </a>
-                        <a href="{{ url('/admin/managedonation/?status=Non-Traditional') }}">
+                        <a href="{{ url('/admin/managedonation/?category=Non-Traditional') }}">
                           <button style="float: right;">Sort by Non-Traditional</button>
                         </a>
-                        <a href="{{ url('/admin/managedonation/?status=Material') }}">
+                        <a href="{{ url('/admin/managedonation/?category=Material') }}">
                           <button style="float: right;">Sort by Material</button>
                         </a>
 

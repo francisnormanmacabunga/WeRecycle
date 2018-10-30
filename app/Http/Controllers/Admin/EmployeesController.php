@@ -33,35 +33,13 @@ class EmployeesController extends Controller
 
     public function index()
     {
-        if (request()->has('status')){
-
-          $employee = Employee::SELECT('*')
-          -> join('contacts', 'contacts.userID', '=', 'user.userID')
-          -> join('usertype', 'usertype.usertypeID', '=', 'user.usertypeID')
-          -> where('status',request('status'))
-          -> where('usertype.usertypeID', '3')
-          -> orwhere('usertype.usertypeID', '4')
-          -> sortable()
-          -> paginate(2);
-
-        } else {
-          $employee = Employee::where('usertype.usertypeID', '3')
-          -> orwhere('usertype.usertypeID', '4')
-          -> join('contacts', 'contacts.userID', '=', 'user.userID')
-          -> join('usertype', 'usertype.usertypeID', '=', 'user.usertypeID')
-          -> sortable()
-          -> paginate(2);
-
-        }
-
-      /*  $employee = Employee::SELECT('*')
+        $employee = Employee::SELECT('*')
         -> join('contacts', 'contacts.userID', '=', 'user.userID')
         -> join('usertype', 'usertype.usertypeID', '=', 'user.usertypeID')
         -> where('usertype.usertypeID', '3')
         -> orwhere('usertype.usertypeID', '4')
         -> sortable()
-        -> paginate(1); */
-
+        -> paginate(10); 
         return view('Admin/Employees.index', compact('employee'));
     }
 

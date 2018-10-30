@@ -12,7 +12,8 @@
     <!-- ============================================================== -->
     <div class="container-fluid">
         <ul class="nav nav-tabs" role="tablist">
-          <li class="nav-item"> <a class="nav-link btn-outline-info" href="{{ url('/admin/auditlogs') }}" role="tab"><span class="hidden-sm-up"></span> <span class="hidden-xs-down">Reset</span></a> </li>
+          <li class="nav-item"><a class="nav-link ">Filter by:</a></li>
+          <li class="nav-item"> <a class="nav-link btn-outline-info" href="{{ url('/admin/auditlogs') }}" role="tab"><span class="hidden-sm-up"></span> <span class="hidden-xs-down">All</span></a> </li>
           <li class="nav-item"> <a class="nav-link btn-outline-info" href="{{ url('/admin/auditlogs/?log_name=Product') }}" role="tab"><span class="hidden-sm-up"></span> <span class="hidden-xs-down">Product</span></a> </li>
           <li class="nav-item"> <a class="nav-link btn-outline-info" href="{{ url('/admin/auditlogs/?log_name=Volunteer') }}" role="tab"><span class="hidden-sm-up"></span> <span class="hidden-xs-down">Volunteer</span></a> </li>
           <li class="nav-item"> <a class="nav-link btn-outline-info" href="{{ url('/admin/auditlogs/?log_name=Program Director Account') }}" role="tab"><span class="hidden-sm-up"></span> <span class="hidden-xs-down">Program Director</span></a> </li>

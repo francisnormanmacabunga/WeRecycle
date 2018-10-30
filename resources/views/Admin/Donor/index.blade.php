@@ -35,8 +35,8 @@
                                       <th>Barangay</th>
                                       <th>Cellphone Number</th>
                                       <th>Tellphone Number</th>
+                                      <th>@sortablelink('created_at', 'Date Created')</th>
                                       <th>@sortablelink('updated_at', 'Date Updated')</th>
-                                      <th>Date Created</th>
                                       <th>Status</th>
                                       <th>Action</th>
                                     </tr>
@@ -50,8 +50,8 @@
                                       <td> {{$donor->barangay}} </td>
                                       <td> {{$donor->contacts['cellNo']}} </td>
                                       <td> {{$donor->contacts['tellNo']}} </td>
-                                      <td> {{date('F d, Y, h:i:sa', strtotime($donor->updated_at))}} </td>
                                       <td> {{date('F d, Y, h:i:sa', strtotime($donor->created_at))}} </td>
+                                      <td> {{date('F d, Y, h:i:sa', strtotime($donor->updated_at))}} </td>
                                       <td> {{$donor->status}} </td>
                                       <td>
                                         <a href="/admin/donors/{{$donor->userID}}/edit" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fas fas fa-edit"></i></a>

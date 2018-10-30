@@ -46,6 +46,7 @@
                                       <th>Description</th>
                                       <th>Category</th>
                                       <th>Date Created</th>
+                                      <th>Date Updated</th>
                                       <th>Status</th>
                                       <th>Action</th>
                                     </tr>
@@ -58,6 +59,7 @@
                                       <td>{{$products->description}}</td>
                                       <td>{{$products->category}}</td>
                                       <td>{{date('F d, Y, h:i:sa', strtotime($products->created_at))}}</td>
+                                      <td>{{date('F d, Y, h:i:sa', strtotime($products->updated_at))}}</td>
                                       <td>{{$products->status}}</td>
                                       <td><a href="/admin/catalog/{{$products->productsID}}/edit" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fas fas fa-edit"></i></a>
                                       <a href="/admin/catalogimage/{{$products->productsID}}" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fas fas fa-image"></i></a></td>
@@ -74,6 +76,7 @@
                             </div>
                             @endif
                         </div>
+                        {{$products1->links()}}
                     </div>
                 </div>
             </div>

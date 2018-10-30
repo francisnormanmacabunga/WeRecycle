@@ -80,7 +80,7 @@ class CatalogController extends Controller
       $products->productimage = $filename;
       $products->description = $request->input('description');
       $products->price = $request->input('price');
-      $products->status = $request->input('status');
+      $products->status = 'Activated';
       $products->category = $request->input('category');
 
       $products->save();

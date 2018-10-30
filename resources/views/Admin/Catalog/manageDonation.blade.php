@@ -41,24 +41,22 @@
                             <table class="table table-striped table-bordered">
                                 <thead>
                                     <tr>
-                                      <th>Item Type</th>
                                       <th>Name</th>
                                       <th>Preview</th>
-                                      <th>Price</th>
                                       <th>Description</th>
+                                      <th>Category</th>
                                       <th>Date Created</th>
                                       <th>Status</th>
-                                      <th></th>
+                                      <th>Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                   @foreach ($products1 as $products)
                                     <tr>
-                                      <td>{{$products->productstypeID}}</td>
                                       <td>{{$products->productname}}</td>
                                       <td><img src="{{ asset('images/' . $products->productimage) }}" width="200" height="200"></td>
-                                      <td>{{$products->price}}</td>
                                       <td>{{$products->description}}</td>
+                                      <td>{{$products->category}}</td>
                                       <td>{{date('F d, Y, h:i:sa', strtotime($products->created_at))}}</td>
                                       <td>{{$products->status}}</td>
                                       <td><a href="/admin/catalog/{{$products->productsID}}/edit" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fas fas fa-edit"></i></a>

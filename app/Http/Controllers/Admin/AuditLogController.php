@@ -25,8 +25,6 @@ class AuditLogController extends Controller
       $lastActivity = Activity::orderBy('updated_at', 'desc')
       -> paginate(10);
     }
-
     return view('Admin/Audits.index', compact('lastActivity'));
   }
-
 }

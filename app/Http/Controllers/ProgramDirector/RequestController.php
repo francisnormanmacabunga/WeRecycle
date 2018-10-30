@@ -102,6 +102,7 @@ class RequestController extends Controller
             $cart = json_decode($o->cart);
         foreach($cart as $c){
              for ($i = 0; $i = 1000; $i+=2) {
+
         }
       }*/
 

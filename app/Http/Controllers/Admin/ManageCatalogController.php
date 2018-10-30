@@ -17,12 +17,26 @@ class ManageCatalogController extends Controller
 
   public function manageDonation()
   {
-    //DONATION
-    $products1 = Products::Select('*')
+    if (request()->has('category')){
+      $products1 = Products::Select('*')
+      -> join('productstype', 'productstype.productstypeID', '=', 'products.productstypeID')
+      -> where('category', request('category'))
+      -> where('productstype.productstypeID','1')
+      -> sortable()
+      -> paginate(10);
+    } else {
+      $products1 = Products::Select('*')
+      -> join('productstype', 'productstype.productstypeID', '=', 'products.productstypeID')
+      -> where('productstype.productstypeID','1')
+      -> sortable()
+      -> paginate(10);
+    }
+
+    /*$products1 = Products::Select('*')
     -> join('productstype', 'productstype.productstypeID', '=', 'products.productstypeID')
     -> where('productstype.productstypeID','1')
     -> sortable()
-    -> paginate(10);
+    -> paginate(10);*/
 
     return view('Admin/Catalog.manageDonation', compact('products1'));
   }

@@ -86,7 +86,6 @@
                                         <button type="submit" class="btn btn-outline-success">Save</button>
                                     </div>
                                 </div>
-                                {{Form::hidden('status','Activated', ['class' => 'form-control'])}}
                           </div>
                       </div>
                   </div>

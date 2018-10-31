@@ -99,14 +99,17 @@ class RequestController extends Controller
         $order->save();
 
         /*foreach ($order as $o) {
+          dd($order);
             $cart = json_decode($o->cart);
         foreach($cart as $c){
-             for ($i = 0; $i = 1000; $i+=2) {
-
-        }
-      }*/
-
-        $randompoints = 5;
+        $asd  = $cart->count;
+        dd($asd);
+      }
+    }*/
+    $qty = $order->quantity;
+        $equation =  $qty/1000;
+        $randompoints = $equation * 2;
+      
         $id = $order->userID;
         $points = Points::where('userID',$id)->first();
         $points->pointsaccumulated = $points->pointsaccumulated + $randompoints;

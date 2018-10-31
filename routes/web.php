@@ -124,14 +124,11 @@ Route::prefix('admin')->group(function() {
   Route::get('/auditlogs', 'Admin\AuditLogController@auditlogs');
   Route::resource('/catalog', 'Admin\CatalogController');
 
-  Route::get('/catalogimage/{id}', 'Admin\CatalogImageController@edit');
-  Route::post('/catalogimage/{id}', 'Admin\CatalogImageController@update');
+  
 
-  Route::get('/donationimage/{id}', 'Admin\CatalogImageController@editDonation');
-  Route::post('/donationimage/{id}', 'Admin\CatalogImageController@updateDonation');
+  Route::get('/editimage/{id}', 'Admin\CatalogImageController@edit');
+  Route::post('/editimage/{id}', 'Admin\CatalogImageController@update');
 
-  Route::get('/shopimage/{id}', 'Admin\CatalogImageController@editShop');
-  Route::post('/shopimage/{id}', 'Admin\CatalogImageController@updateShop');
 
   Route::get('/manageshop', 'Admin\ManageCatalogController@manageShop');
   Route::get('/managedonation', 'Admin\ManageCatalogController@manageDonation');

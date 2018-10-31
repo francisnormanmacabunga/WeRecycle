@@ -18,14 +18,14 @@ class CatalogImageController extends Controller
         $this->middleware('auth:admin');
       }
 
-      public function editDonation($id)
+      public function edit($id)
       {
         $products = Products::find($id);
         return view('Admin/Catalog.editImage', compact('products'));
       }
 
 
-      public function updateDonation(Request $request, $id)
+      public function update(Request $request, $id)
       {
         $this->validate($request, [
         'productimage' => 'required|mimes:jpeg,jpg,png|image|max:5000'
@@ -53,7 +53,7 @@ class CatalogImageController extends Controller
 
 
 
-      public function editShop($id)
+    /*  public function editShop($id)
       {
         $products = Products::find($id);
         return view('Admin/Catalog.editImage', compact('products'));
@@ -83,5 +83,5 @@ class CatalogImageController extends Controller
 
         $products->save();
         return redirect('/admin/managedonation')->with('success', 'Image updated');
-      }
+      }*/
 }

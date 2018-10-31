@@ -25,13 +25,9 @@
                   <!-- Start Page Content -->
                   <!-- ============================================================== -->
                   @include('inc.messages')
-<<<<<<< HEAD
-                  {!! Form::open(['action' => ['Admin\CatalogImageController@updateDonation', $products['productsID']], 'method' => 'POST', 'files' => true, 'enctype' =>"multipart/form-data" ]) !!}
+                  {!! Form::open(['action' => ['Admin\CatalogImageController@update', $products['productsID']], 'method' => 'POST', 'files' => true, 'enctype' =>"multipart/form-data" ]) !!}
                   <div class="row">
                       <div class="col-md-6">
-=======
-                  {!! Form::open(['action' => ['Admin\CatalogImageController@update', $products['productsID']], 'method' => 'POST', 'files' => true, 'enctype' =>"multipart/form-data" ]) !!}
->>>>>>> c2002bf54f724798544e1c25383f8a54f4d96e28
                           <div class="card">
                               <div class="card-body">
                                 <div class="form-group-row">

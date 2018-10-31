@@ -53,7 +53,8 @@ class CatalogController extends Controller
       'productstypeID' => 'required',
       'description' => 'required|regex:/^[ \w.#-]+$/',
       'price' => 'min:0',
-      'productimage' => 'required|mimes:jpeg,jpg,png|image|max:5000'
+      'productimage' => 'required|mimes:jpeg,jpg,png|image|max:5000',
+      'category' => 'required'
     ],
     [
       'productname.required' => 'Product name is required field.',
@@ -64,7 +65,8 @@ class CatalogController extends Controller
       'price.min' => 'Price must be greater than 0.',
       'productimage.required' => 'Product image is required',
       'productimage.mimes' => 'Image must be in JPG/JPEG or PNG format',
-      'productimage.max' => 'Image must be less than 5MB.'
+      'productimage.max' => 'Image must be less than 5MB.',
+      'category.required' => 'Product Category is required.'
     ]);
 
       $validator = Validator::make($request->all(), [

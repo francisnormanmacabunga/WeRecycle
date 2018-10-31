@@ -29,15 +29,21 @@
                                 </div>
                                 <br />
                                 <div class="form-group-row">
-                                    <div class="col-sm-9">
-                                      <label>Category</label>
-                                      <select class="select2 form-control custom-select" name="category" style="width: 100%; height:36px;">
-                                        <option label="Choose category"></option>
-                                            <option value="Traditional">Traditional</option>
-                                            <option value="Non-Traditional">Non-Traditional</option>
-                                            <option value="Material">Material</option>
-                                            <option value="Fertilizer">Fertilizer</option>
-                                    </select>
+                                   <div class="col-sm-9">
+                                     <label>Product Category</label>
+                                     <select class="select2 form-control custom-select" name="category" style="width: 100%; height:36px;">
+                                       <option label="Choose category"></option>
+                                           <optgroup label="Donation">
+                                           <option value="Traditional">Traditional</option>
+                                           <option value="Non-Traditional">Non-Traditional</option>
+                                           <option value="Material">Material</option>
+                                           <option value="Fertilizer">Fertilizer</option>
+                                           </optgroup>
+                                           <optgroup label="Shop">
+                                           <option value="Fertilizer">Fertilizer</option>
+                                           </optgroup>
+
+                                   </select>
                                     </div>
                                 </div>
                                 <br>
@@ -68,9 +74,10 @@
                                     <div class="col-sm-9">
                                       <label>Price</label>
                                         <input type="number" name="price" class="form-control" placeholder="Price">
+                                        <p style="color:blue;">*Applicale for shop products only.</p>
                                     </div>
                                 </div>
-                                <br />
+
                                 <div class="form-group-row">
                                     <div class="col-sm-9">
                                       <label>Image</label>

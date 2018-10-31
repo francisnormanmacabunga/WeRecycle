@@ -37,7 +37,7 @@
                                       <th>Telephone Number</th>
                                       <th>Date Applied</th>
                                       <th>Status</th>
-                                      <th></th>
+                                      <th>Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -51,7 +51,12 @@
                                       <td>{{$applicant->tellNo}}</td>
                                       <td>{{date('F d, Y, h:i:sa', strtotime($applicant->created_at))}}</td>
                                       <td>{{$applicant->status}}</td>
-                                      <td><a href="/activitycoordinator/applicants/{{$applicant->volunteerID}}/edit" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fas fas fa-edit"></i></a></td>
+                                      <td>
+                                        <a href="/activitycoordinator/applicants/{{$applicant->volunteerID}}/edit" data-toggle="tooltip"
+                                        data-placement="top" title="Edit"><i class="fas fas fa-edit"></i></a>
+                                        <a href="" data-toggle="tooltip"
+                                        data-placement="top" title="Message"><i class="fas fas fa-envelope"></i></a>
+                                      </td>
                                     </tr>
                                     @endforeach
                                 </tbody>

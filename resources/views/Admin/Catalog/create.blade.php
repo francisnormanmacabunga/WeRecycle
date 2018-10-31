@@ -29,7 +29,7 @@
                                     <div class="col-sm-9">
                                       <label>Item Name</label>
                                         <input type="text" name="productname" class="form-control" id="fname" onkeypress="return !validNo(this,event)" placeholder="Product Name" required>
-                                        <p style="color:red;">*Product name is required.</p>
+                                        <p style="color:red;">*required</p>
                                     </div>
                                 </div>
                                 <div class="form-group-row">
@@ -47,7 +47,7 @@
                                            </optgroup>
 
                                    </select>
-                                   <p style="color:red;">*Product category is required.</p>
+                                   <p style="color:red;">*required</p>
                                     </div>
                                 </div>
                                 <div class="form-group-row">
@@ -58,7 +58,7 @@
                                               <option value="1">Donation</option>
                                               <option value="2">Shop</option>
                                       </select>
-                                      <p style="color:red;">*Item type is required.</p>
+                                      <p style="color:red;">*required</p>
                                     </div>
                                 </div>
                                 <div class="form-group-row">
@@ -86,13 +86,19 @@
                                       <div class="custom-file">
                                         <input class="fileinput fileinput-new" type="file" name="productimage" id="fileToUpload" required>
                                       </div>
-                                      <p style="color:red;">*Image is required.</p>
+                                      <p style="color:red;">*required</p>
                                     </div>
                                 </div>
                                 <br />
                                 <br />
                                 <br />
+
                                 <div style="float:right;">
+                                  <br>
+                                  <br>
+                                  <br>
+                                  <br>
+                                  
                                         <button type="submit" class="btn btn-outline-success">Save</button>
                                 </div>
                                 <br />

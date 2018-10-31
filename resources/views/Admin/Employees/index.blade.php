@@ -12,9 +12,10 @@
 
         <div class="row">
             <div class="col-12">
+              <h5 class="card-title">List of Employees</h5>
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title">List of Employees</h5>
+
                         <div class="table-responsive">
                           @if(count($employee) > 0)
                             <table class="table table-striped table-bordered">

@@ -30,7 +30,7 @@
                                       <th>Description</th>
                                       <th>Date Created</th>
                                       <th>Date Updated</th>
-                                      <th>Status</th>
+                                      <th>@sortablelink('status', 'Status')</th>
                                       <th>Action</th>
                                     </tr>
                                 </thead>

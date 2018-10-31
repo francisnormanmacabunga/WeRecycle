@@ -11,17 +11,19 @@
     <!-- Container fluid  -->
     <!-- ============================================================== -->
     <div class="container-fluid">
-        <ul class="nav nav-tabs" role="tablist">
-          <li class="nav-item"> <a class="nav-link btn-outline-info" href="{{ url('/activitycoordinator/applicants') }}" role="tab"><span class="hidden-sm-up"></span> <span class="hidden-xs-down">Reset</span></a> </li>
-          <li class="nav-item"> <a class="nav-link btn-outline-info" href="{{ url('/activitycoordinator/applicants/?status=Applied') }}" role="tab"><span class="hidden-sm-up"></span> <span class="hidden-xs-down">Applied</span></a> </li>
-          <li class="nav-item"> <a class="nav-link btn-outline-info" href="{{ url('/activitycoordinator/applicants/?status=Deactivated') }}" role="tab"><span class="hidden-sm-up"></span> <span class="hidden-xs-down">Deactivated</span></a> </li>
-          <li class="nav-item"> <a class="nav-link btn-outline-info" href="{{ url('/activitycoordinator/applicants/?status=Activated') }}" role="tab"><span class="hidden-sm-up"></span> <span class="hidden-xs-down">Activated</span></a> </li>
-        </ul>
+
         <div class="row">
             <div class="col-12">
+                <h5 class="card-title">Manage Applicants</h5>
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title">Manage Applicants</h5>
+                      <ul class="nav nav-tabs" role="tablist">
+                        <li class="nav-item"><a class="nav-link ">Filter by:</a></li>
+                        <li class="nav-item"> <a class="nav-link btn-outline-info" href="{{ url('/activitycoordinator/applicants') }}" role="tab"><span class="hidden-sm-up"></span> <span class="hidden-xs-down">All</span></a> </li>
+                        <li class="nav-item"> <a class="nav-link btn-outline-info" href="{{ url('/activitycoordinator/applicants/?status=Applied') }}" role="tab"><span class="hidden-sm-up"></span> <span class="hidden-xs-down">Applied</span></a> </li>
+                        <li class="nav-item"> <a class="nav-link btn-outline-info" href="{{ url('/activitycoordinator/applicants/?status=Activated') }}" role="tab"><span class="hidden-sm-up"></span> <span class="hidden-xs-down">Activated</span></a> </li>
+                        <li class="nav-item"> <a class="nav-link btn-outline-info" href="{{ url('/activitycoordinator/applicants/?status=Deactivated') }}" role="tab"><span class="hidden-sm-up"></span> <span class="hidden-xs-down">Deactivated</span></a> </li>
+                      </ul>
                         <div class="table-responsive">
                           @if(count($applicants) > 0)
                             <table class="table table-striped table-bordered">

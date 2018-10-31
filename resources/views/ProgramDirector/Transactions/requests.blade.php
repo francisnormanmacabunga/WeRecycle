@@ -36,7 +36,7 @@
                                       <th>Address</th>
                                       <th>Item Type</th>
                                       <th>Item Name</th>
-                                      <th>Qty</th>
+                                      <th>Weight</th>
                                       <th>Status</th>
                                       <th>Assigned Volunteer</th>
                                       <th></th>

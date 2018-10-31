@@ -35,7 +35,7 @@
                                       <th>Item Type</th>
                                       <th>Name</th>
                                       <th>Price</th>
-                                      <th>Qty</th>
+                                      <th>Weight</th>
                                       <th>Status</th>
                                       <th>Assigned Volunteer</th>
                                       <th></th>

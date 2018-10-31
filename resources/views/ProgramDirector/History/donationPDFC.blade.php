@@ -33,7 +33,7 @@
       <tr>
         <th>Assigned Volunteer</th>
         <th>Type of Donation</th>
-        <th>Quantity</th>
+        <th>Weight</th>
         <th>Date</th>
         <th>Status</th>
       </tr>

@@ -24,6 +24,7 @@ Route::get('/donation', 'Guest\ShopController@donationCatalog');
 Route::get('/termandcon', 'Guest\DonorsController@index');
 Route::get('/terandcond', 'Guest\ApplicantsController@index');
 Auth::routes();
+
 Route::prefix('/donor')->group(function() {
   Route::get('/login','Donor\Auth\DonorLoginController@showLoginForm')->name('donor.login');
   Route::post('/login','Donor\Auth\DonorLoginController@login')->name('donor.login.submit');
@@ -43,7 +44,6 @@ Route::prefix('/donor')->group(function() {
   Route::get('/transactionhistory','Donor\HistoryController@transactionHistory');
   Route::get('/pointhistory','Donor\HistoryController@pointHistory');
 
-
   //AddtoCart & AddtoDonate
   Route::get('/donate/add-item/{id}', 'Donor\DonateController@addItem')->name('donate.addItem');
   Route::get('/cart/add-item/{id}', 'Donor\CartController@addItem')->name('cart.addItem');
@@ -53,7 +53,6 @@ Route::prefix('/donor')->group(function() {
   //Summary & Checkout Button
   Route::get('/submit-donate','Donor\DonateController@checkout')->name('donate.submit');
   Route::get('/submit-cart','Donor\CartController@checkout')->name('cart.submit');
-
 
   //Summary of Donate and Cart
   Route::get('/checkout-donate','Donor\DonateCheckoutController@index')->name('donate.checkout');
@@ -75,8 +74,10 @@ Route::prefix('activitycoordinator')->group(function() {
   Route::resource('/activity_coordinators', 'ActivityCoordinator\ActivityCoordinatorsController');
   Route::resource('/AC_password', 'ActivityCoordinator\ActivityCoordinatorsPasswordController');
   Route::resource('/applicants', 'ActivityCoordinator\ApplicantsController');
-  Route::get('/sendSMS','ActivityCoordinator\TwilioController@index');
+
+  Route::get('/sendSMS/applicantID={applicantID}','ActivityCoordinator\TwilioController@index');
   Route::post('/sendMessage','ActivityCoordinator\TwilioController@sendMessageApplicant');
+
   Route::get('/', 'ActivityCoordinator\ActivityCoordinatorController@index')->name('ac.dashboard');
 });
 
@@ -123,10 +124,10 @@ Route::prefix('admin')->group(function() {
   Route::post('/logout', 'Admin\Auth\AdminLoginController@adminLogout')->name('admin.logout');
   Route::get('/auditlogs', 'Admin\AuditLogController@auditlogs');
   Route::resource('/catalog', 'Admin\CatalogController');
+  Route::get('/editimage/{id}', 'Admin\CatalogImageController@edit');
+  Route::post('/editimage/{id}', 'Admin\CatalogImageController@update');
   Route::get('/manageshop', 'Admin\ManageCatalogController@manageShop');
   Route::get('/managedonation', 'Admin\ManageCatalogController@manageDonation');
-  Route::get('/sortman', 'Admin\ManageCatalogController@sortby');
-  Route::get('/sortman1', 'Admin\ManageCatalogController@sortby1');
   Route::get('createCatalog', 'Admin\AdminController@createCatalog');
   Route::resource('/employees', 'Admin\EmployeesController');
   Route::resource('/activitycoordinators', 'Admin\ActivityCoordinatorController');

@@ -10,14 +10,12 @@
      <div class="page-breadcrumb">
         <div class="row">
             <div class="col-12 d-flex no-block align-items-center">
-                <div class="ml-auto text-right">
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="{{ url('/admin/donors') }}">Donors</a></li>
                             <li class="breadcrumb-item active" aria-current="page">Edit</li>
                         </ol>
                     </nav>
-                </div>
             </div>
         </div>
     </div>
@@ -47,7 +45,7 @@
                                                                 <td>{{$donors['status']}}</td>
                                                                 <td>
                                                                   <select class="select2 form-control custom-select" name="status" style="width: 100%; height:36px;">
-                                                                    <option>Choose status</option>
+                                                                    <optgroup label="{{$donors['status']}}">
                                                                         <option value="Activated">Activated</option>
                                                                         <option value="Deactivated">Deactivated</option>
                                                                   </select>

@@ -114,7 +114,7 @@
                 <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-account"></i><span class="hide-menu">Applicants</span></a>
                     <ul aria-expanded="false" class="collapse  first-level">
                         <li class="sidebar-item"><a href="{{ url('/activitycoordinator/applicants') }}" class="sidebar-link"><i class="mdi mdi-account-multiple"></i><span class="hide-menu"> View Applicant </span></a></li>
-                        <li class="sidebar-item"><a href="{{ url('/activitycoordinator/sendSMS') }}" class="sidebar-link"><i class="mdi mdi-message-reply"></i><span class="hide-menu"> Contact Applicant </span></a></li>
+                        
                     </ul>
                 </li>
             </ul>

@@ -37,7 +37,6 @@
                                            <option value="Traditional">Traditional</option>
                                            <option value="Non-Traditional">Non-Traditional</option>
                                            <option value="Material">Material</option>
-                                           <option value="Fertilizer">Fertilizer</option>
                                            </optgroup>
                                            <optgroup label="Shop">
                                            <option value="Fertilizer">Fertilizer</option>

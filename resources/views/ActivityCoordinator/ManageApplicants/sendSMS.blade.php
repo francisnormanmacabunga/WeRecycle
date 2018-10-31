@@ -27,7 +27,6 @@
                                                       <table class="table">
                                                           <thead class="thead-light">
                                                               <tr>
-                                                                <th scope="col">#</th>
                                                                   <th scope="col">Name</th>
                                                                   <th scope="col">Email</th>
                                                                   <th scope="col">Mobile Number</th>
@@ -37,12 +36,6 @@
                                                           <tbody class="customtable">
                                                             @foreach ($applicants as $applicant)
                                                               <tr>
-                                                                  <th>
-                                                                    <label class="customcheckbox">
-                                                                        <input type="checkbox" name= "mobile" class="listCheckbox" value="{{$applicant->cellNo}}" required/>
-                                                                        <span class="checkmark"></span>
-                                                                    </label>
-                                                                  </th>
                                                                   <td>{{$applicant->firstname}} {{$applicant->lastname}}</td>
                                                                   <td>{{$applicant->email}}</td>
                                                                   <td>{{$applicant->cellNo}}</td>

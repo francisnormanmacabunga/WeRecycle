@@ -1,5 +1,9 @@
 <!DOCTYPE html>
   <html dir="ltr" lang="en">
+  <head>
+      <!-- Favicon icon -->
+      <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('assets/images/favicon.png') }}">
+  </head>
   <body>
   <div id="main-wrapper">
     @include('navbar.admin-navbar')
@@ -7,15 +11,12 @@
           <div class="page-breadcrumb">
               <div class="row">
                   <div class="col-12 d-flex no-block align-items-center">
-                      <h4 class="page-title">Update Item: Product ID {{$products['productsID']}}</h4>
-                      <div class="ml-auto text-right">
                       <nav aria-label="breadcrumb">
                           <ol class="breadcrumb">
-                              <li class="breadcrumb-item"><a href="{{ url('/admin/manageshop') }}">Catalog</a></li>
+                              <li class="breadcrumb-item"><a href="{{ url('/admin/managedonation') }}">Catalog</a></li>
                               <li class="breadcrumb-item active" aria-current="page">Edit</li>
                           </ol>
                       </nav>
-                    </div>
                   </div>
               </div>
           </div>
@@ -28,6 +29,9 @@
                   {!! Form::open(['action' => ['Admin\CatalogController@update', $products['productsID']], 'method' => 'POST', 'files' => true, 'enctype' =>"multipart/form-data" ]) !!}
                           <div class="card">
                               <div class="card-body">
+                                <div align="center">
+                                <h4 class="page-title">Update Item: ID {{$products['productsID']}}</h4>
+                                <br />
                                 <div class="form-group-row">
                                     <div class="col-sm-9">
                                       <label>Item Name</label>
@@ -45,6 +49,7 @@
                                             </optgroup>
                                       </select>
                                 </div>
+                              </div>
                                 <br />
                                 <div class="form-group-row">
                                     <div class="col-sm-9">
@@ -58,24 +63,13 @@
                                         {{Form::number('price', $products['price'],['class' => 'form-control'])}}
                                     </div>
                                 </div>
-                                <br />
-                                <div class="form-group-row">
-                                    <div class="col-sm-9">
-                                      <label>Image</label>
-                                      <div class="custom-file">
-                                            <input type="file" name="productimage" class="custom-file-input form-control">
-                                            <label class="custom-file-label" for="validatedCustomFile">Choose image...</label>
-                                            <div class="invalid-feedback">Example invalid custom file feedback</div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <br />
                                 {{Form::hidden('_method','PUT')}}
                                 <div style="float:right;">
                                     <div class="card-body">
                                         <input value="Save" type="button" class="btn btn-outline-success" data-toggle="modal" data-target="#Modal2" />
                                     </div>
                                 </div>
+                              </div>
                                 <!-- Modal -->
                                   <div class="modal fade" id="Modal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                       <div class="modal-dialog" role="document">

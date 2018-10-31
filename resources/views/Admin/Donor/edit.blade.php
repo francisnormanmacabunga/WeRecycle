@@ -47,7 +47,7 @@
                                                                 <td>{{$donors['status']}}</td>
                                                                 <td>
                                                                   <select class="select2 form-control custom-select" name="status" style="width: 100%; height:36px;">
-                                                                    <option>Choose status</option>
+                                                                    <optgroup label="{{$donors['status']}}">
                                                                         <option value="Activated">Activated</option>
                                                                         <option value="Deactivated">Deactivated</option>
                                                                   </select>

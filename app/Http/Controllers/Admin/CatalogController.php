@@ -80,7 +80,7 @@ class CatalogController extends Controller
       $products->productimage = $filename;
       $products->description = $request->input('description');
       $products->price = $request->input('price');
-      $products->status = $request->input('status');
+      $products->status = 'Activated';
       $products->category = $request->input('category');
 
       $products->save();
@@ -124,7 +124,6 @@ class CatalogController extends Controller
     {
       $this->validate($request, [
       'productname' => 'regex:/^[\pL\s]+$/u',
-      'description' => 'regex:/^[ \w.#-]+$/',
       'price' => 'min:0',
     //  'productimage' => 'required|mimes:jpeg,jpg,png|image|max:5000'
     ],

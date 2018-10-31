@@ -36,6 +36,7 @@
                                             <option value="Traditional">Traditional</option>
                                             <option value="Non-Traditional">Non-Traditional</option>
                                             <option value="Material">Material</option>
+                                            <option value="Fertilizer">Fertilizer</option>
                                     </select>
                                     </div>
                                 </div>
@@ -86,7 +87,6 @@
                                         <button type="submit" class="btn btn-outline-success">Save</button>
                                     </div>
                                 </div>
-                                {{Form::hidden('status','Activated', ['class' => 'form-control'])}}
                           </div>
                       </div>
                   </div>

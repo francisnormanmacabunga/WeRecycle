@@ -20,13 +20,18 @@
               </div>
           </div>
               <div class="container-fluid">
+                <div class="row justify-content-center">
                   <!-- ============================================================== -->
                   <!-- Start Page Content -->
                   <!-- ============================================================== -->
                   @include('inc.messages')
+<<<<<<< HEAD
                   {!! Form::open(['action' => ['Admin\CatalogImageController@updateDonation', $products['productsID']], 'method' => 'POST', 'files' => true, 'enctype' =>"multipart/form-data" ]) !!}
                   <div class="row">
                       <div class="col-md-6">
+=======
+                  {!! Form::open(['action' => ['Admin\CatalogImageController@update', $products['productsID']], 'method' => 'POST', 'files' => true, 'enctype' =>"multipart/form-data" ]) !!}
+>>>>>>> c2002bf54f724798544e1c25383f8a54f4d96e28
                           <div class="card">
                               <div class="card-body">
                                 <div class="form-group-row">
@@ -53,21 +58,18 @@
                                 <br>
                                 <div style="float:right;">
                                     <div class="card-body">
-                                        <button type="submit" class="btn btn-outline-primary"><a href="{{ url('/admin/managedonation') }}">Go Back</a></button>
+                                        <a class="btn btn-outline-danger" href="{{ url('/admin/managedonation') }}">Back</a>
                                         <button type="submit" class="btn btn-outline-success">Save</button>
                                     </div>
                                 </div>
                               </div>
                             </div>
                           </div>
-                        </div>
                   {!! Form::close() !!}
-                </div>
               </div>
       <footer class="footer text-center">
         Copyright &copy; 2018 WeRecycle
       </footer>
-    </div>
   </div>
   @include('navbar.footer')
     </body>

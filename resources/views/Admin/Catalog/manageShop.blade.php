@@ -19,38 +19,18 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title">Manage Shop Catalog</h5>
-                        <br>
-                        <a href="/admin/sortman1/">
-                          <button style="float: right;">Reset</button>
-                        </a>
-
-                        <a href="/admin/sortman1/?status=Traditional">
-                          <button style="float: right;">Sort by Traditional</button>
-                        </a>
-
-
-                        <a href="/admin/sortman1/?status=Non-Traditional">
-                          <button style="float: right;">Sort by Non-Traditional</button>
-                        </a>
-
-
-                        <a href="/admin/sortman1/?status=Material">
-                          <button style="float: right;">Sort by Material</button>
-                        </a>
-
-                        <br>
                         <div class="table-responsive">
                           @if(count($products2) > 0)
                             <table class="table table-striped table-bordered">
                                 <thead>
                                     <tr>
-                                      <th>Item Type</th>
                                       <th>Name</th>
                                       <th>Preview</th>
                                       <th>Price</th>
                                       <th>Description</th>
+                                      <th>Category</th>
                                       <th>Date Created</th>
+                                      <th>Date Updated</th>
                                       <th>Status</th>
                                       <th></th>
                                     </tr>
@@ -58,15 +38,20 @@
                                 <tbody>
                                   @foreach ($products2 as $products)
                                     <tr>
-                                      <td>{{$products->productstypeID}}</td>
                                       <td>{{$products->productname}}</td>
                                       <td><img src="{{ asset('images/' . $products->productimage) }}" width="200" height="200"></td>
                                       <td>{{$products->price}}</td>
                                       <td>{{$products->description}}</td>
+                                      <td>{{$products->category}}</td>
                                       <td>{{date('F d, Y, h:i:sa', strtotime($products->created_at))}}</td>
+                                      <td>{{date('F d, Y, h:i:sa', strtotime($products->updated_at))}}</td>
                                       <td>{{$products->status}}</td>
                                       <td><a href="/admin/catalog/{{$products->productsID}}/edit" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fas fas fa-edit"></i></a>
+<<<<<<< HEAD
                                       <a href="/admin/shopimage/{{$products->productsID}}" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fas fas fa-image"></i></a></td>
+=======
+                                      <a href="/admin/catalogimage/{{$products->productsID}}" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fas fas fa-image"></i></a></td>
+>>>>>>> c2002bf54f724798544e1c25383f8a54f4d96e28
                                     </tr>
                                     @endforeach
                                 </tbody>
@@ -79,6 +64,7 @@
                             </div>
                             @endif
                         </div>
+                        {{$products2->links()}}
                     </div>
                 </div>
             </div>

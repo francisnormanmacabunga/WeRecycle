@@ -20,7 +20,6 @@ class DonorsController extends Controller
      */
     public function index()
     {
-
         if (request()->has('status')){
         $donors = Donor::where('usertypeID', '1')
         -> where('status',request('status'))

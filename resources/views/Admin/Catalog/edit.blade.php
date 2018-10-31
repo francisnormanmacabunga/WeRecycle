@@ -59,16 +59,7 @@
                                     </div>
                                 </div>
                                 <br />
-                                <div class="form-group-row">
-                                    <div class="col-sm-9">
-                                      <label>Image</label>
-                                      <div class="custom-file">
-                                            <input type="file" name="productimage" class="custom-file-input form-control">
-                                            <label class="custom-file-label" for="validatedCustomFile">Choose image...</label>
-                                            <div class="invalid-feedback">Example invalid custom file feedback</div>
-                                        </div>
-                                    </div>
-                                </div>
+                            
                                 <br />
                                 {{Form::hidden('_method','PUT')}}
                                 <div style="float:right;">

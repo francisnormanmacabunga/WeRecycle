@@ -54,7 +54,7 @@
                                       <td>
                                         <a href="/activitycoordinator/applicants/{{$applicant->volunteerID}}/edit" data-toggle="tooltip"
                                         data-placement="top" title="Edit"><i class="fas fas fa-edit"></i></a>
-                                        <a href="" data-toggle="tooltip"
+                                        <a href="/activitycoordinator/sendSMS/applicantID={{$applicant->volunteerID}}" data-toggle="tooltip"
                                         data-placement="top" title="Message"><i class="fas fas fa-envelope"></i></a>
                                       </td>
                                     </tr>

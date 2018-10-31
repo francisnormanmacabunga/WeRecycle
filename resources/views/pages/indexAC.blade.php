@@ -42,17 +42,6 @@
                         </div>
                     </div>
                      <!-- Column -->
-                    <div class="col-md-6 col-xlg-3">
-                        <div class="card card-hover">
-
-                          <a href="{{ url('/activitycoordinator/sendSMS') }}">
-                            <div class="box bg-info text-center">
-                                <h1 class="font-light text-white"><i class="mdi mdi-message-reply"></i></h1>
-                                <h6 class="text-white">Contact Applicant</h6>
-                            </div>
-                          </a>
-                        </div>
-                    </div>
                 </div>
         </div>
         <footer class="footer text-center">

@@ -74,8 +74,10 @@ Route::prefix('activitycoordinator')->group(function() {
   Route::resource('/activity_coordinators', 'ActivityCoordinator\ActivityCoordinatorsController');
   Route::resource('/AC_password', 'ActivityCoordinator\ActivityCoordinatorsPasswordController');
   Route::resource('/applicants', 'ActivityCoordinator\ApplicantsController');
-  Route::get('/sendSMS','ActivityCoordinator\TwilioController@index');
+
+  Route::get('/sendSMS/applicantID={applicantID}','ActivityCoordinator\TwilioController@index');
   Route::post('/sendMessage','ActivityCoordinator\TwilioController@sendMessageApplicant');
+
   Route::get('/', 'ActivityCoordinator\ActivityCoordinatorController@index')->name('ac.dashboard');
 });
 

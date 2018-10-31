@@ -24,7 +24,7 @@
                   <!-- Start Page Content -->
                   <!-- ============================================================== -->
                   @include('inc.messages')
-                  {!! Form::open(['action' => ['Admin\CatalogImageController@update', $products['productsID']], 'method' => 'POST', 'files' => true, 'enctype' =>"multipart/form-data" ]) !!}
+                  {!! Form::open(['action' => ['Admin\CatalogImageController@updateDonation', $products['productsID']], 'method' => 'POST', 'files' => true, 'enctype' =>"multipart/form-data" ]) !!}
                   <div class="row">
                       <div class="col-md-6">
                           <div class="card">

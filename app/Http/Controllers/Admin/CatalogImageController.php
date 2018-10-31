@@ -18,14 +18,49 @@ class CatalogImageController extends Controller
         $this->middleware('auth:admin');
       }
 
-      public function edit($id)
+      public function editDonation($id)
       {
         $products = Products::find($id);
-        return view('Admin/Catalog.editimage', compact('products'));
+        return view('Admin/Catalog.editImage', compact('products'));
       }
 
 
-      public function update(Request $request, $id)
+      public function updateDonation(Request $request, $id)
+      {
+        $this->validate($request, [
+        'productimage' => 'required|mimes:jpeg,jpg,png|image|max:5000'
+      ],
+      [
+        'productimage.required' => 'New product image is required, or else GO BACK.',
+        'productimage.mimes' => 'Image must be in JPG/JPEG or PNG format',
+        'productimage.max' => 'Image must be less than 5MB.'
+      ]);
+
+        $validator = Validator::make($request->all(), [
+        'productimage' => 'max:1'
+
+      ]);
+        $filename = $request->file('productimage')->getClientOriginalName();
+        $moveImage = $request->file('productimage')->move('images', $filename);
+
+        $products = Products::find($id);
+        $products->productimage = $filename;
+
+        $products->save();
+        return redirect('/admin/managedonation')->with('success', 'Image updated');
+      }
+
+
+
+
+      public function editShop($id)
+      {
+        $products = Products::find($id);
+        return view('Admin/Catalog.editImage', compact('products'));
+      }
+
+
+      public function updateShop(Request $request, $id)
       {
         $this->validate($request, [
         'productimage' => 'required|mimes:jpeg,jpg,png|image|max:5000'

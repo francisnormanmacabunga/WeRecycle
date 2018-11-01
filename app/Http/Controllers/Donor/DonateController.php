@@ -50,7 +50,8 @@ class DonateController extends Controller
       $donor = Auth::user();
       $cartItems=Cart::content();
       $qty = Cart::count();
-    
+
+    if ($qty >= 1000){
       $request = new Requests();
       $request->userID = $donor->userID;
       $request->type = 'Donate';
@@ -60,6 +61,11 @@ class DonateController extends Controller
       $request->save();
 
       return redirect()->route('donate.checkout');
+    }else {
+      session()->flash('notif','Donated Items is less than 1000g');
+      return back();
+    }
+
 
       //return redirect()->route('dcheckout');
       /*$test = order::SELECT('*')

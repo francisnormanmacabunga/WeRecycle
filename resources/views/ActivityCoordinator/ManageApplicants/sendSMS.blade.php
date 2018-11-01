@@ -5,12 +5,18 @@
     <div id="main-wrapper">
         @include('navbar.ac-navbar')
         <div class="page-wrapper">
-            <!-- ============================================================== -->
-            <!-- End Bread crumb and right sidebar toggle -->
-            <!-- ============================================================== -->
-            <!-- ============================================================== -->
-            <!-- Container fluid  -->
-            <!-- ============================================================== -->
+          <div class="page-breadcrumb">
+              <div class="row">
+                  <div class="col-12 d-flex no-block align-items-center">
+                          <nav aria-label="breadcrumb">
+                              <ol class="breadcrumb">
+                                  <li class="breadcrumb-item"><a href="{{ url('/activitycoordinator/applicants') }}">Applicants</a></li>
+                                  <li class="breadcrumb-item active" aria-current="page">Send SMS</li>
+                              </ol>
+                          </nav>
+                  </div>
+              </div>
+          </div>
             <div class="container-fluid">
                 <div class="row justify-content-center">
                     <form class="form-horizontal" method="POST" action="{{ action('ActivityCoordinator\TwilioController@sendMessageApplicant') }}">
@@ -19,7 +25,6 @@
                         <div class="card">
                             <div class="card-body" style="height: 300px;">
                                 <h4 class="card-title">
-                                    <a href="{{ url()->previous() }}">Back</a>
                                     <center> Send Message </center>
                                 </h4>
                                 <div class="card">

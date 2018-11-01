@@ -49,7 +49,7 @@
                 <div>
                   <br />
                     <div class="text-center p-t-20 p-b-20">
-                        <span class="db"><img src="{{asset('assets/images/reg-logo.png')}}" alt="logo" /></span>
+                        <span class="db"><img src="{{asset('assets/images/logo.png')}}" alt="logo" /></span>
                     </div>
                     <br />
                     <div class="container-fluid">
@@ -95,7 +95,7 @@
                                 </div>
                                 <label style="color: white">Barangay</label>
                                 <div class="input-group mb-3">
-                                    <input class="form-control" placeholder="XXX" aria-describedby="basic-addon1" type="text" name="barangay" required>
+                                    <input class="form-control" aria-describedby="basic-addon1" type="text" name="barangay" required>
                                 </div>
                                 <label style="color: white">Zip</label>
                                 <div class="input-group mb-3">
@@ -138,9 +138,9 @@
                                 <br />
                                 <br />
                                 <br />
-                                  {{Form::hidden('usertypeID','1', ['class' => 'form-control'])}}
+                                {{Form::hidden('usertypeID','1', ['class' => 'form-control'])}}
                                 {{Form::hidden('status','Activated', ['class' => 'form-control'])}}
-                                <div style="float:right;">
+                                <div style="float:center;">
                                   <button class="btn btn-rounded btn-block btn-success" type="submit">{{ __('Register') }}</button>
                                 </div>
                               </div>

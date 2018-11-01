@@ -35,6 +35,7 @@ class DonateCheckoutController extends Controller
       $trans->userID = $request->userID;
       $trans->type = $request->type;
       $trans->cart = $cartItems;
+      $trans->quantity = $request->quantity;
       $trans->status = 'Processing';
       $trans->save();
 

@@ -33,34 +33,34 @@
                                     <div class="col-sm-9">
                                       <label>First Name</label>
                                         <input type="text" name="firstname" class="form-control" id="fname" onkeypress="return !validNo(this,event)" placeholder="First Name Here" required>
-                                        <p style="color:red;">*First name is required.</p>
+                                        <p style="color:red;">*required</p>
                                     </div>
                                 </div>
                                 <div class="form-group-row">
                                     <div class="col-sm-9">
                                       <label>Last Name</label>
                                         <input type="text" name="lastname" class="form-control" id="lname" onkeypress="return !validNo(this,event)" placeholder="Last Name Here" required>
-                                        <p style="color:red;">*Last name is required.</p>
+                                        <p style="color:red;">*required</p>
                                     </div>
                                 </div>
                                 <div class="form-group-row">
                                     <div class="col-sm-9">
                                       <label>Email</label>
                                         <input type="email" name="email" class="form-control" id="email1" placeholder="you@example.com" required>
-                                        <p style="color:red;">*Email is required.</p>
+                                        <p style="color:red;">*required</p>
                                     </div>
                                 </div>
                                 <div class="form-group-row">
                                     <div class="col-sm-9">
                                       <label>Cellphone Number</label>
-                                        <input type="text" name="cellNo" class="form-control" id="cono1" placeholder="+63XXXXXXXXXX" required>
-                                        <p style="color:red;">*Cellphone number is required.</p>
+                                        <input type="text" name="cellNo" class="form-control" id="cono1" placeholder="+63-XXXXXXXXXX" required>
+                                        <p style="color:red;">*required</p>
                                     </div>
                                 </div>
                                 <div class="form-group-row">
                                     <div class="col-sm-9">
                                       <label>Telephone Number</label>
-                                        <input type="text" name="tellNo" class="form-control" id="cono1" placeholder="xxx-xxxx">
+                                        <input type="text" name="tellNo" class="form-control" id="cono1" placeholder="XXX-XX-XX">
                                     </div>
                                 </div>
                                 <br />
@@ -68,7 +68,7 @@
                                     <div class="col-sm-9">
                                       <label>Birthdate</label>
                                         <input type="date" name="birthdate" class="form-control" required>
-                                        <p style="color:red;">*Birthdate is required.</p>
+                                        <p style="color:red;">*required</p>
                                     </div>
                                 </div>
                               </div>
@@ -81,35 +81,35 @@
                                     <div class="col-sm-9">
                                       <label>City</label>
                                         <input type="text" name="city" class="form-control" id="email1" onkeypress="return !validNo(this,event)" placeholder="City" required>
-                                        <p style="color:red;">*City is required.</p>
+                                        <p style="color:red;">*required</p>
                                     </div>
                                 </div>
                                 <div class="form-group-row">
                                     <div class="col-sm-9">
                                       <label>Street</label>
                                         <input type="text" name="street" class="form-control" id="email1" placeholder="Street" required>
-                                        <p style="color:red;">*Street is required.</p>
+                                        <p style="color:red;">*required</p>
                                     </div>
                                 </div>
                                 <div class="form-group-row">
                                     <div class="col-sm-9">
                                       <label>Barangay</label>
                                         <input type="number" name="barangay" class="form-control" id="email1" placeholder="Barangay" required>
-                                        <p style="color:red;">*Barangay is required.</p>
+                                        <p style="color:red;">*required</p>
                                     </div>
                                 </div>
                                 <div class="form-group-row">
                                     <div class="col-sm-9">
                                       <label>Zip</label>
                                         <input type="number" name="zip" class="form-control" placeholder="Zip" required>
-                                        <p style="color:red;">Zip is required.</p>
+                                        <p style="color:red;">*required</p>
                                     </div>
                                 </div>
                                 <div class="form-group-row">
                                     <div class="col-sm-9">
                                       <label>Username</label>
                                         <input type="text" name="username" class="form-control" placeholder="@username" required>
-                                        <p style="color:red;">*Username is required.</p>
+                                        <p style="color:red;">*required</p>
                                     </div>
                                 </div>
                                 <br />

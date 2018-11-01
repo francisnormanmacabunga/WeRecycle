@@ -24,8 +24,8 @@
           {!! Form::open(['action' => ['Admin\EmployeesController@update', $employee['userID']], 'method' => 'POST' ]) !!}
                   <!-- Card -->
                   <div class="card">
-                      <div class="card-body" style="height: 300px;">
-                        <h4 class="card-title">Update Employee</h4>
+                      <div class="card-body" style="height: 380px;">
+                        <h4 class="card-title"><center>Update Employee</center></h4>
                                             <div class="card">
                                                 <div class="card-body">
 
@@ -54,7 +54,10 @@
                                                           </tbody>
                                                       </table>
                                                       {{Form::hidden('_method','PUT')}}
-                                                      <input type="button" value="Save" class="btn btn-success btn-block btn-lg" data-toggle="modal" data-target="#Modal2" />
+                                                      <hr>
+                                                      <input type="button" value="Save" class="btn btn-danger btn-block btn-lg" data-toggle="modal" data-target="#Modal2" />
+                                                      <br>
+                                                      <a href="{{ url()->previous() }}"> <button class="btn btn-success btn-block btn-lg"> Back </button> </a>
                                                     </div>
                                             </div>
                       </div>

@@ -49,11 +49,13 @@ class DonateController extends Controller
     {
       $donor = Auth::user();
       $cartItems=Cart::content();
-
+      $qty = Cart::count();
+    
       $request = new Requests();
       $request->userID = $donor->userID;
       $request->type = 'Donate';
       $request->cart = $cartItems;
+      $request->quantity = $qty;
       $request->status = 'Inactive';
       $request->save();
 

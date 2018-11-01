@@ -7,47 +7,58 @@
           <center><strong><h3>Volunteer Agreement</h3></strong></center>
           <br>
           <p>This Volunteer Agreement is a description of the arrangement between us, WeRecycle (non-profit startup organization), and you (the volunteer) in relation to your voluntary work.  The intention of this agreement is to assure you that we appreciate your volunteering with us and to indicate our commitment to do the best we can to make your volunteer experience with us a positive and rewarding one.</p>
-          <h3><strong>Restrictions</strong></h3>
+          <h3><strong>Part 1</strong></h3>
 
-  Users are specifically restricted from all of the following:
+          We, WeRecycle, accept the voluntary service of (name of volunteer) beginning (date).
+           Volunteer must be at least 15 years old.
+          Your part as a volunteer is to get recyclables from the homes of people in the area of Malibay, Pasay. Segregate recyclables, make fertilizers, and deliver recyclables.
+          <br><br>
+<h3>We commit to the following:</h3>
+<h5><strong>1. Supervision, support and flexibility</strong></h5>
   <ul>
-  <li>using this Website in any way that is or may be damaging to this Website;</li>
-  <li>using this Website in any way that impacts user access to this Website;</li>
-  <li>using this Website contrary to applicable laws and regulations, or in any way may cause harm to the Website, or to any person or business entity;</li>
-  <li>engaging in any data mining, data harvesting, data extracting or any other similar activity in relation to this Website;</li>
-  <li>Certain areas of this Website are restricted from being accessed by the User; WeRecycle may further restrict access to the user to any areas of this Website, at any time, in absolute discretion. Any user ID and password you may have for this Website are confidential and you must maintain confidentiality as well.</li>
+  <li>To define appropriate standards of our services, to communicate them to you, and to encourage and support you to achieve and maintain them as part of your voluntary work.</li>
+  <li>To do our best to help you develop your volunteering role with us and to be flexible in how we use your volunteering.</li>
 </ul>
 
-<ul>
-  <li><strong>Your Content</strong></li>
-  <p>Stated within the Website Standard Terms and Conditions, “Your Content” shall mean any audio, video text, images or other material you choose to display on this Website. By displaying Your Content, you grant WeRecycle a non-exclusive, worldwide irrevocable, sub licensable license to use, reproduce, adapt, publish, translate and distribute it in any and all media.
-  Your Content must be your own and must not be invading any third-party’s rights. WeRecycle reserves the right to remove any of Your Content from this Website at any time without notice.</p>
-
-  <li><strong>No warranties</strong></li>
-  <p>This Website is provided “as is,” with all faults and flaws, and WeRecycle express no representations or warranties, of any kind related to this Website or the materials contained on this Website. Also, nothing contained on this Website shall be interpreted as advising the user.</p>
-
-  <li><strong>Limitation of liability</strong></li>
-  <p>In no event shall WeRecycle, nor any of its administrators and volunteers, shall be held liable for anything arising out of or in any way connected with your use of this Website whether such liability is under contract.  WeRecycle, including its administrators and volunteers shall not be held liable for any indirect,
-    consequential or special liability arising out of or in any way related to your use of this Website.</p>
-
-  <li><strong>Indemnification</strong></li>
-  <p>You hereby indemnify to the fullest extent WeRecycle from and against any and/or all liabilities, costs, demands, causes of action, damages and expenses arising in any way related to your
-    breach of any of the provisions of these Terms.</p>
-
-  <li><strong>Severability</strong></li>
-  <p>If any provision of these Terms is found to be invalid under any applicable law, such provisions shall be deleted without affecting the remaining provisions herein.</p>
-
-  <li><strong>Variation of Terms</strong></li>
-  <p>WeRecycle is permitted to revise these Terms at any time as it sees fit, and by using this Website users are expected to review these Terms on a regular basis.</p>
-
-  <li><strong>Entire Agreement</strong></li>
-  <p>These Terms constitute the entire agreement between WeRecycle and the user in relation to the use of this Website, and supersede all prior agreements and understandings.</p>
-
-  <li><strong>Governing Law & Jurisdiction</strong></li>
-  <p>These Terms will be governed by and interpreted in accordance with the laws of the Republic of the Philippines, and you submit to the non-exclusive jurisdiction of the courts
-     situated within Pasay for the resolution of any legal disputes.</p>
+<h5><strong>2. Expenses</strong></h5>
+  <ul>
+  <li>To reimburse the following expenses incurred by you in doing your voluntary work in accordance with the procedures:
+</li>
+  <li>Special clothing, where this is provided by you;
+</li>
 </ul>
 
+<h5><strong>3. Problems</strong></h5>
+  <ul>
+  <li>Any injuries acquired by the volunteer while doing volunteer work will not be covered or insured by WeRecycle.</li>
+</ul>
+
+<h5><strong>4. Confidentiality</strong></h5>
+  <ul>
+  <li>The volunteer acknowledges that, in the course of performing and fulfilling his/her duties hereunder, he/she may have access to and be entrusted with confidential information concerning the present and contemplated financial status and activities of WeRecycle, the Volunteer agrees with WeRecycle that he/she will not, during the continuance of this agreement, disclose any of such confidential information to any person, firm or corporation, except as required in the normal course of his engagement.</li>
+</ul>
+
+<h5><strong>5. Termination</strong></h5>
+  <ul>
+  <li>WeRecycle may terminate the Volunteer  at any time for just cause at common law, in which case the Employee is not entitled to any advance notice of termination or compensation in lieu of notice.</li>
+  <li>The Volunteer may terminate his service at any time by providing WeRecycle with at least five (5) days advance notice of his/her intention to resign.</li>
+</ul>
+  <h3><strong>Part 2</strong></h3>
+  <ul>
+  <h5><strong>I, (name of volunteer), agree to be a volunteer with WeRecycle and commit to the following:</strong></h5>
+  <li>To help WeRecycle fulfil its recycling business.</li>
+  <li>To perform my volunteering role to the best of my ability</li>
+  <li>To adhere to the organisation’s rules, procedures and standards. </li>
+  <li>To maintain the confidential information of the organisation and of its clients.</li>
+  <li>To meet the time commitments and standards undertaken, other than in exceptional circumstances, and provide reasonable notice so that alternative arrangement can be made.</li>
+  <li>To provide primary contacts, who may be contacted, and to agree to a police check being carried out where necessary.</li>
+</ul>
+
+<h5><strong>My agreed voluntary time commitment is from 9am - 5pm Saturday.</strong></h5>
+
+<h5><strong>This agreement is binding in honour only. Neither of us intends any employment relationship to be created either now or at any time in the future.</strong></h5>
+
+<h5><strong>By proceeding to the next page this means you have agreed to our agreement.</strong></h5>
 <center><a href="{{ url('/createDonor') }}"><button class="btn btn-lg">Back</button></a></center>
         </div>
 

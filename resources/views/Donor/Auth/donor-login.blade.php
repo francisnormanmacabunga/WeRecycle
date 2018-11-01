@@ -17,7 +17,13 @@
 
 <header role="banner" class="probootstrap-header">
   <div class="container">
-      <a class="btn btn-outline-light btn-rounded" href="{{ url('/') }}"><i class="mdi mdi-keyboard-backspace"></i> Back</a>
+      <nav>
+        <ul class="probootstrap-main-nav">
+          <li><a href="{{ url('/') }}">Home</a></li>
+          <li><a href="{{ url('/createDonor') }}">Register</a></li>
+          <li class="active"><a href="{{ url('/donor/login') }}">Login</a></li>
+        </ul>
+      </nav>
   </div>
 </header>
 

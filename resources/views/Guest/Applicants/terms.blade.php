@@ -57,11 +57,7 @@
 <h5><strong>This agreement is binding in honour only. Neither of us intends any employment relationship to be created either now or at any time in the future.</strong></h5>
 
 <h5><strong>By proceeding to the next page this means you have agreed to our agreement.</strong></h5>
-<center><a href="{{ url('/createDonor') }}"><button class="btn btn-lg">Back</button></a></center>
+<br />
+<center><a href="{{ url('/createApplicant') }}"><button class="btn btn-lg btn-success btn-block">Back</button></a></center>
         </div>
-
-        <footer class="my-5 pt-5 text-muted text-center text-small">
-          <p class="mb-1">&copy; 2017-2018 WeRecycle</p>
-        </footer>
-
 @endsection

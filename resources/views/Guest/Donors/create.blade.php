@@ -77,7 +77,7 @@
                                 </div>
                                 <label style="color: white">Telephone Number</label>
                                 <div class="input-group mb-3">
-                                    <input class="form-control" placeholder="XXX-XXXX" aria-describedby="basic-addon1" type="number" name="tellNo" required>
+                                    <input class="form-control" placeholder="XXXXXXX" aria-describedby="basic-addon1" type="number" name="tellNo" required>
                                 </div>
                               </div>
                               <div class="col-md-4">
@@ -95,7 +95,7 @@
                                 </div>
                                 <label style="color: white">Barangay</label>
                                 <div class="input-group mb-3">
-                                    <input class="form-control" placeholder="XXX" aria-describedby="basic-addon1" type="number" name="barangay" required>
+                                    <input class="form-control" placeholder="XXX" aria-describedby="basic-addon1" type="text" name="barangay" required>
                                 </div>
                                 <label style="color: white">Zip</label>
                                 <div class="input-group mb-3">
@@ -103,14 +103,13 @@
                                 </div>
                               </div>
                               <div class="col-md-4">
-                                <label style="color: white">Username</label>
+                                <label style="color: white">Credentials</label>
                                 <div class="input-group mb-3">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text bg-success text-white" id="basic-addon1"><i class="ti-user"></i></span>
                                     </div>
                                     <input class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" type="text" name="username" required autofocus>
                                 </div>
-                                <label style="color: white">Password</label>
                                 <div class="input-group mb-3">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text bg-danger text-white" id="basic-addon2"><i class="ti-pencil"></i></span>
@@ -123,6 +122,8 @@
                                     </div>
                                     <input class="form-control" placeholder=" Confirm Password" aria-label="Password" aria-describedby="basic-addon1" id="password-confirm" type="password" name="password_confirmation" required>
                                 </div>
+                                <center style="color: white">By clicking Register Profile, you agree to our <a class="btn-outline-light" href="/terandcond">Terms and Conditions</a>.</center>
+                                <br />
                                 <div class="form-group{{ $errors->has('g-recaptcha-response') ? ' has-error' : '' }}">
                                   <div class="col-md-6 pull-center">
                                   {!! app('captcha')->display() !!}
@@ -137,7 +138,6 @@
                                 <br />
                                 <br />
                                 <br />
-                                <p style="color: white; text-align: center">By clicking Register Profile, you agree to our <a class="btn-outline-light" href="/terandcond">Terms and Conditions</a>.</center>
                                   {{Form::hidden('usertypeID','1', ['class' => 'form-control'])}}
                                 {{Form::hidden('status','Activated', ['class' => 'form-control'])}}
                                 <div style="float:right;">

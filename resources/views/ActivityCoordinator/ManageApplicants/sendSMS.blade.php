@@ -23,11 +23,10 @@
 
                                                   </div>
                                                     <div class="table-responsive">
-                                                      @if(count($applicants) > 0)
+
                                                       <table class="table">
                                                           <thead class="thead-light">
                                                               <tr>
-                                                                <th scope="col">#</th>
                                                                   <th scope="col">Name</th>
                                                                   <th scope="col">Email</th>
                                                                   <th scope="col">Mobile Number</th>
@@ -35,31 +34,21 @@
                                                               </tr>
                                                           </thead>
                                                           <tbody class="customtable">
-                                                            @foreach ($applicants as $applicant)
                                                               <tr>
                                                                   <th>
                                                                     <label class="customcheckbox">
-                                                                        <input type="checkbox" name= "mobile" class="listCheckbox" value="{{$applicant->cellNo}}" required/>
+                                                                        <input type="hidden" name= "mobile" class="listCheckbox" value="{{$applicants->contacts['cellNo']}}" required/>
                                                                         <span class="checkmark"></span>
                                                                     </label>
                                                                   </th>
-                                                                  <td>{{$applicant->firstname}} {{$applicant->lastname}}</td>
-                                                                  <td>{{$applicant->email}}</td>
-                                                                  <td>{{$applicant->cellNo}}</td>
-                                                                  <td>{{$applicant->status}}</td>
+                                                                  <td>{{$applicants['firstname']}} {{$applicants['lastname']}}</td>
+                                                                  <td>{{$applicants['email']}}</td>
+                                                                  <td>{{$applicants->contacts['cellNo']}}</td>
+                                                                  <td>{{$applicants['status']}}</td>
                                                               </tr>
-                                                              @endforeach
                                                           </tbody>
                                                       </table>
-                                                        @else
-                                                        <div align="center" style="color:red;">
-                                                          <br>
-                                                          <br>
-                                                          <h5>No records found.</h5>
-                                                        </div>
-                                                        @endif
                                                     </div>
-
                                             </div>
                       </div>
                       <div class="card-body border-top">

@@ -1,118 +1,126 @@
-@extends('layouts.frontend')
-@include('inc.navbar1')
+@include('navbar.header')
 
-@section('content')
+<!DOCTYPE html>
+<html dir="ltr">
 
-    <div class="py-5 text-center">
-          <h3>Create your Donor account!</h3>
-          <p class="lead">Below is an example form built entirely with Bootstrap's form controls. Each required form group has a validation state that can be triggered by attempting to submit the form without completing it.</p>
+<body>
+    <div class="main-wrapper">
+        <!-- ============================================================== -->
+        <!-- Preloader - style you can find in spinners.css -->
+        <!-- ============================================================== -->
+        <div class="preloader">
+            <div class="lds-ripple">
+                <div class="lds-pos"></div>
+                <div class="lds-pos"></div>
+            </div>
         </div>
-          <div class="container col-md-9 center-align">
-            <h4 class="mb-3">Fill out form</h4>
-
-            {!! Form::open(['action' => 'Guest\DonorsController@store', 'method' => 'POST' ]) !!}
-              <div class="row">
-                <div class="col-md-6 mb-3">
-                  {{Form::label('firstname','First Name')}}
-                  {{Form::text('firstname','', ['class' => 'form-control', 'onkeypress' => 'return !validNo(this,event)'])}}
-                </div>
-                <div class="col-md-6 mb-3">
-                  {{Form::label('lastname','Last Name')}}
-                  {{Form::text('lastname','', ['class' => 'form-control', 'onkeypress' => 'return !validNo(this,event)'])}}
-                </div>
-              </div>
-              <div class="mb-3">
-                {{Form::label('email','Email')}}
-                {{Form::email('email','', ['class' => 'form-control', 'placeholder' => 'you@example.com'])}}
-              </div>
-              <div class="row">
-                <div class="col-md-6 mb-3">
-                  {{Form::label('cellNo','Cellphone Number')}}
-                  {{Form::text('cellNo','', ['class' => 'form-control', 'placeholder' => '+63XXXXXXXXXX'])}}
-                </div>
-                <div class="col-md-6 mb-3">
-                  {{Form::label('tellNo','Telephone Number')}}
-                  {{Form::text('tellNo','', ['class' => 'form-control'])}}
-                </div>
-              </div>
-              <div class="mb-3">
-                {{Form::label('birthdate','Birthdate')}}
-                {{Form::date('birthdate','', ['class' => 'form-control'])}}
-              </div>
-              <div class="mb-3">
-                {{Form::label('city','City')}}
-                {{Form::text('city','', ['class' => 'form-control', 'onkeypress' => 'return !validNo(this,event)'])}}
-              </div>
-              <div class="row">
-                <div class="col-md-5 mb-3">
-                  {{Form::label('street','Street')}}
-                  {{Form::text('street','', ['class' => 'form-control'])}}
-                </div>
-                <div class="col-md-4 mb-3">
-                  {{Form::label('barangay','Barangay')}}
-                  {{Form::text('barangay','', ['class' => 'form-control'])}}
-                </div>
-                <div class="col-md-3 mb-3">
-                  {{Form::label('zip','Zip')}}
-                  {{Form::number('zip','', ['class' => 'form-control'])}}
-                </div>
-              </div>
-              <div class="mb-3">
-                {{Form::label('username','Username')}}
-                <div class="input-group">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text">@</span>
+        <!-- ============================================================== -->
+        <!-- Preloader - style you can find in spinners.css -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Login box.scss -->
+        <!-- ============================================================== -->
+        <div class="auth-wrapper d-flex no-block justify-content-center align-items-center" style="background-color: #1B4D3E">
+                <div>
+                  <br />
+                    <div class="text-center p-t-20 p-b-20">
+                        <span class="db"><img src="{{asset('assets/images/reg-logo.png')}}" alt="logo" /></span>
+                    </div>
+                    <br />
+                    <div class="container-fluid">
+                    <!-- Form -->
+                    @include('inc.messages')
+                    {!! Form::open(['action' => 'Guest\DonorsController@store', 'method' => 'POST' ]) !!}
+                      @csrf
+                      <div class="row">
+                        <div class="col-md-4">
+                              <label style="color: white">First Name</label>
+                                <div class="input-group mb-3">
+                                    <input class="form-control btn-rounded" onkeypress="return !validNo(this,event)" placeholder="First Name" aria-describedby="basic-addon1"  type="text" name="firstname" required autofocus>
+                                </div>
+                                <label style="color: white">Last Name</label>
+                                <div class="input-group mb-3">
+                                    <input class="form-control btn-rounded" placeholder="Last Name" aria-describedby="basic-addon1" name="lastname" required>
+                                </div>
+                                <label style="color: white">Email</label>
+                                <div class="input-group mb-3">
+                                    <input class="form-control btn-rounded" placeholder="you@example.com" aria-describedby="basic-addon1" type="email" name="email" required>
+                                </div>
+                                <label style="color: white">Cellphone Number</label>
+                                <div class="input-group mb-3">
+                                    <input class="form-control btn-rounded" placeholder="+63XXXXXXXXXX" aria-describedby="basic-addon1" type="number" name="cellNo" required>
+                                </div>
+                                <label style="color: white">Telephone Number</label>
+                                <div class="input-group mb-3">
+                                    <input class="form-control btn-rounded" placeholder="XXX-XXXX" aria-describedby="basic-addon1" type="number" name="tellNo" required>
+                                </div>
+                              </div>
+                              <div class="col-md-4">
+                                <label style="color: white">Birthdate</label>
+                                <div class="input-group mb-3">
+                                    <input class="form-control btn-rounded" aria-describedby="basic-addon1" type="date" name="birthdate" required>
+                                </div>
+                                <label style="color: white">City</label>
+                                <div class="input-group mb-3">
+                                    <input class="form-control btn-rounded" placeholder="City" onkeypress="return !validNo(this,event)" aria-describedby="basic-addon1" type="text" name="city" required>
+                                </div>
+                                <label style="color: white">Street</label>
+                                <div class="input-group mb-3">
+                                    <input class="form-control btn-rounded" placeholder="Street" aria-describedby="basic-addon1" type="text" name="street" required>
+                                </div>
+                                <label style="color: white">Barangay</label>
+                                <div class="input-group mb-3">
+                                    <input class="form-control btn-rounded" placeholder="XXX" aria-describedby="basic-addon1" type="number" name="barangay" required>
+                                </div>
+                                <label style="color: white">Zip</label>
+                                <div class="input-group mb-3">
+                                    <input class="form-control btn-rounded" placeholder="XXXX" aria-describedby="basic-addon1" type="number" name="zip" required>
+                                </div>
+                              </div>
+                              <div class="col-md-4">
+                                <label style="color: white">Username</label>
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text bg-success text-white btn-rounded" id="basic-addon1"><i class="ti-user"></i></span>
+                                    </div>
+                                    <input class="form-control btn-rounded" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" type="text" name="username" required autofocus>
+                                </div>
+                                <label style="color: white">Password</label>
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text bg-danger text-white btn-rounded" id="basic-addon2"><i class="ti-pencil"></i></span>
+                                    </div>
+                                    <input class="form-control btn-rounded" placeholder="New Password" aria-label="Password" aria-describedby="basic-addon1" id="password" type="password" name="password" required>
+                                </div>
+                                <label style="color: white">Confirm Password</label>
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text bg-info text-white btn-rounded" id="basic-addon2"><i class="ti-check-box"></i></span>
+                                    </div>
+                                    <input class="form-control btn-rounded" placeholder=" Confirm Password" aria-label="Password" aria-describedby="basic-addon1" id="password-confirm" type="password" name="password_confirmation" required>
+                                </div>
+                                <div class="form-group{{ $errors->has('g-recaptcha-response') ? ' has-error' : '' }}">
+                                  <div class="col-md-6 pull-center">
+                                  {!! app('captcha')->display() !!}
+                                  @if ($errors->has('g-recaptcha-response'))
+                                  <span class="help-block">
+                                  <strong>{{ $errors->first('g-recaptcha-response') }}</strong>
+                                  </span>
+                                  @endif
+                                </div>
+                                </div>
+                                {{Form::hidden('usertypeID','1', ['class' => 'form-control'])}}
+                                {{Form::hidden('status','Activated', ['class' => 'form-control'])}}
+                                <div style="float:right;">
+                                  <button class="btn btn-block btn-success btn-rounded" type="submit">{{ __('Register') }}</button>
+                                </div>
+                              </div>
+                        {!! Form::close() !!}
+                      </div>\\
+                    </div>
                   </div>
-                  {{Form::text('username','', ['class' => 'form-control'])}}
                 </div>
               </div>
-              <div class="mb-3">
-                {{Form::label('password','Password')}}
-                <div class="input-group">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text">#</span>
-                  </div>
-                  {{Form::password('password', ['class' => 'form-control'])}}
-                </div>
-              </div>
-              <div class="mb-3">
-                {{Form::label('password_confirmation','Confirm Password')}}
-                <div class="input-group">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text">#</span>
-                  </div>
-                  {{Form::password('password_confirmation', ['class' => 'form-control'])}}
-                </div>
-              </div>
-
-              <div class="form-group{{ $errors->has('g-recaptcha-response') ? ' has-error' : '' }}">
-                <div class="col-md-6 pull-center">
-                {!! app('captcha')->display() !!}
-                @if ($errors->has('g-recaptcha-response'))
-                <span class="help-block">
-                <strong>{{ $errors->first('g-recaptcha-response') }}</strong>
-                </span>
-                @endif
-              </div>
-              </div>
-
-                {{Form::hidden('usertypeID','1', ['class' => 'form-control'])}}
-                {{Form::hidden('status','Activated', ['class' => 'form-control'])}}
-              <hr class="mb-4">
-
-              <center>By clicking Register  Profile, you agree to our <a href="/termandcon">Terms and Conditions</a>.</center>
-
-              {{Form::submit('Register profile',['class' => 'btn btn-primary btn-lg btn-block'])}}
-            {!! Form::close() !!}
-          </div>
-        </div>
-        <footer class="my-5 pt-5 text-muted text-center text-small">
-          <p class="mb-1">&copy; 2017-2018 Company Name</p>
-          <ul class="list-inline">
-            <li class="list-inline-item"><a href="#">Privacy</a></li>
-            <li class="list-inline-item"><a href="#">Terms</a></li>
-            <li class="list-inline-item"><a href="#">Support</a></li>
-          </ul>
-        </footer>
-
-@endsection
+    @include('navbar.login')
+</body>
+</html>

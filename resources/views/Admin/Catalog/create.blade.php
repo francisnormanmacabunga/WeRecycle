@@ -1,5 +1,9 @@
 <!DOCTYPE html>
   <html dir="ltr" lang="en">
+  <head>
+      <!-- Favicon icon -->
+      <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('assets/images/favicon.png') }}">
+  </head>
   <body>
   <div id="main-wrapper">
     @include('navbar.admin-navbar')
@@ -25,13 +29,13 @@
                                     <div class="col-sm-9">
                                       <label>Item Name</label>
                                         <input type="text" name="productname" class="form-control" id="fname" onkeypress="return !validNo(this,event)" placeholder="Product Name" required>
+                                        <p style="color:red;">*required</p>
                                     </div>
                                 </div>
-                                <br />
                                 <div class="form-group-row">
                                    <div class="col-sm-9">
                                      <label>Product Category</label>
-                                     <select class="select2 form-control custom-select" name="category" style="width: 100%; height:36px;">
+                                     <select class="select2 form-control custom-select" name="category" style="width: 100%; height:36px;" required>
                                        <option label="Choose category"></option>
                                            <optgroup label="Donation">
                                            <option value="Traditional">Traditional</option>
@@ -43,20 +47,20 @@
                                            </optgroup>
 
                                    </select>
+                                   <p style="color:red;">*required</p>
                                     </div>
                                 </div>
-                                <br>
                                 <div class="form-group-row">
                                     <div class="col-sm-9">
                                       <label>Item Type</label>
-                                        <select class="select2 form-control custom-select" name="productstypeID" style="width: 100%; height:36px;">
+                                        <select class="select2 form-control custom-select" name="productstypeID" style="width: 100%; height:36px;" required>
                                           <option label="Choose type"></option>
                                               <option value="1">Donation</option>
                                               <option value="2">Shop</option>
                                       </select>
+                                      <p style="color:red;">*required</p>
                                     </div>
                                 </div>
-                                <br />
                                 <div class="form-group-row">
                                     <div class="col-sm-9">
                                       <label>Description</label>
@@ -73,26 +77,36 @@
                                     <div class="col-sm-9">
                                       <label>Price</label>
                                         <input type="number" name="price" class="form-control" placeholder="Price">
-                                        <p style="color:blue;">*Applicale for shop products only.</p>
+                                        <p style="color:red;">*Applicable for shop products only.</p>
                                     </div>
                                 </div>
-
                                 <div class="form-group-row">
                                     <div class="col-sm-9">
                                       <label>Image</label>
                                       <div class="custom-file">
-                                            <input type="file" name="productimage" class="custom-file-input form-control" required>
-                                            <label class="custom-file-label" for="validatedCustomFile">Choose file...</label>
-                                            <div class="invalid-feedback">Example invalid custom file feedback</div>
-                                        </div>
+                                        <input class="fileinput fileinput-new" type="file" name="productimage" id="fileToUpload" required>
+                                      </div>
+                                      <p style="color:red;">*required</p>
                                     </div>
                                 </div>
                                 <br />
+                                <br />
+                                <br />
+
                                 <div style="float:right;">
-                                    <div class="card-body">
+                                  <br>
+                                  <br>
+                                  <br>
+                                  <br>
+                                  
                                         <button type="submit" class="btn btn-outline-success">Save</button>
-                                    </div>
                                 </div>
+                                <br />
+                                <br />
+                                <br />
+                                <br />
+                                <br />
+                                <br />
                           </div>
                       </div>
                   </div>

@@ -126,21 +126,18 @@
             <div class="service-item">
               <span class="number">1</span>
               <h4 class="mt0">Shop Organic Fertilizers</h4>
-              <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
             </div>
           </div>
           <div class="col-md-6 col-sm-12 col-xs-12">
             <div class="service-item">
               <span class="number">2</span>
               <h4 class="mt0">Donate Segregating Materials</h4>
-              <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
             </div>
           </div>
           <div class="col-md-6 col-sm-12 col-xs-12">
             <div class="service-item">
               <span class="number">3</span>
               <h4 class="mt0">Join the movement</h4>
-              <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
             </div>
           </div>
       </div>

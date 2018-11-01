@@ -10,14 +10,12 @@
      <div class="page-breadcrumb">
         <div class="row">
             <div class="col-12 d-flex no-block align-items-center">
-                <div class="ml-auto text-right">
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="{{ url('/admin/employees') }}">Employees</a></li>
                             <li class="breadcrumb-item active" aria-current="page">Edit</li>
                         </ol>
                     </nav>
-                </div>
             </div>
         </div>
     </div>
@@ -26,8 +24,8 @@
           {!! Form::open(['action' => ['Admin\EmployeesController@update', $employee['userID']], 'method' => 'POST' ]) !!}
                   <!-- Card -->
                   <div class="card">
-                      <div class="card-body" style="height: 300px;">
-                        <h4 class="card-title">Update Employee</h4>
+                      <div class="card-body" style="height: 380px;">
+                        <h4 class="card-title"><center>Update Employee</center></h4>
                                             <div class="card">
                                                 <div class="card-body">
 
@@ -47,7 +45,7 @@
                                                                 <td>{{$employee['status']}}</td>
                                                                 <td>
                                                                   <select class="select2 form-control custom-select" name="status" style="width: 100%; height:36px;">
-                                                                    <option>Choose status</option>
+                                                                    <optgroup label="{{$employee['status']}}">
                                                                         <option value="Activated">Activated</option>
                                                                         <option value="Deactivated">Deactivated</option>
                                                                   </select>
@@ -56,7 +54,10 @@
                                                           </tbody>
                                                       </table>
                                                       {{Form::hidden('_method','PUT')}}
-                                                      <input type="button" value="Save" class="btn btn-success btn-block btn-lg" data-toggle="modal" data-target="#Modal2" />
+                                                      <hr>
+                                                      <input type="button" value="Save" class="btn btn-danger btn-block btn-lg" data-toggle="modal" data-target="#Modal2" />
+                                                      <br>
+                                                      <a href="{{ url()->previous() }}"> <button class="btn btn-success btn-block btn-lg"> Back </button> </a>
                                                     </div>
                                             </div>
                       </div>

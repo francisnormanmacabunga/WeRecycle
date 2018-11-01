@@ -17,14 +17,10 @@ class TwilioController extends Controller
     $this->middleware('auth:activitycoordinator');
   }
 
-  public function index()
+  public function index($id)
   {
-    $applicants = Volunteer::SELECT('*')
-    -> join('contacts', 'contacts.userID', '=', 'volunteer.volunteerID')
-    -> where('usertypeID', '2')
-    -> where('status','Activated')
-    -> get();
-    return view('ActivityCoordinator/ManageApplicants.sendSMS', compact('applicants'));
+    $applicants = Volunteer::find($id);
+    return view('ActivityCoordinator/ManageApplicants.sendSMS', ['applicants'=>$applicants]);
   }
 
   public function sendMessageApplicant(Request $request)
@@ -37,7 +33,7 @@ class TwilioController extends Controller
              array(
                  "body" => $twilio->message = $request->input('message'),
                  "from" => "(619) 724-4011"));
-    return redirect('/activitycoordinator/sendSMS')->with('success', 'Message Sent Succesfully');
+    return redirect('/activitycoordinator/applicants')->with('success', 'Message Sent Succesfully');
   }
 
 }

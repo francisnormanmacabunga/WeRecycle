@@ -24,7 +24,7 @@ class DonorsController extends Controller
         $donors = Donor::where('usertypeID', '1')
         -> where('status',request('status'))
         -> sortable()
-        -> paginate(10);
+        -> paginate(10)->appends('status', request('status'));
         } else {
         $donors = Donor::where('usertypeID', '1')
         -> sortable()

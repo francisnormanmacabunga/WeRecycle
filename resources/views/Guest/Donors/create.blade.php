@@ -122,7 +122,7 @@
                                     </div>
                                     <input class="form-control" placeholder=" Confirm Password" aria-label="Password" aria-describedby="basic-addon1" id="password-confirm" type="password" name="password_confirmation" required>
                                 </div>
-                                <center style="color: white">By clicking Register Profile, you agree to our <a class="btn-outline-light" href="/terandcond">Terms and Conditions</a>.</center>
+                                <center style="color: white">By clicking Register Profile, you agree to our <a class="btn-outline-light" href="/terandcond"><u>Terms and Conditions</u></a>.</center>
                                 <br />
                                 <div class="form-group{{ $errors->has('g-recaptcha-response') ? ' has-error' : '' }}">
                                   <div class="col-md-6 pull-center">
@@ -138,9 +138,9 @@
                                 <br />
                                 <br />
                                 <br />
-                                  {{Form::hidden('usertypeID','1', ['class' => 'form-control'])}}
+                                {{Form::hidden('usertypeID','1', ['class' => 'form-control'])}}
                                 {{Form::hidden('status','Activated', ['class' => 'form-control'])}}
-                                <div style="float:right;">
+                                <div style="float:center;">
                                   <button class="btn btn-rounded btn-block btn-success" type="submit">{{ __('Register') }}</button>
                                 </div>
                               </div>

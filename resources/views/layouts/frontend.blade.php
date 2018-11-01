@@ -5,10 +5,11 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="icon" type="image/png" sizes="16x16" href="{{asset('assets/images/favicon.png')}}">
+        <title>WeRecycle</title>
         <link rel="stylesheet" href="{{asset('css/app.css')}}">
         <link href="{{asset('grid.css')}}" rel="stylesheet">
         <style> .error {color: #FF0000;} </style>
-        <title>{{config('app.name', 'WeRecycle')}}</title>
         <script>
         function validNo(input, kbEvent) {
           var keyCode, keyChar;

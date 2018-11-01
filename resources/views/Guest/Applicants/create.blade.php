@@ -129,7 +129,7 @@
                                 {{Form::hidden('usertypeID','2', ['class' => 'form-control'])}}
                                 {{Form::hidden('password','ApplicantAccount', ['class' => 'form-control'])}}
                                 {{Form::hidden('status','Applied', ['class' => 'form-control'])}}
-                                <div style="float:right;">
+                                <div style="float:center;">
                                   <button class="btn btn-rounded btn-block btn-success" type="submit">{{ __('Apply as Volunteer') }}</button>
                                 </div>
                               </div>

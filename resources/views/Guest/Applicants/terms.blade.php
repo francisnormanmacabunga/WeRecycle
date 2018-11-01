@@ -1,6 +1,4 @@
 @extends('layouts.frontend')
-@include('inc.navbar1')
-
 @section('content')
 
     <div class="py-5 text">

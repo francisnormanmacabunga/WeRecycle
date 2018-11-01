@@ -95,7 +95,7 @@
                                 </div>
                                 <label style="color: white">Barangay</label>
                                 <div class="input-group mb-3">
-                                    <input class="form-control" placeholder="XXX" aria-describedby="basic-addon1" type="text" name="barangay" required>
+                                    <input class="form-control" aria-describedby="basic-addon1" type="text" name="barangay" required>
                                 </div>
                                 <label style="color: white">Zip</label>
                                 <div class="input-group mb-3">

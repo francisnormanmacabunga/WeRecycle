@@ -15,11 +15,11 @@
   <div class="col-lg-9">
     <div class="row">
         @if(count($donation) > 0)
+        <h1>Details</h1>
       <table class="table table-bordered" class="fixed">
         <tr>
+          <th>Transaction ID</th>
           <th>Assigned Volunteer</th>
-          <th>Type of Donation</th>
-          <th>Grams</th>
           <th>@sortablelink('created_at', 'Date')</th>
           <th>@sortablelink('status', 'Status')</th>
           <th>Action</th>
@@ -29,13 +29,11 @@
             $cart = json_decode($donations->cart);
           @endphp
         <tr>
+          <td>{{$donations->transid}}</td>
           <td>{{$donations->volunteer['firstname']}} {{$donations->volunteer['lastname']}}</td>
-        @foreach($cart as $item)
-          <td>{{$item->name}}</td>
-          <td>{{$item->qty}}</td>
-        @endforeach
           <td>{{date('F d, Y, h:i:sa', strtotime($donations->created_at))}}</td>
           <td>{{$donations->status}}</td>
+
 
 
                     @if ($donations->status == 'Shipping' || $donations->status == 'Delivered' || $donations->status == 'Cancelled')
@@ -67,6 +65,30 @@
         </tr>
         @endforeach
     </table>
+
+
+<h1>Orders</h1>
+
+    <table class="table table-bordered" class="fixed">
+      <tr>
+        <th>Transaction ID</th>
+        <th>Type of Donation</th>
+        <th>Grams</th>
+
+        @foreach ($donation as $donations)
+          @php
+            $cart = json_decode($donations->cart);
+          @endphp
+        <tr>
+            <td>{{$donations->transid}}</td>
+          @foreach($cart as $item)
+         <td>{{$item->name}}</td>
+         <td>{{$item->qty}}</td>
+       @endforeach
+        </tr>
+        @endforeach
+    </table>
+
   @else
   <div align="center" style="color:red;">
     <h4 style="font-family:serif;">No donations found.</h4>

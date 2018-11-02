@@ -1,52 +1,84 @@
-@extends('layouts.frontend')
-@include('layouts.donor-nav')
+<!DOCTYPE html>
+<html lang="en">
+@include('navbar.donor')
 
-@section('content')
+<body class="animsition">
 
-@if(session()->has('notif'))
-<div class="content">
-  <div class="alert alert-success">
-    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-    <strong>{{session()->get('notif')}}</strong>
-  </div>
-</div>
-@endif
-  <div class="row">
-    <div class="col-lg-3">
-    <h3>Donation</h3>
-    <div class="list-group">
-        <a href="{{url('/donor/donationCatalog')}}" class="list-group-item">Donation</a>
-        <a href="{{url('/donor/shopCatalog')}}" class="list-group-item">Fertilizer</a>
-    </div>
-    </div>
-    <div class="col-lg-9">
-      <div class="row">
-      @if(count($products1) > 0)
-        @foreach ($products1 as $products)
-        <div class="col-lg-4 col-md-6 mb-4">
-          <div class="card h-100">
-          <a href="#"><img src="{{ asset('images/' . $products->productimage) }}" width="200" height="200"></a>
-            <a href="#"></a>
-            <div class="card-body">
-              <h4 class="card-title">
-                <a href="#">{{$products->productname}}</a>
-              </h4>
-              <p class="card-text">{{$products->description}}</p>
-              <a role="button" class="btn btn-success btn-lg" href="{{ route('donate.addItem',$products->productsID) }}">
-                Donate</a>
-            </div>
-          </div>
+	<!-- Product -->
+		<div class="container">
+      <br />
+      <div class="flex-w flex-sb-m p-b-52">
+				<div class="flex-w flex-l-m filter-tope-group m-tb-10">
+					<a href="{{url('/donor/shopCatalog')}}" class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5">
+						Shop fertilizers
+					</a>
+					<a href="{{url('/donor/donationCatalog')}}" class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5 how-active1">
+						Donate
+					</a>
+				</div>
+      </div>
+      @if(session()->has('notif'))
+      <div class="container">
+      <div class="content">
+        <div class="alert alert-success">
+          <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+          <strong>{{session()->get('notif')}}</strong>
         </div>
-      @endforeach
-      @else
-        <div align="center" style="color:red;">
-          <br>
-          <br>
-          <h5 style="font-family:serif;">No donation items found.</h5>
-        </div>
-      @endif
       </div>
     </div>
-  </div>
+      @endif
+			<div class="row isotope-grid">
+        @if(count($products1) > 0)
+          @foreach ($products1 as $products)
+				<div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item women">
+					<!-- Block2 -->
+					<div class="block2">
+						<div class="block2-pic hov-img0">
+							<img src="{{ asset('images/' . $products->productimage) }}" width="200" height="200" alt="IMG-PRODUCT">
+							<a href="{{ route('cart.addItem',$products->productsID) }}" class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04">
+								Add to cart
+							</a>
+						</div>
 
-@endsection
+						<div class="block2-txt flex-w flex-t p-t-14">
+							<div class="block2-txt-child1 flex-col-l ">
+								<a href="#" class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
+									{{$products->productname}}
+								</a>
+
+                <span class="stext-105 cl3">
+                  {{$products->description}}
+                </span>
+							</div>
+						</div>
+					</div>
+				</div>
+        @endforeach
+        @else
+        <div style="color:red;">
+          <br>
+          <br>
+          <h5>No records found.</h5>
+        </div>
+        @endif
+      </div>
+		</div>
+
+	<!-- Back to top -->
+	<div class="btn-back-to-top" id="myBtn">
+		<span class="symbol-btn-back-to-top">
+			<i class="zmdi zmdi-chevron-up"></i>
+		</span>
+	</div>
+
+  <footer class="bg3 p-t-75 p-b-32" style="background-color: #1B4D3E">
+		<div class="container">
+      <p class="stext-107 cl6 txt-center">
+        <font color="white"> Copyright &copy; 2018 WeRecycle </font>
+      </p>
+		</div>
+	</footer>
+
+</body>
+@include('navbar.donor-footer')
+</html>

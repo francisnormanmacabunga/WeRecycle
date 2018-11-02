@@ -87,7 +87,6 @@
                                         <a class="btn btn-info btn-rounded" href="{{ route('donor.password.request') }}"><i class="fa fa-lock m-r-5"></i> {{ __('Forgot Password?') }}</a>
                                         <br />
                                         <br />
-
                                     </div>
                                 </div>
                             </div>

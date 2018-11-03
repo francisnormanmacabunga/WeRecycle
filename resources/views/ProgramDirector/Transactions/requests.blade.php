@@ -30,7 +30,7 @@
                             <table class="table table-striped table-bordered">
                                 <thead>
                                     <tr>
-
+                                    </tr>
                                 </thead>
                                 <tbody>
                                   @foreach ($request as $requests)

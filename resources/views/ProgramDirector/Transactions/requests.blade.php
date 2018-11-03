@@ -30,17 +30,7 @@
                             <table class="table table-striped table-bordered">
                                 <thead>
                                     <tr>
-                                      <th>ID</th>
-                                      <th>Date</th>
-                                      <th>Name</th>
-                                      <th>Address</th>
-                                      <th>Item Type</th>
-                                      <th>Item Name</th>
-                                      <th>Weight</th>
-                                      <th>Status</th>
-                                      <th>Assigned Volunteer</th>
-                                      <th></th>
-                                    </tr>
+
                                 </thead>
                                 <tbody>
                                   @foreach ($request as $requests)
@@ -48,17 +38,35 @@
                                       $cart = json_decode($requests->cart);
                                     @endphp
                                     <tr>
-                                      <td> {{$requests->transid}} </td>
+                                      <td><strong>ID</strong></td>
+                                      <td><strong>Date</strong></td>
+                                      <td><strong>Name</strong></td>
+                                      <td><strong>Address</strong></td>
+                                      <td><strong>Item Type</strong></td>
+                                      <td><strong>Item Name</strong></td>
+                                      <td><strong>Weight</strong></td>
+                                      <td><strong>Status</strong></td>
+                                      <td><strong>Assigned Volunteer</strong></td>
+                                      <td><strong>Action</strong></td>
+                                    </tr>
+
+                                      @foreach($cart as $item)
+                                    <tr>
+                                      <td>{{$requests->transid}}</td>
                                       <td> {{date('F d, Y, h:i:sa', strtotime($requests->created_at))}} </td>
                                       <td> {{$requests->donor->firstname}} {{$requests->donor->lastname}} </td>
                                       <td> Barangay: {{$requests->donor->barangay}}, {{$requests->donor->street}}, {{$requests->donor->city}}, Zip: {{$requests->donor->zip}} </td>
                                       <td> {{$requests->type}} </td>
-                                      @foreach($cart as $item)
+
                                       <td>{{$item->name}}</td>
                                       <td>{{$item->qty}}</td>
-                                      @endforeach
+
                                       <td> {{$requests->status}} </td>
                                       <td> {{$requests->volunteer['firstname']}} {{$requests->volunteer['lastname']}}</td>
+
+                                      @endforeach
+
+
                                       @if($requests->status == 'Cancelled' || $requests->status == 'Delivered')
                                       <td>
                                         <a  data-toggle="tooltip" data-placement="top"  title="Message Volunteer"><button disabled><i class="mdi mdi-message-reply-text"></i></button></a>
@@ -74,6 +82,8 @@
                                     </td>
                                       @endif
                                     </tr>
+                                  </tr>
+
                                     @endforeach
                                 </tbody>
                             </table>

@@ -50,21 +50,19 @@
                                       <td><strong>Action</strong></td>
                                     </tr>
 
-                                      @foreach($cart as $item)
+                                    @foreach($cart as $item)
                                     <tr>
                                       <td>{{$requests->transid}}</td>
                                       <td> {{date('F d, Y, h:i:sa', strtotime($requests->created_at))}} </td>
                                       <td> {{$requests->donor->firstname}} {{$requests->donor->lastname}} </td>
                                       <td> Barangay: {{$requests->donor->barangay}}, {{$requests->donor->street}}, {{$requests->donor->city}}, Zip: {{$requests->donor->zip}} </td>
                                       <td> {{$requests->type}} </td>
-
                                       <td>{{$item->name}}</td>
                                       <td>{{$item->qty}}</td>
-
                                       <td> {{$requests->status}} </td>
                                       <td> {{$requests->volunteer['firstname']}} {{$requests->volunteer['lastname']}}</td>
 
-                                      @endforeach
+                                    @endforeach
 
 
                                       @if($requests->status == 'Cancelled' || $requests->status == 'Delivered')
@@ -82,7 +80,7 @@
                                     </td>
                                       @endif
                                     </tr>
-                                  </tr>
+                                  
 
                                     @endforeach
                                 </tbody>

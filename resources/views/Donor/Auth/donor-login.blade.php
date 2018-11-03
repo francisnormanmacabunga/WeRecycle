@@ -77,7 +77,7 @@
                                 </div>
                             </div>
                         <div align="center">
-                      <a href="/createDonor"><font color="white">Don't have an account? Register here.</font></a>
+                      <a href="{{ url('/createDonor') }}"><font color="white">Don't have an account? Register here.</font></a>
                     </div>
                         <div class="row">
                             <div class="col-12">

@@ -45,7 +45,6 @@
 				<div class="col-lg-10 col-xl-7 m-lr-auto m-b-50">
 					<div class="m-l-25 m-r--38 m-lr-0-xl">
 						<div class="wrap-table-shopping-cart">
-
 							<table class="table-shopping-cart">
 
 								<tr class="table_head">
@@ -58,7 +57,6 @@
 								@if(count($cartItems) > 0)
 											@foreach($cartItems as $cartItem)
 								<tr class="table_row">
-
                   <td class="text-center">
                     <form action="{{route('cart.destroy',$cartItem->rowId)}}"  method="POST">
                        {{csrf_field()}}
@@ -83,31 +81,34 @@
                         <i class="fs-16 zmdi zmdi-plus"></i>
                       </div>
                     </div>
-
-
 									</td>
                   <td class="text-center">
-										<input class="btn btn-info" type="submit" onclick="return confirm('Do you want to update this item?')" value="Update">
+										<input class="btn btn-success" type="submit" onclick="return confirm('Do you want to update this item?')" value="Update">
 										{!! Form::close() !!}
                   </td>
 								</tr>
 								@endforeach
+								@else
+								<td colspan="10">
+									<br />
+									<div class="text-center">
+										<h5 class="stext-110 cl2" style="color:red;">No items in cart.</h5>
+									</div>
+									<br />
+								</td>
+								@endif
 							</table>
 
-
-<div class="flex-w flex-sb-m bor15 p-t-18 p-b-15 p-lr-40 p-lr-15-sm">
+							<div class="flex-w flex-sb-m bor15 p-t-18 p-b-15 p-lr-40 p-lr-15-sm">
+								<div class="flex-w flex-m m-r-20 m-tb-5">
+								</div>
               <div class="flex-w flex-m m-r-20 m-tb-5">
                 <input class="stext-104 cl2 plh4 size-117 bor13 p-lr-20 m-r-10 m-tb-5" type="text" name="dcode"  placeholder="Coupon Code">
-                <input class="flex-c-m stext-101 cl2 size-118 bg8 bor13 hov-btn3 p-lr-15 trans-04 pointer m-tb-5" role="button" type="submit" value="Apply coupon">
+                <input class="flex-c-m stext-101 cl0 size-118 bg3 bor14 hov-btn3 p-lr-15 trans-04 pointer m-tb-5" role="button" type="submit" value="Apply coupon">
               </div>
                 </div>
-                @else
-                <tr class="table_row">
-                  <div align="center" >
-                    <h5 class="stext-110 cl2" style="color:red;">No items in cart.</h5>
-                  </div>
-                    </tr>
-                @endif
+
+
 						</div>
 					</div>
 				</div>

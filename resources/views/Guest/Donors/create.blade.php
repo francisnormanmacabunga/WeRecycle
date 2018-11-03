@@ -58,7 +58,7 @@
                     {!! Form::open(['action' => 'Guest\DonorsController@store', 'method' => 'POST' ]) !!}
                       @csrf
                       <div class="row">
-                        <div class="col-md-4">
+                        <div class="col-md-3">
                               <label style="color: white">First Name</label>
                                 <div class="input-group mb-3">
                                     <input class="form-control" onkeypress="return !validNo(this,event)" placeholder="First Name" aria-describedby="basic-addon1"  type="text" name="firstname" required autofocus>
@@ -80,7 +80,7 @@
                                     <input class="form-control" placeholder="XXXXXXX" aria-describedby="basic-addon1" type="number" name="tellNo" required>
                                 </div>
                               </div>
-                              <div class="col-md-4">
+                              <div class="col-md-3">
                                 <label style="color: white">Birthdate</label>
                                 <div class="input-group mb-3">
                                     <input class="form-control" aria-describedby="basic-addon1" type="date" name="birthdate" required>
@@ -102,7 +102,7 @@
                                     <input class="form-control" placeholder="XXXX" aria-describedby="basic-addon1" type="number" name="zip" required>
                                 </div>
                               </div>
-                              <div class="col-md-4">
+                              <div class="col-md-5">
                                 <label style="color: white">Credentials</label>
                                 <div class="input-group mb-3">
                                     <div class="input-group-prepend">
@@ -122,8 +122,6 @@
                                     </div>
                                     <input class="form-control" placeholder=" Confirm Password" aria-label="Password" aria-describedby="basic-addon1" id="password-confirm" type="password" name="password_confirmation" required>
                                 </div>
-                                <center style="color: white">By clicking Register Profile, you agree to our <a class="btn-outline-light" href="{{ url('/termandcon') }}">Terms and Conditions</a>.</center>
-                                <br />
                                 <div class="form-group{{ $errors->has('g-recaptcha-response') ? ' has-error' : '' }}">
                                   <div class="col-md-6 pull-center">
                                   {!! app('captcha')->display() !!}
@@ -138,8 +136,11 @@
                                 <br />
                                 <br />
                                 <br />
+                                <br />
                                 {{Form::hidden('usertypeID','1', ['class' => 'form-control'])}}
                                 {{Form::hidden('status','Activated', ['class' => 'form-control'])}}
+                                <center style="color: white">By clicking Register Profile, you agree to our <a class="btn-outline-light" href="{{ url('/termandcon') }}">Terms and Conditions</a>.</center>
+                                <br />
                                 <div style="float:center;">
                                   <button class="btn btn-rounded btn-block btn-success" type="submit">{{ __('Register') }}</button>
                                 </div>

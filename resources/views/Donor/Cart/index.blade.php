@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 @include('navbar.donor')
-
 <body class="animsition">
 
 	<!-- Cart -->
@@ -188,8 +187,8 @@
                 </div>
                 @else
                 <tr class="table_row">
-                  <div align="center" style="color:red;">
-                    <h5>No Items in cart.</h5>
+                  <div align="center" >
+                    <h5 class="stext-110 cl2" style="color:red;">No items in cart.</h5>
                   </div>
                     </tr>
                 @endif

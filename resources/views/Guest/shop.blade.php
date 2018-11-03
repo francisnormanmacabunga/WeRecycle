@@ -25,9 +25,9 @@
       </div>
     </div>
       @endif
+			@if(count($products2) > 0)
+				@foreach ($products2 as $products)
 			<div class="row isotope-grid">
-        @if(count($products2) > 0)
-          @foreach ($products2 as $products)
 				<div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item women">
 					<!-- Block2 -->
 					<div class="block2">
@@ -56,13 +56,14 @@
 					</div>
 				</div>
         @endforeach
-        @else
-        <div style="color:red;">
-          <br>
-          <br>
-          <h5>No records found.</h5>
-        </div>
-        @endif
+				@else
+				<tr class="table_row">
+					<div align="center" >
+						<h5 class="stext-110 cl2" style="color:red;">No items available.</h5>
+					</div>
+						</tr>
+						<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+				@endif
       </div>
 		</div>
 		@include('navbar.donor-footer')

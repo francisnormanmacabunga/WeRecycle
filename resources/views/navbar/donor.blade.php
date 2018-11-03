@@ -69,17 +69,16 @@
 
         <!-- Icon header -->
         <div class="wrap-icon-header flex-w flex-r-m h-full m-r-15">
-          <div class="flex-c-m h-full p-lr-10 bor5">
+          <div class="flex-c-m h-full p-lr-19">
             <div class="icon-header-item">
               <a href="{{ url('/donor/donate') }}"><i style="color:#1B4D3E" class="zmdi zmdi-shopping-basket"></i></a>
             </div>
           </div>
-          <div class="flex-c-m h-full p-lr-10 bor5">
+          <div class="flex-c-m h-full p-lr-19">
             <div class="icon-header-item">
               <a href="{{ url('/donor/cart') }}"><i style="color:#1B4D3E" class="zmdi zmdi-shopping-cart"></i></a>
             </div>
           </div>
-        </div>
 
           <div class="flex-c-m h-full p-lr-19">
             <div class="icon-header-item cl2 hov-cl1 trans-04 p-lr-11 js-show-sidebar">
@@ -87,9 +86,12 @@
             </div>
           </div>
         </div>
+
+
+
       </nav>
+      </div>
     </div>
-  </div>
 
   <!-- Header Mobile -->
   <div class="wrap-header-mobile">
@@ -99,12 +101,12 @@
 
     <!-- Icon header -->
     <div class="wrap-icon-header flex-w flex-r-m h-full m-r-15">
-      <div class="flex-c-m h-full p-lr-10 bor5">
+      <div class="flex-c-m h-full p-lr-19">
         <div class="icon-header-item">
           <a href="{{ url('/donor/donate') }}"><i style="color:#1B4D3E" class="zmdi zmdi-shopping-basket"></i></a>
         </div>
       </div>
-      <div class="flex-c-m h-full p-lr-10 bor5">
+      <div class="flex-c-m h-full p-lr-19">
         <div class="icon-header-item">
           <a href="{{ url('/donor/cart') }}"><i style="color:#1B4D3E" class="zmdi zmdi-shopping-cart"></i></a>
         </div>
@@ -184,6 +186,7 @@
         <span class="mtext-101 cl5">
           {{ Auth::user()->firstname }} {{ Auth::user()->lastname }}
         </span>
+        <br />
         {{ Auth::user()->username }}
       </div>
     </div>

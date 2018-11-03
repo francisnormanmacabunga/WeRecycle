@@ -23,9 +23,10 @@ Route::get('/shop', 'Guest\ShopController@shopCatalog');
 Route::get('/donation', 'Guest\ShopController@donationCatalog');
 Route::get('/termandcon', 'Guest\DonorsController@index');
 Route::get('/terandcond', 'Guest\ApplicantsController@index');
+
 Auth::routes();
 
-Route::prefix('/donor')->group(function() {
+Route::prefix('donor')->group(function() {
   Route::get('/login','Donor\Auth\DonorLoginController@showLoginForm')->name('donor.login');
   Route::post('/login','Donor\Auth\DonorLoginController@login')->name('donor.login.submit');
   Route::post('/logout', 'Donor\Auth\DonorLoginController@donorLogout')->name('donor.logout');
@@ -74,10 +75,8 @@ Route::prefix('activitycoordinator')->group(function() {
   Route::resource('/activity_coordinators', 'ActivityCoordinator\ActivityCoordinatorsController');
   Route::resource('/AC_password', 'ActivityCoordinator\ActivityCoordinatorsPasswordController');
   Route::resource('/applicants', 'ActivityCoordinator\ApplicantsController');
-
   Route::get('/sendSMS/applicantID={applicantID}','ActivityCoordinator\TwilioController@index');
   Route::post('/sendMessage','ActivityCoordinator\TwilioController@sendMessageApplicant');
-
   Route::get('/', 'ActivityCoordinator\ActivityCoordinatorController@index')->name('ac.dashboard');
 });
 
@@ -138,5 +137,5 @@ Route::prefix('admin')->group(function() {
   Route::get('/', 'Admin\AdminController@index')->name('admin.dashboard');
 });
 
-  Route::get('/cancel/{transid}', 'Donor\HistoryController@cancel');
-  Route::get('/redeemcode/{id}', 'Donor\DonorsController@redeemcode');
+Route::get('/cancel/{transid}', 'Donor\HistoryController@cancel');
+Route::get('/redeemcode/{id}', 'Donor\DonorsController@redeemcode');

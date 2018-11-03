@@ -15,6 +15,7 @@
 Route::get('/', 'PagesController@index2');
 Route::get('/home', 'PagesController@index2');
 Route::get('/index', 'PagesController@index');
+Route::get('/administrator', 'PagesController@adminlanding');
 Route::get('/createApplicant', 'Guest\ApplicantsController@create');
 Route::post('/processApplicant', 'Guest\ApplicantsController@store');
 Route::get('/createDonor', 'Guest\DonorsController@create');
@@ -23,6 +24,7 @@ Route::get('/shop', 'Guest\ShopController@shopCatalog');
 Route::get('/donation', 'Guest\ShopController@donationCatalog');
 Route::get('/termandcon', 'Guest\DonorsController@index');
 Route::get('/terandcond', 'Guest\ApplicantsController@index');
+
 
 Auth::routes();
 

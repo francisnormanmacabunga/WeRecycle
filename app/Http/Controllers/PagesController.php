@@ -27,4 +27,9 @@ class PagesController extends Controller
       return view('pages.index2', compact('volunteersCount'));
     }
 
+    public function adminlanding()
+    {
+      return view('pages.admin-landing');
+    }
+
 }

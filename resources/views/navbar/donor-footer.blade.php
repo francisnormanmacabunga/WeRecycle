@@ -1,4 +1,17 @@
+<!-- Back to top -->
+<div class="btn-back-to-top" id="myBtn">
+	<span class="symbol-btn-back-to-top">
+		<i class="zmdi zmdi-chevron-up"></i>
+	</span>
+</div>
 
+<footer class="bg3 p-t-75 p-b-32" style="background-color: #1B4D3E">
+	<div class="container">
+		<p class="stext-107 cl6 txt-center">
+			<font color="white"> Copyright &copy; 2018 WeRecycle </font>
+		</p>
+	</div>
+</footer>
 <!--===============================================================================================-->
 	<script src="{{asset('donor/vendor/jquery/jquery-3.2.1.min.js')}}"></script>
 <!--===============================================================================================-->

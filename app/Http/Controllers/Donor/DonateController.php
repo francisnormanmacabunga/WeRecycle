@@ -62,7 +62,7 @@ class DonateController extends Controller
 
       return redirect()->route('donate.checkout');
     }else {
-      session()->flash('notif','Donated Items is less than 1000g');
+      session()->flash('notif','Donated items is less than 1000g.');
       return back();
     }
 

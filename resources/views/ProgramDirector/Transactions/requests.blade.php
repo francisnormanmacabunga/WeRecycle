@@ -33,10 +33,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                  @foreach ($request as $requests)
-                                    @php
-                                      $cart = json_decode($requests->cart);
-                                    @endphp
+
                                     <tr>
                                       <td><strong>ID</strong></td>
                                       <td><strong>Date</strong></td>
@@ -49,7 +46,10 @@
                                       <td><strong>Assigned Volunteer</strong></td>
                                       <td><strong>Action</strong></td>
                                     </tr>
-
+                                    @foreach ($request as $requests)
+                                      @php
+                                        $cart = json_decode($requests->cart);
+                                      @endphp
                                     @foreach($cart as $item)
                                     <tr>
                                       <td>{{$requests->transid}}</td>
@@ -80,7 +80,7 @@
                                     </td>
                                       @endif
                                     </tr>
-                                  
+
 
                                     @endforeach
                                 </tbody>

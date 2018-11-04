@@ -1,6 +1,5 @@
 @extends('layouts.frontend')
 @include('layouts.donor-nav')
-
 @section('content')
 
 <div class="row">
@@ -9,10 +8,36 @@
         <div class="list-group">
             <a href="{{url('/donor/donationhistory')}}" class="list-group-item">Donation History</a>
             <a href="{{url('/donor/transactionhistory')}}" class="list-group-item">Transaction History</a>
-            <a href="" class="list-group-item">Points History</a>
+            <a href="{{ url('/donor/pointhistory') }}" class="list-group-item">Points History</a>
         </div>
-    </div>
+        </div>
+
     <div class="col-lg-9">
+
+      <a href="{{ url('/donor/transactionhistory') }}">
+       <button style="float: right;">Reset</button>
+      </a>
+
+      <a href="{{ url('/donor/transactionhistory/?status=Cancelled') }}">
+        <button style="float: right;">Sort by Cancelled</button>
+      </a>
+
+      <a href="{{ url('/donor/transactionhistory/?status=Delivered') }}">
+        <button style="float: right;">Sort by Delivered</button>
+      </a>
+
+      <a href="{{ url('/donor/transactionhistory/?status=Shipping') }}">
+        <button style="float: right;">Sort by Shipping</button>
+      </a>
+
+      <a href="{{ url('/donor/transactionhistory/?status=Processing') }}">
+        <button style="float: right;">Sort by Processing</button>
+      </a>
+
+      <br>
+      <br>
+
+
         <div class="row">
             @if(count($shop) > 0)
             <table class="table table-bordered" class="fixed">
@@ -25,7 +50,7 @@
                         <th>Transaction ID</th>
                         <th>Name of Volunteer</th>
                         <th>Product Name</th>
-                        <th>Quant ity</th>
+                        <th>Quantity</th>
                         <th>Amount</th>
                         <th>@sortablelink('created_at', 'Date')</th>
                         <th>Status</th>

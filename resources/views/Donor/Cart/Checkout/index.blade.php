@@ -103,8 +103,29 @@
 							</div>
 
 							<div class="size-209">
-								<span class="mtext-110 cl2">
+								<span class="stext-110 cl2">
 									{{$donor->firstname}} {{$donor->lastname}}
+								</span>
+							</div>
+
+							<div class="size-208">
+								<span class="stext-110 cl2">
+									Address:
+								</span>
+							</div>
+
+							<div class="size-209">
+								<span class="stext-111 cl6 p-t-2">
+									{{$donor->street}}, {{$donor->city}}
+								</span>
+							</div>
+
+							<div class="size-208">
+							</div>
+
+							<div class="size-209">
+								<span class="stext-111 cl6 p-t-2">
+									Brgy. {{$donor->barangay}}
 								</span>
 							</div>
 						</div>
@@ -117,7 +138,7 @@
               </div>
 
               <div class="size-209">
-                <span class="mtext-110 cl2">
+                <span class="text-110 cl2">
                   Php {{Cart::tax()}}
                 </span>
               </div>
@@ -129,7 +150,7 @@
               </div>
 
               <div class="size-209">
-                <span class="mtext-110 cl2">
+                <span class="text-110 cl2">
                   Php {{Cart::subtotal()}}
                 </span>
               </div>
@@ -141,7 +162,7 @@
 							</div>
 
 							<div class="size-209">
-								<span class="mtext-110 cl2">
+								<span class="text-110 cl2">
 									Php {{$order->discountedprice}}
 								</span>
 							</div>

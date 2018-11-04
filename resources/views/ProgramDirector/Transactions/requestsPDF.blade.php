@@ -61,7 +61,7 @@
             Copyright &copy; <?php echo date("Y");?> WeRecycle
         </footer>
 
-        <h1 align="center"><img src="{{asset('assets/images/logo-icon.png')}}"/>WeRecycle</h1>
+        <h1 align="center"><img src="{{asset('assets/images/pdf-logo.png')}}"/></h1>
         <br>
 
         <table>

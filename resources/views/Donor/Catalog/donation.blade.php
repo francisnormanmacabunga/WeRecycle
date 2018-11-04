@@ -24,6 +24,7 @@
           <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
           <strong>{{session()->get('notif')}}</strong>
         </div>
+				<br />
       </div>
     </div>
       @endif

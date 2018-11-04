@@ -16,31 +16,34 @@
 		</div>
 	</div>
 
-  @if(session()->has('notif'))
-  <div class="container">
-<div class="content">
-  <div class="alert alert-success">
-    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-    <strong>{{session()->get('notif')}}</strong>
-  </div>
-</div>
-</div>
-@endif
 
-  @if(session()->has('notie'))
-  <div class="container">
-  <div class="content">
-    <div class="alert alert-danger">
-      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-      <strong>{{session()->get('notie')}}</strong>
-    </div>
-  </div>
-</div>
-  @endif
 
 	<!-- Shoping Cart -->
 	<div class="bg0 p-t-75 p-b-85">
 		<div class="container">
+			@if(session()->has('notif'))
+			<div class="container">
+		<div class="content">
+			<div class="alert alert-success">
+				<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+				<strong>{{session()->get('notif')}}</strong>
+			</div>
+			<br />
+		</div>
+		</div>
+		@endif
+
+			@if(session()->has('notie'))
+			<div class="container">
+			<div class="content">
+				<div class="alert alert-danger">
+					<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+					<strong>{{session()->get('notie')}}</strong>
+				</div>
+				<br />
+			</div>
+		</div>
+			@endif
 			<div class="row">
 				<div class="col-lg-10 col-xl-7 m-lr-auto m-b-50">
 					<div class="m-l-25 m-r--38 m-lr-0-xl">
@@ -101,6 +104,9 @@
 
 							<div class="flex-w flex-sb-m bor15 p-t-18 p-b-15 p-lr-40 p-lr-15-sm">
 								<div class="flex-w flex-m m-r-20 m-tb-5">
+									<a role="button" href="{{url('/donor/shopCatalog')}}" class="flex-c-m stext-101 cl2 size-119 bg8 bor13 hov-btn3 p-lr-15 trans-04 pointer m-tb-10">
+										Back
+									</a>
 								</div>
               <div class="flex-w flex-m m-r-20 m-tb-5">
                 <input class="stext-104 cl2 plh4 size-117 bor13 p-lr-20 m-r-10 m-tb-5" type="text" name="dcode"  placeholder="Coupon Code">

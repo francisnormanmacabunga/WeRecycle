@@ -16,31 +16,20 @@
 			</div>
 		</div>
 
-	  @if(session()->has('notif'))
-	  <div class="container">
-	<div class="content">
-	  <div class="alert alert-success">
-	    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-	    <strong>{{session()->get('notif')}}</strong>
-	  </div>
-	</div>
-	</div>
-	@endif
-
-	  @if(session()->has('notie'))
-	  <div class="container">
-	  <div class="content">
-	    <div class="alert alert-danger">
-	      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-	      <strong>{{session()->get('notie')}}</strong>
-	    </div>
-	  </div>
-	</div>
-	  @endif
-
 		<!-- Shoping Cart -->
 		<div class="bg0 p-t-75 p-b-85">
 			<div class="container">
+				@if(session()->has('notif'))
+				<div class="container">
+			<div class="content">
+				<div class="alert alert-success">
+					<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+					<strong>{{session()->get('notif')}}</strong>
+				</div>
+				<br />
+			</div>
+			</div>
+			@endif
 				<div class="row">
 					<div class="col-lg-10 col-xl-7 m-lr-auto m-b-50">
 						<div class="m-l-25 m-r--38 m-lr-0-xl">
@@ -60,7 +49,7 @@
 									<tr class="table_row">
 
 	                  <td class="text-center">
-	                    <form action="{{route('cart.destroy',$cartItem->rowId)}}"  method="POST">
+	                    <form action="{{route('donate.destroy',$cartItem->rowId)}}"  method="POST">
 	                       {{csrf_field()}}
 	                       {{method_field('DELETE')}}
 	                       <input class="btn btn-danger" onclick="return confirm('Do you want to delete this item?')" type="submit" value="x">
@@ -68,18 +57,8 @@
 	                  </td>
 										<td class="column-2">{{$cartItem->name}}</td>
 										<td class="column-3">
-											{!! Form::open(['route' => ['cart.update',$cartItem->rowId], 'method' => 'PUT']) !!}
-	                    <div class="wrap-num-product flex-w m-l-auto m-r-0">
-	                      <div class="btn-num-product-down cl8 hov-btn3 trans-04 flex-c-m">
-	                        <i class="fs-16 zmdi zmdi-minus"></i>
-	                      </div>
-
-	                      <input class="mtext-104 cl3 txt-center num-product" name="qty" type="number" value="{{$cartItem->qty}}">
-
-	                      <div class="btn-num-product-up cl8 hov-btn3 trans-04 flex-c-m">
-	                        <i class="fs-16 zmdi zmdi-plus"></i>
-	                      </div>
-	                    </div>
+											{!! Form::open(['route' => ['donate.update',$cartItem->rowId], 'method' => 'PUT']) !!}
+	                      <input style="width:100px; text-align:center;" name="qty" type="number" value="{{$cartItem->qty}}">
 	                  </td>
 										<td class="text-center">
 											<input class="btn btn-success" type="submit" onclick="return confirm('Do you want to update this item?')" value="Update">
@@ -102,6 +81,9 @@
 
 								<div class="flex-w flex-sb-m bor15 p-t-18 p-b-15 p-lr-40 p-lr-15-sm">
 									<div class="flex-w flex-m m-r-20 m-tb-5">
+										<a role="button" href="{{url('/donor/donationCatalog')}}" class="flex-c-m stext-101 cl2 size-119 bg8 bor13 hov-btn3 p-lr-15 trans-04 pointer m-tb-10">
+											Back
+										</a>
 									</div>
 	              <div class="flex-w flex-m m-r-20 m-tb-5">
 	                <input class="stext-104 cl2 plh4 size-117 bor13 p-lr-20 m-r-10 m-tb-5" type="text" name="dcode"  placeholder="Coupon Code">
@@ -154,7 +136,7 @@
 								</div>
 							</div>
 
-							<a role="button" class="flex-c-m stext-101 cl0 size-116 bg3 bor14 hov-btn3 p-lr-15 trans-04 pointer" href="{{url('/donor/donationCatalog')}}">
+							<a role="button" class="flex-c-m stext-101 cl0 size-116 bg3 bor14 hov-btn3 p-lr-15 trans-04 pointer" href="{{url('/donor/submit-donate')}}">
 								Proceed to Summary
 							</a>
 						</div>

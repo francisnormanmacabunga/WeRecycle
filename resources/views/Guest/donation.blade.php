@@ -3,7 +3,7 @@
 @include('navbar.guest')
 <body class="animsition">
 	<!-- Product -->
-		<div class="container">
+		<div class="container-fluid" style="max-width:1000px">
       <br />
       <div class="flex-w flex-sb-m p-b-52">
         <div class="flex-w flex-l-m filter-tope-group m-tb-10">

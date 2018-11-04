@@ -5,19 +5,16 @@
 	<!-- breadcrumb -->
 	<div class="container">
 		<div class="bread-crumb flex-w p-l-25 p-r-15 p-t-30 p-lr-0-lg">
-			<a href="{{url('/donor/shopCatalog')}}" class="stext-109 cl8 hov-cl1 trans-04">
-				Back
+			<a href="{{url('/donor/cart')}}" class="stext-109 cl8 hov-cl1 trans-04">
+				Back to cart
 				<i class="fa fa-angle-right m-l-9 m-r-10" aria-hidden="true"></i>
 			</a>
 
 			<span class="stext-109 cl4">
-				Shopping Cart
+				Checkout
 			</span>
 		</div>
 	</div>
-
-
-
 	<!-- Shoping Cart -->
 	<div class="bg0 p-t-75 p-b-85">
 		<div class="container">
@@ -55,7 +52,7 @@
 									<th class="text-center">Price</th>
 									<th class="text-center">Quantity</th>
 								</tr>
-								@foreach($cartItems as $cartItem)
+								@forelse($cartItems as $cartItem)
 								<tr class="table_row">
 									<td class="text-center">{{$cartItem->name}}</td>
 									<td class="text-center">
@@ -65,8 +62,17 @@
 										{{$cartItem->qty}}
 
 									</td>
+									@empty
+									<td colspan="10">
+										<br />
+										<div class="text-center">
+											<h5 class="stext-110 cl2" style="color:red;">No items in cart.</h5>
+										</div>
+										<br />
+									</td>
 								</tr>
-								@endforeach
+								@endforelse
+
 							</table>
 
 							<div class="flex-w flex-sb-m bor15 p-t-18 p-b-15 p-lr-40 p-lr-15-sm">
@@ -74,13 +80,11 @@
 
 								</div>
               <div class="flex-w flex-m m-r-20 m-tb-5">
-								<a role="button" href="{{url('/donor/cart')}}" class="flex-c-m stext-101 cl2 size-119 bg8 bor13 hov-btn3 p-lr-15 trans-04 pointer m-tb-10">
-									Back to cart
+								<a role="button" href="{{url('/donor/shopCatalog')}}" class="flex-c-m stext-101 cl0 size-118 bg3 bor14 hov-btn3 p-lr-15 trans-04 pointer m-tb-5">
+									Back to catalog
 								</a>
               </div>
                 </div>
-
-
 						</div>
 					</div>
 				</div>

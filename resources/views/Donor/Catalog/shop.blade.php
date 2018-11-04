@@ -5,7 +5,7 @@
 <body class="animsition">
 
 	<!-- Title page -->
-	<section class="bg-img1 txt-center p-lr-15 p-tb-92" style="background-image: url({{asset('donor-design/images/shop.jpg')}});">
+	<section class="bg-img1 txt-center p-lr-15 p-tb-92" style="background-image: url({{asset('donor-design/images/shopbg.jpg')}});">
 		<h2 class="ltext-105 cl0 txt-center">
 			Shop
 		</h2>

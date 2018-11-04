@@ -34,12 +34,12 @@
 						<h4 class="mtext-105 cl2 txt-center p-b-30">
 							Rate our service
 						</h4>
-            <label class="stext-115 cl6 size-213 p-t-18">Rate from 1 to 5:</label>
+            <label class="stext-115 cl6 size-213 p-t-18">Rate us:</label>
             <input style="width: 150px;" class="form-control" name="rating" type="number" min="1" max="5" maxlength="1" required>
 
 <br />
 						<div class="bor8 m-b-30">
-							<textarea class="form-control stext-111 cl2 plh3 size-120 p-lr-28 p-tb-25" name="feedback" placeholder="How Can We Help?"></textarea>
+							<textarea class="form-control stext-111 cl2 plh3 size-120 p-lr-28 p-tb-25" name="feedback" placeholder="We would love to hear from you!"></textarea>
 						</div>
 
 						<button type="submit" class="flex-c-m stext-101 cl0 size-121 bg3 bor1 hov-btn3 p-lr-15 trans-04 pointer">

@@ -2,6 +2,14 @@
 	<html lang="en">
 	@include('navbar.donor')
 	<body class="animsition">
+
+		<!-- Title page -->
+		<section class="bg-img1 txt-center p-lr-15 p-tb-92" style="background-image: url({{asset('donor-design/images/cart.jpg')}});">
+			<h2 class="ltext-105 cl0 txt-center">
+				Cart
+			</h2>
+		</section>
+
 		<!-- breadcrumb -->
 		<div class="container">
 			<div class="bread-crumb flex-w p-l-25 p-r-15 p-t-30 p-lr-0-lg">

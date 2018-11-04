@@ -2,6 +2,14 @@
 <html lang="en">
 @include('navbar.guest')
 <body class="animsition">
+
+	<!-- Title page -->
+	<section class="bg-img1 txt-center p-lr-15 p-tb-92" style="background-image: url({{asset('donor-design/images/donation.jpg')}});">
+		<h2 class="ltext-105 cl0 txt-center">
+			Donation
+		</h2>
+	</section>
+
 	<!-- Product -->
 		<div class="container-fluid" style="max-width:1000px">
       <br />

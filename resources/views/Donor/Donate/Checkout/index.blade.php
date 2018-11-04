@@ -142,7 +142,7 @@
 
 							<div class="size-209 p-t-1">
 								<span class="mtext-110 cl2">
-								{{Cart::total()}}g
+								{{Cart::count()}}g
 								</span>
 							</div>
 						</div>

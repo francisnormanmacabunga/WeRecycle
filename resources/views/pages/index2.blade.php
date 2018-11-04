@@ -44,7 +44,7 @@
     <section class="probootstrap-slider flexslider">
       <ul class="slides">
          <!-- class="overlay" -->
-        <li style="background-image: url(img/slideshow7.jpg);">
+        <li style="background-image: url(img/slideshow1.jpg);">
           <div class="container">
             <div class="row">
               <div class="col-md-10 col-md-offset-1">

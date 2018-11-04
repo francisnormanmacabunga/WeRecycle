@@ -28,6 +28,7 @@ class FeedbacksController extends Controller
     [
       'rating.required' => 'The rating field is required.',
     ]);
+    session()->flash('notif','Thanks for the feedback!');
       $feedback = new Feedbacks();
       //$feedback->userID = (Select from user where userID = session('username'))
       $feedback->feedback = $request->input('feedback');
@@ -35,7 +36,7 @@ class FeedbacksController extends Controller
       $feedback->userID = auth()->user()->userID;
       $feedback->save();
 
-      return redirect('/donor')->with('success', 'Thanks for the feedback!');
+      return back();
     }
 
 }

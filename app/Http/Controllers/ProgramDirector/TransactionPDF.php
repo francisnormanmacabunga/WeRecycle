@@ -19,7 +19,7 @@ class TransactionPDF extends Controller
 
   public function transactionPDFR(Request $request)
   {
-    $request = Transaction::SELECT('*')
+    $request = Transaction::orderBy('updated_at', 'desc')
     -> where('type', 'Donate')
     -> get();
     $pdf = PDF::loadView('ProgramDirector/Transactions.requestsPDF', compact('request'));
@@ -28,7 +28,7 @@ class TransactionPDF extends Controller
 
   public function transactionPDFO(Request $request)
   {
-    $order = Transaction::SELECT('*')
+    $order = Transaction::orderBy('updated_at', 'desc')
     -> where('type', 'Shop')
     -> get();
     $pdf = PDF::loadView('ProgramDirector/Transactions.ordersPDF', compact('order'));

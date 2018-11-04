@@ -27,6 +27,10 @@
                           @if(count($order) > 0)
                             <table class="table table-striped table-bordered">
                                 <thead>
+                                  <tr>
+                                  </tr>
+                                </thead>
+                                <tbody>
                                     <tr>
                                       <th>ID</th>
                                       <th>Date</th>
@@ -40,25 +44,26 @@
                                       <th>Assigned Volunteer</th>
                                       <th>Action</th>
                                     </tr>
-                                </thead>
-                                <tbody>
+
                                   @foreach ($order as $orders)
                                     @php
                                       $cart = json_decode($orders->cart);
                                     @endphp
+                                    @foreach($cart as $item)
                                     <tr>
                                       <td> {{$orders->transid}} </td>
                                       <td> {{date('F d, Y, h:i:sa', strtotime($orders->created_at))}} </td>
                                       <td> {{$orders->donor->firstname}} {{$orders->donor->lastname}} </td>
                                       <td> Barangay: {{$orders->donor->barangay}}, {{$orders->donor->street}}, {{$orders->donor->city}}, Zip: {{$orders->donor->zip}} </td>
                                       <td> {{$orders->type}} </td>
-                                      @foreach($cart as $item)
+
                                       <td>{{$item->name}}</td>
                                       <td>{{$item->price}}</td>
                                       <td>{{$item->qty}}</td>
-                                      @endforeach
+
                                       <td> {{$orders->status}} </td>
                                       <td> {{$orders->volunteer['firstname']}} {{$orders->volunteer['lastname']}}</td>
+                                      @endforeach
                                       @if($orders->status == 'Cancelled' || $orders->status == 'Delivered')
                                       <td>
                                         <a href="/programdirector/sendSMS-V-O/transactionID={{$orders->transid}}" data-toggle="tooltip" data-placement="top"  title="Message Volunteer"><button disabled><i class="mdi mdi-message-reply-text"></button></i></a>

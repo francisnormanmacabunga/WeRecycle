@@ -36,7 +36,7 @@
 					<div class="block2">
 						<div class="block2-pic hov-img0">
 							<img src="{{ asset('images/' . $products->productimage) }}" width="200" height="200" alt="IMG-PRODUCT">
-							<a href="{{ route('cart.addItem',$products->productsID) }}" class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04">
+							<a href="{{ route('donate.addItem',$products->productsID) }}" class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04">
 								Donate
 							</a>
 						</div>

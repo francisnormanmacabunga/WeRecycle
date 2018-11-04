@@ -52,8 +52,11 @@
 					</div>
 				</div>
         @endforeach
-				@if(count($products2) > 0)
-					@foreach ($products2 as $products)
+				@else
+					<div align="center">
+						<h5 class="stext-110 cl2" style="color:red;">No items available.</h5>
+					</div>
+				@endif
       </div>
 		</div>
 		@include('navbar.donor-footer')

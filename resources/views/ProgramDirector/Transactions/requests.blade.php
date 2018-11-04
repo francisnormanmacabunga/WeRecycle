@@ -34,18 +34,18 @@
                                 </thead>
                                 <tbody>
 
-                                    <tr>
-                                      <td><strong>ID</strong></td>
-                                      <td><strong>Date</strong></td>
-                                      <td><strong>Name</strong></td>
-                                      <td><strong>Address</strong></td>
-                                      <td><strong>Item Type</strong></td>
-                                      <td><strong>Item Name</strong></td>
-                                      <td><strong>Weight</strong></td>
-                                      <td><strong>Status</strong></td>
-                                      <td><strong>Assigned Volunteer</strong></td>
-                                      <td><strong>Action</strong></td>
-                                    </tr>
+                                  <tr>
+                                          <th>Transaction ID</th>
+                                          <th>Date</th>
+                                          <th>Name</th>
+                                          <th>Address</th>
+                                          <th>Item Type</th>
+                                          <th>Item Name</th>
+                                          <th>Item Weight</th>
+                                          <th>Status</th>
+                                          <th>Assigned Volunteer</th>
+                                          <th>Action</th>
+                                  </tr>
                                     @foreach ($request as $requests)
                                       @php
                                         $cart = json_decode($requests->cart);
@@ -74,8 +74,8 @@
                                       </td>
                                       @else
                                       <td>
-                                      <a href="/programdirector/sendSMS-V-R/transactionID={{$requests->transid}}" data-toggle="tooltip" data-placement="top"  title="Message Volunteer"><i class="mdi mdi-message-reply-text"></i></a>
-                                      <a href="/programdirector/sendSMS-D-R/transactionID={{$requests->transid}}" data-toggle="tooltip" data-placement="top"  title="Message Donor"><i class="mdi mdi-message-reply"></i></a>
+                                      <a href="/programdirector/sendSMS-V-R/transactionID={{$requests->transid}}" data-toggle="tooltip" data-placement="top"  title="Message Volunteer"><i class="mdi mdi-message-reply-text"></i></a><br/>
+                                      <a href="/programdirector/sendSMS-D-R/transactionID={{$requests->transid}}" data-toggle="tooltip" data-placement="top"  title="Message Donor"><i class="mdi mdi-message-reply"></i></a><br/>
                                       <a href="/programdirector/requests/{{$requests->transid}}/edit" data-toggle="tooltip" data-placement="top"  title="Edit"><i class="fas fas fa-edit"></i></a>
                                     </td>
                                       @endif

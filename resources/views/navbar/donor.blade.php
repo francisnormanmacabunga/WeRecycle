@@ -9,32 +9,32 @@
     <link rel="icon" type="image/png" sizes="16x16" href="{{asset('assets/images/favicon.png')}}">
     <title>WeRecycle</title>
     <meta charset="UTF-8">
-<link rel="stylesheet" type="text/css" href="{{asset('donor/vendor/bootstrap/css/bootstrap.min.css')}}">
+<link rel="stylesheet" type="text/css" href="{{asset('donor-design/vendor/bootstrap/css/bootstrap.min.css')}}">
 <!--===============================================================================================-->
-<link rel="stylesheet" type="text/css" href="{{asset('donor/fonts/font-awesome-4.7.0/css/font-awesome.min.css')}}">
+<link rel="stylesheet" type="text/css" href="{{asset('donor-design/fonts/font-awesome-4.7.0/css/font-awesome.min.css')}}">
 <!--===============================================================================================-->
-<link rel="stylesheet" type="text/css" href="{{asset('donor/fonts/iconic/css/material-design-iconic-font.min.css')}}">
+<link rel="stylesheet" type="text/css" href="{{asset('donor-design/fonts/iconic/css/material-design-iconic-font.min.css')}}">
 <!--===============================================================================================-->
-<link rel="stylesheet" type="text/css" href="{{asset('donor/fonts/linearicons-v1.0.0/icon-font.min.css')}}">
+<link rel="stylesheet" type="text/css" href="{{asset('donor-design/fonts/linearicons-v1.0.0/icon-font.min.css')}}">
 <!--===============================================================================================-->
-<link rel="stylesheet" type="text/css" href="{{asset('donor/vendor/animate/animate.css')}}">
+<link rel="stylesheet" type="text/css" href="{{asset('donor-design/vendor/animate/animate.css')}}">
 <!--===============================================================================================-->
-<link rel="stylesheet" type="text/css" href="{{asset('donor/vendor/css-hamburgers/hamburgers.min.css')}}">
+<link rel="stylesheet" type="text/css" href="{{asset('donor-design/vendor/css-hamburgers/hamburgers.min.css')}}">
 <!--===============================================================================================-->
-<link rel="stylesheet" type="text/css" href="{{asset('donor/vendor/animsition/css/animsition.min.css')}}">
+<link rel="stylesheet" type="text/css" href="{{asset('donor-design/vendor/animsition/css/animsition.min.css')}}">
 <!--===============================================================================================-->
-<link rel="stylesheet" type="text/css" href="{{asset('donor/vendor/select2/select2.min.css')}}">
+<link rel="stylesheet" type="text/css" href="{{asset('donor-design/vendor/select2/select2.min.css')}}">
 <!--===============================================================================================-->
-<link rel="stylesheet" type="text/css" href="{{asset('donor/vendor/daterangepicker/daterangepicker.css')}}">
+<link rel="stylesheet" type="text/css" href="{{asset('donor-design/vendor/daterangepicker/daterangepicker.css')}}">
 <!--===============================================================================================-->
-<link rel="stylesheet" type="text/css" href="{{asset('donor/vendor/slick/slick.css')}}">
+<link rel="stylesheet" type="text/css" href="{{asset('donor-design/vendor/slick/slick.css')}}">
 <!--===============================================================================================-->
-<link rel="stylesheet" type="text/css" href="{{asset('donor/vendor/MagnificPopup/magnific-popup.css')}}">
+<link rel="stylesheet" type="text/css" href="{{asset('donor-design/vendor/MagnificPopup/magnific-popup.css')}}">
 <!--===============================================================================================-->
-<link rel="stylesheet" type="text/css" href="{{asset('donor/vendor/perfect-scrollbar/perfect-scrollbar.css')}}">
+<link rel="stylesheet" type="text/css" href="{{asset('donor-design/vendor/perfect-scrollbar/perfect-scrollbar.css')}}">
 <!--===============================================================================================-->
-<link rel="stylesheet" type="text/css" href="{{asset('donor/css/util.css')}}">
-<link rel="stylesheet" type="text/css" href="{{asset('donor/css/main.css')}}">
+<link rel="stylesheet" type="text/css" href="{{asset('donor-design/css/util.css')}}">
+<link rel="stylesheet" type="text/css" href="{{asset('donor-design/css/main.css')}}">
 <!--===============================================================================================-->
 </head>
 

@@ -8,7 +8,8 @@
   <h3>Donation History</h3>
   <div class="list-group">
       <a href="{{url('/donor/donationhistory')}}" class="list-group-item">Donation History</a>
-      <a href="{{url('/donor/transactionhistory')}}" class="list-group-item">Orders History</a>
+      <a href="{{url('/donor/transactionhistory')}}" class="list-group-item">Transaction History</a>
+      <a href="" class="list-group-item">Points History</a>
   </div>
 
   </div>

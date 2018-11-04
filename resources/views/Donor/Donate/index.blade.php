@@ -22,7 +22,7 @@
 				@if(session()->has('notif'))
 				<div class="container">
 			<div class="content">
-				<div class="alert alert-success">
+				<div class="alert alert-danger">
 					<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
 					<strong>{{session()->get('notif')}}</strong>
 				</div>

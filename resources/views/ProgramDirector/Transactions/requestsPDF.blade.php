@@ -48,7 +48,7 @@
              height: 2cm;
 
              /** Extra personal styles **/
-             background-color: #006400;
+             background-color: #0f6b6b;
              color: white;
              text-align: center;
              line-height: 1.5cm;
@@ -80,7 +80,7 @@
           <td><strong>Sort:</strong> Requests</td>
         </tr>
     </table>
-    
+
     <br/>
 
       @if(count($request) > 0)

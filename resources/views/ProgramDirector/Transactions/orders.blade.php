@@ -38,7 +38,7 @@
                                       <th>Weight</th>
                                       <th>Status</th>
                                       <th>Assigned Volunteer</th>
-                                      <th></th>
+                                      <th>Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>

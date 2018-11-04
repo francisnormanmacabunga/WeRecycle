@@ -9,6 +9,7 @@ use App\Models\Volunteer;
 use App\Models\Employee;
 use App\Models\Contacts;
 use Hash;
+use Carbon\Carbon;
 
 class ApplicantsController extends Controller
 {
@@ -50,7 +51,7 @@ class ApplicantsController extends Controller
       'email' => 'required|unique:user,email',
       'cellNo' => 'required|min:13|max:13|regex:/^\+63[0-9]{10}$/',
       'tellNo' => 'required|min:7|max:7',
-      'birthdate' => 'required',
+      'birthdate' => 'required|before:'.Carbon::now()->subYears(15),
       'city' => 'required|regex:/^[\pL\s]+$/u',
       'street' => 'nullable|regex:/^[ \w.#-]+$/',
       'barangay' => 'nullable|regex:/^[ \w.#-]+$/',

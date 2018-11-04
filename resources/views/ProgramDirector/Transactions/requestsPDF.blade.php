@@ -25,8 +25,8 @@
             /** Define now the real margins of every page in the PDF **/
             body {
                 margin-top: 1cm;
-                margin-left: 2cm;
-                margin-right: 2cm;
+                margin-left: 1cm;
+                margin-right: 1cm;
                 margin-bottom: 2cm;
             }
 
@@ -61,7 +61,7 @@
             Copyright &copy; <?php echo date("Y");?> WeRecycle
         </footer>
 
-        <h1 align="center"><img src="{{asset('assets/images/logo-icon.png')}}"/>WeRecycle</h1>
+        <h1 align="center"><img src="{{asset('assets/images/pdf-logo.png')}}"/></h1>
         <br>
 
         <table>

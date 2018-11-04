@@ -48,19 +48,19 @@
 							<table class="table-shopping-cart">
 
 								<tr class="table_head">
-									<th class="text-center">Name</th>
-									<th class="text-center"></th>
-									<th class="text-center">Quantity</th>
+									<th class="column-1"></th>
+									<th class="column-2">Name</th>
+									<th class="column-3">Quantity</th>
+									<th class="column-4"></th>
+									<th class="column-5"></th>
 								</tr>
 								@forelse($cartItems as $cartItem)
 								<tr class="table_row">
-									<td class="text-center">{{$cartItem->name}}</td>
-									<td class="text-center">
-                  </td>
-									<td class="text-center">
-										{{$cartItem->qty}}
-
-									</td>
+									<td class="column-1"></td>
+									<td class="column-2">{{$cartItem->name}}</td>
+									<td class="column-3">{{$cartItem->qty}}</td>
+									<td class="column-4"></td>
+									<td class="column-5"></td>
 									@empty
 									<td colspan="10">
 										<br />

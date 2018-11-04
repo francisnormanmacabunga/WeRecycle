@@ -33,19 +33,18 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-
-                                  <tr>
-                                          <th>Transaction ID</th>
-                                          <th>Date</th>
-                                          <th>Name</th>
-                                          <th>Address</th>
-                                          <th>Item Type</th>
-                                          <th>Item Name</th>
-                                          <th>Item Weight</th>
-                                          <th>Status</th>
-                                          <th>Assigned Volunteer</th>
-                                          <th>Action</th>
-                                  </tr>
+                                    <tr>
+                                      <th>Transaction ID</th>
+                                      <th>Date</th>
+                                      <th>Name</th>
+                                      <th>Address</th>
+                                      <th>Item Type</th>
+                                      <th>Item Name</th>
+                                      <th>Item Weight</th>
+                                      <th>Status</th>
+                                      <th>Assigned Volunteer</th>
+                                      <th>Action</th>
+                                    </tr>
                                     @foreach ($request as $requests)
                                       @php
                                         $cart = json_decode($requests->cart);
@@ -91,20 +90,23 @@
                               <br>
                               <h5>No orders found.</h5>
                             </div>
+                            @endif
                         </div>
-                        <div class="col-xs-12" align="right">
-                            <a href="{{action('ProgramDirector\TransactionPDF@transactionPDFR')}}" class="btn btn-danger"><i class="mdi mdi-file-pdf"></i> PDF</a>
-                            <button class="btn btn-info" onclick="window.print();"><i class="fa fa-print"></i> Print</button>
-                        </div>
+                        {{$request -> links()}}
                     </div>
                 </div>
+                <div class="col-xs-12" align="right">
+                  <a href="{{action('ProgramDirector\TransactionPDF@transactionPDFR')}}" class="btn btn-danger"><i class="mdi mdi-file-pdf"></i> PDF</a>
+                  <button class="btn btn-info" onclick="window.print();"><i class="fa fa-print"></i> Print</button>
+                </div>
             </div>
-            <footer class="footer text-center">
-                Copyright &copy; 2018 WeRecycle
-            </footer>
         </div>
     </div>
-    @include('navbar.footer')
-</body>
-
-</html>
+    <footer class="footer text-center">
+      Copyright &copy; 2018 WeRecycle
+    </footer>
+  </div>
+</div>
+@include('navbar.footer')
+  </body>
+  </html>

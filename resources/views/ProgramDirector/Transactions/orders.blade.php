@@ -38,9 +38,9 @@
                                                 <th>Name</th>
                                                 <th>Address</th>
                                                 <th>Item Type</th>
-                                                <th>Name</th>
-                                                <th>Price</th>
-                                                <th>Weight</th>
+                                                <th>Item Name</th>
+                                                <th>Item Price</th>
+                                                <th>Quantity</th>
                                                 <th>Status</th>
                                                 <th>Assigned Volunteer</th>
                                                 <th>Action</th>

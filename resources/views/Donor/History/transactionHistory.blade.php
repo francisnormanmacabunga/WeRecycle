@@ -11,8 +11,33 @@
             <a href="{{ url('/donor/pointhistory') }}" class="list-group-item">Points History</a>
         </div>
         </div>
-    
+
     <div class="col-lg-9">
+
+      <a href="{{ url('/donor/transactionhistory') }}">
+       <button style="float: right;">Reset</button>
+      </a>
+
+      <a href="{{ url('/donor/transactionhistory/?status=Cancelled') }}">
+        <button style="float: right;">Sort by Cancelled</button>
+      </a>
+
+      <a href="{{ url('/donor/transactionhistory/?status=Delivered') }}">
+        <button style="float: right;">Sort by Delivered</button>
+      </a>
+
+      <a href="{{ url('/donor/transactionhistory/?status=Shipping') }}">
+        <button style="float: right;">Sort by Shipping</button>
+      </a>
+
+      <a href="{{ url('/donor/transactionhistory/?status=Processing') }}">
+        <button style="float: right;">Sort by Processing</button>
+      </a>
+
+      <br>
+      <br>
+
+
         <div class="row">
             @if(count($shop) > 0)
             <table class="table table-bordered" class="fixed">

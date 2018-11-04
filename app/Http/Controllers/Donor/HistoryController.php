@@ -22,10 +22,18 @@ class HistoryController extends Controller
     {
 
       $donor = Auth::user();
+      if (request()->has('status')){
       $donation = Transaction::where('userID', $donor->userID)
+      -> where('status',request('status'))
       -> where('type', 'Donate')
       -> sortable()
       -> get();
+      } else {
+        $donation = Transaction::where('userID', $donor->userID)
+        -> where('type', 'Donate')
+        -> sortable()
+        -> get();
+}
       return view('Donor/History.donationHistory')->with(['donation' => $donation]);
 
     }
@@ -33,10 +41,18 @@ class HistoryController extends Controller
     public function transactionHistory()
     {
       $donor = Auth::user();
+      if (request()->has('status')){
       $shop = Transaction::where('userID', $donor->userID)
+      -> where('status',request('status'))
       -> where('type', 'Shop')
       -> sortable()
       -> get();
+      } else {
+        $shop = Transaction::where('userID', $donor->userID)
+        -> where('type', 'Shop')
+        -> sortable()
+        -> get();
+      }
       return view('Donor/History.transactionHistory')->with(['shop' => $shop]);
     }
 

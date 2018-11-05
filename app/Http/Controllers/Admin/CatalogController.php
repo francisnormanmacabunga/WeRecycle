@@ -49,19 +49,19 @@ class CatalogController extends Controller
     public function store(Request $request)
     {
       $this->validate($request, [
-      'productname' => 'required|regex:/^[ \w.,!''-]+$',
+      'productname' => 'required|regex:/^[A-Za-z. -]+$/',
       'productstypeID' => 'required',
-      'description' => 'required|regex:/^[ \w.,!''-]+$',
+      'description' => 'required|regex:/^[A-Za-z. -]+$/',
       'price' => 'min:0',
       'productimage' => 'required|mimes:jpeg,jpg,png|image|max:5000',
       'category' => 'required'
     ],
     [
       'productname.required' => 'Product name is required field.',
-      'productname.regex' => 'Product name must only contain letters, period, comma, exclamation mark, apostrophe, hyphen.',
+      'productname.regex' => 'Product name must only contain letters and period.',
       'productstypeID.required' => 'Item Type is a required field.',
       'description.required' => 'Item description is a required field.',
-      'description.regex' => 'Item description must only contain letters, period, comma, exclamation mark, apostrophe, hyphen',
+      'description.regex' => 'Item description must only contain letters and period',
       'price.min' => 'Price must be greater than 0.',
       'productimage.required' => 'Product image is required',
       'productimage.mimes' => 'Image must be in JPG/JPEG or PNG format',
@@ -125,30 +125,18 @@ class CatalogController extends Controller
     public function update(Request $request, $id)
     {
       $this->validate($request, [
-      'productname' => 'regex:/^[\pL\s]+$/u',
+      'productname' => 'regex:/^[A-Za-z. -]+$/',
+      'description' => 'regex:/^[A-Za-z. -]+$/',
       'price' => 'min:0',
-    //  'productimage' => 'required|mimes:jpeg,jpg,png|image|max:5000'
     ],
     [
-
-      'productname.regex' => 'Product name must only contain letters.',
-      'description.regex' => 'Item description must only contain letters, numbers, underscores, dashes, hypens and hashes.',
+      'productname.regex' => 'Product name must only contain letters and period.',
+      'description.regex' => 'Item description must only contain letters and period.',
       'price.min' => 'Price must be greater than 0.',
-    //  'productimage.mimes' => 'Image must be in JPG/JPEG or PNG format',
-    //  'productimage.max' => 'Image must be less than 5MB.'
     ]);
-
-      $validator = Validator::make($request->all(), [
-      'productimage' => 'max:1'
-
-    ]);
-    //  $filename = $request->file('productimage')->getClientOriginalName();
-    //  $moveImage = $request->file('productimage')->move('images', $filename);
 
       $products = Products::find($id);
       $products->productname = $request->input('productname');
-
-    //  $products->productimage = $request->input('productimage');
       $products->price = $request->input('price');
       $products->description = $request->input('description');
       $products->status = $request->input('status');

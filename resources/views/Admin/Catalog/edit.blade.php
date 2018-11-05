@@ -21,11 +21,12 @@
               </div>
           </div>
               <div class="container-fluid">
+                @include('inc.messages')
                 <div class="row justify-content-center">
                   <!-- ============================================================== -->
                   <!-- Start Page Content -->
                   <!-- ============================================================== -->
-                  @include('inc.messages')
+
                   {!! Form::open(['action' => ['Admin\CatalogController@update', $products['productsID']], 'method' => 'POST', 'files' => true, 'enctype' =>"multipart/form-data" ]) !!}
                           <div class="card">
                               <div class="card-body">
@@ -35,7 +36,7 @@
                                 <div class="form-group-row">
                                     <div class="col-sm-9">
                                       <label>Item Name</label>
-                                        {{Form::text('productname', $products['productname'],['class' => 'form-control', 'onkeypress' => 'return !validNo(this,event)'])}}
+                                        {{Form::text('productname', $products['productname'],['class' => 'form-control', 'required' => 'required', 'onkeypress' => 'return !validNo(this,event)'])}}
                                     </div>
                                 </div>
                                 <br />
@@ -54,7 +55,7 @@
                                 <div class="form-group-row">
                                     <div class="col-sm-9">
                                       <label>Description</label>
-                                        {{Form::textarea('description', $products['description'],['class' => 'form-control', 'rows' => 3])}}
+                                        {{Form::textarea('description', $products['description'],['class' => 'form-control', 'required' => 'required', 'rows' => 3])}}
                                     </div>
                                 </div>
                                 <div class="form-group-row">

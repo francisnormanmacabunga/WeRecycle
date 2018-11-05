@@ -24,19 +24,18 @@
             <div class="auth-box" style="background-color: #35281e">
                 <div>
                     <div class="text-center p-t-20 p-b-20">
-
                         <span class="db"><img src="{{asset('assets/images/ac-logo.png')}}" alt="logo" /></span>
                     </div>
                     <!-- Form -->
                     @if ($errors->has('email'))
-                        <div class="alert alert-danger" role="alert">{{ $errors->first('email') }}</div>
+                    <div class="alert alert-danger" role="alert">{{ $errors->first('email') }}</div>
                     @endif
                     @if ($errors->has('password'))
-                            <div class="alert alert-danger" role="alert">{{ $errors->first('password') }}</div>
+                    <div class="alert alert-danger" role="alert">{{ $errors->first('password') }}</div>
                     @endif
                     <form class="form-horizontal m-t-20" method="POST" action="{{ route('activitycoordinator.password.request') }}" aria-label="{{ __('Reset Password') }}">
-                      @csrf
-                      <input type="hidden" name="token" value="{{ $token }}">
+                        @csrf
+                        <input type="hidden" name="token" value="{{ $token }}">
                         <div class="row p-b-30">
                             <div class="col-12">
                                 <!-- email -->
@@ -44,13 +43,15 @@
                                     <div class="input-group-prepend">
                                         <span class="input-group-text bg-success text-white btn-rounded" id="basic-addon1"><i class="ti-email"></i></span>
                                     </div>
-                                    <input class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }} btn-rounded" placeholder="Email Address" aria-label="Username" aria-describedby="basic-addon1" id="email" type="email" name="email" value="{{ $email ?? old('email') }}" required autofocus>
+                                    <input class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }} btn-rounded" placeholder="Email Address" aria-label="Username" aria-describedby="basic-addon1" id="email" type="email" name="email" value="{{ $email ?? old('email') }}"
+                                      required autofocus>
                                 </div>
                                 <div class="input-group mb-3">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text bg-danger text-white btn-rounded" id="basic-addon2"><i class="ti-pencil"></i></span>
                                     </div>
-                                    <input class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }} btn-rounded" placeholder="New Password" aria-label="Password" aria-describedby="basic-addon1" id="password" type="password" name="password" required>
+                                    <input class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }} btn-rounded" placeholder="New Password" aria-label="Password" aria-describedby="basic-addon1" id="password" type="password" name="password"
+                                      required>
                                 </div>
                                 <div class="input-group mb-3">
                                     <div class="input-group-prepend">
@@ -73,7 +74,6 @@
                 </div>
             </div>
         </div>
-
         <!-- ============================================================== -->
         <!-- Login box.scss -->
         <!-- ============================================================== -->
@@ -92,4 +92,5 @@
     </div>
     @include('navbar.login')
 </body>
+
 </html>

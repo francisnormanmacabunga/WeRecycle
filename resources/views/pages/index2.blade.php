@@ -23,7 +23,7 @@
 
   <header role="banner" class="probootstrap-header">
     <div class="container">
-        <a href="/" class="probootstrap-logo"><img src="{{asset('assets/images/logo.png')}}" alt="logo"/></a>
+        <a href="{{ url('/') }}" class="probootstrap-logo"><img src="{{asset('assets/images/logo.png')}}" alt="logo"/></a>
 
         <a href="#" class="probootstrap-burger-menu visible-xs" ><i>Menu</i></a>
         <div class="mobile-menu-overlay"></div>
@@ -44,7 +44,7 @@
     <section class="probootstrap-slider flexslider">
       <ul class="slides">
          <!-- class="overlay" -->
-        <li style="background-image: url(img/slideshow2.jpg);">
+        <li style="background-image: url(img/slideshow7.jpg);">
           <div class="container">
             <div class="row">
               <div class="col-md-10 col-md-offset-1">
@@ -85,6 +85,19 @@
                 <div class="probootstrap-slider-text text-center">
                   <h1 class="probootstrap-heading probootstrap-animate mb20">Shop Organic Fertilizers</h1>
                   <p class="probootstrap-animate"><a href="{{ url('/shop') }}" class="btn btn-ghost btn-ghost-white">Shop</a></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </li>
+        <!-- class="overlay" -->
+        <li style="background-image: url(img/slideshow4.jpg);">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-10 col-md-offset-1">
+                <div class="probootstrap-slider-text text-center">
+                  <h1 class="probootstrap-heading probootstrap-animate mb20">Donate your wastes</h1>
+                  <p class="probootstrap-animate"><a href="{{ url('/donation') }}" class="btn btn-ghost btn-ghost-white">Donate</a></p>
                 </div>
               </div>
             </div>

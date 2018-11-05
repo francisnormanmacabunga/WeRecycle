@@ -30,35 +30,40 @@
                             <table class="table table-striped table-bordered">
                                 <thead>
                                     <tr>
-                                      <th>ID</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                      <th>Transaction ID</th>
                                       <th>Date</th>
                                       <th>Name</th>
                                       <th>Address</th>
                                       <th>Item Type</th>
                                       <th>Item Name</th>
-                                      <th>Weight</th>
+                                      <th>Item Weight</th>
                                       <th>Status</th>
                                       <th>Assigned Volunteer</th>
-                                      <th></th>
+                                      <th>Action</th>
                                     </tr>
-                                </thead>
-                                <tbody>
-                                  @foreach ($request as $requests)
-                                    @php
-                                      $cart = json_decode($requests->cart);
-                                    @endphp
+                                    @foreach ($request as $requests)
+                                      @php
+                                        $cart = json_decode($requests->cart);
+                                      @endphp
+                                    @foreach($cart as $item)
                                     <tr>
-                                      <td> {{$requests->transid}} </td>
+                                      <td>{{$requests->transid}}</td>
                                       <td> {{date('F d, Y, h:i:sa', strtotime($requests->created_at))}} </td>
                                       <td> {{$requests->donor->firstname}} {{$requests->donor->lastname}} </td>
                                       <td> Barangay: {{$requests->donor->barangay}}, {{$requests->donor->street}}, {{$requests->donor->city}}, Zip: {{$requests->donor->zip}} </td>
                                       <td> {{$requests->type}} </td>
-                                      @foreach($cart as $item)
                                       <td>{{$item->name}}</td>
                                       <td>{{$item->qty}}</td>
-                                      @endforeach
                                       <td> {{$requests->status}} </td>
                                       <td> {{$requests->volunteer['firstname']}} {{$requests->volunteer['lastname']}}</td>
+
+                                    @endforeach
+
+
                                       @if($requests->status == 'Cancelled' || $requests->status == 'Delivered')
                                       <td>
                                         <a  data-toggle="tooltip" data-placement="top"  title="Message Volunteer"><button disabled><i class="mdi mdi-message-reply-text"></i></button></a>
@@ -68,12 +73,14 @@
                                       </td>
                                       @else
                                       <td>
-                                      <a href="/programdirector/sendSMS-V-R/transactionID={{$requests->transid}}" data-toggle="tooltip" data-placement="top"  title="Message Volunteer"><i class="mdi mdi-message-reply-text"></i></a>
-                                      <a href="/programdirector/sendSMS-D-R/transactionID={{$requests->transid}}" data-toggle="tooltip" data-placement="top"  title="Message Donor"><i class="mdi mdi-message-reply"></i></a>
-                                      <a href="/programdirector/requests/{{$requests->transid}}/edit" data-toggle="tooltip" data-placement="top"  title="Edit"><i class="fas fas fa-edit"></i></a>
+                                      <a href="/programdirector/sendSMS-V-R/transactionID={{$requests->transid}}" data-toggle="tooltip" data-placement="top"  title="Message Volunteer"><button><i class="mdi mdi-message-reply-text"></i></button></a><br/>
+                                      <a href="/programdirector/sendSMS-D-R/transactionID={{$requests->transid}}" data-toggle="tooltip" data-placement="top"  title="Message Donor"><button><i class="mdi mdi-message-reply"></i></button></a><br/>
+                                      <a href="/programdirector/requests/{{$requests->transid}}/edit" data-toggle="tooltip" data-placement="top"  title="Edit"><button><i class="fas fas fa-edit"></button></i></a>
                                     </td>
                                       @endif
                                     </tr>
+
+
                                     @endforeach
                                 </tbody>
                             </table>

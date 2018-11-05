@@ -17,7 +17,13 @@
 
 <header role="banner" class="probootstrap-header">
   <div class="container">
-      <a class="btn btn-outline-light btn-rounded" href="{{ url('/') }}"><i class="mdi mdi-keyboard-backspace"></i> Back</a>
+      <nav>
+        <ul class="probootstrap-main-nav">
+          <li><a href="{{ url('/') }}">Home</a></li>
+          <li><a href="{{ url('/createDonor') }}">Register</a></li>
+          <li class="active"><a href="{{ url('/donor/login') }}">Login</a></li>
+        </ul>
+      </nav>
   </div>
 </header>
 
@@ -33,9 +39,6 @@
                 <div class="lds-pos"></div>
             </div>
         </div>
-        <!-- ============================================================== -->
-        <!-- Preloader - style you can find in spinners.css -->
-        <!-- ============================================================== -->
         <!-- ============================================================== -->
         <!-- Login box.scss -->
         <!-- ============================================================== -->
@@ -74,7 +77,7 @@
                                 </div>
                             </div>
                         <div align="center">
-                      <a href="/createDonor"><font color="white">Don't have an account? Register here.</font></a>
+                      <a href="{{ url('/createDonor') }}"><font color="white">Don't have an account? Register here.</font></a>
                     </div>
                         <div class="row">
                             <div class="col-12">
@@ -84,7 +87,6 @@
                                         <a class="btn btn-info btn-rounded" href="{{ route('donor.password.request') }}"><i class="fa fa-lock m-r-5"></i> {{ __('Forgot Password?') }}</a>
                                         <br />
                                         <br />
-
                                     </div>
                                 </div>
                             </div>
@@ -92,21 +94,6 @@
                 </div>
             </div>
         </div>
-        <!-- ============================================================== -->
-        <!-- Login box.scss -->
-        <!-- ============================================================== -->
-        <!-- ============================================================== -->
-        <!-- Page wrapper scss in scafholding.scss -->
-        <!-- ============================================================== -->
-        <!-- ============================================================== -->
-        <!-- Page wrapper scss in scafholding.scss -->
-        <!-- ============================================================== -->
-        <!-- ============================================================== -->
-        <!-- Right Sidebar -->
-        <!-- ============================================================== -->
-        <!-- ============================================================== -->
-        <!-- Right Sidebar -->
-        <!-- ============================================================== -->
     </div>
     @include('navbar.login')
 </body>

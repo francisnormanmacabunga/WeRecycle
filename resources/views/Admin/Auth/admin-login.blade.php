@@ -1,10 +1,24 @@
-@include('navbar.header')
-
 <!DOCTYPE html>
 <html dir="ltr">
 <head>
     <title>Administrator</title>
+    <link href="https://fonts.googleapis.com/css?family=Inconsolata|Rubik:300,400,700,900" rel="stylesheet">
+    <link rel="stylesheet" href="{{asset('css/styles-merged.css')}}">
+    <link rel="stylesheet" href="{{asset('css/style.min.css')}}">
+    <link rel="stylesheet" href="{{asset('css/custom.css')}}">
 </head>
+
+<header role="banner" class="probootstrap-header">
+  <div class="container">
+      <nav>
+        <ul class="probootstrap-main-nav">
+          <li class="active"><a href="{{ url('/administrator') }}">Back</a></li>
+        </ul>
+      </nav>
+  </div>
+</header>
+
+@include('navbar.header')
 <body>
     <div class="main-wrapper">
         <!-- ============================================================== -->

@@ -10,6 +10,7 @@ use App\Models\Employee;
 use App\Models\Contacts;
 use Hash;
 use Carbon\Carbon;
+
 class ApplicantsController extends Controller
 {
 
@@ -59,6 +60,7 @@ class ApplicantsController extends Controller
       'g-recaptcha-response'=> 'required|captcha'
     ],
     [
+      'g-recaptcha-response.required' => 'Captcha is required.',
       'firstname.required' => 'The First Name field is required.',
       'firstname.regex' => 'The First Name field must only contain letters.',
       'lastname.required' => 'The Last Name field is required.',

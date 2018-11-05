@@ -31,7 +31,7 @@
                                   <div class="card-body">
                                     <div align="center">
                                     <h4 class="page-title">Update Item: ID {{$products['productsID']}}</h4>
-                                  </div>
+
                                     <br />
                                     <div class="form-group-row">
                                         <div class="col-sm-9">
@@ -46,12 +46,12 @@
                                           <img src="{{ asset('images/' . $products->productimage) }}" width="200" height="200">
                                         </div>
                                     </div>
-                                    <div style="float:right;">
-                                        <div class="card-body">
-                                          <a class="btn btn-outline-danger" href="{{ url('/admin/managedonation') }}">Back</a>
-                                            <input value="Save" type="button" class="btn btn-outline-success" data-toggle="modal" data-target="#Modal2" />
-                                        </div>
-                                    </div>
+                                        <hr>
+                                        <input value="Save" type="button" class="btn btn-success btn-block btn-lg" data-toggle="modal" data-target="#Modal2" />
+                                        <a class="btn btn-danger btn-block btn-lg" href="{{ url()->previous() }}">Back</a>
+
+
+
                                     <!-- Modal -->
                                       <div class="modal fade" id="Modal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                           <div class="modal-dialog" role="document">
@@ -73,6 +73,8 @@
                                           </div>
                                       </div>
                               </div>
+</div>
+
                           </div>
                         </div>
                     {!! Form::close() !!}

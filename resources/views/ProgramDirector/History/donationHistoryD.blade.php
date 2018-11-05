@@ -29,29 +29,36 @@
                         <div class="table-responsive">
                           @if(count($donation) > 0)
                             <table class="table table-striped table-bordered">
-                                <thead>
+                              <thead>
+                                <tr>
+                                </tr>
+                            </thead>
+                            <tbody>
                                     <tr>
+                                      <th>Transaction ID</th>
                                         <th>Assigned Volunteer</th>
                                         <th>Type of Donation</th>
                                         <th>Weight</th>
                                         <th>Date</th>
                                         <th>Status</th>
                                     </tr>
-                                </thead>
-                                <tbody>
+
                                   @foreach ($donation as $donations)
                                     @php
                                       $cart = json_decode($donations->cart);
                                     @endphp
-                                    <tr>
-                                      <td>{{$donations->volunteer['firstname']}} {{$donations->volunteer['lastname']}}</td>
                                       @foreach($cart as $item)
+                                    <tr>
+                                      <td> {{$donations->transid}} </td>
+                                      <td>{{$donations->volunteer['firstname']}} {{$donations->volunteer['lastname']}}</td>
+
                                       <td>{{$item->name}}</td>
                                       <td>{{$item->qty}}</td>
-                                    @endforeach
+
                                       <td>{{date('F d, Y, h:i:sa', strtotime($donations->created_at))}}</td>
                                       <td>{{$donations->status}}</td>
                                     </tr>
+                                      @endforeach
                                     @endforeach
                                 </tbody>
                             </table>

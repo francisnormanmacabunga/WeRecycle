@@ -109,7 +109,7 @@ class RequestController extends Controller
     $qty = $order->quantity;
         $equation =  $qty/1000;
         $randompoints = $equation * 2;
-      
+
         $id = $order->userID;
         $points = Points::where('userID',$id)->first();
         $points->pointsaccumulated = $points->pointsaccumulated + $randompoints;
@@ -130,7 +130,7 @@ class RequestController extends Controller
       $order->volunteerID = $request->input('volunteer');
 
       $order->save();
-      return redirect('/programdirector/orders')->with('success', 'Profile updated');
+      return redirect('/programdirector/requests')->with('success', 'Profile updated');
     }
     }
 

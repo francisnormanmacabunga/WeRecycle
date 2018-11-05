@@ -30,7 +30,7 @@
                           <div class="card">
                               <div class="card-body">
                                 <div align="center">
-                                <h4 class="page-title">Update Item: ID {{$products['productsID']}}</h4>
+                                <h4 class="page-title">Update Item: ID #{{$products['productsID']}}</h4>
                                 <br />
                                 <div class="form-group-row">
                                     <div class="col-sm-9">
@@ -64,11 +64,10 @@
                                     </div>
                                 </div>
                                 {{Form::hidden('_method','PUT')}}
-                                <div style="float:right;">
-                                    <div class="card-body">
-                                        <input value="Save" type="button" class="btn btn-outline-success" data-toggle="modal" data-target="#Modal2" />
-                                    </div>
-                                </div>
+                                <hr>
+                                <input value="Save" type="button" class="btn btn-success btn-block btn-lg" data-toggle="modal" data-target="#Modal2" />
+                                <br>
+                                <a href="{{ url()->previous() }}"> <button class="btn btn-danger btn-block btn-lg"> Back </button> </a>
                               </div>
                                 <!-- Modal -->
                                   <div class="modal fade" id="Modal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">

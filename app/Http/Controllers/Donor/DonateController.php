@@ -51,6 +51,7 @@ class DonateController extends Controller
       $cartItems=Cart::content();
       $qty = Cart::count();
 
+
     if ($qty < 1000 || $qty > 10000) {
 
       session()->flash('notif','Donated Items is less the 1000g/More than 10,000g');

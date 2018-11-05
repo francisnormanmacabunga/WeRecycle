@@ -21,7 +21,6 @@
                 <div class="card">
                     <div class="card-body">
                         <h5 class="card-title">Donors Message</h5>
-                        <h5 class="card-title">Requests Messages</h5>
                         <div class="table-responsive">
                           @if(count($messagedonors) > 0)
                             <table id="zero_config" class="table table-striped table-bordered">

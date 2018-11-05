@@ -1,4 +1,7 @@
 <!DOCTYPE html>
+<head>
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('assets/images/favicon.png') }}">
+</head>
 <html dir="ltr" lang="en">
 <body>
 <div id="main-wrapper">

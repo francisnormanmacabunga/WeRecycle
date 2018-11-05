@@ -81,7 +81,7 @@
                                     <div align="center" style="color:red;">
                                         <br>
                                         <br>
-                                        <h5>No orders found.</h5>
+                                        <h5>No requests found.</h5>
                                     </div>
                                     @endif
                                 </div>

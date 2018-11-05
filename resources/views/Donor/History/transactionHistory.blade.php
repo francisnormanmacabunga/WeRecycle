@@ -71,7 +71,7 @@
                               </td>
                           @else
                           <td class="column-1">
-                              <form action="/cancel/{{$donations->transid}}">
+                              <form action="/cancel/{{$shops->transid}}">
                                   <input type="submit" value="Cancel"onclick="if(confirm('Are you sure?')) saveandsubmit(event);" />
                               </form>
                           </td>

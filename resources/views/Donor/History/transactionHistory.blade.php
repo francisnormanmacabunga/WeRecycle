@@ -6,7 +6,7 @@
         	<!-- Title page -->
         	<section class="bg-img1 txt-center p-lr-15 p-tb-92" style="background-image: url({{asset('donor-design/images/history.jpg')}});">
         		<h2 class="ltext-105 cl0 txt-center">
-        			Transaction History
+        			Order History
         		</h2>
         	</section>
         	<!-- Shoping Cart -->
@@ -15,7 +15,7 @@
               <div class="flex-w flex-sb-m p-b-52">
         				<div class="flex-w flex-l-m filter-tope-group m-tb-10">
                   <a href="#" class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5 how-active1">
-                    Transaction History
+                    Order History
                   </a>
         					<a href="{{url('/donor/donationhistory')}}" class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5">
                     Donation History
@@ -64,15 +64,15 @@
                               <td class="column-1">{{date('F d, Y, h:i:sa', strtotime($shops->created_at))}}</td>
                               <td class="column-1">{{$shops->status}}</td>
                               @if ($shops->status == 'Shipping' || $shops->status == 'Delivered' || $shops->status == 'Cancelled')
-                              <td>
+                              <td class="column-1">
                                   <form action="/cancel/{{$shops->transid}}">
-                                      <input type="submit" value="Cancel" disabled />
+                                      <input type="submit" class="btn btn-danger btn-rounded" value="Cancel" disabled />
                                   </form>
                               </td>
                           @else
                           <td class="column-1">
                               <form action="/cancel/{{$shops->transid}}">
-                                  <input type="submit" value="Cancel"onclick="if(confirm('Are you sure?')) saveandsubmit(event);" />
+                                  <input type="submit" class="btn btn-danger btn-rounded" value="Cancel" onclick="return confirm('Proceed to cancel order?')" />
                               </form>
                           </td>
                           @endif

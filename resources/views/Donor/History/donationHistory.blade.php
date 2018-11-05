@@ -21,7 +21,7 @@
                 Points History
               </a>
     					<a href="{{url('/donor/transactionhistory')}}" class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5">
-                Transaction History
+                Order History
     					</a>
     				</div>
           </div>
@@ -58,7 +58,7 @@
                       @if ($donations->status == 'Shipping' || $donations->status == 'Delivered' || $donations->status == 'Cancelled')
                       <td class="column-1">
                           <form action="/cancel/{{$donations->transid}}">
-                              <input type="submit" value="Cancel" class="btn btn-danger btn-rounded" disabled />
+                              <input type="submit" class="btn btn-danger btn-rounded"value="Cancel" class="btn btn-danger btn-rounded" disabled />
                           </form>
                       </td>
                       <td class="column-1">
@@ -66,7 +66,7 @@
                       @else
                       <td class="column-1">
                           <form action="/cancel/{{$donations->transid}}">
-                              <input type="submit" value="Cancel"onclick="if(confirm('Are you sure?')) saveandsubmit(event);" />
+                              <input type="submit" class="btn btn-danger btn-rounded" value="Cancel" onclick="return confirm('Proceed to cancel order?')" />
                           </form>
                       </td>
                       @endif

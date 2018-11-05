@@ -8,16 +8,6 @@
     <link rel="stylesheet" href="{{asset('css/custom.css')}}">
 </head>
 
-<header role="banner" class="probootstrap-header">
-  <div class="container">
-      <nav>
-        <ul class="probootstrap-main-nav">
-          <li class="active"><a href="{{ url('/administrator') }}">Back</a></li>
-        </ul>
-      </nav>
-  </div>
-</header>
-
 @include('navbar.header')
 <body>
     <div class="main-wrapper">
@@ -75,7 +65,8 @@
                             <div class="col-12">
                                 <div class="form-group">
                                     <div class="p-t-20">
-                                        <button class="btn btn-block btn-success btn-rounded" type="submit">{{ __('Login') }}</button>
+                                        <button class="btn btn-success float-right btn-rounded" type="submit">{{ __('Login') }}</button>
+                                        <a class="btn btn-danger btn-rounded" href="{{ url('/administrator') }}"><i class="fa fa-arrow-left"></i> Back</a>
                                     </div>
                                 </div>
                             </div>

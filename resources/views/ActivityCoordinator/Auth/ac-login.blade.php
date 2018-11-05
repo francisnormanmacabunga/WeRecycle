@@ -8,16 +8,6 @@
     <link rel="stylesheet" href="{{asset('css/custom.css')}}">
 </head>
 
-<header role="banner" class="probootstrap-header">
-  <div class="container">
-      <nav>
-        <ul class="probootstrap-main-nav">
-          <li class="active"><a href="{{ url('/administrator') }}">Back</a></li>
-        </ul>
-      </nav>
-  </div>
-</header>
-
 @include('navbar.header')
 
 <body>
@@ -56,8 +46,7 @@
                         <!-- Form -->
                         <form class="form-horizontal m-t-20" id="loginform" method="POST" action="{{ route('ac.login.submit') }}" aria-label="{{ __('Login') }}">
                             @csrf
-                            <div class="row p-b-30">
-                                <div class="col-12">
+                            <div align="center">
                                     <div class="input-group mb-3">
                                         <div class="input-group-prepend">
                                             <span class="input-group-text bg-success text-white btn-rounded" id="basic-addon1"><i class="ti-user"></i></span>
@@ -72,13 +61,15 @@
                                         <input type="password" name="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }} btn-rounded" placeholder="Password" aria-label="Password" aria-describedby="basic-addon1" required>
                                     </div>
                                 </div>
-                            </div>
+                            <div align="center">
+                          <a href="{{ route('activitycoordinator.password.request') }}"><font color="white">Forgot Password? Click here to reset.</font></a>
+                        </div>
                             <div class="row">
                                 <div class="col-12">
                                     <div class="form-group">
                                         <div class="p-t-20">
                                             <button class="btn btn-success float-right btn-rounded" type="submit">{{ __('Login') }}</button>
-                                            <a class="btn btn-info btn-rounded" href="{{ route('activitycoordinator.password.request') }}"><i class="fa fa-lock m-r-5"></i> {{ __('Forgot Password?') }}</a>
+                                            <a class="btn btn-danger btn-rounded" href="{{ url('/administrator') }}"><i class="fa fa-arrow-left"></i> Back</a>
                                             </a>
                                         </div>
                                     </div>

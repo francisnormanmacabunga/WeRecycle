@@ -64,9 +64,9 @@
                                                 @endforeach
                                                 @if($orders->status == 'Cancelled' || $orders->status == 'Delivered')
                                                     <td>
-                                                        <a data-toggle="tooltip" data-placement="top"><i class="mdi mdi-message-reply-text"></i></a>
-                                                        <a data-toggle="tooltip" data-placement="top"><i class="mdi mdi-message-reply"></i></a>
-                                                        <a data-toggle="tooltip" data-placement="top"><i class="fas fas fa-edit"></i></a>
+                                                        <a data-toggle="tooltip" data-placement="top"><button disabled class="btn-sm btn-light"><i class="mdi mdi-message-reply-text"></i></button></a>
+                                                        <a data-toggle="tooltip" data-placement="top"><button disabled class="btn-sm btn-light"><i class="mdi mdi-message-reply"></i></button></a>
+                                                        <a data-toggle="tooltip" data-placement="top"><button disabled class="btn-sm btn-light"><i class="fas fas fa-edit"></i></button></a>
                                                     </td>
                                                     @else
                                                     <td>

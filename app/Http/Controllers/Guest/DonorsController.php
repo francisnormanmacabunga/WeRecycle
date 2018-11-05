@@ -50,7 +50,7 @@ class DonorsController extends Controller
       'email' => 'required|unique:user,email',
       'cellNo' => 'required|min:13|max:13|regex:/^\+63[0-9]{10}$/',
       'tellNo' => 'required|min:7|max:7',
-      'birthdate' => 'required|before:2003-01-01',
+      'birthdate' => 'required',
       'city' => 'required|regex:/^[\pL\s]+$/u',
       'street' => 'nullable|regex:/^[ \w.#-]+$/',
       'barangay' => 'nullable|regex:/^[ \w.#-]+$/',

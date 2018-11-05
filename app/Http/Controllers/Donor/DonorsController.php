@@ -186,7 +186,7 @@ class DonorsController extends Controller
 
       $plog = new PointsLog;
       $plog->userID = Auth::user()->userID;
-      $plog->activity = 'Redeem Code';
+      $plog->activity = 'Redeem';
       $plog->points = '-100';
       $plog->save();
 

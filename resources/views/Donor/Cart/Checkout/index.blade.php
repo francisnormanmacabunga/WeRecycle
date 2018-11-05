@@ -60,7 +60,7 @@
 									<th class="text-center">Price</th>
 									<th class="text-center">Quantity</th>
 								</tr>
-								@forelse($cartItems as $cartItem)
+								@foreach($cartItems as $cartItem)
 								<tr class="table_row">
 									<td class="text-center">{{$cartItem->name}}</td>
 									<td class="text-center">
@@ -68,18 +68,9 @@
                   </td>
 									<td class="text-center">
 										{{$cartItem->qty}}
-
-									</td>
-									@empty
-									<td colspan="10">
-										<br />
-										<div class="text-center">
-											<h5 class="stext-110 cl2" style="color:red;">No items in cart.</h5>
-										</div>
-										<br />
 									</td>
 								</tr>
-								@endforelse
+								@endforeach
 
 							</table>
 

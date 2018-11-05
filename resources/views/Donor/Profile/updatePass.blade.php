@@ -1,50 +1,59 @@
-@extends('layouts.frontend')
-@include('layouts.donor-nav')
-
-@section('content')
-
-  {!! Form::open(['action' => ['Donor\DonorsPasswordController@update', $donors['userID']], 'method' => 'POST' ]) !!}
-  <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
-    <h3>Update your password, {{$donors->firstname}}!</h3>
-  </div>
-  <div class="container col-md-6 center-align">
-    <div class="card-deck mb-3 ">
-      <div class="card mb-4 shadow-sm">
-        <div class="card-header text-center">
-          <h4 class="my-0 font-weight-normal">User profile</h4>
-        </div>
-        <div class="card-body text-center">
-          <h1 class="card-title pricing-card-title text-center">{{$donors->firstname}} {{$donors->lastname}}</h1>
-          <hr style="margin:5px 0 5px 0;"><br>
-          <dl class="row">
-            <dt class="col-sm-6">Update Password:</dt>
-            <dd class="col-sm-5">{{Form::password('password', ['class' => 'form-control'])}}</dd>
-            <dt class="col-sm-6">Confirm Password:</dt>
-            <dd class="col-sm-5">{{Form::password('password_confirmation', ['class' => 'form-control'])}}</dd>
-          </dl>
-          <hr style="margin:5px 0 5px 0;"><br>
-          {{Form::submit('Save',['class' => 'btn btn-lg btn-block btn-primary', 'onclick' => 'Confirm()'])}}
-          <a class="btn btn-lg btn-block btn-primary" href="{{ url('/donor/donors') }}" role="button">Back </a>
-          </div>
-          {{Form::hidden('_method','PUT')}}
-          {!! Form::close() !!}
-        </div>
-      </div>
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+      @include('navbar.donor')
+      <head>
+          <link href="{{ asset('dist/css/style.min.css') }}" rel="stylesheet">
+          <link href="{{ asset('assets/libs/datatables.net-bs4/css/dataTables.bootstrap4.css') }}" rel="stylesheet">
+          <link rel="stylesheet" type="text/css" href="{{ asset('assets/extra-libs/multicheck/multicheck.css') }}">
+          <!-- Custom CSS -->
+          <link href="{{ asset('assets/libs/flot/css/float-chart.css') }}" rel="stylesheet">
+      </head>
+<body>
+    <div id="main-wrapper">
+            <!-- Card -->
+            <div class="card">
+              <div class="container">
+              <div class="page-breadcrumb">
+                 <div class="row">
+                     <div class="col-12 d-flex no-block align-items-center">
+                             <nav aria-label="breadcrumb">
+                                 <ol class="breadcrumb">
+                                     <li class="breadcrumb-item"><a href="{{ url('/donor/donors') }}">Profile</a></li>
+                                     <li class="breadcrumb-item active" aria-current="page">Edit</li>
+                                 </ol>
+                             </nav>
+                     </div>
+                 </div>
+             </div>
+           </div>
+           <div class="container col-md-6 center-align">
+               <div class="card-deck mb-3 ">
+                   <div class="card mb-4 shadow-sm">
+                       <div class="card-header text-center">
+                           {!! Form::open(['action' => ['Donor\DonorsPasswordController@update', $donors['userID']], 'method' => 'POST' ]) !!}
+                           <h4 class="my-0 font-weight-normal">Update your password, {{$donors->firstname}}!</h4>
+                       </div>
+                       <div class="card-body text-center">
+                           <h1 class="card-title pricing-card-title text-center">{{$donors->firstname}} {{$donors->lastname}}</h1>
+                           <hr style="margin:5px 0 5px 0;"><br>
+                           <dl class="row">
+                               <dt class="col-sm-6">Update Password:</dt>
+                               <dd class="col-sm-5">{{Form::password('password', ['class' => 'form-control'])}}</dd>
+                               <dt class="col-sm-6">Confirm Password:</dt>
+                               <dd class="col-sm-5">{{Form::password('password_confirmation', ['class' => 'form-control'])}}</dd>
+                           </dl>
+                           <hr style="margin:5px 0 5px 0;"><br>
+                           <input type="button" value="Save Changes" class="btn btn-success btn-block btn-lg" onclick="if(confirm('Are you sure?')) saveandsubmit(event);" />
+                       </div>
+                       {{Form::hidden('_method','PUT')}}
+                       {!! Form::close() !!}
+                   </div>
+               </div>
+           </div>
+            </div>
     </div>
+    @include('navbar.donor-footer')
+    @include('navbar.footer')
+</body>
 
-
-    <script type="text/javascript">
-        function Confirm() {
-            var confirm_value = document.createElement("INPUT");
-            confirm_value.type = "hidden";
-            confirm_value.name = "confirm_value";
-            if (confirm("Do you want to save data?")) {
-                confirm_value.value = "Yes";
-            } else {
-                confirm_value.value = "No";
-            }
-            document.forms[0].appendChild(confirm_value);
-        }
-    </script>
-
-@endsection
+</html>

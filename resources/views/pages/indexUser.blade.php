@@ -12,34 +12,35 @@
       <div class="item-slick1 bg-overlay1" style="background-image: url({{asset('donor-design/images/header.gif')}});">
         <div class="container h-full">
 
-          @if(session()->has('pointsnotif'))
-          <div class="content">
-            <div class="alert alert-success">
-              <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-              <strong>{{session()->get('pointsnotif')}}</strong>
-            </div>
-          </div>
-          @endif
 
-          @if(session()->has('notif'))
-          <div class="content">
-            <div class="alert alert-success">
-              <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-              <strong>{{session()->get('notif')}}</strong>
-            </div>
-          </div>
-          @endif
-
-          @if(session()->has('cod'))
-          <div class="content">
-            <div class="alert alert-success">
-              <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-              <strong>{{session()->get('cod')}}</strong>
-            </div>
-          </div>
-          @endif
 
           <div class="flex-col-c-m h-full p-t-100 p-b-30">
+            @if(session()->has('pointsnotif'))
+            <div class="content">
+              <div class="alert alert-success">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                <strong>{{session()->get('pointsnotif')}}</strong>
+              </div>
+            </div>
+            @endif
+
+            @if(session()->has('notif'))
+            <div class="content">
+              <div class="alert alert-success">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                <strong>{{session()->get('notif')}}</strong>
+              </div>
+            </div>
+            @endif
+
+            @if(session()->has('cod'))
+            <div class="content">
+              <div class="alert alert-success">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                <strong>{{session()->get('cod')}}</strong>
+              </div>
+            </div>
+            @endif
             <div class="layer-slick1 animated visible-false" data-appear="fadeInDown" data-delay="0">
               <span class="ltext-104 txt-center cl0 p-t-22 p-b-40 respon1">
                 Welcome, {{Auth::user()->firstname}}!

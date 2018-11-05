@@ -70,7 +70,6 @@
                 </div>
                 <div class="col-xs-12" align="right">
                   <a href="{{action('ProgramDirector\DonationHistoryController@donationPDF')}}" class="btn btn-danger"><i class="mdi mdi-file-pdf"></i> PDF</a>
-                  <button class="btn btn-info" onclick="window.print();"><i class="fa fa-print"></i> Print</button>
                 </div>
             </div>
 

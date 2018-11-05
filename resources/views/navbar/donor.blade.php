@@ -159,14 +159,8 @@
         </li>
 
         <li class="p-b-13">
-          <a href="{{ url('/donor/donationhistory') }}" class="stext-102 cl2 hov-cl1 trans-04">
+          <a href="{{ url('/donor/transactionhistory') }}" class="stext-102 cl2 hov-cl1 trans-04">
             History
-          </a>
-        </li>
-
-        <li class="p-b-13">
-          <a href="{{ url('/donor/pointhistory') }}" class="stext-102 cl2 hov-cl1 trans-04">
-            Point History
           </a>
         </li>
 

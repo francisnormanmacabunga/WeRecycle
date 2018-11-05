@@ -66,16 +66,16 @@
 
                                       @if($requests->status == 'Cancelled' || $requests->status == 'Delivered')
                                       <td>
-                                        <a data-toggle="tooltip" data-placement="top"><button disabled class="btn-sm btn-light"><i class="mdi mdi-message-reply-text"></i></button></a>
-                                        <a data-toggle="tooltip" data-placement="top"><button disabled class="btn-sm btn-light"><i class="mdi mdi-message-reply"></i></button></a>
-                                        <a data-toggle="tooltip" data-placement="top"><button disabled class="btn-sm btn-light"><i class="fas fas fa-edit"></button></i></a>
+                                        <a data-toggle="tooltip" data-placement="top"><i class="mdi mdi-message-reply-text"></i></a>
+                                        <a data-toggle="tooltip" data-placement="top"><i class="mdi mdi-message-reply"></i></a>
+                                        <a data-toggle="tooltip" data-placement="top"><i class="fas fas fa-edit"></i></a>
 
                                       </td>
                                       @else
                                       <td>
-                                      <a href="/programdirector/sendSMS-V-R/transactionID={{$requests->transid}}" data-toggle="tooltip" data-placement="top"  title="Message Volunteer"><button><i class="mdi mdi-message-reply-text"></i></button></a><br/>
-                                      <a href="/programdirector/sendSMS-D-R/transactionID={{$requests->transid}}" data-toggle="tooltip" data-placement="top"  title="Message Donor"><button><i class="mdi mdi-message-reply"></i></button></a><br/>
-                                      <a href="/programdirector/requests/{{$requests->transid}}/edit" data-toggle="tooltip" data-placement="top"  title="Edit"><button><i class="fas fas fa-edit"></button></i></a>
+                                      <a href="/programdirector/sendSMS-V-R/transactionID={{$requests->transid}}" data-toggle="tooltip" data-placement="top"  title="Message Volunteer"><i class="mdi mdi-message-reply-text"></i></a>
+                                      <a href="/programdirector/sendSMS-D-R/transactionID={{$requests->transid}}" data-toggle="tooltip" data-placement="top"  title="Message Donor"><i class="mdi mdi-message-reply"></i></a>
+                                      <a href="/programdirector/requests/{{$requests->transid}}/edit" data-toggle="tooltip" data-placement="top"  title="Edit"><i class="fas fas fa-edit"></i></a>
                                     </td>
                                       @endif
                                     </tr>
@@ -97,7 +97,6 @@
                 </div>
                 <div class="col-xs-12" align="right">
                   <a href="{{action('ProgramDirector\TransactionPDF@transactionPDFR')}}" class="btn btn-danger"><i class="mdi mdi-file-pdf"></i> PDF</a>
-                  <button class="btn btn-info" onclick="window.print();"><i class="fa fa-print"></i> Print</button>
                 </div>
             </div>
         </div>

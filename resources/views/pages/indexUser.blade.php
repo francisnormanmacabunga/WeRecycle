@@ -45,7 +45,7 @@
                 Welcome, {{Auth::user()->firstname}}!
               </span>
             </div>
-            <div class="layer-slick1 animated visible-false" data-appear="fadeInUp" data-delay="800">
+            <div class="layer-slick1 animated visible-false" data-appear="fadeInDown" data-delay="0">
               <br />
               <span class="ltext-101 cl2 txt-center cl0 p-t-22 p-b-40 respon1" style="color:white">
                 Your current points is:
@@ -53,11 +53,12 @@
               <div class="w3-light-grey w3-xlarge">
                 <div class="w3-container w3-green" style="max-width:100%; width:{{$width['pointsaccumulated']}}%" max="100%" min="0%">{{$width['pointsaccumulated']}}%</div>
               </div>
+              <br />
             </div>
-            <div class="layer-slick1 animated visible-false" data-appear="fadeInDown" data-delay="0">
+            <div class="layer-slick1 animated visible-false" data-appear="fadeInUp" data-delay="800">
               @if ($width['pointsaccumulated'] >= 100)
               <div>
-              <center><a href="/redeemcode/{{Auth::user()->userID}}" onclick="confirm('Are you sure you want to claim your discount code?')" class="btn-lg" >Redeem</a></center>
+              <center><a href="/redeemcode/{{Auth::user()->userID}}" onclick="confirm('Are you sure you want to claim your discount code?')" class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04">Redeem</a></center>
 
               </div>
               @else

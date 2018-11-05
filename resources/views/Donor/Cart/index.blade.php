@@ -41,6 +41,18 @@
 		</div>
 		@endif
 
+		@if(session()->has('notell'))
+		<div class="container">
+	<div class="content">
+		<div class="alert alert-danger">
+			<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+			<strong>{{session()->get('notell')}}</strong>
+		</div>
+		<br />
+	</div>
+	</div>
+	@endif
+
 			@if(session()->has('notie'))
 			<div class="container">
 			<div class="content">

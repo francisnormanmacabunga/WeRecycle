@@ -64,15 +64,15 @@
                                                 @endforeach
                                                 @if($orders->status == 'Cancelled' || $orders->status == 'Delivered')
                                                     <td>
-                                                        <a href="/programdirector/sendSMS-V-O/transactionID={{$orders->transid}}" data-toggle="tooltip" data-placement="top" title="Message Volunteer"><button disabled><i class="mdi mdi-message-reply-text"></button></i></a>
-                                                        <a href="/programdirector/sendSMS-D-O/transactionID={{$orders->transid}}" data-toggle="tooltip" data-placement="top" title="Message Donor"><button disabled><i class="mdi mdi-message-reply"></button></i></a>
-                                                        <a href="/programdirector/orders/{{$orders->transid}}/edit" data-toggle="tooltip" data-placement="top" title="Edit"><button disabled><i class="fas fas fa-edit"></button></i></a>
+                                                        <a href="/programdirector/sendSMS-V-O/transactionID={{$orders->transid}}" data-toggle="tooltip" data-placement="top"><button class="btn-sm btn-light" disabled><i class="mdi mdi-message-reply-text"></button></i></a>
+                                                        <a href="/programdirector/sendSMS-D-O/transactionID={{$orders->transid}}" data-toggle="tooltip" data-placement="top"><button class="btn-sm btn-light" disabled><i class="mdi mdi-message-reply"></button></i></a>
+                                                        <a href="/programdirector/orders/{{$orders->transid}}/edit" data-toggle="tooltip" data-placement="top"><button class="btn-sm btn-light" disabled><i class="fas fas fa-edit"></button></i></a>
                                                     </td>
                                                     @else
                                                     <td>
-                                                        <a href="/programdirector/sendSMS-V-O/transactionID={{$orders->transid}}" data-toggle="tooltip" data-placement="top" title="Message Volunteer"><button><i class="mdi mdi-message-reply-text"></button></i></a>
-                                                        <a href="/programdirector/sendSMS-D-O/transactionID={{$orders->transid}}" data-toggle="tooltip" data-placement="top" title="Message Donor"><button><i class="mdi mdi-message-reply"></button></i></a>
-                                                        <a href="/programdirector/orders/{{$orders->transid}}/edit" data-toggle="tooltip" data-placement="top" title="Edit"><button><i class="fas fas fa-edit"></button></i></a>
+                                                        <a href="/programdirector/sendSMS-V-O/transactionID={{$orders->transid}}" data-toggle="tooltip" data-placement="top" title="Message Volunteer"><button class="btn-sm btn-light"><i class="mdi mdi-message-reply-text"></button></i></a>
+                                                        <a href="/programdirector/sendSMS-D-O/transactionID={{$orders->transid}}" data-toggle="tooltip" data-placement="top" title="Message Donor"><button class="btn-sm btn-light"><i class="mdi mdi-message-reply"></button></i></a>
+                                                        <a href="/programdirector/orders/{{$orders->transid}}/edit" data-toggle="tooltip" data-placement="top" title="Edit"><button class="btn-sm btn-light"><i class="fas fas fa-edit"></button></i></a>
                                                     </td>
                                                     @endif
                                             </tr>

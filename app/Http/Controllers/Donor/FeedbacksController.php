@@ -22,11 +22,12 @@ class FeedbacksController extends Controller
     public function sendFeedback(Request $request)
     {
       $this->validate($request, [
-      'feedback' => 'nullable',
+      'feedback' => 'nullable|regex:/^[A-Za-z. -]+$/',
       'rating' => 'required|integer|between:1,5',
     ],
     [
       'rating.required' => 'The rating field is required.',
+      'feedback.regex' => 'Feedback must only contain letters and period.',
     ]);
     session()->flash('notif','Thanks for the feedback!');
       $feedback = new Feedbacks();

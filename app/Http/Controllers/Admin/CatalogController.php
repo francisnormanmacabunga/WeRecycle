@@ -58,10 +58,10 @@ class CatalogController extends Controller
     ],
     [
       'productname.required' => 'Product name is required field.',
-      'productname.regex' => 'Product name must only contain letters, period, comma, exclamation mark, apostrophe, hyphen.',
+      'productname.regex' => 'Product name must only contain letters and period.',
       'productstypeID.required' => 'Item Type is a required field.',
       'description.required' => 'Item description is a required field.',
-      'description.regex' => 'Item description must only contain letters, period, comma, exclamation mark, apostrophe, hyphen',
+      'description.regex' => 'Item description must only contain letters and period',
       'price.min' => 'Price must be greater than 0.',
       'productimage.required' => 'Product image is required',
       'productimage.mimes' => 'Image must be in JPG/JPEG or PNG format',
@@ -130,8 +130,8 @@ class CatalogController extends Controller
       'price' => 'min:0',
     ],
     [
-      'productname.regex' => 'Product name must only contain letters, period, comma, exclamation mark, apostrophe, hyphen.',
-      'description.regex' => 'Item description must only contain letters, period, comma, exclamation mark, apostrophe, hyphen.',
+      'productname.regex' => 'Product name must only contain letters and period.',
+      'description.regex' => 'Item description must only contain letters and period.',
       'price.min' => 'Price must be greater than 0.',
     ]);
 

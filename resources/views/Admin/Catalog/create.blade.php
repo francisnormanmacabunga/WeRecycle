@@ -76,7 +76,7 @@
                                 <div class="form-group-row">
                                     <div class="col-sm-9">
                                       <label>Price</label>
-                                        <input type="number" name="price" class="form-control" placeholder="Price">
+                                        <input type="number" name="price" min="0" class="form-control" placeholder="Price">
                                         <p style="color:red;">*Applicable for shop products only.</p>
                                     </div>
                                 </div>
@@ -98,7 +98,7 @@
                                   <br>
                                   <br>
                                   <br>
-                                  
+
                                         <button type="submit" class="btn btn-outline-success">Save</button>
                                 </div>
                                 <br />

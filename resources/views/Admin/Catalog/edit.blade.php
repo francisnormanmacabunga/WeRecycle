@@ -60,7 +60,7 @@
                                 <div class="form-group-row">
                                     <div class="col-sm-9">
                                       <label>Price</label>
-                                        {{Form::number('price', $products['price'],['class' => 'form-control'])}}
+                                        {{Form::number('price', $products['price'],[ 'min' => '0', 'class' => 'form-control'])}}
                                     </div>
                                 </div>
                                 {{Form::hidden('_method','PUT')}}

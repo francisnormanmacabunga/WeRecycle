@@ -49,19 +49,19 @@ class CatalogController extends Controller
     public function store(Request $request)
     {
       $this->validate($request, [
-      'productname' => 'required|regex:/^[\pL\s]+$/u',
+      'productname' => 'required|regex:/^[ \w.,!''-]+$',
       'productstypeID' => 'required',
-      'description' => 'required|regex:/^[ \w.#-]+$/',
+      'description' => 'required|regex:/^[ \w.,!''-]+$',
       'price' => 'min:0',
       'productimage' => 'required|mimes:jpeg,jpg,png|image|max:5000',
       'category' => 'required'
     ],
     [
       'productname.required' => 'Product name is required field.',
-      'productname.regex' => 'Product name must only contain letters.',
+      'productname.regex' => 'Product name must only contain letters, period, comma, exclamation mark, apostrophe, hyphen.',
       'productstypeID.required' => 'Item Type is a required field.',
       'description.required' => 'Item description is a required field.',
-      'description.regex' => 'Item description must only contain letters, numbers, underscores, dashes, hypens and hashes.',
+      'description.regex' => 'Item description must only contain letters, period, comma, exclamation mark, apostrophe, hyphen',
       'price.min' => 'Price must be greater than 0.',
       'productimage.required' => 'Product image is required',
       'productimage.mimes' => 'Image must be in JPG/JPEG or PNG format',

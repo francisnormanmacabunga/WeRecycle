@@ -52,53 +52,60 @@ class CartController extends Controller
       $cartItems=Cart::instance('shop')->content();
       $code = $request->dcode;
 
-if ($code == '') {
+if (count($cartItems) > 0) {
 
-$total = Cart::instance('shop')->Total();
+  if ($code == '') {
+
+  $total = Cart::instance('shop')->Total();
+
+    $order = new Order();
+    $order->userID = $donor->userID;
+    $order->type= 'Shop';
+    $order->cart = $cartItems;
+    $order->price = $total;
+    $order->status = 'Inactive';
+    $order->save();
+
+
+    return redirect()->route('cart.checkout');
+
+  }else{
+    //$reward = Reward::SELECT('select code from reward where code = ?',[$code]);
+    $reward = Reward::Where('code', $code)->get();
+
+  if(count($reward) > 0){
+    $total = Cart::instance('shop')->Total();
+    $discount = Cart::instance('shop')->Total() * 0.15;
 
   $order = new Order();
   $order->userID = $donor->userID;
   $order->type= 'Shop';
   $order->cart = $cartItems;
-  $order->price = $total;
+  $order->discountedprice = $total - $discount;
   $order->status = 'Inactive';
+  $order->code = $request->input('dcode');
   $order->save();
 
 
   return redirect()->route('cart.checkout');
+  }else {
+  session()->flash('notie','Invalid/Incorrect Code');
+   return view('Donor/Cart.index',compact('cartItems'));
+  }
 
+
+}
 }else{
-  //$reward = Reward::SELECT('select code from reward where code = ?',[$code]);
-  $reward = Reward::Where('code', $code)->get();
-
-if(count($reward) > 0){
-  $total = Cart::instance('shop')->Total();
-  $discount = Cart::instance('shop')->Total() * 0.15;
-
-$order = new Order();
-$order->userID = $donor->userID;
-$order->type= 'Shop';
-$order->cart = $cartItems;
-$order->discountedprice = $total - $discount;
-$order->status = 'Inactive';
-$order->code = $request->input('dcode');
-$order->save();
-
-
-return redirect()->route('cart.checkout');
-}else {
-session()->flash('notie','Invalid/Incorrect Code');
- return view('Donor/Cart.index',compact('cartItems'));
+    session()->flash('notell','No items in cart!');
+    return back();
 }
-
 }
-
       /*$test = order::SELECT('*')
       -> where('userID',$donor->userID)
       -> get();*/
       //$test2 = order::find();
       //$ordertable = DB::select('select * from orders where userID = ?', [$donor->userID]);
-     }
+
 
     /*public function __construct()
     {

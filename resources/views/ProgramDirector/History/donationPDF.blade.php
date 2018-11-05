@@ -30,15 +30,6 @@
                 margin-bottom: 2cm;
             }
 
-            /** Define the header rules **/
-            header {
-                position: fixed;
-                top: 0cm;
-                left: 0cm;
-                right: 0cm;
-                height: 3cm;
-            }
-
             /** Define the footer rules **/
             footer {
              position: fixed;

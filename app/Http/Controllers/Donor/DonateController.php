@@ -47,6 +47,7 @@ class DonateController extends Controller
 
     public function checkout()
     {
+      
       $donor = Auth::user();
       $cartItems=Cart::content();
       $qty = Cart::count();

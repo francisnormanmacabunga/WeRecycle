@@ -35,7 +35,7 @@
                                 <div class="form-group-row">
                                     <div class="col-sm-9">
                                       <label>Item Name</label>
-                                        {{Form::text('productname', $products['productname'],['class' => 'form-control', 'onkeypress' => 'return !validNo(this,event)'])}}
+                                        {{Form::text('productname', $products['productname'],['class' => 'form-control', 'required' => 'required', 'onkeypress' => 'return !validNo(this,event)'])}}
                                     </div>
                                 </div>
                                 <br />
@@ -54,7 +54,7 @@
                                 <div class="form-group-row">
                                     <div class="col-sm-9">
                                       <label>Description</label>
-                                        {{Form::textarea('description', $products['description'],['class' => 'form-control', 'rows' => 3])}}
+                                        {{Form::textarea('description', $products['description'],['class' => 'form-control', 'required' => 'required', 'rows' => 3])}}
                                     </div>
                                 </div>
                                 <div class="form-group-row">

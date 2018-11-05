@@ -72,6 +72,7 @@ class CatalogController extends Controller
       $validator = Validator::make($request->all(), [
       'productimage' => 'max:1'
 
+
       ]);
       $filename = $request->file('productimage')->getClientOriginalName();
       $moveImage = $request->file('productimage')->move('images', $filename);

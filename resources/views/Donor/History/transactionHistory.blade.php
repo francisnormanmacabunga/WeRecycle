@@ -1,117 +1,122 @@
-@extends('layouts.frontend')
-@include('layouts.donor-nav')
-@section('content')
+<!DOCTYPE html>
+        <html lang="en">
+        @include('navbar.donor')
+        <body>
 
-<div class="row">
-    <div class="col-lg-3">
-        <h3>Orders History</h3>
-        <div class="list-group">
-            <a href="{{url('/donor/donationhistory')}}" class="list-group-item">Donation History</a>
-            <a href="{{url('/donor/transactionhistory')}}" class="list-group-item">Transaction History</a>
-            <a href="{{ url('/donor/pointhistory') }}" class="list-group-item">Points History</a>
-        </div>
-        </div>
+        	<!-- Title page -->
+        	<section class="bg-img1 txt-center p-lr-15 p-tb-92" style="background-image: url({{asset('donor-design/images/history.jpg')}});">
+        		<h2 class="ltext-105 cl0 txt-center">
+        			Transaction History
+        		</h2>
+        	</section>
+        	<!-- Shoping Cart -->
+        		<div class="container">
+              <br />
+              <div class="flex-w flex-sb-m p-b-52">
+        				<div class="flex-w flex-l-m filter-tope-group m-tb-10">
+                  <a href="#" class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5 how-active1">
+                    Transaction History
+                  </a>
+        					<a href="{{url('/donor/donationhistory')}}" class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5">
+                    Donation History
+        					</a>
+                  <a href="{{ url('/donor/pointhistory') }}" class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5">
+                    Points History
+                  </a>
+        				</div>
+              </div>
 
-    <div class="col-lg-9">
+        			<div class="row">
+        				<div class="col-lg-100 col-xl-70 m-lr-auto m-b-500">
+        					<div class="m-l-25 m-r--38 m-lr-0-xl">
+        						<div class="wrap-table-shopping-cart">
+                      @if(count($shop) > 0)
+        							<table class="table-shopping-cart">
 
-      <a href="{{ url('/donor/transactionhistory') }}">
-       <button style="float: right;">Reset</button>
-      </a>
-
-      <a href="{{ url('/donor/transactionhistory/?status=Cancelled') }}">
-        <button style="float: right;">Sort by Cancelled</button>
-      </a>
-
-      <a href="{{ url('/donor/transactionhistory/?status=Delivered') }}">
-        <button style="float: right;">Sort by Delivered</button>
-      </a>
-
-      <a href="{{ url('/donor/transactionhistory/?status=Shipping') }}">
-        <button style="float: right;">Sort by Shipping</button>
-      </a>
-
-      <a href="{{ url('/donor/transactionhistory/?status=Processing') }}">
-        <button style="float: right;">Sort by Processing</button>
-      </a>
-
-      <br>
-      <br>
-
-
-        <div class="row">
-            @if(count($shop) > 0)
-            <table class="table table-bordered" class="fixed">
-                <thead>
-                    <tr>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <th>Transaction ID</th>
-                        <th>Name of Volunteer</th>
-                        <th>Product Name</th>
-                        <th>Quantity</th>
-                        <th>Amount</th>
-                        <th>@sortablelink('created_at', 'Date')</th>
-                        <th>Status</th>
-                        <th>Action</th>
-                    </tr>
-                    @foreach ($shop as $shops)
-                    @php
-                    $cart = json_decode($shops->cart);
-                    @endphp
-                    @foreach($cart as $item)
-                    <tr>
-                        <td>{{$shops->transid}}</td>
-                        <td>{{$shops->volunteer['firstname']}} {{$shops->volunteer['lastname']}}</td>
-                        @if(!is_null($shops->discountedprice))
-                            <td>{{$item->name}}</td>
-                            <td>{{$item->qty}}</td>
-                            <td>{{$shops->discountedprice}}
-                                @else
-                            <td>{{$item->name}}</td>
-                            <td>{{$item->qty}}</td>
-                            <td>{{$shops->price}}</td>
-                            @endif
-                            <td>{{date('F d, Y, h:i:sa', strtotime($shops->created_at))}}</td>
-                            <td>{{$shops->status}}</td>
-                            @if ($shops->status == 'Shipping' || $shops->status == 'Delivered' || $shops->status == 'Cancelled')
-                            <td>
-                                <form action="/cancel/{{$shops->transid}}">
-                                    <input type="submit" value="Cancel" disabled />
-                                </form>
-                            </td>
-                            @else
-                            <td>
-                                <form action="/cancel/{{$shops->transid}}">
-                                    <input type="submit" value="Cancel" onclick="Confirm()" />
-                                </form>
-                            </td>
-                            @endif
-                            <script type="text/javascript">
-                                function Confirm() {
-                                    var confirm_value = document.createElement("INPUT");
-                                    confirm_value.type = "hidden";
-                                    confirm_value.name = "confirm_value";
-                                    if (confirm("Do you want to save data?")) {
-                                        confirm_value.value = "Yes";
-                                    } else {
-                                        confirm_value.value = "No";
-                                    }
-                                    document.forms[0].appendChild(confirm_value);
-                                }
-                            </script>
-                    </tr>
-                    @endforeach
-                    @endforeach
-                </tbody>
-            </table>
-            @else
-            <div align="center" style="color:red;">
-                <h4 style="font-family:serif;">No orders found.</h4>
-            </div>
-            @endif
-        </div>
-    </div>
-
-    @endsection
+        								<tr class="table_head">
+                          <th class="column-1">#</th>
+                          <th class="column-1">Assigned Volunteer</th>
+                          <th class="column-1">Product Name</th>
+                          <th class="column-1">Quantity</th>
+                          <th class="column-1">Amount</th>
+                          <th class="column-1">@sortablelink('created_at', 'Date')</th>
+                          <th class="column-1">Status</th>
+                          <th class="column-1">Action</th>
+                          <th class="column-1"></th>
+        								</tr>
+                        @foreach ($shop as $shops)
+                        @php
+                        $cart = json_decode($shops->cart);
+                        @endphp
+                        @foreach($cart as $item)
+        								<tr class="table_row">
+                          <td class="column-1">{{$shops->transid}}</td>
+                          <td class="column-1">{{$shops->volunteer['firstname']}} {{$shops->volunteer['lastname']}}</td>
+                          @if(!is_null($shops->discountedprice))
+                              <td class="column-1">{{$item->name}}</td>
+                              <td class="column-1">{{$item->qty}}</td>
+                              <td class="column-1">{{$shops->discountedprice}}
+                                  @else
+                              <td class="column-1">{{$item->name}}</td>
+                              <td class="column-1">{{$item->qty}}</td>
+                              <td class="column-1">{{$shops->price}}</td>
+                              @endif
+                              <td class="column-1">{{date('F d, Y, h:i:sa', strtotime($shops->created_at))}}</td>
+                              <td class="column-1">{{$shops->status}}</td>
+                              @if ($shops->status == 'Shipping' || $shops->status == 'Delivered' || $shops->status == 'Cancelled')
+                              <td>
+                                  <form action="/cancel/{{$shops->transid}}">
+                                      <input type="submit" value="Cancel" disabled />
+                                  </form>
+                              </td>
+                          @else
+                          <td class="column-1">
+                              <form action="/cancel/{{$donations->transid}}">
+                                  <input type="submit" value="Cancel"onclick="if(confirm('Are you sure?')) saveandsubmit(event);" />
+                              </form>
+                          </td>
+                          @endif
+        								</tr>
+        								@endforeach
+        								@endforeach
+                        @else
+        								<td colspan="10">
+        									<br />
+        									<div class="text-center">
+        										<h5 class="stext-110 cl2" style="color:red;">No records found.</h5>
+        									</div>
+        									<br />
+        								</td>
+        								@endif
+        							</table>
+        						</div>
+                    <div class="flex-w flex-t p-t-16">
+                    <span class="size-216 stext-116 cl8 p-t-4">
+                      Sort:
+                    </span>
+                    <div class="flex-w size-217">
+                      <a href="{{ url('/donor/transactionhistory') }}" class="flex-c-m stext-107 cl6 size-301 bor7 p-lr-15 hov-tag1 trans-04 m-r-5 m-b-5">
+                        All
+                      </a>
+                      <a href="{{ url('/donor/transactionhistory/?status=Cancelled') }}" class="flex-c-m stext-107 cl6 size-301 bor7 p-lr-15 hov-tag1 trans-04 m-r-5 m-b-5">
+                        Cancelled
+                      </a>
+                      <a href="{{ url('/donor/transactionhistory/?status=Delivered') }}" class="flex-c-m stext-107 cl6 size-301 bor7 p-lr-15 hov-tag1 trans-04 m-r-5 m-b-5">
+                        Delivered
+                      </a>
+                      <a href="{{ url('/donor/transactionhistory/?status=Shipping') }}" class="flex-c-m stext-107 cl6 size-301 bor7 p-lr-15 hov-tag1 trans-04 m-r-5 m-b-5">
+                        Shipping
+                      </a>
+                      <a href="{{ url('/donor/transactionhistory/?status=Processing') }}" class="flex-c-m stext-107 cl6 size-301 bor7 p-lr-15 hov-tag1 trans-04 m-r-5 m-b-5">
+                        Processing
+                      </a>
+                    </div>
+                  </div>
+                  <br />
+        					</div>
+        				</div>
+        			</div>
+        		</div>
+          @include('navbar.donor-footer')
+          </body>
+          </html>

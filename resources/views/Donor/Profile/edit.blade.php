@@ -9,6 +9,12 @@
           <link href="{{ asset('assets/libs/flot/css/float-chart.css') }}" rel="stylesheet">
       </head>
 <body>
+  <!-- Title page -->
+  <section class="bg-img1 txt-center p-lr-15 p-tb-92" style="background-image: url({{asset('donor-design/images/profile.jpg')}});">
+    <h2 class="ltext-105 cl0 txt-center">
+      Edit Profile
+    </h2>
+  </section>
     <div id="main-wrapper">
             <!-- Card -->
             <div class="card">

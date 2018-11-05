@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html dir="ltr" lang="en">
       @include('navbar.donor')
-      <head>
+      <head>profile
           <link href="{{ asset('dist/css/style.min.css') }}" rel="stylesheet">
           <link href="{{ asset('assets/libs/datatables.net-bs4/css/dataTables.bootstrap4.css') }}" rel="stylesheet">
           <link rel="stylesheet" type="text/css" href="{{ asset('assets/extra-libs/multicheck/multicheck.css') }}">
@@ -9,6 +9,12 @@
           <link href="{{ asset('assets/libs/flot/css/float-chart.css') }}" rel="stylesheet">
       </head>
 <body>
+  <!-- Title page -->
+  <section class="bg-img1 txt-center p-lr-15 p-tb-92" style="background-image: url({{asset('donor-design/images/profile.jpg')}});">
+    <h2 class="ltext-105 cl0 txt-center">
+      Deactivate Account
+    </h2>
+  </section>
     <div id="main-wrapper">
             <!-- Card -->
             <div class="card">

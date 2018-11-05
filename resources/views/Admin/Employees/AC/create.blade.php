@@ -53,14 +53,14 @@
                                 <div class="form-group-row">
                                     <div class="col-sm-9">
                                       <label>Cellphone Number</label>
-                                        <input type="text" name="cellNo" class="form-control" id="cono1" placeholder="+63-XXXXXXXXXX" required>
+                                        <input type="text" name="cellNo" class="form-control" id="cono1" placeholder="+63XXXXXXXXXX" required>
                                         <p style="color:red;">*required</p>
                                     </div>
                                 </div>
                                 <div class="form-group-row">
                                     <div class="col-sm-9">
                                       <label>Telephone Number</label>
-                                        <input type="text" name="tellNo" class="form-control" id="cono1" placeholder="XXX-XX-XX">
+                                        <input type="text" name="tellNo" class="form-control" id="cono1" placeholder="XXXXXXX">
                                     </div>
                                 </div>
                                 <br />

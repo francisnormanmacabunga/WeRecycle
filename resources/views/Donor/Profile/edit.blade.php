@@ -1,10 +1,6 @@
 <!DOCTYPE html>
 <html dir="ltr" lang="en">
       @include('navbar.donor')
-
-<body>
-    <div id="main-wrapper">
-
       <head>
           <link href="{{ asset('dist/css/style.min.css') }}" rel="stylesheet">
           <link href="{{ asset('assets/libs/datatables.net-bs4/css/dataTables.bootstrap4.css') }}" rel="stylesheet">
@@ -12,16 +8,24 @@
           <!-- Custom CSS -->
           <link href="{{ asset('assets/libs/flot/css/float-chart.css') }}" rel="stylesheet">
       </head>
-        <div class="page-wrapper">
+<body>
+    <div id="main-wrapper">
             <!-- Card -->
             <div class="card">
-                <div class="page-breadcrumb">
-                    <div class="row">
-                        <div class="col-12 d-flex no-block align-items-center">
-                            <h4 class="page-title"></h4>
-                        </div>
-                    </div>
-                </div>
+              <div class="container">
+              <div class="page-breadcrumb">
+                 <div class="row">
+                     <div class="col-12 d-flex no-block align-items-center">
+                             <nav aria-label="breadcrumb">
+                                 <ol class="breadcrumb">
+                                     <li class="breadcrumb-item"><a href="{{ url('/donor/donors') }}">Profile</a></li>
+                                     <li class="breadcrumb-item active" aria-current="page">Edit</li>
+                                 </ol>
+                             </nav>
+                     </div>
+                 </div>
+             </div>
+           </div>
                 <div class="container col-md-6 center-align">
                     <div class="card-deck mb-3 ">
                         <div class="card mb-4 shadow-sm">
@@ -55,30 +59,8 @@
                                   <dd class="col-sm-5">{{Form::number('tellNo', $donors->contacts->tellNo,['class' => 'form-control'])}}</dd>
                                 </dl>
                                 <hr style="margin:5px 0 5px 0;"><br />
-                                <input type="button" value="Save Changes" class="btn btn-success btn-block btn-lg" data-toggle="modal" data-target="#Modal2" />
-                                <a class="btn btn-lg btn-block btn-danger" href="{{ url('/activitycoordinator/activity_coordinators') }}" role="button">Back </a>
-                                <hr style="margin:5px 0 5px 0;"><br />
+                                <input type="button" value="Save Changes" class="btn btn-success btn-block btn-lg" onclick="if(confirm('Are you sure?')) saveandsubmit(event);" />
                                 <a class="btn btn-lg btn-block btn-danger" href="/donor/status/{{$donors->userID}}/edit" role="button">Deactivate Account</a>
-                                <!-- Modal -->
-                                <div class="modal fade" id="Modal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                    <div class="modal-dialog" role="document">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h5 class="modal-title" id="exampleModalLabel">Alert</h5>
-                                                <button class="close" data-dismiss="modal" aria-label="Close">
-                                                    <span aria-hidden="true">&times;</span>
-                                                </button>
-                                            </div>
-                                            <div class="modal-body">
-                                                Are you sure you want to save changes?
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-                                                <button type="submit" class="btn btn-success">Save changes</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
                             </div>
                             {{Form::hidden('_method','PUT')}}
                             {!! Form::close() !!}
@@ -86,10 +68,6 @@
                     </div>
                 </div>
             </div>
-            <footer class="footer text-center">
-                Copyright &copy; 2018 WeRecycle
-            </footer>
-        </div>
     </div>
     @include('navbar.donor-footer')
     @include('navbar.footer')

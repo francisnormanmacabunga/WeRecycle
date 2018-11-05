@@ -11,12 +11,13 @@ class Requests extends Model
   protected $table = 'request';
   protected $primaryKey = 'requestID';
   public $timestamps = true;
+
   protected static $logAttributes = ["*"];
-  protected static $logName = 'Transaction';
+  protected static $logName = 'Request';
   protected static $logOnlyDirty = true;
   public function getDescriptionForEvent(string $eventName): string
   {
-      return "Has {$eventName}";
+      return "Has placed a";
   }
 
   public function user()

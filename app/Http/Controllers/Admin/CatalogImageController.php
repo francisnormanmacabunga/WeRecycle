@@ -31,7 +31,7 @@ class CatalogImageController extends Controller
         'productimage' => 'required|mimes:jpeg,jpg,png|image|max:5000'
       ],
       [
-        'productimage.required' => 'New product image is required, or else GO BACK.',
+        'productimage.required' => 'New product image is required.',
         'productimage.mimes' => 'Image must be in JPG/JPEG or PNG format',
         'productimage.max' => 'Image must be less than 5MB.'
       ]);

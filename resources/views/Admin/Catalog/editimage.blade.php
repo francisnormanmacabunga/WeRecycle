@@ -21,11 +21,12 @@
                   </div>
               </div>
                   <div class="container-fluid">
+                    @include('inc.messages')
                     <div class="row justify-content-center">
                       <!-- ============================================================== -->
                       <!-- Start Page Content -->
                       <!-- ============================================================== -->
-                      @include('inc.messages')
+
                       {!! Form::open(['action' => ['Admin\CatalogImageController@update', $products['productsID']], 'method' => 'POST', 'files' => true, 'enctype' =>"multipart/form-data" ]) !!}
                               <div class="card">
                                   <div class="card-body">

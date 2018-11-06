@@ -38,7 +38,6 @@ class OrderController extends Controller
         -> where('type', 'Shop')
         -> paginate(10);
       }
-
     //  $messageOrder = MessageOrders::all()->last();
       return view('ProgramDirector/Transactions.orders',compact('order', 'messageOrder'));
     }

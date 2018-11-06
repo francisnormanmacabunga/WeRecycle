@@ -39,7 +39,6 @@ class RequestController extends Controller
       -> paginate(10);
       }
     //  $message = MessageRequests::all()->last();
-
       return view('ProgramDirector/Transactions.requests',compact('request', 'message'));
     }
 

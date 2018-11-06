@@ -19,8 +19,6 @@ class FeedbacksController extends Controller
       -> join('user', 'user.userID', '=', 'feedback.userID')
       -> sortable()
       -> paginate(10);
-
-
       return view('ProgramDirector/Feedbacks.index', compact('feedbacks'));
     }
 

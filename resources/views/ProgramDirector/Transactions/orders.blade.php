@@ -33,7 +33,7 @@
                                         </thead>
                                         <tbody>
                                             <tr>
-                                                <th>ID</th>
+                                                <th>Transaction ID</th>
                                                 <th>Date</th>
                                                 <th>Name</th>
                                                 <th>Address</th>
@@ -70,8 +70,8 @@
                                                     </td>
                                                     @else
                                                     <td>
-                                                        <a href="/programdirector/sendSMS-V-O/transactionID={{$orders->transid}}" data-toggle="tooltip" data-placement="top" title="Message Volunteer"><i class="mdi mdi-message-reply-text"></i></a>
-                                                        <a href="/programdirector/sendSMS-D-O/transactionID={{$orders->transid}}" data-toggle="tooltip" data-placement="top" title="Message Donor"><i class="mdi mdi-message-reply"></i></a>
+                                                        <a href="/programdirector/sendSMS-V-O/transactionID={{$orders->transid}}" data-toggle="tooltip" data-placement="top" title="Message Volunteer"><i class="mdi mdi-message-reply-text"></i></a><br/>
+                                                        <a href="/programdirector/sendSMS-D-O/transactionID={{$orders->transid}}" data-toggle="tooltip" data-placement="top" title="Message Donor"><i class="mdi mdi-message-reply"></i></a><br/>
                                                         <a href="/programdirector/orders/{{$orders->transid}}/edit" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fas fas fa-edit"></i></a>
                                                     </td>
                                                     @endif

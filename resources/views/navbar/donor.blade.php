@@ -160,7 +160,7 @@
 
         <li class="p-b-13">
           <a href="{{ url('/donor/transactionhistory') }}" class="stext-102 cl2 hov-cl1 trans-04">
-          Transaction  History
+          History
           </a>
         </li>
 

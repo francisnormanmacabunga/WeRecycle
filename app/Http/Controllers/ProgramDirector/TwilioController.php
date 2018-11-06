@@ -35,7 +35,7 @@ class TwilioController extends Controller
      [
        'message.required' => 'The message field is required.'
      ]]);
-
+      session()->flash('sms','Message Sent!');
        $applicant = new MessageOrders();
        $applicant->message = $request ->input('message');
        $applicant->volunteerID = $request->volunteerID;
@@ -66,7 +66,7 @@ class TwilioController extends Controller
       [
         'message.required' => 'The message field is required.'
       ]]);
-
+        session()->flash('sms','Message Sent!');
         $applicant = new MessageDonors();
         $applicant->message = $request ->input('message');
         $applicant->userID = $request->userID;
@@ -86,6 +86,7 @@ class TwilioController extends Controller
 
       public function indexVolunteerRequest($id)
       {
+
         $applicants = Transaction::find($id);
         return view('ProgramDirector/Transactions.sendSMS-V-R', ['applicants'=>$applicants]);
       }
@@ -97,7 +98,7 @@ class TwilioController extends Controller
        [
          'message.required' => 'The message field is required.'
        ]]);
-
+         session()->flash('sms','Message Sent!');
          $applicant = new MessageRequests();
          $applicant->message = $request ->input('message');
          $applicant->volunteerID = $request->volunteerID;
@@ -112,7 +113,8 @@ class TwilioController extends Controller
                       "body" => $twilio->message = $request->input('message'),
                       "from" => "(619) 724-4011"));
 
-         return redirect('/programdirector/requests')->with('success', 'Message Sent Succesfully');
+        return redirect('/programdirector/requests')->with('success', 'Message Sent Succesfully');
+
      }
 
     public function indexDonorRequest($id)
@@ -128,7 +130,7 @@ class TwilioController extends Controller
       [
         'message.required' => 'The message field is required.'
       ]]);
-
+        session()->flash('sms','Message Sent!');
         $applicant = new MessageDonors();
         $applicant->message = $request ->input('message');
         $applicant->userID = $request->userID;

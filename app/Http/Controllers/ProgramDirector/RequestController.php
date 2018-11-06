@@ -28,10 +28,16 @@ class RequestController extends Controller
      */
     public function index()
     {
+      if (request()->has('status')){
+      $request = Transaction::orderBy('updated_at', 'desc')
+      -> where('status',request('status'))
+      -> where('type', 'Donate')
+      -> paginate(10)->appends('status', request('status'));
+      } else {
       $request = Transaction::orderBy('updated_at', 'desc')
       -> where('type', 'Donate')
       -> paginate(10);
-
+      }
       $message = MessageRequests::all()->last();
 
       return view('ProgramDirector/Transactions.requests',compact('request', 'message'));

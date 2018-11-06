@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html dir="ltr" lang="en">
-
 <body>
     <div id="main-wrapper">
         @include('navbar.pd-navbar')
@@ -12,6 +11,14 @@
             <!-- Container fluid  -->
             <!-- ============================================================== -->
             <div class="container-fluid">
+              @if(session()->has('sms'))
+              <div class="content">
+                <div class="alert alert-success">
+                  <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                  <strong>{{session()->get('sms')}}</strong>
+                </div>
+              </div>
+              @endif
                 <!-- ============================================================== -->
                 <!-- Start Page Content -->
                 <!-- ============================================================== -->
@@ -20,10 +27,18 @@
                     <li class="nav-item"> <a class="nav-link" href="{{ url('/programdirector/orders') }}" role="tab"><span class="hidden-sm-up"></span> <span class="hidden-xs-down">Orders</span></a> </li>
                 </ul>
                 <div class="row">
+                  <div class="card">
                     <div class="col-12">
-                        <div class="card">
                             <div class="card-body">
-                                <h5 class="card-title">Transaction-Requests</h5>
+                                <ul class="nav nav-tabs" role="tablist">
+                                  <li class="nav-item"><a class="nav-link">Filter by:</a></li>
+                                  <li class="nav-item"> <a class="nav-link " href="{{ url('/programdirector/requests') }}" role="tab"><span class="hidden-sm-up"></span> <span class="hidden-xs-down">All</span></a> </li>
+                                  <li class="nav-item"> <a class="nav-link " href="{{ url('/programdirector/requests/?status=Processing') }}" role="tab"><span class="hidden-sm-up"></span> <span class="hidden-xs-down">Processing</span></a> </li>
+                                  <li class="nav-item"> <a class="nav-link " href="{{ url('/programdirector/requests/?status=Shipping') }}" role="tab"><span class="hidden-sm-up"></span> <span class="hidden-xs-down">Shipping</span></a> </li>
+                                  <li class="nav-item"> <a class="nav-link " href="{{ url('/programdirector/requests/?status=Delivered') }}" role="tab"><span class="hidden-sm-up"></span> <span class="hidden-xs-down">Delivered</span></a> </li>
+                                  <li class="nav-item"> <a class="nav-link " href="{{ url('/programdirector/requests/?status=Cancelled') }}" role="tab"><span class="hidden-sm-up"></span> <span class="hidden-xs-down">Cancelled</span></a> </li>
+                                </ul>
+                                <div class="row">
                                 <div class="table-responsive">
                                     @if(count($request) > 0)
                                     <table class="table table-striped table-bordered">

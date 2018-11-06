@@ -62,7 +62,7 @@ class ApplicantsController extends Controller
     [
       'g-recaptcha-response.required' => 'Captcha is required.',
       'firstname.required' => 'The First Name field is required.',
-      'firstname.regex' => 'The First Name field must only contain letters, period, and hyphen .',
+      'firstname.regex' => 'The First Name field must only contain letters, period, and hyphen.',
       'lastname.required' => 'The Last Name field is required.',
       'lastname.regex' => 'The Last Name field must only contain letters, period, and hyphen.',
       'email.required' => 'The Email field is required.',

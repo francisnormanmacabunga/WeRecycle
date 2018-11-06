@@ -60,9 +60,9 @@ class ProgramDirectorController extends Controller
     [
       'usertypeID.required' => 'The Usertype field is required',
       'firstname.required' => 'The First Name field is required.',
-      'firstname.regex' => 'The First Name field must only contain letters.',
+      'firstname.regex' => 'The First Name field must only contain letters, period, and hyphen.',
       'lastname.required' => 'The Last Name field is required.',
-      'lastname.regex' => 'The Last Name field must only contain letters.',
+      'lastname.regex' => 'The Last Name field must only contain letters, period, and hyphen.',
       'email.required' => 'The Email field is required.',
       'email.unique' => 'The Email you registered is already in use.',
       'cellNo.required' => 'The Cellphone Number is required.',

@@ -18,6 +18,16 @@
                 </div>
             </div>
             <div class="container-fluid">
+
+              @if(session()->has('new'))
+              <div class="content">
+                <div class="alert alert-success">
+                  <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                  <strong>{{session()->get('new')}}</strong>
+                </div>
+              </div>
+              @endif
+              
                 <!-- ============================================================== -->
                 <!-- Start Page Content -->
                 <!-- ============================================================== -->
@@ -69,7 +79,7 @@
                                 <div class="form-group-row">
                                     <div class="col-sm-9">
                                         <label>Cellphone Number <label style="color:red;">*</label> </label>
-                                        <input type="number" name="cellNo" class="form-control {{ $errors->has('cellNo') ? ' is-invalid' : '' }}" id="cono1" placeholder="+63XXXXXXXXXX" required>
+                                        <input type="text" name="cellNo" class="form-control {{ $errors->has('cellNo') ? ' is-invalid' : '' }}" id="cono1" placeholder="+63XXXXXXXXXX" required>
                                         @if ($errors->has('cellNo'))
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $errors->first('cellNo') }}</strong>

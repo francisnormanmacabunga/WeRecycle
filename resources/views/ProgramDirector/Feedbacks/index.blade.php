@@ -1,6 +1,10 @@
 <!DOCTYPE html>
   <html dir="ltr" lang="en">
   <body>
+    <head>
+        <!-- Favicon icon -->
+        <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('assets/images/favicon.png') }}">
+    </head>
   <div id="main-wrapper">
     @include('navbar.pd-navbar')
     <div class="page-wrapper">
@@ -51,7 +55,7 @@
               </div>
           </div>
       </div>
-      
+
       <footer class="footer text-center">
         Copyright &copy; 2018 WeRecycle
       </footer>

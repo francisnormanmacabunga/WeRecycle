@@ -18,6 +18,16 @@
                 </div>
             </div>
             <div class="container-fluid">
+
+              @if(session()->has('new'))
+              <div class="content">
+                <div class="alert alert-success">
+                  <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                  <strong>{{session()->get('new')}}</strong>
+                </div>
+              </div>
+              @endif
+
                 <!-- ============================================================== -->
                 <!-- Start Page Content -->
                 <!-- ============================================================== -->
@@ -44,7 +54,7 @@
                                 </div>
                                 <div class="form-group-row">
                                     <div class="col-sm-9">
-                                        <label>Last Name <label style="color:red;">*</label> </label>
+                                        <label>Last Name <label style="color:red;">*</label></label>
                                         <input type="text" name="lastname" class="form-control {{ $errors->has('lastname') ? ' is-invalid' : '' }}" id="lname" onkeypress="return !validNo(this,event)" placeholder="Last Name" required>
                                         @if ($errors->has('lastname'))
                                         <span class="invalid-feedback" role="alert">
@@ -56,7 +66,7 @@
                                 </br>
                                 <div class="form-group-row">
                                     <div class="col-sm-9">
-                                        <label>Email <label style="color:red;">*</label> </label>
+                                        <label>Email <label style="color:red;">*</label></label>
                                         <input type="email" name="email" class="form-control {{ $errors->has('email') ? ' is-invalid' : '' }}" id="email1" placeholder="you@example.com" required>
                                         @if ($errors->has('email'))
                                         <span class="invalid-feedback" role="alert">
@@ -69,7 +79,7 @@
                                 <div class="form-group-row">
                                     <div class="col-sm-9">
                                         <label>Cellphone Number <label style="color:red;">*</label> </label>
-                                        <input type="number" name="cellNo" class="form-control {{ $errors->has('cellNo') ? ' is-invalid' : '' }}" id="cono1" placeholder="+63XXXXXXXXXX" required>
+                                        <input type="text" name="cellNo" class="form-control {{ $errors->has('cellNo') ? ' is-invalid' : '' }}" id="cono1" placeholder="+63XXXXXXXXXX" required>
                                         @if ($errors->has('cellNo'))
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $errors->first('cellNo') }}</strong>

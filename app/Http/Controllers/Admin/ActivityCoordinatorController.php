@@ -10,6 +10,7 @@ use Password;
 use App\Models\ActivityCoordinator;
 use App\Models\Contacts;
 use Hash;
+use Carbon\Carbon;
 
 class ActivityCoordinatorController extends Controller
 {
@@ -44,24 +45,24 @@ class ActivityCoordinatorController extends Controller
     {
       $this->validate($request, [
       'usertypeID' => 'required',
-      'firstname' => 'required|regex:/^[\pL\s]+$/u',
-      'lastname' => 'required|regex:/^[\pL\s]+$/u',
+      'firstname' => 'required|regex:/^[a-zA-Z-. ]*$/',
+      'lastname' => 'required|regex:/^[a-zA-Z-. ]*$/',
       'email' => 'required|unique:user,email',
       'cellNo' => 'required|min:13|max:13|regex:/^\+63[0-9]{10}$/',
       'tellNo' => 'required|min:7|max:7',
-      'birthdate' => 'required',
+      'birthdate' => 'required|before:'.Carbon::now()->subYears(18),
       'city' => 'required|regex:/^[\pL\s]+$/u',
-      'street' => 'nullable|regex:/^[ \w.#-]+$/',
-      'barangay' => 'nullable|regex:/^[ \w.#-]+$/',
+      'street' => 'nullable|regex:/^[a-zA-Z0-9,.!? ]*$/',
+      'barangay' => 'nullable|regex:/^[a-zA-Z0-9,.!? ]*$/',
       'zip' => 'nullable|min:4|max:4',
       'username' => 'required|alpha_dash|unique:user,username'
     ],
     [
       'usertypeID.required' => 'The Usertype field is required',
       'firstname.required' => 'The First Name field is required.',
-      'firstname.regex' => 'The First Name field must only contain letters.',
+      'firstname.regex' => 'The First Name field must only contain letters, period, and hyphen.',
       'lastname.required' => 'The Last Name field is required.',
-      'lastname.regex' => 'The Last Name field must only contain letters.',
+      'lastname.regex' => 'The Last Name field must only contain letters, period, and hyphen.',
       'email.required' => 'The Email field is required.',
       'email.unique' => 'The Email you registered is already in use.',
       'cellNo.required' => 'The Cellphone Number is required.',
@@ -74,14 +75,15 @@ class ActivityCoordinatorController extends Controller
       'birthdate.required' => 'The Birthdate field is required.',
       'city.required' => 'The City field is required.',
       'city.regex' => 'The City field must only contain letters.',
-      'street.regex' => 'The Street field must only contain letters, numbers, underscores, dashes, hypens and hashes.',
-      'barangay.regex' => 'The Barangay field must only contain letters, numbers, underscores, dashes, hypens and hashes.',
+      'street.regex' => 'The Street field must only contain letters, numbers, period and comma.',
+      'barangay.regex' => 'The Barangay field must only contain letters, numbers, period and comma.',
       'zip.min' => 'The Zip field must be at least 4 characters.',
       'zip.max' => 'The Zip field may not be greater than 4 characters.',
       'username.unique' => 'The Username you registered is already in use.',
       'username.required' => 'The Username field is required.',
       'username.alpha_dash' => 'The Username may only contain letters, numbers, dashes and underscores.'
     ]);
+      session()->flash('new','New Employee Created!');
       $pw = str_random(8);
       $user = new ActivityCoordinator();
       $user->firstname = $request->input('firstname');

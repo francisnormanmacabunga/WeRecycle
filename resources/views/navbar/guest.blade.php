@@ -49,7 +49,7 @@
           <nav class="limiter-menu-desktop container">
 
             <!-- Logo desktop -->
-            <a href="{{url('/')}}" class="logo">
+            <a href="{{url('/home')}}" class="logo">
               <img src="{{asset('assets/images/shop-logo.png')}}">
             </a>
 

@@ -61,6 +61,17 @@ class DonationHistoryController extends Controller
             return view('ProgramDirector/History.donationHistoryC')->with(['donation' => $donation]);
             }
 
+            public function donationHistoryP()
+            {
+              $donation = Transaction::orderBy('updated_at', 'desc')
+              -> where('status', 'Processing')
+              -> where('type', 'Donate')
+              -> sortable()
+              -> paginate(10);
+
+              return view('ProgramDirector/History.donationHistoryP')->with(['donation' => $donation]);
+              }
+
 
 
       public function donationPDF(Request $request)
@@ -70,6 +81,16 @@ class DonationHistoryController extends Controller
         -> get();
         $pdf = PDF::loadView('ProgramDirector/History.donationPDF', compact('donation'));
         return $pdf->download('DonationHistory.pdf');
+      }
+
+      public function donationPDFP(Request $request)
+      {
+        $donation = Transaction::orderBy('updated_at', 'desc')
+        -> where('type', 'Donate')
+        -> where('status', 'Processing')
+        -> get();
+        $pdf = PDF::loadView('ProgramDirector/History.donationPDFP', compact('donation'));
+        return $pdf->download('Processing-DonationHistory.pdf');
       }
 
       public function donationPDFS(Request $request)

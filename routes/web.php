@@ -101,10 +101,12 @@ Route::prefix('programdirector')->group(function() {
   Route::get('/sendSMS-D-O/transactionID={transid}','ProgramDirector\TwilioController@indexDonorOrder');
   Route::post('/sendMessage-D-O','ProgramDirector\TwilioController@sendMessageDonorOrder');
   Route::get('/donationhistory', 'ProgramDirector\DonationHistoryController@donationHistory');
+  Route::get('/donationhistoryP', 'ProgramDirector\DonationHistoryController@donationhistoryP');
   Route::get('/donationhistoryS', 'ProgramDirector\DonationHistoryController@donationHistoryS');
   Route::get('/donationhistoryD', 'ProgramDirector\DonationHistoryController@donationHistoryD');
   Route::get('/donationhistoryC', 'ProgramDirector\DonationHistoryController@donationHistoryC');
   Route::get('/donationPDF','ProgramDirector\DonationHistoryController@donationPDF');
+  Route::get('/donationPDFP','ProgramDirector\DonationHistoryController@donationPDFP');
   Route::get('/donationPDFS','ProgramDirector\DonationHistoryController@donationPDFS');
   Route::get('/donationPDFD','ProgramDirector\DonationHistoryController@donationPDFD');
   Route::get('/donationPDFC','ProgramDirector\DonationHistoryController@donationPDFC');

@@ -16,8 +16,8 @@
     <!-- ============================================================== -->
     <div class="container-fluid">
         <ul class="nav nav-tabs" role="tablist">
-          <li class="nav-item"> <a class="nav-link active" href="{{ url('/programdirector/donationhistory') }}" role="tab"><span class="hidden-sm-up"></span> <span class="hidden-xs-down">All</span></a> </li>
-            <li class="nav-item"> <a class="nav-link" href="{{ url('/programdirector/donationhistoryP') }}" role="tab"><span class="hidden-sm-up"></span> <span class="hidden-xs-down">Processing</span></a> </li>
+          <li class="nav-item"> <a class="nav-link " href="{{ url('/programdirector/donationhistory') }}" role="tab"><span class="hidden-sm-up"></span> <span class="hidden-xs-down">All</span></a> </li>
+            <li class="nav-item"> <a class="nav-link active" href="{{ url('/programdirector/donationhistoryP') }}" role="tab"><span class="hidden-sm-up"></span> <span class="hidden-xs-down">Processing</span></a> </li>
           <li class="nav-item"> <a class="nav-link" href="{{ url('/programdirector/donationhistoryS') }}" role="tab"><span class="hidden-sm-up"></span> <span class="hidden-xs-down">Shipping</span></a> </li>
           <li class="nav-item"> <a class="nav-link" href="{{ url('/programdirector/donationhistoryD') }}" role="tab"><span class="hidden-sm-up"></span> <span class="hidden-xs-down">Delivered</span></a> </li>
           <li class="nav-item"> <a class="nav-link" href="{{ url('/programdirector/donationhistoryC') }}" role="tab"><span class="hidden-sm-up"></span> <span class="hidden-xs-down">Cancelled</span></a> </li>
@@ -75,7 +75,7 @@
                     </div>
                 </div>
                 <div class="col-xs-12" align="right">
-                  <a href="{{action('ProgramDirector\DonationHistoryController@donationPDF')}}" class="btn btn-danger"><i class="mdi mdi-file-pdf"></i> PDF</a>
+                  <a href="{{action('ProgramDirector\DonationHistoryController@donationPDFP')}}" class="btn btn-danger"><i class="mdi mdi-file-pdf"></i> PDF</a>
                 </div>
             </div>
 

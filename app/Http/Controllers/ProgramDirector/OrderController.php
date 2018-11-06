@@ -31,7 +31,9 @@ class OrderController extends Controller
       $order = Transaction::orderBy('updated_at', 'desc')
       -> where('type', 'Shop')
       -> paginate(10);
-      $messageOrder = MessageOrders::all()->last();
+
+      //$messageOrder = MessageOrders::all()->last();
+
       return view('ProgramDirector/Transactions.orders',compact('order', 'messageOrder'));
     }
 

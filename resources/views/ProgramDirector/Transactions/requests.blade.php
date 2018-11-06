@@ -85,6 +85,7 @@
                                     </div>
                                     @endif
                                 </div>
+                              </br>
                                 {{$request -> links()}}
                             </div>
                         </div>

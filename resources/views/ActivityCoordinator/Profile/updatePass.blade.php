@@ -26,9 +26,21 @@
                                 <hr style="margin:5px 0 5px 0;"><br>
                                 <dl class="row">
                                     <dt class="col-sm-6">Update Password:</dt>
-                                    <dd class="col-sm-5">{{Form::password('password', ['class' => 'form-control'])}}</dd>
+                                    <dd class="col-sm-5">{{Form::password('password', ['class' => 'form-control'.($errors->has('password') ? ' is-invalid' : '')])}}
+                                      @if ($errors->has('password'))
+                                      <span class="invalid-feedback" role="alert">
+                                          <strong>{{ $errors->first('password') }}</strong>
+                                      </span>
+                                      @endif
+                                    </dd>
                                     <dt class="col-sm-6">Confirm Password:</dt>
-                                    <dd class="col-sm-5">{{Form::password('password_confirmation', ['class' => 'form-control'])}}</dd>
+                                    <dd class="col-sm-5">{{Form::password('password_confirmation', ['class' => 'form-control'.($errors->has('password_confirmation') ? ' is-invalid' : '')])}}
+                                      @if ($errors->has('password_confirmation'))
+                                      <span class="invalid-feedback" role="alert">
+                                          <strong>{{ $errors->first('password_confirmation') }}</strong>
+                                      </span>
+                                      @endif
+                                    </dd>
                                 </dl>
                                 <hr style="margin:5px 0 5px 0;"><br>
                                 <input type="button" value="Save Changes" class="btn btn-success btn-block btn-lg" data-toggle="modal" data-target="#Modal2" />

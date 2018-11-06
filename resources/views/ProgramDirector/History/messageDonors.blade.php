@@ -28,7 +28,6 @@
                                     <tr>
                                       <th>Date</th>
                                       <th>Donor Sent To</th>
-                                      <th>Assigned Volunteer</th>
                                       <th>Message</th>
                                     </tr>
                                 </thead>
@@ -50,6 +49,7 @@
                             </div>
                             @endif
                         </div>
+                        {{$messagedonors->links()}}
                     </div>
                 </div>
             </div>

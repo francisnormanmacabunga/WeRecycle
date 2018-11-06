@@ -21,7 +21,7 @@
                 Points History
               </a>
     					<a href="{{url('/donor/transactionhistory')}}" class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5">
-                Order History
+                Transaction History
     					</a>
     				</div>
           </div>
@@ -34,7 +34,7 @@
     							<table class="table-shopping-cart">
 
     								<tr class="table_head">
-                      <th class="column-1">#</th>
+                      <th class="column-1">Transaction ID</th>
                       <th class="column-1">Assigned Volunteer</th>
                       <th class="column-1">Product Name</th>
                       <th class="column-1">Quantity</th>

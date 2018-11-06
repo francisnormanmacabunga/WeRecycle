@@ -6,7 +6,7 @@
         	<!-- Title page -->
         	<section class="bg-img1 txt-center p-lr-15 p-tb-92" style="background-image: url({{asset('donor-design/images/history.jpg')}});">
         		<h2 class="ltext-105 cl0 txt-center">
-        			Order History
+        			Transaction History
         		</h2>
         	</section>
         	<!-- Shoping Cart -->
@@ -15,7 +15,7 @@
               <div class="flex-w flex-sb-m p-b-52">
         				<div class="flex-w flex-l-m filter-tope-group m-tb-10">
                   <a href="#" class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5 how-active1">
-                    Order History
+                    Transaction History
                   </a>
         					<a href="{{url('/donor/donationhistory')}}" class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5">
                     Donation History
@@ -34,7 +34,7 @@
         							<table class="table-shopping-cart">
 
         								<tr class="table_head">
-                          <th class="column-1">#</th>
+                          <th class="column-1">Transaction ID</th>
                           <th class="column-1">Assigned Volunteer</th>
                           <th class="column-1">Product Name</th>
                           <th class="column-1">Quantity</th>

@@ -66,7 +66,7 @@
 										<td class="column-2">{{$cartItem->name}}</td>
 										<td class="column-3">
 											{!! Form::open(['route' => ['donate.update',$cartItem->rowId], 'method' => 'PUT']) !!}
-	                      <input style="width:100px; text-align:center;" name="qty" type="number" value="{{$cartItem->qty}}">
+	                      <input style="width:100px; text-align:center;" name="qty" type="number" min="1" value="{{$cartItem->qty}}">
 	                  </td>
 										<td class="text-center">
 											<input class="btn btn-success" type="submit" onclick="return confirm('Do you want to update this item?')" value="Update">

@@ -101,6 +101,7 @@
                                     </div>
                                     @endif
                                 </div>
+                              </br>
                                 {{$order -> links()}}
                             </div>
                         </div>

@@ -1,67 +1,69 @@
 <!DOCTYPE html>
 <html dir="ltr" lang="en">
-<body>
-<div id="main-wrapper">
-  @include('navbar.admin-navbar')
-  <div class="page-wrapper">
-    <!-- ============================================================== -->
-    <!-- Bread crumb and right sidebar toggle -->
-    <!-- ============================================================== -->
-     <div class="page-breadcrumb">
-        <div class="row">
-            <div class="col-12 d-flex no-block align-items-center">
-                    <nav aria-label="breadcrumb">
-                        <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="{{ url('/admin/employees') }}">Employees</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Edit</li>
-                        </ol>
-                    </nav>
-            </div>
-        </div>
-    </div>
-    <div class="container-fluid">
-        <div class="row justify-content-center">
-          {!! Form::open(['action' => ['Admin\EmployeesController@update', $employee['userID']], 'method' => 'POST' ]) !!}
-                  <!-- Card -->
-                  <div class="card">
-                      <div class="card-body" style="height: 380px;">
-                        <h4 class="card-title"><center>Update Employee</center></h4>
-                                            <div class="card">
-                                                <div class="card-body">
 
-                                                  </div>
-                                                    <div class="table-responsive">
-                                                      <table class="table">
-                                                          <thead class="thead-light">
-                                                              <tr>
-                                                                  <th scope="col">Name</th>
-                                                                  <th scope="col">Status</th>
-                                                                  <th scope="col">Action</th>
-                                                              </tr>
-                                                          </thead>
-                                                          <tbody class="customtable">
-                                                              <tr>
-                                                                <td>{{$employee['firstname']}} {{$employee['lastname']}}</td>
-                                                                <td>{{$employee['status']}}</td>
-                                                                <td>
-                                                                  <select class="select2 form-control custom-select" name="status" style="width: 100%; height:36px;">
-                                                                    <optgroup label="{{$employee['status']}}">
-                                                                        <option value="Activated">Activated</option>
-                                                                        <option value="Deactivated">Deactivated</option>
-                                                                  </select>
-                                                                </td>
-                                                              </tr>
-                                                          </tbody>
-                                                      </table>
-                                                      {{Form::hidden('_method','PUT')}}
-                                                      <hr>
-                                                      <input type="button" value="Save" class="btn btn-danger btn-block btn-lg" data-toggle="modal" data-target="#Modal2" />
-                                                      <br>
-                                                      <a href="{{ url()->previous() }}"> <button class="btn btn-success btn-block btn-lg"> Back </button> </a>
-                                                    </div>
-                                            </div>
-                      </div>
-                      <!-- Modal -->
+<body>
+    <div id="main-wrapper">
+        @include('navbar.admin-navbar')
+        <div class="page-wrapper">
+            <!-- ============================================================== -->
+            <!-- Bread crumb and right sidebar toggle -->
+            <!-- ============================================================== -->
+            <div class="page-breadcrumb">
+                <div class="row">
+                    <div class="col-12 d-flex no-block align-items-center">
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="{{ url('/admin/employees') }}">Employees</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">Edit</li>
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <div class="container-fluid">
+                <div class="row justify-content-center">
+                    {!! Form::open(['action' => ['Admin\EmployeesController@update', $employee['userID']], 'method' => 'POST' ]) !!}
+                    <!-- Card -->
+                    <div class="card">
+                        <div class="card-body" style="height: 380px;">
+                            <h4 class="card-title">
+                                <center>Update Employee</center>
+                            </h4>
+                            <div class="card">
+                                <div class="card-body">
+                                </div>
+                                <div class="table-responsive">
+                                    <table class="table">
+                                        <thead class="thead-light">
+                                            <tr>
+                                                <th scope="col">Name</th>
+                                                <th scope="col">Status</th>
+                                                <th scope="col">Action</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody class="customtable">
+                                            <tr>
+                                                <td>{{$employee['firstname']}} {{$employee['lastname']}}</td>
+                                                <td>{{$employee['status']}}</td>
+                                                <td>
+                                                    <select class="select2 form-control custom-select" name="status" style="width: 100%; height:36px;">
+                                                        <optgroup label="{{$employee['status']}}">
+                                                            <option value="Activated">Activated</option>
+                                                            <option value="Deactivated">Deactivated</option>
+                                                    </select>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    {{Form::hidden('_method','PUT')}}
+                                    <hr>
+                                    <input type="button" value="Save" class="btn btn-danger btn-block btn-lg" data-toggle="modal" data-target="#Modal2" />
+                                    <br>
+                                    <a href="{{ url()->previous() }}"> <button class="btn btn-success btn-block btn-lg"> Back </button> </a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Modal -->
                         <div class="modal fade" id="Modal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                             <div class="modal-dialog" role="document">
                                 <div class="modal-content">
@@ -81,16 +83,17 @@
                                 </div>
                             </div>
                         </div>
-                  </div>
-            </form>
-            </div>
+                    </div>
+                    </form>
+                </div>
 
+            </div>
+            <footer class="footer text-center">
+                Copyright &copy; 2018 WeRecycle
+            </footer>
+        </div>
     </div>
-    <footer class="footer text-center">
-      Copyright &copy; 2018 WeRecycle
-    </footer>
-  </div>
-</div>
-@include('navbar.footer')
-  </body>
-  </html>
+    @include('navbar.footer')
+</body>
+
+</html>

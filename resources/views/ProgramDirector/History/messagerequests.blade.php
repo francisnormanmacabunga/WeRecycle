@@ -23,7 +23,7 @@
                         <h5 class="card-title">Requests Messages</h5>
                         <div class="table-responsive">
                           @if(count($messagerequests) > 0)
-                            <table id="zero_config" class="table table-striped table-bordered">
+                            <table class="table table-striped table-bordered">
                                 <thead>
                                     <tr>
                                       <th>Date</th>
@@ -49,6 +49,7 @@
                             </div>
                             @endif
                         </div>
+                          {{$messagerequests->links()}}
                     </div>
                 </div>
             </div>

@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html dir="ltr" lang="en">
+
 <head>
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('assets/images/favicon.png') }}">
 </head>
+
 <body>
     <div id="main-wrapper">
         @include('navbar.pd-navbar')
@@ -14,12 +16,12 @@
             <div class="page-breadcrumb">
                 <div class="row">
                     <div class="col-12 d-flex no-block align-items-center">
-                            <nav aria-label="breadcrumb">
-                                <ol class="breadcrumb">
-                                    <li class="breadcrumb-item"><a href="{{ url('/programdirector/requests') }}">Requests</a></li>
-                                    <li class="breadcrumb-item active" aria-current="page">Edit</li>
-                                </ol>
-                            </nav>
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="{{ url('/programdirector/requests') }}">Requests</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">Edit</li>
+                            </ol>
+                        </nav>
                     </div>
                 </div>
             </div>
@@ -28,7 +30,7 @@
                     {!! Form::open(['action' => ['ProgramDirector\RequestController@update', $request['transid']], 'method' => 'POST' ]) !!}
                     <!-- Card -->
                     <div class="card">
-                        <div class="card-body" style="height: 300px;">
+                        <div class="card-body" style="height: 380px;">
                             <h4 class="card-title">Update Transaction</h4>
                             <div class="card">
                                 <div class="card-body">
@@ -67,7 +69,10 @@
                                         </tbody>
                                     </table>
                                     {{Form::hidden('_method','PUT')}}
-                                    <input type="button" value="Save" class="btn btn-success btn-block btn-lg" data-toggle="modal" data-target="#Modal2" />
+                                    <hr>
+                                    <input type="button" value="Save" class="btn btn-danger btn-block btn-lg" data-toggle="modal" data-target="#Modal2" />
+                                    <br>
+                                    <a href="{{ url()->previous() }}"> <button class="btn btn-success btn-block btn-lg"> Back </button> </a>
                                 </div>
                             </div>
                         </div>

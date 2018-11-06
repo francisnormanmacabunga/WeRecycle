@@ -39,7 +39,7 @@ class OrderController extends Controller
         -> paginate(10);
       }
 
-      $messageOrder = MessageOrders::all()->last();
+    //  $messageOrder = MessageOrders::all()->last();
       return view('ProgramDirector/Transactions.orders',compact('order', 'messageOrder'));
     }
 

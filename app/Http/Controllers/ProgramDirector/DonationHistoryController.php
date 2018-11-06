@@ -22,7 +22,6 @@ class DonationHistoryController extends Controller
         -> where('type', 'Donate')
         -> sortable()
         -> paginate(10);
-
         return view('ProgramDirector/History.donationHistory')->with(['donation' => $donation]);
       }
 

@@ -20,7 +20,7 @@ class MessageController extends Controller
   {
     $messageorders = MessageOrders::SELECT('*')
     -> sortable()
-    -> get();
+    -> paginate(10);
     return view('ProgramDirector/History.messageOrders')->with(['messageorders' => $messageorders]);
   }
 
@@ -28,7 +28,7 @@ class MessageController extends Controller
   {
     $messagerequests = MessageRequests::SELECT('*')
     -> sortable()
-    -> get();
+    -> paginate(10);
     return view('ProgramDirector/History.messageRequests')->with(['messagerequests' => $messagerequests]);
   }
 
@@ -36,7 +36,7 @@ class MessageController extends Controller
   {
     $messagedonors = MessageDonors::SELECT('*')
     -> sortable()
-    -> get();
+    -> paginate(10);
     return view('ProgramDirector/History.MessageDonors')->with(['messagedonors' => $messagedonors]);
   }
 

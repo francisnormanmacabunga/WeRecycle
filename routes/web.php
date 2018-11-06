@@ -15,7 +15,6 @@
 Route::get('/', 'PagesController@index2');
 Route::get('/home', 'PagesController@index2');
 Route::get('/index', 'PagesController@index');
-Route::get('/administrator', 'PagesController@adminlanding');
 Route::get('/createApplicant', 'Guest\ApplicantsController@create');
 Route::post('/processApplicant', 'Guest\ApplicantsController@store');
 Route::get('/createDonor', 'Guest\DonorsController@create');

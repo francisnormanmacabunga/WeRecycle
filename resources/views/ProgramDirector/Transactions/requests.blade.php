@@ -27,8 +27,8 @@
                     <li class="nav-item"> <a class="nav-link" href="{{ url('/programdirector/orders') }}" role="tab"><span class="hidden-sm-up"></span> <span class="hidden-xs-down">Orders</span></a> </li>
                 </ul>
                 <div class="row">
-                  <div class="card">
-                    <div class="col-12">
+                  <div class="col-12">
+                      <div class="card">
                             <div class="card-body">
                                 <ul class="nav nav-tabs" role="tablist">
                                   <li class="nav-item"><a class="nav-link">Filter by:</a></li>
@@ -104,11 +104,12 @@
                                 {{$request -> links()}}
                             </div>
                         </div>
-                        <div class="col-xs-12" align="right">
-                            <a href="{{action('ProgramDirector\TransactionPDF@transactionPDFR')}}" class="btn btn-danger"><i class="mdi mdi-file-pdf"></i> PDF</a>
-                        </div>
+                    </div>
+                    <div class="col-xs-12" align="right">
+                        <a href="{{action('ProgramDirector\TransactionPDF@transactionPDFR')}}" class="btn btn-danger"><i class="mdi mdi-file-pdf"></i> PDF</a>
                     </div>
                 </div>
+            </div>
             </div>
             <footer class="footer text-center">
                 Copyright &copy; 2018 WeRecycle

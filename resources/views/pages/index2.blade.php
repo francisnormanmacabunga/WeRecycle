@@ -30,11 +30,12 @@
 
         <nav role="navigation" class="probootstrap-nav hidden-xs">
           <ul class="probootstrap-main-nav">
-            <li class="active"><a href="index.html">Home</a></li>
+            <li class="active"><a href="#">Home</a></li>
             <li><a href="#about">About</a></li>
             <li><a href="#services">Services</a></li>
-            <li><a href="donor/login">Login</a></li>
+            <li><a href="{{ url('/donor/login') }}">Login</a></li>
             <li><a href="{{ url('/createDonor') }}">Register</a></li>
+            <li><a href="{{ url('/activitycoordinator/login') }}">Employee</a></li>
           </ul>
         </nav>
     </div>

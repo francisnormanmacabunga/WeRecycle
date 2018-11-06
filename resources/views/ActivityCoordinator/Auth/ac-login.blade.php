@@ -8,6 +8,22 @@
     <link rel="stylesheet" href="{{asset('css/custom.css')}}">
 </head>
 
+<header role="banner" class="probootstrap-header">
+  <div class="container">
+      <a href="#" class="probootstrap-burger-menu visible-xs" ><i>Menu</i></a>
+      <div class="mobile-menu-overlay"></div>
+
+      <nav>
+        <ul class="probootstrap-main-nav">
+          <li class="active"><a href="#">Employee</a></li>
+          <li><a href="{{ url('/admin/login') }}">Administrator</a></li>
+          <li><a href="{{ url('/programdirector/login') }}">Program Director</a></li>
+        </ul>
+      </nav>
+  </div>
+</header>
+
+
 @include('navbar.header')
 
 <body>
@@ -68,8 +84,7 @@
                                 <div class="col-12">
                                     <div class="form-group">
                                         <div class="p-t-20">
-                                            <button class="btn btn-success float-right btn-rounded" type="submit">{{ __('Login') }}</button>
-                                            <a class="btn btn-danger btn-rounded" href="{{ url('/administrator') }}"><i class="fa fa-arrow-left"></i> Back</a>
+                                            <button class="btn btn-success float-right btn-rounded btn-block" type="submit">{{ __('Login') }}</button>
                                             </a>
                                         </div>
                                     </div>

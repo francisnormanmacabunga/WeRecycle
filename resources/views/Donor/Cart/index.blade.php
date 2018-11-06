@@ -4,7 +4,7 @@
 <body class="animsition">
 
 	<!-- Title page -->
-	<section class="bg-img1 txt-center p-lr-15 p-tb-92" style="background-image: url({{asset('donor-design/images/cart.jpg')}});">
+	<section class="bg-img1 txt-center p-lr-15 p-tb-92" style="background-image: url({{asset('donor-design/images/catalogcart.jpg')}});">
 		<h2 class="ltext-105 cl0 txt-center">
 			Cart
 		</h2>
@@ -123,22 +123,18 @@
 							</table>
 
 							<div class="flex-w flex-sb-m bor15 p-t-18 p-b-15 p-lr-40 p-lr-15-sm">
+																<form action="{{route('cart.submit')}}" method="put">
 								<div class="flex-w flex-m m-r-20 m-tb-5">
-									<a role="button" href="{{url('/donor/shopCatalog')}}" class="flex-c-m stext-101 cl2 size-119 bg8 bor13 hov-btn3 p-lr-15 trans-04 pointer m-tb-10">
-										Back
-									</a>
+									<input class="stext-104 cl2 plh4 size-117 bor13 p-lr-20 m-r-10 m-tb-5" type="text" name="dcode"  placeholder="Coupon Code" required>
+	                <input class="flex-c-m stext-101 cl0 size-118 bg3 bor14 hov-btn3 p-lr-15 trans-04 pointer m-tb-5" type="submit" value="Apply coupon">
 								</div>
-								<form action="{{route('cart.submit')}}" method="put">
-              <div class="flex-w flex-m m-r-20 m-tb-5">
-
-                <input class="stext-104 cl2 plh4 size-117 bor13 p-lr-20 m-r-10 m-tb-5" type="text" name="dcode"  placeholder="Coupon Code" required>
-                <input class="flex-c-m stext-101 cl0 size-118 bg3 bor14 hov-btn3 p-lr-15 trans-04 pointer m-tb-5" type="submit" value="Apply coupon">
-
-              </div>
 							</form>
+              <div class="flex-w flex-m m-r-20 m-tb-5">
+								<a role="button" href="{{url('/donor/shopCatalog')}}" class="flex-c-m stext-101 cl2 size-119 bg8 bor13 hov-btn3 p-lr-15 trans-04 pointer m-tb-10">
+									Back
+								</a>
+              </div>
                 </div>
-
-
 						</div>
 					</div>
 				</div>

@@ -13,8 +13,7 @@
     <!-- ============================================================== -->
      <div class="page-breadcrumb">
         <div class="row">
-            <div class="col-12 d-flex no-block align-items-center">
-                <div class="ml-auto text-right">
+            <div class="col-12 d-flex no-block align-items-center"
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="{{ url('/programdirector/orders') }}">Orders</a></li>
@@ -24,7 +23,6 @@
                 </div>
             </div>
         </div>
-    </div>
     <div class="container-fluid">
         <div class="row justify-content-center">
           <form class="form-horizontal" method="POST" action="{{ action('ProgramDirector\TwilioController@sendMessageDonorOrder') }}">
@@ -57,7 +55,7 @@
                                                                 <td> {{$applicants->donor['contacts']['cellNo']}} </td>
                                                               </tr>
                                                           </tbody>
-                                                      </table>
+                                                      </table
                                                     </div>
                                             </div>
                       </div>

@@ -15,6 +15,7 @@ use Session;
 use Hash;
 use Auth;
 use DB;
+use Carbon\Carbon;
 
 class DonorsController extends Controller
 {
@@ -118,6 +119,7 @@ class DonorsController extends Controller
       'firstname' => 'regex:/^[a-zA-Z-. ]*$/',
       'lastname' => 'regex:/^[a-zA-Z-. ]*$/',
       'email' => "unique:user,email,$id".$request->get('userID').',userID',
+      'birthdate' => 'before:'.Carbon::now()->subYears(15),
       'cellNo' => 'min:13|max:13|regex:/^\+63[0-9]{10}$/',
       'tellNo' => 'min:7|max:7',
       'city' => 'regex:/^[\pL\s]+$/u',

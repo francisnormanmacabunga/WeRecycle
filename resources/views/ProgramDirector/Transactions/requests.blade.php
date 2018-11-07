@@ -65,7 +65,7 @@
                                             </tr>
                                             @foreach ($request as $requests)
                                             @php
-                                            $cart = json_decode($orders->cart);
+                                            $cart = json_decode($requests->cart);
                                             @endphp
                                             @foreach($cart as $item)
                                             <tr>

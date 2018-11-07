@@ -112,7 +112,7 @@ class RequestController extends Controller
       }
     }*/
     $qty = $order->quantity;
-        $equation =  $qty/1000;
+        $equation =  floor($qty/1000);
         $randompoints = $equation * 2;
 
         $id = $order->userID;

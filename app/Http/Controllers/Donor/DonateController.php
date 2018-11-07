@@ -47,7 +47,7 @@ class DonateController extends Controller
 
     public function checkout()
     {
-      
+
       $donor = Auth::user();
       $cartItems=Cart::content();
       $qty = Cart::count();
@@ -55,7 +55,7 @@ class DonateController extends Controller
 
     if ($qty < 1000 || $qty > 10000) {
 
-      session()->flash('notif','Donated Items is less the 1000g/More than 10,000g');
+      session()->flash('notif','Donated Items is less the 1000g/1 Kilo.');
       return back();
 
     }else {

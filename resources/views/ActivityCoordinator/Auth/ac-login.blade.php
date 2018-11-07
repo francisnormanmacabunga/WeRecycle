@@ -10,12 +10,14 @@
 
 <header role="banner" class="probootstrap-header">
   <div class="container">
+      <a href="{{ url('/home') }}" class="probootstrap-logo"><img src="{{asset('assets/images/logo.png')}}" alt="logo"/></a>
+
       <a href="#" class="probootstrap-burger-menu visible-xs" ><i>Menu</i></a>
       <div class="mobile-menu-overlay"></div>
 
-      <nav>
+      <nav role="navigation" class="probootstrap-nav hidden-xs">
         <ul class="probootstrap-main-nav">
-          <li class="active"><a href="#">Employee</a></li>
+          <li class="active"><a href="#">Activity Coordinator</a></li>
           <li><a href="{{ url('/admin/login') }}">Administrator</a></li>
           <li><a href="{{ url('/programdirector/login') }}">Program Director</a></li>
         </ul>
@@ -85,7 +87,6 @@
                                     <div class="form-group">
                                         <div class="p-t-20">
                                             <button class="btn btn-success float-right btn-rounded btn-block" type="submit">{{ __('Login') }}</button>
-                                            </a>
                                         </div>
                                     </div>
                                 </div>

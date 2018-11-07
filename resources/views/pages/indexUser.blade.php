@@ -9,7 +9,7 @@
 <section class="section-slide">
   <div class="wrap-slick1 rs1-slick1">
     <div class="slick1">
-      <div class="item-slick1 bg-overlay1" style="background-image: url({{asset('donor-design/images/header.gif')}});">
+      <div class="item-slick1 bg-overlay1" style="background-image: url({{asset('donor-design/images/head.jpg')}});">
         <div class="container h-full">
 
 

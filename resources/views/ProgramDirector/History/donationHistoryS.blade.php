@@ -20,8 +20,9 @@
         <!-- ============================================================== -->
         <ul class="nav nav-tabs" role="tablist">
           <li class="nav-item"> <a class="nav-link" href="{{ url('/programdirector/donationhistory') }}" role="tab"><span class="hidden-sm-up"></span> <span class="hidden-xs-down">All</span></a> </li>
-          <li class="nav-item"> <a class="nav-link active" href="{{ url('/programdirector/donationhistoryS') }}" role="tab"><span class="hidden-sm-up"></span> <span class="hidden-xs-down">Shipping</span></a> </li>
-          <li class="nav-item"> <a class="nav-link" href="{{ url('/programdirector/donationhistoryD') }}" role="tab"><span class="hidden-sm-up"></span> <span class="hidden-xs-down">Delivered</span></a> </li>
+          <li class="nav-item"> <a class="nav-link" href="{{ url('/programdirector/donationhistoryP') }}" role="tab"><span class="hidden-sm-up"></span> <span class="hidden-xs-down">Processing</span></a> </li>
+          <li class="nav-item"> <a class="nav-link active" href="{{ url('/programdirector/donationhistoryS') }}" role="tab"><span class="hidden-sm-up"></span> <span class="hidden-xs-down">Dispatched</span></a> </li>
+          <li class="nav-item"> <a class="nav-link" href="{{ url('/programdirector/donationhistoryD') }}" role="tab"><span class="hidden-sm-up"></span> <span class="hidden-xs-down">Accepted</span></a> </li>
           <li class="nav-item"> <a class="nav-link" href="{{ url('/programdirector/donationhistoryC') }}" role="tab"><span class="hidden-sm-up"></span> <span class="hidden-xs-down">Cancelled</span></a> </li>
         </ul>
         <div class="row">
@@ -79,7 +80,6 @@
                 </div>
                 <div class="col-xs-12" align="right">
                   <a href="{{action('ProgramDirector\DonationHistoryController@donationPDFS')}}" class="btn btn-danger"><i class="mdi mdi-file-pdf"></i> PDF</a>
-                  <button class="btn btn-info" onclick="window.print();"><i class="fa fa-print"></i> Print</button>
                 </div>
             </div>
         </div>

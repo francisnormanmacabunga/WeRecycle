@@ -19,7 +19,7 @@
   <div class="container">
       <nav>
         <ul class="probootstrap-main-nav">
-          <li><a href="{{ url('/') }}">Home</a></li>
+          <li><a href="{{ url('/home') }}">Home</a></li>
           <li><a href="{{ url('/createDonor') }}">Register</a></li>
           <li class="active"><a href="{{ url('/donor/login') }}">Login</a></li>
         </ul>

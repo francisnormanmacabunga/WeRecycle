@@ -38,8 +38,8 @@
                                 <li class="nav-item"><a class="nav-link">Filter by:</a></li>
                                 <li class="nav-item"> <a class="nav-link " href="{{ url('/programdirector/requests') }}" role="tab"><span class="hidden-sm-up"></span> <span class="hidden-xs-down">All</span></a> </li>
                                 <li class="nav-item"> <a class="nav-link " href="{{ url('/programdirector/requests/?status=Processing') }}" role="tab"><span class="hidden-sm-up"></span> <span class="hidden-xs-down">Processing</span></a> </li>
-                                <li class="nav-item"> <a class="nav-link " href="{{ url('/programdirector/requests/?status=Shipping') }}" role="tab"><span class="hidden-sm-up"></span> <span class="hidden-xs-down">Shipping</span></a> </li>
-                                <li class="nav-item"> <a class="nav-link " href="{{ url('/programdirector/requests/?status=Delivered') }}" role="tab"><span class="hidden-sm-up"></span> <span class="hidden-xs-down">Delivered</span></a> </li>
+                                <li class="nav-item"> <a class="nav-link " href="{{ url('/programdirector/requests/?status=Shipping') }}" role="tab"><span class="hidden-sm-up"></span> <span class="hidden-xs-down">Dispatched</span></a> </li>
+                                <li class="nav-item"> <a class="nav-link " href="{{ url('/programdirector/requests/?status=Delivered') }}" role="tab"><span class="hidden-sm-up"></span> <span class="hidden-xs-down">Accepted</span></a> </li>
                                 <li class="nav-item"> <a class="nav-link " href="{{ url('/programdirector/requests/?status=Cancelled') }}" role="tab"><span class="hidden-sm-up"></span> <span class="hidden-xs-down">Cancelled</span></a> </li>
                               </ul>
                                 <div class="table-responsive">
@@ -65,7 +65,7 @@
                                             </tr>
                                             @foreach ($request as $requests)
                                             @php
-                                            $cart = json_decode($orders->cart);
+                                            $cart = json_decode($requests->cart);
                                             @endphp
                                             @foreach($cart as $item)
                                             <tr>
@@ -80,7 +80,7 @@
                                                 <td> {{$requests->status}} </td>
                                                 <td> {{$requests->volunteer['firstname']}} {{$requests->volunteer['lastname']}}</td>
                                                 @endforeach
-                                                @if($requests->status == 'Cancelled' || $requests->status == 'Delivered')
+                                                @if($requests->status == 'Cancelled' || $requests->status == 'Accepted')
                                                     <td>
                                                       <a data-toggle="tooltip" data-placement="top"><button disabled class="btn-sm btn-light"><i class="mdi mdi-message-reply-text"></i></button></a>
                                                       <a data-toggle="tooltip" data-placement="top"><button disabled class="btn-sm btn-light"><i class="mdi mdi-message-reply"></i></button></a>
@@ -109,13 +109,12 @@
                                 {{$request -> links()}}
                             </div>
                         </div>
-                    </div>
                     <div class="col-xs-12" align="right">
                         <a href="{{action('ProgramDirector\TransactionPDF@transactionPDFR')}}" class="btn btn-danger"><i class="mdi mdi-file-pdf"></i> PDF</a>
                     </div>
                 </div>
             </div>
-            </div>
+          </div>
             <footer class="footer text-center">
                 Copyright &copy; 2018 WeRecycle
             </footer>

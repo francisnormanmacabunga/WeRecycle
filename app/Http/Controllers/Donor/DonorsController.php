@@ -72,25 +72,7 @@ class DonorsController extends Controller
         //
     }
 
-    public function addpoints()
-    {
-   $randompoints = rand(3,5);
-   $id = Auth::user()->userID;
-   $points = Points::where('userID',$id)->first();
-   $points->pointsaccumulated = $points->pointsaccumulated + $randompoints;
-   $points->userID = Auth::user()->userID;
-   $points->push();
-
-
-   $plog = new PointsLog;
-   $plog->userID = Auth::user()->userID;
-   $plog->activity = 'Donated';
-   $plog->points = $randompoints;
-   $plog->save();
-
-   return back();
-
-    }
+  
 
     /**
      * Show the form for editing the specified resource.

@@ -5,7 +5,7 @@
 <body class="animsition">
 
 	<!-- Title page -->
-	<section class="bg-img1 txt-center p-lr-15 p-tb-92" style="background-image: url({{asset('donor-design/images/donating.jpg')}});">
+	<section class="bg-img1 txt-center p-lr-15 p-tb-92" style="background-image: url({{asset('donor-design/images/shop-bg.jpg')}});">
 		<h2 class="ltext-105 cl0 txt-center">
 			Donation
 		</h2>
@@ -23,6 +23,25 @@
 						Donate
 					</a>
 				</div>
+				<div class="flex-w flex-t p-t-16">
+				<span class="size-216 stext-116 cl8 p-t-4">
+					Sort:
+				</span>
+				<div class="flex-w size-217">
+					<a href="{{ url('/donor/donationCatalog') }}" class="flex-c-m stext-107 cl6 size-301 bor7 p-lr-15 hov-tag1 trans-04 m-r-5 m-b-5">
+						All
+					</a>
+					<a href="{{ url('/donor/donationCatalog/?category=Traditional') }}" class="flex-c-m stext-107 cl6 size-301 bor7 p-lr-15 hov-tag1 trans-04 m-r-5 m-b-5">
+						Traditional
+					</a>
+					<a href="{{ url('/donor/donationCatalog/?category=Non-Traditional') }}" class="flex-c-m stext-107 cl6 size-301 bor7 p-lr-15 hov-tag1 trans-04 m-r-5 m-b-5">
+						Non-Traditional
+					</a>
+					<a href="{{ url('/donor/donationCatalog/?category=Material') }}" class="flex-c-m stext-107 cl6 size-301 bor7 p-lr-15 hov-tag1 trans-04 m-r-5 m-b-5">
+						Material
+					</a>
+				</div>
+			</div>
       </div>
       @if(session()->has('notif'))
       <div class="container">

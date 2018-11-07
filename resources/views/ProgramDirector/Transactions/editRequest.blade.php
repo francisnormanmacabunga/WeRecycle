@@ -52,13 +52,8 @@
                                                 <td>
                                                     <select class="select2 form-control custom-select" name="status" style="width: 100%; height:36px;">
                                                         <optgroup label="{{$request['status']}}">
-<<<<<<< HEAD
                                                             <option value="Dispatched">Dispatched</option>
                                                             <option value="Accepted">Accepted</option>
-=======
-                                                            <option value="Shipping">Shipping</option>
-                                                            <option value="Delivered">Delivered</option> <!-- Accepted -->
->>>>>>> 0727142df0ee1bf1dd0287ddc171d3ff4d2ec7e9
                                                             <option value="Cancelled">Cancelled</option>
                                                     </select>
                                                 </td>

@@ -154,7 +154,7 @@
       <ul class="sidebar-link w-full">
         <li class="p-b-13">
           <a href="{{ url('/donor/donors') }}" class="stext-102 cl2 hov-cl1 trans-04">
-            Edit Profile
+            View Profile
           </a>
         </li>
 

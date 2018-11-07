@@ -32,7 +32,7 @@
                  </div>
              </div>
            </div>
-           <div class="container col-md-6 center-align">
+           <div class="container col-md-4 center-align">
                <div class="card-deck mb-3 ">
                    <div class="card mb-4 shadow-sm">
                        <div class="card-header text-center">

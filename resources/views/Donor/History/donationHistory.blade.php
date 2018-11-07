@@ -55,7 +55,7 @@
                       <td class="column-1">{{$item->qty}}</td>
                       <td class="column-1">{{date('F d, Y, h:i:sa', strtotime($donations->created_at))}}</td>
                       <td class="column-1">{{$donations->status}}</td>
-                      @if ($donations->status == 'Shipping' || $donations->status == 'Delivered' || $donations->status == 'Cancelled')
+                      @if ($donations->status == 'Dispatched' || $donations->status == 'Accepted' || $donations->status == 'Cancelled')
                       <td class="column-1">
                           <form action="/cancel/{{$donations->transid}}">
                               <input type="submit" class="btn btn-danger btn-rounded"value="Cancel" class="btn btn-danger btn-rounded" disabled />
@@ -95,11 +95,11 @@
                   <a href="{{ url('/donor/donationhistory/?status=Cancelled') }}" class="flex-c-m stext-107 cl6 size-301 bor7 p-lr-15 hov-tag1 trans-04 m-r-5 m-b-5">
                     Cancelled
                   </a>
-                  <a href="{{ url('/donor/donationhistory/?status=Delivered') }}" class="flex-c-m stext-107 cl6 size-301 bor7 p-lr-15 hov-tag1 trans-04 m-r-5 m-b-5">
-                    Delivered
+                  <a href="{{ url('/donor/donationhistory/?status=Accepted') }}" class="flex-c-m stext-107 cl6 size-301 bor7 p-lr-15 hov-tag1 trans-04 m-r-5 m-b-5">
+                    Accepted
                   </a>
-                  <a href="{{ url('/donor/donationhistory/?status=Processing') }}" class="flex-c-m stext-107 cl6 size-301 bor7 p-lr-15 hov-tag1 trans-04 m-r-5 m-b-5">
-                    Shipping
+                  <a href="{{ url('/donor/donationhistory/?status=Dispatched') }}" class="flex-c-m stext-107 cl6 size-301 bor7 p-lr-15 hov-tag1 trans-04 m-r-5 m-b-5">
+                    Dispatched
                   </a>
                   <a href="{{ url('/donor/donationhistory/?status=Shipping') }}" class="flex-c-m stext-107 cl6 size-301 bor7 p-lr-15 hov-tag1 trans-04 m-r-5 m-b-5">
                     Processing

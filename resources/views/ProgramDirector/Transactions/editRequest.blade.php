@@ -53,7 +53,7 @@
                                                     <select class="select2 form-control custom-select" name="status" style="width: 100%; height:36px;">
                                                         <optgroup label="{{$request['status']}}">
                                                             <option value="Shipping">Shipping</option>
-                                                            <option value="Delivered">Delivered</option>
+                                                            <option value="Delivered">Delivered</option> <!-- Accepted -->
                                                             <option value="Cancelled">Cancelled</option>
                                                     </select>
                                                 </td>

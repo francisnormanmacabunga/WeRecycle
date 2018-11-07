@@ -102,20 +102,6 @@ class OrderController extends Controller
         $order->volunteerID = $request->input('volunteer');
         $order->save();
 
-        $randompoints = rand(3,5);
-        $id = $order->userID;
-        $points = Points::where('userID',$id)->first();
-        $points->pointsaccumulated = $points->pointsaccumulated + $randompoints;
-        $points->userID = $id;
-        $points->push();
-
-
-        $plog = new PointsLog;
-        $plog->userID = $id;
-        $plog->activity = 'Purchased';
-        $plog->points = $randompoints;
-        $plog->save();
-
       return redirect('/programdirector/orders')->with('success', 'Profile updated');
     }else {
       $order = Transaction::find($id);

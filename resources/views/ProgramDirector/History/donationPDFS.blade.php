@@ -69,7 +69,7 @@ tr:nth-child(even) {
   </tr>
   <tr>
     <td><strong>Report Generated:</strong> Donation History</td>
-    <td><strong>Sort:</strong> Shipping Donation</td>
+    <td><strong>Sort:</strong> Dispatched Donation</td>
   </tr>
 </table>
 

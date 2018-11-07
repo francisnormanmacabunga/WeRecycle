@@ -100,7 +100,7 @@ class DonationHistoryController extends Controller
         -> where('status', 'Shipping')
         -> get();
         $pdf = PDF::loadView('ProgramDirector/History.donationPDFS', compact('donation'));
-        return $pdf->download('Shipping-DonationHistory.pdf');
+        return $pdf->download('Dispatched-DonationHistory.pdf');
       }
 
       public function donationPDFD(Request $request)
@@ -110,7 +110,7 @@ class DonationHistoryController extends Controller
         -> where('status', 'Delivered')
         -> get();
         $pdf = PDF::loadView('ProgramDirector/History.donationPDFD', compact('donation'));
-        return $pdf->download('Delivered-DonationHistory.pdf');
+        return $pdf->download('Accepted-DonationHistory.pdf');
       }
 
       public function donationPDFC(Request $request)

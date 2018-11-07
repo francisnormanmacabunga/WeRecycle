@@ -80,7 +80,7 @@
                                                 <td> {{$requests->status}} </td>
                                                 <td> {{$requests->volunteer['firstname']}} {{$requests->volunteer['lastname']}}</td>
                                                 @endforeach
-                                                @if($requests->status == 'Cancelled' || $requests->status == 'Delivered')
+                                                @if($requests->status == 'Cancelled' || $requests->status == 'Accepted')
                                                     <td>
                                                       <a data-toggle="tooltip" data-placement="top"><button disabled class="btn-sm btn-light"><i class="mdi mdi-message-reply-text"></i></button></a>
                                                       <a data-toggle="tooltip" data-placement="top"><button disabled class="btn-sm btn-light"><i class="mdi mdi-message-reply"></i></button></a>

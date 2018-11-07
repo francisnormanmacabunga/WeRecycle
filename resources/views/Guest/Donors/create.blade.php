@@ -58,10 +58,10 @@
                     {!! Form::open(['action' => 'Guest\DonorsController@store', 'method' => 'POST' ]) !!}
                       @csrf
                       <dl class="row">
-                        <div class="col-md-3">
+                        <div class="col-md-4">
                               <label style="color: white">First Name</label>
                                 <div class="input-group mb-3">
-                                  <dd class="col-sm-12">
+                                  <dd class="col-sm-10">
                                     <input class="form-control {{ $errors->has('firstname') ? ' is-invalid' : '' }}" onkeypress="return !validNo(this,event)" placeholder="First Name" aria-describedby="basic-addon1"  type="text" name="firstname" required autofocus>
                                     @if ($errors->has('firstname'))
                                     <span class="invalid-feedback" role="alert">
@@ -72,7 +72,7 @@
                                 </div>
                                 <label style="color: white">Last Name</label>
                                 <div class="input-group mb-3">
-                                  <dd class="col-sm-12">
+                                  <dd class="col-sm-10">
                                     <input class="form-control {{ $errors->has('lastname') ? ' is-invalid' : '' }}" placeholder="Last Name" aria-describedby="basic-addon1" name="lastname" required>
                                     @if ($errors->has('lastname'))
                                     <span class="invalid-feedback" role="alert">
@@ -83,7 +83,7 @@
                                 </div>
                                 <label style="color: white">Email</label>
                                 <div class="input-group mb-3">
-                                  <dd class="col-sm-12">
+                                  <dd class="col-sm-10">
                                     <input class="form-control {{ $errors->has('email') ? ' is-invalid' : '' }}" placeholder="you@example.com" aria-describedby="basic-addon1" type="email" name="email" required>
                                     @if ($errors->has('email'))
                                     <span class="invalid-feedback" role="alert">
@@ -94,7 +94,7 @@
                                 </div>
                                 <label style="color: white">Cellphone Number</label>
                                 <div class="input-group mb-3">
-                                  <dd class="col-sm-12">
+                                  <dd class="col-sm-10">
                                     <input class="form-control {{ $errors->has('cellNo') ? ' is-invalid' : '' }}" placeholder="+63XXXXXXXXXX" aria-describedby="basic-addon1" type="text" name="cellNo" required>
                                     @if ($errors->has('cellNo'))
                                     <span class="invalid-feedback" role="alert">
@@ -105,7 +105,7 @@
                                 </div>
                                 <label style="color: white">Telephone Number</label>
                                 <div class="input-group mb-3">
-                                  <dd class="col-sm-12">
+                                  <dd class="col-sm-10">
                                     <input class="form-control {{ $errors->has('firstname') ? ' is-invalid' : '' }}" placeholder="XXXXXXX" aria-describedby="basic-addon1" type="number" name="tellNo" required>
                                     @if ($errors->has('tellNo'))
                                     <span class="invalid-feedback" role="alert">
@@ -115,10 +115,10 @@
                                   </dd>
                                 </div>
                               </div>
-                              <div class="col-md-3">
+                              <div class="col-md-4">
                                 <label style="color: white">Birthdate</label>
                                 <div class="input-group mb-3">
-                                  <dd class="col-sm-12">
+                                  <dd class="col-sm-10">
                                     <input class="form-control {{ $errors->has('birthdate') ? ' is-invalid' : '' }}" aria-describedby="basic-addon1" type="date" name="birthdate" required>
                                     @if ($errors->has('birthdate'))
                                     <span class="invalid-feedback" role="alert">
@@ -129,7 +129,7 @@
                                 </div>
                                 <label style="color: white">City</label>
                                 <div class="input-group mb-3">
-                                  <dd class="col-sm-12">
+                                  <dd class="col-sm-10">
                                     <input class="form-control {{ $errors->has('city') ? ' is-invalid' : '' }}" placeholder="City" onkeypress="return !validNo(this,event)" aria-describedby="basic-addon1" type="text" name="city" required>
                                     @if ($errors->has('city'))
                                     <span class="invalid-feedback" role="alert">
@@ -140,7 +140,7 @@
                                 </div>
                                 <label style="color: white">Street</label>
                                 <div class="input-group mb-3">
-                                  <dd class="col-sm-12">
+                                  <dd class="col-sm-10">
                                     <input class="form-control {{ $errors->has('street') ? ' is-invalid' : '' }}" placeholder="Street" aria-describedby="basic-addon1" type="text" name="street" required>
                                     @if ($errors->has('street'))
                                     <span class="invalid-feedback" role="alert">
@@ -151,7 +151,7 @@
                                 </div>
                                 <label style="color: white">Barangay</label>
                                 <div class="input-group mb-3">
-                                  <dd class="col-sm-12">
+                                  <dd class="col-sm-10">
                                     <input class="form-control {{ $errors->has('barangay') ? ' is-invalid' : '' }}" aria-describedby="basic-addon1" type="text" name="barangay" required>
                                     @if ($errors->has('barangay'))
                                     <span class="invalid-feedback" role="alert">
@@ -162,7 +162,7 @@
                                 </div>
                                 <label style="color: white">Zip</label>
                                 <div class="input-group mb-3">
-                                  <dd class="col-sm-12">
+                                  <dd class="col-sm-10">
                                     <input class="form-control {{ $errors->has('zip') ? ' is-invalid' : '' }}" placeholder="XXXX" aria-describedby="basic-addon1" type="number" name="zip" required>
                                     @if ($errors->has('zip'))
                                     <span class="invalid-feedback" role="alert">

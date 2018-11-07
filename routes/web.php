@@ -24,7 +24,6 @@ Route::get('/donation', 'Guest\ShopController@donationCatalog');
 Route::get('/termandcon', 'Guest\DonorsController@index');
 Route::get('/terandcond', 'Guest\ApplicantsController@index');
 
-
 Auth::routes();
 
 Route::prefix('donor')->group(function() {
@@ -140,5 +139,7 @@ Route::prefix('admin')->group(function() {
   Route::get('/', 'Admin\AdminController@index')->name('admin.dashboard');
 });
 
+
+//Remind Reniel!!!
 Route::get('/cancel/{transid}', 'Donor\HistoryController@cancel');
 Route::get('/redeemcode/{id}', 'Donor\DonorsController@redeemcode');

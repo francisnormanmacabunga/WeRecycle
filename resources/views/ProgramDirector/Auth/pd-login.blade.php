@@ -18,7 +18,6 @@
       <nav role="navigation" class="probootstrap-nav hidden-xs">
         <ul class="probootstrap-main-nav">
           <li><a href="{{ url('/activitycoordinator/login') }}">Activity Coordinator</a></li>
-          <li><a href="{{ url('/admin/login') }}">Administrator</a></li>
           <li  class="active"><a href="{{ url('/programdirector/login') }}">Program Director</a></li>
         </ul>
       </nav>

@@ -97,7 +97,7 @@ class RequestController extends Controller
      */
     public function update(Request $request, $id)
     {
-      if ($request->input('status') == 'Delivered') {
+      if ($request->input('status') == 'Accepted') {
         $order = Transaction::find($id);
         $order->status = $request->input('status');
         $order->volunteerID = $request->input('volunteer');

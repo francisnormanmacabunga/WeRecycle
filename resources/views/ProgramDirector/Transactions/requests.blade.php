@@ -38,8 +38,8 @@
                                 <li class="nav-item"><a class="nav-link">Filter by:</a></li>
                                 <li class="nav-item"> <a class="nav-link " href="{{ url('/programdirector/requests') }}" role="tab"><span class="hidden-sm-up"></span> <span class="hidden-xs-down">All</span></a> </li>
                                 <li class="nav-item"> <a class="nav-link " href="{{ url('/programdirector/requests/?status=Processing') }}" role="tab"><span class="hidden-sm-up"></span> <span class="hidden-xs-down">Processing</span></a> </li>
-                                <li class="nav-item"> <a class="nav-link " href="{{ url('/programdirector/requests/?status=Shipping') }}" role="tab"><span class="hidden-sm-up"></span> <span class="hidden-xs-down">Shipping</span></a> </li>
-                                <li class="nav-item"> <a class="nav-link " href="{{ url('/programdirector/requests/?status=Delivered') }}" role="tab"><span class="hidden-sm-up"></span> <span class="hidden-xs-down">Delivered</span></a> </li>
+                                <li class="nav-item"> <a class="nav-link " href="{{ url('/programdirector/requests/?status=Shipping') }}" role="tab"><span class="hidden-sm-up"></span> <span class="hidden-xs-down">Dispatched</span></a> </li>
+                                <li class="nav-item"> <a class="nav-link " href="{{ url('/programdirector/requests/?status=Delivered') }}" role="tab"><span class="hidden-sm-up"></span> <span class="hidden-xs-down">Accepted</span></a> </li>
                                 <li class="nav-item"> <a class="nav-link " href="{{ url('/programdirector/requests/?status=Cancelled') }}" role="tab"><span class="hidden-sm-up"></span> <span class="hidden-xs-down">Cancelled</span></a> </li>
                               </ul>
                                 <div class="table-responsive">

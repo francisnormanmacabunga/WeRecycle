@@ -59,7 +59,7 @@
             <div class="layer-slick1 animated visible-false" data-appear="fadeInUp" data-delay="800">
               @if ($width['pointsaccumulated'] >= 100)
               <div>
-              <center><a href="/redeemcode/{{Auth::user()->userID}}" onclick="confirm('Are you sure you want to claim your discount code?')" class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04">Redeem</a></center>
+              <center><a href="/donor/redeemcode/{{Auth::user()->userID}}" onclick="confirm('Are you sure you want to claim your discount code?')" class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04">Redeem</a></center>
 
               </div>
               @else

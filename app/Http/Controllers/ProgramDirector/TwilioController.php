@@ -125,27 +125,38 @@ class TwilioController extends Controller
 
     public function sendMessageDonorRequest(Request $request)
     {
-      $this->validate($request, [
-        'message' => 'required',
-      [
-        'message.required' => 'The message field is required.'
-      ]]);
-        session()->flash('sms','Message Sent!');
-        $applicant = new MessageDonors();
-        $applicant->message = $request ->input('message');
-        $applicant->userID = $request->userID;
-        $applicant->save();
+
+      try {
+
+        $this->validate($request, [
+          'message' => 'required',
+        [
+          'message.required' => 'The message field is required.'
+        ]]);
+          session()->flash('sms','Message Sent!');
+          $applicant = new MessageDonors();
+          $applicant->message = $request ->input('message');
+          $applicant->userID = $request->userID;
+          $applicant->save();
 
 
-      $sid    = "AC8a7060e979f382acdb6ba484275f218b";
-      $token  = "addb0fa1287d36f40d566e65bc764f4a";
-      $twilio = new Client($sid, $token);
-      $message = $twilio->messages
-      ->create($twilio->mobile = $request->input('mobile'), // to
-               array(
-                   "body" => $twilio->message = $request->input('message'),
-                   "from" => "(619) 724-4011"));
-      return redirect('/programdirector/requests')->with('success', 'Message Sent Succesfully');
+        $sid    = "AC8a7060e979f382acdb6ba484275f218b";
+        $token  = "addb0fa1287d36f40d566e65bc764f4a";
+        $twilio = new Client($sid, $token);
+        $message = $twilio->messages
+        ->create($twilio->mobile = $request->input('mobile'), // to
+                 array(
+                     "body" => $twilio->message = $request->input('message'),
+                     "from" => "(619) 724-4011"));
+        return redirect('/programdirector/requests')->with('success', 'Message Sent Succesfully');
+
+    } catch (Exception $e) {
+        report($e);
+
+        return false;
+    }
+
+
       }
 
 }

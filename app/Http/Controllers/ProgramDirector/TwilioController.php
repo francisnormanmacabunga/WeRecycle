@@ -151,7 +151,7 @@ class TwilioController extends Controller
         return redirect('/programdirector/requests')->with('success', 'Message Sent Succesfully');
 
     } catch (Exception $e) {
-        report($e);
+        echo "number not verified";
 
         return false;
     }

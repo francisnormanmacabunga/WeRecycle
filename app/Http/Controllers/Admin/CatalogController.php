@@ -52,7 +52,7 @@ class CatalogController extends Controller
       'productname' => 'required|regex:/^[A-Za-z. -]+$/',
       'productstypeID' => 'required',
       'description' => 'required|regex:/^[A-Za-z. -]+$/',
-      'price' => 'min:0',
+      //'price' => 'min:0',
       'productimage' => 'required|mimes:jpeg,jpg,png|image|max:5000',
       'category' => 'required'
     ],
@@ -62,7 +62,7 @@ class CatalogController extends Controller
       'productstypeID.required' => 'Item Type is a required field.',
       'description.required' => 'Item description is a required field.',
       'description.regex' => 'Item description must only contain letters and period',
-      'price.min' => 'Price must be greater than 0.',
+      //'price.min' => 'Price must be greater than 0.',
       'productimage.required' => 'Product image is required',
       'productimage.mimes' => 'Image must be in JPG/JPEG or PNG format',
       'productimage.max' => 'Image must be less than 5MB.',
@@ -128,7 +128,7 @@ class CatalogController extends Controller
       $this->validate($request, [
       'productname' => 'regex:/^[A-Za-z. -]+$/',
       'description' => 'regex:/^[A-Za-z. -]+$/',
-      'price' => 'min:0',
+      'price' => 'min:0|required',
     ],
     [
       'productname.regex' => 'Product name must only contain letters and period.',

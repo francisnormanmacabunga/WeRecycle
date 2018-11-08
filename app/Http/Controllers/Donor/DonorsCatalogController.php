@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Products;
 use DB;
+use Auth;
 
 class DonorsCatalogController extends Controller
 {
@@ -37,6 +38,34 @@ class DonorsCatalogController extends Controller
     -> get();
 
     return view('Donor/Catalog.shop', compact('products2'));
+  }
+
+  public function backtoshopcat()
+  {
+    $products2 = Products::SELECT('*')
+    -> join('productstype', 'productstype.productstypeID', '=', 'products.productstypeID')
+    -> where('productstype.productstypeID','2')
+    -> where('status','Activated')
+    -> sortable()
+    -> get();
+
+    $donor = Auth::user();
+    DB::table('orders')->where('userID',$donor->userID)->delete();
+    return view('Donor/Catalog.shop', compact('products2'));
+  }
+
+  public function backtodoncat()
+  {
+    $products1 = Products::SELECT('*')
+    -> join('productstype', 'productstype.productstypeID', '=', 'products.productstypeID')
+    -> where('productstype.productstypeID','1')
+    -> where('status','Activated')
+    -> sortable()
+    -> get();
+
+    $donor = Auth::user();
+    DB::table('request')->where('userID',$donor->userID)->delete();
+    return view('Donor/Catalog.donation', compact('products1'));
   }
 
 }

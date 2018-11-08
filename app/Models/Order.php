@@ -17,7 +17,7 @@ class Order extends Model
     protected static $logOnlyDirty = true;
     public function getDescriptionForEvent(string $eventName): string
     {
-        return "Has placed an";
+        return "Has {$eventName}";
     }
 
     public function user()

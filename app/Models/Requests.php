@@ -17,7 +17,7 @@ class Requests extends Model
   protected static $logOnlyDirty = true;
   public function getDescriptionForEvent(string $eventName): string
   {
-      return "Has placed a";
+      return "Has {$eventName}";
   }
 
   public function user()

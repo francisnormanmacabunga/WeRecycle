@@ -75,7 +75,7 @@ if (count($cartItems) > 0) {
 
   if(count($reward) > 0){
     $total = Cart::instance('shop')->Total();
-    $discount = Cart::instance('shop')->Total() * 0.15;
+    $discount = Cart::instance('shop')->Total() * 0.10;
 
   $order = new Order();
   $order->userID = $donor->userID;

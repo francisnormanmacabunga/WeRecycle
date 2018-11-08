@@ -126,8 +126,6 @@ class TwilioController extends Controller
     public function sendMessageDonorRequest(Request $request)
     {
 
-      try {
-
         $this->validate($request, [
           'message' => 'required',
         [
@@ -149,13 +147,6 @@ class TwilioController extends Controller
                      "body" => $twilio->message = $request->input('message'),
                      "from" => "(619) 724-4011"));
         return redirect('/programdirector/requests')->with('success', 'Message Sent Succesfully');
-
-    } catch (Exception $e) {
-        echo "number not verified";
-
-        return false;
-    }
-
 
       }
 

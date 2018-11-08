@@ -30,7 +30,7 @@
                   <!-- Card -->
                   <div class="card">
                       <div class="card-body" style="height: 300px;">
-                        <h4 class="card-title">Send a message:</h4>
+                        <h4 class="card-title" align="center">Send a message</h4>
                                             <div class="card">
                                                 <div class="card-body">
 

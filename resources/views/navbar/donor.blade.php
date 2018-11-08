@@ -135,6 +135,16 @@
       <li>
         <a href="{{ url('/donor/createFeedback') }}">Feedback</a>
       </li>
+      <li>
+        <a href="{{ url('/donor/donors') }}">
+          View Profile
+        </a>
+      </li>
+      <li class="p-b-13">
+        <a href="{{ url('/donor/transactionhistory') }}">
+        History
+        </a>
+      </li>
     </ul>
   </div>
 </header>

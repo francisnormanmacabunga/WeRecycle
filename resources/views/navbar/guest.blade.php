@@ -59,7 +59,7 @@
               <div class="menu-desktop">
                 <ul class="main-menu">
                   <li>
-                    <a style="color:#1B4D3E" href="{{url('/')}}">Home</a>
+                    <a style="color:#1B4D3E" href="{{url('/home')}}">Home</a>
                   </li>
                   <li>
                     <a style="color:#1B4D3E" href="{{url('/createDonor')}}">Register</a>

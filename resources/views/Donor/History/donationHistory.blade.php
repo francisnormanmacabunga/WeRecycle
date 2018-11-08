@@ -13,17 +13,39 @@
     		<div class="container">
           <br />
           <div class="flex-w flex-sb-m p-b-52">
-    				<div class="flex-w flex-l-m filter-tope-group m-tb-10">
+            <div class="flex-w flex-l-m filter-tope-group m-tb-10">
+              <a href="{{url('/donor/transactionhistory')}}" class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5">
+                Transaction History
+              </a>
               <a href="#" class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5 how-active1">
                 Donation History
               </a>
               <a href="{{ url('/donor/pointhistory') }}" class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5">
                 Points History
               </a>
-    					<a href="{{url('/donor/transactionhistory')}}" class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5">
-                Transaction History
-    					</a>
-    				</div>
+            </div>
+            <div class="flex-w flex-t p-t-16">
+            <span class="size-216 stext-116 cl8 p-t-4">
+              Sort:
+            </span>
+            <div class="flex-w size-217">
+              <a href="{{ url('/donor/donationhistory') }}" class="flex-c-m stext-107 cl6 size-301 bor7 p-lr-15 hov-tag1 trans-04 m-r-5 m-b-5">
+                All
+              </a>
+              <a href="{{ url('/donor/donationhistory/?status=Cancelled') }}" class="flex-c-m stext-107 cl6 size-301 bor7 p-lr-15 hov-tag1 trans-04 m-r-5 m-b-5">
+                Cancelled
+              </a>
+              <a href="{{ url('/donor/donationhistory/?status=Accepted') }}" class="flex-c-m stext-107 cl6 size-301 bor7 p-lr-15 hov-tag1 trans-04 m-r-5 m-b-5">
+                Accepted
+              </a>
+              <a href="{{ url('/donor/donationhistory/?status=Dispatched') }}" class="flex-c-m stext-107 cl6 size-301 bor7 p-lr-15 hov-tag1 trans-04 m-r-5 m-b-5">
+                Dispatched
+              </a>
+              <a href="{{ url('/donor/donationhistory/?status=Shipping') }}" class="flex-c-m stext-107 cl6 size-301 bor7 p-lr-15 hov-tag1 trans-04 m-r-5 m-b-5">
+                Processing
+              </a>
+            </div>
+          </div>
           </div>
 
     			<div class="row">
@@ -84,28 +106,6 @@
     								@endif
     							</table>
     						</div>
-                <div class="flex-w flex-t p-t-16">
-                <span class="size-216 stext-116 cl8 p-t-4">
-                  Sort:
-                </span>
-                <div class="flex-w size-217">
-                  <a href="{{ url('/donor/donationhistory') }}" class="flex-c-m stext-107 cl6 size-301 bor7 p-lr-15 hov-tag1 trans-04 m-r-5 m-b-5">
-                    All
-                  </a>
-                  <a href="{{ url('/donor/donationhistory/?status=Cancelled') }}" class="flex-c-m stext-107 cl6 size-301 bor7 p-lr-15 hov-tag1 trans-04 m-r-5 m-b-5">
-                    Cancelled
-                  </a>
-                  <a href="{{ url('/donor/donationhistory/?status=Accepted') }}" class="flex-c-m stext-107 cl6 size-301 bor7 p-lr-15 hov-tag1 trans-04 m-r-5 m-b-5">
-                    Accepted
-                  </a>
-                  <a href="{{ url('/donor/donationhistory/?status=Dispatched') }}" class="flex-c-m stext-107 cl6 size-301 bor7 p-lr-15 hov-tag1 trans-04 m-r-5 m-b-5">
-                    Dispatched
-                  </a>
-                  <a href="{{ url('/donor/donationhistory/?status=Shipping') }}" class="flex-c-m stext-107 cl6 size-301 bor7 p-lr-15 hov-tag1 trans-04 m-r-5 m-b-5">
-                    Processing
-                  </a>
-                </div>
-              </div>
               <br />
     					</div>
     				</div>

@@ -10,16 +10,12 @@
 
 <header role="banner" class="probootstrap-header">
   <div class="container">
+      <a href="{{ url('/home') }}" class="probootstrap-logo"><img src="{{asset('assets/images/logo.png')}}" alt="logo"/></a>
+
       <a href="#" class="probootstrap-burger-menu visible-xs" ><i>Menu</i></a>
       <div class="mobile-menu-overlay"></div>
 
-      <nav>
-        <ul class="probootstrap-main-nav">
-          <li class="active"><a href="#">Employee</a></li>
-          <li><a href="{{ url('/programdirector/login') }}">Program Director</a></li>
-          <li><a href="{{ url('/activitycoordinator/login') }}">Activity Coordinator</a></li>
-        </ul>
-      </nav>
+
   </div>
 </header>
 

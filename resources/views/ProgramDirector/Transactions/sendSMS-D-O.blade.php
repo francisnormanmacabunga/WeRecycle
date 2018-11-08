@@ -55,7 +55,7 @@
                                                                 <td> {{$applicants->donor['contacts']['cellNo']}} </td>
                                                               </tr>
                                                           </tbody>
-                                                      </table
+                                                      </table>
                                                     </div>
                                             </div>
                       </div>

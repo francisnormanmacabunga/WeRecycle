@@ -73,6 +73,7 @@ class ActivityCoordinatorController extends Controller
       'tellNo.min' => 'The Telephone field must be at least 7 characters.',
       'tellNo.max' => 'The Telephone field may not be greater than 7 characters.',
       'birthdate.required' => 'The Birthdate field is required.',
+      'birthdate.before' => 'The Activity Coordinator must be atleast 18 years old',
       'city.required' => 'The City field is required.',
       'city.regex' => 'The City field must only contain letters.',
       'street.regex' => 'The Street field must only contain letters, numbers, period and comma.',

@@ -77,7 +77,7 @@
                                 <div class="form-group-row">
                                     <div class="col-sm-9">
                                         <label>Price</label>
-                                        {{Form::number('price', $products['price'],[ 'min' => '0', 'class' => 'form-control'.($errors->has('description') ? ' is-invalid' : '')])}}
+                                        {{Form::number('price', $products['price'],[ 'min' => '0', 'class' => 'form-control'.($errors->has('price') ? ' is-invalid' : ''), 'required' => 'required'])}}
                                         @if ($errors->has('price'))
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $errors->first('price') }}</strong>

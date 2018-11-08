@@ -93,7 +93,7 @@
                               </td>
                           @else
                           <td class="column-1">
-                              <form action="/cancel/{{$shops->transid}}">
+                              <form action="/donor/cancel/{{$shops->transid}}">
                                   <input type="submit" class="btn btn-danger btn-rounded" value="Cancel" onclick="return confirm('Proceed to cancel order?')" />
                               </form>
                           </td>

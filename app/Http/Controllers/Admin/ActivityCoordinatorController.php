@@ -54,7 +54,7 @@ class ActivityCoordinatorController extends Controller
       'city' => 'required|regex:/^[\pL\s]+$/u',
       'street' => 'nullable|regex:/^[a-zA-Z0-9,.!? ]*$/',
       'barangay' => 'nullable|regex:/^[a-zA-Z0-9,.!? ]*$/',
-      'zip' => 'nullable|min:4|max:4',
+      'zip' => 'nullable|min:4|max:4|regex:/^[0-9]*$/',
       'username' => 'required|alpha_dash|unique:user,username'
     ],
     [
@@ -80,6 +80,7 @@ class ActivityCoordinatorController extends Controller
       'barangay.regex' => 'The Barangay field must only contain letters, numbers, period and comma.',
       'zip.min' => 'The Zip field must be at least 4 characters.',
       'zip.max' => 'The Zip field may not be greater than 4 characters.',
+      'zip.regex' => 'The Zip field must only contain numbers.',
       'username.unique' => 'The Username you registered is already in use.',
       'username.required' => 'The Username field is required.',
       'username.alpha_dash' => 'The Username may only contain letters, numbers, dashes and underscores.'

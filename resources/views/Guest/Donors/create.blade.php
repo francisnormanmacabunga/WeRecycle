@@ -163,7 +163,7 @@
                                 <label style="color: white">Zip</label>
                                 <div class="input-group mb-3">
                                   <dd class="col-sm-10">
-                                    <input class="form-control {{ $errors->has('zip') ? ' is-invalid' : '' }}" placeholder="XXXX" aria-describedby="basic-addon1" type="number" name="zip" required>
+                                    <input class="form-control {{ $errors->has('zip') ? ' is-invalid' : '' }}" placeholder="XXXX" aria-describedby="basic-addon1" type="text" name="zip" required>
                                     @if ($errors->has('zip'))
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $errors->first('zip') }}</strong>

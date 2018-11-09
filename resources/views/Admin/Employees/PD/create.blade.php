@@ -27,7 +27,7 @@
                 </div>
               </div>
               @endif
-              
+
                 <!-- ============================================================== -->
                 <!-- Start Page Content -->
                 <!-- ============================================================== -->
@@ -156,7 +156,7 @@
                                 <div class="form-group-row">
                                     <div class="col-sm-9">
                                         <label>Zip <label style="color:red;">*</label> </label>
-                                        <input type="number" name="zip" class="form-control {{ $errors->has('zip') ? ' is-invalid' : '' }}" placeholder="Zip" required>
+                                        <input type="text" name="zip" class="form-control {{ $errors->has('zip') ? ' is-invalid' : '' }}" placeholder="Zip" required>
                                         @if ($errors->has('zip'))
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $errors->first('zip') }}</strong>

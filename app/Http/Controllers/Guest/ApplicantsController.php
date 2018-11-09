@@ -10,6 +10,7 @@ use App\Models\Employee;
 use App\Models\Contacts;
 use Hash;
 use Carbon\Carbon;
+use Session;
 
 class ApplicantsController extends Controller
 {
@@ -55,7 +56,7 @@ class ApplicantsController extends Controller
       'city' => 'required|regex:/^[\pL\s]+$/u',
       'street' => 'nullable|regex:/^[a-zA-Z0-9,.!? ]*$/',
       'barangay' => 'nullable|regex:/^[a-zA-Z0-9,.!? ]*$/',
-      'zip' => 'nullable|min:4|max:4',
+      'zip' => 'nullable|min:4|max:4|regex:/^[0-9]*$/',
       'username' => 'required|alpha_dash|unique:user,username',
       'g-recaptcha-response'=> 'required|captcha'
     ],
@@ -82,6 +83,7 @@ class ApplicantsController extends Controller
       'barangay.regex' => 'The Barangay field must only contain letters, numbers, period, and comma.',
       'zip.min' => 'The Zip field must be at least 4 characters.',
       'zip.max' => 'The Zip field may not be greater than 4 characters.',
+      'zip.regex' => 'The Zip field must only contain numbers.',
       'username.unique' => 'The Username you registered is already in use.',
       'username.required' => 'The Username field is required.',
       'username.alpha_dash' => 'The Username may only contain letters, numbers, dashes and underscores.',
@@ -106,7 +108,10 @@ class ApplicantsController extends Controller
       $contacts->cellNo = $request->input('cellNo');
       $contacts->tellNo = $request->input('tellNo');
       $contacts->save();
-      return redirect('/home')->with('success', 'Application submitted');
+
+      \Session::flash('notif','You have successfully applied. We are now proccessing your application!');
+      return back();
+      //return redirect('/home')->with('success', 'Application submitted');
     }
 
     /**

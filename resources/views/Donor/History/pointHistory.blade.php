@@ -82,7 +82,10 @@
       								@endif
       							</table>
       						</div>
+                <br/>
+                    {{$point -> links()}}
                 <br />
+
       					</div>
       				</div>
       			</div>

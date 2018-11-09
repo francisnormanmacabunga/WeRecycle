@@ -27,12 +27,12 @@ class HistoryController extends Controller
       -> where('userID', $donor->userID)
       -> where('status',request('status'))
       -> where('type', 'Donate')
-      -> get();
+      -> paginate(10)->appends('status', request('status'));
       } else {
         $donation = Transaction::orderBy('updated_at', 'desc')
         -> where('userID', $donor->userID)
         -> where('type', 'Donate')
-        -> get();
+        -> paginate(10);
 }
       return view('Donor/History.donationHistory')->with(['donation' => $donation]);
 
@@ -45,13 +45,13 @@ class HistoryController extends Controller
       $shop = Transaction::orderBy('updated_at', 'desc')
       -> where('userID', $donor->userID)
       -> where('status',request('status'))
-      -> where('type', 'Shop')
-      -> get();
+      -> paginate(10)->appends('status', request('status'))
+      -> where('type', 'Shop');
       } else {
         $shop = Transaction::orderBy('updated_at', 'desc')
         -> where('userID', $donor->userID)
         -> where('type', 'Shop')
-        -> get();
+        -> paginate(10);
       }
       return view('Donor/History.transactionHistory')->with(['shop' => $shop]);
     }
@@ -59,12 +59,12 @@ class HistoryController extends Controller
     public function pointHistory()
     {
       $donor = Auth::user();
-      if (request()->has('status')){
+      if (request()->has('activity')){
       $point = PointsLog::SELECT('*')
-      -> where('activity',request('status'))
+      -> where('activity',request('activity'))
       -> where('userID', $donor->userID)
       -> sortable()
-      -> paginate(10)->appends('activity', request('status'));
+      -> paginate(10)->appends('activity', request('activity'));
       } else {
       $point = PointsLog::SELECT('*')
       -> where('userID', $donor->userID)
@@ -80,11 +80,13 @@ class HistoryController extends Controller
       return view('Donor/History.pointHistory')->with(['point' => $point]);
     }
 
-    public function cancel(Request $request,$transid){
+    public function cancel(Request $request,$transid)
+    {
         $id = $request->transid;
         $trans = Transaction::where('transid',$id)->first();
         $trans->status = 'Cancelled';
         $trans->push();
         return back();
     }
+
 }

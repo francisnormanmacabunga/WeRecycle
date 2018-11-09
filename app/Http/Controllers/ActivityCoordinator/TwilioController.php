@@ -25,6 +25,7 @@ class TwilioController extends Controller
 
   public function sendMessageApplicant(Request $request)
   {
+
     $sid    = "AC8a7060e979f382acdb6ba484275f218b";
     $token  = "addb0fa1287d36f40d566e65bc764f4a";
     $twilio = new Client($sid, $token);

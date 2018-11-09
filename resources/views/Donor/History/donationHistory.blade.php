@@ -87,9 +87,7 @@
                       </td>
                       @else
                       <td class="column-1">
-                          <form action="/cancel/{{$donations->transid}}">
-                              <input type="submit" class="btn btn-danger btn-rounded" value="Cancel" onclick="return confirm('Proceed to cancel order?')" />
-                          </form>
+                              <a href="/donor/cancel/{{$donations->transid}}" class="btn btn-danger btn-rounded" value="Cancel" onclick="return confirm('Proceed to cancel order?')">Cancel</a>
                       </td>
                       @endif
     								</tr>

@@ -28,7 +28,7 @@ class CatalogImageController extends Controller
       public function update(Request $request, $id)
       {
         $this->validate($request, [
-        'productimage' => 'required|mimes:jpeg,jpg,png|image|max:5000'
+        'productimage' => 'required|mimes:jpeg,jpg,png|image|max:1000'
       ],
       [
         'productimage.required' => 'New product image is required.',

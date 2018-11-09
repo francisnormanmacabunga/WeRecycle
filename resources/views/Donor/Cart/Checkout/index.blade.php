@@ -178,7 +178,7 @@
 
 							<div class="size-209 p-t-1">
 								<span class="mtext-110 cl2">
-									Php {{Cart::total()}}
+									Php {{$order->price}}
 								</span>
 							</div>
 							@endif

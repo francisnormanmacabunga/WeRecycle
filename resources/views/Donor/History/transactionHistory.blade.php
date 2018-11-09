@@ -112,7 +112,7 @@
         						</div>
                   <br />
                   {{$shop -> links()}}
-                    <br/>
+                  <br/>
         					</div>
         				</div>
         			</div>

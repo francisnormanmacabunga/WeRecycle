@@ -61,7 +61,7 @@
                           <th class="column-1">Product Name</th>
                           <th class="column-1">Quantity</th>
                           <th class="column-1">Amount</th>
-                          <th class="column-1">@sortablelink('created_at', 'Date')</th>
+                          <th class="column-1">Date</th>
                           <th class="column-1">Status</th>
                           <th class="column-1">Action</th>
                           <th class="column-1"></th>

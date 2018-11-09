@@ -10,6 +10,7 @@ use App\Models\Donor;
 use App\Models\Points;
 use Hash;
 use Carbon\Carbon;
+use Session;
 
 class DonorsController extends Controller
 {
@@ -116,6 +117,8 @@ class DonorsController extends Controller
       $points->pointsaccumulated = 0;
       $points->userID = $user->userID;
       $points->save();
+
+      \Session::flash('notif','You have successfully created an account!');
       return redirect('/donor/login')->with('success', 'Profile Created');
     }
 

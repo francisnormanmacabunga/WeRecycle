@@ -44,6 +44,17 @@
         <!-- ============================================================== -->
         <div class="auth-wrapper d-flex no-block justify-content-center align-items-center" style="background-color: #1B4D3E">
             <div class="auth-box" style="background-color: #1B4D3E">
+              @if(session()->has('notif'))
+              <div class="container">
+            <div class="content">
+              <div class="alert alert-success">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                <strong>{{session()->get('notif')}}</strong>
+              </div>
+              <br />
+            </div>
+            </div>
+            @endif
                 <div id="loginform">
                     <div class="text-center p-t-20 p-b-20">
                         <span class="db"><img src="{{asset('assets/images/donor-logo.png')}}" alt="logo" /></span>

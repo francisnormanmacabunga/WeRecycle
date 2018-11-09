@@ -87,7 +87,7 @@
 
 								</div>
               <div class="flex-w flex-m m-r-20 m-tb-5">
-								<a role="button" href="{{url('/donor/donationCatalog')}}" class="flex-c-m stext-101 cl0 size-118 bg3 bor14 hov-btn3 p-lr-15 trans-04 pointer m-tb-5">
+								<a role="button" href="{{url('/donor/backtodoncat')}}" class="flex-c-m stext-101 cl0 size-118 bg3 bor14 hov-btn3 p-lr-15 trans-04 pointer m-tb-5">
 									Back to catalog
 								</a>
               </div>

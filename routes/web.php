@@ -41,6 +41,8 @@ Route::prefix('donor')->group(function() {
   Route::post('/sendFeedback', 'Donor\FeedbacksController@sendFeedback');
   Route::get('/donationCatalog','Donor\DonorsCatalogController@donationCatalog');
   Route::get('/shopCatalog','Donor\DonorsCatalogController@shopCatalog');
+  Route::get('/backtoshopcat','Donor\DonorsCatalogController@backtoshopcat');
+  Route::get('/backtodoncat','Donor\DonorsCatalogController@backtodoncat');
   Route::get('/donationhistory','Donor\HistoryController@donationHistory');
   Route::get('/transactionhistory','Donor\HistoryController@transactionHistory');
   Route::get('/pointhistory','Donor\HistoryController@pointHistory');

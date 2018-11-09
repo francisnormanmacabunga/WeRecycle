@@ -28,7 +28,7 @@ class CartCheckoutController extends Controller
     public function confirm($id)
     {
       $donor = Auth::user();
-      $order = Order::where('userID', $donor->userID)->first();
+      $order = Order::where('userID', $donor->userID)->orderBy('created_at', 'desc')->first();
 
       $trans = new Transaction;
       $trans->userID = $order->userID;

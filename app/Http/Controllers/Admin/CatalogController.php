@@ -65,7 +65,7 @@ class CatalogController extends Controller
       //'price.min' => 'Price must be greater than 0.',
       'productimage.required' => 'Product image is required',
       'productimage.mimes' => 'Image must be in JPG/JPEG or PNG format',
-      'productimage.max' => 'Image must be less than 5MB.',
+      'productimage.max' => 'Image must be less than 1MB.',
       'category.required' => 'Product Category is required.'
     ]);
 

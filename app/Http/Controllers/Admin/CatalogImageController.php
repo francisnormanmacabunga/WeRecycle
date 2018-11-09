@@ -33,7 +33,7 @@ class CatalogImageController extends Controller
       [
         'productimage.required' => 'New product image is required.',
         'productimage.mimes' => 'Image must be in JPG/JPEG or PNG format',
-        'productimage.max' => 'Image must be less than 5MB.'
+        'productimage.max' => 'Image must be less than 1MB.'
       ]);
 
         $validator = Validator::make($request->all(), [

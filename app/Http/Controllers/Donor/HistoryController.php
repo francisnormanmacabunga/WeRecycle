@@ -46,7 +46,6 @@ class HistoryController extends Controller
       -> where('userID', $donor->userID)
       -> where('status',request('status'))
       -> where('type', 'Shop')
-
       -> get();
       } else {
         $shop = Transaction::orderBy('updated_at', 'desc')

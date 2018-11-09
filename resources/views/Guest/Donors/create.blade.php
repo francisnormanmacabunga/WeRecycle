@@ -9,6 +9,7 @@
 
   }
   </style>-->
+  <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('assets/images/favicon.png') }}">
   <link href="https://fonts.googleapis.com/css?family=Inconsolata|Rubik:300,400,700,900" rel="stylesheet">
   <link rel="stylesheet" href="{{asset('css/styles-merged.css')}}">
   <link rel="stylesheet" href="{{asset('css/style.min.css')}}">
@@ -152,7 +153,7 @@
                                 <label style="color: white">Barangay</label>
                                 <div class="input-group mb-3">
                                   <dd class="col-sm-10">
-                                    <input class="form-control {{ $errors->has('barangay') ? ' is-invalid' : '' }}" aria-describedby="basic-addon1" type="text" name="barangay" required>
+                                    <input class="form-control {{ $errors->has('barangay') ? ' is-invalid' : '' }}" placeholder="Barangay" aria-describedby="basic-addon1" type="text" name="barangay" required>
                                     @if ($errors->has('barangay'))
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $errors->first('barangay') }}</strong>

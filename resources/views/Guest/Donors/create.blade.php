@@ -186,7 +186,12 @@
                                 </div>
                                 <div class="input-group mb-3">
                                   <dd class="col-sm-12">
-                                    <input class="form-control" placeholder="New Password" aria-label="Password" aria-describedby="basic-addon1" id="password" type="password" name="password" required>
+                                    <input class="form-control {{ $errors->has('password') ? ' is-invalid' : '' }}" placeholder="New Password" aria-label="Password" aria-describedby="basic-addon1" id="password" type="password" name="password" required>
+                                    @if ($errors->has('password'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('password') }}</strong>
+                                    </span>
+                                    @endif
                                   </dd>
                                 </div>
                                 <div class="input-group mb-3">

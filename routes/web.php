@@ -46,6 +46,8 @@ Route::prefix('donor')->group(function() {
   Route::get('/donationhistory','Donor\HistoryController@donationHistory');
   Route::get('/transactionhistory','Donor\HistoryController@transactionHistory');
   Route::get('/pointhistory','Donor\HistoryController@pointHistory');
+  Route::get('/cancel/{transid}', 'Donor\HistoryController@cancel');
+  Route::get('/redeemcode/{id}', 'Donor\DonorsController@redeemcode');
 
   //AddtoCart & AddtoDonate
   Route::get('/donate/add-item/{id}', 'Donor\DonateController@addItem')->name('donate.addItem');
@@ -140,8 +142,3 @@ Route::prefix('admin')->group(function() {
   Route::get('/createPD', 'Admin\AdminController@createPD');
   Route::get('/', 'Admin\AdminController@index')->name('admin.dashboard');
 });
-
-
-//Remind Reniel!!!
-Route::get('/cancel/{transid}', 'Donor\HistoryController@cancel');
-Route::get('/redeemcode/{id}', 'Donor\DonorsController@redeemcode');

@@ -102,12 +102,12 @@
     <div class="wrap-icon-header flex-w flex-r-m h-full m-r-15">
       <div class="flex-c-m h-full p-lr-19">
         <div class="icon-header-item">
-          <a href="{{ url('/donor/donate') }}" title="Shopping cart"><i style="color:#1B4D3E" class="zmdi zmdi-shopping-basket"></i></a>
+          <a href="{{ url('/donor/cart') }}" title="Donation list"><i style="color:#1B4D3E" class="zmdi zmdi-shopping-cart"></i></a>
         </div>
       </div>
       <div class="flex-c-m h-full p-lr-19">
         <div class="icon-header-item">
-          <a href="{{ url('/donor/cart') }}" title="Donation list"><i style="color:#1B4D3E" class="zmdi zmdi-shopping-cart"></i></a>
+          <a href="{{ url('/donor/donate') }}" title="Shopping cart"><i style="color:#1B4D3E" class="zmdi zmdi-shopping-basket"></i></a>
         </div>
       </div>
     </div>
@@ -134,6 +134,26 @@
 
       <li>
         <a href="{{ url('/donor/createFeedback') }}">Feedback</a>
+      </li>
+      <li>
+        <a href="{{ url('/donor/donors') }}">
+          View Profile
+        </a>
+      </li>
+      <li>
+        <a href="{{ url('/donor/transactionhistory') }}">
+        History
+        </a>
+      </li>
+      <li>
+        <a href="{{ route('donor.logout') }}"
+        onclick="event.preventDefault();
+                      document.getElementById('logout-form').submit();">
+          <i class="zmdi zmdi-power"></i> Logout
+        </a>
+        <form id="logout-form" action="{{ route('donor.logout') }}" method="POST" style="display: none;">
+            @csrf
+        </form>
       </li>
     </ul>
   </div>

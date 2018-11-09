@@ -9,6 +9,7 @@
 
   }
   </style>-->
+  <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('assets/images/favicon.png') }}"> 
   <link rel="icon" type="image/png" sizes="16x16" href="{{asset('assets/images/favicon.png')}}">
   <link href="https://fonts.googleapis.com/css?family=Inconsolata|Rubik:300,400,700,900" rel="stylesheet">
   <link rel="stylesheet" href="{{asset('css/styles-merged.css')}}">
@@ -47,6 +48,7 @@
         <!-- ============================================================== -->
         <div class="auth-wrapper d-flex no-block justify-content-center align-items-center" style="background-color: #35281e">
                 <div>
+
                   <br />
                     <div class="text-center p-t-20 p-b-20">
                         <span class="db"><img src="{{asset('assets/images/reg-logo.png')}}" alt="logo" /></span>
@@ -58,6 +60,17 @@
                     {!! Form::open(['action' => 'Guest\ApplicantsController@store', 'method' => 'POST' ]) !!}
                       @csrf
                         <dl class="row">
+                          @if(session()->has('notif'))
+                          <div class="container">
+                        <div class="content">
+                          <div class="alert alert-success">
+                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                            <strong>{{session()->get('notif')}}</strong>
+                          </div>
+                          <br />
+                        </div>
+                        </div>
+                        @endif
                           <div class="col-md-4">
 
                           <label style="color: white">First Name</label>
@@ -175,7 +188,7 @@
                         <label style="color: white">Zip</label>
                         <div class="input-group mb-3">
                         <dd class="col-sm-10">
-                          <input class="form-control {{ $errors->has('zip') ? ' is-invalid' : '' }}" placeholder="Zip" onkeypress="return !validNo(this,event)" aria-describedby="basic-addon1" type="number" name="zip" required>
+                          <input class="form-control {{ $errors->has('zip') ? ' is-invalid' : '' }}" placeholder="Zip" onkeypress="return !validNo(this,event)" aria-describedby="basic-addon1" type="text" name="zip" required>
                           @if ($errors->has('zip'))
                           <span class="invalid-feedback" role="alert">
                               <strong>{{ $errors->first('zip') }}</strong>

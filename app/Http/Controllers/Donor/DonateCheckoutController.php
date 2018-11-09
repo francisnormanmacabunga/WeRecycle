@@ -28,7 +28,7 @@ class DonateCheckoutController extends Controller
     public function confirm($id)
     {
       $donor = Auth::user();
-      $request = Requests::where('userID', $donor->userID)->first();
+      $request = Requests::where('userID', $donor->userID)->orderBy('created_at', 'desc')->first();
       $cartItems=Cart::content();
 
       $trans = new Transaction();

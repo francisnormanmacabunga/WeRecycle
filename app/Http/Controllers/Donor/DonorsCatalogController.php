@@ -7,6 +7,10 @@ use App\Http\Controllers\Controller;
 use App\Models\Products;
 use DB;
 use Auth;
+<<<<<<< HEAD
+=======
+
+>>>>>>> 92ee42754aede2aa6bd509cf44e02c10dde97bae
 class DonorsCatalogController extends Controller
 {
 
@@ -39,8 +43,14 @@ class DonorsCatalogController extends Controller
     return view('Donor/Catalog.shop', compact('products2'));
   }
 
+<<<<<<< HEAD
   public function backtoshopcat(){
     $products1 = Products::SELECT('*')
+=======
+  public function backtoshopcat()
+  {
+    $products2 = Products::SELECT('*')
+>>>>>>> 92ee42754aede2aa6bd509cf44e02c10dde97bae
     -> join('productstype', 'productstype.productstypeID', '=', 'products.productstypeID')
     -> where('productstype.productstypeID','2')
     -> where('status','Activated')
@@ -49,12 +59,20 @@ class DonorsCatalogController extends Controller
 
     $donor = Auth::user();
     DB::table('orders')->where('userID',$donor->userID)->delete();
+<<<<<<< HEAD
 
     return view('Donor/Catalog.donation', compact('products1'));
 
   }
 
   public function backtodoncat(){
+=======
+    return view('Donor/Catalog.shop', compact('products2'));
+  }
+
+  public function backtodoncat()
+  {
+>>>>>>> 92ee42754aede2aa6bd509cf44e02c10dde97bae
     $products1 = Products::SELECT('*')
     -> join('productstype', 'productstype.productstypeID', '=', 'products.productstypeID')
     -> where('productstype.productstypeID','1')
@@ -64,9 +82,13 @@ class DonorsCatalogController extends Controller
 
     $donor = Auth::user();
     DB::table('request')->where('userID',$donor->userID)->delete();
+<<<<<<< HEAD
 
     return view('Donor/Catalog.donation', compact('products1'));
 
+=======
+    return view('Donor/Catalog.donation', compact('products1'));
+>>>>>>> 92ee42754aede2aa6bd509cf44e02c10dde97bae
   }
 
 }

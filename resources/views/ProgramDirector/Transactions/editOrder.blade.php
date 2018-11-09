@@ -31,7 +31,7 @@
                     <!-- Card -->
                     <div class="card">
                         <div class="card-body" style="height: 380px;">
-                            <h4 class="card-title">Update Order</h4>
+                            <h4 class="card-title" align="center">Update Order</h4>
                             <div class="card">
                                 <div class="card-body">
                                 </div>

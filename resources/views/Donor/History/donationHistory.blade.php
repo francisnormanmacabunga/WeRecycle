@@ -26,7 +26,7 @@
             </div>
             <div class="flex-w flex-t p-t-16">
             <span class="size-216 stext-116 cl8 p-t-4">
-              Sort:
+              Filter:
             </span>
             <div class="flex-w size-217">
               <a href="{{ url('/donor/donationhistory') }}" class="flex-c-m stext-107 cl6 size-301 bor7 p-lr-15 hov-tag1 trans-04 m-r-5 m-b-5">
@@ -41,7 +41,7 @@
               <a href="{{ url('/donor/donationhistory/?status=Dispatched') }}" class="flex-c-m stext-107 cl6 size-301 bor7 p-lr-15 hov-tag1 trans-04 m-r-5 m-b-5">
                 Dispatched
               </a>
-              <a href="{{ url('/donor/donationhistory/?status=Shipping') }}" class="flex-c-m stext-107 cl6 size-301 bor7 p-lr-15 hov-tag1 trans-04 m-r-5 m-b-5">
+              <a href="{{ url('/donor/donationhistory/?status=Processing') }}" class="flex-c-m stext-107 cl6 size-301 bor7 p-lr-15 hov-tag1 trans-04 m-r-5 m-b-5">
                 Processing
               </a>
             </div>
@@ -59,9 +59,9 @@
                       <th class="column-1">Transaction ID</th>
                       <th class="column-1">Assigned Volunteer</th>
                       <th class="column-1">Product Name</th>
-                      <th class="column-1">Quantity</th>
-                      <th class="column-1">@sortablelink('created_at', 'Date')</th>
-                      <th class="column-1">@sortablelink('status', 'Status')</th>
+                      <th class="column-1">Weight</th>
+                      <th class="column-1">Date</th>
+                      <th class="column-1">Status</th>
                       <th class="column-1">Action</th>
                       <th class="column-1"></th>
     								</tr>
@@ -87,9 +87,7 @@
                       </td>
                       @else
                       <td class="column-1">
-                          <form action="/cancel/{{$donations->transid}}">
-                              <input type="submit" class="btn btn-danger btn-rounded" value="Cancel" onclick="return confirm('Proceed to cancel order?')" />
-                          </form>
+                              <a href="/donor/cancel/{{$donations->transid}}" class="btn btn-danger btn-rounded" value="Cancel" onclick="return confirm('Proceed to cancel order?')">Cancel</a>
                       </td>
                       @endif
     								</tr>

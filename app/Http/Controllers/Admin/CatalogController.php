@@ -53,7 +53,7 @@ class CatalogController extends Controller
       'productstypeID' => 'required',
       'description' => 'required|regex:/^[A-Za-z. -]+$/',
       //'price' => 'min:0',
-      'productimage' => 'required|mimes:jpeg,jpg,png|image|max:5000',
+      'productimage' => 'required|mimes:jpeg,jpg,png|image|max:1000',
       'category' => 'required'
     ],
     [

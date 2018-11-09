@@ -92,7 +92,7 @@
 							</span>
 
 							<p class="stext-115 cl1 size-213 p-t-18">
-								werecycle@gmail.com
+								werecycle.eco@gmail.com
 							</p>
 						</div>
 					</div>

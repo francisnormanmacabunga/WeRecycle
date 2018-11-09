@@ -26,7 +26,7 @@
         				</div>
                 <div class="flex-w flex-t p-t-16">
                 <span class="size-216 stext-116 cl8 p-t-4">
-                  Sort:
+                  Filter:
                 </span>
                 <div class="flex-w size-217">
                   <a href="{{ url('/donor/transactionhistory') }}" class="flex-c-m stext-107 cl6 size-301 bor7 p-lr-15 hov-tag1 trans-04 m-r-5 m-b-5">

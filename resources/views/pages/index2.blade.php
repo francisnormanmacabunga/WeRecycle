@@ -125,7 +125,7 @@
         <p class="mb50" align="justify">Majority of the lifecycle of a garbage is often overlooked despite the efforts of the
           community or government to put a proper wastes disposal everywhere. People does not seem to
           know where to properly place it, for most people they do not realize the positive and negative
-          effects of garbage, if not handled properly. That is why WeRecycle is built to solve this problems. </p>
+          effects of garbage, if not handled properly. That is why WeRecycle is built to solve this problem. </p>
       </div>
     </section>
      <section class="probootstrap-half">

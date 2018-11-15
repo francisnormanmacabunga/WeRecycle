@@ -1,86 +1,90 @@
     <!DOCTYPE html>
     <html>
     <head>
-    <style>
-    table#donation {
-        font-family: arial, sans-serif;
-        border-collapse: collapse;
-        width: 100%;
-    }
+      <style>
+      table#donation {
+          font-family: arial, sans-serif;
+          border-collapse: collapse;
+          width: 100%;
+      }
 
-    td, th {
-        border: 1px solid #dddddd;
-        text-align: left;
+      td, th {
+          border: 1px solid #dddddd;
+          text-align: left;
+      }
 
-    }
-
-    tr:nth-child(even) {
-        background-color: #dddddd;
-    }
-
-    @page {
-              margin: 0cm 0cm;
-          }
-
-          /** Define now the real margins of every page in the PDF **/
-          body {
-              margin-top: 1cm;
-              margin-left: 1cm;
-              margin-right: 1cm;
-              margin-bottom: 2cm;
-          }
+      tr:nth-child(even) {
+          background-color: #dddddd;
+      }
 
 
-          /** Define the footer rules **/
-          footer {
-           position: fixed;
-           bottom: 0cm;
-           left: 0cm;
-           right: 0cm;
-           height: 2cm;
+      @page {
+                margin: 0cm 0cm;
+            }
 
-           /** Extra personal styles **/
-           background-color: #0f6b6b;
-           color: white;
-           text-align: center;
-           line-height: 1.5cm;
-       }
-       p{
-         float: right;
-       }
+            /** Define now the real margins of every page in the PDF **/
+            body {
+                margin-top: 1cm;
+                margin-left: 1cm;
+                margin-right: 1cm;
+                margin-bottom: 2cm;
+            }
 
-    </style>
+            /** Define the footer rules **/
+            footer {
+             position: fixed;
+             bottom: 0cm;
+             left: 0cm;
+             right: 0cm;
+             height: 2cm;
+
+             /** Extra personal styles **/
+             background-color: #0f6b6b;
+             color: white;
+             text-align: center;
+             line-height: 1.5cm;
+         }
+         p{
+           float: right;
+         }
+
+      </style>
     </head>
     <body>
-      <footer>
-          Copyright &copy; <?php echo date("Y");?> WeRecycle&trade;
-      </footer>
-        <p><strong>
-        WeRecycle&trade;</strong><br>2142 Jesus St. Pandacan, Manila, 1011 Metro Manila<br>
-        <strong>Contact Number:</strong> 0928 428 0144 or 0917 828 3672</p>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <img src="{{asset('assets/images/pdf-logo.png')}}" width="200px" length="200px"/>
-      <br>
-      <table>
 
-      <tr>
-        <td><?php
-          echo "<strong>Date: </strong>";
-          $mydate=getdate(date("U"));
-          echo "$mydate[weekday], $mydate[month] $mydate[mday], $mydate[year]";
+      <body>
+
+        <footer>
+            Copyright &copy; <?php echo date("Y");?> WeRecycle&trade;
+        </footer>
+          <p><strong>
+          WeRecycle&trade;</strong><br>2142 Jesus St. Pandacan, Manila, 1011 Metro Manila<br>
+          <strong>Contact Number:</strong> 0928 428 0144 or 0917 828 3672</p>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <img src="{{asset('assets/images/pdf-logo.png')}}" width="200px" length="200px"/>
+        <br>
+        <table>
+
+        <tr>
+          <td><?php
+            echo "<strong>Date: </strong>";
+            $mydate=getdate(date("U"));
+            echo "$mydate[weekday], $mydate[month] $mydate[mday], $mydate[year]";
+            ?></td>
+          <td><?php
+              echo "<strong>Time: </strong>" .date("h:i:sa");
           ?></td>
-        <td><?php
-            echo "<strong>Time: </strong>" .date("h:i:sa");
-        ?></td>
-      </tr>
-        <td><strong>Report Generated:</strong> Donation History</td>
-        <td><strong>Sort:</strong> Cancelled</td>
-      </tr>
-      <br>
-    </table>
-    <hr/>
-    <br/>
+        </tr>
+        <tr>
+          <td><strong>Report Generated:</strong> Donation History</td>
+          <td><strong>Sort:</strong> Cancelled</td>
+        </tr>
+        <br>
+      </table>
+      <hr/>
+      <br/>
+
 
 
     <table id="donation">

@@ -35,4 +35,9 @@ class DonorController extends Controller
         return view('pages.indexUser')->with('width',$width);
     }
 
+    public function faqs()
+    {
+      return view('pages.faqs');
+    }
+
 }

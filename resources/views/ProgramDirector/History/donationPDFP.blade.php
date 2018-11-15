@@ -11,7 +11,6 @@
     td, th {
         border: 1px solid #dddddd;
         text-align: left;
-        padding: 6px;
     }
 
     tr:nth-child(even) {
@@ -45,18 +44,25 @@
            text-align: center;
            line-height: 1.5cm;
        }
+       p{
+         float: right;
+       }
 
     </style>
     </head>
     <body>
       <footer>
-          Copyright &copy; <?php echo date("Y");?> WeRecycle
+          Copyright &copy; <?php echo date("Y");?> WeRecycle&trade;
       </footer>
-
-      <h1 align="center"><img src="{{asset('assets/images/pdf-logo.png')}}" width="200px" length="200px"/></h1>
+        <p><strong>
+        WeRecycle&trade;</strong><br>2142 Jesus St. Pandacan, Manila, 1011 Metro Manila<br>
+        <strong>Contact Number:</strong> 0928 428 0144 or 0917 828 3672</p>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <img src="{{asset('assets/images/pdf-logo.png')}}" width="200px" length="200px"/>
       <br>
-
       <table>
+
       <tr>
         <td><?php
           echo "<strong>Date: </strong>";
@@ -69,13 +75,14 @@
       </tr>
       <tr>
         <td><strong>Report Generated:</strong> Donation History</td>
-        <td><strong>Sort:</strong> Processing Donation</td>
+        <td><strong>Sort:</strong> Processing</td>
       </tr>
+      <br>
     </table>
-
+    <hr/>
     <br/>
 
-    @if(count($donation) >= 0)
+
     <table id="donation">
       <tr>
         <th>Transaction ID</th>
@@ -83,8 +90,8 @@
         <th>Type of Donation</th>
         <th>Weight</th>
         <th>Date</th>
-        <th>Status</th>
       </tr>
+      @if(count($donation) > 0)
       @foreach ($donation as $donations)
          @php
            $cart = json_decode($donations->cart);
@@ -95,9 +102,7 @@
                <td>{{$donations->volunteer['firstname']}} {{$donations->volunteer['lastname']}}</td>
                <td>{{$item->name}}</td>
                <td>{{$item->qty}}</td>
-               <td>{{date('F d, Y, h:i:sa', strtotime($donations->created_at))}}</td>
-               <td>{{$donations->status}}</td>
-
+               <td>{{date('F d, Y, h:i:sa', strtotime($donations->updated_at))}}</td>
              </tr>
              @endforeach
              @endforeach

@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 @include('navbar.donor')
+
 <body class="animsition">
 
 
@@ -31,11 +32,23 @@
 			<div class="flex-w flex-tr">
 				<div class="size-210 bor10 p-lr-70 p-t-55 p-b-70 p-lr-15-lg w-full-md">
 					{!! Form::open(['action' => 'Donor\FeedbacksController@sendFeedback', 'method' => 'POST' ]) !!}
+					<link rel="stylesheet" href="{{asset('css/star.css')}}">
 						<h4 class="mtext-105 cl2 txt-center p-b-30">
 							Rate our service
 						</h4>
-            <label class="stext-115 cl6 size-213 p-t-18">Rate us:</label>
-            <input style="width: 150px;" class="form-control" name="rating" type="number" min="1" max="5" maxlength="1" required>
+							<div class="stars">
+								<input type="radio" name="rating" class="form-control star-1" value="1" id="star-1" />
+								<label class="star-1" for="star-1">1</label>
+								<input type="radio" name="rating" class="form-control star-2" value="2" id="star-2" />
+								<label class="star-2" for="star-2">2</label>
+								<input type="radio" name="rating" class="form-control star-3" value="3" id="star-3" />
+								<label class="star-3" for="star-3">3</label>
+								<input type="radio" name="rating" class="form-control star-4" value="4" id="star-4" />
+								<label class="star-4" for="star-4">4</label>
+								<input type="radio" name="rating" class="form-control star-5" value="5" id="star-5" />
+								<label class="star-5" for="star-5">5</label>
+								<span></span>
+							</div>
 
 <br />
 						<div class="bor8 m-b-30">
@@ -100,6 +113,76 @@
 			</div>
 		</div>
 	</section>
-@include('navbar.donor-footer')
+	<!-- Back to top -->
+	<div class="btn-back-to-top" id="myBtn">
+		<span class="symbol-btn-back-to-top">
+			<i class="zmdi zmdi-chevron-up"></i>
+		</span>
+	</div>
+	<!--===============================================================================================-->
+		<script src="{{asset('donor-design/vendor/jquery/jquery-3.2.1.min.js')}}"></script>
+	<!--===============================================================================================-->
+		<script src="{{asset('donor-design/vendor/animsition/js/animsition.min.js')}}"></script>
+	<!--===============================================================================================-->
+		<script src="{{asset('donor-design/vendor/bootstrap/js/popper.js')}}"></script>
+		<script src="{{asset('donor-design/vendor/bootstrap/js/bootstrap.min.js')}}"></script>
+	<!--===============================================================================================-->
+		<script src="{{asset('donor-design/vendor/select2/select2.min.js')}}"></script>
+		<script>
+			$(".js-select2").each(function(){
+				$(this).select2({
+					minimumResultsForSearch: 20,
+					dropdownParent: $(this).next('.dropDownSelect2')
+				});
+			})
+		</script>
+	<!--===============================================================================================-->
+		<script src="{{asset('donor-design/vendor/daterangepicker/moment.min.js')}}"></script>
+		<script src="{{asset('donor-design/vendor/daterangepicker/daterangepicker.js')}}"></script>
+	<!--===============================================================================================-->
+		<script src="{{asset('donor-design/vendor/slick/slick.min.js')}}"></script>
+		<script src="{{asset('donor-design/js/slick-custom.js')}}"></script>
+	<!--===============================================================================================-->
+		<script src="{{asset('donor-design/vendor/parallax100/parallax100.js')}}"></script>
+		<script>
+	        $('.parallax100').parallax100();
+		</script>
+	<!--===============================================================================================-->
+		<script src="vendor/MagnificPopup/jquery.magnific-popup.min.js"></script>
+		<script>
+			$('.gallery-lb').each(function() { // the containers for all your galleries
+				$(this).magnificPopup({
+			        delegate: 'a', // the selector for gallery item
+			        type: 'image',
+			        gallery: {
+			        	enabled:true
+			        },
+			        mainClass: 'mfp-fade'
+			    });
+			});
+		</script>
+	<!--===============================================================================================-->
+		<script src="{{asset('donor-design/vendor/isotope/isotope.pkgd.min.js')}}"></script>
+	<!--===============================================================================================-->
+		<script src="{{asset('donor-design/vendor/sweetalert/sweetalert.min.js')}}"></script>
+		<script src="{{asset('donor-design/vendor/perfect-scrollbar/perfect-scrollbar.min.js')}}"></script>
+		<script>
+			$('.js-pscroll').each(function(){
+				$(this).css('position','relative');
+				$(this).css('overflow','hidden');
+				var ps = new PerfectScrollbar(this, {
+					wheelSpeed: 1,
+					scrollingThreshold: 1000,
+					wheelPropagation: false,
+				});
+
+				$(window).on('resize', function(){
+					ps.update();
+				})
+			});
+		</script>
+	<!--===============================================================================================-->
+	<script src="{{asset('donor-design/js/main.js')}}"></script>
+
 </body>
 </html>

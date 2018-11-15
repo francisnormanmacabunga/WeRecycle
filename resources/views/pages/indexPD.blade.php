@@ -1,5 +1,8 @@
 <!DOCTYPE html>
 <html dir="ltr" lang="en">
+<head>
+  <link rel="icon" type="image/png" sizes="16x16" href="{{asset('assets/images/favicon.png')}}">
+</head>
 <body>
 
     <!-- ============================================================== -->
@@ -82,7 +85,7 @@
                 </div>
                 </div>
                   <footer class="footer text-center">
-                  Copyright &copy; 2018 WeRecycle
+                  Copyright &copy; 2018 WeRecycle™
                   </footer>
         </div>
     </div>

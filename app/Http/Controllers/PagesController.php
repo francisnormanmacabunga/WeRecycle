@@ -26,4 +26,9 @@ class PagesController extends Controller
       ->get();
       return view('pages.index2', compact('volunteersCount'));
     }
+
+    public function guestfaqs()
+    {
+      return view('pages.guestfaqs');
+    }
 }

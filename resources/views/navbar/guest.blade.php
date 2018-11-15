@@ -7,7 +7,7 @@
     <meta name="author" content="">
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="{{asset('assets/images/favicon.png')}}">
-    <title>WeRecycle</title>
+    <title>WeRecycle™</title>
     <meta charset="UTF-8">
 <link rel="stylesheet" type="text/css" href="{{asset('donor-design/vendor/bootstrap/css/bootstrap.min.css')}}">
 <!--===============================================================================================-->
@@ -67,6 +67,9 @@
                   <li>
                     <a style="color:#1B4D3E" href="{{url('/donor/login')}}">Login</a>
                   </li>
+                  <li>
+                    <a style="color:#1B4D3E" href="{{url('/guestfaqs')}}">FAQs</a>
+                  </li>
                 </ul>
               </div>
             </div>
@@ -102,6 +105,9 @@
         </li>
         <li>
           <a href="{{url('/donor/login')}}">Login</a>
+        </li>
+        <li>
+          <a href="{{url('/guestfaqs')}}">FAQs</a>
         </li>
       </ul>
     </div>

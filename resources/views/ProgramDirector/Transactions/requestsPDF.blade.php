@@ -83,7 +83,7 @@
 
     <br/>
 
-      @if(count($request) > 0)
+
       <table id="requests">
         <tr>
                 <th>Transaction ID</th>
@@ -93,9 +93,9 @@
                 <th>Item Type</th>
                 <th>Item Name</th>
                 <th>Item Weight</th>
-                <th>Status</th>
                 <th>Assigned Volunteer</th>
         </tr>
+        @if(count($request) > 0)
         @foreach ($request as $requests)
            @php
              $cart = json_decode($requests->cart);
@@ -103,13 +103,12 @@
         @foreach($cart as $item)
                <tr>
                  <td> {{$requests->transid}} </td>
-                 <td> {{date('F d, Y, h:i:sa', strtotime($requests->created_at))}} </td>
+                 <td> {{date('F d, Y, h:i:sa', strtotime($requests->updated_at))}} </td>
                  <td> {{$requests->donor->firstname}} {{$requests->donor->lastname}} </td>
                  <td> Barangay: {{$requests->donor->barangay}}, {{$requests->donor->street}}, {{$requests->donor->city}}, Zip: {{$requests->donor->zip}} </td>
                  <td> {{$requests->type}} </td>
                  <td>{{$item->name}}</td>
                  <td>{{$item->qty}}</td>
-                 <td> {{$requests->status}} </td>
                  <td> {{$requests->volunteer['firstname']}} {{$requests->volunteer['lastname']}}</td>
 
                </tr>

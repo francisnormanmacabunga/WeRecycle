@@ -7,7 +7,7 @@
     <meta name="author" content="">
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="{{asset('assets/images/favicon.png')}}">
-    <title>WeRecycle</title>
+    <title>WeRecycle™</title>
     <meta charset="UTF-8">
 <link rel="stylesheet" type="text/css" href="{{asset('donor-design/vendor/bootstrap/css/bootstrap.min.css')}}">
 <!--===============================================================================================-->
@@ -81,7 +81,7 @@
           </div>
           <div class="flex-c-m h-full p-lr-19">
             <div class="icon-header-item cl2 hov-cl1 trans-04 p-lr-11 js-show-sidebar">
-               <h6 style="color:#1B4D3E">{{ Auth::user()->username }}</h6>
+               <i class="zmdi zmdi-menu"></i>
             </div>
           </div>
         </div>
@@ -95,7 +95,7 @@
   <!-- Header Mobile -->
   <div class="wrap-header-mobile">
       <div class="icon-header-item cl2 hov-cl1 trans-04 p-lr-11 js-show-sidebar">
-        <h6 style="color:#1B4D3E">{{ Auth::user()->username }}</h6>
+        <i class="zmdi zmdi-menu"></i>
       </div>
 
     <!-- Icon header -->
@@ -186,7 +186,7 @@
         </li>
 
         <li class="p-b-13">
-          <a href="{{ url('/donor/discont') }}" class="stext-102 cl2 hov-cl1 trans-04">
+          <a href="{{ url('/donor/discount') }}" class="stext-102 cl2 hov-cl1 trans-04">
           My Discount Codes
           </a>
         </li>

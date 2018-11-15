@@ -15,6 +15,8 @@
 Route::get('/', 'PagesController@index2');
 Route::get('/home', 'PagesController@index2');
 Route::get('/index', 'PagesController@index');
+Route::get('/faqs', 'PagesController@guestfaqs');
+
 Route::get('/createApplicant', 'Guest\ApplicantsController@create');
 Route::post('/processApplicant', 'Guest\ApplicantsController@store');
 Route::get('/createDonor', 'Guest\DonorsController@create');
@@ -48,7 +50,7 @@ Route::prefix('donor')->group(function() {
   Route::get('/pointhistory','Donor\HistoryController@pointHistory');
   Route::get('/cancel/{transid}', 'Donor\HistoryController@cancel');
   Route::get('/redeemcode/{id}', 'Donor\DonorsController@redeemcode');
-  Route::get('/discont', 'Donor\HistoryController@discountcodlist');
+  Route::get('/discount', 'Donor\HistoryController@discountcodlist');
   //AddtoCart & AddtoDonate
   Route::get('/donate/add-item/{id}', 'Donor\DonateController@addItem')->name('donate.addItem');
   Route::get('/cart/add-item/{id}', 'Donor\CartController@addItem')->name('cart.addItem');
@@ -66,6 +68,8 @@ Route::prefix('donor')->group(function() {
   Route::get('/checkout-cart/confirm{id}','Donor\CartCheckoutController@confirm');
 
   Route::get('/', 'Donor\DonorController@index')->name('donor.dashboard');
+
+  Route::get('/faqs', 'Donor\DonorController@faqs');
 });
 
 Route::prefix('activitycoordinator')->group(function() {
@@ -107,15 +111,19 @@ Route::prefix('programdirector')->group(function() {
   Route::get('/donationhistoryS', 'ProgramDirector\DonationHistoryController@donationHistoryS');
   Route::get('/donationhistoryD', 'ProgramDirector\DonationHistoryController@donationHistoryD');
   Route::get('/donationhistoryC', 'ProgramDirector\DonationHistoryController@donationHistoryC');
-  Route::get('/donationPDF','ProgramDirector\DonationHistoryController@donationPDF');
-  Route::get('/donationPDFP','ProgramDirector\DonationHistoryController@donationPDFP');
-  Route::get('/donationPDFS','ProgramDirector\DonationHistoryController@donationPDFS');
-  Route::get('/donationPDFD','ProgramDirector\DonationHistoryController@donationPDFD');
-  Route::get('/donationPDFC','ProgramDirector\DonationHistoryController@donationPDFC');
+
+  //Date Range
+  Route::post('/donationPDF','ProgramDirector\DonationHistoryController@donationPDF');
+  Route::post('/donationPDFP','ProgramDirector\DonationHistoryController@donationPDFP');
+  Route::post('/donationPDFS','ProgramDirector\DonationHistoryController@donationPDFS');
+  Route::post('/donationPDFD','ProgramDirector\DonationHistoryController@donationPDFD');
+  Route::post('/donationPDFC','ProgramDirector\DonationHistoryController@donationPDFC');
+
+
   Route::resource('/feedback', 'ProgramDirector\FeedbacksController');
   Route::resource('/requests','ProgramDirector\RequestController');
-  Route::get('/requestsPDF','ProgramDirector\TransactionPDF@transactionPDFR');
-  Route::get('/ordersPDF','ProgramDirector\TransactionPDF@transactionPDFO');
+  Route::post('/requestsPDF','ProgramDirector\TransactionPDF@transactionPDFR');
+  Route::post('/ordersPDF','ProgramDirector\TransactionPDF@transactionPDFO');
   Route::get('/messageOrders', 'ProgramDirector\MessageController@messageOrders');
   Route::get('/messageRequests', 'ProgramDirector\MessageController@messageRequests');
   Route::get('/messageDonors', 'ProgramDirector\MessageController@messageDonors');

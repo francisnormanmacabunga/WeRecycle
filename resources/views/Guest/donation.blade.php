@@ -86,6 +86,6 @@
 				@endif
       </div>
 		</div>
-		@include('navbar.donor-footer')
+		@include('navbar.guest-footer')
 </body>
 </html>

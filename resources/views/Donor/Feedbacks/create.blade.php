@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 @include('navbar.donor')
+
 <body class="animsition">
 
 
@@ -31,11 +32,23 @@
 			<div class="flex-w flex-tr">
 				<div class="size-210 bor10 p-lr-70 p-t-55 p-b-70 p-lr-15-lg w-full-md">
 					{!! Form::open(['action' => 'Donor\FeedbacksController@sendFeedback', 'method' => 'POST' ]) !!}
+					<link rel="stylesheet" href="{{asset('css/star.css')}}">
 						<h4 class="mtext-105 cl2 txt-center p-b-30">
 							Rate our service
 						</h4>
-            <label class="stext-115 cl6 size-213 p-t-18">Rate us:</label>
-            <input style="width: 150px;" class="form-control" name="rating" type="number" min="1" max="5" maxlength="1" required>
+							<div class="stars">
+								<input type="radio" name="rating" class="form-control star-1" value="1" id="star-1" />
+								<label class="star-1" for="star-1">1</label>
+								<input type="radio" name="rating" class="form-control star-2" value="2" id="star-2" />
+								<label class="star-2" for="star-2">2</label>
+								<input type="radio" name="rating" class="form-control star-3" value="3" id="star-3" />
+								<label class="star-3" for="star-3">3</label>
+								<input type="radio" name="rating" class="form-control star-4" value="4" id="star-4" />
+								<label class="star-4" for="star-4">4</label>
+								<input type="radio" name="rating" class="form-control star-5" value="5" id="star-5" />
+								<label class="star-5" for="star-5">5</label>
+								<span></span>
+							</div>
 
 <br />
 						<div class="bor8 m-b-30">

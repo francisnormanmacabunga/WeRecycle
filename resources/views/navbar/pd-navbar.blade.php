@@ -9,7 +9,7 @@
 
 
     <link rel="icon" type="image/png" sizes="16x16" href="  {{asset('assets/images/favicon.png')}}">
-    <title>WeRecycle Program Director</title>
+    <title>WeRecycle™ Program Director</title>
     <link rel="stylesheet" type="text/css" href="{{asset('assets/extra-libs/multicheck/multicheck.css')}}">
     <!-- Custom CSS -->
 

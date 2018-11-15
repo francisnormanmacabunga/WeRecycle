@@ -7,7 +7,7 @@
     <meta name="author" content="">
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('assets/images/favicon.png') }}">
-    <title>WeRecycle Administrator</title>
+    <title>WeRecycle™ Administrator</title>
     <!-- Custom CSS -->
     <link href="{{ asset('assets/libs/flot/css/float-chart.css') }}" rel="stylesheet">
     <!-- Custom CSS -->

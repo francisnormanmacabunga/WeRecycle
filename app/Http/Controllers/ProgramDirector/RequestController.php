@@ -97,46 +97,51 @@ class RequestController extends Controller
      */
     public function update(Request $request, $id)
     {
-      if ($request->input('status') == 'Accepted') {
+        $order = Transaction::find($id);
+      if($order->status == "Accepted" || $order->status == "Cancelled"){
+        return back();
+      }else{
+        if ($request->input('status') == 'Accepted') {
+          $order = Transaction::find($id);
+          $order->status = $request->input('status');
+          $order->volunteerID = $request->input('volunteer');
+          $order->save();
+
+          /*foreach ($order as $o) {
+            dd($order);
+              $cart = json_decode($o->cart);
+          foreach($cart as $c){
+          $asd  = $cart->count;
+          dd($asd);
+        }
+      }*/
+      $qty = $order->quantity;
+          $equation =  floor($qty/1000);
+          $randompoints = $equation * 2;
+
+          $id = $order->userID;
+          $points = Points::where('userID',$id)->first();
+          $points->pointsaccumulated = $points->pointsaccumulated + $randompoints;
+          $points->userID = $id;
+          $points->push();
+
+
+          $plog = new PointsLog;
+          $plog->userID = $id;
+          $plog->activity = 'Donated';
+          $plog->points = $randompoints;
+          $plog->save();
+
+        return redirect('/programdirector/orders')->with('success', 'Profile updated');
+      }else {
         $order = Transaction::find($id);
         $order->status = $request->input('status');
         $order->volunteerID = $request->input('volunteer');
+
         $order->save();
-
-        /*foreach ($order as $o) {
-          dd($order);
-            $cart = json_decode($o->cart);
-        foreach($cart as $c){
-        $asd  = $cart->count;
-        dd($asd);
+        return redirect('/programdirector/requests')->with('success', 'Profile updated');
       }
-    }*/
-    $qty = $order->quantity;
-        $equation =  floor($qty/1000);
-        $randompoints = $equation * 2;
-
-        $id = $order->userID;
-        $points = Points::where('userID',$id)->first();
-        $points->pointsaccumulated = $points->pointsaccumulated + $randompoints;
-        $points->userID = $id;
-        $points->push();
-
-
-        $plog = new PointsLog;
-        $plog->userID = $id;
-        $plog->activity = 'Donated';
-        $plog->points = $randompoints;
-        $plog->save();
-
-      return redirect('/programdirector/orders')->with('success', 'Profile updated');
-    }else {
-      $order = Transaction::find($id);
-      $order->status = $request->input('status');
-      $order->volunteerID = $request->input('volunteer');
-
-      $order->save();
-      return redirect('/programdirector/requests')->with('success', 'Profile updated');
-    }
+      }
     }
 
     /**

@@ -8,6 +8,11 @@ use DB;
 
 class PagesController extends Controller
 {
+  
+  public function __construct()
+  {
+      $this->middleware('auth:donor');
+  }
 
     public function index()
     {
@@ -25,5 +30,10 @@ class PagesController extends Controller
       ->where('usertypeID', '2')
       ->get();
       return view('pages.index2', compact('volunteersCount'));
+    }
+
+    public function faqs()
+    {
+      return view('pages.faqs');
     }
 }

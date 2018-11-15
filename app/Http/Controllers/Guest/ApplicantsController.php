@@ -91,30 +91,40 @@ class ApplicantsController extends Controller
       'username.required' => 'The Username field is required.',
       'username.alpha_dash' => 'The Username may only contain letters, numbers, dashes and underscores.',
     ]);
-      $user = new Volunteer();
-      $user->firstname = $request->input('firstname');
-      $user->lastname = $request->input('lastname');
-      $user->email = $request->input('email');
-      $user->birthdate = $request->input('birthdate');
-      $user->city = $request->input('city');
-      $user->street = $request->input('street');
-      $user->barangay = $request->input('barangay');
-      $user->zip = $request->input('zip');
-      $user->username = $request->input('username');
-      $user->usertypeID = $request->input('usertypeID');
-      //$user->password = Hash::make($request->input('password'));
-      $user->status = $request->input('status');
-      $user->save();
 
-      $contacts = new Contacts();
-      $contacts->volunteerID = $user->volunteerID;
-      $contacts->cellNo = $request->input('cellNo');
-      $contacts->tellNo = $request->input('tellNo');
-      $contacts->save();
+      $volqty = Volunteer::SELECT('*')
+      -> where('status','Activated');
 
-      \Session::flash('notif','You have successfully applied. We are now proccessing your application!');
-      return back();
-      //return redirect('/home')->with('success', 'Application submitted');
+      dd($volqty);
+      if($volqty > 10){
+        $user = new Volunteer();
+        $user->firstname = $request->input('firstname');
+        $user->lastname = $request->input('lastname');
+        $user->email = $request->input('email');
+        $user->birthdate = $request->input('birthdate');
+        $user->city = $request->input('city');
+        $user->street = $request->input('street');
+        $user->barangay = $request->input('barangay');
+        $user->zip = $request->input('zip');
+        $user->username = $request->input('username');
+        $user->usertypeID = $request->input('usertypeID');
+        //$user->password = Hash::make($request->input('password'));
+        $user->status = $request->input('status');
+        $user->save();
+
+        $contacts = new Contacts();
+        $contacts->volunteerID = $user->volunteerID;
+        $contacts->cellNo = $request->input('cellNo');
+        $contacts->tellNo = $request->input('tellNo');
+        $contacts->save();
+
+        \Session::flash('notif','You have successfully applied. We are now proccessing your application!');
+        return back();
+        //return redirect('/home')->with('success', 'Application submitted');
+      }else {
+        \Session::flash('notif','We have the maximum number of volunteers for this month!');
+        return back();
+      }
     }
 
     /**

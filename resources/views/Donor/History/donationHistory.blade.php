@@ -105,6 +105,8 @@
     							</table>
     						</div>
               <br />
+              {{$donation -> links()}}
+                <br/>
     					</div>
     				</div>
     			</div>

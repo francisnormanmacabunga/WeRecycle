@@ -107,7 +107,7 @@
                                 <label style="color: white">Telephone Number</label>
                                 <div class="input-group mb-3">
                                   <dd class="col-sm-10">
-                                    <input class="form-control {{ $errors->has('firstname') ? ' is-invalid' : '' }}" placeholder="XXXXXXX" aria-describedby="basic-addon1" type="number" name="tellNo" required>
+                                    <input class="form-control {{ $errors->has('tellNo') ? ' is-invalid' : '' }}" placeholder="XXXXXXX" aria-describedby="basic-addon1" type="number" name="tellNo" required>
                                     @if ($errors->has('tellNo'))
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $errors->first('tellNo') }}</strong>

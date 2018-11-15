@@ -32,10 +32,10 @@
                 <a href="{{ url('/donor/pointhistory') }}" class="flex-c-m stext-107 cl6 size-301 bor7 p-lr-15 hov-tag1 trans-04 m-r-5 m-b-5">
                   All
                 </a>
-                <a href="{{ url('/donor/pointhistory/?status=Redeem') }}" class="flex-c-m stext-107 cl6 size-301 bor7 p-lr-15 hov-tag1 trans-04 m-r-5 m-b-5">
+                <a href="{{ url('/donor/pointhistory/?activity=Redeem') }}" class="flex-c-m stext-107 cl6 size-301 bor7 p-lr-15 hov-tag1 trans-04 m-r-5 m-b-5">
                   Redeemed
                 </a>
-                <a href="{{ url('/donor/pointhistory/?status=Donated') }}" class="flex-c-m stext-107 cl6 size-301 bor7 p-lr-15 hov-tag1 trans-04 m-r-5 m-b-5">
+                <a href="{{ url('/donor/pointhistory/?activity=Donated') }}" class="flex-c-m stext-107 cl6 size-301 bor7 p-lr-15 hov-tag1 trans-04 m-r-5 m-b-5">
                   Donated
                 </a>
               </div>
@@ -82,7 +82,10 @@
       								@endif
       							</table>
       						</div>
+                <br/>
+                    {{$point -> links()}}
                 <br />
+
       					</div>
       				</div>
       			</div>

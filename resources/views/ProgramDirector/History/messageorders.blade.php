@@ -60,7 +60,7 @@
         </div>
     </div>
     <footer class="footer text-center">
-      Copyright &copy; 2018 WeRecycle
+      Copyright &copy; 2018 WeRecycle™
     </footer>
   </div>
 </div>

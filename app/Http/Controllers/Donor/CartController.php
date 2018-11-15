@@ -51,54 +51,66 @@ class CartController extends Controller
       $donor = Auth::user();
       $cartItems=Cart::instance('shop')->content();
       $code = $request->dcode;
+      $qty = Cart::count();
+
+
 
 if (count($cartItems) > 0) {
 
-  if ($code == '') {
+  if($qty < 0 || $qty > 15){
 
-  $total = Cart::instance('shop')->Total();
+    if ($code == '') {
+
+    $total = Cart::instance('shop')->subtotal();
+
+      $order = new Order();
+      $order->userID = $donor->userID;
+      $order->type= 'Shop';
+      $order->cart = $cartItems;
+      $order->price = $total;
+      $order->status = 'Inactive';
+      $order->save();
+
+
+      return redirect()->route('cart.checkout');
+
+    }else{
+      //$reward = Reward::SELECT('select code from reward where code = ?',[$code]);
+      $reward = Reward::Where('code', $code)->get();
+
+    if(count($reward) > 0){
+      $total = Cart::instance('shop')->subtotal();
+      $discount = Cart::instance('shop')->subtotal() * 0.10;
 
     $order = new Order();
     $order->userID = $donor->userID;
     $order->type= 'Shop';
     $order->cart = $cartItems;
-    $order->price = $total;
+    $order->discountedprice = $total - $discount;
     $order->status = 'Inactive';
+    $order->code = $request->input('dcode');
     $order->save();
 
 
     return redirect()->route('cart.checkout');
-
-  }else{
-    //$reward = Reward::SELECT('select code from reward where code = ?',[$code]);
-    $reward = Reward::Where('code', $code)->get();
-
-  if(count($reward) > 0){
-    $total = Cart::instance('shop')->Total();
-    $discount = Cart::instance('shop')->Total() * 0.10;
-
-  $order = new Order();
-  $order->userID = $donor->userID;
-  $order->type= 'Shop';
-  $order->cart = $cartItems;
-  $order->discountedprice = $total - $discount;
-  $order->status = 'Inactive';
-  $order->code = $request->input('dcode');
-  $order->save();
+    }else {
+    session()->flash('notie','Invalid/Incorrect Code');
+     return view('Donor/Cart.index',compact('cartItems'));
+    }
 
 
-  return redirect()->route('cart.checkout');
+    }
+
   }else {
-  session()->flash('notie','Invalid/Incorrect Code');
-   return view('Donor/Cart.index',compact('cartItems'));
+    session()->flash('notell','More than 15 items in cart.');
+    return back();
   }
 
-
-}
 }else{
     session()->flash('notell','No items in cart!');
     return back();
 }
+
 }
       /*$test = order::SELECT('*')
       -> where('userID',$donor->userID)

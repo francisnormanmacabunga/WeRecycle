@@ -98,10 +98,20 @@ class ApplicantsController extends Controller
 
     public function update(Request $request, $id)
     {
+      $volqty = Volunteer::SELECT('*')
+      -> where('status','Activated')
+      ->get();
+
+        if(count ($volqty) <= 10){
       $post = Volunteer::find($id);
       $post->status = $request->input('status');
       $post->save();
       return redirect('/activitycoordinator/applicants')->with('success', 'Profile updated');
+    }else {
+      session()->flash('notif','There is enough volunteers for this month');
+      return back();
+    }
+
     }
 
     /**

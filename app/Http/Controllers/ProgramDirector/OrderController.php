@@ -96,6 +96,10 @@ class OrderController extends Controller
      */
     public function update(Request $request, $id)
     {
+      $order = Transaction::find($id);
+    if($order->status == "Delivered" || $order->status == "Cancelled"){
+      return back();
+    }else{
       if ($request->input('status') == 'Delivered') {
         $order = Transaction::find($id);
         $order->status = $request->input('status');
@@ -110,8 +114,9 @@ class OrderController extends Controller
 
       $order->save();
       return redirect('/programdirector/orders')->with('success', 'Profile updated');
-    }
-    }
+          }
+      }
+  }
 
     /**
      * Remove the specified resource from storage.

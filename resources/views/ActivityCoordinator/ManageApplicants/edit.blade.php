@@ -24,6 +24,18 @@
                 </div>
             </div>
             <div class="container-fluid">
+              @if(session()->has('notif'))
+              <div class="container">
+            <div class="content">
+              <div class="alert alert-danger">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                <strong>{{session()->get('notif')}}</strong>
+              </div>
+              <br />
+            </div>
+            </div>
+            @endif
+
                 <div class="row justify-content-center">
                     {!! Form::open(['action' => ['ActivityCoordinator\ApplicantsController@update', $applicants['volunteerID']], 'method' => 'POST' ]) !!}
                     <!-- Card -->

@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Transaction;
 use App\Models\Donor;
 use PDF;
+use Illuminate\Support\Carbon;
 
 class DonationHistoryController extends Controller
 {
@@ -29,7 +30,7 @@ class DonationHistoryController extends Controller
         public function donationHistoryS()
         {
           $donation = Transaction::orderBy('updated_at', 'desc')
-          -> where('status', 'Shipping')
+          -> where('status', 'Dispatched')
           -> where('type', 'Donate')
           -> sortable()
           -> paginate(10);
@@ -41,7 +42,7 @@ class DonationHistoryController extends Controller
         public function donationHistoryD()
         {
           $donation = Transaction::orderBy('updated_at', 'desc')
-          -> where('Status', 'Delivered')
+          -> where('Status', 'Accepted')
           -> where('type', 'Donate')
           -> sortable()
           -> paginate(10);
@@ -76,28 +77,47 @@ class DonationHistoryController extends Controller
 
       public function donationPDF(Request $request)
       {
-        $donation = Transaction::orderBy('updated_at', 'desc')
-        -> where('type', 'Donate')
+        date_default_timezone_set('Asia/Manila');
+        $start = Carbon::parse($request->start)->startOfDay();
+        $end = Carbon::parse($request->end)->endOfDay();
+
+        $donation = Transaction::where('type', 'Donate')
+        -> whereBetween('updated_at', array(new Carbon($start), new Carbon($end)))
+        -> orderBy('updated_at', 'desc')
         -> get();
+
         $pdf = PDF::loadView('ProgramDirector/History.donationPDF', compact('donation'));
         return $pdf->download('DonationHistory.pdf');
       }
 
+
+
       public function donationPDFP(Request $request)
       {
+        date_default_timezone_set('Asia/Manila');
+        $start = Carbon::parse($request->start)->startOfDay();
+        $end = Carbon::parse($request->end)->endOfDay();
+
         $donation = Transaction::orderBy('updated_at', 'desc')
+        -> whereBetween('updated_at', array(new Carbon($start), new Carbon($end)))
         -> where('type', 'Donate')
         -> where('status', 'Processing')
         -> get();
+
         $pdf = PDF::loadView('ProgramDirector/History.donationPDFP', compact('donation'));
         return $pdf->download('Processing-DonationHistory.pdf');
       }
 
       public function donationPDFS(Request $request)
       {
+        date_default_timezone_set('Asia/Manila');
+        $start = Carbon::parse($request->start)->startOfDay();
+        $end = Carbon::parse($request->end)->endOfDay();
+
         $donation = Transaction::orderBy('updated_at', 'desc')
+        -> whereBetween('updated_at', array(new Carbon($start), new Carbon($end)))
         -> where('type', 'Donate')
-        -> where('status', 'Shipping')
+        -> where('status', 'Dispatched')
         -> get();
         $pdf = PDF::loadView('ProgramDirector/History.donationPDFS', compact('donation'));
         return $pdf->download('Dispatched-DonationHistory.pdf');
@@ -105,9 +125,14 @@ class DonationHistoryController extends Controller
 
       public function donationPDFD(Request $request)
       {
+        date_default_timezone_set('Asia/Manila');
+        $start = Carbon::parse($request->start)->startOfDay();
+        $end = Carbon::parse($request->end)->endOfDay();
+
         $donation = Transaction::orderBy('updated_at', 'desc')
+        -> whereBetween('updated_at', array(new Carbon($start), new Carbon($end)))
         -> where('type', 'Donate')
-        -> where('status', 'Delivered')
+        -> where('status', 'Accepted')
         -> get();
         $pdf = PDF::loadView('ProgramDirector/History.donationPDFD', compact('donation'));
         return $pdf->download('Accepted-DonationHistory.pdf');
@@ -115,19 +140,17 @@ class DonationHistoryController extends Controller
 
       public function donationPDFC(Request $request)
       {
+        date_default_timezone_set('Asia/Manila');
+        $start = Carbon::parse($request->start)->startOfDay();
+        $end = Carbon::parse($request->end)->endOfDay();
+
         $donation = Transaction::orderBy('updated_at', 'desc')
+        -> whereBetween('updated_at', array(new Carbon($start), new Carbon($end)))
         -> where('type', 'Donate')
         -> where('status', 'Cancelled')
         -> get();
         $pdf = PDF::loadView('ProgramDirector/History.donationPDFC', compact('donation'));
         return $pdf->download('Cancelled-DonationHistory.pdf');
       }
-
-
-
-
-
-
-
 
   }

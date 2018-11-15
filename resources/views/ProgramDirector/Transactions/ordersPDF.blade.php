@@ -83,7 +83,7 @@ tr:nth-child(even) {
 
 <br/>
 
-@if(count($order) > 0)
+
 <table id="requests">
   <tr>
     <th>Transaction ID</th>
@@ -92,11 +92,11 @@ tr:nth-child(even) {
     <th>Address</th>
     <th>Item Type</th>
     <th>Item Name</th>
-      <th>Item Price</th>
-<th>Quantity</th>
-    <th>Status</th>
+    <th>Item Price</th>
+    <th>Quantity</th>
     <th>Assigned Volunteer</th>
   </tr>
+  @if(count($order) > 0)
   @foreach ($order as $orders)
       @php
         $cart = json_decode($orders->cart);
@@ -104,13 +104,13 @@ tr:nth-child(even) {
   @foreach($cart as $item)
          <tr>
            <td> {{$orders->transid}} </td>
-           <td> {{date('F d, Y, h:i:sa', strtotime($orders->created_at))}} </td>
+           <td> {{date('F d, Y, h:i:sa', strtotime($orders->updated_at))}} </td>
            <td> {{$orders->donor->firstname}} {{$orders->donor->lastname}} </td>
-           <td> Barangay: {{$orders->donor->barangay}}, {{$orders->donor->street}}, {{$orders->donor->city}}, Zip: {{$orders->donor->zip}} </td>               <td> {{$orders->type}} </td>
+           <td> Barangay: {{$orders->donor->barangay}}, {{$orders->donor->street}}, {{$orders->donor->city}}, Zip: {{$orders->donor->zip}} </td>
+           <td> {{$orders->type}} </td>
            <td>{{$item->name}}</td>
            <td>{{$item->price}}</td>
            <td>{{$item->qty}}</td>
-           <td> {{$orders->status}} </td>
            <td> {{$orders->volunteer['firstname']}} {{$orders->volunteer['lastname']}}</td>
          </tr>
          @endforeach

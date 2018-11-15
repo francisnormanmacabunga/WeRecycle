@@ -4,6 +4,10 @@
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('assets/images/favicon.png') }}">
 </head>
+<!-- DATE RANGE SCRIPT -->
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<!-- END OF DATE RANGE SCRIPT -->
+
 <body>
 <div id="main-wrapper">
   @include('navbar.pd-navbar')
@@ -60,7 +64,7 @@
                                       <td>{{$item->name}}</td>
                                       <td>{{$item->qty}}</td>
 
-                                      <td>{{date('F d, Y, h:i:sa', strtotime($donations->created_at))}}</td>
+                                      <td>{{date('F d, Y, h:i:sa', strtotime($donations->updated_at))}}</td>
                                       <td>{{$donations->status}}</td>
                                     </tr>
                                       @endforeach
@@ -79,9 +83,17 @@
                       {{$donation->links()}}
                     </div>
                 </div>
+                <!-- DATE RANGE -->
                 <div class="col-xs-12" align="right">
-                  <a href="{{action('ProgramDirector\DonationHistoryController@donationPDFD')}}" class="btn btn-danger"><i class="mdi mdi-file-pdf"></i> PDF</a>
+                  <form method="POST" action="{{action('ProgramDirector\DonationHistoryController@donationPDFD')}}">
+                    <input name="" type="hidden" value="">
+                    {{ csrf_field() }}
+                      From: <input type="text" id="datepickerfrom" name="start" value="{{date('M-d-Y')}}"/> &nbsp;
+                      To: <input type="text" id="datepickerpresent" name="end" value="{{date('M-d-Y')}}"/> &nbsp;
+                      <button type="submit" class="btn btn-warning btn-sm">Generate PDF Report</button>
+                  </form>
                 </div>
+                <!-- END OF DATE RANGE -->
             </div>
         </div>
     </div>
@@ -92,4 +104,23 @@
 </div>
 @include('navbar.footer')
   </body>
+
+
+    <!-- DATE RANGE SCRIPTS -->
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+        <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script>
+          $(function () {
+              $("#datepickerfrom").datepicker({ maxDate: new Date(), dateFormat: "yy-mm-dd"});
+          });
+          $(function () {
+              $("#datepickerpresent").datepicker({ maxDate: new Date(), dateFormat: "yy-mm-dd"});
+          });
+      </script>
+    <!-- END OF DATE RANGE SCRIPTS -->
+
   </html>

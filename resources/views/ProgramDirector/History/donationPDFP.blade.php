@@ -11,7 +11,6 @@
     td, th {
         border: 1px solid #dddddd;
         text-align: left;
-        padding: 6px;
     }
 
     tr:nth-child(even) {
@@ -50,7 +49,7 @@
     </head>
     <body>
       <footer>
-          Copyright &copy; <?php echo date("Y");?> WeRecycle
+          Copyright &copy; <?php echo date("Y");?> WeRecycle&trade;
       </footer>
 
       <h1 align="center"><img src="{{asset('assets/images/pdf-logo.png')}}" width="200px" length="200px"/></h1>
@@ -75,7 +74,7 @@
 
     <br/>
 
-    @if(count($donation) >= 0)
+
     <table id="donation">
       <tr>
         <th>Transaction ID</th>
@@ -83,8 +82,8 @@
         <th>Type of Donation</th>
         <th>Weight</th>
         <th>Date</th>
-        <th>Status</th>
       </tr>
+      @if(count($donation) > 0)
       @foreach ($donation as $donations)
          @php
            $cart = json_decode($donations->cart);
@@ -95,9 +94,7 @@
                <td>{{$donations->volunteer['firstname']}} {{$donations->volunteer['lastname']}}</td>
                <td>{{$item->name}}</td>
                <td>{{$item->qty}}</td>
-               <td>{{date('F d, Y, h:i:sa', strtotime($donations->created_at))}}</td>
-               <td>{{$donations->status}}</td>
-
+               <td>{{date('F d, Y, h:i:sa', strtotime($donations->updated_at))}}</td>
              </tr>
              @endforeach
              @endforeach

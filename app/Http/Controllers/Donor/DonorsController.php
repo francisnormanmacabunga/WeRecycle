@@ -72,7 +72,7 @@ class DonorsController extends Controller
         //
     }
 
-  
+
 
     /**
      * Show the form for editing the specified resource.
@@ -83,7 +83,7 @@ class DonorsController extends Controller
 
     public function edit($id)
     {
-      $donors = Donor::with('contacts')->find($id);
+      $donors = Donor::with('contacts')->find(Auth::user()->userID);
       return view('Donor/Profile.edit', compact('donors'));
     }
 
@@ -127,7 +127,7 @@ class DonorsController extends Controller
       'username.unique' => 'The Username you registered is already in use.',
       'username.alpha_dash' => 'The Username may only contain letters, numbers, dashes and underscores.',
     ]);
-      $donors = Donor::find($id);
+      $donors = Donor::find(Auth::user()->userID);
       $donors->username = $request->input('username');
       $donors->firstname = $request->input('firstname');
       $donors->lastname = $request->input('lastname');

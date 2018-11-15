@@ -60,10 +60,12 @@ class ApplicantsController extends Controller
       'street' => 'nullable|regex:/^[a-zA-Z0-9,.!-? ]*$/',
       'barangay' => 'nullable|regex:/^[a-zA-Z0-9,.!-? ]*$/',
       'zip' => 'nullable|min:4|max:4',
-      'username' => 'required|alpha_dash|unique:user,username',
+      'username' => 'required|alpha_dash|unique:user,username|min:8|max:12|',
       //'g-recaptcha-response'=> 'required|captcha'
     ],
     [
+      'username.min' => 'username length must be 8 character',
+      'username.max' => 'username length must be 12 character',
       'g-recaptcha-response.required' => 'Captcha is required.',
       'firstname.required' => 'The First Name field is required.',
       'firstname.regex' => 'The First Name field must only contain letters, period, and hyphen.',
@@ -97,7 +99,7 @@ class ApplicantsController extends Controller
       ->get();
 
 
-      if(count ($volqty) <= 10){
+      if(count ($volqty) <= 9){
         $user = new Volunteer();
         $user->firstname = $request->input('firstname');
         $user->lastname = $request->input('lastname');
@@ -123,7 +125,7 @@ class ApplicantsController extends Controller
         return back();
         //return redirect('/home')->with('success', 'Application submitted');
       }else {
-        \Session::flash('notif','We have the maximum number of volunteers for this month!');
+        \Session::flash('notiff','We have the maximum number of volunteers for this month!');
         return back();
       }
     }

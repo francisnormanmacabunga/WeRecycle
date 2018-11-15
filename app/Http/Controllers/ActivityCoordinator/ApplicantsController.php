@@ -101,8 +101,9 @@ class ApplicantsController extends Controller
       $volqty = Volunteer::SELECT('*')
       -> where('status','Activated')
       ->get();
-
-        if(count ($volqty) <= 10){
+        //dd(count($volqty));
+        //if(count($volqty) == 10){
+        if(count($volqty) <= 9){
       $post = Volunteer::find($id);
       $post->status = $request->input('status');
       $post->save();

@@ -108,15 +108,19 @@ Route::prefix('programdirector')->group(function() {
   Route::get('/donationhistoryS', 'ProgramDirector\DonationHistoryController@donationHistoryS');
   Route::get('/donationhistoryD', 'ProgramDirector\DonationHistoryController@donationHistoryD');
   Route::get('/donationhistoryC', 'ProgramDirector\DonationHistoryController@donationHistoryC');
-  Route::get('/donationPDF','ProgramDirector\DonationHistoryController@donationPDF');
-  Route::get('/donationPDFP','ProgramDirector\DonationHistoryController@donationPDFP');
-  Route::get('/donationPDFS','ProgramDirector\DonationHistoryController@donationPDFS');
-  Route::get('/donationPDFD','ProgramDirector\DonationHistoryController@donationPDFD');
-  Route::get('/donationPDFC','ProgramDirector\DonationHistoryController@donationPDFC');
+
+  //Date Range
+  Route::post('/donationPDF','ProgramDirector\DonationHistoryController@donationPDF');
+  Route::post('/donationPDFP','ProgramDirector\DonationHistoryController@donationPDFP');
+  Route::post('/donationPDFS','ProgramDirector\DonationHistoryController@donationPDFS');
+  Route::post('/donationPDFD','ProgramDirector\DonationHistoryController@donationPDFD');
+  Route::post('/donationPDFC','ProgramDirector\DonationHistoryController@donationPDFC');
+
+
   Route::resource('/feedback', 'ProgramDirector\FeedbacksController');
   Route::resource('/requests','ProgramDirector\RequestController');
-  Route::get('/requestsPDF','ProgramDirector\TransactionPDF@transactionPDFR');
-  Route::get('/ordersPDF','ProgramDirector\TransactionPDF@transactionPDFO');
+  Route::post('/requestsPDF','ProgramDirector\TransactionPDF@transactionPDFR');
+  Route::post('/ordersPDF','ProgramDirector\TransactionPDF@transactionPDFO');
   Route::get('/messageOrders', 'ProgramDirector\MessageController@messageOrders');
   Route::get('/messageRequests', 'ProgramDirector\MessageController@messageRequests');
   Route::get('/messageDonors', 'ProgramDirector\MessageController@messageDonors');

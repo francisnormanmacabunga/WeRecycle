@@ -7,6 +7,11 @@
 
 <footer class="bg3 p-t-75 p-b-32" style="background-color: #1B4D3E">
 	<div class="container">
+		<div class="flex-c-m flex-w p-b-18">
+			<button class="flex-c-m stext-101 cl0 size-103 bg1 bor1 hov-btn2 p-lr-15 trans-04">
+				FAQS
+			</button>
+</div>
 		<p class="stext-107 cl6 txt-center">
 			<font color="white"> Copyright &copy; 2018 WeRecycle™ </font>
 		</p>

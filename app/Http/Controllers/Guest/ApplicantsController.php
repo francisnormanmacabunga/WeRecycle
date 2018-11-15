@@ -61,7 +61,7 @@ class ApplicantsController extends Controller
       'barangay' => 'nullable|regex:/^[a-zA-Z0-9,.!-? ]*$/',
       'zip' => 'nullable|min:4|max:4',
       'username' => 'required|alpha_dash|unique:user,username',
-      'g-recaptcha-response'=> 'required|captcha'
+      //'g-recaptcha-response'=> 'required|captcha'
     ],
     [
       'g-recaptcha-response.required' => 'Captcha is required.',
@@ -93,10 +93,11 @@ class ApplicantsController extends Controller
     ]);
 
       $volqty = Volunteer::SELECT('*')
-      -> where('status','Activated');
+      -> where('status','Activated')
+      ->get();
 
-      dd($volqty);
-      if($volqty > 10){
+
+      if(count ($volqty) <= 10){
         $user = new Volunteer();
         $user->firstname = $request->input('firstname');
         $user->lastname = $request->input('lastname');

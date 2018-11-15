@@ -70,9 +70,13 @@
                                     </table>
                                     {{Form::hidden('_method','PUT')}}
                                     <hr>
+                                    @if($request->status == 'Accepted' || $request->status == 'Cancelled')
+                                <center>DISABLED</center>
+                                    @else
                                     <input type="button" value="Save" class="btn btn-danger btn-block btn-lg" data-toggle="modal" data-target="#Modal2" />
                                     <br>
                                     <a href="{{ url()->previous() }}"> <button class="btn btn-success btn-block btn-lg"> Back </button> </a>
+                                    @endif
                                 </div>
                             </div>
                         </div>

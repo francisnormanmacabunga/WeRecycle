@@ -98,8 +98,8 @@ class RequestController extends Controller
     public function update(Request $request, $id)
     {
         $order = Transaction::find($id);
-      if($order->status == "Shipping" || $order->status == "Delivered" || $order->status == "Cancelled"){
-        return back()
+      if($order->status == "Accepted" || $order->status == "Cancelled"){
+        return back();
       }else{
         if ($request->input('status') == 'Accepted') {
           $order = Transaction::find($id);

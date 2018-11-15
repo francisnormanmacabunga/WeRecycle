@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-@include('navbar.donor')
+@include('navbar.guest')
 <body class="animsition">
 	<!-- Title page -->
 	<section class="bg-img1 txt-center p-lr-15 p-tb-92" style="background-image: url({{asset('donor-design/images/discount.jpg')}});">
@@ -21,7 +21,7 @@
 						</h3>
 
 						<p class="stext-113 cl6 p-b-26">
-							<strong>Step 1:</strong> On our login page, click on "Forgot your password?" button below the textboxes.
+							<strong>Step 1:</strong> On our <a href="{{ url('/donor/login') }}">login page</a>, click on "Forgot your password?" button below the textboxes.
 							<br />
 							<strong>Step 2:</strong> Enter your e-mail address below and we will send you a link to recover your password.
 							Click "Recover" button after filling up.
@@ -33,6 +33,11 @@
 							<br />
 							<strong>Step 5:</strong> After clicking on reset, you've reset your password.
 						</p>
+						<div class="bor16 p-l-29 p-b-9 m-t-22">
+							<a href="{{ url('/donor/password/reset') }}" class="stext-114 cl6 p-r-40 p-b-11">
+								Click here to reset your password
+							</a>
+						</div>
 					</div>
 				</div>
 
@@ -65,16 +70,8 @@
 							We aim to lessen the trash and encourage you to buy our fertilizer to plant more trees!
 							<br />
 							<strong>Step 5:</strong> Once you have reached 100 points, a 'Redeem' button will appear below your progress bar.
-							Click redeem once you reach 100 points. You are also free to redeem your coupon code anytime you want!
-							<br />
-							<strong>Step 6:</strong> You can view your discount codes <a href="{{ url('/donor/discount') }}">here</a>  and points history <a href="{{ url('/donor/pointhistory') }}">here</a>.
+							Click redeem once you reach 100 points. You are also free to redeem your coupon code anytime you want! No pressure.
 						</p>
-
-						<div class="bor16 p-l-29 p-b-9 m-t-22">
-							<a href="{{ url('/donor') }}" class="stext-114 cl6 p-r-40 p-b-11">
-								Click here to see your points progress
-							</a>
-						</div>
 					</div>
 				</div>
 
@@ -85,9 +82,9 @@
 						</div>
 					</div>
 				</div>
-							</div>
+			</div>
 		</div>
 	</section>
-  @include('navbar.donor-footer')
+		@include('navbar.guest-footer')
     </body>
     </html>

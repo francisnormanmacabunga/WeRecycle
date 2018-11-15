@@ -15,7 +15,8 @@
 Route::get('/', 'PagesController@index2');
 Route::get('/home', 'PagesController@index2');
 Route::get('/index', 'PagesController@index');
-Route::get('/faqs', 'PagesController@faqs');
+Route::get('/faqs', 'PagesController@guestfaqs');
+
 Route::get('/createApplicant', 'Guest\ApplicantsController@create');
 Route::post('/processApplicant', 'Guest\ApplicantsController@store');
 Route::get('/createDonor', 'Guest\DonorsController@create');
@@ -49,7 +50,7 @@ Route::prefix('donor')->group(function() {
   Route::get('/pointhistory','Donor\HistoryController@pointHistory');
   Route::get('/cancel/{transid}', 'Donor\HistoryController@cancel');
   Route::get('/redeemcode/{id}', 'Donor\DonorsController@redeemcode');
-  Route::get('/discont', 'Donor\HistoryController@discountcodlist');
+  Route::get('/discount', 'Donor\HistoryController@discountcodlist');
   //AddtoCart & AddtoDonate
   Route::get('/donate/add-item/{id}', 'Donor\DonateController@addItem')->name('donate.addItem');
   Route::get('/cart/add-item/{id}', 'Donor\CartController@addItem')->name('cart.addItem');
@@ -67,6 +68,8 @@ Route::prefix('donor')->group(function() {
   Route::get('/checkout-cart/confirm{id}','Donor\CartCheckoutController@confirm');
 
   Route::get('/', 'Donor\DonorController@index')->name('donor.dashboard');
+
+  Route::get('/faqs', 'Donor\DonorController@faqs');
 });
 
 Route::prefix('activitycoordinator')->group(function() {

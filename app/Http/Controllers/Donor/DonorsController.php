@@ -72,7 +72,7 @@ class DonorsController extends Controller
         //
     }
 
-  
+
 
     /**
      * Show the form for editing the specified resource.
@@ -174,7 +174,7 @@ class DonorsController extends Controller
       $plog->points = '-100';
       $plog->save();
 
-session()->flash('cod','Your code is '.$random.' please write this down!');
+      session()->flash('cod','Your code is '.$random.'');
        return back();
     }
 

@@ -130,29 +130,7 @@
 						</div>
 
 						<div class="flex-w flex-t bor12 p-t-15 p-b-30">
-              <div class="size-208">
-                <span class="stext-110 cl2">
-                  Tax:
-                </span>
-              </div>
-
-              <div class="size-209">
-                <span class="text-110 cl2">
-                  Php {{Cart::tax()}}
-                </span>
-              </div>
-
-              <div class="size-208">
-                <span class="stext-110 cl2">
-                  Subtotal:
-                </span>
-              </div>
-
-              <div class="size-209">
-                <span class="text-110 cl2">
-                  Php {{Cart::subtotal()}}
-                </span>
-              </div>
+          
 							@if($order->discountedprice != '')
 							<div class="size-208">
 								<span class="stext-110 cl2">

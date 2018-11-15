@@ -98,7 +98,7 @@
                         <i class="fs-16 zmdi zmdi-minus"></i>
                       </div>
 
-                      <input class="mtext-104 cl3 txt-center num-product" name="qty" type="number" value="{{$cartItem->qty}}">
+                      <input class="mtext-104 cl3 txt-center num-product" name="qty" type="number" min="1" max="15" value="{{$cartItem->qty}}">
 
                       <div class="btn-num-product-up cl8 hov-btn3 trans-04 flex-c-m">
                         <i class="fs-16 zmdi zmdi-plus"></i>
@@ -145,31 +145,7 @@
 							Cart Totals
 						</h4>
 
-            <div class="flex-w flex-t bor12 p-b-13">
-              <div class="size-208">
-                <span class="stext-110 cl2">
-                  Tax:
-                </span>
-              </div>
 
-              <div class="size-209">
-                <span class="mtext-110 cl2">
-                  Php {{Cart::tax()}}
-                </span>
-              </div>
-
-              <div class="size-208">
-                <span class="stext-110 cl2">
-                  Subtotal:
-                </span>
-              </div>
-
-              <div class="size-209">
-                <span class="mtext-110 cl2">
-                  Php {{Cart::subtotal()}}
-                </span>
-              </div>
-            </div>
 
 						<div class="flex-w flex-t p-t-27 p-b-33">
 							<div class="size-208">
@@ -180,7 +156,7 @@
 
 							<div class="size-209 p-t-1">
 								<span class="mtext-110 cl2">
-									Php {{Cart::total()}}
+									Php {{Cart::subtotal()}}
 								</span>
 							</div>
 						</div>

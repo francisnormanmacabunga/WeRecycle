@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Transaction;
 use App\Models\PointsLog;
+use App\Models\Reward;
 use Auth;
 use Cart;
 use DB;
@@ -78,6 +79,15 @@ class HistoryController extends Controller
       -> sortable()
       -> get();*/
       return view('Donor/History.pointHistory')->with(['point' => $point]);
+    }
+
+    public function discountcodlist(){
+      $donor = Auth::user();
+      $dcodes = Reward::orderBy('updated_at', 'desc')
+      -> where('userID', $donor->userID)
+      -> paginate(10);
+
+        return view('Donor/History.dcodes')->with(['dcodes' => $dcodes]);
     }
 
     public function cancel(Request $request,$transid){

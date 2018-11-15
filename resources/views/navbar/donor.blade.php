@@ -145,6 +145,7 @@
         History
         </a>
       </li>
+
       <li>
         <a href="{{ route('donor.logout') }}"
         onclick="event.preventDefault();
@@ -184,6 +185,12 @@
           </a>
         </li>
 
+        <li class="p-b-13">
+          <a href="{{ url('/donor/discont') }}" class="stext-102 cl2 hov-cl1 trans-04">
+          My Discount Codes
+          </a>
+        </li>
+        <br>
         <li class="p-b-13">
           <a href="{{ route('donor.logout') }}" class="btn btn-danger btn-rounded"
           onclick="event.preventDefault();

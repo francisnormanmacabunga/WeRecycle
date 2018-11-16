@@ -78,9 +78,11 @@
         <td><strong>Sort:</strong> Processing</td>
       </tr>
       <br>
+      <tr>
+        <td><strong>Printed By:</strong> {{Auth::user()->firstname}} {{Auth::user()->lastname}}</td>
+      </tr>
     </table>
     <hr/>
-    <br/>
 
 
     <table id="donation">

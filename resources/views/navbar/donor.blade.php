@@ -70,15 +70,13 @@
         <!-- Icon header -->
         <div class="wrap-icon-header flex-w flex-r-m h-full m-r-15">
           <div class="flex-c-m h-full p-lr-19">
-            <div class="icon-header-item">
+            <div class="icon-header-item cl2 hov-cl1 trans-04 p-r-11 p-l-10 icon-header-noti js-show-cart" data-notify="{{Cart::instance('shop')->count()}}">
               <a href="{{ url('/donor/cart') }}" title="Shopping cart"><i style="color:#1B4D3E" class="zmdi zmdi-shopping-cart"></i></a>
-              <span>{{Cart::instance('shop')->count()}}</span>
             </div>
           </div>
           <div class="flex-c-m h-full p-lr-19">
-            <div class="icon-header-item">
+            <div class="icon-header-item cl2 hov-cl1 trans-04 p-r-11 p-l-10 icon-header-noti js-show-cart" data-notify="{{Cart::instance('default')->count()}}g">
               <a href="{{ url('/donor/donate') }}" title="Donation list"><i style="color:#1B4D3E" class="zmdi zmdi-shopping-basket"></i></a>
-              <span>{{Cart::instance('default')->count()}}g</span>
             </div>
           </div>
           <div class="flex-c-m h-full p-lr-19">

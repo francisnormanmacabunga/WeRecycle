@@ -81,7 +81,7 @@
           </div>
           <div class="flex-c-m h-full p-lr-19">
             <div class="icon-header-item cl2 hov-cl1 trans-04 p-lr-11 js-show-sidebar">
-               <i class="zmdi zmdi-menu"></i>
+               <h6 style="color:#1B4D3E">{{ Auth::user()->username }}</h6>
             </div>
           </div>
         </div>
@@ -101,12 +101,12 @@
     <!-- Icon header -->
     <div class="wrap-icon-header flex-w flex-r-m h-full m-r-15">
       <div class="flex-c-m h-full p-lr-19">
-        <div class="icon-header-item">
+        <div class="icon-header-item cl2 hov-cl1 trans-04 p-r-11 p-l-10 icon-header-noti js-show-cart" data-notify="{{Cart::instance('shop')->count()}}">
           <a href="{{ url('/donor/cart') }}" title="Donation list"><i style="color:#1B4D3E" class="zmdi zmdi-shopping-cart"></i></a>
         </div>
       </div>
       <div class="flex-c-m h-full p-lr-19">
-        <div class="icon-header-item">
+        <div class="icon-header-item cl2 hov-cl1 trans-04 p-r-11 p-l-10 icon-header-noti js-show-cart" data-notify="{{Cart::instance('default')->count()}}g">
           <a href="{{ url('/donor/donate') }}" title="Shopping cart"><i style="color:#1B4D3E" class="zmdi zmdi-shopping-basket"></i></a>
         </div>
       </div>
@@ -207,11 +207,9 @@
           {{ Auth::user()->firstname }} {{ Auth::user()->lastname }}
         </span>
         <br />
-        {{ Auth::user()->username }}
-<br>
-        Your current points is:
+        Your current points is: {{$width['pointsaccumulated']}}%
 
-        <div class="w3-light-grey w3-xlarge">
+        <div class="w3-light-grey">
           <div class="w3-container w3-green" style="max-width:100%; width:{{$width['pointsaccumulated']}}%" max="100%" min="0%">{{$width['pointsaccumulated']}}%</div>
         </div>
       </div>

@@ -18,7 +18,7 @@ class FeedbacksController extends Controller
       $feedbacks = Feedbacks::SELECT('*')
       -> join('user', 'user.userID', '=', 'feedback.userID')
       -> sortable()
-      -> paginate(10);
+      -> paginate(0);
       return view('ProgramDirector/Feedbacks.index', compact('feedbacks'));
     }
 

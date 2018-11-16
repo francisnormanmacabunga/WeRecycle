@@ -28,9 +28,10 @@
                                     <li class="nav-item"> <a class="nav-link btn-outline-info" href="{{ url('/activitycoordinator/applicants/?status=Activated') }}" role="tab"><span class="hidden-sm-up"></span> <span class="hidden-xs-down">Activated</span></a></li>
                                     <li class="nav-item"> <a class="nav-link btn-outline-info" href="{{ url('/activitycoordinator/applicants/?status=Deactivated') }}" role="tab"><span class="hidden-sm-up"></span> <span class="hidden-xs-down">Deactivated</span></a></li>
                                 </ul>
+                                <br />
                                 <div class="table-responsive">
                                     @if(count($applicants) > 0)
-                                    <table class="table table-striped table-bordered">
+                                    <table id="zero_config" class="table table-striped table-bordered">
                                         <thead>
                                             <tr>
                                                 <th>Name</th>
@@ -71,7 +72,6 @@
                                     </div>
                                     @endif
                                 </div>
-                                {{$applicants -> links()}}
                             </div>
                         </div>
                     </div>

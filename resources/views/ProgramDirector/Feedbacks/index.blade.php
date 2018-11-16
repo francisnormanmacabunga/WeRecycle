@@ -23,12 +23,12 @@
                                 <h5 class="card-title">Feedback</h5>
                                 <div class="table-responsive">
                                     @if(count($feedbacks) > 0)
-                                    <table class="table table-striped table-bordered">
+                                    <table id="zero_config" class="table table-striped table-bordered">
                                         <thead>
                                             <tr>
                                                 <th>Username</th>
                                                 <th>Feedback</th>
-                                                <th>@sortablelink('rating', 'Rating')</th>
+                                                <th>Rating</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -49,7 +49,6 @@
                                     </div>
                                     @endif
                                 </div>
-                                {{$feedbacks->links()}}
                             </div>
                         </div>
                     </div>

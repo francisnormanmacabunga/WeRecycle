@@ -23,13 +23,13 @@ class ManageCatalogController extends Controller
       -> where('category', request('category'))
       -> where('productstype.productstypeID','1')
       -> sortable()
-      -> paginate(10)->appends('category', request('category'));
+      -> paginate(0)->appends('category', request('category'));
     } else {
       $products1 = Products::Select('*')
       -> join('productstype', 'productstype.productstypeID', '=', 'products.productstypeID')
       -> where('productstype.productstypeID','1')
       -> sortable()
-      -> paginate(10);
+      -> paginate(0);
     }
 
     /*$products1 = Products::Select('*')
@@ -48,7 +48,7 @@ class ManageCatalogController extends Controller
     -> join('productstype', 'productstype.productstypeID', '=', 'products.productstypeID')
     -> where('productstype.productstypeID','2')
     -> sortable()
-    -> paginate(10);
+    -> paginate(0);
     return view('Admin/Catalog.manageshop', compact('products2'));
   }
 

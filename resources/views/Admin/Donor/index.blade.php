@@ -20,16 +20,16 @@
               <h5 class="card-title">List of Donors</h5>
                 <div class="card">
                     <div class="card-body">
-                        <ul class="nav nav-tabs" role="tablist">
-                          <li class="nav-item"><a class="nav-link ">Filter by:</a></li>
-                          <li class="nav-item"> <a class="nav-link btn-outline-info" href="{{ url('/admin/donors') }}" role="tab"><span class="hidden-sm-up"></span> <span class="hidden-xs-down">All</span></a> </li>
-                          <li class="nav-item"> <a class="nav-link btn-outline-info" href="{{ url('/admin/donors/?status=Activated') }}" role="tab"><span class="hidden-sm-up"></span> <span class="hidden-xs-down">Activated</span></a> </li>
-                          <li class="nav-item"> <a class="nav-link btn-outline-info" href="{{ url('/admin/donors/?status=Deactivated') }}" role="tab"><span class="hidden-sm-up"></span> <span class="hidden-xs-down">Deactivated</span></a> </li>
-                        </ul>
-
+                      <ul class="nav nav-tabs" role="tablist">
+                        <li class="nav-item"><a class="nav-link ">Filter by:</a></li>
+                        <li class="nav-item"> <a class="nav-link btn-outline-info" href="{{ url('/admin/donors') }}" role="tab"><span class="hidden-sm-up"></span> <span class="hidden-xs-down">All</span></a> </li>
+                        <li class="nav-item"> <a class="nav-link btn-outline-info" href="{{ url('/admin/donors/?status=Activated') }}" role="tab"><span class="hidden-sm-up"></span> <span class="hidden-xs-down">Activated</span></a> </li>
+                        <li class="nav-item"> <a class="nav-link btn-outline-info" href="{{ url('/admin/donors/?status=Deactivated') }}" role="tab"><span class="hidden-sm-up"></span> <span class="hidden-xs-down">Deactivated</span></a> </li>
+                      </ul>
+                      <br />
                         <div class="table-responsive">
                           @if(count($donors) > 0)
-                            <table class="table table-striped table-bordered">
+                            <table id="zero_config" class="table table-striped table-bordered">
                                 <thead>
                                     <tr>
                                       <th>Name</th>
@@ -38,8 +38,8 @@
                                       <th>Barangay</th>
                                       <th>Cellphone Number</th>
                                       <th>Telephone Number</th>
-                                      <th>@sortablelink('created_at', 'Date Created')</th>
-                                      <th>@sortablelink('updated_at', 'Date Updated')</th>
+                                      <th>Date Created</th>
+                                      <th>Date Updated</th>
                                       <th>Status</th>
                                       <th>Action</th>
                                     </tr>
@@ -71,7 +71,6 @@
                             </div>
                             @endif
                         </div>
-                        {{$donors->links()}}
                     </div>
                 </div>
             </div>

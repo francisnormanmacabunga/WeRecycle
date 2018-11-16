@@ -27,7 +27,7 @@
                         <h5 class="card-title">Donors Message</h5>
                         <div class="table-responsive">
                           @if(count($messagedonors) > 0)
-                            <table class="table table-striped table-bordered">
+                            <table id="zero_config" class="table table-striped table-bordered">
                                 <thead>
                                     <tr>
                                       <th>Date</th>
@@ -53,7 +53,6 @@
                             </div>
                             @endif
                         </div>
-                        {{$messagedonors->links()}}
                     </div>
                 </div>
             </div>

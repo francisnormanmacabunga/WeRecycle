@@ -31,9 +31,10 @@
                                     <li class="nav-item"> <a class="nav-link btn-outline-info" href="{{ url('/admin/auditlogs/?log_name=Request') }}" role="tab"><span class="hidden-sm-up"></span> <span class="hidden-xs-down">Request</span></a> </li>
                                     <li class="nav-item"> <a class="nav-link btn-outline-info" href="{{ url('/admin/auditlogs/?log_name=Order') }}" role="tab"><span class="hidden-sm-up"></span> <span class="hidden-xs-down">Order</span></a> </li>
                                 </ul>
+                                <br />
                                 <div class="table-responsive">
                                     @if(count($lastActivity) > 0)
-                                    <table class="table table-striped table-bordered">
+                                    <table id="zero_config" class="table table-striped table-bordered">
                                         <!--  <table id="zero_config" class="table table-striped table-bordered"> -->
                                         <thead>
                                             <tr>
@@ -64,7 +65,6 @@
                                     </div>
                                     @endif
                                 </div>
-                                {{$lastActivity->links()}}
                             </div>
                         </div>
                     </div>

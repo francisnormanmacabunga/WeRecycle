@@ -45,7 +45,7 @@
         <!-- ============================================================== -->
         <!-- Login box.scss -->
         <!-- ============================================================== -->
-        <div class="auth-wrapper d-flex no-block justify-content-center align-items-center" style="background-color: #35281e">
+        <div class="auth-wrapper d-flex no-block justify-content-center align-items-center" style="background-color: #654321">
                 <div>
 
                   <br />

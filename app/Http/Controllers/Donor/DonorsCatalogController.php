@@ -5,8 +5,10 @@ namespace App\Http\Controllers\Donor;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Products;
+use App\Models\Points;
 use DB;
 use Auth;
+use Cart;
 
 class DonorsCatalogController extends Controller
 {
@@ -34,9 +36,10 @@ class DonorsCatalogController extends Controller
       -> sortable()
       -> get();
     }
-
-
-    return view('Donor/Catalog.donation', compact('products1'));
+    $cartItems=Cart::instance('shop')->content();
+    $cartItems1=Cart::content();
+       $width = Points::where('userID',Auth::user()->userID)->first();
+    return view('Donor/Catalog.donation', compact('products1','cartItems','cartItems1'))->with('width',$width);
   }
 
   public function shopCatalog()
@@ -48,7 +51,10 @@ class DonorsCatalogController extends Controller
     -> sortable()
     -> get();
 
-    return view('Donor/Catalog.shop', compact('products2'));
+    $cartItems=Cart::instance('shop')->content();
+    $cartItems1=Cart::content();
+   $width = Points::where('userID',Auth::user()->userID)->first();
+    return view('Donor/Catalog.shop', compact('products2','cartItems','cartItems1'))->with('width',$width);
   }
 
   public function backtoshopcat()
@@ -62,7 +68,11 @@ class DonorsCatalogController extends Controller
 
     $donor = Auth::user();
     DB::table('orders')->where('userID',$donor->userID)->delete();
-    return view('Donor/Catalog.shop', compact('products2'));
+
+    $cartItems=Cart::instance('shop')->content();
+    $cartItems1=Cart::content();
+       $width = Points::where('userID',Auth::user()->userID)->first();
+    return view('Donor/Catalog.shop', compact('products2','cartItems','cartItems1'))->with('width',$width);
   }
 
   public function backtodoncat()
@@ -76,7 +86,10 @@ class DonorsCatalogController extends Controller
 
     $donor = Auth::user();
     DB::table('request')->where('userID',$donor->userID)->delete();
-    return view('Donor/Catalog.donation', compact('products1'));
+    $cartItems=Cart::instance('shop')->content();
+    $cartItems1=Cart::content();
+       $width = Points::where('userID',Auth::user()->userID)->first();
+    return view('Donor/Catalog.donation', compact('products1','cartItems','cartItems1'))->with('width',$width);
   }
 
 }

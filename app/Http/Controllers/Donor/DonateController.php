@@ -10,7 +10,7 @@ use App\Models\Requests;
 use App\Models\Donor;
 use Auth;
 use DB;
-
+use App\Models\Points;
 class DonateController extends Controller
 {
 
@@ -21,8 +21,9 @@ class DonateController extends Controller
 
     public function index()
     {
+         $width = Points::where('userID',Auth::user()->userID)->first();
        $cartItems=Cart::content();
-       return view('Donor/Donate.index',compact('cartItems'));
+       return view('Donor/Donate.index',compact('cartItems'))->with('width',$width);
     }
 
     public function addItem($id)

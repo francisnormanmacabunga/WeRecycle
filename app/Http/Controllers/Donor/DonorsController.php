@@ -33,8 +33,9 @@ class DonorsController extends Controller
 
     public function index()
     {
+      $width = Points::where('userID',Auth::user()->userID)->first();
       $donors = Auth::user();
-      return view('Donor/Profile.index')->with(['donors' => $donors]);
+      return view('Donor/Profile.index')->with(['donors' => $donors])->with('width',$width);
     }
 
     /**
@@ -83,8 +84,9 @@ class DonorsController extends Controller
 
     public function edit($id)
     {
+      $width = Points::where('userID',Auth::user()->userID)->first();
       $donors = Donor::with('contacts')->find(Auth::user()->userID);
-      return view('Donor/Profile.edit', compact('donors'));
+      return view('Donor/Profile.edit', compact('donors'))->with('width',$width);
     }
 
     /**
@@ -160,6 +162,7 @@ class DonorsController extends Controller
       $reward = new Reward;
       $random = str_random(6);
       $reward->code = $random;
+      $reward->status = 'Activated';
       $reward->userID = Auth::user()->userID;
       $reward->save();
 

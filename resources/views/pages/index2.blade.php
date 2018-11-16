@@ -32,7 +32,7 @@
           <ul class="probootstrap-main-nav">
             <li class="active"><a href="#">Home</a></li>
             <li><a href="#about">About</a></li>
-            <li><a href="#services">Services</a></li>
+            <li><a href="{{ url('/faqs') }}">FAQs</a></li>
             <li><a href="{{ url('/donor/login') }}">Login</a></li>
             <li><a href="{{ url('/createDonor') }}">Register</a></li>
             <li><a href="{{ url('/activitycoordinator/login') }}">Employee</a></li>

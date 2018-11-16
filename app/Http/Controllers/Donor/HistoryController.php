@@ -10,7 +10,7 @@ use App\Models\Reward;
 use Auth;
 use Cart;
 use DB;
-
+use App\Models\Points;
 class HistoryController extends Controller
 {
 
@@ -21,7 +21,7 @@ class HistoryController extends Controller
 
     public function donationHistory()
     {
-
+ $width = Points::where('userID',Auth::user()->userID)->first();
       $donor = Auth::user();
       if (request()->has('status')){
       $donation = Transaction::orderBy('updated_at', 'desc')
@@ -35,12 +35,13 @@ class HistoryController extends Controller
         -> where('type', 'Donate')
         -> paginate(10);
 }
-      return view('Donor/History.donationHistory')->with(['donation' => $donation]);
+      return view('Donor/History.donationHistory')->with(['donation' => $donation])->with('width',$width);
 
     }
 
     public function transactionHistory()
     {
+       $width = Points::where('userID',Auth::user()->userID)->first();
       $donor = Auth::user();
       if (request()->has('status')){
       $shop = Transaction::orderBy('updated_at', 'desc')
@@ -55,11 +56,12 @@ class HistoryController extends Controller
         -> where('type', 'Shop')
         -> paginate(10);
       }
-      return view('Donor/History.transactionHistory')->with(['shop' => $shop]);
+      return view('Donor/History.transactionHistory')->with(['shop' => $shop])->with('width',$width);
     }
 
     public function pointHistory()
     {
+       $width = Points::where('userID',Auth::user()->userID)->first();
       $donor = Auth::user();
       if (request()->has('activity')){
       $point = PointsLog::SELECT('*')
@@ -79,17 +81,18 @@ class HistoryController extends Controller
       $point = PointsLog::where('userID', $donor->userID)
       -> sortable()
       -> get();*/
-      return view('Donor/History.pointHistory')->with(['point' => $point]);
+      return view('Donor/History.pointHistory')->with(['point' => $point])->with('width',$width);
     }
 
 
     public function discountcodlist(){
+       $width = Points::where('userID',Auth::user()->userID)->first();
       $donor = Auth::user();
       $dcodes = Reward::orderBy('updated_at', 'desc')
       -> where('userID', $donor->userID)
       -> paginate(10);
 
-        return view('Donor/History.dcodes')->with(['dcodes' => $dcodes]);
+        return view('Donor/History.dcodes')->with(['dcodes' => $dcodes])->with('width',$width);
     }
 
 

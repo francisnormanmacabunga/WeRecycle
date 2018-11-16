@@ -72,11 +72,13 @@
           <div class="flex-c-m h-full p-lr-19">
             <div class="icon-header-item">
               <a href="{{ url('/donor/cart') }}" title="Shopping cart"><i style="color:#1B4D3E" class="zmdi zmdi-shopping-cart"></i></a>
+              <span>{{Cart::instance('shop')->count()}}</span>
             </div>
           </div>
           <div class="flex-c-m h-full p-lr-19">
             <div class="icon-header-item">
               <a href="{{ url('/donor/donate') }}" title="Donation list"><i style="color:#1B4D3E" class="zmdi zmdi-shopping-basket"></i></a>
+              <span>{{Cart::instance('default')->count()}}g</span>
             </div>
           </div>
           <div class="flex-c-m h-full p-lr-19">
@@ -208,6 +210,12 @@
         </span>
         <br />
         {{ Auth::user()->username }}
+<br>
+        Your current points is:
+
+        <div class="w3-light-grey w3-xlarge">
+          <div class="w3-container w3-green" style="max-width:100%; width:{{$width['pointsaccumulated']}}%" max="100%" min="0%">{{$width['pointsaccumulated']}}%</div>
+        </div>
       </div>
     </div>
   </div>

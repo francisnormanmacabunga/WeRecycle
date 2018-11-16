@@ -22,6 +22,7 @@
       								<tr class="table_head">
                         <th class="column-1"></th>
       									<th class="column-2">Code</th>
+                        <th class="column-3">Status</th>
       									<th class="text-center">Time Gained</th>
                         <th class="column-5"></th>
       								</tr>
@@ -30,7 +31,7 @@
                         <td class="text-center">
                         </td>
       									<td class="column-2">{{$dcode->code}}</td>
-
+	                      <td class="column-2">{{$dcode->status}}</td>
                         <td class="text-center">
                             {{date('F d, Y, h:i:sa', strtotime($dcode->created_at))}}
                         </td>

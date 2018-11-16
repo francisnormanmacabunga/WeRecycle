@@ -6,7 +6,8 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Donor;
 use Hash;
-
+use App\Models\Points;
+use Auth;
 class DonorsPasswordController extends Controller
 {
 
@@ -71,8 +72,9 @@ class DonorsPasswordController extends Controller
 
     public function edit($id)
     {
-      $donors = Donor::find($id);
-      return view('Donor/Profile.updatePass', compact('donors'));
+      $donors = Donor::find(Auth::user()->userID);
+        $width = Points::where('userID',Auth::user()->userID)->first();
+      return view('Donor/Profile.updatePass', compact('donors'))->with('width',$width);
     }
 
     /**

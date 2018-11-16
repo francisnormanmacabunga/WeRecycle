@@ -5,10 +5,11 @@ use Gloudemans\Shoppingcart\Facades\Cart;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Transaction;
+use App\Models\Reward;
 use App\Models\Order;
 use Auth;
 use DB;
-
+use App\Models\Points;
 class CartCheckoutController extends Controller
 {
 
@@ -19,32 +20,55 @@ class CartCheckoutController extends Controller
 
     public function index()
     {
+      $width = Points::where('userID',Auth::user()->userID)->first();
       $donor = Auth::user();
       $order = Order::where('userID', $donor->userID)->first();
       $cartItems= Cart::instance('shop')->content();
-    return view('Donor/Cart/Checkout.index',compact('cartItems'))->with(['order' => $order ])->with(['donor' => $donor]);
+    return view('Donor/Cart/Checkout.index',compact('cartItems'))->with(['order' => $order ])->with(['donor' => $donor])->with(['width' => $width]);
     }
 
     public function confirm($id)
     {
       $donor = Auth::user();
       $order = Order::where('userID', $donor->userID)->orderBy('created_at', 'desc')->first();
+      if ($order->code == '') {
+        $trans = new Transaction;
+        $trans->userID = $order->userID;
+        $trans->cart = $order->cart;
+        $trans->price = $order->price;
+        $trans->discountedprice = $order->discountedprice;
+        $trans->type = $order->type;
+        $trans->status = 'Processing';
+        $trans->code = $order->code;
+        $trans->save();
 
-      $trans = new Transaction;
-      $trans->userID = $order->userID;
-      $trans->cart = $order->cart;
-      $trans->price = $order->price;
-      $trans->discountedprice = $order->discountedprice;
-      $trans->type = $order->type;
-      $trans->status = 'Processing';
-      $trans->code = $order->code;
-      $trans->save();
+        cart::instance('shop')->destroy();
 
-      cart::instance('shop')->destroy();
-      DB::table('orders')->where('userID',$donor->userID)->delete();
-      DB::table('reward')->where('code',$order->code)->delete();
-      session()->flash('notif','Order Process Successful!');
-      return redirect('/donor');
+        DB::table('orders')->where('userID',$donor->userID)->delete();
+        session()->flash('notif','Order Process Successful!');
+        return redirect('/donor');
+      }else {
+        $trans = new Transaction;
+        $trans->userID = $order->userID;
+        $trans->cart = $order->cart;
+        $trans->price = $order->price;
+        $trans->discountedprice = $order->discountedprice;
+        $trans->type = $order->type;
+        $trans->status = 'Processing';
+        $trans->code = $order->code;
+        $trans->save();
+
+        cart::instance('shop')->destroy();
+
+        DB::table('orders')->where('userID',$donor->userID)->delete();
+
+        $code = Reward::where('code',$order->code)->first();
+        $code->status = 'Deactivated';
+        $code->push();
+
+        session()->flash('notif','Order Process Successful!');
+        return redirect('/donor');
+      }
 
     }
 

@@ -5,7 +5,8 @@ namespace App\Http\Controllers\Donor;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Feedbacks;
-
+use App\Models\Points;
+use Auth;
 class FeedbacksController extends Controller
 {
 
@@ -16,7 +17,8 @@ class FeedbacksController extends Controller
 
     public function create()
     {
-      return view('Donor/Feedbacks.create');
+       $width = Points::where('userID',Auth::user()->userID)->first();
+      return view('Donor/Feedbacks.create')->with('width',$width);
     }
 
     public function sendFeedback(Request $request)

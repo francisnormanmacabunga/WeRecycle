@@ -8,7 +8,7 @@ use App\Models\Transaction;
 use App\Models\Requests;
 use Auth;
 use DB;
-
+use App\Models\Points;
 class DonateCheckoutController extends Controller
 {
 
@@ -19,10 +19,11 @@ class DonateCheckoutController extends Controller
 
     public function index()
     {
+        $width = Points::where('userID',Auth::user()->userID)->first();
       $donor = Auth::user();
       $request = Requests::where('userID', $donor->userID)->first();
       $cartItems = Cart::content();
-      return view('Donor/Donate/Checkout.index',compact('cartItems'))->with(['request' => $request])->with(['donor' => $donor]);
+      return view('Donor/Donate/Checkout.index',compact('cartItems'))->with(['request' => $request])->with(['donor' => $donor])->with('width',$width);
     }
 
     public function confirm($id)

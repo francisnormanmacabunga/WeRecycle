@@ -11,7 +11,7 @@ use App\Models\Donor;
 use App\Models\Reward;
 use Auth;
 use DB;
-
+use App\Models\Points;
 class CartController extends Controller
 {
 
@@ -22,8 +22,9 @@ class CartController extends Controller
 
     public function index()
     {
+       $width = Points::where('userID',Auth::user()->userID)->first();
        $cartItems=Cart::instance('shop')->content();
-       return view('Donor/Cart.index',compact('cartItems'));
+       return view('Donor/Cart.index',compact('cartItems'))->with('width',$width);
     }
 
     public function addItem($id)
@@ -52,12 +53,12 @@ class CartController extends Controller
       $cartItems=Cart::instance('shop')->content();
       $code = $request->dcode;
       $qty = Cart::count();
-
+//dd($qty);
 
 
 if (count($cartItems) > 0) {
 
-  if($qty < 0 || $qty > 15){
+  if($qty <= 0 || $qty <= 15){
 
     if ($code == '') {
 
@@ -76,7 +77,7 @@ if (count($cartItems) > 0) {
 
     }else{
       //$reward = Reward::SELECT('select code from reward where code = ?',[$code]);
-      $reward = Reward::Where('code', $code)->get();
+      $reward = Reward::Where('code', $code)->where('status','Activated')->get();
 
     if(count($reward) > 0){
       $total = Cart::instance('shop')->subtotal();

@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html dir="ltr" lang="en">
 <head>
-    <!-- Favicon icon -->
-    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('assets/images/favicon.png') }}">
+
 </head>
+
 <!-- DATE RANGE SCRIPT -->
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 <!-- END OF DATE RANGE SCRIPT -->
@@ -47,7 +47,7 @@
                               </ul>
                                 <div class="table-responsive">
                                     @if(count($request) > 0)
-                                    <table class="table table-striped table-bordered">
+                                    <table class="datatable table table-striped table-bordered">
                                         <thead>
                                             <tr>
                                             </tr>
@@ -132,6 +132,8 @@
         </div>
     </div>
     @include('navbar.footer')
+
+
 </body>
 
 <!-- DATE RANGE SCRIPTS -->

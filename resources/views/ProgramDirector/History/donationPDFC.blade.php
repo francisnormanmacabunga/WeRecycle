@@ -3,7 +3,7 @@
     <head>
       <style>
       table#donation {
-          font-family: arial, sans-serif;
+          font-size: 15px;
           border-collapse: collapse;
           width: 100%;
       }

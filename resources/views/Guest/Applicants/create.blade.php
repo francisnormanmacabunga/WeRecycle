@@ -9,7 +9,7 @@
 
   }
   </style>-->
-  <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('assets/images/favicon.png') }}"> 
+  <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('assets/images/favicon.png') }}">
   <link rel="icon" type="image/png" sizes="16x16" href="{{asset('assets/images/favicon.png')}}">
   <link href="https://fonts.googleapis.com/css?family=Inconsolata|Rubik:300,400,700,900" rel="stylesheet">
   <link rel="stylesheet" href="{{asset('css/styles-merged.css')}}">
@@ -71,6 +71,17 @@
                         </div>
                         </div>
                         @endif
+                        @if(session()->has('notiff'))
+                        <div class="container">
+                      <div class="content">
+                        <div class="alert alert-danger">
+                          <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                          <strong>{{session()->get('notiff')}}</strong>
+                        </div>
+                        <br />
+                      </div>
+                      </div>
+                      @endif
                           <div class="col-md-4">
 
                           <label style="color: white">First Name</label>

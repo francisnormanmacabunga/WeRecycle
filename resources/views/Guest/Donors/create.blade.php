@@ -1,14 +1,10 @@
 <!DOCTYPE html>
 <html dir="ltr">
 <head>
-  <!-- <style>
-  body  {
-    background-size: contain;
-    background-size: cover;
-  background-image: url('/assets/images/test.jpg');
+  <style>
 
-  }
-  </style>-->
+  </style>
+
   <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('assets/images/favicon.png') }}">
     <link href="https://fonts.googleapis.com/css?family=Inconsolata|Rubik:300,400,700,900" rel="stylesheet">
   <link rel="stylesheet" href="{{asset('css/style.min.css')}}">
@@ -297,4 +293,5 @@
               </div>
     @include('navbar.login')
 </body>
+
 </html>

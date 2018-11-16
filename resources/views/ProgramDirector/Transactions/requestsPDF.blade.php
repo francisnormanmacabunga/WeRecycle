@@ -3,7 +3,7 @@
       <head>
       <style>
       table#requests {
-          font-family: arial, sans-serif;
+          font-size: 15px;
           border-collapse: collapse;
           width: 100%;
       }
@@ -11,7 +11,6 @@
       td, th {
           border: 1px solid #dddddd;
           text-align: left;
-          padding: 6px;
       }
 
       tr:nth-child(even) {
@@ -54,17 +53,25 @@
              line-height: 1.5cm;
          }
 
+         p{
+           float: right;
+         }
+
       </style>
       </head>
       <body>
         <footer>
-            Copyright &copy; <?php echo date("Y");?> WeRecycle
+            Copyright &copy; <?php echo date("Y");?> WeRecycle&trade;
         </footer>
-
-        <h1 align="center"><img src="{{asset('assets/images/pdf-logo.png')}}" width="200px" length="200px"/></h1>
+          <p><strong>
+          WeRecycle&trade;</strong><br>2142 Jesus St. Pandacan, Manila, 1011 Metro Manila<br>
+          <strong>Contact Number:</strong> 0928 428 0144 or 0917 828 3672</p>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <img src="{{asset('assets/images/pdf-logo.png')}}" width="200px" length="200px"/>
         <br>
-
         <table>
+
         <tr>
           <td><?php
             echo "<strong>Date: </strong>";
@@ -79,8 +86,9 @@
           <td><strong>Report Generated:</strong> Transaction</td>
           <td><strong>Sort:</strong> Requests</td>
         </tr>
+        <br>
     </table>
-
+    <HR/>
     <br/>
 
 

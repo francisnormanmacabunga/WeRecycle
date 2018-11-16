@@ -47,7 +47,7 @@
       					<div class="m-l-25 m-r--38 m-lr-0-xl">
       						<div class="wrap-table-shopping-cart">
                     @if(count($point) > 0)
-                    <table class="table-shopping-cart">
+                    <table id="config_zero" class="table-shopping-cart">
 
       								<tr class="table_head">
                         <th class="column-1"></th>

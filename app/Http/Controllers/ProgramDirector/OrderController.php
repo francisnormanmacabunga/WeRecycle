@@ -12,6 +12,7 @@ use App\Models\Points;
 use App\Models\PointsLog;
 use DB;
 use Auth;
+use App\Services\PayUService\Exception;
 
 class OrderController extends Controller
 {
@@ -96,26 +97,29 @@ class OrderController extends Controller
      */
     public function update(Request $request, $id)
     {
-      $order = Transaction::find($id);
-    if($order->status == "Delivered" || $order->status == "Cancelled"){
-      return back();
-    }else{
-      if ($request->input('status') == 'Delivered') {
+    
+        $order = Transaction::find($id);
+      if($order->status == "Delivered" || $order->status == "Cancelled"){
+        return back();
+      }else{
+        if ($request->input('status') == 'Delivered') {
+          $order = Transaction::find($id);
+          $order->status = $request->input('status');
+          $order->volunteerID = $request->input('volunteer');
+          $order->save();
+
+        return redirect('/programdirector/orders')->with('success', 'Profile updated');
+      }else {
         $order = Transaction::find($id);
         $order->status = $request->input('status');
         $order->volunteerID = $request->input('volunteer');
+
         $order->save();
+        return redirect('/programdirector/orders')->with('success', 'Profile updated');
+            }
+        }
 
-      return redirect('/programdirector/orders')->with('success', 'Profile updated');
-    }else {
-      $order = Transaction::find($id);
-      $order->status = $request->input('status');
-      $order->volunteerID = $request->input('volunteer');
 
-      $order->save();
-      return redirect('/programdirector/orders')->with('success', 'Profile updated');
-          }
-      }
   }
 
     /**

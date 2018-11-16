@@ -3,7 +3,7 @@
     <head>
     <style>
     table#donation {
-        font-family: arial, sans-serif;
+        font-size: 15px;
         border-collapse: collapse;
         width: 100%;
     }
@@ -44,6 +44,7 @@
            text-align: center;
            line-height: 1.5cm;
        }
+
        p{
          float: right;
        }
@@ -62,7 +63,6 @@
         <img src="{{asset('assets/images/pdf-logo.png')}}" width="200px" length="200px"/>
       <br>
       <table>
-
       <tr>
         <td><?php
           echo "<strong>Date: </strong>";

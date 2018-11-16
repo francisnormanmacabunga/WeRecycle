@@ -33,7 +33,7 @@
                     <div class="card-body">
                         <h5 class="card-title">Donation History</h5>
                         <div class="table-responsive">
-                            <table class="table table-striped table-bordered">
+                            <table id="" class="table table-striped table-bordered">
                                 <thead>
                                   <tr>
                                   </tr>

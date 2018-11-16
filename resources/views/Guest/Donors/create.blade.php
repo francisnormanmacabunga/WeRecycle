@@ -1,9 +1,7 @@
 <!DOCTYPE html>
 <html dir="ltr">
-<head>
-  <style>
 
-  </style>
+<head>
 
   <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('assets/images/favicon.png') }}">
   <link href="https://fonts.googleapis.com/css?family=Inconsolata|Rubik:300,400,700,900" rel="stylesheet">
@@ -235,6 +233,6 @@
                 </div>
               </div>
     @include('navbar.login')
-</body>
 
+</body>
 </html>

@@ -168,7 +168,7 @@ class DonorsController extends Controller
 
       $id = $request->id;
       $points= Points::where('userID',$id)->first();
-      $points->pointsaccumulated = $points->pointsaccumulated - 100;
+      $points->pointsaccumulated = '0';
       $points->push();
 
       $plog = new PointsLog;

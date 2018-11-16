@@ -64,7 +64,7 @@
 								<tr class="table_row">
 									<td class="text-center">{{$cartItem->name}}</td>
 									<td class="text-center">
-                    Php {{$cartItem->price}}.00
+                    ₱ {{$cartItem->price}}.00
                   </td>
 									<td class="text-center">
 										{{$cartItem->qty}}
@@ -130,7 +130,7 @@
 						</div>
 
 						<div class="flex-w flex-t bor12 p-t-15 p-b-30">
-          
+
 							@if($order->discountedprice != '')
 							<div class="size-208">
 								<span class="stext-110 cl2">
@@ -140,7 +140,7 @@
 
 							<div class="size-209">
 								<span class="text-110 cl2">
-									Php {{$order->discountedprice}}
+								 ₱ {{$order->discountedprice}}
 								</span>
 							</div>
 							@else
@@ -156,7 +156,7 @@
 
 							<div class="size-209 p-t-1">
 								<span class="mtext-110 cl2">
-									Php {{$order->price}}
+									₱ {{$order->price}}
 								</span>
 							</div>
 							@endif

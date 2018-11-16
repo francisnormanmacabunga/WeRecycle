@@ -39,7 +39,11 @@ class DonorController extends Controller
 
     public function faqs()
     {
-      return view('pages.faqs');
+
+      $cartItems=Cart::instance('shop')->content();
+      $cartItems1=Cart::content();
+      $width = Points::where('userID',Auth::user()->userID)->first();
+      return view('pages.faqs',compact('cartItems','cartItems1'))->with('width',$width);
     }
 
 }

@@ -83,15 +83,15 @@
           ?></td>
         </tr>
         <tr>
-          <td><strong>Report Generated:</strong> Transaction</td>
+          <td><strong>Report Generated:</strong> Transaction&nbsp;&nbsp;&nbsp;&nbsp;</td>
           <td><strong>Sort:</strong> Requests</td>
         </tr>
         <br>
+        <tr>
+          <td><strong>Printed By:</strong> {{Auth::user()->firstname}} {{Auth::user()->lastname}}</td>
+        </tr>
     </table>
-    <HR/>
-    <br/>
-
-
+    <hr/>
       <table id="requests">
         <tr>
                 <th>Transaction ID</th>

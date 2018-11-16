@@ -52,25 +52,31 @@
         				<div class="col-lg-100 col-xl-70 m-lr-auto m-b-500">
         					<div class="m-l-25 m-r--38 m-lr-0-xl">
         						<div class="wrap-table-shopping-cart">
+                      <div class="table-responsive">
                       @if(count($shop) > 0)
-        							<table class="table-shopping-cart">
+        							<table id="zero_config" class="table-shopping-cart">
+                        <thead>
+                            <tr>
+                              <tr class="table_head">
+                                <th class="column-1">Transaction ID</th>
+                                <th class="column-1">Assigned Volunteer</th>
+                                <th class="column-1">Product Name</th>
+                                <th class="column-1">Quantity</th>
+                                <th class="column-1">Amount</th>
+                                <th class="column-1">Date</th>
+                                <th class="column-1">Status</th>
+                                <th class="column-1">Action</th>
+                                <th class="column-1"></th>
+              								</tr>
+                            </tr>
+                        </thead>
 
-        								<tr class="table_head">
-                          <th class="column-1">Transaction ID</th>
-                          <th class="column-1">Assigned Volunteer</th>
-                          <th class="column-1">Product Name</th>
-                          <th class="column-1">Quantity</th>
-                          <th class="column-1">Amount</th>
-                          <th class="column-1">Date</th>
-                          <th class="column-1">Status</th>
-                          <th class="column-1">Action</th>
-                          <th class="column-1"></th>
-        								</tr>
                         @foreach ($shop as $shops)
                         @php
                         $cart = json_decode($shops->cart);
                         @endphp
                         @foreach($cart as $item)
+                        <tbody>
         								<tr class="table_row">
                           <td class="column-1">{{$shops->transid}}</td>
                           <td class="column-1">{{$shops->volunteer['firstname']}} {{$shops->volunteer['lastname']}}</td>
@@ -97,6 +103,7 @@
                           </td>
                           @endif
         								</tr>
+                      </tbody>
         								@endforeach
         								@endforeach
                         @else
@@ -109,6 +116,7 @@
         								</td>
         								@endif
         							</table>
+                    </div>
         						</div>
                   <br />
                   {{$shop -> links()}}

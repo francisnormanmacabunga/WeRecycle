@@ -23,7 +23,7 @@ class AuditLogController extends Controller
       -> paginate(10);
     } else {
       $lastActivity = Activity::orderBy('updated_at', 'desc')
-      -> paginate(10);
+      -> paginate(0);
     }
     return view('Admin/Audits.index', compact('lastActivity'));
   }

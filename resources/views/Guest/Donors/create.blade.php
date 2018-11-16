@@ -1,9 +1,7 @@
 <!DOCTYPE html>
 <html dir="ltr">
-<head>
-  <style>
 
-  </style>
+<head>
 
   <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('assets/images/favicon.png') }}">
     <link href="https://fonts.googleapis.com/css?family=Inconsolata|Rubik:300,400,700,900" rel="stylesheet">
@@ -217,11 +215,10 @@
                                 {{Form::hidden('status','Activated', ['class' => 'form-control'])}}
                                 <div style="color: white; text-align: center">
                                   <div class="custom-control custom-checkbox mr-sm-2">
-    <input type="checkbox" class="custom-control-input" id="customControlAutosizing1" required>
-    <label class="custom-control-label" for="customControlAutosizing1">By checking this box, you agree to our <a class="btn-outline-light" href="#" data-toggle="modal" data-target="#Modal1">Terms and Conditions</a>.</label>
-</div>
-
-</div>
+                                      <input type="checkbox" class="custom-control-input" id="customControlAutosizing1" required>
+                                      <label class="custom-control-label" for="customControlAutosizing1">By checking this box, you agree to our <a class="btn-outline-light" href="#" data-toggle="modal" data-target="#Modal1">Terms and Conditions</a>.</label>
+                                  </div>
+                                </div>
                                 <!-- Modal -->
                                 <div class="modal fade" id="Modal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                     <div class="modal-dialog" role="document">
@@ -292,6 +289,6 @@
                 </div>
               </div>
     @include('navbar.login')
-</body>
 
+</body>
 </html>

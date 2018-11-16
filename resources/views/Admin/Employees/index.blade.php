@@ -21,19 +21,19 @@
 
                         <div class="table-responsive">
                           @if(count($employee) > 0)
-                            <table class="table table-striped table-bordered">
+                            <table id="zero_config" class="table table-striped table-bordered">
                                 <thead>
                                     <tr>
-                                      <th>@sortablelink('usertypeID', 'User Type')</th>
+                                      <th>User Type</th>
                                       <th>Name</th>
                                       <th>Age</th>
                                       <th>Address</th>
                                       <th>Barangay</th>
                                       <th>Cellphone Number</th>
                                       <th>Telephone Number</th>
-                                      <th>@sortablelink('created_at', 'Date Created')</th>
-                                      <th>@sortablelink('updated_at', 'Date Updated')</th>
-                                      <th>@sortablelink('status', 'Status')</th>
+                                      <th>Date Created</th>
+                                      <th>Date Updated</th>
+                                      <th>Status</th>
                                       <th>Action</th>
                                     </tr>
                                 </thead>
@@ -63,7 +63,6 @@
                             </div>
                             @endif
                         </div>
-                        {{$employee->links()}}
                     </div>
                 </div>
             </div>

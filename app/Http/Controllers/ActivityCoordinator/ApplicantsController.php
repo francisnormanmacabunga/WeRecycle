@@ -29,13 +29,13 @@ class ApplicantsController extends Controller
       -> where('status',request('status'))
       -> where('usertypeID', '2')
       -> sortable()
-      -> paginate(10)->appends('status', request('status'));
+      -> paginate(0)->appends('status', request('status'));
     } else {
       $applicants = Volunteer::orderBy('updated_at', 'desc')
       -> join('contacts', 'contacts.volunteerID', '=', 'volunteer.volunteerID')
       -> where('usertypeID', '2')
       -> sortable()
-      -> paginate(10);
+      -> paginate(0);
     }
       return view('ActivityCoordinator/ManageApplicants.index', compact('applicants'));
     }

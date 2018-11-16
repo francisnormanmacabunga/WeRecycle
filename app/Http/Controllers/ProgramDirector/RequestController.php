@@ -32,11 +32,11 @@ class RequestController extends Controller
       $request = Transaction::orderBy('updated_at', 'desc')
       -> where('status',request('status'))
       -> where('type', 'Donate')
-      -> paginate(10)->appends('status', request('status'));
+      -> paginate(0)->appends('status', request('status'));
       } else {
       $request = Transaction::orderBy('updated_at', 'desc')
       -> where('type', 'Donate')
-      -> paginate(10);
+      -> paginate(0);
       }
     //  $message = MessageRequests::all()->last();
       return view('ProgramDirector/Transactions.requests',compact('request', 'message'));

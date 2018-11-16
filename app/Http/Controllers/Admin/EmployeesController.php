@@ -39,7 +39,7 @@ class EmployeesController extends Controller
         -> where('usertype.usertypeID', '3')
         -> orwhere('usertype.usertypeID', '4')
         -> sortable()
-        -> paginate(10);
+        -> paginate(0);
         return view('Admin/Employees.index', compact('employee'));
     }
 

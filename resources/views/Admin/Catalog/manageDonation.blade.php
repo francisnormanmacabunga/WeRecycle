@@ -29,9 +29,10 @@
                           <li class="nav-item"> <a class="nav-link " href="{{ url('/admin/managedonation/?category=Non-Traditional') }}" role="tab"><span class="hidden-sm-up"></span> <span class="hidden-xs-down">Non-Traditional</span></a> </li>
                           <li class="nav-item"> <a class="nav-link " href="{{ url('/admin/managedonation/?category=Material') }}" role="tab"><span class="hidden-sm-up"></span> <span class="hidden-xs-down">Material</span></a> </li>
                         </ul>
+                        <br />
                         <div class="table-responsive">
                           @if(count($products1) > 0)
-                            <table class="table table-striped table-bordered">
+                            <table id="zero_config" class="table table-striped table-bordered">
                                 <thead>
                                     <tr>
                                       <th>Name</th>
@@ -40,7 +41,7 @@
                                       <th>Category</th>
                                       <th>Date Created</th>
                                       <th>Date Updated</th>
-                                      <th>@sortablelink('status', 'Status')</th>
+                                      <th>Status</th>
                                       <th>Action</th>
                                     </tr>
                                 </thead>
@@ -69,7 +70,6 @@
                             </div>
                             @endif
                         </div>
-                        {{$products1->links()}}
                     </div>
                 </div>
             </div>

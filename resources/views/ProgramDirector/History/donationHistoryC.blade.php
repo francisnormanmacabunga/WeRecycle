@@ -3,10 +3,11 @@
 <head>
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('assets/images/favicon.png') }}">
+    <!-- DATE RANGE SCRIPT -->
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <!-- END OF DATE RANGE SCRIPT -->
 </head>
-<!-- DATE RANGE SCRIPT -->
-<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-<!-- END OF DATE RANGE SCRIPT -->
+
 
 
 <body>
@@ -37,20 +38,19 @@
                         <h5 class="card-title">Donation History</h5>
                         <div class="table-responsive">
                           @if(count($donation) > 0)
-                            <table class="table table-striped table-bordered">
+                            <table id="zero_config" class="table table-striped table-bordered">
                               <thead>
                                 <tr>
+                                  <th>Transaction ID</th>
+                                    <th>Assigned Volunteer</th>
+                                    <th>Type of Donation</th>
+                                    <th>Weight</th>
+                                    <th>Date</th>
+                                    <th>Status</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                    <tr>
-                                      <th>Transaction ID</th>
-                                        <th>Assigned Volunteer</th>
-                                        <th>Type of Donation</th>
-                                        <th>Weight</th>
-                                        <th>Date</th>
-                                        <th>Status</th>
-                                    </tr>
+
                                   @foreach ($donation as $donations)
                                     @php
                                       $cart = json_decode($donations->cart);
@@ -79,7 +79,6 @@
                             @endif
                         </div>
                         </br>
-                      {{$donation->links()}}
                     </div>
                 </div>
             <!-- DATE RANGE -->
@@ -104,22 +103,4 @@
 </div>
 @include('navbar.footer')
   </body>
-
-  <!-- DATE RANGE SCRIPTS -->
-      <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
-      <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
-      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
-      <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
-      <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-      <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-  <script>
-        $(function () {
-            $("#datepickerfrom").datepicker({ maxDate: new Date(), dateFormat: "yy-mm-dd"});
-        });
-        $(function () {
-            $("#datepickerpresent").datepicker({ maxDate: new Date(), dateFormat: "yy-mm-dd"});
-        });
-    </script>
-  <!-- END OF DATE RANGE SCRIPTS -->
-
   </html>

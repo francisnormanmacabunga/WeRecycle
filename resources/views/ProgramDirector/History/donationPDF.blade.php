@@ -76,12 +76,14 @@
         </tr>
         <tr>
           <td><strong>Report Generated:</strong> Donation History</td>
-          <td><strong>Sort:</strong> All Donation</td>
+          <td><strong>Sort:</strong> All Donation</td><br>
         </tr>
         <br>
+        <tr>
+          <td><strong>Printed By:</strong> {{Auth::user()->firstname}} {{Auth::user()->lastname}}</td>
+        </tr>
       </table>
       <hr/>
-      <br/>
 
 
       <table id="donation">

@@ -24,11 +24,11 @@ class DonorsController extends Controller
         $donors = Donor::where('usertypeID', '1')
         -> where('status',request('status'))
         -> sortable()
-        -> paginate(10)->appends('status', request('status'));
+        -> paginate(0)->appends('status', request('status'));
         } else {
         $donors = Donor::where('usertypeID', '1')
         -> sortable()
-        -> paginate(10);
+        -> paginate(0);
         }
 
         return view('Admin/Donor.index')->with(['donors' => $donors]);

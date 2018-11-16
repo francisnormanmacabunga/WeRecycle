@@ -24,7 +24,7 @@
                     <div class="card-body">
                         <div class="table-responsive">
                           @if(count($products2) > 0)
-                            <table class="table table-striped table-bordered">
+                            <table id="zero_config" class="table table-striped table-bordered">
                                 <thead>
                                     <tr>
                                       <th>Name</th>
@@ -33,7 +33,7 @@
                                       <th>Description</th>
                                       <th>Date Created</th>
                                       <th>Date Updated</th>
-                                      <th>@sortablelink('status', 'Status')</th>
+                                      <th>Status</th>
                                       <th>Action</th>
                                     </tr>
                                 </thead>
@@ -61,7 +61,6 @@
                             </div>
                             @endif
                         </div>
-                        {{$products2->links()}}
                     </div>
                 </div>
             </div>

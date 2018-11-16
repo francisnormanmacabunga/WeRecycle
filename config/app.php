@@ -151,6 +151,7 @@ return [
         Gloudemans\Shoppingcart\ShoppingcartServiceProvider::class,
         Anhskohbo\NoCaptcha\NoCaptchaServiceProvider::class,
         Barryvdh\DomPDF\ServiceProvider::class,
+        Schuppo\PasswordStrength\PasswordStrengthServiceProvider::class,
 
 
         /*

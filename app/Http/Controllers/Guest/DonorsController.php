@@ -61,12 +61,14 @@ class DonorsController extends Controller
       'barangay' => 'nullable|regex:/^[a-zA-Z0-9,.!-? ]*$/',
       'zip' => 'nullable|min:4|max:4',
       'username' => 'required|alpha_dash|unique:user,username|min:8|max:12|',
-      'password' => 'min:6|required_with:password_confirmation|same:password_confirmation|',
+      'password' => 'min:8|required_with:password_confirmation|same:password_confirmation|',
+      'password' => '12345QWERTqwert@',
+      'password' => 'case_diff|numbers|letters|symbols',
       'password_confirmation' => 'required',
       'g-recaptcha-response'=> 'required|captcha'
     ],
     [
-      'username.min' => 'username length must be 8 character',
+      'username.min' => 'Username length must be 8 character',
       'username.max' => 'username length must be 12 character',
       'g-recaptcha-response.required' => 'Captcha is required.',
       'firstname.required' => 'The First Name field is required.',
@@ -98,6 +100,7 @@ class DonorsController extends Controller
       'password.same' => 'Password does not match',
       'password_confirmation.required' => 'Password Confirmation field is required'
     ]);
+      $v->passes();
       $user = new Donor();
       $user->firstname = $request->input('firstname');
       $user->lastname = $request->input('lastname');

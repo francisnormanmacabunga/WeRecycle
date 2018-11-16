@@ -1,14 +1,10 @@
 <!DOCTYPE html>
 <html dir="ltr">
 <head>
-  <!-- <style>
-  body  {
-    background-size: contain;
-    background-size: cover;
-  background-image: url('/assets/images/test.jpg');
+  <style>
 
-  }
-  </style>-->
+  </style>
+
   <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('assets/images/favicon.png') }}">
   <link href="https://fonts.googleapis.com/css?family=Inconsolata|Rubik:300,400,700,900" rel="stylesheet">
   <link rel="stylesheet" href="{{asset('css/styles-merged.css')}}">
@@ -198,6 +194,7 @@
                                 <div class="input-group mb-3">
                                   <dd class="col-sm-12">
                                     <input class="form-control {{ $errors->has('password_confirmation') ? ' is-invalid' : '' }}" placeholder=" Confirm Password" aria-label="Password" aria-describedby="basic-addon1" id="password-confirm" type="password" name="password_confirmation" required>
+
                                     @if ($errors->has('password_confirmation'))
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $errors->first('password_confirmation') }}</strong>
@@ -239,4 +236,5 @@
               </div>
     @include('navbar.login')
 </body>
+
 </html>

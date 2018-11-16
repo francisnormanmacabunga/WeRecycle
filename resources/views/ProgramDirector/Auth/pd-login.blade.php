@@ -61,7 +61,7 @@
                         <div class="alert alert-danger" role="alert">{{ $errors->first('password') }}</div>
                     @endif
                     <!-- Form -->
-                      <form class="form-horizontal m-t-20" id="loginform"  method="POST" action="{{ route('pd.login.submit') }}" aria-label="{{ __('Login') }}">
+                      <form autocomplete="off" class="form-horizontal m-t-20" id="loginform"  method="POST" action="{{ route('pd.login.submit') }}" aria-label="{{ __('Login') }}">
                           @csrf
                         <div align="center">
                                 <div class="input-group mb-3">

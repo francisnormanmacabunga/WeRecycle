@@ -71,7 +71,7 @@
                     @endif
                     <!-- Form -->
 
-                      <form class="form-horizontal m-t-20" id="loginform" method="POST" action="{{ route('donor.login.submit') }}" aria-label="{{ __('Login') }}">
+                      <form autocomplete="off" class="form-horizontal m-t-20" id="loginform" method="POST" action="{{ route('donor.login.submit') }}" aria-label="{{ __('Login') }}">
                           @csrf
 
                             <div align="center">

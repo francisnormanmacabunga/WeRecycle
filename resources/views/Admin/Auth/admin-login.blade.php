@@ -49,7 +49,7 @@
                     <div class="alert alert-danger" role="alert">{{session()->get('alert')}}</div>
                     @endif
                     <!-- Form -->
-                      <form class="form-horizontal m-t-20" id="loginform" method="POST" action="{{ route('admin.login.submit') }}" aria-label="{{ __('Login') }}">
+                      <form autocomplete="off" class="form-horizontal m-t-20" id="loginform" method="POST" action="{{ route('admin.login.submit') }}" aria-label="{{ __('Login') }}">
                           @csrf
                         <div class="row p-b-30">
                             <div class="col-12">

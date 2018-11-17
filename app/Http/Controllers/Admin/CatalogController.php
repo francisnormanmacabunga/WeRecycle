@@ -53,7 +53,7 @@ class CatalogController extends Controller
       'productstypeID' => 'required',
       'description' => 'required|regex:/^[A-Za-z. -]+$/',
       //'price' => 'min:0',
-      'productimage' => 'required|mimes:jpeg,jpg,png|image|max:500',
+      'productimage' => 'required|mimes:jpeg,jpg,png|image|max:200',
       'category' => 'required'
     ],
     [
@@ -65,7 +65,7 @@ class CatalogController extends Controller
       //'price.min' => 'Price must be greater than 0.',
       'productimage.required' => 'Product image is required',
       'productimage.mimes' => 'Image must be in JPG/JPEG or PNG format',
-      'productimage.max' => 'Image must be less than 500kb.',
+      'productimage.max' => 'Image must be less than 200kb.',
       'category.required' => 'Product Category is required.'
     ]);
 

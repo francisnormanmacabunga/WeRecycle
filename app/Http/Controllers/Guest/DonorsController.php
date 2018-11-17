@@ -100,7 +100,7 @@ class DonorsController extends Controller
       'password.same' => 'Password does not match',
       'password_confirmation.required' => 'Password Confirmation field is required'
     ]);
-      $v->passes();
+    //  $v->passes();
       $user = new Donor();
       $user->firstname = $request->input('firstname');
       $user->lastname = $request->input('lastname');

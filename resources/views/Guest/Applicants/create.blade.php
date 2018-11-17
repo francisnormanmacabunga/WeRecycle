@@ -53,23 +53,24 @@
                         <span class="db"><img src="{{asset('assets/images/reg-logo.png')}}" alt="logo" /></span>
                     </div>
                     <br />
+                    @if(session()->has('notif'))
+                    <div class="container">
+                  <div class="content">
+                    <div class="alert alert-success">
+                      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                      <strong>{{session()->get('notif')}}</strong>
+                    </div>
+                    <br />
+                  </div>
+                  </div>
+                  @endif
                     <div class="container-fluid">
                     <!-- Form -->
 
                     {!! Form::open(['action' => 'Guest\ApplicantsController@store', 'method' => 'POST' ]) !!}
                       @csrf
                         <dl class="row">
-                          @if(session()->has('notif'))
-                          <div class="container">
-                        <div class="content">
-                          <div class="alert alert-success">
-                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                            <strong>{{session()->get('notif')}}</strong>
-                          </div>
-                          <br />
-                        </div>
-                        </div>
-                        @endif
+
                         @if(session()->has('notiff'))
                         <div class="container">
                       <div class="content">

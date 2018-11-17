@@ -33,11 +33,11 @@ class OrderController extends Controller
       $order = Transaction::orderBy('updated_at', 'desc')
       -> where('status',request('status'))
       -> where('type', 'Shop')
-      -> paginate(0)->appends('status', request('status'));
+      -> get()->appends('status', request('status'));
       } else {
         $order = Transaction::orderBy('updated_at', 'desc')
         -> where('type', 'Shop')
-        -> paginate(0);
+        -> get();
       }
     //  $messageOrder = MessageOrders::all()->last();
       return view('ProgramDirector/Transactions.orders',compact('order', 'messageOrder'));

@@ -22,7 +22,7 @@ class DonationHistoryController extends Controller
         $donation = Transaction::orderBy('updated_at', 'desc')
         -> where('type', 'Donate')
         -> sortable()
-        -> paginate(0);
+        -> get();
         return view('ProgramDirector/History.donationHistory')->with(['donation' => $donation]);
       }
 
@@ -33,7 +33,7 @@ class DonationHistoryController extends Controller
           -> where('status', 'Dispatched')
           -> where('type', 'Donate')
           -> sortable()
-          -> paginate(0);
+          -> get();
 
           return view('ProgramDirector/History.donationHistoryS')->with(['donation' => $donation]);
         }
@@ -45,7 +45,7 @@ class DonationHistoryController extends Controller
           -> where('Status', 'Accepted')
           -> where('type', 'Donate')
           -> sortable()
-          -> paginate(0);
+          -> get();
 
           return view('ProgramDirector/History.donationHistoryD')->with(['donation' => $donation]);
           }
@@ -57,7 +57,7 @@ class DonationHistoryController extends Controller
             -> where('status', 'Cancelled')
             -> where('type', 'Donate')
             -> sortable()
-            -> paginate(0);
+            -> get();
 
             return view('ProgramDirector/History.donationHistoryC')->with(['donation' => $donation]);
             }
@@ -68,7 +68,7 @@ class DonationHistoryController extends Controller
               -> where('status', 'Processing')
               -> where('type', 'Donate')
               -> sortable()
-              -> paginate(0);
+              -> get();
 
               return view('ProgramDirector/History.donationHistoryP')->with(['donation' => $donation]);
               }

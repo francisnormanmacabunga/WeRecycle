@@ -20,10 +20,10 @@ class AuditLogController extends Controller
     if (request()->has('log_name')){
       $lastActivity = Activity::orderBy('updated_at', 'desc')
       -> where('log_name', request('log_name'))
-      -> paginate(10);
+      -> get();
     } else {
       $lastActivity = Activity::orderBy('updated_at', 'desc')
-      -> paginate(0);
+      -> get();
     }
     return view('Admin/Audits.index', compact('lastActivity'));
   }

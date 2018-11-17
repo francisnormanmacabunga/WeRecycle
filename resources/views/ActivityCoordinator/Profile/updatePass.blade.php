@@ -28,41 +28,45 @@
                                 <h1 class="card-title pricing-card-title text-center">{{$donors->firstname}} {{$donors->lastname}}</h1>
                                 <hr style="margin:5px 0 5px 0;"><br>
                                 <dl class="row">
+                                  <div class="input-group mb-3">
                                     <dt class="col-sm-6">Update Password:</dt>
 
-                                      <input class="btn-rounded form-control {{ $errors->has('password') ? ' is-invalid' : '' }}"
+                                      <input class="form-control {{ $errors->has('password') ? ' is-invalid' : '' }}"
                                       aria-label="Password" aria-describedby="basic-addon1" id="password" type="password" name="password"
                                       data-placement="bottom" data-toggle="popover" data-container="body" type="button" data-html="true" required>
 
-                                      <div id="popover-password">
-                                          <p>Password Strength: <span id="result"> </span></p>
-                                          <div class="progress">
-                                              <div id="password-strength" class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:0%">
-                                              </div>
-                                          </div>
-                                          <ul class="list-unstyled">
-                                              <li class=""><span class="low-upper-case"><i class="fa fa-file-text" aria-hidden="true"></i></span>&nbsp; 1 lowercase &amp; 1 uppercase</li>
-                                              <li class=""><span class="one-number"><i class="fa fa-file-text" aria-hidden="true"></i></span> &nbsp;1 number (0-9)</li>
-                                              <li class=""><span class="one-special-char"><i class="fa fa-file-text" aria-hidden="true"></i></span> &nbsp;1 Special Character (!@#$%^&*).</li>
-                                              <li class=""><span class="eight-character"><i class="fa fa-file-text" aria-hidden="true"></i></span>&nbsp; Atleast 8 Character</li>
-                                            </ul>
-                                      </div>
+
                                       @if ($errors->has('password'))
                                       <span class="invalid-feedback" role="alert">
                                           <strong>{{ $errors->first('password') }}</strong>
                                       </span>
                                       @endif
-                                    </dd>
-
+                                    </div>
+                                    <div class="input-group mb-3">
                                     <dt class="col-sm-6">Confirm Password:</dt>
-                                    <dd class="col-sm-5">{{Form::password('password_confirmation', ['class' => 'form-control'.($errors->has('password_confirmation') ? ' is-invalid' : '')])}}
+                                    <input class="form-control {{ $errors->has('password_confirmation') ? ' is-invalid' : '' }}"
+                                    aria-label="Password" aria-describedby="basic-addon1" id="password" type="password" name="password_confirmation"
+                                    data-placement="bottom" data-toggle="popover" data-container="body" type="button" data-html="true" required>
                                       @if ($errors->has('password_confirmation'))
                                       <span class="invalid-feedback" role="alert">
                                           <strong>{{ $errors->first('password_confirmation') }}</strong>
                                       </span>
                                       @endif
-                                    </dd>
+                                    </div>
                                 </dl>
+                                <div id="popover-password">
+                                    <p style="font-weight: bold;">Password Strength: <span id="result"> </span></p>
+                                    <div class="progress">
+                                        <div id="password-strength" class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:0%">
+                                        </div>
+                                    </div>
+                                    <ul class="list-unstyled">
+                                        <li class=""><span class="low-upper-case"><i class="fa fa-file-text" aria-hidden="true"></i></span>&nbsp; 1 lowercase &amp; 1 uppercase</li>
+                                        <li class=""><span class="one-number"><i class="fa fa-file-text" aria-hidden="true"></i></span> &nbsp;1 number (0-9)</li>
+                                        <li class=""><span class="one-special-char"><i class="fa fa-file-text" aria-hidden="true"></i></span> &nbsp;1 Special Character (!@#$%^&*).</li>
+                                        <li class=""><span class="eight-character"><i class="fa fa-file-text" aria-hidden="true"></i></span>&nbsp; Atleast 8 Character</li>
+                                      </ul>
+                                </div>
                                 <hr style="margin:5px 0 5px 0;"><br>
                                 <input type="button" value="Save Changes" class="btn btn-success btn-block btn-lg" data-toggle="modal" data-target="#Modal2" />
                                 <a class="btn btn-lg btn-block btn-danger" href="/activitycoordinator/activity_coordinators" role="button">Back </a>
@@ -221,13 +225,13 @@
                     $('#result').removeClass()
                     $('#password-strength').addClass('progress-bar-danger');
 
-                    $('#result').addClass('text-danger').text('Very Week');
+                    $('#result').addClass('text-danger').text('Very Weak');
                     $('#password-strength').css('width', '10%');
                 } else if (strength == 2) {
                     $('#result').addClass('good');
                     $('#password-strength').removeClass('progress-bar-danger');
                     $('#password-strength').addClass('progress-bar-warning');
-                    $('#result').addClass('text-warning').text('Week')
+                    $('#result').addClass('text-warning').text('Weak')
                     $('#password-strength').css('width', '60%');
                     return 'Week'
                 } else if (strength == 4) {

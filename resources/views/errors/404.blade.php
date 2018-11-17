@@ -8,7 +8,7 @@
     <meta name="author" content="">
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('assets/images/favicon.png') }}">
-    <title>WeRecycle™ 404</title>
+    <title>WeRecycle™</title>
     <link href="{{ asset('dist/css/style.min.css') }}" rel="stylesheet">
 
 </head>

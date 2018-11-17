@@ -89,7 +89,9 @@ class DonorsPasswordController extends Controller
     {
       $this->validate($request, [
       'password' => 'min:6|required_with:password_confirmation|same:password_confirmation|',
-      'password_confirmation' => 'required'
+      'password_confirmation' => 'required',
+      'password' => '12345QWERTqwert@',
+      'password' => 'case_diff|numbers|letters|symbols'
     ],
     [
       'password.min' => 'Password field must be at least 6 characters',

@@ -41,6 +41,7 @@
                                                 <th>Cellphone Number</th>
                                                 <th>Telephone Number</th>
                                                 <th>Date Applied</th>
+                                                <th>Date Updated</th>
                                                 <th>Status</th>
                                                 <th>Action</th>
                                             </tr>
@@ -55,6 +56,7 @@
                                                 <td>{{$applicant->cellNo}}</td>
                                                 <td>{{$applicant->tellNo}}</td>
                                                 <td>{{date('F d, Y, h:i:sa', strtotime($applicant->created_at))}}</td>
+                                                <td>{{date('F d, Y, h:i:sa', strtotime($applicant->updated_at))}}</td>
                                                 <td>{{$applicant->status}}</td>
                                                 <td>
                                                     <a href="/activitycoordinator/applicants/{{$applicant->volunteerID}}/edit" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fas fas fa-edit"></i></a>

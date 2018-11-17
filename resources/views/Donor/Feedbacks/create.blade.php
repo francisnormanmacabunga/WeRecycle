@@ -52,7 +52,7 @@
 
 <br />
 						<div class="bor8 m-b-30">
-							<textarea class="form-control stext-111 cl2 plh3 size-120 p-lr-28 p-tb-25" id="editor" name="feedback" placeholder="We would love to hear from you!"></textarea>
+							<textarea class="form-control stext-111 cl2 plh3 size-120 p-lr-28 p-tb-25" name="feedback" placeholder="We would love to hear from you!"></textarea>
 						</div>
 
 						<button type="submit" class="flex-c-m stext-101 cl0 size-121 bg3 bor1 hov-btn3 p-lr-15 trans-04 pointer">
@@ -183,17 +183,5 @@
 		</script>
 	<!--===============================================================================================-->
 	<script src="{{asset('donor-design/js/main.js')}}"></script>
-	<script src="https://cdn.ckeditor.com/ckeditor5/11.1.1/classic/ckeditor.js"></script>
-	<script>
-	ClassicEditor
-	.create( document.querySelector( '#editor' ) )
-	.then( editor => {
-			console.log( editor );
-	} )
-	.catch( error => {
-			console.error( error );
-	} );
-	</script>
-
 </body>
 </html>

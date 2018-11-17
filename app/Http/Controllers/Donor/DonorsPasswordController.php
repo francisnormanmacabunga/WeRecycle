@@ -94,7 +94,7 @@ class DonorsPasswordController extends Controller
       'password' => 'case_diff|numbers|letters|symbols'
     ],
     [
-      'password.min' => 'Password field must be at least 6 characters',
+      'password.min' => 'Password field must be at least 8 characters',
       'password.same' => 'Password does not match',
       'password_confirmation.required' => 'Password Confirmation field is required'
     ]);

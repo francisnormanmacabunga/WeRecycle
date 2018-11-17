@@ -61,7 +61,7 @@ class ApplicantsController extends Controller
       'barangay' => 'nullable|regex:/^[a-zA-Z0-9,.!-? ]*$/',
       'zip' => 'nullable|min:4|max:4',
       'username' => 'required|alpha_dash|unique:user,username|min:8|max:12|',
-      //'g-recaptcha-response'=> 'required|captcha'
+      'g-recaptcha-response'=> 'required|captcha'
     ],
     [
       'username.min' => 'username length must be 8 character',

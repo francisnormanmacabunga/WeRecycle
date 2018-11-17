@@ -2,9 +2,8 @@
 <html dir="ltr">
 
 <head>
-
   <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('assets/images/favicon.png') }}">
-    <link href="https://fonts.googleapis.com/css?family=Inconsolata|Rubik:300,400,700,900" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Inconsolata|Rubik:300,400,700,900" rel="stylesheet">
   <link rel="stylesheet" href="{{asset('css/style.min.css')}}">
   <link rel="stylesheet" href="{{asset('css/custom.css')}}">
 </head>
@@ -22,6 +21,7 @@
 </header>
 
 @include('navbar.header')
+
 <body>
     <div class="main-wrapper">
         <!-- ============================================================== -->
@@ -178,19 +178,37 @@
                                     @endif
                                   </dd>
                                 </div>
+
                                 <div class="input-group mb-3">
                                   <dd class="col-sm-12">
-                                    <input class="btn-rounded form-control {{ $errors->has('password') ? ' is-invalid' : '' }}" placeholder="New Password" aria-label="Password" aria-describedby="basic-addon1" id="password" type="password" name="password" required>
+                                    <input class="btn-rounded form-control {{ $errors->has('password') ? ' is-invalid' : '' }}" placeholder="New Password"
+                                    aria-label="Password" aria-describedby="basic-addon1" id="password" type="password" name="password"
+                                    data-placement="bottom" data-toggle="popover" data-container="body" type="button" data-html="true" required>
+                                    <div id="popover-password">
+                                        <p>Password Strength: <span id="result"> </span></p>
+                                        <div class="progress">
+                                            <div id="password-strength" class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:0%">
+                                            </div>
+                                        </div>
+                                        <ul class="list-unstyled">
+                                            <li class=""><span class="low-upper-case"><i class="fa fa-file-text" aria-hidden="true"></i></span>&nbsp; 1 lowercase &amp; 1 uppercase</li>
+                                            <li class=""><span class="one-number"><i class="fa fa-file-text" aria-hidden="true"></i></span> &nbsp;1 number (0-9)</li>
+                                            <li class=""><span class="one-special-char"><i class="fa fa-file-text" aria-hidden="true"></i></span> &nbsp;1 Special Character (!@#$%^&*).</li>
+                                            <li class=""><span class="eight-character"><i class="fa fa-file-text" aria-hidden="true"></i></span>&nbsp; Atleast 8 Character</li>
+                                          </ul>
+                                    </div>
                                     @if ($errors->has('password'))
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $errors->first('password') }}</strong>
                                     </span>
                                     @endif
                                   </dd>
+
                                 </div>
+
                                 <div class="input-group mb-3">
                                   <dd class="col-sm-12">
-                                    <input class="btn-rounded form-control {{ $errors->has('password_confirmation') ? ' is-invalid' : '' }}" placeholder=" Confirm Password" aria-label="Password" aria-describedby="basic-addon1" id="password-confirm" type="password" name="password_confirmation" required>
+                                    <input class="btn-rounded form-control {{ $errors->has('password_confirmation') ? ' is-invalid' : '' }}" placeholder="Confirm Password" aria-label="Password" aria-describedby="basic-addon1" id="password-confirm" type="password" name="password_confirmation" required>
                                     @if ($errors->has('password_confirmation'))
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $errors->first('password_confirmation') }}</strong>
@@ -210,7 +228,6 @@
                                 </div>
 
                                 </div>
-                                <br />
                                 {{Form::hidden('usertypeID','1', ['class' => 'form-control'])}}
                                 {{Form::hidden('status','Activated', ['class' => 'form-control'])}}
                                 <div style="color: white; text-align: center">
@@ -289,6 +306,5 @@
                 </div>
               </div>
     @include('navbar.login')
-
 </body>
 </html>

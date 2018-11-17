@@ -89,7 +89,7 @@
                   </td>
 									<td class="column-2">{{$cartItem->name}}</td>
 									<td class="column-3">
-                    Php {{$cartItem->price}}.00
+                    ₱ {{$cartItem->price}}.00
                   </td>
 									<td class="column-4">
                     {!! Form::open(['route' => ['cart.update',$cartItem->rowId], 'method' => 'PUT']) !!}
@@ -156,7 +156,7 @@
 
 							<div class="size-209 p-t-1">
 								<span class="mtext-110 cl2">
-									Php {{Cart::instance('shop')->subtotal()}}
+									₱ {{Cart::instance('shop')->subtotal()}}
 								</span>
 							</div>
 						</div>

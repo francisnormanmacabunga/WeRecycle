@@ -48,8 +48,13 @@
               <span class="ltext-101 cl2 txt-center cl0 p-t-22 p-b-40 respon1" style="color:white">
                 Your current points is:
               </span>
+              @if($width['pointsaccumulated'] >= 100)
               <div class="w3-light-grey w3-xlarge">
-                <div class="w3-container w3-green" style="max-width:100%; width:{{$width['pointsaccumulated']}}%" max="100%" min="0%">{{$width['pointsaccumulated']}}%</div>
+                <div class="w3-container w3-green" style="max-width:100%; width:100%" max="100%" min="0%">100%</div>
+                @else
+                <div class="w3-light-grey w3-xlarge">
+                  <div class="w3-container w3-green" style="max-width:100%; width:{{$width['pointsaccumulated']}}%" max="100%" min="0%">{{$width['pointsaccumulated']}}%</div>
+                @endif
               </div>
               <br />
             </div>

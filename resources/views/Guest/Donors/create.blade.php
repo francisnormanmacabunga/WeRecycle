@@ -205,11 +205,12 @@
                                     </span>
                                     @endif
                                   </dd>
+
                                 </div>
 
                                 <div class="input-group mb-3">
                                   <dd class="col-sm-12">
-                                    <input class="btn-rounded form-control {{ $errors->has('password_confirmation') ? ' is-invalid' : '' }}" placeholder=" Confirm Password" aria-label="Password" aria-describedby="basic-addon1" id="password-confirm" type="password" name="password_confirmation" required>
+                                    <input class="btn-rounded form-control {{ $errors->has('password_confirmation') ? ' is-invalid' : '' }}" placeholder="Confirm Password" aria-label="Password" aria-describedby="basic-addon1" id="password-confirm" type="password" name="password_confirmation" required>
                                     @if ($errors->has('password_confirmation'))
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $errors->first('password_confirmation') }}</strong>
@@ -229,7 +230,6 @@
                                 </div>
 
                                 </div>
-                                <br />
                                 {{Form::hidden('usertypeID','1', ['class' => 'form-control'])}}
                                 {{Form::hidden('status','Activated', ['class' => 'form-control'])}}
                                 <div style="color: white; text-align: center">

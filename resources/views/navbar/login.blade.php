@@ -1,6 +1,5 @@
-<!-- ============================================================== -->
-<!-- All Required js -->
-<!-- ============================================================== -->
+<script src="{{asset('pass/js/index.js')}}"></script>
+
 <script src="{{asset('assets/libs/jquery/dist/jquery.min.js')}}"></script>
 <!-- Bootstrap tether Core JavaScript -->
 <script src="{{asset('assets/libs/popper.js/dist/umd/popper.min.js')}}"></script>
@@ -26,4 +25,3 @@
 <script src="{{asset('assets/libs/jquery-asColorPicker/dist/jquery-asColorPicker.min.js')}}"></script>
 <script src="{{asset('assets/libs/jquery-minicolors/jquery.minicolors.min.js')}}"></script>
 <script src="{{asset('assets/libs/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js')}}"></script>
-<script src="{{asset('ssets/libs/quill/dist/quill.min.js')}}"></script>

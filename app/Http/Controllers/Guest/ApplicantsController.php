@@ -60,12 +60,17 @@ class ApplicantsController extends Controller
       'street' => 'nullable|regex:/^[a-zA-Z0-9,.!-? ]*$/',
       'barangay' => 'nullable|regex:/^[a-zA-Z0-9,.!-? ]*$/',
       'zip' => 'nullable|min:4|max:4',
+<<<<<<< HEAD
       'username' => 'required|alpha_dash|unique:user,username|min:8|max:12|',
       'g-recaptcha-response'=> 'required|captcha'
+=======
+      'username' => 'required|alpha_dash|unique:user,username|min:6|max:20|',
+      //'g-recaptcha-response'=> 'required|captcha'
+>>>>>>> ac603493dd61e48cf90a07cdf7547a2d5b524fe9
     ],
     [
-      'username.min' => 'username length must be 8 character',
-      'username.max' => 'username length must be 12 character',
+      'username.min' => 'username length must be 6 character',
+      'username.max' => 'username length must be 20 character',
       'g-recaptcha-response.required' => 'Captcha is required.',
       'firstname.required' => 'The First Name field is required.',
       'firstname.regex' => 'The First Name field must only contain letters, period, and hyphen.',

@@ -104,7 +104,7 @@ class ApplicantsController extends Controller
       ->get();
         //dd(count($volqty));
         //if(count($volqty) == 10){
-        if ($vol->status == 'Activated' || $vol->status == 'Deactivated') {
+        if ($vol->status == 'Activated' || $vol->status == 'Deactivated' || $vol->status == 'Applied') {
 
           if(count($volqty) > 9){
             session()->flash('notif','There is enough volunteers for this month');

@@ -59,7 +59,15 @@
                                     <div class="col-9">
                                         <div class="form-group">
                                             <div class="input-field m-t-0 m-b-0">
-                                                <textarea id="textarea1" class="form-control border-0" name="message" placeholder="Place your message here!" required></textarea>
+                                                <textarea id="textarea1" class="form-control border-0" name="message" placeholder="Place your message here!"></textarea>
+                                            </div>
+                                            <div>
+                                              <select class="select2 form-control custom-select" name="message1" style="width: 100%; height:36px;">
+                                                    <optgroup label="Select Message">
+                                                      <option value="You're Accepted.">Accepted</option>
+                                                      <option value="Sorry your application has been denied because there are enough volunteers for this month, try again next month. Thank you for applying! ">
+                                                        Denied</option>
+                                              </select>
                                             </div>
                                         </div>
                                     </div>

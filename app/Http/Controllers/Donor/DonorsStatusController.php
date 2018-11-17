@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Donor;
 use Auth;
+use App\Models\Points;
 
 class DonorsStatusController extends Controller
 {
@@ -70,8 +71,9 @@ class DonorsStatusController extends Controller
 
     public function edit($id)
     {
+       $width = Points::where('userID',Auth::user()->userID)->first();
       $donors = Donor::find($id);
-      return view('Donor/Profile.updateStatus', compact('donors'));
+      return view('Donor/Profile.updateStatus', compact('donors'))->with('width',$width);
     }
 
     /**

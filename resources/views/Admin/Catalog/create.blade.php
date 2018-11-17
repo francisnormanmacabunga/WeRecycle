@@ -78,23 +78,6 @@
                                 </div>
                                 <div class="form-group-row">
                                     <div class="col-sm-9">
-                                        <label>Description <label style="color:red;">*</label> </label>
-                                        <textarea class="form-control {{ $errors->has('description') ? ' is-invalid' : '' }}" name="description" id="editor"></textarea>
-                                        @if ($errors->has('description'))
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $errors->first('description') }}</strong>
-                                        </span>
-                                        @endif
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="card">
-                            <div class="card-body">
-                                <div class="form-group-row">
-                                    <div class="col-sm-9">
                                         <label>Price</label>
                                         <input type="number" name="price" min="0" class="form-control {{ $errors->has('price') ? ' is-invalid' : '' }}" placeholder="Price">
                                         @if ($errors->has('price'))
@@ -105,6 +88,24 @@
                                         <p style="color:red;">* For shop items only</p>
                                     </div>
                                 </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card">
+                            <div class="card-body">
+                              <div class="form-group-row">
+                                  <div class="col-sm-9">
+                                      <label>Description <label style="color:red;">*</label> </label>
+                                      <textarea class="form-control {{ $errors->has('description') ? ' is-invalid' : '' }}" name="description" id="editor"></textarea>
+                                      @if ($errors->has('description'))
+                                      <span class="invalid-feedback" role="alert">
+                                          <strong>{{ $errors->first('description') }}</strong>
+                                      </span>
+                                      @endif
+                                  </div>
+                              </div>
+                              <br />
                                 <div class="form-group-row">
                                     <div class="col-sm-9">
                                         <label>Image <label style="color:red;">*</label> </label>
@@ -122,16 +123,8 @@
                                 <br />
                                 <br />
                                 <div style="float:right;">
-                                    <br>
-                                    <br>
-                                    <br>
-                                    <br>
-                                    <br />
                                     <button type="submit" class="btn btn-outline-success">Save</button>
                                 </div>
-                                <br />
-                                <br />
-                                <br />
                                 <br />
                                 <br />
                                 <br />

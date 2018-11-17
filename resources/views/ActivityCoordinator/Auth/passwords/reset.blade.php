@@ -227,13 +227,13 @@
                     $('#result').removeClass()
                     $('#password-strength').addClass('progress-bar-danger');
 
-                    $('#result').addClass('text-danger').text('Very Week');
+                    $('#result').addClass('text-danger').text('Very Weak');
                     $('#password-strength').css('width', '10%');
                 } else if (strength == 2) {
                     $('#result').addClass('good');
                     $('#password-strength').removeClass('progress-bar-danger');
                     $('#password-strength').addClass('progress-bar-warning');
-                    $('#result').addClass('text-warning').text('Week')
+                    $('#result').addClass('text-warning').text('Weak')
                     $('#password-strength').css('width', '60%');
                     return 'Week'
                 } else if (strength == 4) {
@@ -241,7 +241,7 @@
                     $('#result').addClass('strong');
                     $('#password-strength').removeClass('progress-bar-warning');
                     $('#password-strength').addClass('progress-bar-success');
-                    $('#result').addClass('text-success').text('Strength');
+                    $('#result').addClass('text-success').text('Strong');
                     $('#password-strength').css('width', '100%');
 
                     return 'Strong'

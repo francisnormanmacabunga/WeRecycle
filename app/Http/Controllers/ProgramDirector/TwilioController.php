@@ -71,7 +71,7 @@ class TwilioController extends Controller
                  array(
                      "body" => $twilio->message = $request->input('message1'),
                      "from" => "(619) 724-4011"));
-        return redirect('/activitycoordinator/applicants')->with('success', 'Message Sent Succesfully');
+       return redirect('/programdirector/orders')->with('success', 'Message Sent Succesfully');
       } else {
         session()->flash('sms','Message Sent!');
         $applicant = new MessageDonors();
@@ -87,7 +87,7 @@ class TwilioController extends Controller
                  array(
                      "body" => $twilio->message = $request->input('message'),
                      "from" => "(619) 724-4011"));
-        return redirect('/activitycoordinator/applicants')->with('success', 'Message Sent Succesfully');
+           return redirect('/programdirector/orders')->with('success', 'Message Sent Succesfully');
       }
       }
 
@@ -95,7 +95,8 @@ class TwilioController extends Controller
       {
 
         $applicants = Transaction::find($id);
-        return view('ProgramDirector/Transactions.sendSMS-V-R', ['applicants'=>$applicants]);
+        $donor = Donor::find($applicants->userID);
+        return view('ProgramDirector/Transactions.sendSMS-V-R')->with('donor',$donor)->with('applicants',$applicants);
       }
 
       public function assignRequest(Request $request)
@@ -115,7 +116,7 @@ class TwilioController extends Controller
                    array(
                        "body" => $twilio->message = $request->input('message1'),
                        "from" => "(619) 724-4011"));
-          return redirect('/activitycoordinator/applicants')->with('success', 'Message Sent Succesfully');
+           return redirect('/programdirector/orders')->with('success', 'Message Sent Succesfully');
         } else {
           session()->flash('sms','Message Sent!');
           $applicant = new MessageRequests();
@@ -131,7 +132,7 @@ class TwilioController extends Controller
                    array(
                        "body" => $twilio->message = $request->input('message'),
                        "from" => "(619) 724-4011"));
-          return redirect('/activitycoordinator/applicants')->with('success', 'Message Sent Succesfully');
+             return redirect('/programdirector/orders')->with('success', 'Message Sent Succesfully');
         }
      }
 
@@ -157,9 +158,9 @@ class TwilioController extends Controller
         $message = $twilio->messages
         ->create($twilio->mobile = $request->input('mobile'), // to
                  array(
-                     "body" => $twilio->message = $request->input('message1'),
+                     "body" => $twilio->message = $request->input('calendar'),
                      "from" => "(619) 724-4011"));
-        return redirect('/activitycoordinator/applicants')->with('success', 'Message Sent Succesfully');
+           return redirect('/programdirector/orders')->with('success', 'Message Sent Succesfully');
       } else {
         session()->flash('sms','Message Sent!');
         $applicant = new MessageDonors();
@@ -175,7 +176,7 @@ class TwilioController extends Controller
                  array(
                      "body" => $twilio->message = $request->input('message'),
                      "from" => "(619) 724-4011"));
-        return redirect('/activitycoordinator/applicants')->with('success', 'Message Sent Succesfully');
+           return redirect('/programdirector/orders')->with('success', 'Message Sent Succesfully');
       }
 
       }

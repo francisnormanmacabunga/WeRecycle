@@ -67,8 +67,11 @@
                                     <select class="select2 form-control custom-select" name="message1" style="width: 100%; height:36px;">
                                           <optgroup label="Select Message">
                                               <option value="">Select Message</option>
-                                            <option value="You have been assigned for a pick-up. The address of the pick-up is at (insert donor address here)">Pick-up</option>
+                                            <option value="You have been assigned for a pick-up. The address of the pick-up is at STREET:{{$donor->street}},BARANGAY:{{$donor->barangay}},CITY:{{$donor->city}}">Pick-up</option>
                                     </select>
+                                    <div>
+                                      <input type="date" name="calendar"/>
+                                    </div>
                                   </div>
                                   <div class="input-field m-t-0 m-b-0">
                                       <textarea id="textarea1" class="form-control border-0" name="message" placeholder="Place your message here!"></textarea>

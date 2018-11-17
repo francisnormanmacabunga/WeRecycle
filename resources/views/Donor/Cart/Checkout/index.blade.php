@@ -13,7 +13,7 @@
 	<!-- breadcrumb -->
 	<div class="container">
 		<div class="bread-crumb flex-w p-l-25 p-r-15 p-t-30 p-lr-0-lg">
-			<a href="{{url('/donor/cart')}}" class="stext-109 cl8 hov-cl1 trans-04">
+			<a href="{{ url()->previous() }}" class="stext-109 cl8 hov-cl1 trans-04">
 				Back to cart
 				<i class="fa fa-angle-right m-l-9 m-r-10" aria-hidden="true"></i>
 			</a>
@@ -79,7 +79,7 @@
 
 								</div>
               <div class="flex-w flex-m m-r-20 m-tb-5">
-								<a role="button" href="{{url('/donor/backtoshopcat')}}" class="flex-c-m stext-101 cl0 size-118 bg3 bor14 hov-btn3 p-lr-15 trans-04 pointer m-tb-5">
+								<a role="button" href="{{ url()->previous() }}" class="flex-c-m stext-101 cl0 size-118 bg3 bor14 hov-btn3 p-lr-15 trans-04 pointer m-tb-5">
 									Back to catalog
 								</a>
               </div>

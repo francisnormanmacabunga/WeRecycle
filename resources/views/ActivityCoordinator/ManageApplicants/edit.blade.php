@@ -16,7 +16,7 @@
                     <div class="col-12 d-flex no-block align-items-center">
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="{{ url('/activitycoordinator/applicants') }}">Applicants</a></li>
+                                <li class="breadcrumb-item"><a href="{{ url()->previous() }}">Applicants</a></li>
                                 <li class="breadcrumb-item active" aria-current="page">Edit</li>
                             </ol>
                         </nav>
@@ -103,7 +103,12 @@
                 </div>
             </div>
             <footer class="footer text-center">
-                Copyright &copy; 2018 WeRecycle™
+                Copyright
+                &copy; <?php
+                  $fromYear = 2018;
+                  $thisYear = (int)date('Y');
+                  echo $fromYear . (($fromYear != $thisYear) ? '-' . $thisYear : '');?>
+                 WeRecycle™
             </footer>
         </div>
     </div>

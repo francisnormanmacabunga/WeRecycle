@@ -13,7 +13,7 @@
                   <div class="col-12 d-flex no-block align-items-center">
                           <nav aria-label="breadcrumb">
                               <ol class="breadcrumb">
-                                  <li class="breadcrumb-item"><a href="{{ url('/activitycoordinator/applicants') }}">Applicants</a></li>
+                                  <li class="breadcrumb-item"><a href="{{ url()->previous() }}">Applicants</a></li>
                                   <li class="breadcrumb-item active" aria-current="page">Send SMS</li>
                               </ol>
                           </nav>
@@ -58,18 +58,19 @@
                                 <div class="row">
                                     <div class="col-9">
                                         <div class="form-group">
+                                          <div>
+                                            <select class="select2 form-control custom-select" name="message1" style="width: 100%; height:36px;">
+                                                  <optgroup label="Select Message">
+                                                      <option value="">Select Message</option>
+                                                    <option value="You're Accepted.">Accepted</option>
+                                                    <option value="Sorry your application has been denied because there are enough volunteers for this month, try again next month. Thank you for applying! ">
+                                                      Denied</option>
+                                            </select>
+                                          </div>
                                             <div class="input-field m-t-0 m-b-0">
                                                 <textarea id="textarea1" class="form-control border-0" name="message" placeholder="Place your message here!"></textarea>
                                             </div>
-                                            <div>
-                                              <select class="select2 form-control custom-select" name="message1" style="width: 100%; height:36px;">
-                                                    <optgroup label="Select Message">
-                                                        <option value="">Select Message</option>
-                                                      <option value="You're Accepted.">Accepted</option>
-                                                      <option value="Sorry your application has been denied because there are enough volunteers for this month, try again next month. Thank you for applying! ">
-                                                        Denied</option>
-                                              </select>
-                                            </div>
+
                                         </div>
                                     </div>
                                     <div class="col-3">
@@ -82,7 +83,12 @@
                 </div>
             </div>
             <footer class="footer text-center">
-                Copyright &copy; 2018 WeRecycle™
+                Copyright
+                &copy; <?php
+                  $fromYear = 2018;
+                  $thisYear = (int)date('Y');
+                  echo $fromYear . (($fromYear != $thisYear) ? '-' . $thisYear : '');?>
+                 WeRecycle™
             </footer>
         </div>
     </div>

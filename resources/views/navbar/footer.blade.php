@@ -46,3 +46,8 @@
       });
   </script>
 <!-- END OF DATE RANGE SCRIPTS -->
+
+<script>
+$('[data-toggle="tooltip"]').tooltip();
+$(".preloader").fadeOut();
+</script>

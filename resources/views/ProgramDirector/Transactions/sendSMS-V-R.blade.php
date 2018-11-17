@@ -69,10 +69,9 @@
                                               <option value="">Select Message</option>
                                             <option value="You have been assigned for a pick-up. The address of the pick-up is at STREET:{{$donor->street}},BARANGAY:{{$donor->barangay}},CITY:{{$donor->city}}">Pick-up</option>
                                     </select>
-                                    <div>
-                                      <input type="date" name="calendar"/>
-                                    </div>
+
                                   </div>
+                                  
                                   <div class="input-field m-t-0 m-b-0">
                                       <textarea id="textarea1" class="form-control border-0" name="message" placeholder="Place your message here!"></textarea>
                                   </div>

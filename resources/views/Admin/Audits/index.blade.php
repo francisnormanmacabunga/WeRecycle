@@ -79,10 +79,15 @@
                                 <br />
                                 <!-- DATE RANGE -->
                                 <div class="col-xs-12" align="right">
-                                      From: <input type="text" id="start_date" name="start_date" value="{{date('M-d-Y')}}"/> &nbsp;
-                                      To: <input type="text" id="end_date" name="end_date" value="{{date('M-d-Y')}}"/> &nbsp;
-                                      <input type="button" name="search" id="search" class="btn btn-warning btn-sm" value="Go!"/>
+                                  <form method="POST" action="{{action('Admin\AuditLogController@auditlogsFilter')}}">
+                                    <input name="" type="hidden" value="">
+                                    {{ csrf_field() }}
+                                      From: <input type="text" id="datepickerfrom" name="start" value="{{date('M-d-Y')}}"/> &nbsp;
+                                      To: <input type="text" id="datepickerpresent" name="end" value="{{date('M-d-Y')}}"/> &nbsp;
+                                      <button type="submit" class="btn btn-warning btn-sm">Filter</button>
+                                  </form>
                                 </div>
+
                               </br>
                                 <!-- END OF DATE RANGE -->
                                 <div class="table-responsive">

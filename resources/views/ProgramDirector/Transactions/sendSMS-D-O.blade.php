@@ -68,8 +68,11 @@
                                           <optgroup label="Select Message">
                                               <option value="">Select Message</option>
                                             <option value="Sorry. But we cannot provide you with our products at this moment. we will notify you once are products are already available">Reject</option>
-                                            <option value="Your volunteer is on the way to deliver your order on (insert date here).">Update</option>
+                                            <option value="Your volunteer is on the way to deliver your order on ">Update</option>
                                     </select>
+                                    <div>
+                                      <input type="date" name="date">
+                                    </div>
                                   </div>
                                   <div class="input-field m-t-0 m-b-0">
                                       <textarea id="textarea1" class="form-control border-0" name="message" placeholder="Place your message here!"></textarea>

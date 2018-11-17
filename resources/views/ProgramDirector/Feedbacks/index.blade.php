@@ -35,7 +35,7 @@
                                             @foreach ($feedbacks as $feedback)
                                             <tr>
                                                 <td>{{$feedback->username}}</td>
-                                                <td>{!!$feedback->feedback!!}</td>
+                                                <td>{{$feedback->feedback}}</td>
                                                 <td>{{$feedback->rating}}</td>
                                             </tr>
                                             @endforeach

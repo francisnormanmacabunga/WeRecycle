@@ -60,8 +60,8 @@ class ApplicantsController extends Controller
       'street' => 'nullable|regex:/^[a-zA-Z0-9,.!-? ]*$/',
       'barangay' => 'nullable|regex:/^[a-zA-Z0-9,.!-? ]*$/',
       'zip' => 'nullable|min:4|max:4',
-      'username' => 'required|alpha_dash|unique:user,username|min:6|max:20|',
-      //'g-recaptcha-response'=> 'required|captcha'
+      'username' => 'required|alpha_dash|unique:user,username|min:8|max:12|',
+      'g-recaptcha-response'=> 'required|captcha'
     ],
     [
       'username.min' => 'username length must be 6 character',

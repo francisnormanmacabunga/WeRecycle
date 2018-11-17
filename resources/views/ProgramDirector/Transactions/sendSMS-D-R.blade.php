@@ -63,8 +63,16 @@
                           <div class="row">
                               <div class="col-9">
                                 <div class="form-group">
+                                  <div>
+                                    <select class="select2 form-control custom-select" name="message1" style="width: 100%; height:36px;">
+                                          <optgroup label="Select Message">
+                                              <option value="">Select Message</option>
+                                            <option value="Your request has been accepted. Your volunteer is on the way to pick up your recyclables on (insert date here).">Accepted</option>
+                                            <option value="Sorry your request has been rejected.">Denied</option>
+                                    </select>
+                                  </div>
                                   <div class="input-field m-t-0 m-b-0">
-                                      <textarea id="textarea1" class="form-control border-0" name="message" placeholder="Place your message here!" required></textarea>
+                                      <textarea id="textarea1" class="form-control border-0" name="message" placeholder="Place your message here!"></textarea>
                                   </div>
                                   </div>
                               </div>

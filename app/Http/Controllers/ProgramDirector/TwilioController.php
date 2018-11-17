@@ -30,11 +30,6 @@ class TwilioController extends Controller
 
     public function assignOrder(Request $request)
     {
-     $this->validate($request, [
-       'message' => 'required',
-     [
-       'message.required' => 'The message field is required.'
-     ]]);
       session()->flash('sms','Message Sent!');
        $applicant = new MessageOrders();
        $applicant->message = $request ->input('message');
@@ -61,27 +56,39 @@ class TwilioController extends Controller
 
     public function sendMessageDonorOrder(Request $request)
     {
-      $this->validate($request, [
-        'message' => 'required',
-      [
-        'message.required' => 'The message field is required.'
-      ]]);
+      if ($request->input('message') == '') {
+        session()->flash('sms','Message Sent!');
+        $applicant = new MessageDonors();
+        $applicant->message = $request ->input('message1');
+        $applicant->userID = $request->userID;
+        $applicant->save();
+
+        $sid    = "AC8a7060e979f382acdb6ba484275f218b";
+        $token  = "addb0fa1287d36f40d566e65bc764f4a";
+        $twilio = new Client($sid, $token);
+        $message = $twilio->messages
+        ->create($twilio->mobile = $request->input('mobile'), // to
+                 array(
+                     "body" => $twilio->message = $request->input('message1'),
+                     "from" => "(619) 724-4011"));
+        return redirect('/activitycoordinator/applicants')->with('success', 'Message Sent Succesfully');
+      } else {
         session()->flash('sms','Message Sent!');
         $applicant = new MessageDonors();
         $applicant->message = $request ->input('message');
         $applicant->userID = $request->userID;
         $applicant->save();
 
-
-      $sid    = "AC8a7060e979f382acdb6ba484275f218b";
-      $token  = "addb0fa1287d36f40d566e65bc764f4a";
-      $twilio = new Client($sid, $token);
-      $message = $twilio->messages
-      ->create($twilio->mobile = $request->input('mobile'), // to
-               array(
-                   "body" => $twilio->message = $request->input('message'),
-                   "from" => "(619) 724-4011"));
-      return redirect('/programdirector/orders')->with('success', 'Message Sent Succesfully');
+        $sid    = "AC8a7060e979f382acdb6ba484275f218b";
+        $token  = "addb0fa1287d36f40d566e65bc764f4a";
+        $twilio = new Client($sid, $token);
+        $message = $twilio->messages
+        ->create($twilio->mobile = $request->input('mobile'), // to
+                 array(
+                     "body" => $twilio->message = $request->input('message'),
+                     "from" => "(619) 724-4011"));
+        return redirect('/activitycoordinator/applicants')->with('success', 'Message Sent Succesfully');
+      }
       }
 
       public function indexVolunteerRequest($id)
@@ -93,28 +100,39 @@ class TwilioController extends Controller
 
       public function assignRequest(Request $request)
       {
-       $this->validate($request, [
-         'message' => 'required',
-       [
-         'message.required' => 'The message field is required.'
-       ]]);
-         session()->flash('sms','Message Sent!');
-         $applicant = new MessageRequests();
-         $applicant->message = $request ->input('message');
-         $applicant->volunteerID = $request->volunteerID;
-         $applicant->save();
+        if ($request->input('message') == '') {
+          session()->flash('sms','Message Sent!');
+          $applicant = new MessageRequests();
+          $applicant->message = $request ->input('message1');
+          $applicant->volunteerID = $request->volunteerID;
+          $applicant->save();
 
-         $sid    = "AC8a7060e979f382acdb6ba484275f218b";
-         $token  = "addb0fa1287d36f40d566e65bc764f4a";
-         $twilio = new Client($sid, $token);
-         $message = $twilio->messages
-         ->create($twilio->mobile = $request->input('mobile'), // to
-                  array(
-                      "body" => $twilio->message = $request->input('message'),
-                      "from" => "(619) 724-4011"));
+          $sid    = "AC8a7060e979f382acdb6ba484275f218b";
+          $token  = "addb0fa1287d36f40d566e65bc764f4a";
+          $twilio = new Client($sid, $token);
+          $message = $twilio->messages
+          ->create($twilio->mobile = $request->input('mobile'), // to
+                   array(
+                       "body" => $twilio->message = $request->input('message1'),
+                       "from" => "(619) 724-4011"));
+          return redirect('/activitycoordinator/applicants')->with('success', 'Message Sent Succesfully');
+        } else {
+          session()->flash('sms','Message Sent!');
+          $applicant = new MessageRequests();
+          $applicant->message = $request ->input('message');
+          $applicant->volunteerID = $request->volunteerID;
+          $applicant->save();
 
-        return redirect('/programdirector/requests')->with('success', 'Message Sent Succesfully');
-
+          $sid    = "AC8a7060e979f382acdb6ba484275f218b";
+          $token  = "addb0fa1287d36f40d566e65bc764f4a";
+          $twilio = new Client($sid, $token);
+          $message = $twilio->messages
+          ->create($twilio->mobile = $request->input('mobile'), // to
+                   array(
+                       "body" => $twilio->message = $request->input('message'),
+                       "from" => "(619) 724-4011"));
+          return redirect('/activitycoordinator/applicants')->with('success', 'Message Sent Succesfully');
+        }
      }
 
     public function indexDonorRequest($id)
@@ -126,17 +144,28 @@ class TwilioController extends Controller
     public function sendMessageDonorRequest(Request $request)
     {
 
-        $this->validate($request, [
-          'message' => 'required',
-        [
-          'message.required' => 'The message field is required.'
-        ]]);
-          session()->flash('sms','Message Sent!');
-          $applicant = new MessageDonors();
-          $applicant->message = $request ->input('message');
-          $applicant->userID = $request->userID;
-          $applicant->save();
+      if ($request->input('message') == '') {
+        session()->flash('sms','Message Sent!');
+        $applicant = new MessageDonors();
+        $applicant->message = $request ->input('message1');
+        $applicant->userID = $request->userID;
+        $applicant->save();
 
+        $sid    = "AC8a7060e979f382acdb6ba484275f218b";
+        $token  = "addb0fa1287d36f40d566e65bc764f4a";
+        $twilio = new Client($sid, $token);
+        $message = $twilio->messages
+        ->create($twilio->mobile = $request->input('mobile'), // to
+                 array(
+                     "body" => $twilio->message = $request->input('message1'),
+                     "from" => "(619) 724-4011"));
+        return redirect('/activitycoordinator/applicants')->with('success', 'Message Sent Succesfully');
+      } else {
+        session()->flash('sms','Message Sent!');
+        $applicant = new MessageDonors();
+        $applicant->message = $request ->input('message');
+        $applicant->userID = $request->userID;
+        $applicant->save();
 
         $sid    = "AC8a7060e979f382acdb6ba484275f218b";
         $token  = "addb0fa1287d36f40d566e65bc764f4a";
@@ -146,7 +175,8 @@ class TwilioController extends Controller
                  array(
                      "body" => $twilio->message = $request->input('message'),
                      "from" => "(619) 724-4011"));
-        return redirect('/programdirector/requests')->with('success', 'Message Sent Succesfully');
+        return redirect('/activitycoordinator/applicants')->with('success', 'Message Sent Succesfully');
+      }
 
       }
 

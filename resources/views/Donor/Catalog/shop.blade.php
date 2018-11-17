@@ -60,7 +60,7 @@
                 </span>
 
                 <span>
-                  {{$products->description}}
+                  {!!$products->description!!}
                 </span>
 							</div>
 						</div>

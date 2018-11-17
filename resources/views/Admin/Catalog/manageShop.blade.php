@@ -43,7 +43,7 @@
                                       <td>{{$products->productname}}</td>
                                       <td><img src="{{ asset('images/' . $products->productimage) }}" width="200" height="200"></td>
                                       <td>{{$products->price}}</td>
-                                      <td>{{$products->description}}</td>
+                                      <td>{!!$products->description!!}</td>
                                       <td>{{date('F d, Y, h:i:sa', strtotime($products->created_at))}}</td>
                                       <td>{{date('F d, Y, h:i:sa', strtotime($products->updated_at))}}</td>
                                       <td>{{$products->status}}</td>

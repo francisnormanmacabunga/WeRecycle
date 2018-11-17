@@ -75,7 +75,7 @@
 								</a>
 
                 <span class="stext-105 cl3">
-                  {{$products->description}}
+                  {!!$products->description!!}
                 </span>
 							</div>
 						</div>

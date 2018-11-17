@@ -51,8 +51,7 @@ class CatalogController extends Controller
       $this->validate($request, [
       'productname' => 'required|regex:/^[A-Za-z. -]+$/',
       'productstypeID' => 'required',
-      'description' => 'required|regex:/^[A-Za-z. -]+$/',
-      //'price' => 'min:0',
+      'description' => 'required',
       'productimage' => 'required|mimes:jpeg,jpg,png|image|max:200',
       'category' => 'required'
     ],

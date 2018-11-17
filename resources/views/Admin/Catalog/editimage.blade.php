@@ -15,7 +15,7 @@
                     <div class="col-12 d-flex no-block align-items-center">
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="{{ url()->previous() }}">Catalog</a></li>
+                                <li class="breadcrumb-item"><a href="{{ url('/admin/managedonation') }}">Catalog</a></li>
                                 <li class="breadcrumb-item active" aria-current="page">Edit</li>
                             </ol>
                         </nav>
@@ -53,7 +53,7 @@
                                 </div>
                                 <hr>
                                 <input value="Save" type="button" class="btn btn-success btn-block btn-lg" data-toggle="modal" data-target="#Modal2" />
-                                <a class="btn btn-danger btn-block btn-lg" href="{{ url()->previous() }}">Back</a>
+                                <a class="btn btn-danger btn-block btn-lg" href="{{ url('/admin/managedonation') }}">Back</a>
                                 <!-- Modal -->
                                 <div class="modal fade" id="Modal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                     <div class="modal-dialog" role="document">

@@ -36,7 +36,7 @@
 <link rel="stylesheet" type="text/css" href="{{asset('donor-design/css/util.css')}}">
 <link rel="stylesheet" type="text/css" href="{{asset('donor-design/css/main.css')}}">
 
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">{{asset('assets/libs/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css')}}
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <!--===============================================================================================-->
 </head>
 

@@ -8,7 +8,14 @@
 <footer class="bg3 p-t-75 p-b-32" style="background-color: #1B4D3E">
 	<div class="container">
 		<p class="stext-107 cl6 txt-center">
-			<font color="white"> Copyright &copy; 2018 WeRecycle™ </font>
+			<font color="white">
+				Copyright
+				&copy; <?php
+					$fromYear = 2018;
+					$thisYear = (int)date('Y');
+					echo $fromYear . (($fromYear != $thisYear) ? '-' . $thisYear : '');?>
+				 WeRecycle™
+			</font>
 		</p>
 </div>
 </footer>

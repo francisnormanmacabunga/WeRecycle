@@ -69,7 +69,7 @@
                                 </div>
                                 <hr style="margin:5px 0 5px 0;"><br>
                                 <input type="button" value="Save Changes" class="btn btn-success btn-block btn-lg" data-toggle="modal" data-target="#Modal2" />
-                                <a class="btn btn-lg btn-block btn-danger" href="/activitycoordinator/activity_coordinators" role="button">Back </a>
+                                <a class="btn btn-lg btn-block btn-danger" href="{{ url()->previous() }}" role="button">Back </a>
                                 <!-- Modal -->
                                 <div class="modal fade" id="Modal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                     <div class="modal-dialog" role="document">
@@ -98,7 +98,12 @@
                 </div>
             </div>
             <footer class="footer text-center">
-                Copyright &copy; 2018 WeRecycle™
+                Copyright
+                &copy; <?php
+                  $fromYear = 2018;
+                  $thisYear = (int)date('Y');
+                  echo $fromYear . (($fromYear != $thisYear) ? '-' . $thisYear : '');?>
+                 WeRecycle™
             </footer>
         </div>
     </div>
@@ -239,7 +244,7 @@
                     $('#result').addClass('strong');
                     $('#password-strength').removeClass('progress-bar-warning');
                     $('#password-strength').addClass('progress-bar-success');
-                    $('#result').addClass('text-success').text('Strength');
+                    $('#result').addClass('text-success').text('Strong');
                     $('#password-strength').css('width', '100%');
 
                     return 'Strong'

@@ -134,7 +134,7 @@ $(document).ready(function() {
                 $('#result').addClass('strong');
                 $('#password-strength').removeClass('progress-bar-warning');
                 $('#password-strength').addClass('progress-bar-success');
-                $('#result').addClass('text-success').text('Strength');
+                $('#result').addClass('text-success').text('Strong');
                 $('#password-strength').css('width', '100%');
 
                 return 'Strong'

@@ -160,7 +160,14 @@
     <footer>
           <br>
           <div class="row">
-            <strong><p class="text-center">Copyright &copy; 2018 WeRecycle™</p></strong>
+            <strong><p class="text-center">
+              Copyright
+          		&copy; <?php
+          			$fromYear = 2018;
+          			$thisYear = (int)date('Y');
+          			echo $fromYear . (($fromYear != $thisYear) ? '-' . $thisYear : '');?>
+          		 WeRecycle™
+            </p></strong>
           </div>
         </div>
       </div>

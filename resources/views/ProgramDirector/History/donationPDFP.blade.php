@@ -59,7 +59,7 @@
         <strong>Contact Number:</strong> 0928 428 0144 or 0917 828 3672</p>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <img src="{{asset('assets/images/pdf-logo.png')}}" width="200px" length="200px"/>
+        <img src="{{asset('assets/images/4.png')}}" width="200px" length="200px"/>
       <br>
       <table>
       <tr>

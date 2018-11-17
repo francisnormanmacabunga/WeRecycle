@@ -54,7 +54,7 @@
         						<div class="wrap-table-shopping-cart">
                       <div class="table-responsive">
                       @if(count($shop) > 0)
-        							<table id="zero_config" class="table-shopping-cart">
+        							<table class="table-shopping-cart">
                         <thead>
                             <tr>
                               <tr class="table_head">

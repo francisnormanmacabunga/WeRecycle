@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html dir="ltr" lang="en">
 <head>
+  <link rel="icon" type="image/png" sizes="16x16" href="  {{asset('assets/images/favicon.png')}}">
   <!-- DATE RANGE SCRIPT -->
   <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
   <!-- END OF DATE RANGE SCRIPT -->

@@ -70,31 +70,27 @@
           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
           <img src="{{asset('assets/images/pdf-logo.png')}}" width="200px" length="200px"/>
         <br>
-        <table>
 
-        <tr>
-          <td><?php
-            echo "<strong>Date: </strong>";
-            $mydate=getdate(date("U"));
-            echo "$mydate[weekday], $mydate[month] $mydate[mday], $mydate[year]";
-            ?></td>
-          <td><?php
-              echo "<strong>Time: </strong>" .date("h:i:sa");
-          ?></td>
-        </tr>
-        <tr>
-          <td><strong>Report Generated:</strong> Transaction&nbsp;&nbsp;&nbsp;&nbsp;</td>
-          <td><strong>Sort:</strong> Requests</td>
-        </tr>
+            <table>
+            <tr>
+              <td><?php
+                echo "<strong>Date: </strong>";
+                $mydate=getdate(date("U"));
+                echo "$mydate[weekday], $mydate[month] $mydate[mday], $mydate[year]";
+                ?></td>
+                <td><strong>Sort:</strong> Requests</td>
+            </tr>
+            <tr>
+              <td><strong>Report Generated:</strong>  Transactions</td>
+              <td><strong>Printed By:</strong> {{Auth::user()->firstname}} {{Auth::user()->lastname}}</td>
+            </tr>
+          </table>
+          <hr/>
+
         <br>
-        <tr>
-          <td><strong>Printed By:</strong> {{Auth::user()->firstname}} {{Auth::user()->lastname}}</td>
-        </tr>
-    </table>
-    <hr/>
       <table id="requests">
         <tr>
-                <th>Transaction ID</th>
+                <th>#</th>
                 <th>Date</th>
                 <th>Name</th>
                 <th>Address</th>

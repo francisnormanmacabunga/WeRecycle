@@ -41,7 +41,7 @@
                                       <th>Transaction ID</th>
                                       <th>Assigned Volunteer</th>
                                       <th>Type of Donation</th>
-                                      <th>Weight</th>
+                                      <th>Weight (g)</th>
                                       <th>Date</th>
                                       <th>Status</th>
                                   </tr>

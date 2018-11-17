@@ -63,35 +63,28 @@
           <img src="{{asset('assets/images/pdf-logo.png')}}" width="200px" length="200px"/>
         <br>
         <table>
-
         <tr>
           <td><?php
             echo "<strong>Date: </strong>";
             $mydate=getdate(date("U"));
             echo "$mydate[weekday], $mydate[month] $mydate[mday], $mydate[year]";
             ?></td>
-          <td><?php
-              echo "<strong>Time: </strong>" .date("h:i:sa");
-          ?></td>
+            <td><strong>Sort:</strong> All Donation</td>
         </tr>
         <tr>
           <td><strong>Report Generated:</strong> Donation History</td>
-          <td><strong>Sort:</strong> All Donation</td><br>
-        </tr>
-        <br>
-        <tr>
           <td><strong>Printed By:</strong> {{Auth::user()->firstname}} {{Auth::user()->lastname}}</td>
         </tr>
       </table>
       <hr/>
 
-
+<br>
       <table id="donation">
         <tr>
-          <th>Transaction ID</th>
+          <th>#</th>
           <th>Assigned Volunteer</th>
           <th>Type of Donation</th>
-          <th>Weight</th>
+          <th>Weight (g)</th>
           <th>Date</th>
         </tr>
         @if(count($donation) > 0)

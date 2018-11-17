@@ -24,7 +24,7 @@
             <div class="auth-box" style="background-color: #35281e">
                 <div>
                     <div class="text-center p-t-20 p-b-20">
-                        <span class="db"><img src="{{asset('assets/images/pd-logo.png')}}" alt="logo" /></span> 
+                        <span class="db"><img src="{{asset('assets/images/pd-logo.png')}}" alt="logo" /></span>
                     </div>
                     <!-- Form -->
                     @if ($errors->has('email'))
@@ -49,7 +49,23 @@
                                     <div class="input-group-prepend">
                                         <span class="input-group-text bg-danger text-white btn-rounded" id="basic-addon2"><i class="ti-pencil"></i></span>
                                     </div>
-                                    <input class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }} btn-rounded" placeholder="New Password" aria-label="Password" aria-describedby="basic-addon1" id="password" type="password" name="password" required>
+                                    <input class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }} btn-rounded" placeholder="New Password"
+                                    aria-label="Password" aria-describedby="basic-addon1" id="password" type="password" name="password"
+                                    data-placement="bottom" data-toggle="popover" data-container="body" type="button" data-html="true" required>
+
+                                    <div id="popover-password">
+                                        <p>Password Strength: <span id="result"> </span></p>
+                                        <div class="progress">
+                                            <div id="password-strength" class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:0%">
+                                            </div>
+                                        </div>
+                                        <ul class="list-unstyled">
+                                            <li class=""><span class="low-upper-case"><i class="fa fa-file-text" aria-hidden="true"></i></span>&nbsp; 1 lowercase &amp; 1 uppercase</li>
+                                            <li class=""><span class="one-number"><i class="fa fa-file-text" aria-hidden="true"></i></span> &nbsp;1 number (0-9)</li>
+                                            <li class=""><span class="one-special-char"><i class="fa fa-file-text" aria-hidden="true"></i></span> &nbsp;1 Special Character (!@#$%^&*).</li>
+                                            <li class=""><span class="eight-character"><i class="fa fa-file-text" aria-hidden="true"></i></span>&nbsp; Atleast 8 Character</li>
+                                        </ul>
+                                    </div>
                                 </div>
                                 <div class="input-group mb-3">
                                     <div class="input-group-prepend">

@@ -46,7 +46,7 @@
         <!-- Login box.scss -->
         <!-- ============================================================== -->
 
-        <div class="auth-wrapper d-flex no-block justify-content-center align-items-center" style="background-color: #654321">
+        <div class="auth-wrapper d-flex no-block justify-content-center align-items-center" style="background-color: #35281e">
             <div class="auth-box" style="background-color: #654321">
                 <div id="loginform">
                     <div class="text-center p-t-20 p-b-20">

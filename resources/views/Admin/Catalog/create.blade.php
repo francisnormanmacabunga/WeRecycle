@@ -79,7 +79,7 @@
                                 <div class="form-group-row">
                                     <div class="col-sm-9">
                                         <label>Description <label style="color:red;">*</label> </label>
-                                        <textarea class="form-control {{ $errors->has('description') ? ' is-invalid' : '' }}" name="description"></textarea>
+                                        <textarea class="form-control {{ $errors->has('description') ? ' is-invalid' : '' }}" name="description" id="editor"></textarea>
                                         @if ($errors->has('description'))
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $errors->first('description') }}</strong>
@@ -147,6 +147,17 @@
         </div>
     </div>
     @include('navbar.footer')
+    <script src="https://cdn.ckeditor.com/ckeditor5/11.1.1/classic/ckeditor.js"></script>
+    <script>
+    ClassicEditor
+    .create( document.querySelector( '#editor' ) )
+    .then( editor => {
+        console.log( editor );
+    } )
+    .catch( error => {
+        console.error( error );
+    } );
+    </script>
 </body>
 
 </html>

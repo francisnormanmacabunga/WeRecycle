@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Spatie\Activitylog\Models\Activity;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Carbon;
 
 class AuditLogController extends Controller
 {
@@ -27,4 +28,19 @@ class AuditLogController extends Controller
     }
     return view('Admin/Audits.index', compact('lastActivity'));
   }
+
+  public function auditlogsFilter(Request $request)
+  {
+      date_default_timezone_set('Asia/Manila');
+      $start = Carbon::parse($request->start)->startOfDay();
+      $end = Carbon::parse($request->end)->endOfDay();
+
+      $lastActivity = Activity::orderBy('updated_at', 'desc')
+      -> whereBetween('updated_at', array(new Carbon($start), new Carbon($end)))
+      -> paginate(10);
+
+      return view('Admin/Audits.index', compact('lastActivity'));
+  }
+
+
 }

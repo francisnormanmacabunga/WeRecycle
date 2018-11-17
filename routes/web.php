@@ -149,4 +149,8 @@ Route::prefix('admin')->group(function() {
   Route::get('/createAC', 'Admin\AdminController@createAC');
   Route::get('/createPD', 'Admin\AdminController@createPD');
   Route::get('/', 'Admin\AdminController@index')->name('admin.dashboard');
+
+
+  Route::post('/auditlogsFilter','Admin\AuditLogController@auditlogsFilter');
+
 });

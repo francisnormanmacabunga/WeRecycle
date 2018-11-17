@@ -187,12 +187,12 @@
 
 
                                     <div id="popover-password">
-                                        <p>Password Strength: <span id="result"> </span></p>
+                                        <p style="color: white">Password Strength: <span id="result"> </span></p>
                                         <div class="progress">
                                             <div id="password-strength" class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:0%">
                                             </div>
                                         </div>
-                                        <ul class="list-unstyled">
+                                        <ul style="color: white" class="list-unstyled">
                                             <li class=""><span class="low-upper-case"><i class="fa fa-file-text" aria-hidden="true"></i></span>&nbsp; 1 lowercase &amp; 1 uppercase</li>
                                             <li class=""><span class="one-number"><i class="fa fa-file-text" aria-hidden="true"></i></span> &nbsp;1 number (0-9)</li>
                                             <li class=""><span class="one-special-char"><i class="fa fa-file-text" aria-hidden="true"></i></span> &nbsp;1 Special Character (!@#$%^&*).</li>

@@ -63,14 +63,14 @@
 							<strong>Step 2:</strong> Then choose something to donate from our donation catalog on our donor homepage.
 							Every 1000 grams of donated wastes will be equivalent to 2 points!
 							<br />
-							<strong>Step 3:</strong> Once your donated wastes are picked up by our volunteer, gour transaction will be successful.
+							<strong>Step 3:</strong> Once your donated wastes are picked up by our volunteer, your transaction is complete.
 							Every successful transaction you make, your points accumulate!
 							<br />
 							<strong>Step 4:</strong> Reach up to 100 points to redeem your coupon code! 100 points is equivalent to 20% off on your next purchase of fertilizer.
 							We aim to lessen the trash and encourage you to buy our fertilizer to plant more trees!
 							<br />
 							<strong>Step 5:</strong> Once you have reached 100 points, a 'Redeem' button will appear below your progress bar.
-							Click redeem once you reach 100 points. You are also free to redeem your coupon code anytime you want! No pressure.
+							Click redeem once you reach 100 points. You are also free to redeem your coupon code anytime you want!
 						</p>
 					</div>
 				</div>

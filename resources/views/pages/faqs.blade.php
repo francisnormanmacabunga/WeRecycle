@@ -58,7 +58,7 @@
 							<strong>Step 2:</strong> Then choose something to donate from our donation catalog on our donor homepage.
 							Every 1000 grams of donated wastes will be equivalent to 2 points!
 							<br />
-							<strong>Step 3:</strong> Once your donated wastes are picked up by our volunteer, gour transaction will be successful.
+							<strong>Step 3:</strong> Once your donated wastes are picked up by our volunteer, your transaction is complete.
 							Every successful transaction you make, your points accumulate!
 							<br />
 							<strong>Step 4:</strong> Reach up to 100 points to redeem your coupon code! 100 points is equivalent to 20% off on your next purchase of fertilizer.

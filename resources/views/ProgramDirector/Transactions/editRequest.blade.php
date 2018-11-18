@@ -77,7 +77,7 @@
                                     @else
                                     <input type="button" value="Save" class="btn btn-danger btn-block btn-lg" data-toggle="modal" data-target="#Modal2" />
                                     <br>
-                                    <a href="{{ url('/programdirector/requests') }}"> <button class="btn btn-success btn-block btn-lg"> Back </button> </a>
+                                    <a href="{{ url('/programdirector/requests') }}" class="btn btn-success btn-block btn-lg">Back</a>
                                     @endif
                                 </div>
                             </div>
@@ -87,7 +87,7 @@
                             <div class="modal-dialog" role="document">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                        <h5 class="modal-title" id="exampleModalLabel">Alert</h5>
+                                        <h5 class="modal-title" id="exampleModalLabel">Save changes</h5>
                                         <button class="close" data-dismiss="modal" aria-label="Close">
                                             <span aria-hidden="true">&times;</span>
                                         </button>

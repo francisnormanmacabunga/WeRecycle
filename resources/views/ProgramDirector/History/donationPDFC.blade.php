@@ -54,8 +54,13 @@
 
       <body>
 
-        <footer>
-            Copyright &copy; <?php echo date("Y");?> WeRecycle&trade;
+        <footer class="footer text-center">
+            Copyright
+            &copy; <?php
+              $fromYear = 2018;
+              $thisYear = (int)date('Y');
+              echo $fromYear . (($fromYear != $thisYear) ? '-' . $thisYear : '');?>
+             WeRecycle™
         </footer>
           <p><strong>
           WeRecycle&trade;</strong><br>2142 Jesus St. Pandacan, Manila, 1011 Metro Manila<br>

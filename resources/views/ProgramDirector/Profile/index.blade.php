@@ -55,9 +55,14 @@
                         </div>
                       </div>
                   </div>
-    <footer class="footer text-center">
-      Copyright &copy; 2018 WeRecycle™
-    </footer>
+                  <footer class="footer text-center">
+                      Copyright
+                      &copy; <?php
+                        $fromYear = 2018;
+                        $thisYear = (int)date('Y');
+                        echo $fromYear . (($fromYear != $thisYear) ? '-' . $thisYear : '');?>
+                       WeRecycle™
+                  </footer>
   </div>
 </div>
 @include('navbar.footer')

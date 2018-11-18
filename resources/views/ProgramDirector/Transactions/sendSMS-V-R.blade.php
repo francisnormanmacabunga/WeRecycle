@@ -71,7 +71,7 @@
                                     </select>
 
                                   </div>
-                                  
+
                                   <div class="input-field m-t-0 m-b-0">
                                       <textarea id="textarea1" class="form-control border-0" name="message" placeholder="Place your message here!"></textarea>
                                   </div>
@@ -87,7 +87,12 @@
             </div>
     </div>
     <footer class="footer text-center">
-      Copyright &copy; 2018 WeRecycle™
+        Copyright
+        &copy; <?php
+          $fromYear = 2018;
+          $thisYear = (int)date('Y');
+          echo $fromYear . (($fromYear != $thisYear) ? '-' . $thisYear : '');?>
+         WeRecycle™
     </footer>
   </div>
 </div>

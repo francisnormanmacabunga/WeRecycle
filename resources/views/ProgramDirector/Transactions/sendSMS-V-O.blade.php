@@ -31,33 +31,44 @@
                   <div class="card">
                       <div class="card-body" style="height: 300px;">
                         <h4 class="card-title" align="center">Send a message</h4>
-                                            <div class="card">
-                                                <div class="card-body">
 
-                                                  </div>
-                                                    <div class="table-responsive">
-                                                      <table class="table">
-                                                          <thead class="thead-light">
-                                                              <tr>
-                                                                  <th scope="col">Name</th>
-                                                                  <th scope="col">Email</th>
-                                                                  <th scope="col">Mobile Number</th>
-                                                              </tr>
-                                                          </thead>
-                                                          <tbody class="customtable">
-                                                              <tr>
-                                                                <input type= "hidden" name= "mobile" class= "radio"
-                                                                value="{{$applicants->volunteer['contacts']['cellNo']}}"/>
-                                                                <input type= "hidden" name= "volunteerID"
-                                                                value="{{$applicants->volunteerID}}">
-                                                                <td> {{$applicants->volunteer['firstname']}} {{$applicants->volunteer['lastname']}} </td>
-                                                                <td> {{$applicants->volunteer['email']}} </td>
-                                                                <td> {{$applicants->volunteer['contacts']['cellNo']}} </td>
-                                                              </tr>
-                                                          </tbody>
-                                                      </table>
-                                                    </div>
-                                            </div>
+                        <div class="card">
+                            <div class="card-body">
+
+                              </div>
+                                <div class="table-responsive">
+                                  @if($applicants->volunteerID > 0)
+                                  <table class="table">
+                                      <thead class="thead-light">
+                                          <tr>
+                                              <th scope="col">Name</th>
+                                              <th scope="col">Email</th>
+                                              <th scope="col">Mobile Number</th>
+                                          </tr>
+                                      </thead>
+                                      <tbody class="customtable">
+                                          <tr>
+                                            <input type= "hidden" name= "mobile" class= "radio"
+                                            value="{{$applicants->volunteer['contacts']['cellNo']}}"/>
+                                            <input type= "hidden" name= "volunteerID"
+                                            value="{{$applicants->volunteerID}}">
+                                            <td> {{$applicants->volunteer['firstname']}} {{$applicants->volunteer['lastname']}} </td>
+                                            <td> {{$applicants->volunteer['email']}} </td>
+                                            <td> {{$applicants->volunteer['contacts']['cellNo']}} </td>
+                                          </tr>
+                                      </tbody>
+                                  </table>
+                                  @else
+                                  <div align="center" style="color:red;">
+                                      <br>
+                                      <br>
+                                      <h5>No volunteers found.</h5>
+                                  </div>
+                                  @endif
+                                </div>
+                        </div>
+
+
                       </div>
                       <div class="card-body border-top">
                           <div class="row">

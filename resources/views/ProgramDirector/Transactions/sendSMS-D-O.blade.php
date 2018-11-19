@@ -36,6 +36,7 @@
 
                                                   </div>
                                                     <div class="table-responsive">
+                                                      @if($applicants->userID > 0)
                                                       <table class="table">
                                                           <thead class="thead-light">
                                                               <tr>
@@ -56,6 +57,13 @@
                                                               </tr>
                                                           </tbody>
                                                       </table>
+                                                      @else
+                                                      <div align="center" style="color:red;">
+                                                          <br>
+                                                          <br>
+                                                          <h5>No donors found.</h5>
+                                                      </div>
+                                                      @endif
                                                     </div>
                                             </div>
                       </div>

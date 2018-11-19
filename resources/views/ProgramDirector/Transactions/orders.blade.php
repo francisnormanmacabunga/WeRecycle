@@ -80,7 +80,6 @@
                                                 <td> Barangay: {{$orders->donor->barangay}}, {{$orders->donor->street}}, {{$orders->donor->city}}, Zip: {{$orders->donor->zip}} </td>
                                                 <td> {{$orders->type}} </td>
                                                 <td>{{$item->name}}</td>
-                                                <td>{{$item->name}}</td>
                                                 <td>{{$item->price}}</td>
                                                 <td>{{$item->qty}}</td>
                                                 <td> {{$orders->status}} </td>

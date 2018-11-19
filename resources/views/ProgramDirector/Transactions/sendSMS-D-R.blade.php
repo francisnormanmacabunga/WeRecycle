@@ -63,7 +63,9 @@
                           <div class="row">
                               <div class="col-9">
                                 <div class="form-group">
-                                  <div style="text-align: center">
+
+                                  <div>
+                                    <label>Select Date:</label>
                                     <input class="btn-rounded btn-sm" aria-describedby="basic-addon1" type="date" name="date">
                                   </div>
                                   <div>
@@ -71,8 +73,8 @@
                                     <select class="select2 form-control custom-select" name="message1" style="width: 100%; height:36px;">
                                           <optgroup label="Select Message">
                                             <option value="">Select Message</option>
-                                            <option value="Your request has been accepted. Your volunteer is on the way to pick up your recyclables on ">Accepted</option>
-                                            <option value="Sorry your request has been rejected.">Denied</option>
+                                            <option value="Your request has been accepted, your volunteer is on the way to pick up your recyclables. ">Accepted</option>
+                                            <option value="Sorry your request has been rejected. ">Denied</option>
                                     </select>
                                     </div>
                                   <div class="input-field m-t-0 m-b-0">

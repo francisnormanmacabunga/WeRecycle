@@ -64,10 +64,14 @@
                               <div class="col-9">
                                 <div class="form-group">
                                   <div>
+                                    <label>Select Date:</label>
+                                    <input class="btn-rounded btn-sm" aria-describedby="basic-addon1" type="date" name="date">
+                                  </div>
+                                  <div>
                                     <select class="select2 form-control custom-select" name="message1" style="width: 100%; height:36px;">
                                           <optgroup label="Select Message">
                                               <option value="">Select Message</option>
-                                            <option value="You have been assigned for delivery. The Address is at  STREET:{{$donor->street}},BARANGAY:{{$donor->barangay}},CITY:{{$donor->city}}">Delivery</option>
+                                            <option value="You have been assigned for delivery. The Address is at  STREET:{{$donor->street}},BARANGAY:{{$donor->barangay}},CITY:{{$donor->city}}. Look for {{$donor->firstname}} {{$donor->lastname}}. ">Delivery</option>
                                     </select>
                                   </div>
                                   <div class="input-field m-t-0 m-b-0">

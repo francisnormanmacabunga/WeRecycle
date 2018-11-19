@@ -77,7 +77,7 @@ class TwilioController extends Controller
 
     public function sendMessageDonorOrder(Request $request)
     {
-      $calub = $request->input('message1').$request->input('message').$request->input('date');
+      $calub = $request->input('message1').$request->input('date').$request->input('message');
       if ($request->input('message') == '') {
         session()->flash('sms','Message Sent!');
         $applicant = new MessageDonors();

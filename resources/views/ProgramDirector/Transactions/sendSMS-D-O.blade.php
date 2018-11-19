@@ -71,7 +71,8 @@
                           <div class="row">
                               <div class="col-9">
                                 <div class="form-group">
-                                  <div style="text-align: center">
+                                  <div>
+                                    <label>Select Date:</label>
                                     <input class="btn-rounded btn-sm" aria-describedby="basic-addon1" type="date" name="date">
                                   </div>
                                   <div>
@@ -79,8 +80,8 @@
                                     <select class="select2 form-control custom-select" name="message1" style="width: 100%; height:36px;">
                                           <optgroup label="Select Message">
                                               <option value="">Select Message</option>
-                                            <option value="Sorry. But we cannot provide you with our products at this moment. we will notify you once are products are already available">Reject</option>
-                                            <option value="Your volunteer is on the way to deliver your order on ">Update</option>
+                                            <option value="Sorry, but we cannot provide you with our products at this moment. We will notify you once are products are already available. ">Reject</option>
+                                            <option value="Your volunteer is on the way to deliver your order! ">Update</option>
                                     </select>
                                     </div>
 

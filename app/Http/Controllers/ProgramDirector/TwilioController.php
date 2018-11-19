@@ -31,6 +31,7 @@ class TwilioController extends Controller
 
     public function assignOrder(Request $request)
     {
+      $calub = $request->input('message1').$request->input('date').$request->input('message');
       if ($request->input('message') == '') {
         session()->flash('sms','Message Sent!');
          $applicant = new MessageOrders();
@@ -51,7 +52,7 @@ class TwilioController extends Controller
       } else {
         session()->flash('sms','Message Sent!');
          $applicant = new MessageOrders();
-         $applicant->message = $request ->input('message');
+         $applicant->message = $calub;
          $applicant->volunteerID = $request->volunteerID;
          $applicant->save();
 
@@ -61,7 +62,7 @@ class TwilioController extends Controller
          $message = $twilio->messages
          ->create($twilio->mobile = $request->input('mobile'), // to
                   array(
-                      "body" => $twilio->message = $request->input('message'),
+                      "body" => $twilio->message = $calub,
                       "from" => "(619) 724-4011"));
 
          return redirect('/programdirector/orders')->with('success', 'Message Sent Succesfully');
@@ -76,7 +77,7 @@ class TwilioController extends Controller
 
     public function sendMessageDonorOrder(Request $request)
     {
-      $calub = $request->input('message1').$request->input('date');
+      $calub = $request->input('message1').$request->input('date').$request->input('message');
       if ($request->input('message') == '') {
         session()->flash('sms','Message Sent!');
         $applicant = new MessageDonors();
@@ -96,7 +97,7 @@ class TwilioController extends Controller
       } else {
         session()->flash('sms','Message Sent!');
         $applicant = new MessageDonors();
-        $applicant->message = $request ->input('message');
+        $applicant->message = $calub;
         $applicant->userID = $request->userID;
         $applicant->save();
 
@@ -106,7 +107,7 @@ class TwilioController extends Controller
         $message = $twilio->messages
         ->create($twilio->mobile = $request->input('mobile'), // to
                  array(
-                     "body" => $twilio->message = $request->input('message'),
+                     "body" => $twilio->message = $calub,
                      "from" => "(619) 724-4011"));
            return redirect('/programdirector/orders')->with('success', 'Message Sent Succesfully');
       }
@@ -122,7 +123,7 @@ class TwilioController extends Controller
 
       public function assignRequest(Request $request)
       {
-
+        $calub = $request->input('message1').$request->input('date').$request->input('message');
         if ($request->input('message') == '') {
           session()->flash('sms','Message Sent!');
           $applicant = new MessageRequests();
@@ -143,7 +144,7 @@ class TwilioController extends Controller
         } else {
           session()->flash('sms','Message Sent!');
           $applicant = new MessageRequests();
-          $applicant->message = $request ->input('message');
+          $applicant->message = $calub;
           $applicant->volunteerID = $request->volunteerID;
           $applicant->save();
 
@@ -153,7 +154,7 @@ class TwilioController extends Controller
           $message = $twilio->messages
           ->create($twilio->mobile = $request->input('mobile'), // to
                    array(
-                       "body" => $twilio->message = $request->input('message'),
+                       "body" => $twilio->message = $calub,
                        "from" => "(619) 724-4011"));
              return redirect('/programdirector/orders')->with('success', 'Message Sent Succesfully');
         }
@@ -167,7 +168,7 @@ class TwilioController extends Controller
 
     public function sendMessageDonorRequest(Request $request)
     {
-      $calub = $request->input('message1').$request->input('date');
+      $calub = $request->input('message1').$request->input('message').$request->input('date');
 
       if ($request->input('message') == '') {
         session()->flash('sms','Message Sent!');
@@ -188,7 +189,7 @@ class TwilioController extends Controller
       } else {
         session()->flash('sms','Message Sent!');
         $applicant = new MessageDonors();
-        $applicant->message = $request ->input('message');
+        $applicant->message = $calub;
         $applicant->userID = $request->userID;
         $applicant->save();
 
@@ -198,7 +199,7 @@ class TwilioController extends Controller
         $message = $twilio->messages
         ->create($twilio->mobile = $request->input('mobile'), // to
                  array(
-                     "body" => $twilio->message = $request->input('message'),
+                     "body" => $twilio->message = $calub,
                      "from" => "(619) 724-4011"));
            return redirect('/programdirector/orders')->with('success', 'Message Sent Succesfully');
       }

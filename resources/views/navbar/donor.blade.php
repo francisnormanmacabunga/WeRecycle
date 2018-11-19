@@ -209,11 +209,17 @@
           {{ Auth::user()->firstname }} {{ Auth::user()->lastname }}
         </span>
         <br />
-        Your current points is: {{$width['pointsaccumulated']}}%
-
-        <div class="w3-light-grey">
+        Your current points is: 
+        @if($width['pointsaccumulated'] >= 100)
+        <div class="w3-light-grey w3-xlarge">
+          <div class="w3-container w3-green" style="max-width:100%; width:100%" max="100%" min="0%">100%</div>
+          @else
+          <div class="w3-light-grey w3-xlarge">
+            <div class="w3-container w3-green" style="max-width:100%; width:{{$width['pointsaccumulated']}}%" max="100%" min="0%">{{$width['pointsaccumulated']}}%</div>
+          @endif
+        <!-- <div class="w3-light-grey">
           <div class="w3-container w3-green" style="max-width:100%; width:{{$width['pointsaccumulated']}}%" max="100%" min="0%">{{$width['pointsaccumulated']}}%</div>
-        </div>
+        </div> -->
       </div>
     </div>
   </div>

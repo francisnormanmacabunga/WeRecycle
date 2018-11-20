@@ -23,7 +23,7 @@ class ManageCatalogController extends Controller
       -> where('category', request('category'))
       -> where('productstype.productstypeID','1')
       -> sortable()
-      -> get()->appends('category', request('category'));
+      -> get();
     } else {
       $products1 = Products::Select('*')
       -> join('productstype', 'productstype.productstypeID', '=', 'products.productstypeID')

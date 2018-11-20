@@ -29,7 +29,7 @@ class ApplicantsController extends Controller
       -> where('status',request('status'))
       -> where('usertypeID', '2')
       -> sortable()
-      -> get()->appends('status', request('status'));
+      -> get();
     } else {
       $applicants = Volunteer::orderBy('updated_at', 'desc')
       -> join('contacts', 'contacts.volunteerID', '=', 'volunteer.volunteerID')

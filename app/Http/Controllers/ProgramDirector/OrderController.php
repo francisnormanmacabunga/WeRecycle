@@ -33,7 +33,7 @@ class OrderController extends Controller
       $order = Transaction::orderBy('updated_at', 'desc')
       -> where('status',request('status'))
       -> where('type', 'Shop')
-      -> get()->appends('status', request('status'));
+      -> get();
       } else {
         $order = Transaction::orderBy('updated_at', 'desc')
         -> where('type', 'Shop')

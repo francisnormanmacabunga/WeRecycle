@@ -32,7 +32,7 @@ class RequestController extends Controller
       $request = Transaction::orderBy('updated_at', 'desc')
       -> where('status',request('status'))
       -> where('type', 'Donate')
-      -> get()->appends('status', request('status'));
+      -> get();
       } else {
       $request = Transaction::orderBy('updated_at', 'desc')
       -> where('type', 'Donate')

@@ -85,7 +85,7 @@
               <div class="col-md-10 col-md-offset-1">
                 <div class="probootstrap-slider-text text-center">
                   <h1 class="probootstrap-heading probootstrap-animate mb20">Shop Organic Fertilizers</h1>
-                  <p class="probootstrap-animate"><a href="{{ url('/shop') }}" class="btn btn-ghost btn-ghost-white">Shop</a></p>
+                  <p class="probootstrap-animate"><a href="{{ url('/shop') }}" class="btn btn-ghost btn-ghost-white">Catalog</a></p>
                 </div>
               </div>
             </div>

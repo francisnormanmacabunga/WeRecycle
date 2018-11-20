@@ -37,7 +37,7 @@
                   {{ $exception->getMessage() }}
                 </h3>
                 <p class="text-muted m-t-30 m-b-30">YOU SEEM TO BE TRYING TO FIND THE WAY HOME.</p>
-                <a href="{{ url()->previous() }}" class="btn btn-danger btn-rounded waves-effect waves-light m-b-40">Back to home</a> </div>
+                <a href="{{ url('/home') }}" class="btn btn-danger btn-rounded waves-effect waves-light m-b-40">Back to home</a> </div>
         </div>
         <!-- ============================================================== -->
         <!-- Login box.scss -->

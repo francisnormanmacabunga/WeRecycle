@@ -2,52 +2,15 @@
 <html dir="ltr" lang="en">
 <head>
   <link rel="icon" type="image/png" sizes="16x16" href="{{asset('assets/images/favicon.png')}}">
+  <!-- DATE RANGE SCRIPT -->
   <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <!-- END OF DATE RANGE SCRIPT -->
+
+
+
+
 </head>
 
-<script type="text/javascript">
-    $(document).ready(function(){
-
-     $('.input-daterange').datepicker({
-      todayBtn:'linked',
-      format: "yyyy-mm-dd",
-      autoclose: true
-     });
-
-     fetch_data('no');
-
-     function fetch_data(is_date_search, start_date='', end_date='')
-     {
-      var dataTable = $('#order_data').DataTable({
-       "processing" : true,
-       "serverSide" : true,
-       "order" : [],
-       "ajax" : {
-        url:"fetch.php",
-        type:"POST",
-        data:{
-         is_date_search:is_date_search, start_dsate:start_date, end_date:end_date
-        }
-       }
-      });
-     }
-
-     $('#search').click(function(){
-      var start_date = $('#start_date').val();
-      var end_date = $('#end_date').val();
-      if(start_date != '' && end_date !='')
-      {
-       $('#order_data').DataTable().destroy();
-       fetch_data('yes', start_date, end_date);
-      }
-      else
-      {
-       alert("Both Date is Required");
-      }
-     });
-
-    });
-</script>
 <body>
     <div id="main-wrapper">
         @include('navbar.admin-navbar')
@@ -87,7 +50,6 @@
                                       <button type="submit" class="btn btn-warning btn-sm">Filter</button>
                                   </form>
                                 </div>
-
                               </br>
                                 <!-- END OF DATE RANGE -->
                                 <div class="table-responsive">
@@ -128,6 +90,7 @@
                     </div>
                 </div>
             </div>
+
             <footer class="footer text-center">
                 Copyright
                 &copy; <?php
@@ -139,6 +102,23 @@
         </div>
     </div>
     @include('navbar.footer')
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script>
+        $(function () {
+            $("#datepickerfrom").datepicker({ maxDate: new Date(), dateFormat: "yy-mm-dd"});
+        });
+        $(function () {
+            $("#datepickerpresent").datepicker({ maxDate: new Date(), dateFormat: "yy-mm-dd"});
+        });
+    </script>
+
 </body>
 
 </html>

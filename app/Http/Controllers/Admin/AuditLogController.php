@@ -37,8 +37,8 @@ class AuditLogController extends Controller
 
       $lastActivity = Activity::orderBy('updated_at', 'desc')
       -> whereBetween('updated_at', array(new Carbon($start), new Carbon($end)))
-      -> paginate(10);
-
+      -> get();
+      
       return view('Admin/Audits.index', compact('lastActivity'));
   }
 

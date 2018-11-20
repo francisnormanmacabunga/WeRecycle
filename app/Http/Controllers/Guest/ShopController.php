@@ -23,12 +23,23 @@ class ShopController extends Controller
 
     public function donationCatalog()
     {
+      if (request()->has('category')){
       $products1 = Products::SELECT('*')
       -> join('productstype', 'productstype.productstypeID', '=', 'products.productstypeID')
       -> where('productstype.productstypeID','1')
       -> where('status','Activated')
+      -> where('category',request('category'))
       -> sortable()
       -> get();
+      } else {
+        $products1 = Products::SELECT('*')
+        -> join('productstype', 'productstype.productstypeID', '=', 'products.productstypeID')
+        -> where('productstype.productstypeID','1')
+        -> where('status','Activated')
+        -> sortable()
+        -> get();
+      }
+
 
       return view('Guest.donation', compact('products1'));
     }
